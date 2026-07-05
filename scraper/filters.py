@@ -7,6 +7,7 @@ existing predicates are never edited.
 """
 
 from collections.abc import Callable
+from datetime import UTC, datetime, timedelta
 
 from scraper.models import Job
 
@@ -35,7 +36,26 @@ def build_predicates(config: dict) -> list[Predicate]:
             lambda job, places=places: any(place in job.location.lower() for place in places)
         )
 
+    # Aggregator feeds backfill and reactivate old postings, which enter the
+    # diff as "new" despite being posted long ago. This drops anything whose
+    # posted date is older than the window; undated jobs pass (never-miss).
+    if max_age_days := config.get("max_age_days"):
+        cutoff = datetime.now(UTC) - timedelta(days=max_age_days)
+        predicates.append(lambda job, cutoff=cutoff: _posted_within(job.posted_at, cutoff))
+
     return predicates
+
+
+def _posted_within(posted_at: str | None, cutoff: datetime) -> bool:
+    if not posted_at:
+        return True  # no date: keep, never-miss beats never-duplicate
+    try:
+        posted = datetime.fromisoformat(posted_at)
+    except ValueError:
+        return True
+    if posted.tzinfo is None:
+        posted = posted.replace(tzinfo=UTC)
+    return posted >= cutoff
 
 
 def keep(job: Job, predicates: list[Predicate]) -> bool:

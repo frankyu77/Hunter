@@ -89,5 +89,8 @@ filters:
     - "vp "
   # Uncomment to keep only jobs whose location mentions one of these.
   # locations: [remote, toronto, new york]
+  # Drop jobs whose posted date is older than this. Aggregator repos backfill
+  # month-old postings that would otherwise alert as "new"; undated jobs pass.
+  max_age_days: 14
   # More than this many new matches in one run -> one digest message.
   digest_threshold: 10
