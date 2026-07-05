@@ -9,16 +9,25 @@ end.
 import argparse
 import logging
 import sys
+import time
+from collections import Counter
+from collections.abc import Callable
 
+import requests
 import yaml
 
-from scraper import filters
+from scraper import filters, health
 from scraper import notify as telegram
 from scraper.adapters import get_adapter
 from scraper.models import Job
 from scraper.store import SeenStore
 
 log = logging.getLogger("scraper")
+
+# Waits between retry attempts on timeouts and 5xx. Per-source and small so
+# the whole run still finishes quickly even with a flaky source.
+RETRY_WAITS = (1, 4, 16)
+PRUNE_MAX_AGE_DAYS = 60
 
 
 def load_config(path: str) -> dict:
@@ -33,21 +42,52 @@ def load_config(path: str) -> dict:
     return config
 
 
-def fetch_all(sources: list[dict]) -> list[Job]:
+def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
     """Fetch every source, each inside its own try/except (bulkhead):
-    one broken source must never sink the run."""
+    one broken source must never sink the run. Returns the jobs plus
+    per-source stats for the run summary and health tracking."""
     jobs: list[Job] = []
+    stats: dict[str, dict] = {}
     for source in sources:
         name = source.get("company") or source.get("repo") or source.get("name") or "?"
         label = f"{source.get('type', '?')}/{name}"
+        stat = stats.setdefault(label, {"fetched": 0, "errors": 0})
         try:
             fetch = get_adapter(source["type"])
-            fetched = fetch(source)
+            fetched = fetch_with_retry(fetch, source, label)
+            stat["fetched"] += len(fetched)
             log.info("%s: fetched %d jobs", label, len(fetched))
             jobs.extend(fetched)
         except Exception:
+            stat["errors"] += 1
             log.exception("%s: fetch failed; continuing with remaining sources", label)
-    return jobs
+    return jobs, stats
+
+
+def fetch_with_retry(fetch: Callable, config: dict, label: str) -> list[Job]:
+    """Retry timeouts and 5xx with exponential backoff. 4xx fails fast:
+    it means the source config is wrong, and retrying won't fix that."""
+    attempts = len(RETRY_WAITS) + 1
+    for attempt in range(attempts):
+        try:
+            return fetch(config)
+        except Exception as exc:
+            if attempt == attempts - 1 or not _retryable(exc):
+                raise
+            wait = RETRY_WAITS[attempt]
+            log.warning(
+                "%s: attempt %d/%d failed (%s); retrying in %ds",
+                label, attempt + 1, attempts, exc, wait,
+            )
+            time.sleep(wait)
+    raise AssertionError("unreachable")
+
+
+def _retryable(exc: Exception) -> bool:
+    if isinstance(exc, requests.exceptions.HTTPError):
+        response = exc.response
+        return response is not None and response.status_code >= 500
+    return isinstance(exc, requests.exceptions.ConnectionError | requests.exceptions.Timeout)
 
 
 def normalize(jobs: list[Job]) -> list[Job]:
@@ -70,7 +110,13 @@ def apply_filters(jobs: list[Job], filters_config: dict) -> list[Job]:
     return kept
 
 
-def notify(jobs: list[Job], store: SeenStore, dry_run: bool, digest_threshold: int) -> int:
+def notify(jobs: list[Job], store: SeenStore, dry_run: bool, digest_threshold: int) -> list[Job]:
+    """Send each job (or one digest), returning the jobs actually sent.
+    A job whose send failed is NOT recorded as seen, so it retries next
+    run - never-miss beats never-duplicate."""
+    if not jobs:
+        return []
+
     if len(jobs) > digest_threshold:
         # Digest mode: one summary message instead of flooding the chat.
         if dry_run:
@@ -78,20 +124,30 @@ def notify(jobs: list[Job], store: SeenStore, dry_run: bool, digest_threshold: i
             for job in jobs:
                 print(f"  - {job.title} @ {job.company} ({job.location})")
         else:
-            telegram.send_digest(jobs)
+            try:
+                telegram.send_digest(jobs)
+            except Exception:
+                log.exception("Digest send failed; jobs stay unseen and retry next run.")
+                return []
         for job in jobs:
             store.add(job)
-        return len(jobs)
+        return jobs
 
+    sent = []
     for job in jobs:
-        if dry_run:
-            print(f"NEW: {job.title} @ {job.company} ({job.location}) -> {job.url}")
-        else:
-            telegram.send(job)
+        try:
+            if dry_run:
+                print(f"NEW: {job.title} @ {job.company} ({job.location}) -> {job.url}")
+            else:
+                telegram.send(job)
+        except Exception:
+            log.exception("Send failed for %s; it stays unseen and retries next run.", job.id)
+            continue
         # Record only after the message is out: a crash in between re-sends a
         # harmless duplicate, while the reverse order would miss a job.
         store.add(job)
-    return len(jobs)
+        sent.append(job)
+    return sent
 
 
 def seed(jobs: list[Job], store: SeenStore) -> None:
@@ -128,8 +184,9 @@ def main(argv: list[str] | None = None) -> int:
     sources = config.get("sources") or []
     store = SeenStore(args.store)
 
-    fetched = fetch_all(sources)
+    fetched, stats = fetch_all(sources)
     normalized = normalize(fetched)
+    warnings = health.record_run(store.health, stats)
 
     if normalized and len(store) == 0:
         seed(normalized, store)
@@ -138,25 +195,60 @@ def main(argv: list[str] | None = None) -> int:
     filters_config = config.get("filters") or {}
     fresh = dedup(normalized, store)
     matched = apply_filters(fresh, filters_config)
-    notified = notify(
+    sent = notify(
         matched, store, args.dry_run, digest_threshold=filters_config.get("digest_threshold", 10)
     )
     # Record filtered-out jobs as seen too (after notify, so a crash can't
     # mark a matched job seen before its message went out). Otherwise every
-    # filtered job re-enters the diff as "new" on every run forever.
+    # filtered job re-enters the diff as "new" on every run forever. Jobs
+    # whose send failed are deliberately left unseen so they retry.
+    matched_ids = {job.id for job in matched}
     for job in fresh:
-        if not store.has(job.id):
+        if job.id not in matched_ids and not store.has(job.id):
             store.add(job)
+
+    # Prune at the very end, after notifications and state updates, so it
+    # can never race the dedup.
+    store.prune(PRUNE_MAX_AGE_DAYS)
     store.save()
 
+    for message in warnings:
+        try:
+            if args.dry_run:
+                print(f"WARNING: {message}")
+            else:
+                telegram.send_text(f"Health warning: {message}")
+        except Exception:
+            log.exception("Failed to send health warning.")
+
+    summarize(stats, fresh, matched, sent)
     log.info(
         "Run complete: %d sources, %d fetched, %d new jobs, %d notified.",
         len(sources),
         len(fetched),
         len(fresh),
-        notified,
+        len(sent),
     )
     return 0
+
+
+def summarize(stats: dict, fresh: list[Job], matched: list[Job], sent: list[Job]) -> None:
+    """One readable line per source - the primary observability surface in
+    the Actions logs."""
+    new_by = Counter(job.source for job in fresh)
+    matched_by = Counter(job.source for job in matched)
+    sent_by = Counter(job.source for job in sent)
+    for label in sorted(stats):
+        stat = stats[label]
+        log.info(
+            "%s: fetched=%d new=%d filtered_out=%d notified=%d errors=%d",
+            label,
+            stat["fetched"],
+            new_by[label],
+            new_by[label] - matched_by[label],
+            sent_by[label],
+            stat["errors"],
+        )
 
 
 if __name__ == "__main__":

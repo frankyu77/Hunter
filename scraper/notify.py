@@ -33,6 +33,12 @@ def send_digest(jobs: list[Job]) -> None:
     log.info("Notified: digest of %d jobs", len(jobs))
 
 
+def send_text(text: str) -> None:
+    """Send a plain (non-job) message, e.g. a health warning."""
+    _post(html.escape(text))
+    log.info("Notified: %s", text)
+
+
 def _post(text: str) -> None:
     token = os.environ["TELEGRAM_BOT_TOKEN"]
     chat_id = os.environ["TELEGRAM_CHAT_ID"]

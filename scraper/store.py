@@ -26,6 +26,9 @@ class SeenStore:
     def __init__(self, path: str = "seen_jobs.json") -> None:
         self.path = path
         self._jobs: dict[str, dict] = {}
+        # Per-source health counters (managed by scraper.health), persisted
+        # alongside the jobs so state stays in one committed file.
+        self.health: dict[str, dict] = {}
         self._load()
 
     def _load(self) -> None:
@@ -36,6 +39,7 @@ class SeenStore:
             log.info("%s not found; starting with an empty store (first run).", self.path)
             return
         self._jobs = data.get("jobs", {})
+        self.health = data.get("health", {})
 
     def __len__(self) -> int:
         return len(self._jobs)
@@ -56,7 +60,7 @@ class SeenStore:
 
     def save(self) -> None:
         with open(self.path, "w", encoding="utf-8") as f:
-            json.dump({"jobs": self._jobs}, f, indent=2, sort_keys=True)
+            json.dump({"jobs": self._jobs, "health": self.health}, f, indent=2, sort_keys=True)
             f.write("\n")
 
     @staticmethod
