@@ -29,8 +29,11 @@ def send(job: Job) -> None:
 
 
 def send_digest(jobs: list[Job]) -> None:
-    _post(format_digest(jobs))
-    log.info("Notified: digest of %d jobs", len(jobs))
+    messages = format_digest(jobs)
+    for message in messages:
+        _post(message)
+        time.sleep(SEND_PAUSE_SECONDS)
+    log.info("Notified: digest of %d jobs in %d message(s)", len(jobs), len(messages))
 
 
 def send_text(text: str) -> None:
@@ -72,22 +75,24 @@ def format_message(job: Job) -> str:
     return "\n".join(lines)
 
 
-def format_digest(jobs: list[Job]) -> str:
-    # One summary message; stay safely under Telegram's 4096-char cap.
+def format_digest(jobs: list[Job]) -> list[str]:
+    # Split across as many messages as needed; each stays safely under
+    # Telegram's 4096-char cap so no job is ever dropped.
     e = html.escape
-    lines = [f"<b>{len(jobs)} new matching jobs this run</b>", ""]
+    header = f"<b>{len(jobs)} new matching jobs this run</b>"
+    messages: list[str] = []
+    lines = [header, ""]
     budget = 3800 - sum(len(line) + 1 for line in lines)
-    shown = 0
     for job in jobs:
         line = f'- <a href="{e(job.url, quote=True)}">{e(job.title)}</a> - {e(job.company)}'
-        if len(line) + 1 > budget:
-            break
+        if len(line) + 1 > budget and len(lines) > 2:
+            messages.append("\n".join(lines))
+            lines = [f"{header} (continued)", ""]
+            budget = 3800 - sum(len(line) + 1 for line in lines)
         lines.append(line)
         budget -= len(line) + 1
-        shown += 1
-    if shown < len(jobs):
-        lines.append(f"...and {len(jobs) - shown} more")
-    return "\n".join(lines)
+    messages.append("\n".join(lines))
+    return messages
 
 
 def _date_only(posted_at: str) -> str:

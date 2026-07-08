@@ -26,14 +26,17 @@ def test_message_escapes_html_and_trims_date():
 
 def test_digest_lists_jobs_and_counts():
     jobs = [make_job(n) for n in range(1, 4)]
-    text = format_digest(jobs)
-    assert text.startswith("<b>3 new matching jobs this run</b>")
-    assert text.count("<a href=") == 3
-    assert "more" not in text
+    messages = format_digest(jobs)
+    assert len(messages) == 1
+    assert messages[0].startswith("<b>3 new matching jobs this run</b>")
+    assert messages[0].count("<a href=") == 3
 
 
-def test_digest_truncates_to_stay_under_telegram_cap():
+def test_digest_splits_into_multiple_messages_under_telegram_cap():
     jobs = [make_job(n, title="X" * 200) for n in range(100)]
-    text = format_digest(jobs)
-    assert len(text) <= 4000
-    assert "more" in text.splitlines()[-1]
+    messages = format_digest(jobs)
+    assert len(messages) > 1
+    assert all(len(m) <= 4000 for m in messages)
+    # every job appears exactly once across all messages
+    assert sum(m.count("<a href=") for m in messages) == 100
+    assert messages[1].startswith("<b>100 new matching jobs this run</b> (continued)")
