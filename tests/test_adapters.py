@@ -2,27 +2,29 @@
 network access. Each test asserts the fixture's real payload maps to the
 canonical Job shape, including the skip rules."""
 
+from datetime import UTC, datetime, timedelta
+
 import responses
 
-from scraper.adapters import REGISTRY, ashby, get_adapter, github_repo, greenhouse, lever
+from scraper.adapters import REGISTRY, ashby, get_adapter, github_repo, greenhouse, lever, workday
 
 
-def test_registry_dispatches_all_four_types():
-    for type_str in ["ashby", "greenhouse", "lever", "github"]:
+def test_registry_dispatches_all_types():
+    for type_str in ["ashby", "greenhouse", "lever", "github", "workday"]:
         assert callable(get_adapter(type_str))
 
 
 def test_registry_rejects_unknown_type():
     try:
-        get_adapter("workday")
+        get_adapter("taleo")
         raise AssertionError("expected KeyError")
     except KeyError as exc:
-        assert "workday" in str(exc)
+        assert "taleo" in str(exc)
         assert "ashby" in str(exc)  # error names the known types
 
 
 def test_registry_has_no_stale_entries():
-    assert set(REGISTRY) == {"ashby", "greenhouse", "lever", "github"}
+    assert set(REGISTRY) == {"ashby", "greenhouse", "lever", "github", "workday"}
 
 
 @responses.activate
@@ -118,3 +120,46 @@ def test_github_304_returns_empty_without_parsing(fixture, tmp_path):
     assert github_repo.fetch(config) == []
     # and the conditional header was actually sent
     assert responses.calls[0].request.headers["If-None-Match"] == 'W/"abc"'
+
+
+WORKDAY_URL = "https://ngc.wd1.myworkdayjobs.com/wday/cxs/ngc/Northrop_Grumman_External_Site/jobs"
+WORKDAY_CONFIG = {
+    "type": "workday",
+    "company": "northrop-grumman",
+    "tenant": "ngc",
+    "host": "wd1",
+    "site": "Northrop_Grumman_External_Site",
+}
+
+
+@responses.activate
+def test_workday_maps_jobs_and_parses_fuzzy_dates(fixture):
+    responses.post(WORKDAY_URL, json=fixture("workday_ngc.json"))
+    jobs = workday.fetch(WORKDAY_CONFIG)
+
+    assert len(jobs) == 3
+    job = jobs[0]
+    assert job.id == "workday:ngc:R10238386"  # req id from bulletFields
+    assert job.title and job.location
+    assert job.company == "northrop-grumman"
+    assert job.source == "workday/northrop-grumman"
+    assert job.url.startswith(
+        "https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/"
+    )
+    today = datetime.now(UTC).date()
+    assert jobs[0].posted_at == today.isoformat()  # "Posted Today"
+    assert jobs[1].posted_at == (today - timedelta(days=3)).isoformat()  # "Posted 3 Days Ago"
+    assert jobs[2].posted_at is None  # "Posted 30+ Days Ago": age unknown
+    assert jobs[2].id.startswith("workday:ngc:/job/")  # no bulletFields: path fallback
+
+
+@responses.activate
+def test_workday_paginates_until_total(fixture):
+    posting = fixture("workday_ngc.json")["jobPostings"][0]
+    responses.post(WORKDAY_URL, json={"total": 23, "jobPostings": [posting] * 20})
+    responses.post(WORKDAY_URL, json={"total": 23, "jobPostings": [posting] * 3})
+
+    jobs = workday.fetch(WORKDAY_CONFIG)
+
+    assert len(jobs) == 23
+    assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS

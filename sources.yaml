@@ -55,8 +55,72 @@ sources:
     company: vercel
   - type: greenhouse
     company: duolingo
+  - type: greenhouse
+    company: asana
+  - type: greenhouse
+    company: dropbox
+  - type: greenhouse
+    company: hootsuite
+  - type: greenhouse
+    company: janestreet
   - type: lever
     company: palantir
+
+  # --- workday boards ---
+  # Config comes straight from the board URL: for
+  # https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site
+  # tenant=ngc, host=wd1, site=Northrop_Grumman_External_Site. Probe first:
+  #   POST https://{tenant}.{host}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs
+  #   body {"appliedFacets":{},"limit":1,"offset":0,"searchText":""}
+  # Only the ~200 newest postings are fetched per run, which is plenty for
+  # a frequent poller even on boards with thousands of openings.
+  - type: workday
+    company: northrop-grumman
+    tenant: ngc
+    host: wd1
+    site: Northrop_Grumman_External_Site
+  - type: workday
+    company: boeing
+    tenant: boeing
+    host: wd1
+    site: EXTERNAL_CAREERS
+  - type: workday
+    company: becton-dickinson
+    tenant: bdx
+    host: wd1
+    site: EXTERNAL_CAREER_SITE_USA
+  - type: workday
+    company: siemens-healthineers
+    tenant: onehealthineers
+    host: wd3
+    site: SHSJB
+  - type: workday
+    company: salesforce
+    tenant: salesforce
+    host: wd12
+    site: External_Career_Site
+  - type: workday
+    company: clio
+    tenant: clio
+    host: wd3
+    site: ClioCareerSite
+  - type: workday
+    company: td
+    tenant: td
+    host: wd3
+    site: TD_Bank_Careers
+  - type: workday
+    company: cibc
+    tenant: cibc
+    host: wd3
+    site: search
+  # RBC's general board (jobs.rbc.com) is a custom site; only the early
+  # talent board (internships / new grad) is on Workday - ideal here anyway.
+  - type: workday
+    company: rbc
+    tenant: rbc
+    host: wd3
+    site: RBCEARLYTALENT1
 
   # --- cross-company aggregators (cover FAANG and hundreds more) ---
   - type: github
@@ -67,12 +131,11 @@ sources:
     repo: SimplifyJobs/Summer2026-Internships
     path: .github/scripts/listings.json
     branch: dev
+  # vansh's fork of the Simplify list, same schema. GitHub renames follow
+  # redirects, so use the canonical name (Summer2026 redirects here) or the
+  # ETag cache keys drift. Covers Summer 2026 AND 2027 listings.
   - type: github
-    repo: Summer2026-Internships
-    path: .github/scripts/listings.json
-    branch: dev
-  - type: github
-    repo: Summer2027-Internships
+    repo: vanshb03/Summer2027-Internships
     path: .github/scripts/listings.json
     branch: dev
 
