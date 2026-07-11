@@ -1,5 +1,5 @@
 from scraper.models import Job
-from scraper.notify import format_digest, format_message
+from scraper.notify import categorize, format_digest, format_message
 
 
 def make_job(n: int = 1, title: str | None = None) -> Job:
@@ -24,12 +24,44 @@ def test_message_escapes_html_and_trims_date():
     assert 'href="https://example.com/jobs/1?a=1&amp;b=2"' in text
 
 
+def test_message_frames_title_for_skimming():
+    text = format_message(make_job(title="Software Intern"))
+    assert text.startswith("<b>=== 🌱 Software Intern ===</b>")
+
+
+def test_categorize_buckets_by_title():
+    assert categorize(make_job(title="Software Engineering Intern")) == "internship"
+    assert categorize(make_job(title="Co-op Developer")) == "internship"
+    assert categorize(make_job(title="New Grad Software Engineer")) == "new_grad"
+    assert categorize(make_job(title="Junior Backend Engineer")) == "new_grad"
+    assert categorize(make_job(title="Software Engineer 1")) == "new_grad"
+    assert categorize(make_job(title="Software Engineer I")) == "new_grad"
+    assert categorize(make_job(title="Software Engineer II")) == "full_time"
+    assert categorize(make_job(title="Staff Software Engineer")) == "full_time"
+    assert categorize(make_job(title="AI Prompt Engineer")) == "full_time"
+
+
 def test_digest_lists_jobs_and_counts():
     jobs = [make_job(n) for n in range(1, 4)]
     messages = format_digest(jobs)
     assert len(messages) == 1
-    assert messages[0].startswith("<b>3 new matching jobs this run</b>")
+    assert messages[0].startswith("<b>==== 💼 FULL-TIME (3) ====</b>")
     assert messages[0].count("<a href=") == 3
+
+
+def test_digest_separates_categories_into_own_messages():
+    jobs = [
+        make_job(1, title="Software Engineering Intern"),
+        make_job(2, title="New Grad Software Engineer"),
+        make_job(3, title="Staff Software Engineer"),
+        make_job(4, title="Infrastructure Intern"),
+    ]
+    messages = format_digest(jobs)
+    assert len(messages) == 3
+    assert messages[0].startswith("<b>==== 🌱 INTERNSHIPS (2) ====</b>")
+    assert messages[1].startswith("<b>==== 🎓 NEW GRAD & JUNIOR (1) ====</b>")
+    assert messages[2].startswith("<b>==== 💼 FULL-TIME (1) ====</b>")
+    assert messages[0].count("<a href=") == 2
 
 
 def test_digest_splits_into_multiple_messages_under_telegram_cap():
@@ -39,4 +71,4 @@ def test_digest_splits_into_multiple_messages_under_telegram_cap():
     assert all(len(m) <= 4000 for m in messages)
     # every job appears exactly once across all messages
     assert sum(m.count("<a href=") for m in messages) == 100
-    assert messages[1].startswith("<b>100 new matching jobs this run</b> (continued)")
+    assert messages[1].startswith("<b>==== 💼 FULL-TIME (100) ====</b> (continued)")
