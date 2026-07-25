@@ -190,11 +190,13 @@ def _format_group(label: str, jobs: list[Job]) -> list[str]:
     return messages
 
 
-# Country keywords are matched case-insensitively; two-letter province/state
-# codes are matched case-sensitively (uppercase) so English words like "or",
-# "in", "me" or "hi" inside a location string can't be mistaken for a state.
+# Full country names are matched case-insensitively. The bare "US"/"U.S."
+# abbreviation and the two-letter province/state codes are matched
+# case-sensitively (uppercase) so English words like "us", "or", "in", "me"
+# or "hi" inside a location string can't be mistaken for a country or state.
 _CANADA_KW = re.compile(r"\bcanada\b", re.IGNORECASE)
-_US_KW = re.compile(r"\bunited states\b|\bu\.?s\.?a\.?\b|\bUSA\b|\bUS\b")
+_US_KW = re.compile(r"\bunited states\b|\bu\.?s\.?a\.?\b", re.IGNORECASE)
+_US_ABBR = re.compile(r"\bU\.?S\.?\b")
 _CA_CODE = re.compile(r"\b(?:AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)\b")
 _US_CODE = re.compile(
     r"\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA"
@@ -218,7 +220,7 @@ def _region(location: str) -> str:
         return "other"
     if _CANADA_KW.search(location):
         return "canada"
-    if _US_KW.search(location):
+    if _US_KW.search(location) or _US_ABBR.search(location):
         return "us"
     if _CA_CODE.search(location):
         return "canada"

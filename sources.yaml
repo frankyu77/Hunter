@@ -11,7 +11,8 @@
 #
 # FAANG (Meta/Apple/Amazon/Netflix/Google) run custom career sites with no
 # public board API - their new-grad roles arrive via the SimplifyJobs feed
-# below instead.
+# below instead. Microsoft is the exception: its careers backend exposes a
+# public JSON search endpoint, handled by the dedicated `microsoft` adapter.
 
 sources:
   # --- fintech ---
@@ -65,6 +66,38 @@ sources:
     company: janestreet
   - type: lever
     company: palantir
+
+  # --- more big-tech software boards (probed live 2026-07-25) ---
+  - type: greenhouse
+    company: airbnb
+  - type: greenhouse
+    company: pinterest
+  - type: greenhouse
+    company: reddit
+  - type: greenhouse
+    company: lyft
+  - type: greenhouse
+    company: instacart
+  - type: greenhouse
+    company: gitlab
+  - type: greenhouse
+    company: cloudflare
+  - type: greenhouse
+    company: twilio
+  - type: greenhouse
+    company: datadog
+  - type: greenhouse
+    company: roblox
+  - type: greenhouse
+    company: discord
+  - type: ashby
+    company: snowflake
+  - type: ashby
+    company: notion
+  - type: ashby
+    company: cohere
+  - type: lever
+    company: spotify
 
   # --- workday boards ---
   # Config comes straight from the board URL: for
@@ -121,6 +154,21 @@ sources:
     tenant: rbc
     host: wd3
     site: RBCEARLYTALENT1
+  - type: workday
+    company: adobe
+    tenant: adobe
+    host: wd5
+    site: external_experienced
+  - type: workday
+    company: nvidia
+    tenant: nvidia
+    host: wd5
+    site: NVIDIAExternalCareerSite
+
+  # --- custom career platform (dedicated adapter, not a standard ATS) ---
+  # Microsoft's own careers backend; see scraper/adapters/microsoft.py.
+  - type: microsoft
+    company: microsoft
 
   # --- cross-company aggregators (cover FAANG and hundreds more) ---
   - type: github

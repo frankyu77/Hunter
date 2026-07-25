@@ -6,11 +6,20 @@ from datetime import UTC, datetime, timedelta
 
 import responses
 
-from scraper.adapters import REGISTRY, ashby, get_adapter, github_repo, greenhouse, lever, workday
+from scraper.adapters import (
+    REGISTRY,
+    ashby,
+    get_adapter,
+    github_repo,
+    greenhouse,
+    lever,
+    microsoft,
+    workday,
+)
 
 
 def test_registry_dispatches_all_types():
-    for type_str in ["ashby", "greenhouse", "lever", "github", "workday"]:
+    for type_str in ["ashby", "greenhouse", "lever", "github", "workday", "microsoft"]:
         assert callable(get_adapter(type_str))
 
 
@@ -24,7 +33,7 @@ def test_registry_rejects_unknown_type():
 
 
 def test_registry_has_no_stale_entries():
-    assert set(REGISTRY) == {"ashby", "greenhouse", "lever", "github", "workday"}
+    assert set(REGISTRY) == {"ashby", "greenhouse", "lever", "github", "workday", "microsoft"}
 
 
 @responses.activate
@@ -160,6 +169,49 @@ def test_workday_paginates_until_total(fixture):
     responses.post(WORKDAY_URL, json={"total": 23, "jobPostings": [posting] * 3})
 
     jobs = workday.fetch(WORKDAY_CONFIG)
+
+    assert len(jobs) == 23
+    assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS
+
+
+MICROSOFT_URL = "https://gcsservices.careers.microsoft.com/search/api/v1/search"
+MICROSOFT_CONFIG = {"type": "microsoft", "company": "microsoft"}
+
+
+@responses.activate
+def test_microsoft_maps_jobs(fixture):
+    responses.get(MICROSOFT_URL, json=fixture("microsoft_search.json"))
+    jobs = microsoft.fetch(MICROSOFT_CONFIG)
+
+    assert len(jobs) == 2
+    assert len(responses.calls) == 1  # totalJobs reached, no needless second page
+    job = jobs[0]
+    assert job.id == "microsoft:microsoft:1810123"
+    assert job.title == "Software Engineer"
+    assert job.company == "microsoft"
+    assert job.source == "microsoft/microsoft"
+    assert job.url == "https://jobs.careers.microsoft.com/global/en/job/1810123"
+    assert job.posted_at == "2026-07-24"  # timestamp trimmed to date
+    assert job.location == "Redmond, Washington, United States (+1 more)"
+    assert "<" not in job.description  # HTML stripped to plain text
+    assert "C#" in job.description
+    assert len(job.description) <= 500
+    assert jobs[1].location == "Toronto, Ontario, Canada"  # single location, no suffix
+
+
+@responses.activate
+def test_microsoft_paginates_until_total(fixture):
+    posting = fixture("microsoft_search.json")["operationResult"]["result"]["jobs"][0]
+    responses.get(
+        MICROSOFT_URL,
+        json={"operationResult": {"result": {"totalJobs": 23, "jobs": [posting] * 20}}},
+    )
+    responses.get(
+        MICROSOFT_URL,
+        json={"operationResult": {"result": {"totalJobs": 23, "jobs": [posting] * 3}}},
+    )
+
+    jobs = microsoft.fetch(MICROSOFT_CONFIG)
 
     assert len(jobs) == 23
     assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS

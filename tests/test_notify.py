@@ -85,9 +85,11 @@ def test_region_classifies_locations():
     assert _region("Waterloo, ON") == "canada"
     assert _region("Ottawa") == "canada"
     assert _region("Seattle, WA") == "us"
+    assert _region("Redmond, Washington, United States") == "us"  # full name, capitalized
     assert _region("USA - Oklahoma City, OK") == "us"
     assert _region("New York, NY") == "us"
     assert _region("Remote - US") == "us"
+    assert _region("U.S.") == "us"
     assert _region("Waterloo, IA") == "us"  # state code wins over city name
     assert _region("London, UK") == "other"
     assert _region("Remote") == "other"
