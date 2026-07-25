@@ -164,11 +164,58 @@ sources:
     tenant: nvidia
     host: wd5
     site: NVIDIAExternalCareerSite
+  - type: workday
+    company: hp
+    tenant: hp
+    host: wd5
+    site: EXTEU-AC-CareerSite
+  - type: workday
+    company: hpe  # Hewlett Packard Enterprise (separate from HP Inc.)
+    tenant: hpe
+    host: wd5
+    site: Jobsathpe
+  - type: workday
+    company: intel
+    tenant: intel
+    host: wd1
+    site: External
+  - type: workday
+    company: micron
+    tenant: micron
+    host: wd1
+    site: External
 
   # --- custom career platform (dedicated adapter, not a standard ATS) ---
   # Microsoft's own careers backend; see scraper/adapters/microsoft.py.
   - type: microsoft
     company: microsoft
+
+  # --- oracle recruiting cloud (public candidate-experience REST API) ---
+  # host + site come from the careers URL:
+  #   https://{host}/hcmUI/CandidateExperience/en/sites/{site_name}
+  # site_number (API) is usually CX_1. See scraper/adapters/oracle.py.
+  - type: oracle
+    company: dell
+    host: iawmqy.fa.ocs.oraclecloud.com
+    site_number: CX_1
+    site_name: careers
+  # TI fronts Oracle on careers.ti.com, but the REST API only answers on the
+  # underlying Fusion host (found embedded in the careers page).
+  - type: oracle
+    company: texas-instruments
+    host: edbz.fa.us2.oraclecloud.com
+    site_number: CX_1
+    site_name: CX
+  - type: oracle
+    company: oracle
+    host: eeho.fa.us2.oraclecloud.com
+    site_number: CX_1
+    site_name: jobsearch
+  - type: oracle
+    company: honeywell
+    host: ibqbjb.fa.ocs.oraclecloud.com
+    site_number: CX_1
+    site_name: HoneywellCareerSite
 
   # --- cross-company aggregators (cover FAANG and hundreds more) ---
   - type: github
