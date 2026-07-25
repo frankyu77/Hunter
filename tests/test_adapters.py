@@ -6,11 +6,21 @@ from datetime import UTC, datetime, timedelta
 
 import responses
 
-from scraper.adapters import REGISTRY, ashby, get_adapter, github_repo, greenhouse, lever, workday
+from scraper.adapters import (
+    REGISTRY,
+    ashby,
+    get_adapter,
+    github_repo,
+    greenhouse,
+    lever,
+    microsoft,
+    oracle,
+    workday,
+)
 
 
 def test_registry_dispatches_all_types():
-    for type_str in ["ashby", "greenhouse", "lever", "github", "workday"]:
+    for type_str in ["ashby", "greenhouse", "lever", "github", "workday", "microsoft", "oracle"]:
         assert callable(get_adapter(type_str))
 
 
@@ -24,7 +34,15 @@ def test_registry_rejects_unknown_type():
 
 
 def test_registry_has_no_stale_entries():
-    assert set(REGISTRY) == {"ashby", "greenhouse", "lever", "github", "workday"}
+    assert set(REGISTRY) == {
+        "ashby",
+        "greenhouse",
+        "lever",
+        "github",
+        "workday",
+        "microsoft",
+        "oracle",
+    }
 
 
 @responses.activate
@@ -162,4 +180,98 @@ def test_workday_paginates_until_total(fixture):
     jobs = workday.fetch(WORKDAY_CONFIG)
 
     assert len(jobs) == 23
+    assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS
+
+
+MICROSOFT_URL = "https://gcsservices.careers.microsoft.com/search/api/v1/search"
+MICROSOFT_CONFIG = {"type": "microsoft", "company": "microsoft"}
+
+
+@responses.activate
+def test_microsoft_maps_jobs(fixture):
+    responses.get(MICROSOFT_URL, json=fixture("microsoft_search.json"))
+    jobs = microsoft.fetch(MICROSOFT_CONFIG)
+
+    assert len(jobs) == 2
+    assert len(responses.calls) == 1  # totalJobs reached, no needless second page
+    job = jobs[0]
+    assert job.id == "microsoft:microsoft:1810123"
+    assert job.title == "Software Engineer"
+    assert job.company == "microsoft"
+    assert job.source == "microsoft/microsoft"
+    assert job.url == "https://jobs.careers.microsoft.com/global/en/job/1810123"
+    assert job.posted_at == "2026-07-24"  # timestamp trimmed to date
+    assert job.location == "Redmond, Washington, United States (+1 more)"
+    assert "<" not in job.description  # HTML stripped to plain text
+    assert "C#" in job.description
+    assert len(job.description) <= 500
+    assert jobs[1].location == "Toronto, Ontario, Canada"  # single location, no suffix
+
+
+@responses.activate
+def test_microsoft_paginates_until_total(fixture):
+    posting = fixture("microsoft_search.json")["operationResult"]["result"]["jobs"][0]
+    responses.get(
+        MICROSOFT_URL,
+        json={"operationResult": {"result": {"totalJobs": 23, "jobs": [posting] * 20}}},
+    )
+    responses.get(
+        MICROSOFT_URL,
+        json={"operationResult": {"result": {"totalJobs": 23, "jobs": [posting] * 3}}},
+    )
+
+    jobs = microsoft.fetch(MICROSOFT_CONFIG)
+
+    assert len(jobs) == 23
+    assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS
+
+
+ORACLE_URL = "https://dell.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
+ORACLE_CONFIG = {
+    "type": "oracle",
+    "company": "dell",
+    "host": "dell.oraclecloud.com",
+    "site_number": "CX_1",
+    "site_name": "careers",
+}
+
+
+@responses.activate
+def test_oracle_maps_jobs(fixture):
+    responses.get(ORACLE_URL, json=fixture("oracle_dell.json"))
+    jobs = oracle.fetch(ORACLE_CONFIG)
+
+    assert len(jobs) == 2
+    assert len(responses.calls) == 1  # TotalJobsCount reached, no needless page
+    job = jobs[0]
+    assert job.id == "oracle:dell:R290099"
+    assert job.title == "Software Engineer"
+    assert job.company == "dell"
+    assert job.source == "oracle/dell"
+    # apply URL uses the site *name*, not the API site number
+    assert job.url == (
+        "https://dell.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers/job/R290099"
+    )
+    assert job.posted_at == "2026-07-24"
+    assert job.location == "Austin, Texas, United States (+1 more)"
+    assert "<" not in job.description  # HTML stripped
+    assert "Java" in job.description
+    assert jobs[1].location == "Toronto, Ontario, Canada"  # no secondary, no suffix
+
+
+@responses.activate
+def test_oracle_paginates_until_total(fixture):
+    posting = fixture("oracle_dell.json")["items"][0]["requisitionList"][0]
+    responses.get(
+        ORACLE_URL,
+        json={"items": [{"TotalJobsCount": 30, "requisitionList": [posting] * 25}]},
+    )
+    responses.get(
+        ORACLE_URL,
+        json={"items": [{"TotalJobsCount": 30, "requisitionList": [posting] * 5}]},
+    )
+
+    jobs = oracle.fetch(ORACLE_CONFIG)
+
+    assert len(jobs) == 30
     assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS

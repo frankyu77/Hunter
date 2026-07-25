@@ -11,7 +11,8 @@
 #
 # FAANG (Meta/Apple/Amazon/Netflix/Google) run custom career sites with no
 # public board API - their new-grad roles arrive via the SimplifyJobs feed
-# below instead.
+# below instead. Microsoft is the exception: its careers backend exposes a
+# public JSON search endpoint, handled by the dedicated `microsoft` adapter.
 
 sources:
   # --- fintech ---
@@ -65,6 +66,38 @@ sources:
     company: janestreet
   - type: lever
     company: palantir
+
+  # --- more big-tech software boards (probed live 2026-07-25) ---
+  - type: greenhouse
+    company: airbnb
+  - type: greenhouse
+    company: pinterest
+  - type: greenhouse
+    company: reddit
+  - type: greenhouse
+    company: lyft
+  - type: greenhouse
+    company: instacart
+  - type: greenhouse
+    company: gitlab
+  - type: greenhouse
+    company: cloudflare
+  - type: greenhouse
+    company: twilio
+  - type: greenhouse
+    company: datadog
+  - type: greenhouse
+    company: roblox
+  - type: greenhouse
+    company: discord
+  - type: ashby
+    company: snowflake
+  - type: ashby
+    company: notion
+  - type: ashby
+    company: cohere
+  - type: lever
+    company: spotify
 
   # --- workday boards ---
   # Config comes straight from the board URL: for
@@ -121,6 +154,68 @@ sources:
     tenant: rbc
     host: wd3
     site: RBCEARLYTALENT1
+  - type: workday
+    company: adobe
+    tenant: adobe
+    host: wd5
+    site: external_experienced
+  - type: workday
+    company: nvidia
+    tenant: nvidia
+    host: wd5
+    site: NVIDIAExternalCareerSite
+  - type: workday
+    company: hp
+    tenant: hp
+    host: wd5
+    site: EXTEU-AC-CareerSite
+  - type: workday
+    company: hpe  # Hewlett Packard Enterprise (separate from HP Inc.)
+    tenant: hpe
+    host: wd5
+    site: Jobsathpe
+  - type: workday
+    company: intel
+    tenant: intel
+    host: wd1
+    site: External
+  - type: workday
+    company: micron
+    tenant: micron
+    host: wd1
+    site: External
+
+  # --- custom career platform (dedicated adapter, not a standard ATS) ---
+  # Microsoft's own careers backend; see scraper/adapters/microsoft.py.
+  - type: microsoft
+    company: microsoft
+
+  # --- oracle recruiting cloud (public candidate-experience REST API) ---
+  # host + site come from the careers URL:
+  #   https://{host}/hcmUI/CandidateExperience/en/sites/{site_name}
+  # site_number (API) is usually CX_1. See scraper/adapters/oracle.py.
+  - type: oracle
+    company: dell
+    host: iawmqy.fa.ocs.oraclecloud.com
+    site_number: CX_1
+    site_name: careers
+  # TI fronts Oracle on careers.ti.com, but the REST API only answers on the
+  # underlying Fusion host (found embedded in the careers page).
+  - type: oracle
+    company: texas-instruments
+    host: edbz.fa.us2.oraclecloud.com
+    site_number: CX_1
+    site_name: CX
+  - type: oracle
+    company: oracle
+    host: eeho.fa.us2.oraclecloud.com
+    site_number: CX_1
+    site_name: jobsearch
+  - type: oracle
+    company: honeywell
+    host: ibqbjb.fa.ocs.oraclecloud.com
+    site_number: CX_1
+    site_name: HoneywellCareerSite
 
   # --- cross-company aggregators (cover FAANG and hundreds more) ---
   - type: github
