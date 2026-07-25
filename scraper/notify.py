@@ -30,6 +30,13 @@ CATEGORIES = (
 )
 _EMOJI = {key: emoji for key, emoji, _ in CATEGORIES}
 
+# Within each seniority digest, jobs are further split by region, in this order.
+REGIONS = (
+    ("canada", "🇨🇦", "Canada"),
+    ("us", "🇺🇸", "United States"),
+    ("other", "🌐", "Other"),
+)
+
 _INTERN_RE = re.compile(r"\bintern(ship)?\b|\bco[-\s]?op\b", re.IGNORECASE)
 # "Engineer I" / "Engineer 1" style level suffixes count as junior; II+ do not.
 _NEW_GRAD_RE = re.compile(
@@ -90,15 +97,25 @@ def format_message(job: Job) -> str:
     # Telegram HTML mode breaks on unescaped <, >, & - escape everything
     # that originates from the source.
     e = html.escape
-    lines = [
-        f"<b>=== {_EMOJI[categorize(job)]} {e(job.title)} ===</b>",
-        f"{e(job.company)} - {e(job.location)}",
-    ]
+    lines = [f"<b>{_EMOJI[categorize(job)]} {e(job.title)}</b>"]
+
+    company_line = e(job.company)
+    if job.location:
+        company_line += f" — {e(job.location)}"
+    lines.append(company_line)
+
     if job.posted_at:
         lines.append(f"Posted: {e(_date_only(job.posted_at))}")
-    if job.description:
-        lines.append("")
-        lines.append(e(job.description))
+
+    # No dedicated pay/keyword fields exist, so mine them from the
+    # description; both are omitted when nothing recognisable is found.
+    pay = _extract_pay(job.description)
+    if pay:
+        lines.append(f"Pay: {e(pay)}")
+    keywords = _extract_keywords(job.description)
+    if keywords:
+        lines.append(f"Keywords: {e(', '.join(keywords))}")
+
     lines.append("")
     lines.append(f'<a href="{e(job.url, quote=True)}">Apply</a> ({e(job.source)})')
     return "\n".join(lines)
@@ -115,24 +132,101 @@ def format_digest(jobs: list[Job]) -> list[str]:
     return messages
 
 
+CAP = 3800  # stay safely under Telegram's 4096-char message cap
+
+
 def _format_group(label: str, jobs: list[Job]) -> list[str]:
-    # Split across as many messages as needed; each stays safely under
-    # Telegram's 4096-char cap so no job is ever dropped.
+    # Within the seniority group, split further by region (Canada / US /
+    # Other), each under its own flagged subheader. Long groups spill across
+    # as many messages as needed - each stays under the Telegram cap and the
+    # main and region headers repeat on continuation so no job is orphaned.
     e = html.escape
-    header = f"<b>==== {label} ({len(jobs)}) ====</b>"
+    header = f"<b>{label} ({len(jobs)})</b>"
+
+    sections: list[tuple[str, list[str]]] = []
+    for key, flag, name in REGIONS:
+        group = [job for job in jobs if _region(job.location) == key]
+        if not group:
+            continue
+        subheader = f"<b>{flag} {name} ({len(group)})</b>"
+        job_lines = []
+        for job in group:
+            meta = e(job.company)
+            if job.location:
+                meta += f" · {e(job.location)}"
+            job_lines.append(
+                f'- <a href="{e(job.url, quote=True)}">{e(job.title)}</a> — {meta}'
+            )
+        sections.append((subheader, job_lines))
+
     messages: list[str] = []
     lines = [header, ""]
-    budget = 3800 - sum(len(line) + 1 for line in lines)
-    for job in jobs:
-        line = f'- <a href="{e(job.url, quote=True)}">{e(job.title)}</a> - {e(job.company)}'
-        if len(line) + 1 > budget and len(lines) > 2:
-            messages.append("\n".join(lines))
-            lines = [f"{header} (continued)", ""]
-            budget = 3800 - sum(len(line) + 1 for line in lines)
-        lines.append(line)
-        budget -= len(line) + 1
+
+    def used() -> int:
+        return sum(len(line) + 1 for line in lines)
+
+    def flush() -> None:
+        nonlocal lines
+        messages.append("\n".join(lines))
+        lines = [f"{header} (continued)", ""]
+
+    for subheader, job_lines in sections:
+        blank = any(line.startswith("- ") for line in lines)
+        # Keep a subheader with its first job: start a fresh message if the
+        # pair won't fit on the current one.
+        if used() + blank + len(subheader) + 1 + len(job_lines[0]) + 1 > CAP:
+            flush()
+            blank = False
+        if blank:
+            lines.append("")
+        lines.append(subheader)
+        for line in job_lines:
+            has_job = any(l.startswith("- ") for l in lines)
+            if used() + len(line) + 1 > CAP and has_job:
+                flush()
+                lines.append(subheader)
+            lines.append(line)
     messages.append("\n".join(lines))
     return messages
+
+
+# Country keywords are matched case-insensitively; two-letter province/state
+# codes are matched case-sensitively (uppercase) so English words like "or",
+# "in", "me" or "hi" inside a location string can't be mistaken for a state.
+_CANADA_KW = re.compile(r"\bcanada\b", re.IGNORECASE)
+_US_KW = re.compile(r"\bunited states\b|\bu\.?s\.?a\.?\b|\bUSA\b|\bUS\b")
+_CA_CODE = re.compile(r"\b(?:AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)\b")
+_US_CODE = re.compile(
+    r"\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA"
+    r"|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT"
+    r"|VT|VA|WA|WV|WI|WY)\b"
+)
+_CA_CITY = re.compile(
+    r"\b(?:Toronto|Vancouver|Montr[eé]al|Ottawa|Calgary|Edmonton|Winnipeg"
+    r"|Halifax|Mississauga|Kitchener|Waterloo|Qu[eé]bec)\b",
+    re.IGNORECASE,
+)
+
+
+def _region(location: str) -> str:
+    """Bucket a free-text location into 'canada', 'us' or 'other'.
+
+    Explicit country names win first, then province/state codes, then a
+    Canadian-city fallback for strings that name a city but no country/code.
+    """
+    if not location:
+        return "other"
+    if _CANADA_KW.search(location):
+        return "canada"
+    if _US_KW.search(location):
+        return "us"
+    if _CA_CODE.search(location):
+        return "canada"
+    if _US_CODE.search(location):
+        return "us"
+    if _CA_CITY.search(location):
+        return "canada"
+    return "other"
 
 
 def _date_only(posted_at: str) -> str:
@@ -140,3 +234,91 @@ def _date_only(posted_at: str) -> str:
         return datetime.fromisoformat(posted_at).date().isoformat()
     except ValueError:
         return posted_at
+
+
+# A salary-like dollar amount: comma-grouped ($120,000), K/M-suffixed
+# ($120K), or a bare run of 4+ digits ($120000). The leading amount must be
+# $-anchored to avoid matching stray numbers; the second half of a range may
+# drop the $ ("$120,000 - 150,000").
+_AMOUNT = r"(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?\s?[KkMm]\b|\d{4,})"
+_PAY_RE = re.compile(
+    rf"\$\s?{_AMOUNT}(?:\s?(?:-|–|—|to)\s?\$?\s?{_AMOUNT})?"
+)
+
+
+def _extract_pay(description: str) -> str | None:
+    match = _PAY_RE.search(description)
+    if not match:
+        return None
+    return " ".join(match.group(0).split())
+
+
+# Recognisable skills/technologies, mapped to a canonical display form. Values
+# are case-insensitive regexes; multiple spellings collapse onto one label.
+_SKILLS = {
+    "Python": r"\bpython\b",
+    "Java": r"\bjava\b",
+    "JavaScript": r"\bjavascript\b",
+    "TypeScript": r"\btypescript\b",
+    "C++": r"c\+\+",
+    "C#": r"c#",
+    "Golang": r"\bgolang\b",
+    "Rust": r"\brust\b",
+    "Ruby": r"\bruby\b",
+    "Kotlin": r"\bkotlin\b",
+    "Swift": r"\bswift\b",
+    "Scala": r"\bscala\b",
+    "PHP": r"\bphp\b",
+    "MATLAB": r"\bmatlab\b",
+    "SQL": r"\bsql\b",
+    "NoSQL": r"\bnosql\b",
+    "React": r"\breact(?:\.js)?\b",
+    "Angular": r"\bangular\b",
+    "Vue": r"\bvue(?:\.js)?\b",
+    "Node.js": r"\bnode\.js\b",
+    "Django": r"\bdjango\b",
+    "Flask": r"\bflask\b",
+    "Spring": r"\bspring\b",
+    ".NET": r"\.net\b",
+    "TensorFlow": r"\btensorflow\b",
+    "PyTorch": r"\bpytorch\b",
+    "Kafka": r"\bkafka\b",
+    "Spark": r"\bspark\b",
+    "AWS": r"\baws\b",
+    "Azure": r"\bazure\b",
+    "GCP": r"\bgcp\b|\bgoogle cloud\b",
+    "Docker": r"\bdocker\b",
+    "Kubernetes": r"\bkubernetes\b|\bk8s\b",
+    "Terraform": r"\bterraform\b",
+    "Linux": r"\blinux\b",
+    "PostgreSQL": r"\bpostgres(?:ql)?\b",
+    "MongoDB": r"\bmongodb\b",
+    "Redis": r"\bredis\b",
+    "GraphQL": r"\bgraphql\b",
+    "REST": r"\brest(?:ful)?\b",
+    "gRPC": r"\bgrpc\b",
+    "OOP": r"\boop\b|\bobject[-\s]oriented\b",
+    "Machine Learning": r"\bmachine learning\b|\bml\b",
+    "Deep Learning": r"\bdeep learning\b",
+    "NLP": r"\bnlp\b|\bnatural language processing\b",
+    "Computer Vision": r"\bcomputer vision\b",
+    "Distributed Systems": r"\bdistributed systems?\b",
+    "Microservices": r"\bmicroservices?\b",
+    "CI/CD": r"\bci/cd\b",
+    "Agile": r"\bagile\b",
+    "Scrum": r"\bscrum\b",
+    "Algorithms": r"\balgorithms?\b",
+    "Data Structures": r"\bdata structures?\b",
+}
+_SKILL_LIMIT = 10
+
+
+def _extract_keywords(description: str) -> list[str]:
+    # Order by first appearance so the most prominent skills lead.
+    found: list[tuple[int, str]] = []
+    for canonical, pattern in _SKILLS.items():
+        match = re.search(pattern, description, re.IGNORECASE)
+        if match:
+            found.append((match.start(), canonical))
+    found.sort()
+    return [name for _, name in found[:_SKILL_LIMIT]]
