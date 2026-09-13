@@ -55,6 +55,46 @@ def categorize(job: Job) -> str:
     return "full_time"
 
 
+# Company names reach notify in two shapes: bare ATS slugs from sources.yaml
+# ("td", "northrop-grumman") and already-cased names from the aggregator feeds
+# ("Domino Data Lab"). Slugs get title-cased; anything already carrying an
+# uppercase letter is trusted as-is. Only names the generic rule gets wrong -
+# acronyms and camel-cased brands - need an entry below.
+_COMPANY_NAMES = {
+    "cibc": "CIBC",
+    "gitlab": "GitLab",
+    "hp": "HP",
+    "hpe": "HPE",
+    "ibm": "IBM",
+    "janestreet": "Jane Street",
+    "nvidia": "NVIDIA",
+    "openai": "OpenAI",
+    "rbc": "RBC",
+    "td": "TD",
+}
+
+
+def display_company(company: str) -> str:
+    name = company.strip()
+    override = _COMPANY_NAMES.get(name.lower())
+    if override:
+        return override
+    if any(char.isupper() for char in name):
+        return name
+    return re.sub(r"[-_]+", " ", name).title()
+
+
+_GITHUB_PREFIX = "github/"
+GITHUB_REPO_URL = "https://github.com/{repo}"
+
+
+def _github_repo(source: str) -> str | None:
+    """The repo slug when a job came from a GitHub aggregator feed, else None."""
+    if source.startswith(_GITHUB_PREFIX):
+        return source[len(_GITHUB_PREFIX) :]
+    return None
+
+
 def send(job: Job) -> None:
     _post(format_message(job))
     log.info("Notified: %s", job.id)
@@ -99,7 +139,7 @@ def format_message(job: Job) -> str:
     e = html.escape
     lines = [f"<b>{_EMOJI[categorize(job)]} {e(job.title)}</b>"]
 
-    company_line = e(job.company)
+    company_line = e(display_company(job.company))
     if job.location:
         company_line += f" — {e(job.location)}"
     lines.append(company_line)
@@ -135,12 +175,34 @@ def format_digest(jobs: list[Job]) -> list[str]:
 CAP = 3800  # stay safely under Telegram's 4096-char message cap
 
 
+def _format_entry(job: Job) -> str:
+    """One digest entry: company first and bold, then location, then feed.
+
+    Returned as a single multi-line string so the message splitter treats the
+    entry as one indivisible unit and never orphans a job's location line.
+    """
+    e = html.escape
+    lines = [
+        f'- <b>{e(display_company(job.company))}</b> — '
+        f'<a href="{e(job.url, quote=True)}">{e(job.title)}</a>'
+    ]
+    if job.location:
+        lines.append(f"  {e(job.location)}")
+    # Aggregator feeds pull from hundreds of companies, so naming the repo is
+    # the only way to tell where a listing actually came from. Per-company ATS
+    # sources are already identified by the company name above.
+    repo = _github_repo(job.source)
+    if repo:
+        url = e(GITHUB_REPO_URL.format(repo=repo), quote=True)
+        lines.append(f'  via <a href="{url}">{e(repo)}</a>')
+    return "\n".join(lines)
+
+
 def _format_group(label: str, jobs: list[Job]) -> list[str]:
     # Within the seniority group, split further by region (Canada / US /
     # Other), each under its own flagged subheader. Long groups spill across
     # as many messages as needed - each stays under the Telegram cap and the
     # main and region headers repeat on continuation so no job is orphaned.
-    e = html.escape
     header = f"<b>{label} ({len(jobs)})</b>"
 
     sections: list[tuple[str, list[str]]] = []
@@ -149,15 +211,7 @@ def _format_group(label: str, jobs: list[Job]) -> list[str]:
         if not group:
             continue
         subheader = f"<b>{flag} {name} ({len(group)})</b>"
-        job_lines = []
-        for job in group:
-            meta = e(job.company)
-            if job.location:
-                meta += f" · {e(job.location)}"
-            job_lines.append(
-                f'- <a href="{e(job.url, quote=True)}">{e(job.title)}</a> — {meta}'
-            )
-        sections.append((subheader, job_lines))
+        sections.append((subheader, [_format_entry(job) for job in group]))
 
     messages: list[str] = []
     lines = [header, ""]
@@ -170,22 +224,22 @@ def _format_group(label: str, jobs: list[Job]) -> list[str]:
         messages.append("\n".join(lines))
         lines = [f"{header} (continued)", ""]
 
-    for subheader, job_lines in sections:
+    for subheader, entries in sections:
         blank = any(line.startswith("- ") for line in lines)
         # Keep a subheader with its first job: start a fresh message if the
         # pair won't fit on the current one.
-        if used() + blank + len(subheader) + 1 + len(job_lines[0]) + 1 > CAP:
+        if used() + blank + len(subheader) + 1 + len(entries[0]) + 1 > CAP:
             flush()
             blank = False
         if blank:
             lines.append("")
         lines.append(subheader)
-        for line in job_lines:
-            has_job = any(l.startswith("- ") for l in lines)
-            if used() + len(line) + 1 > CAP and has_job:
+        for entry in entries:
+            has_job = any(line.startswith("- ") for line in lines)
+            if used() + len(entry) + 1 > CAP and has_job:
                 flush()
                 lines.append(subheader)
-            lines.append(line)
+            lines.append(entry)
     messages.append("\n".join(lines))
     return messages
 
