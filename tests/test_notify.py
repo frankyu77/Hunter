@@ -1,20 +1,24 @@
 from scraper.models import Job
-from scraper.notify import categorize, format_digest, format_message
+from scraper.notify import categorize, display_company, format_digest, format_message
 from scraper.notify import _region
 
 
 def make_job(
-    n: int = 1, title: str | None = None, location: str = "Remote"
+    n: int = 1,
+    title: str | None = None,
+    location: str = "Remote",
+    company: str = "Acme",
+    source: str = "x/y",
 ) -> Job:
     return Job(
         id=f"x:y:{n}",
         title=title or f"Engineer {n} <Platform & Tools>",
-        company="Acme",
+        company=company,
         location=location,
         url=f"https://example.com/jobs/{n}?a=1&b=2",
         posted_at="2026-06-17T20:31:02.329+00:00",
         description="Build <great> things & more.",
-        source="x/y",
+        source=source,
     )
 
 
@@ -74,9 +78,37 @@ def test_digest_lists_jobs_and_counts():
     assert messages[0].count("<a href=") == 3
 
 
-def test_digest_shows_company_and_location():
-    messages = format_digest([make_job(1)])
-    assert "— Acme · Remote" in messages[0]
+def test_digest_bolds_company_and_puts_location_on_its_own_line():
+    [message] = format_digest([make_job(1, location="Toronto, Canada")])
+    entry = [block for block in message.split("\n") if block.startswith("- ")][0]
+    assert entry.startswith("- <b>Acme</b> — <a href=")
+    assert "\n  Toronto, Canada" in message
+
+
+def test_digest_credits_the_github_feed_a_job_came_from():
+    repo = "SimplifyJobs/New-Grad-Positions"
+    [message] = format_digest([make_job(1, source=f"github/{repo}")])
+    assert f'via <a href="https://github.com/{repo}">{repo}</a>' in message
+
+
+def test_digest_omits_the_feed_line_for_direct_ats_sources():
+    [message] = format_digest([make_job(1, source="ashby/acme")])
+    assert "via" not in message
+
+
+def test_digest_capitalizes_company_slugs():
+    [message] = format_digest([make_job(1, company="northrop-grumman")])
+    assert "<b>Northrop Grumman</b>" in message
+
+
+def test_display_company_fixes_slugs_but_trusts_cased_names():
+    assert display_company("cursor") == "Cursor"
+    assert display_company("texas-instruments") == "Texas Instruments"
+    assert display_company("td") == "TD"  # acronym override
+    assert display_company("openai") == "OpenAI"  # camel-case override
+    assert display_company("Domino Data Lab") == "Domino Data Lab"
+    assert display_company("eBay") == "eBay"  # already cased, left alone
+    assert display_company("") == ""
 
 
 def test_region_classifies_locations():
