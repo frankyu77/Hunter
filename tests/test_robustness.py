@@ -93,7 +93,7 @@ def test_one_broken_source_does_not_sink_the_run(monkeypatch):
 
     assert [job.source for job in jobs] == ["ok/good"]
     assert stats["boom/bad"] == {"fetched": 0, "errors": 1}
-    assert stats["ok/good"] == {"fetched": 1, "errors": 0}
+    assert stats["ok/good"] == {"fetched": 1, "errors": 0, "truncated": False}
 
 
 # --- health ------------------------------------------------------------------

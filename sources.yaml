@@ -234,6 +234,11 @@ sources:
     path: .github/scripts/listings.json
     branch: dev
 
+# About you. `school` narrows each message's LinkedIn link to alumni at the
+# company (people most likely to refer you); leave empty for a plain search.
+profile:
+  school: "University of British Columbia"
+
 # Filters target graduate / junior software roles (SWE, full stack, backend,
 # platform, SRE, forward deployed) plus internships. Matching is
 # case-insensitive SUBSTRING on the title - keywords like "sr " use spacing

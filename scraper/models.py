@@ -18,3 +18,12 @@ class Job:
     posted_at: str | None
     description: str  # plain text, truncated to ~500 chars
     source: str  # human-readable, e.g. "ashby/wealthsimple"
+
+
+@dataclass(frozen=True)
+class JobNotes:
+    """What past runs know about a job, for notify to show next to it.
+    Computed from state (scraper.insights), never by adapters."""
+
+    reposted_since: str | None = None  # date the same role was first seen
+    typical_open_days: int | None = None  # median lifetime of this source's postings

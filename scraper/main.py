@@ -7,19 +7,21 @@ end.
 """
 
 import argparse
+import inspect
 import logging
 import sys
 import time
 from collections import Counter
 from collections.abc import Callable
+from datetime import UTC, datetime
 
 import requests
 import yaml
 
-from scraper import filters, health
+from scraper import filters, health, insights
 from scraper import notify as telegram
 from scraper.adapters import get_adapter
-from scraper.models import Job
+from scraper.models import Job, JobNotes
 from scraper.store import SeenStore
 
 log = logging.getLogger("scraper")
@@ -45,7 +47,10 @@ def load_config(path: str) -> dict:
 def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
     """Fetch every source, each inside its own try/except (bulkhead):
     one broken source must never sink the run. Returns the jobs plus
-    per-source stats for the run summary and health tracking."""
+    per-source stats for the run summary, health and closure tracking.
+
+    ``truncated`` marks a fetch that hit its adapter's MAX_POSTINGS cap, so
+    closure tracking knows the list is only the newest slice."""
     jobs: list[Job] = []
     stats: dict[str, dict] = {}
     for source in sources:
@@ -56,6 +61,8 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
             fetch = get_adapter(source["type"])
             fetched = fetch_with_retry(fetch, source, label)
             stat["fetched"] += len(fetched)
+            cap = getattr(inspect.getmodule(fetch), "MAX_POSTINGS", None)
+            stat["truncated"] = cap is not None and len(fetched) >= cap
             log.info("%s: fetched %d jobs", label, len(fetched))
             jobs.extend(fetched)
         except Exception:
@@ -110,7 +117,14 @@ def apply_filters(jobs: list[Job], filters_config: dict) -> list[Job]:
     return kept
 
 
-def notify(jobs: list[Job], store: SeenStore, dry_run: bool, digest_threshold: int) -> list[Job]:
+def notify(
+    jobs: list[Job],
+    store: SeenStore,
+    dry_run: bool,
+    digest_threshold: int,
+    notes: dict[str, JobNotes] | None = None,
+    school: str | None = None,
+) -> list[Job]:
     """Send each job (or one digest), returning the jobs actually sent.
     A job whose send failed is NOT recorded as seen, so it retries next
     run - never-miss beats never-duplicate."""
@@ -130,7 +144,7 @@ def notify(jobs: list[Job], store: SeenStore, dry_run: bool, digest_threshold: i
                 print(f"  - {job.title} @ {job.company} ({job.location}){_times(dupes)}")
         else:
             try:
-                telegram.send_digest(jobs)
+                telegram.send_digest(jobs, notes)
             except Exception:
                 log.exception("Digest send failed; jobs stay unseen and retry next run.")
                 return []
@@ -148,7 +162,8 @@ def notify(jobs: list[Job], store: SeenStore, dry_run: bool, digest_threshold: i
                     f" -> {job.url}"
                 )
             else:
-                telegram.send(job, copies=len(dupes))
+                note = next((notes[d.id] for d in dupes if notes and d.id in notes), None)
+                telegram.send(job, copies=len(dupes), notes=note, school=school)
         except Exception:
             log.exception("Send failed for %s; it stays unseen and retries next run.", job.id)
             continue
@@ -230,24 +245,44 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     filters_config = config.get("filters") or {}
+    # Closures are judged against the full fetch, before dedup narrows it.
+    closures = insights.find_closures(store, normalized, stats)
     fresh = dedup(normalized, store)
     fresh = seed_new_sources(fresh, normalized, store)
     matched = apply_filters(fresh, filters_config)
-    sent = notify(
-        matched, store, args.dry_run, digest_threshold=filters_config.get("digest_threshold", 10)
+
+    # Seasons: everything not being announced this run is recorded silently
+    # first, so only a genuinely new cycle can trigger an alert.
+    matched_ids = {job.id for job in matched}
+    insights.observe_seasons(
+        [job for job in normalized if job.id not in matched_ids], store, filters_config
     )
+    announce_seasons(insights.season_openings(matched, store), store, args.dry_run)
+
+    notes = insights.notes_for(matched, store)
+    sent = notify(
+        matched,
+        store,
+        args.dry_run,
+        digest_threshold=filters_config.get("digest_threshold", 10),
+        notes=notes,
+        school=(config.get("profile") or {}).get("school"),
+    )
+    insights.remember_roles(sent, store)
     # Record filtered-out jobs as seen too (after notify, so a crash can't
     # mark a matched job seen before its message went out). Otherwise every
     # filtered job re-enters the diff as "new" on every run forever. Jobs
     # whose send failed are deliberately left unseen so they retry.
-    matched_ids = {job.id for job in matched}
     for job in fresh:
         if job.id not in matched_ids and not store.has(job.id):
             store.add(job)
 
+    announce_closures(closures, store, args.dry_run)
+
     # Prune at the very end, after notifications and state updates, so it
     # can never race the dedup.
     store.prune(PRUNE_MAX_AGE_DAYS)
+    insights.prune(store)
     store.save()
 
     for message in warnings:
@@ -268,6 +303,43 @@ def main(argv: list[str] | None = None) -> int:
         len(sent),
     )
     return 0
+
+
+def announce_seasons(openings: list, store: SeenStore, dry_run: bool) -> None:
+    """Send one loud message per company whose hiring season just opened.
+    The season is recorded only after its alert is out; a failed send just
+    lets the next posting from that company try again."""
+    for job, category, year in openings:
+        try:
+            if dry_run:
+                print(f"SEASON: {job.company} opened {category} {year} ({job.title})")
+            else:
+                telegram.send_html(telegram.format_season_alert(job, category, year))
+        except Exception:
+            log.exception("Season alert failed for %s; will retry on its next posting.", job.id)
+            continue
+        insights.record_season(store, job, category, year)
+
+
+def announce_closures(closures: list[tuple[str, str]], store: SeenStore, dry_run: bool) -> None:
+    """Record every closure; alert on the starred ones first. A starred
+    closure whose alert fails stays unrecorded, so it is detected - and
+    alerted - again next run (never-miss beats never-duplicate)."""
+    starred = insights.starred(store)
+    for job_id, source in closures:
+        if job_id in starred:
+            open_days = (datetime.now(UTC) - store.seen_at(job_id)).days
+            try:
+                if dry_run:
+                    print(f"CLOSED: {starred[job_id]['title']} @ {starred[job_id]['company']}")
+                else:
+                    telegram.send_html(telegram.format_closed_alert(starred[job_id], open_days))
+            except Exception:
+                log.exception("Closure alert failed for %s; retrying next run.", job_id)
+                continue
+        insights.record_closure(store, job_id, source)
+    if closures:
+        log.info("Detected %d closed postings.", len(closures))
 
 
 def summarize(stats: dict, fresh: list[Job], matched: list[Job], sent: list[Job]) -> None:

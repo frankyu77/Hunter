@@ -12,10 +12,11 @@ import os
 import re
 import time
 from datetime import UTC, datetime
+from urllib.parse import quote, quote_plus
 
 import requests
 
-from scraper.models import Job
+from scraper.models import Job, JobNotes
 from scraper.regions import region
 
 log = logging.getLogger(__name__)
@@ -119,14 +120,16 @@ def group_duplicates(jobs: list[Job]) -> list[list[Job]]:
     return list(groups.values())
 
 
-def send(job: Job, copies: int = 1) -> None:
-    _post(format_message(job, copies))
+def send(
+    job: Job, copies: int = 1, notes: JobNotes | None = None, school: str | None = None
+) -> None:
+    _post(format_message(job, copies, notes, school))
     log.info("Notified: %s", job.id)
     time.sleep(SEND_PAUSE_SECONDS)
 
 
-def send_digest(jobs: list[Job]) -> None:
-    messages = format_digest(jobs)
+def send_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> None:
+    messages = format_digest(jobs, notes)
     for message in messages:
         _post(message)
         time.sleep(SEND_PAUSE_SECONDS)
@@ -137,6 +140,13 @@ def send_text(text: str) -> None:
     """Send a plain (non-job) message, e.g. a health warning."""
     _post(html.escape(text))
     log.info("Notified: %s", text)
+
+
+def send_html(text: str) -> None:
+    """Send an already-formatted message (season / closure alerts)."""
+    _post(text)
+    log.info("Notified: %s", text.splitlines()[0])
+    time.sleep(SEND_PAUSE_SECONDS)
 
 
 def _post(text: str) -> None:
@@ -157,7 +167,9 @@ def _post(text: str) -> None:
     response.raise_for_status()
 
 
-def format_message(job: Job, copies: int = 1) -> str:
+def format_message(
+    job: Job, copies: int = 1, notes: JobNotes | None = None, school: str | None = None
+) -> str:
     # Telegram HTML mode breaks on unescaped <, >, & - escape everything
     # that originates from the source.
     e = html.escape
@@ -182,6 +194,12 @@ def format_message(job: Job, copies: int = 1) -> str:
     if keywords:
         lines.append(f"Keywords: {e(', '.join(keywords))}")
 
+    if notes and notes.reposted_since:
+        lines.append(f"🔁 Reposted: first listed {e(notes.reposted_since)}, closed unfilled")
+    if notes and notes.typical_open_days is not None:
+        company = e(display_company(job.company))
+        lines.append(f"⏳ {company} postings usually stay open ~{notes.typical_open_days}d")
+
     lines.append("")
     apply = f'<a href="{e(job.url, quote=True)}">Apply</a>'
     repo = _github_repo(job.source)
@@ -189,10 +207,62 @@ def format_message(job: Job, copies: int = 1) -> str:
         url = e(GITHUB_REPO_URL.format(repo=repo), quote=True)
         apply += f' · via <a href="{url}">{e(repo)}</a>'
     lines.append(apply)
+    lines.append(company_links(job.company, school))
     return "\n".join(lines)
 
 
-def format_digest(jobs: list[Job]) -> list[str]:
+# Research links are searches or slug guesses built from the display name;
+# no lookups happen at send time. levels.fyi slugs are the lowercased,
+# hyphenated name, which holds for most companies - Glassdoor and LinkedIn
+# are keyword searches, so they always land somewhere useful.
+LEVELS_URL = "https://www.levels.fyi/companies/{slug}/salaries"
+GLASSDOOR_URL = "https://www.glassdoor.com/Search/results.htm?keyword={query}"
+LINKEDIN_URL = "https://www.linkedin.com/search/results/people/?keywords={query}"
+
+
+def company_links(company: str, school: str | None = None) -> str:
+    """One line of one-tap research links: pay, reviews, and people to ask
+    for a referral (alumni of ``school`` when configured)."""
+    e = html.escape
+    name = display_company(company)
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    people = f"{name} {school}" if school else name
+    links = [
+        (LEVELS_URL.format(slug=quote(slug)), "levels.fyi"),
+        (GLASSDOOR_URL.format(query=quote_plus(name)), "Glassdoor"),
+        (LINKEDIN_URL.format(query=quote_plus(people)), "LinkedIn"),
+    ]
+    return "🔗 " + " · ".join(f'<a href="{e(url, quote=True)}">{label}</a>' for url, label in links)
+
+
+_SEASON_NAMES = {"internship": "Internships · Summer {year}", "new_grad": "New Grad {year}"}
+
+
+def format_season_alert(job: Job, category: str, year: int) -> str:
+    e = html.escape
+    season = _SEASON_NAMES[category].format(year=year)
+    return "\n".join(
+        [
+            f"🚨 <b>{e(display_company(job.company))} opened {e(season)}</b>",
+            f'First posting: <a href="{e(job.url, quote=True)}">{e(job.title)}</a>',
+        ]
+    )
+
+
+def format_closed_alert(starred: dict, open_days: int | None) -> str:
+    """Alert for a starred job that disappeared from its source. ``starred``
+    is the snapshot saved when it was starred - the job itself is gone."""
+    e = html.escape
+    lines = [
+        f"⚠️ <b>{e(display_company(starred['company']))}</b> — "
+        f'<a href="{e(starred["url"], quote=True)}">{e(starred["title"])}</a> just closed'
+    ]
+    if open_days is not None:
+        lines.append(f"It was open about {open_days}d.")
+    return "\n".join(lines)
+
+
+def format_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> list[str]:
     # One message (or more, if long) per seniority bucket, so internships,
     # new-grad roles, and full-time roles never share a message. Counts in
     # the headers are entries, i.e. duplicates collapsed.
@@ -201,29 +271,35 @@ def format_digest(jobs: list[Job]) -> list[str]:
     for key, emoji, name in CATEGORIES:
         group = [dupes for dupes in entries if categorize(dupes[0]) == key]
         if group:
-            messages.extend(_format_group(f"{emoji} {name}", group))
+            messages.extend(_format_group(f"{emoji} {name}", group, notes or {}))
     return messages
 
 
 CAP = 3800  # stay safely under Telegram's 4096-char message cap
 
 
-def _format_entry(dupes: list[Job]) -> str:
+def _format_entry(dupes: list[Job], notes: dict[str, JobNotes]) -> str:
     """One digest entry: company first and bold, then location and age, then
     feed. Duplicates share one entry, linked to the first posting.
 
     Returned as a single multi-line string so the message splitter treats the
     entry as one indivisible unit and never orphans a job's location line.
+    Research links are left to single messages: three URLs per entry would
+    roughly halve how many entries fit under the cap.
     """
     e = html.escape
     job = dupes[0]
+    note = next((notes[dupe.id] for dupe in dupes if dupe.id in notes), None)
+    repost = " 🔁" if note and note.reposted_since else ""
     lines = [
         f'- <b>{e(display_company(job.company))}</b> — '
-        f'<a href="{e(job.url, quote=True)}">{e(job.title)}</a>{_copies(len(dupes))}'
+        f'<a href="{e(job.url, quote=True)}">{e(job.title)}</a>{_copies(len(dupes))}{repost}'
     ]
     details = [e(job.location)] if job.location else []
     if job.posted_at and (age := _age(job.posted_at)):
         details.append(age)
+    if note and note.typical_open_days is not None:
+        details.append(f"usually open ~{note.typical_open_days}d")
     if details:
         lines.append(f"  {' · '.join(details)}")
     # Aggregator feeds pull from hundreds of companies, so naming the repo is
@@ -236,7 +312,7 @@ def _format_entry(dupes: list[Job]) -> str:
     return "\n".join(lines)
 
 
-def _format_group(label: str, jobs: list[list[Job]]) -> list[str]:
+def _format_group(label: str, jobs: list[list[Job]], notes: dict[str, JobNotes]) -> list[str]:
     # Within the seniority group, split further by region (Canada / US /
     # Other), each under its own flagged subheader. Long groups spill across
     # as many messages as needed - each stays under the Telegram cap and the
@@ -249,7 +325,7 @@ def _format_group(label: str, jobs: list[list[Job]]) -> list[str]:
         if not group:
             continue
         subheader = f"<b>{flag} {name} ({len(group)})</b>"
-        sections.append((subheader, [_format_entry(dupes) for dupes in group]))
+        sections.append((subheader, [_format_entry(dupes, notes) for dupes in group]))
 
     messages: list[str] = []
     lines = [header, ""]
