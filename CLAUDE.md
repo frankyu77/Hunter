@@ -70,6 +70,11 @@ tests still pass:
   they re-enter the diff as new on every run forever.
 - **Prune runs last**, after notifications and state writes, so it can't race
   the dedup.
+- **The public dashboard never shows personal signals.** `scraper/dashboard.py`
+  must not read `feedback.votes` or `insights.starred` - the repo and its Pages
+  site are public. Votes, stars and applications reach the user only through
+  the private Telegram summary. `test_public_page_never_contains_votes_stars_or_applications`
+  guards this.
 - **The button-press offset is saved with the votes it produced**, in the same
   state file. Advancing it anywhere else can drop presses when a run's state
   commit fails.

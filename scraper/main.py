@@ -17,7 +17,7 @@ from datetime import UTC, datetime
 import requests
 import yaml
 
-from scraper import discovery, feedback, filters, health, insights
+from scraper import dashboard, discovery, feedback, filters, health, insights
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
 from scraper.models import Job, JobNotes
@@ -250,6 +250,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     filters_config = config.get("filters") or {}
+    dashboard.remember_sources(normalized, store)
     # Closures are judged against the full fetch, before dedup narrows it.
     closures = insights.find_closures(store, normalized, stats)
     fresh = dedup(normalized, store)
@@ -285,12 +286,14 @@ def main(argv: list[str] | None = None) -> int:
 
     announce_closures(closures, store, args.dry_run)
     announce_discovery(store, config, args.dry_run)
+    announce_summary(store, args.dry_run)
 
     # Prune at the very end, after notifications and state updates, so it
     # can never race the dedup.
     store.prune(PRUNE_MAX_AGE_DAYS)
     insights.prune(store)
     feedback.prune(store)
+    build_dashboard(store, normalized, filters_config)
     store.save()
 
     for message in warnings:
@@ -325,6 +328,37 @@ def read_button_presses(store: SeenStore) -> None:
         return
     if count:
         log.info("Read %d button press update(s).", count)
+
+
+def build_dashboard(store: SeenStore, jobs: list[Job], filters_config: dict) -> None:
+    """Hourly: write site/ for the workflow to publish to GitHub Pages. Runs
+    after pruning so it shows exactly the state being saved; a failure only
+    costs this hour's refresh."""
+    if not dashboard.is_due(store):
+        return
+    try:
+        page = dashboard.build(store, dashboard.SITE_DIR, jobs, filters_config)
+    except Exception:
+        log.exception("Dashboard build failed; the published site stays as it was.")
+        return
+    log.info("Dashboard written to %s.", page)
+
+
+def announce_summary(store: SeenStore, dry_run: bool) -> None:
+    """Weekly, privately: your funnel (sent -> 👍 -> ⭐ -> ✅). Marked done only
+    once sent, so a failed send retries next run."""
+    try:
+        summary = feedback.weekly_summary(store)
+        if summary is None:
+            return
+        if dry_run:
+            print(f"SUMMARY:\n{summary}")
+        else:
+            telegram.send_html(summary)
+    except Exception:
+        log.exception("Weekly summary failed; retrying next run.")
+        return
+    feedback.mark_summarised(store)
 
 
 def announce_discovery(store: SeenStore, config: dict, dry_run: bool) -> None:
