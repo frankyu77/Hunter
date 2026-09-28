@@ -73,8 +73,8 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
 
 
 def fetch_with_retry(fetch: Callable, config: dict, label: str) -> list[Job]:
-    """Retry timeouts and 5xx with exponential backoff. 4xx fails fast:
-    it means the source config is wrong, and retrying won't fix that."""
+    """Retry timeouts, 5xx and 429 with exponential backoff. Other 4xx fail
+    fast: they mean the source config is wrong, and retrying won't fix that."""
     attempts = len(RETRY_WAITS) + 1
     for attempt in range(attempts):
         try:
@@ -92,9 +92,13 @@ def fetch_with_retry(fetch: Callable, config: dict, label: str) -> list[Job]:
 
 
 def _retryable(exc: Exception) -> bool:
+    # 429 is the one 4xx that isn't a config error: the source is asking us to
+    # slow down, and backing off is exactly the fix (Microsoft does this).
     if isinstance(exc, requests.exceptions.HTTPError):
         response = exc.response
-        return response is not None and response.status_code >= 500
+        return response is not None and (
+            response.status_code >= 500 or response.status_code == 429
+        )
     return isinstance(exc, requests.exceptions.ConnectionError | requests.exceptions.Timeout)
 
 

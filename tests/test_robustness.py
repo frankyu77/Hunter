@@ -74,6 +74,16 @@ def test_4xx_fails_fast_without_retry(no_waits):
     assert no_waits == []
 
 
+@responses.activate
+def test_429_rate_limit_is_retried_unlike_other_4xx(no_waits):
+    responses.get(ASHBY_URL, status=429)
+    responses.get(ASHBY_URL, json={"jobs": []})
+
+    assert main.fetch_with_retry(ashby.fetch, {"company": "acme"}, "ashby/acme") == []
+    assert len(responses.calls) == 2
+    assert no_waits == [1]
+
+
 # --- bulkhead ----------------------------------------------------------------
 
 

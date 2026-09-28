@@ -10,7 +10,7 @@ fetched cleanly this run no longer lists it - but three things make a
 missing job look closed when it isn't:
 
 - a failed fetch (skipped: errors > 0),
-- a capped fetch (Workday/Oracle/Microsoft stop at the newest
+- a capped fetch (Workday/Oracle/Eightfold stop at the newest
   MAX_POSTINGS): only jobs first seen after the oldest posting the fetch
   still reached are judged, since anything older may simply have scrolled
   out of the window; a capped fetch from an adapter that isn't
