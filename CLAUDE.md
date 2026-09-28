@@ -41,6 +41,12 @@ purely by type string; the orchestrator never special-cases a source.
 5. Module docstring should name the exact endpoint used and, if there is a
    tempting wrong door (a JS-rendered page, an authenticated API), say so —
    see `adapters/ashby.py`.
+6. If the adapter stops at a `MAX_POSTINGS` cap, closure tracking assumes the
+   capped slice is the newest postings. If the API isn't reliably
+   newest-first, set `NEWEST_FIRST = False` (see `adapters/smartrecruiters.py`)
+   or capped fetches will mark live jobs closed.
+7. Teach `scraper/discovery.py` to recognise the platform's apply links, so
+   the weekly report can suggest its boards.
 
 ## Invariants
 

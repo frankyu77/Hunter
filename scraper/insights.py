@@ -13,7 +13,8 @@ missing job look closed when it isn't:
 - a capped fetch (Workday/Oracle/Microsoft stop at the newest
   MAX_POSTINGS): only jobs first seen after the oldest posting the fetch
   still reached are judged, since anything older may simply have scrolled
-  out of the window,
+  out of the window; a capped fetch from an adapter that isn't
+  newest-first (SmartRecruiters, TikTok) is skipped outright,
 - a partial response (skipped when most tracked postings vanish at once).
 
 Only jobs first seen after tracking began are followed, because only those
@@ -110,6 +111,8 @@ def find_closures(
         if stat.get("errors"):
             continue
         covered_from = None
+        if stat.get("unordered"):
+            continue  # an arbitrary capped slice: absence proves nothing
         if stat.get("truncated"):
             dated = [d for job in group if (d := _parse(job.posted_at))]
             if not dated:

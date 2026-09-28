@@ -3,6 +3,10 @@
 Public, unauthenticated postings API:
 https://api.lever.co/v0/postings/{company}?mode=json
 
+EU-hosted boards (jobs.eu.lever.co/{company}) are served from a separate
+API host, api.eu.lever.co; set ``region: eu`` for those - the global host
+answers 404 for them.
+
 Watch the migration trap: a company that left Lever keeps an empty board
 that returns 200 with zero postings forever (e.g. kraken, plaid). Confirm
 where a company's Apply links point before adding it to sources.yaml.
@@ -15,14 +19,16 @@ import requests
 from scraper.models import Job
 
 API_URL = "https://api.lever.co/v0/postings/{company}"
+EU_API_URL = "https://api.eu.lever.co/v0/postings/{company}"
 DESCRIPTION_LIMIT = 500
 TIMEOUT_SECONDS = 30
 
 
 def fetch(config: dict) -> list[Job]:
     company = config["company"]
+    api_url = EU_API_URL if config.get("region") == "eu" else API_URL
     response = requests.get(
-        API_URL.format(company=company),
+        api_url.format(company=company),
         params={"mode": "json"},
         timeout=TIMEOUT_SECONDS,
     )

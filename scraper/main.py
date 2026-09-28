@@ -7,7 +7,6 @@ end.
 """
 
 import argparse
-import inspect
 import logging
 import sys
 import time
@@ -18,9 +17,9 @@ from datetime import UTC, datetime
 import requests
 import yaml
 
-from scraper import feedback, filters, health, insights
+from scraper import discovery, feedback, filters, health, insights
 from scraper import notify as telegram
-from scraper.adapters import get_adapter
+from scraper.adapters import get_adapter, max_postings, newest_first
 from scraper.models import Job, JobNotes
 from scraper.store import SeenStore
 
@@ -61,8 +60,10 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
             fetch = get_adapter(source["type"])
             fetched = fetch_with_retry(fetch, source, label)
             stat["fetched"] += len(fetched)
-            cap = getattr(inspect.getmodule(fetch), "MAX_POSTINGS", None)
+            cap = max_postings(fetch)
             stat["truncated"] = cap is not None and len(fetched) >= cap
+            if stat["truncated"] and not newest_first(fetch):
+                stat["unordered"] = True
             log.info("%s: fetched %d jobs", label, len(fetched))
             jobs.extend(fetched)
         except Exception:
@@ -254,6 +255,7 @@ def main(argv: list[str] | None = None) -> int:
     fresh = dedup(normalized, store)
     fresh = seed_new_sources(fresh, normalized, store)
     matched = apply_filters(fresh, filters_config)
+    discovery.observe(fresh, matched, store, config)
 
     # Seasons: everything not being announced this run is recorded silently
     # first, so only a genuinely new cycle can trigger an alert.
@@ -282,6 +284,7 @@ def main(argv: list[str] | None = None) -> int:
             store.add(job)
 
     announce_closures(closures, store, args.dry_run)
+    announce_discovery(store, config, args.dry_run)
 
     # Prune at the very end, after notifications and state updates, so it
     # can never race the dedup.
@@ -322,6 +325,25 @@ def read_button_presses(store: SeenStore) -> None:
         return
     if count:
         log.info("Read %d button press update(s).", count)
+
+
+def announce_discovery(store: SeenStore, config: dict, dry_run: bool) -> None:
+    """Weekly: suggest aggregator-only companies to poll directly. The tally
+    resets only once the report is out, so a failed send retries next run."""
+    try:
+        report = discovery.due_report(store, config)
+        if report is None:
+            if discovery.is_due(store):
+                discovery.reset(store)  # due, but nothing qualified this week
+            return
+        if dry_run:
+            print(f"DISCOVERY:\n{report}")
+        else:
+            telegram.send_html(report)
+    except Exception:
+        log.exception("Source discovery report failed; retrying next run.")
+        return
+    discovery.reset(store)
 
 
 def announce_seasons(openings: list, store: SeenStore, dry_run: bool) -> None:
