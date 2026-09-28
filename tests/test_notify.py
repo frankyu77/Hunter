@@ -135,7 +135,9 @@ def test_digest_lists_duplicates_once_with_a_count():
 
 def test_notify_sends_duplicates_once_and_records_every_copy(tmp_path, monkeypatch):
     sent = []
-    monkeypatch.setattr(main.telegram, "send", lambda job, copies=1: sent.append((job, copies)))
+    monkeypatch.setattr(
+        main.telegram, "send", lambda job, copies=1, **_: sent.append((job, copies))
+    )
     store = SeenStore(str(tmp_path / "seen.json"))
     dupes = [make_job(n, title="Validation Engineer") for n in range(3)]
     jobs = [*dupes, make_job(5)]
@@ -148,7 +150,7 @@ def test_notify_sends_duplicates_once_and_records_every_copy(tmp_path, monkeypat
 
 
 def test_notify_failed_send_leaves_every_duplicate_unseen(tmp_path, monkeypatch):
-    def boom(job, copies=1):
+    def boom(job, copies=1, **_):
         raise RuntimeError("telegram down")
 
     monkeypatch.setattr(main.telegram, "send", boom)
@@ -161,8 +163,8 @@ def test_notify_failed_send_leaves_every_duplicate_unseen(tmp_path, monkeypatch)
 
 def test_notify_digest_threshold_counts_collapsed_entries(tmp_path, monkeypatch):
     digests, singles = [], []
-    monkeypatch.setattr(main.telegram, "send_digest", digests.append)
-    monkeypatch.setattr(main.telegram, "send", lambda job, copies=1: singles.append(job))
+    monkeypatch.setattr(main.telegram, "send_digest", lambda jobs, notes=None: digests.append(jobs))
+    monkeypatch.setattr(main.telegram, "send", lambda job, **_: singles.append(job))
     store = SeenStore(str(tmp_path / "seen.json"))
     # 12 postings but only 2 distinct entries: stays under a threshold of 10
     jobs = [make_job(n, title="Validation Engineer") for n in range(11)] + [make_job(99)]

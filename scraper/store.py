@@ -8,9 +8,16 @@ File layout (a bare ``{}`` is also accepted as the empty first-run state):
 
     {
       "jobs": {
-        "<job_id>": {"seen_at": "2026-07-05T14:00:00+00:00"}
-      }
+        "<job_id>": {"seen_at": "2026-07-05T14:00:00+00:00"},
+        "<job_id>": {"seen_at": "...", "closed": "2026-07-09"}
+      },
+      "health": {...},
+      "insights": {...}
     }
+
+``closed`` is set only on jobs first seen after closure tracking began (see
+scraper.insights), which keeps the committed file from gaining a field on
+every historical entry at once.
 """
 
 import json
@@ -29,6 +36,9 @@ class SeenStore:
         # Per-source health counters (managed by scraper.health), persisted
         # alongside the jobs so state stays in one committed file.
         self.health: dict[str, dict] = {}
+        # Derived knowledge (closures, reposts, hiring seasons, starred jobs),
+        # owned by scraper.insights and persisted here for the same reason.
+        self.insights: dict = {}
         self._load()
 
     def _load(self) -> None:
@@ -40,6 +50,7 @@ class SeenStore:
             return
         self._jobs = data.get("jobs", {})
         self.health = data.get("health", {})
+        self.insights = data.get("insights", {})
 
     def __len__(self) -> int:
         return len(self._jobs)
@@ -49,6 +60,21 @@ class SeenStore:
 
     def add(self, job: Job) -> None:
         self._jobs[job.id] = {"seen_at": datetime.now(UTC).isoformat(timespec="seconds")}
+
+    def ids(self) -> list[str]:
+        return list(self._jobs)
+
+    def seen_at(self, job_id: str) -> datetime:
+        return self._seen_at(self._jobs[job_id])
+
+    def closed_on(self, job_id: str) -> str | None:
+        return self._jobs[job_id].get("closed")
+
+    def mark_closed(self, job_id: str, on: str) -> None:
+        self._jobs[job_id]["closed"] = on
+
+    def reopen(self, job_id: str) -> None:
+        self._jobs[job_id].pop("closed", None)
 
     def prune(self, max_age_days: int) -> None:
         cutoff = datetime.now(UTC) - timedelta(days=max_age_days)
@@ -60,7 +86,8 @@ class SeenStore:
 
     def save(self) -> None:
         with open(self.path, "w", encoding="utf-8") as f:
-            json.dump({"jobs": self._jobs, "health": self.health}, f, indent=2, sort_keys=True)
+            data = {"jobs": self._jobs, "health": self.health, "insights": self.insights}
+            json.dump(data, f, indent=2, sort_keys=True)
             f.write("\n")
 
     @staticmethod
