@@ -2,25 +2,37 @@
 network access. Each test asserts the fixture's real payload maps to the
 canonical Job shape, including the skip rules."""
 
+import json
+import re
 from datetime import UTC, datetime, timedelta
 
 import responses
 
 from scraper.adapters import (
     REGISTRY,
+    amazon,
     ashby,
+    bamboohr,
+    eightfold,
     get_adapter,
     github_repo,
     greenhouse,
+    jibe,
     lever,
     microsoft,
+    newest_first,
     oracle,
+    rippling,
+    smartrecruiters,
+    successfactors,
+    tiktok,
+    workable,
     workday,
 )
 
 
 def test_registry_dispatches_all_types():
-    for type_str in ["ashby", "greenhouse", "lever", "github", "workday", "microsoft", "oracle"]:
+    for type_str in REGISTRY:
         assert callable(get_adapter(type_str))
 
 
@@ -42,6 +54,15 @@ def test_registry_has_no_stale_entries():
         "workday",
         "microsoft",
         "oracle",
+        "smartrecruiters",
+        "workable",
+        "rippling",
+        "bamboohr",
+        "jibe",
+        "successfactors",
+        "eightfold",
+        "tiktok",
+        "amazon",
     }
 
 
@@ -275,3 +296,224 @@ def test_oracle_paginates_until_total(fixture):
 
     assert len(jobs) == 30
     assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS
+
+
+# --- extensions to existing adapters ---------------------------------------------
+
+
+@responses.activate
+def test_lever_eu_boards_use_the_eu_api_host(fixture):
+    responses.get("https://api.eu.lever.co/v0/postings/cirrus", json=fixture("lever_palantir.json"))
+    jobs = lever.fetch({"company": "cirrus", "region": "eu"})
+    assert jobs and jobs[0].id.startswith("lever:cirrus:")
+
+
+@responses.activate
+def test_workday_site_domain_puts_the_tenant_in_the_path(fixture):
+    api = "https://wd5.myworkdaysite.com/wday/cxs/microchiphr/External/jobs"
+    responses.post(api, json=fixture("workday_ngc.json"))
+    jobs = workday.fetch(
+        {"tenant": "microchiphr", "host": "wd5", "site": "External",
+         "domain": "myworkdaysite.com"}
+    )
+    assert jobs[0].url.startswith("https://wd5.myworkdaysite.com/recruiting/microchiphr/External/")
+
+
+# --- new adapters ------------------------------------------------------------------
+
+
+@responses.activate
+def test_smartrecruiters_maps_jobs_and_narrows_by_country_and_query(fixture):
+    url = "https://api.smartrecruiters.com/v1/companies/BoschGroup/postings"
+    responses.get(url, json=fixture("smartrecruiters_bosch.json"))
+    jobs = smartrecruiters.fetch(
+        {"company": "BoschGroup", "countries": ["us"], "query": "engineer"}
+    )
+
+    assert len(jobs) == 3
+    job = jobs[0]
+    assert job.id == "smartrecruiters:BoschGroup:744000151928744"
+    assert job.title == "Design Engineer"
+    assert job.company == "Bosch Group"
+    assert job.location == "Pleasanton, CA, United States"
+    assert job.url == "https://jobs.smartrecruiters.com/BoschGroup/744000151928744"
+    assert job.posted_at == "2026-09-25T20:04:47.428Z"
+    params = responses.calls[0].request.params
+    assert params["country"] == "us" and params["q"] == "engineer"
+    assert not newest_first(smartrecruiters.fetch)
+
+
+@responses.activate
+def test_smartrecruiters_pages_and_dedups_across_countries(fixture):
+    url = "https://api.smartrecruiters.com/v1/companies/BoschGroup/postings"
+    page = fixture("smartrecruiters_bosch.json")
+    page["totalFound"] = 3
+    responses.get(url, json=page)  # us
+    responses.get(url, json=page)  # ca: the same reqs, listed again
+    jobs = smartrecruiters.fetch({"company": "BoschGroup", "countries": ["us", "ca"]})
+    assert len(jobs) == 3
+    assert len(responses.calls) == 2  # short page: no needless second page per country
+
+
+@responses.activate
+def test_workable_maps_jobs_and_follows_the_page_token(fixture):
+    url = "https://apply.workable.com/api/v3/accounts/tickpick/jobs"
+    first = fixture("workable_tickpick.json") | {"nextPage": "abc"}
+    responses.post(url, json=first)
+    responses.post(url, json=fixture("workable_tickpick.json"))
+    jobs = workable.fetch({"company": "tickpick"})
+
+    assert len(jobs) == 6
+    job = jobs[0]
+    assert job.id == "workable:tickpick:F4AEB07453"
+    assert job.title == "General Counsel"
+    assert job.location == "New York, New York, United States"
+    assert job.url == "https://apply.workable.com/tickpick/j/F4AEB07453/"
+    assert job.posted_at == "2026-09-16T00:00:00.000Z"
+    assert json.loads(responses.calls[1].request.body)["token"] == "abc"
+
+
+@responses.activate
+def test_rippling_maps_jobs(fixture):
+    responses.get(
+        "https://api.rippling.com/platform/api/ats/v1/board/flexai/jobs",
+        json=fixture("rippling_flexai.json"),
+    )
+    [job, *_] = rippling.fetch({"company": "flexai"})
+    assert job.id == "rippling:flexai:d2b49eda-99ee-4f4d-ba53-677e7f5360c2"
+    assert job.title == "Senior Backend Engineer"
+    assert job.location == "Bangalore, India"
+    assert job.url == "https://ats.rippling.com/flexai/jobs/d2b49eda-99ee-4f4d-ba53-677e7f5360c2"
+    assert job.posted_at is None
+
+
+@responses.activate
+def test_bamboohr_maps_jobs(fixture):
+    responses.get(
+        "https://lexical.bamboohr.com/careers/list", json=fixture("bamboohr_lexical.json")
+    )
+    [job, *_] = bamboohr.fetch({"company": "lexical"})
+    assert job.id == "bamboohr:lexical:70"
+    assert job.title == "NLM Cloud Engineer I"
+    assert job.location == "Bethesda, Maryland"
+    assert job.url == "https://lexical.bamboohr.com/careers/70"
+    assert responses.calls[0].request.headers["Accept"] == "application/json"
+
+
+@responses.activate
+def test_jibe_maps_jobs_newest_first(fixture):
+    responses.get("https://careers.amd.com/api/jobs", json=fixture("jibe_amd.json"))
+    jobs = jibe.fetch({"company": "amd", "host": "careers.amd.com"})
+
+    assert len(jobs) == 3
+    assert len(responses.calls) == 1  # short page: done
+    job = jobs[0]
+    assert job.id == "jibe:careers.amd.com:92773"
+    assert job.title == "Business Operations Budget Manager"
+    assert job.location == "Austin, Texas"
+    assert job.url == "https://careers.amd.com/jobs/92773"
+    assert job.posted_at == "2026-09-27T16:36:00+00:00"  # "+0000" normalised
+    assert "<" not in job.description and job.description.startswith("ADVANCE YOUR CAREER")
+    assert responses.calls[0].request.params["sortBy"] == "posted_date"
+
+
+@responses.activate
+def test_successfactors_maps_rss_items():
+    with open("tests/fixtures/successfactors_l3harris.xml", "rb") as f:
+        responses.get("https://jobs.l3harris.com/services/rss/job/", body=f.read())
+    jobs = successfactors.fetch({"company": "l3harris", "host": "jobs.l3harris.com"})
+
+    assert len(jobs) == 3
+    job = jobs[0]
+    assert job.id == "successfactors:jobs.l3harris.com:1434203000"
+    assert job.title == "Manager, Manufacturing Engineering (Digital Tools and SPC)"
+    assert job.location == "Camden, AR, US"  # split off the title, zip dropped
+    assert job.url.endswith("/1434203000/") and "utm_" not in job.url
+    assert job.posted_at == "2026-09-28T00:00:00+00:00"
+    assert job.description.startswith("Job Title: Manager")
+    assert responses.calls[0].request.params["keywords"] == ""  # "()" breaks the feed
+
+
+@responses.activate
+def test_successfactors_feed_error_raises():
+    responses.get(
+        "https://jobs.l3harris.com/services/rss/job/",
+        body="<xml>Error: There is a problem with a jobs query</xml>",
+    )
+    try:
+        successfactors.fetch({"company": "l3harris", "host": "jobs.l3harris.com"})
+        raise AssertionError("expected ValueError")
+    except ValueError as exc:
+        assert "feed error" in str(exc)
+
+
+@responses.activate
+def test_eightfold_maps_jobs(fixture):
+    responses.get("https://qualcomm.eightfold.ai/api/pcsx/search",
+                  json=fixture("eightfold_qualcomm.json"))
+    jobs = eightfold.fetch({"company": "qualcomm", "tenant": "qualcomm", "domain": "qualcomm.com"})
+
+    job = jobs[0]
+    assert job.id == "eightfold:qualcomm:446721255550"
+    assert job.title == "Engineer - BT/UWB validation and system integration"
+    assert job.location == "Bangalore, India"
+    assert job.url == "https://qualcomm.eightfold.ai/careers/job/446721255550"
+    assert job.posted_at == "2026-09-26T00:00:00+00:00"
+    assert responses.calls[0].request.params["domain"] == "qualcomm.com"
+
+
+@responses.activate
+def test_tiktok_maps_jobs_and_dates_them_from_the_snowflake_id(fixture):
+    responses.post(tiktok.API_URL, json=fixture("tiktok.json"))
+    jobs = tiktok.fetch({})
+
+    job = jobs[0]
+    assert job.id == "tiktok:tiktok:7686714309884578101"
+    assert job.title == "Workplace Manager"
+    assert job.location == "San Jose, California, United States of America"
+    assert job.url == "https://lifeattiktok.com/search/7686714309884578101"
+    assert job.posted_at == "2026-09-18T03:37:20+00:00"
+    assert responses.calls[0].request.headers["website-path"] == "tiktok"
+    assert not newest_first(tiktok.fetch)
+
+
+@responses.activate
+def test_tiktok_error_code_raises():
+    responses.post(tiktok.API_URL, json={"code": -1, "data": None, "message": "bad"})
+    try:
+        tiktok.fetch({})
+        raise AssertionError("expected ValueError")
+    except ValueError:
+        pass
+
+
+@responses.activate
+def test_amazon_maps_jobs_filtered_to_north_america(fixture):
+    responses.get(amazon.API_URL, json=fixture("amazon.json"))
+    jobs = amazon.fetch({})
+
+    job = jobs[0]
+    assert job.id == "amazon:amazon:10560963"
+    assert job.title == "Data Center Technician , DCC Communities"
+    assert job.company == "amazon"
+    assert job.location == "Gilroy, California, USA"
+    assert job.url == "https://www.amazon.jobs/en/jobs/10560963/data-center-technician-dcc-communities"
+    assert job.posted_at == "2026-09-25"
+    query = responses.calls[0].request.url
+    assert re.search(r"normalized_country_code%5B%5D=USA.*normalized_country_code%5B%5D=CAN", query)
+    assert "sort=recent" in query
+
+
+@responses.activate
+def test_tiktok_filters_by_recruitment_type_and_warns_when_capped(fixture, monkeypatch, caplog):
+    posting = fixture("tiktok.json")["data"]["job_post_list"][0]
+    monkeypatch.setattr(tiktok, "MAX_POSTINGS", 2 * tiktok.PAGE_SIZE)
+    page = {"code": 0, "data": {"count": 5000, "job_post_list": [posting] * tiktok.PAGE_SIZE}}
+    responses.post(tiktok.API_URL, json=page)
+    responses.post(tiktok.API_URL, json=page)
+
+    tiktok.fetch({"recruitment_ids": [2]})
+
+    assert json.loads(responses.calls[0].request.body)["recruitment_id_list"] == ["2"]
+    assert len(responses.calls) == 2  # stopped at the cap
+    assert "exceed the 200 cap" in caplog.text

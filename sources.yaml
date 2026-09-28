@@ -8,6 +8,12 @@
 #   ashby:      https://api.ashbyhq.com/posting-api/job-board/{company}
 #   greenhouse: https://boards-api.greenhouse.io/v1/boards/{company}/jobs
 #   lever:      https://api.lever.co/v0/postings/{company}?mode=json
+#   smartrecruiters: https://api.smartrecruiters.com/v1/companies/{company}/postings
+#   workable:   POST https://apply.workable.com/api/v3/accounts/{company}/jobs
+#   rippling:   https://api.rippling.com/platform/api/ats/v1/board/{company}/jobs
+#   bamboohr:   https://{company}.bamboohr.com/careers/list
+#   Each adapter's docstring (scraper/adapters/) names its endpoint and config
+#   keys. The weekly discovery report suggests entries ready to paste.
 #
 # FAANG (Meta/Apple/Amazon/Netflix/Google) run custom career sites with no
 # public board API - their new-grad roles arrive via the SimplifyJobs feed
@@ -233,6 +239,11 @@ sources:
     repo: vanshb03/Summer2027-Internships
     path: .github/scripts/listings.json
     branch: dev
+
+# Weekly "worth polling directly?" suggestions (scraper/discovery.py) come
+# with an ignore key; list keys here to stop a company being suggested.
+discovery:
+  ignore: []
 
 # About you. `school` narrows each message's LinkedIn link to alumni at the
 # company (people most likely to refer you); leave empty for a plain search.

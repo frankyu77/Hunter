@@ -22,6 +22,14 @@ Every job message has ⭐ / 👍 / 👎 buttons (digests get one numbered row pe
 Presses are read at the start of the next run (every ~5-15 minutes), so the ✓ on a button appears after that delay, not instantly.
 The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
 
+### Direct-source suggestions
+
+Jobs from aggregator repos (SimplifyJobs etc.) arrive hours to days after the company posts them.
+Their apply links usually point at the company's own job board, which Hunter can poll directly: Greenhouse, Ashby, Lever, Workday, Oracle, SmartRecruiters, Workable, Rippling, BambooHR, Eightfold, SuccessFactors and iCIMS-backed ("Jibe") career sites, plus TikTok and Amazon.
+Once a week the bot sends the top 5 such companies that aren't in `sources.yaml` yet, each checked live and given as a ready-to-paste entry.
+The same message names the platforms with no adapter yet that most of your other matches came from.
+To stop a company being suggested, add its `ignore key` under `discovery: ignore:` in `sources.yaml`.
+
 ## Setup
 
 ### 1. Create a Telegram bot

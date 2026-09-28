@@ -17,6 +17,12 @@ requests per company per run; a poller only needs the recent postings,
 so we stop after MAX_POSTINGS. The list endpoint carries no description
 (that would be one extra request per job) - filters match on title only,
 so descriptions stay empty.
+
+A few tenants live on Workday's second domain instead, with the tenant in
+the path rather than the subdomain: for
+https://wd5.myworkdaysite.com/recruiting/microchiphr/External set
+``domain: myworkdaysite.com`` (tenant "microchiphr", host "wd5", site
+"External"). The API is identical apart from the URL.
 """
 
 import re
@@ -28,6 +34,9 @@ from scraper.models import Job
 
 API_URL = "https://{tenant}.{host}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
 BOARD_URL = "https://{tenant}.{host}.myworkdayjobs.com/{site}"
+SITE_DOMAIN = "myworkdaysite.com"
+SITE_API_URL = "https://{host}.myworkdaysite.com/wday/cxs/{tenant}/{site}/jobs"
+SITE_BOARD_URL = "https://{host}.myworkdaysite.com/recruiting/{tenant}/{site}"
 PAGE_SIZE = 20
 MAX_POSTINGS = 200
 TIMEOUT_SECONDS = 30
@@ -38,7 +47,13 @@ def fetch(config: dict) -> list[Job]:
     host = config["host"]
     site = config["site"]
     company = config.get("company") or tenant
-    base_url = BOARD_URL.format(tenant=tenant, host=host, site=site)
+    on_site_domain = config.get("domain") == SITE_DOMAIN
+    api_url = (SITE_API_URL if on_site_domain else API_URL).format(
+        tenant=tenant, host=host, site=site
+    )
+    base_url = (SITE_BOARD_URL if on_site_domain else BOARD_URL).format(
+        tenant=tenant, host=host, site=site
+    )
 
     jobs: list[Job] = []
     total = MAX_POSTINGS
@@ -46,7 +61,7 @@ def fetch(config: dict) -> list[Job]:
         if offset >= total:
             break
         response = requests.post(
-            API_URL.format(tenant=tenant, host=host, site=site),
+            api_url,
             json={
                 "appliedFacets": {},
                 "limit": PAGE_SIZE,
