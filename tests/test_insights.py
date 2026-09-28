@@ -283,6 +283,7 @@ def test_starred_closure_alerts_before_recording_and_retries_on_failure(tmp_path
 
 def test_pipeline_end_to_end_across_runs(tmp_path, monkeypatch, capsys):
     """Seed, then announce a new season, then notice a posting closing."""
+    monkeypatch.chdir(tmp_path)  # the run writes site/ and caches into the cwd
     listing = {"jobs": [make_job(1, title="Staff Engineer", company="acme", source="fake/acme",
                                   prefix="fake:acme")]}
     monkeypatch.setitem(REGISTRY, "fake", lambda config: listing["jobs"])

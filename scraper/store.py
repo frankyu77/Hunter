@@ -71,6 +71,14 @@ class SeenStore:
     def seen_at(self, job_id: str) -> datetime:
         return self._seen_at(self._jobs[job_id])
 
+    def first_seen(self, job_id: str) -> datetime | None:
+        """Like seen_at, but None for an undatable entry instead of "now" -
+        for reporting, where counting it as today would be a lie."""
+        try:
+            return datetime.fromisoformat(self._jobs[job_id]["seen_at"])
+        except (KeyError, TypeError, ValueError):
+            return None
+
     def closed_on(self, job_id: str) -> str | None:
         return self._jobs[job_id].get("closed")
 

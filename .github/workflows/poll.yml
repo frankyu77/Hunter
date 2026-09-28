@@ -15,12 +15,16 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   poll:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      dashboard: ${{ steps.site.outputs.built }}
     steps:
       - uses: actions/checkout@v4
 
@@ -37,6 +41,19 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python -m scraper.main
 
+      # The run writes site/ at most hourly (Pages rate-limits deploys).
+      - name: Check for a dashboard build
+        id: site
+        run: echo "built=$([ -f site/index.html ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      # continue-on-error: a Pages hiccup must never stop the state commit below.
+      - name: Upload dashboard
+        if: steps.site.outputs.built == 'true'
+        continue-on-error: true
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
       - name: Commit updated state
         run: |
           if git diff --quiet seen_jobs.json; then
@@ -50,3 +67,19 @@ jobs:
           # A human may have pushed while we ran; rebase our state commit on top.
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
+
+  # Publishes the dashboard. Needs Settings -> Pages -> Source: "GitHub Actions".
+  # Kept out of the poll job so a Pages problem can never block state commits.
+  deploy-dashboard:
+    needs: poll
+    if: needs.poll.outputs.dashboard == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

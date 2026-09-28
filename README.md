@@ -14,13 +14,24 @@ Each run fetches everything currently posted, subtracts everything already in `s
 
 ### Buttons
 
-Every job message has ⭐ / 👍 / 👎 buttons (digests get one numbered row per entry).
+Every job message has ⭐ / 👍 / 👎 / ✅ buttons (digests get one numbered row per entry).
 
 - ⭐ **Star** a job to be alerted if its posting closes.
+- ✅ **Applied** marks a job you applied to.
 - 👍 / 👎 record whether a job was relevant. Votes are kept in the `feedback.votes` section of `seen_jobs.json` as labelled training data for a future relevance model.
 
 Presses are read at the start of the next run (every ~5-15 minutes), so the ✓ on a button appears after that delay, not instantly.
 The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
+
+Once a week the bot also sends you a private summary: jobs sent, 👍/👎, stars, and applications.
+
+### Dashboard
+
+A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<owner>.github.io/<repo>/`: search every job Hunter sent you (90 days) and every open posting that passes your filters, new postings per week per board, and how long each board's postings stay open.
+
+The repo is public and so is the dashboard, so it shows job data only - never your votes, stars or applications (those stay in the private Telegram summary).
+
+One-time setup: in the repo, **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**. To preview locally from state alone: `python -m scraper.dashboard` and open `site/index.html`.
 
 ### Direct-source suggestions
 

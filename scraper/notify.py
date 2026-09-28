@@ -5,7 +5,7 @@ via the Bot API sendMessage endpoint (HTML parse mode). Credentials come
 only from environment variables, injected by GitHub Actions Secrets - never
 from config files.
 
-Every job message carries inline ⭐/👍/👎 buttons. This module only renders
+Every job message carries inline ⭐/👍/👎/✅ buttons. This module only renders
 them and exposes the raw Bot API calls; what a press *means* lives in
 scraper.feedback. Callback data is "<action>:<token>", where the token is a
 short hash of the job id - Telegram caps callback data at 64 bytes, and
@@ -186,7 +186,7 @@ def call(method: str, payload: dict) -> object:
 
 # --- buttons ------------------------------------------------------------------
 
-ACTIONS = {"s": "star", "u": "up", "d": "down"}
+ACTIONS = {"s": "star", "u": "up", "d": "down", "a": "applied"}
 
 
 def callback_token(job_id: str) -> str:
@@ -194,16 +194,22 @@ def callback_token(job_id: str) -> str:
 
 
 def button_row(
-    token: str, number: int | None = None, starred: bool = False, vote: str | None = None
+    token: str,
+    number: int | None = None,
+    starred: bool = False,
+    vote: str | None = None,
+    applied: bool = False,
 ) -> list[dict]:
-    """One row of ⭐/👍/👎 for one job; ✓ marks the current state. Digest
+    """One row of ⭐/👍/👎/✅ for one job; ✓ marks the current state. Digest
     rows carry the entry number so each row maps to a line of the message."""
     prefix = f"{number} " if number else ""
     star = "⭐" if number else "⭐ Star"
+    done = "✅" if number else "✅ Applied"
     labels = {
         "s": f"{prefix}{star}{' ✓' if starred else ''}",
         "u": f"{prefix}👍{' ✓' if vote == 'up' else ''}",
         "d": f"{prefix}👎{' ✓' if vote == 'down' else ''}",
+        "a": f"{prefix}{done}{' ✓' if applied else ''}",
     }
     return [{"text": label, "callback_data": f"{a}:{token}"} for a, label in labels.items()]
 
@@ -216,7 +222,9 @@ def keyboard(tokens: list[str], numbered: bool = False) -> dict:
 _ROW_NUMBER = re.compile(r"^(\d+) ")
 
 
-def restyle(markup: dict, token: str, starred: bool, vote: str | None) -> dict:
+def restyle(
+    markup: dict, token: str, starred: bool, vote: str | None, applied: bool = False
+) -> dict:
     """The message's keyboard with ``token``'s row redrawn for its new state.
     Rebuilt from the keyboard Telegram echoes back with each press, so no
     per-message layout needs to be stored."""
@@ -224,7 +232,9 @@ def restyle(markup: dict, token: str, starred: bool, vote: str | None) -> dict:
     for row in markup.get("inline_keyboard", []):
         if any(button.get("callback_data", "").endswith(f":{token}") for button in row):
             number = _ROW_NUMBER.match(row[0].get("text", ""))
-            row = button_row(token, int(number.group(1)) if number else None, starred, vote)
+            row = button_row(
+                token, int(number.group(1)) if number else None, starred, vote, applied
+            )
         rows.append(row)
     return {"inline_keyboard": rows}
 
@@ -362,7 +372,7 @@ def digest_messages(
 
 
 CAP = 3800  # stay safely under Telegram's 4096-char message cap
-# One button row per entry: 15 rows x 3 buttons keeps each message's
+# One button row per entry: 15 rows x 4 buttons keeps each message's
 # keyboard well inside Telegram's ~100-button limit and short enough to scroll.
 MAX_ENTRIES = 15
 

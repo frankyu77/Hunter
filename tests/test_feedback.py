@@ -1,6 +1,7 @@
 """Inline buttons: rendering, and turning presses into stars and votes."""
 
 import json
+from datetime import UTC, datetime, timedelta
 
 import pytest
 import requests
@@ -86,10 +87,10 @@ def test_callback_data_fits_telegrams_64_byte_limit():
 
 def test_single_message_row_and_state_marks():
     row = telegram.button_row("abc")
-    assert [b["text"] for b in row] == ["⭐ Star", "👍", "👎"]
-    assert [b["callback_data"] for b in row] == ["s:abc", "u:abc", "d:abc"]
-    row = telegram.button_row("abc", starred=True, vote="down")
-    assert [b["text"] for b in row] == ["⭐ Star ✓", "👍", "👎 ✓"]
+    assert [b["text"] for b in row] == ["⭐ Star", "👍", "👎", "✅ Applied"]
+    assert [b["callback_data"] for b in row] == ["s:abc", "u:abc", "d:abc", "a:abc"]
+    row = telegram.button_row("abc", starred=True, vote="down", applied=True)
+    assert [b["text"] for b in row] == ["⭐ Star ✓", "👍", "👎 ✓", "✅ Applied ✓"]
 
 
 def test_digest_entries_are_numbered_to_match_their_button_rows():
@@ -116,7 +117,7 @@ def test_restyle_redraws_only_the_pressed_row_and_keeps_its_number():
     restyled = telegram.restyle(markup, "bbb", starred=True, vote=None)
     rows = restyled["inline_keyboard"]
     assert rows[0] == markup["inline_keyboard"][0]
-    assert [b["text"] for b in rows[1]] == ["2 ⭐ ✓", "2 👍", "2 👎"]
+    assert [b["text"] for b in rows[1]] == ["2 ⭐ ✓", "2 👍", "2 👎", "2 ✅"]
 
 
 @responses.activate
@@ -229,16 +230,24 @@ def test_state_round_trips(tmp_path, bot):
     assert job.id in insights.starred(reloaded)
 
 
-def test_sent_snapshots_expire_but_votes_stay(tmp_path, bot):
-    from datetime import UTC, datetime, timedelta
-
-    job = make_job()
-    store = sent_store(tmp_path, [job])
+def test_sent_history_outlives_its_buttons_and_votes_outlive_both(tmp_path, bot):
+    job, other = make_job(1), make_job(2)
+    store = sent_store(tmp_path, [job, other])
     bot["updates"] = [press(1, "u", job)]
     feedback.process_updates(store)
-    feedback.prune(store, datetime.now(UTC) + timedelta(days=feedback.SENT_DAYS + 1))
+
+    # Past SENT_DAYS: still in the dashboard history, but its buttons expired.
+    later = datetime.now(UTC) + timedelta(days=feedback.SENT_DAYS + 1)
+    feedback.prune(store, later)
+    assert len(store.feedback["sent"]) == 2
+    bot["updates"] = [press(2, "s", other)]
+    feedback.process_updates(store, now=later)
+    assert "too old" in bot["answers"][-1]
+    assert telegram.callback_token(other.id) not in store.feedback["votes"]
+
+    feedback.prune(store, datetime.now(UTC) + timedelta(days=feedback.HISTORY_DAYS + 1))
     assert store.feedback["sent"] == {}
-    assert len(store.feedback["votes"]) == 1
+    assert len(store.feedback["votes"]) == 1  # the training set is never pruned
 
 
 # --- pipeline ------------------------------------------------------------------------
@@ -262,3 +271,40 @@ def test_a_broken_update_read_never_sinks_the_run(tmp_path, monkeypatch):
     store = SeenStore(str(tmp_path / "seen.json"))
     main.read_button_presses(store)  # logs, does not raise
     assert "offset" not in store.feedback
+
+
+def test_applied_press_records_when_and_toggles_off(tmp_path, bot):
+    job = make_job()
+    store = sent_store(tmp_path, [job])
+    token = telegram.callback_token(job.id)
+
+    bot["updates"] = [press(1, "a", job)]
+    feedback.process_updates(store)
+    record = store.feedback["votes"][token]
+    assert record["applied"] is True and "applied_at" in record
+    assert [b["text"] for b in bot["edits"][0]["inline_keyboard"][0]][3] == "✅ Applied ✓"
+    assert bot["answers"][0] == "✅ Marked applied"
+
+    bot["updates"] = [press(2, "a", job)]
+    feedback.process_updates(store)
+    assert token not in store.feedback["votes"]
+
+
+def test_weekly_summary_reports_the_funnel_privately(tmp_path, bot):
+    jobs = [make_job(n, title=f"Engineer, Team {n}x") for n in range(5)]
+    store = sent_store(tmp_path, jobs)
+    start = datetime.now(UTC) - timedelta(days=8)
+    store.feedback["summary_since"] = start.isoformat()
+    bot["updates"] = [press(1, "u", jobs[0]), press(2, "u", jobs[1]), press(3, "d", jobs[2]),
+                      press(4, "s", jobs[0]), press(5, "a", jobs[0])]
+    feedback.process_updates(store)
+    store.mark_closed(jobs[0].id, datetime.now(UTC).date().isoformat())
+
+    summary = feedback.weekly_summary(store)
+    assert "Sent 5 jobs" in summary
+    assert "👍 2 · 👎 1" in summary
+    assert "⭐ 1 starred · ⚠️ 1 of your starred jobs closed" in summary
+    assert "✅ 1 applied this week · 1 all-time" in summary
+
+    feedback.mark_summarised(store)
+    assert feedback.weekly_summary(store) is None  # not due for another week

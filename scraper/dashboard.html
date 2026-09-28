@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunter dashboard</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #f4f4f1;
+    --surface-1: #fcfcfb;
+    --surface-2: #efeeea;
+    --border: #e2e1dc;
+    --grid: #e9e8e3;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #6f6e69;
+    --accent: #2a78d6;
+    --link: #1c5cab;
+    /* sequential blue, low -> high; near-zero recedes toward the surface */
+    --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #6da7ec;
+    --seq-4: #3987e5; --seq-5: #256abf; --seq-6: #104281;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #262624;
+      --border: #30302e; --grid: #2b2b29;
+      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #9a998f;
+      --accent: #3987e5; --link: #86b6ef;
+      --seq-1: #184f95; --seq-2: #1c5cab; --seq-3: #256abf;
+      --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #b7d3f6;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #262624;
+    --border: #30302e; --grid: #2b2b29;
+    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #9a998f;
+    --accent: #3987e5; --link: #86b6ef;
+    --seq-1: #184f95; --seq-2: #1c5cab; --seq-3: #256abf;
+    --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #b7d3f6;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--surface-0); color: var(--text-primary);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
+  header h1 { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spacing: -0.01em; }
+  header p { margin: 0; color: var(--text-secondary); }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+           gap: 12px; margin: 24px 0; }
+  .tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+          padding: 14px 16px; }
+  .tile .value { font-size: 28px; font-weight: 600; line-height: 1.15; }
+  .tile .label { color: var(--text-secondary); font-size: 13px; margin-top: 2px; }
+
+  section.card { background: var(--surface-1); border: 1px solid var(--border);
+                 border-radius: 12px; padding: 20px; margin-top: 16px; }
+  .card h2 { font-size: 17px; margin: 0; }
+  .card .sub { color: var(--text-secondary); font-size: 13px; margin: 2px 0 16px; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; align-items: center; }
+  .controls input, .controls select {
+    font: inherit; color: var(--text-primary); background: var(--surface-0);
+    border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; min-width: 0;
+  }
+  .controls input { flex: 1 1 220px; }
+  .tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .tabs button { font: inherit; font-size: 14px; border: 0; background: var(--surface-0);
+                 color: var(--text-secondary); padding: 7px 12px; cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
+  .tabs button:disabled { cursor: not-allowed; opacity: .5; }
+
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 600; color: var(--text-secondary); font-size: 12px;
+       text-transform: uppercase; letter-spacing: .04em; padding: 8px; border-bottom: 1px solid var(--border); }
+  td { padding: 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  td.date { white-space: nowrap; color: var(--text-secondary); }
+  td.muted { color: var(--text-secondary); }
+  td.src { color: var(--text-muted); font-size: 13px; white-space: nowrap; }
+  .status { display: inline-block; font-size: 12px; margin-left: 6px; white-space: nowrap;
+            color: var(--text-secondary); }
+  .status.open::before { content: "●"; color: #0ca30c; margin-right: 4px; }
+  .status.closed::before { content: "○"; margin-right: 4px; }
+  tr.closed a { color: var(--text-secondary); }
+  .loc-inline { display: none; color: var(--text-secondary); font-size: 13px; }
+  @media (max-width: 720px) {
+    .col-src, .col-loc { display: none; }
+    .loc-inline { display: block; }
+  }
+  .more { margin-top: 12px; font: inherit; font-size: 14px; background: none; color: var(--link);
+          border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+  .empty { color: var(--text-muted); padding: 16px 0; }
+
+  /* column chart */
+  .columns { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px;
+             align-items: end; height: 140px; border-bottom: 1px solid var(--border); }
+  .col { position: relative; height: 100%; display: flex; align-items: flex-end; cursor: default; }
+  .col .bar { width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+  .col:hover .bar, .col:focus .bar { filter: brightness(1.12); }
+  .col.partial .bar { opacity: .45; }
+  .col-labels { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px;
+                font-size: 12px; color: var(--text-muted); margin-top: 6px; text-align: center; }
+
+  /* heatmap */
+  .heat { display: grid; gap: 2px; margin-top: 24px; font-size: 13px; }
+  .heat .name { color: var(--text-secondary); white-space: nowrap; overflow: hidden;
+                text-overflow: ellipsis; padding-right: 8px; line-height: 22px; }
+  .heat .cell { height: 22px; border-radius: 4px; background: var(--surface-2); }
+  .heat .cell.l1 { background: var(--seq-1); } .heat .cell.l2 { background: var(--seq-2); }
+  .heat .cell.l3 { background: var(--seq-3); } .heat .cell.l4 { background: var(--seq-4); }
+  .heat .cell.l5 { background: var(--seq-5); } .heat .cell.l6 { background: var(--seq-6); }
+  .heat .wk { font-size: 12px; color: var(--text-muted); text-align: center; }
+  .legend { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px;
+            color: var(--text-secondary); flex-wrap: wrap; }
+  .legend .sw { width: 18px; height: 12px; border-radius: 3px; background: var(--surface-2); }
+
+  /* horizontal bars */
+  .hbars { display: grid; grid-template-columns: minmax(90px, 200px) 1fr auto; gap: 8px 12px;
+           align-items: center; font-size: 14px; }
+  .hbars .name { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hbars .track { height: 12px; }
+  .hbars .fill { height: 12px; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
+  .hbars .val { color: var(--text-primary); white-space: nowrap; }
+  .hbars .val span { color: var(--text-muted); }
+
+  details { margin-top: 16px; font-size: 14px; }
+  summary { cursor: pointer; color: var(--text-secondary); }
+
+  #tip { position: fixed; pointer-events: none; z-index: 10; background: var(--text-primary);
+         color: var(--surface-1); font-size: 13px; padding: 6px 9px; border-radius: 6px;
+         max-width: 260px; opacity: 0; transition: opacity .08s; }
+  #tip.on { opacity: 1; }
+  footer { color: var(--text-muted); font-size: 13px; margin-top: 32px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Hunter</h1>
+    <p id="subtitle"></p>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section class="card" aria-labelledby="search-h">
+    <h2 id="search-h">Jobs</h2>
+    <p class="sub" id="jobs-sub"></p>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search title, company, location" aria-label="Search jobs">
+      <select id="cat" aria-label="Category">
+        <option value="">All levels</option>
+        <option value="internship">Internships</option>
+        <option value="new_grad">New grad &amp; junior</option>
+        <option value="full_time">Full-time</option>
+      </select>
+      <div class="tabs" role="tablist">
+        <button role="tab" id="tab-history" aria-selected="true">Sent to you</button>
+        <button role="tab" id="tab-open" aria-selected="false">Not sent</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th id="date-h">Sent</th><th>Company</th><th>Role</th><th class="col-loc">Location</th><th class="col-src">Source</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="empty" hidden>No jobs match.</p>
+    <button class="more" id="more" hidden>Show more</button>
+  </section>
+
+  <section class="card" aria-labelledby="act-h">
+    <h2 id="act-h">New postings per week</h2>
+    <p class="sub" id="act-sub"></p>
+    <div class="columns" id="columns"></div>
+    <div class="col-labels" id="col-labels"></div>
+    <div class="heat" id="heat"></div>
+    <div class="legend" id="legend"></div>
+    <details><summary>Show as table</summary><div class="table-wrap"><table id="act-table"></table></div></details>
+  </section>
+
+  <section class="card" aria-labelledby="close-h">
+    <h2 id="close-h">How long postings stay open</h2>
+    <p class="sub">Median days from first seen to gone, per board. Boards with fewer than 5 closures are left out.</p>
+    <div class="hbars" id="hbars"></div>
+    <p class="empty" id="close-empty" hidden>Not enough closures recorded yet - this fills in over the first weeks.</p>
+  </section>
+
+  <footer>Built by Hunter from public job postings. Updated hourly.</footer>
+</main>
+<div id="tip" role="tooltip"></div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(() => {
+  const data = JSON.parse(document.getElementById("data").textContent);
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+  const fmt = (n) => (n == null ? "—" : n.toLocaleString());
+  const shortDate = (iso) => new Date(iso + "T00:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"});
+
+  // Header + tiles
+  const updated = new Date(data.generated);
+  $("subtitle").textContent = `Updated ${updated.toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"})}`;
+  const s = data.stats;
+  const tiles = [
+    [fmt(s.tracked), "postings tracked (60 days)"],
+    [fmt(s.new_week), "new postings, last 7 days"],
+    [fmt(s.sent_week), "sent in the last 7 days"],
+    [s.open_matching == null ? "—" : fmt(s.open_matching), "open now, never sent to you"],
+    [s.median_close == null ? "—" : `${s.median_close}d`, "typical time a posting stays open"],
+  ];
+  $("tiles").innerHTML = tiles.map(([v, l]) =>
+    `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
+
+  // Jobs table
+  const PAGE = 25;
+  const hasOpen = Array.isArray(data.open);
+  let tab = "history", shown = PAGE;
+  if (!hasOpen) { $("tab-open").disabled = true; $("tab-open").title = "Available on the published site"; }
+  $("tab-history").textContent = `Sent to you (${fmt(data.history.length)})`;
+  if (hasOpen) $("tab-open").textContent = `Not sent (${fmt(data.open.length)})`;
+  const SUBS = {
+    history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
+    open: "Open right now and matching your filters, but never sent to you - mostly postings that already existed when Hunter started watching a board.",
+  };
+  const STATUS = {open: "Still open", closed: "Closed"};
+
+  function currentRows() {
+    const q = $("q").value.trim().toLowerCase();
+    const cat = $("cat").value;
+    return (tab === "open" ? data.open : data.history).filter((r) =>
+      (!cat || r.k === cat) &&
+      (!q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q)));
+  }
+  function renderRows() {
+    const rows = currentRows();
+    $("date-h").textContent = tab === "open" ? "Posted" : "Sent";
+    $("jobs-sub").textContent = SUBS[tab];
+    $("rows").innerHTML = rows.slice(0, shown).map((r) => `<tr class="${r.st === "closed" ? "closed" : ""}">
+      <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
+      <td>${esc(r.c)}</td>
+      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
+        <span class="loc-inline">${esc(r.l)}</span></td>
+      <td class="muted col-loc">${esc(r.l)}</td>
+      <td class="src col-src">${esc(r.s)}</td></tr>`).join("");
+    $("empty").hidden = rows.length > 0;
+    $("more").hidden = rows.length <= shown;
+    $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
+  }
+  function selectTab(name) {
+    tab = name; shown = PAGE;
+    $("tab-history").setAttribute("aria-selected", name === "history");
+    $("tab-open").setAttribute("aria-selected", name === "open");
+    renderRows();
+  }
+  $("q").addEventListener("input", () => { shown = PAGE; renderRows(); });
+  $("cat").addEventListener("change", () => { shown = PAGE; renderRows(); });
+  $("tab-history").addEventListener("click", () => selectTab("history"));
+  $("tab-open").addEventListener("click", () => hasOpen && selectTab("open"));
+  $("more").addEventListener("click", () => { shown += PAGE; renderRows(); });
+  renderRows();
+
+  // Weekly totals (one series: no legend, the title names it)
+  const act = data.activity;
+  const weekLabel = (w) => `Week of ${shortDate(w)}`;
+  const maxTotal = Math.max(1, ...act.totals);
+  $("act-sub").textContent = `All boards, last ${act.weeks.length} weeks (this week so far on the right). Below: the ${act.rows.length} busiest boards.`;
+  $("columns").innerHTML = act.totals.map((n, i) =>
+    `<div class="col${i === act.totals.length - 1 ? " partial" : ""}" tabindex="0" data-tip="${esc(weekLabel(act.weeks[i]))}${i === act.totals.length - 1 ? " (so far)" : ""}: ${fmt(n)} new postings">
+       <div class="bar" style="height:${(n / maxTotal) * 100}%"></div></div>`).join("");
+  $("col-labels").innerHTML = act.weeks.map((w) => `<div>${esc(shortDate(w))}</div>`).join("");
+
+  // Heatmap: busiest boards x weeks, quantile buckets of the non-zero counts
+  const values = act.rows.flatMap((r) => r.counts).filter((n) => n > 0).sort((a, b) => a - b);
+  const q = (p) => values.length ? values[Math.min(values.length - 1, Math.floor(p * values.length))] : 0;
+  const cuts = [q(1 / 6), q(2 / 6), q(3 / 6), q(4 / 6), q(5 / 6)];
+  const level = (n) => n <= 0 ? 0 : 1 + cuts.filter((c) => n > c).length;
+  const heat = $("heat");
+  heat.style.gridTemplateColumns = `minmax(90px, 200px) repeat(${act.weeks.length}, 1fr)`;
+  heat.innerHTML = act.rows.map((r) =>
+    `<div class="name" title="${esc(r.label)}">${esc(r.label)}</div>` +
+    r.counts.map((n, i) => `<div class="cell l${level(n)}" tabindex="0"
+      data-tip="${esc(r.label)} · ${esc(weekLabel(act.weeks[i]))}: ${fmt(n)} new"></div>`).join("")
+  ).join("") + `<div></div>` + act.weeks.map((w) => `<div class="wk">${esc(shortDate(w))}</div>`).join("");
+  const bounds = [0, ...cuts];
+  $("legend").innerHTML = `New postings:` +
+    `<span class="sw"></span>0` +
+    [1, 2, 3, 4, 5, 6].map((l) => {
+      const lo = l === 1 ? 1 : bounds[l - 1] + 1, hi = l === 6 ? null : bounds[l];
+      if (hi !== null && hi < lo) return "";
+      return `<span class="sw l${l}" style="background:var(--seq-${l})"></span>${hi === null ? `${lo}+` : lo === hi ? lo : `${lo}–${hi}`}`;
+    }).join("");
+  $("act-table").innerHTML =
+    `<thead><tr><th>Board</th>${act.weeks.map((w) => `<th class="num">${esc(shortDate(w))}</th>`).join("")}</tr></thead>` +
+    `<tbody><tr><td><b>All boards</b></td>${act.totals.map((n) => `<td class="num">${fmt(n)}</td>`).join("")}</tr>` +
+    act.rows.map((r) => `<tr><td>${esc(r.label)}</td>${r.counts.map((n) => `<td class="num">${fmt(n)}</td>`).join("")}</tr>`).join("") +
+    `</tbody>`;
+
+  // Time to close
+  const life = data.lifetimes;
+  $("close-empty").hidden = life.length > 0;
+  const maxDays = Math.max(1, ...life.map((r) => r.median));
+  $("hbars").innerHTML = life.map((r) =>
+    `<div class="name" title="${esc(r.label)}">${esc(r.label)}</div>
+     <div class="track" tabindex="0" data-tip="${esc(r.label)}: median ${r.median} days open, from ${r.n} closures">
+       <div class="fill" style="width:${(r.median / maxDays) * 100}%"></div></div>
+     <div class="val num">${r.median}d <span>· ${r.n}</span></div>`).join("");
+
+  // One shared tooltip for every [data-tip] mark: hover or keyboard focus.
+  const tip = $("tip");
+  const show = (el, x, y) => {
+    tip.textContent = el.dataset.tip; tip.classList.add("on");
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, x - w / 2)) + "px";
+    tip.style.top = Math.max(8, y - h - 12) + "px";
+  };
+  document.addEventListener("mouseover", (e) => {
+    const el = e.target.closest("[data-tip]"); if (el) show(el, e.clientX, e.clientY);
+  });
+  document.addEventListener("mousemove", (e) => {
+    const el = e.target.closest("[data-tip]");
+    if (el) show(el, e.clientX, e.clientY); else tip.classList.remove("on");
+  });
+  document.addEventListener("focusin", (e) => {
+    const el = e.target.closest("[data-tip]"); if (!el) return;
+    const r = el.getBoundingClientRect(); show(el, r.left + r.width / 2, r.top);
+  });
+  document.addEventListener("focusout", () => tip.classList.remove("on"));
+})();
+</script>
+</body>
+</html>
