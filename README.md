@@ -12,6 +12,16 @@ sources.yaml -> FETCH -> NORMALIZE -> DEDUP -> FILTER -> NOTIFY (Telegram)
 
 Each run fetches everything currently posted, subtracts everything already in `seen_jobs.json`, and notifies only the remainder.
 
+### Buttons
+
+Every job message has ⭐ / 👍 / 👎 buttons (digests get one numbered row per entry).
+
+- ⭐ **Star** a job to be alerted if its posting closes.
+- 👍 / 👎 record whether a job was relevant. Votes are kept in the `feedback.votes` section of `seen_jobs.json` as labelled training data for a future relevance model.
+
+Presses are read at the start of the next run (every ~5-15 minutes), so the ✓ on a button appears after that delay, not instantly.
+The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
+
 ## Setup
 
 ### 1. Create a Telegram bot

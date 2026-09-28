@@ -12,7 +12,8 @@ File layout (a bare ``{}`` is also accepted as the empty first-run state):
         "<job_id>": {"seen_at": "...", "closed": "2026-07-09"}
       },
       "health": {...},
-      "insights": {...}
+      "insights": {...},
+      "feedback": {...}
     }
 
 ``closed`` is set only on jobs first seen after closure tracking began (see
@@ -39,6 +40,8 @@ class SeenStore:
         # Derived knowledge (closures, reposts, hiring seasons, starred jobs),
         # owned by scraper.insights and persisted here for the same reason.
         self.insights: dict = {}
+        # Button presses and the votes/stars they produced (scraper.feedback).
+        self.feedback: dict = {}
         self._load()
 
     def _load(self) -> None:
@@ -51,6 +54,7 @@ class SeenStore:
         self._jobs = data.get("jobs", {})
         self.health = data.get("health", {})
         self.insights = data.get("insights", {})
+        self.feedback = data.get("feedback", {})
 
     def __len__(self) -> int:
         return len(self._jobs)
@@ -86,7 +90,12 @@ class SeenStore:
 
     def save(self) -> None:
         with open(self.path, "w", encoding="utf-8") as f:
-            data = {"jobs": self._jobs, "health": self.health, "insights": self.insights}
+            data = {
+                "jobs": self._jobs,
+                "health": self.health,
+                "insights": self.insights,
+                "feedback": self.feedback,
+            }
             json.dump(data, f, indent=2, sort_keys=True)
             f.write("\n")
 

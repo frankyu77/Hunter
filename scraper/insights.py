@@ -162,7 +162,7 @@ def typical_open_days(store: SeenStore, source: str) -> int | None:
     return round(statistics.median(samples))
 
 
-# --- starred jobs (set by the Telegram buttons; read by closure alerts) -----
+# --- starred jobs (set by the ⭐ button via scraper.feedback) --------------
 
 
 def star(store: SeenStore, job: Job) -> None:
@@ -171,6 +171,10 @@ def star(store: SeenStore, job: Job) -> None:
         "company": job.company,
         "url": job.url,
     }
+
+
+def unstar(store: SeenStore, job_id: str) -> None:
+    store.insights.get("starred", {}).pop(job_id, None)
 
 
 def starred(store: SeenStore) -> dict[str, dict]:

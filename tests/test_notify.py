@@ -185,8 +185,8 @@ def test_digest_lists_jobs_and_counts():
 
 def test_digest_bolds_company_and_puts_location_on_its_own_line():
     [message] = format_digest([make_job(1, location="Toronto, Canada")])
-    entry = [block for block in message.split("\n") if block.startswith("- ")][0]
-    assert entry.startswith("- <b>Acme</b> — <a href=")
+    entry = [block for block in message.split("\n") if block.startswith("1. ")][0]
+    assert entry.startswith("1. <b>Acme</b> — <a href=")
     assert "\n  Toronto, Canada" in message
 
 
