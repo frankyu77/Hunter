@@ -58,8 +58,9 @@ tests still pass:
   reverse order silently loses a job forever.
 - **Bulkhead per source.** One source raising must never sink the run —
   `fetch_all` wraps each source in its own try/except.
-- **Retry 5xx and timeouts, fail fast on 4xx.** A 4xx means the source config
-  is wrong and retrying can't fix it.
+- **Retry 5xx, 429 and timeouts, fail fast on other 4xx.** A 4xx means the
+  source config is wrong and retrying can't fix it - except 429, which asks
+  us to back off.
 - **`Job.id` must be stable across runs** — `"{type}:{company}:{ats_job_id}"`,
   falling back to a URL hash. Changing an id format re-notifies every existing
   posting from that source.

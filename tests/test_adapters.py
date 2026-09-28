@@ -19,7 +19,6 @@ from scraper.adapters import (
     greenhouse,
     jibe,
     lever,
-    microsoft,
     newest_first,
     oracle,
     rippling,
@@ -52,7 +51,6 @@ def test_registry_has_no_stale_entries():
         "lever",
         "github",
         "workday",
-        "microsoft",
         "oracle",
         "smartrecruiters",
         "workable",
@@ -199,49 +197,6 @@ def test_workday_paginates_until_total(fixture):
     responses.post(WORKDAY_URL, json={"total": 23, "jobPostings": [posting] * 3})
 
     jobs = workday.fetch(WORKDAY_CONFIG)
-
-    assert len(jobs) == 23
-    assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS
-
-
-MICROSOFT_URL = "https://gcsservices.careers.microsoft.com/search/api/v1/search"
-MICROSOFT_CONFIG = {"type": "microsoft", "company": "microsoft"}
-
-
-@responses.activate
-def test_microsoft_maps_jobs(fixture):
-    responses.get(MICROSOFT_URL, json=fixture("microsoft_search.json"))
-    jobs = microsoft.fetch(MICROSOFT_CONFIG)
-
-    assert len(jobs) == 2
-    assert len(responses.calls) == 1  # totalJobs reached, no needless second page
-    job = jobs[0]
-    assert job.id == "microsoft:microsoft:1810123"
-    assert job.title == "Software Engineer"
-    assert job.company == "microsoft"
-    assert job.source == "microsoft/microsoft"
-    assert job.url == "https://jobs.careers.microsoft.com/global/en/job/1810123"
-    assert job.posted_at == "2026-07-24"  # timestamp trimmed to date
-    assert job.location == "Redmond, Washington, United States (+1 more)"
-    assert "<" not in job.description  # HTML stripped to plain text
-    assert "C#" in job.description
-    assert len(job.description) <= 500
-    assert jobs[1].location == "Toronto, Ontario, Canada"  # single location, no suffix
-
-
-@responses.activate
-def test_microsoft_paginates_until_total(fixture):
-    posting = fixture("microsoft_search.json")["operationResult"]["result"]["jobs"][0]
-    responses.get(
-        MICROSOFT_URL,
-        json={"operationResult": {"result": {"totalJobs": 23, "jobs": [posting] * 20}}},
-    )
-    responses.get(
-        MICROSOFT_URL,
-        json={"operationResult": {"result": {"totalJobs": 23, "jobs": [posting] * 3}}},
-    )
-
-    jobs = microsoft.fetch(MICROSOFT_CONFIG)
 
     assert len(jobs) == 23
     assert len(responses.calls) == 2  # stopped at total, not at MAX_POSTINGS
@@ -517,3 +472,14 @@ def test_tiktok_filters_by_recruitment_type_and_warns_when_capped(fixture, monke
     assert json.loads(responses.calls[0].request.body)["recruitment_id_list"] == ["2"]
     assert len(responses.calls) == 2  # stopped at the cap
     assert "exceed the 200 cap" in caplog.text
+
+
+@responses.activate
+def test_eightfold_on_a_company_domain_uses_that_host(fixture):
+    responses.get("https://apply.careers.microsoft.com/api/pcsx/search",
+                  json=fixture("eightfold_qualcomm.json"))
+    jobs = eightfold.fetch({"company": "microsoft", "tenant": "microsoft",
+                            "host": "apply.careers.microsoft.com", "domain": "microsoft.com"})
+    assert jobs[0].id == "eightfold:microsoft:446721255550"
+    assert jobs[0].url == "https://apply.careers.microsoft.com/careers/job/446721255550"
+    assert responses.calls[0].request.params["domain"] == "microsoft.com"

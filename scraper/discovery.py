@@ -64,6 +64,8 @@ _WORKDAY_HOST = re.compile(r"^([a-z0-9-]+)\.(wd\d+)\.myworkdayjobs\.com$")
 _WORKDAY_SITE_HOST = re.compile(r"^(wd\d+)\.myworkdaysite\.com$")
 _ORACLE_HOST = re.compile(r"^[a-z0-9]+\.fa(?:\.[a-z0-9]+)?\.oraclecloud\.com$")
 _EIGHTFOLD_HOST = re.compile(r"^([a-z0-9-]+)\.eightfold\.ai$")
+# Eightfold sites on a company's own domain: host -> (tenant, email domain).
+_EIGHTFOLD_CUSTOM_HOSTS = {"apply.careers.microsoft.com": ("microsoft", "microsoft.com")}
 _CX_SITE = re.compile(r"^CX_\d+$")
 # One employer, one board: keyed by type alone.
 _SINGLE_BOARD = {"tiktok", "amazon"}
@@ -127,6 +129,10 @@ def board_for(job: Job) -> dict | None:
         return {"type": "rippling", "company": parts[0]}
     if host.endswith(".bamboohr.com"):
         return {"type": "bamboohr", "company": host.removesuffix(".bamboohr.com")}
+    if host in _EIGHTFOLD_CUSTOM_HOSTS:
+        tenant, domain = _EIGHTFOLD_CUSTOM_HOSTS[host]
+        return {"type": "eightfold", "company": tenant, "tenant": tenant, "host": host,
+                "domain": domain}
     if match := _EIGHTFOLD_HOST.match(host):
         tenant = match.group(1)
         return {"type": "eightfold", "company": slug or tenant, "tenant": tenant,

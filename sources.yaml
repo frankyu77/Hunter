@@ -17,8 +17,8 @@
 #
 # FAANG (Meta/Apple/Amazon/Netflix/Google) run custom career sites with no
 # public board API - their new-grad roles arrive via the SimplifyJobs feed
-# below instead. Microsoft is the exception: its careers backend exposes a
-# public JSON search endpoint, handled by the dedicated `microsoft` adapter.
+# below instead. Microsoft is the exception: its careers site runs on
+# Eightfold, whose public search API the `eightfold` adapter reads.
 
 sources:
   # --- fintech ---
@@ -191,10 +191,15 @@ sources:
     host: wd1
     site: External
 
-  # --- custom career platform (dedicated adapter, not a standard ATS) ---
-  # Microsoft's own careers backend; see scraper/adapters/microsoft.py.
-  - type: microsoft
+  # --- eightfold career sites ---
+  # Microsoft serves Eightfold from its own domain (host). Its old
+  # gcsservices.careers.microsoft.com API, and the `microsoft` adapter that
+  # read it, are gone.
+  - type: eightfold
     company: microsoft
+    tenant: microsoft
+    host: apply.careers.microsoft.com
+    domain: microsoft.com
 
   # --- oracle recruiting cloud (public candidate-experience REST API) ---
   # host + site come from the careers URL:
