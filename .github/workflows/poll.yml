@@ -26,7 +26,13 @@ jobs:
     outputs:
       dashboard: ${{ steps.site.outputs.built }}
     steps:
+      # Check out the branch tip, not the commit that triggered the run. A run
+      # queued behind another (concurrency above) would otherwise start from
+      # state that the previous run has since replaced: it re-sends that run's
+      # alerts and then fails to push its own stale seen_jobs.json.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
