@@ -64,6 +64,9 @@ tests still pass:
   they re-enter the diff as new on every run forever.
 - **Prune runs last**, after notifications and state writes, so it can't race
   the dedup.
+- **The button-press offset is saved with the votes it produced**, in the same
+  state file. Advancing it anywhere else can drop presses when a run's state
+  commit fails.
 
 ## State file
 

@@ -18,7 +18,7 @@ from datetime import UTC, datetime
 import requests
 import yaml
 
-from scraper import filters, health, insights
+from scraper import feedback, filters, health, insights
 from scraper import notify as telegram
 from scraper.adapters import get_adapter
 from scraper.models import Job, JobNotes
@@ -150,6 +150,7 @@ def notify(
                 return []
         for job in jobs:
             store.add(job)
+        feedback.remember_sent([dupes[0] for dupes in groups], store)
         return jobs
 
     sent = []
@@ -173,6 +174,7 @@ def notify(
         for dupe in dupes:
             store.add(dupe)
             sent.append(dupe)
+        feedback.remember_sent([job], store)
     return sent
 
 
@@ -235,6 +237,8 @@ def main(argv: list[str] | None = None) -> int:
     config = load_config(args.config)
     sources = config.get("sources") or []
     store = SeenStore(args.store)
+    if not args.dry_run:
+        read_button_presses(store)
 
     fetched, stats = fetch_all(sources)
     normalized = normalize(fetched)
@@ -283,6 +287,7 @@ def main(argv: list[str] | None = None) -> int:
     # can never race the dedup.
     store.prune(PRUNE_MAX_AGE_DAYS)
     insights.prune(store)
+    feedback.prune(store)
     store.save()
 
     for message in warnings:
@@ -303,6 +308,20 @@ def main(argv: list[str] | None = None) -> int:
         len(sent),
     )
     return 0
+
+
+def read_button_presses(store: SeenStore) -> None:
+    """Apply ⭐/👍/👎 presses since the last run. First, so a job starred
+    minutes ago is already watched when this run's closures are checked.
+    Skipped on dry runs: reading would consume the presses. A failure here
+    never sinks the run - unread presses stay queued at Telegram."""
+    try:
+        count = feedback.process_updates(store)
+    except Exception:
+        log.exception("Reading button presses failed; they stay queued for the next run.")
+        return
+    if count:
+        log.info("Read %d button press update(s).", count)
 
 
 def announce_seasons(openings: list, store: SeenStore, dry_run: bool) -> None:

@@ -4,8 +4,15 @@ Posts one message per job - or per group of identical-looking postings -
 via the Bot API sendMessage endpoint (HTML parse mode). Credentials come
 only from environment variables, injected by GitHub Actions Secrets - never
 from config files.
+
+Every job message carries inline ⭐/👍/👎 buttons. This module only renders
+them and exposes the raw Bot API calls; what a press *means* lives in
+scraper.feedback. Callback data is "<action>:<token>", where the token is a
+short hash of the job id - Telegram caps callback data at 64 bytes, and
+aggregator ids alone run longer than that.
 """
 
+import hashlib
 import html
 import logging
 import os
@@ -21,7 +28,7 @@ from scraper.regions import region
 
 log = logging.getLogger(__name__)
 
-API_URL = "https://api.telegram.org/bot{token}/sendMessage"
+API_URL = "https://api.telegram.org/bot{token}/{method}"
 SEND_PAUSE_SECONDS = 0.5  # stay well under Telegram's rate limits
 TIMEOUT_SECONDS = 30
 
@@ -123,15 +130,15 @@ def group_duplicates(jobs: list[Job]) -> list[list[Job]]:
 def send(
     job: Job, copies: int = 1, notes: JobNotes | None = None, school: str | None = None
 ) -> None:
-    _post(format_message(job, copies, notes, school))
+    _post(format_message(job, copies, notes, school), keyboard([callback_token(job.id)]))
     log.info("Notified: %s", job.id)
     time.sleep(SEND_PAUSE_SECONDS)
 
 
 def send_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> None:
-    messages = format_digest(jobs, notes)
-    for message in messages:
-        _post(message)
+    messages = digest_messages(jobs, notes)
+    for text, tokens in messages:
+        _post(text, keyboard(tokens, numbered=True))
         time.sleep(SEND_PAUSE_SECONDS)
     log.info("Notified: digest of %d jobs in %d message(s)", len(jobs), len(messages))
 
@@ -149,22 +156,93 @@ def send_html(text: str) -> None:
     time.sleep(SEND_PAUSE_SECONDS)
 
 
-def _post(text: str) -> None:
+def _post(text: str, markup: dict | None = None) -> None:
+    payload = {
+        "chat_id": chat_id(),
+        "text": text,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True,
+    }
+    if markup:
+        payload["reply_markup"] = markup
+    call("sendMessage", payload)
+
+
+def chat_id() -> str:
+    return os.environ["TELEGRAM_CHAT_ID"].strip()
+
+
+def call(method: str, payload: dict) -> object:
+    """POST one Bot API method and return its ``result``."""
     # Strip whitespace: a token pasted into GitHub Secrets with a trailing
     # newline becomes %0A in the URL and Telegram answers 404.
     token = os.environ["TELEGRAM_BOT_TOKEN"].strip()
-    chat_id = os.environ["TELEGRAM_CHAT_ID"].strip()
     response = requests.post(
-        API_URL.format(token=token),
-        json={
-            "chat_id": chat_id,
-            "text": text,
-            "parse_mode": "HTML",
-            "disable_web_page_preview": True,
-        },
-        timeout=TIMEOUT_SECONDS,
+        API_URL.format(token=token, method=method), json=payload, timeout=TIMEOUT_SECONDS
     )
     response.raise_for_status()
+    return response.json().get("result")
+
+
+# --- buttons ------------------------------------------------------------------
+
+ACTIONS = {"s": "star", "u": "up", "d": "down"}
+
+
+def callback_token(job_id: str) -> str:
+    return hashlib.sha256(job_id.encode()).hexdigest()[:12]
+
+
+def button_row(
+    token: str, number: int | None = None, starred: bool = False, vote: str | None = None
+) -> list[dict]:
+    """One row of ⭐/👍/👎 for one job; ✓ marks the current state. Digest
+    rows carry the entry number so each row maps to a line of the message."""
+    prefix = f"{number} " if number else ""
+    star = "⭐" if number else "⭐ Star"
+    labels = {
+        "s": f"{prefix}{star}{' ✓' if starred else ''}",
+        "u": f"{prefix}👍{' ✓' if vote == 'up' else ''}",
+        "d": f"{prefix}👎{' ✓' if vote == 'down' else ''}",
+    }
+    return [{"text": label, "callback_data": f"{a}:{token}"} for a, label in labels.items()]
+
+
+def keyboard(tokens: list[str], numbered: bool = False) -> dict:
+    rows = [button_row(t, i + 1 if numbered else None) for i, t in enumerate(tokens)]
+    return {"inline_keyboard": rows}
+
+
+_ROW_NUMBER = re.compile(r"^(\d+) ")
+
+
+def restyle(markup: dict, token: str, starred: bool, vote: str | None) -> dict:
+    """The message's keyboard with ``token``'s row redrawn for its new state.
+    Rebuilt from the keyboard Telegram echoes back with each press, so no
+    per-message layout needs to be stored."""
+    rows = []
+    for row in markup.get("inline_keyboard", []):
+        if any(button.get("callback_data", "").endswith(f":{token}") for button in row):
+            number = _ROW_NUMBER.match(row[0].get("text", ""))
+            row = button_row(token, int(number.group(1)) if number else None, starred, vote)
+        rows.append(row)
+    return {"inline_keyboard": rows}
+
+
+def get_updates(offset: int | None) -> list[dict]:
+    payload: dict = {"timeout": 0, "allowed_updates": ["callback_query"]}
+    if offset is not None:
+        payload["offset"] = offset
+    return call("getUpdates", payload) or []
+
+
+def edit_keyboard(chat: int | str, message_id: int, markup: dict) -> None:
+    call("editMessageReplyMarkup", {"chat_id": chat, "message_id": message_id,
+                                    "reply_markup": markup})
+
+
+def answer_callback(callback_id: str, text: str) -> None:
+    call("answerCallbackQuery", {"callback_query_id": callback_id, "text": text})
 
 
 def format_message(
@@ -263,10 +341,18 @@ def format_closed_alert(starred: dict, open_days: int | None) -> str:
 
 
 def format_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> list[str]:
-    # One message (or more, if long) per seniority bucket, so internships,
-    # new-grad roles, and full-time roles never share a message. Counts in
-    # the headers are entries, i.e. duplicates collapsed.
-    messages: list[str] = []
+    return [text for text, _ in digest_messages(jobs, notes)]
+
+
+def digest_messages(
+    jobs: list[Job], notes: dict[str, JobNotes] | None = None
+) -> list[tuple[str, list[str]]]:
+    """(text, callback tokens of its numbered entries) per digest message.
+
+    One message (or more, if long) per seniority bucket, so internships,
+    new-grad roles, and full-time roles never share a message. Counts in
+    the headers are entries, i.e. duplicates collapsed."""
+    messages: list[tuple[str, list[str]]] = []
     entries = group_duplicates(jobs)
     for key, emoji, name in CATEGORIES:
         group = [dupes for dupes in entries if categorize(dupes[0]) == key]
@@ -276,6 +362,9 @@ def format_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> 
 
 
 CAP = 3800  # stay safely under Telegram's 4096-char message cap
+# One button row per entry: 15 rows x 3 buttons keeps each message's
+# keyboard well inside Telegram's ~100-button limit and short enough to scroll.
+MAX_ENTRIES = 15
 
 
 def _format_entry(dupes: list[Job], notes: dict[str, JobNotes]) -> str:
@@ -292,7 +381,7 @@ def _format_entry(dupes: list[Job], notes: dict[str, JobNotes]) -> str:
     note = next((notes[dupe.id] for dupe in dupes if dupe.id in notes), None)
     repost = " 🔁" if note and note.reposted_since else ""
     lines = [
-        f'- <b>{e(display_company(job.company))}</b> — '
+        f'<b>{e(display_company(job.company))}</b> — '
         f'<a href="{e(job.url, quote=True)}">{e(job.title)}</a>{_copies(len(dupes))}{repost}'
     ]
     details = [e(job.location)] if job.location else []
@@ -312,50 +401,63 @@ def _format_entry(dupes: list[Job], notes: dict[str, JobNotes]) -> str:
     return "\n".join(lines)
 
 
-def _format_group(label: str, jobs: list[list[Job]], notes: dict[str, JobNotes]) -> list[str]:
+def _format_group(
+    label: str, jobs: list[list[Job]], notes: dict[str, JobNotes]
+) -> list[tuple[str, list[str]]]:
     # Within the seniority group, split further by region (Canada / US /
     # Other), each under its own flagged subheader. Long groups spill across
-    # as many messages as needed - each stays under the Telegram cap and the
-    # main and region headers repeat on continuation so no job is orphaned.
+    # as many messages as needed - each stays under the Telegram cap and
+    # MAX_ENTRIES, and the main and region headers repeat on continuation so
+    # no job is orphaned. Entries are numbered per message to match the
+    # button rows under it.
     header = f"<b>{label} ({len(jobs)})</b>"
 
-    sections: list[tuple[str, list[str]]] = []
+    sections: list[tuple[str, list[tuple[str, str]]]] = []
     for key, flag, name in REGIONS:
         group = [dupes for dupes in jobs if region(dupes[0].location) == key]
         if not group:
             continue
         subheader = f"<b>{flag} {name} ({len(group)})</b>"
-        sections.append((subheader, [_format_entry(dupes, notes) for dupes in group]))
+        entries = [(_format_entry(d, notes), callback_token(d[0].id)) for d in group]
+        sections.append((subheader, entries))
 
-    messages: list[str] = []
+    messages: list[tuple[str, list[str]]] = []
     lines = [header, ""]
+    tokens: list[str] = []
 
     def used() -> int:
         return sum(len(line) + 1 for line in lines)
 
+    def full(extra: int) -> bool:
+        return bool(tokens) and (used() + extra > CAP or len(tokens) >= MAX_ENTRIES)
+
     def flush() -> None:
-        nonlocal lines
-        messages.append("\n".join(lines))
+        nonlocal lines, tokens
+        messages.append(("\n".join(lines), tokens))
         lines = [f"{header} (continued)", ""]
+        tokens = []
 
     for subheader, entries in sections:
-        blank = any(line.startswith("- ") for line in lines)
         # Keep a subheader with its first job: start a fresh message if the
         # pair won't fit on the current one.
-        if used() + blank + len(subheader) + 1 + len(entries[0]) + 1 > CAP:
+        first = _numbered(len(tokens) + 1, entries[0][0])
+        if full(1 + len(subheader) + 1 + len(first) + 1):
             flush()
-            blank = False
-        if blank:
+        if tokens:
             lines.append("")
         lines.append(subheader)
-        for entry in entries:
-            has_job = any(line.startswith("- ") for line in lines)
-            if used() + len(entry) + 1 > CAP and has_job:
+        for entry, token in entries:
+            if full(len(_numbered(len(tokens) + 1, entry)) + 1):
                 flush()
                 lines.append(subheader)
-            lines.append(entry)
-    messages.append("\n".join(lines))
+            lines.append(_numbered(len(tokens) + 1, entry))
+            tokens.append(token)
+    messages.append(("\n".join(lines), tokens))
     return messages
+
+
+def _numbered(number: int, entry: str) -> str:
+    return f"{number}. {entry}"
 
 
 def _copies(count: int) -> str:
