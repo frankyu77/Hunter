@@ -88,6 +88,17 @@ class SeenStore:
     def reopen(self, job_id: str) -> None:
         self._jobs[job_id].pop("closed", None)
 
+    # A tracked job absent from a clean fetch is "missing" until it has been
+    # gone long enough to count as closed (scraper.insights.CLOSE_AFTER).
+    def missing_since(self, job_id: str) -> str | None:
+        return self._jobs[job_id].get("missing")
+
+    def mark_missing(self, job_id: str, since: str) -> None:
+        self._jobs[job_id]["missing"] = since
+
+    def clear_missing(self, job_id: str) -> None:
+        self._jobs[job_id].pop("missing", None)
+
     def prune(self, max_age_days: int) -> None:
         cutoff = datetime.now(UTC) - timedelta(days=max_age_days)
         stale = [job_id for job_id, meta in self._jobs.items() if self._seen_at(meta) < cutoff]

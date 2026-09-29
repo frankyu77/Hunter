@@ -483,3 +483,30 @@ def test_eightfold_on_a_company_domain_uses_that_host(fixture):
     assert jobs[0].id == "eightfold:microsoft:446721255550"
     assert jobs[0].url == "https://apply.careers.microsoft.com/careers/job/446721255550"
     assert responses.calls[0].request.params["domain"] == "microsoft.com"
+
+
+@responses.activate
+def test_workday_keeps_paging_past_the_cap_while_pages_hold_new_postings(fixture, monkeypatch):
+    # TD-style ordering: a block of fresh postings runs across the cap.
+    monkeypatch.setattr(workday, "MAX_POSTINGS", 40)
+    posting = fixture("workday_ngc.json")["jobPostings"][0]
+    fresh = posting | {"postedOn": "Posted Today"}
+    old = posting | {"postedOn": "Posted 30+ Days Ago"}
+    for page in ([fresh] * 20, [fresh] * 20, [fresh] * 20, [old] * 20, [old] * 20):
+        responses.post(WORKDAY_URL, json={"total": 1706, "jobPostings": page})
+
+    jobs = workday.fetch(WORKDAY_CONFIG)
+
+    assert len(jobs) == 80  # read on past the cap until a page held nothing fresh
+    assert len(responses.calls) == 4
+
+
+@responses.activate
+def test_workday_ordered_board_still_stops_at_the_cap(fixture, monkeypatch):
+    monkeypatch.setattr(workday, "MAX_POSTINGS", 40)
+    posting = fixture("workday_ngc.json")["jobPostings"][0]
+    old = posting | {"postedOn": "Posted 5 Days Ago"}
+    for _ in range(4):
+        responses.post(WORKDAY_URL, json={"total": 1706, "jobPostings": [old] * 20})
+    assert len(workday.fetch(WORKDAY_CONFIG)) == 40
+    assert len(responses.calls) == 2

@@ -106,6 +106,28 @@ def test_one_broken_source_does_not_sink_the_run(monkeypatch):
     assert stats["ok/good"] == {"fetched": 1, "errors": 0, "truncated": False}
 
 
+def test_a_capped_fetch_that_is_not_newest_first_is_marked_unordered(monkeypatch):
+    from scraper.adapters import workday
+
+    def fake(dates):
+        def fetch(config):
+            return [Job(**{**make_job(n, source="workday/td").__dict__, "posted_at": d})
+                    for n, d in enumerate(dates)]
+        return fetch
+
+    monkeypatch.setattr(workday, "MAX_POSTINGS", 3)
+    for dates, unordered in (
+        (["2026-09-28", "2026-09-27", None, "2026-09-20"], False),  # newest-first
+        (["2026-09-28", "2026-09-27", "2026-09-28", "2026-09-26"], False),  # NVIDIA's 1-day hiccup
+        (["2026-09-28", "2026-09-20", "2026-09-28"], True),  # TD: fresh after old
+    ):
+        fetch = fake(dates)
+        fetch.__module__ = workday.__name__  # so max_postings() finds the cap
+        monkeypatch.setitem(REGISTRY, "wd", fetch)
+        _, stats = main.fetch_all([{"type": "wd", "name": "td"}])
+        assert stats["wd/td"].get("unordered", False) is unordered
+
+
 # --- health ------------------------------------------------------------------
 
 

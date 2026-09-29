@@ -12,7 +12,7 @@ import sys
 import time
 from collections import Counter
 from collections.abc import Callable
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 
 import requests
 import yaml
@@ -28,6 +28,7 @@ log = logging.getLogger("scraper")
 # Waits between retry attempts on timeouts and 5xx. Per-source and small so
 # the whole run still finishes quickly even with a flaky source.
 RETRY_WAITS = (1, 4, 16)
+ORDER_SLACK_DAYS = 1
 PRUNE_MAX_AGE_DAYS = 60
 
 
@@ -49,7 +50,9 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
     per-source stats for the run summary, health and closure tracking.
 
     ``truncated`` marks a fetch that hit its adapter's MAX_POSTINGS cap, so
-    closure tracking knows the list is only the newest slice."""
+    closure tracking knows the list is only the newest slice; ``unordered``
+    marks a capped fetch that isn't newest-first, where absence proves
+    nothing."""
     jobs: list[Job] = []
     stats: dict[str, dict] = {}
     for source in sources:
@@ -62,7 +65,7 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
             stat["fetched"] += len(fetched)
             cap = max_postings(fetch)
             stat["truncated"] = cap is not None and len(fetched) >= cap
-            if stat["truncated"] and not newest_first(fetch):
+            if stat["truncated"] and not (newest_first(fetch) and _dated_newest_first(fetched)):
                 stat["unordered"] = True
             log.info("%s: fetched %d jobs", label, len(fetched))
             jobs.extend(fetched)
@@ -70,6 +73,29 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
             stat["errors"] += 1
             log.exception("%s: fetch failed; continuing with remaining sources", label)
     return jobs, stats
+
+
+def _dated_newest_first(jobs: list[Job]) -> bool:
+    """Whether this fetch actually came back newest-first. An adapter can
+    promise it and a board still break it (TD's Workday interleaves), so a
+    capped slice is only trusted as a recency window when its dates agree.
+
+    Undated postings are ignored, and a posting may be up to
+    ORDER_SLACK_DAYS newer than the oldest seen before it: Workday's
+    "Posted Today"/"Yesterday" labels straddle time zones, so NVIDIA's
+    otherwise sorted list has a few one-day hiccups. TD's jumps are days."""
+    oldest = None
+    for job in jobs:
+        if not job.posted_at:
+            continue
+        try:
+            day = date.fromisoformat(job.posted_at[:10])
+        except ValueError:
+            continue
+        if oldest is not None and (day - oldest).days > ORDER_SLACK_DAYS:
+            return False
+        oldest = day if oldest is None else min(oldest, day)
+    return True
 
 
 def fetch_with_retry(fetch: Callable, config: dict, label: str) -> list[Job]:

@@ -286,7 +286,7 @@ def format_message(
         lines.append(f"🔁 Reposted: first listed {e(notes.reposted_since)}, closed unfilled")
     if notes and notes.typical_open_days is not None:
         company = e(display_company(job.company))
-        lines.append(f"⏳ {company} postings usually stay open ~{notes.typical_open_days}d")
+        lines.append(f"⏳ {company} postings usually stay open {_days(notes.typical_open_days)}")
 
     lines.append("")
     apply = f'<a href="{e(job.url, quote=True)}">Apply</a>'
@@ -346,7 +346,7 @@ def format_closed_alert(starred: dict, open_days: int | None) -> str:
         f'<a href="{e(starred["url"], quote=True)}">{e(starred["title"])}</a> just closed'
     ]
     if open_days is not None:
-        lines.append(f"It was open about {open_days}d.")
+        lines.append(f"It was open {_days(open_days)}.")
     return "\n".join(lines)
 
 
@@ -398,7 +398,7 @@ def _format_entry(dupes: list[Job], notes: dict[str, JobNotes]) -> str:
     if job.posted_at and (age := _age(job.posted_at)):
         details.append(age)
     if note and note.typical_open_days is not None:
-        details.append(f"usually open ~{note.typical_open_days}d")
+        details.append(f"usually open {_days(note.typical_open_days)}")
     if details:
         lines.append(f"  {' · '.join(details)}")
     # Aggregator feeds pull from hundreds of companies, so naming the repo is
@@ -468,6 +468,10 @@ def _format_group(
 
 def _numbered(number: int, entry: str) -> str:
     return f"{number}. {entry}"
+
+
+def _days(days: int) -> str:
+    return "under a day" if days < 1 else f"~{days}d"
 
 
 def _copies(count: int) -> str:
