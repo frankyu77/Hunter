@@ -2864,9 +2864,9 @@
         },
         "workday/psu": {
           "boards": {
-            "{\"company\": \"pennsylvania-state-university\", \"host\": \"wd1\", \"site\": \"PSU_Staff\", \"tenant\": \"psu\", \"type\": \"workday\"}": 2
+            "{\"company\": \"pennsylvania-state-university\", \"host\": \"wd1\", \"site\": \"PSU_Staff\", \"tenant\": \"psu\", \"type\": \"workday\"}": 3
           },
-          "jobs": 2,
+          "jobs": 3,
           "matched": 0,
           "name": "Pennsylvania State University"
         },
@@ -2893,6 +2893,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Thrivent"
+        },
+        "workday/uasys": {
+          "boards": {
+            "{\"company\": \"university-of-arkansas\", \"host\": \"wd5\", \"site\": \"uasys\", \"tenant\": \"uasys\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "University of Arkansas"
         },
         "workday/utaustin": {
           "boards": {
@@ -2954,7 +2962,12 @@
       "greenhouse/databricks": [
         0
       ],
+      "oracle/oracle": [
+        0
+      ],
       "workday/nvidia": [
+        0,
+        0,
         0
       ]
     },
@@ -27264,6 +27277,9 @@
     "github:SimplifyJobs/New-Grad-Positions:d49ce116-07fc-4b1f-a3b2-32d8e0b6cedc": {
       "seen_at": "2026-09-14T01:34:24+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:d49d4a3f-dcd1-4699-9cad-00b2bbc628dc": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:d4a01c7d-0ef4-4577-b4a1-aef0a553ecb2": {
       "seen_at": "2026-08-25T00:26:54+00:00"
     },
@@ -49265,6 +49281,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:e4dd1ece-36bc-4785-88a7-beb7bdfb4414": {
       "seen_at": "2026-08-21T20:45:06+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:e4f4a19a-0777-4687-9441-b8f377f86167": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e4f74430-6399-401d-97ca-da938138aeb3": {
       "seen_at": "2026-09-21T13:54:41+00:00"
@@ -79818,6 +79837,9 @@
     "oracle:dell:296344": {
       "seen_at": "2026-08-29T00:25:52+00:00"
     },
+    "oracle:dell:296360": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
+    },
     "oracle:dell:296376": {
       "seen_at": "2026-07-31T18:00:46+00:00"
     },
@@ -89059,6 +89081,9 @@
     "oracle:oracle:339343": {
       "seen_at": "2026-09-11T17:12:05+00:00"
     },
+    "oracle:oracle:339353": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
+    },
     "oracle:oracle:339376": {
       "seen_at": "2026-08-17T05:30:02+00:00"
     },
@@ -94892,7 +94917,7 @@
       "seen_at": "2026-09-28T23:03:46+00:00"
     },
     "oracle:oracle:346113": {
-      "missing": "2026-09-29T06:23:44+00:00",
+      "closed": "2026-09-29",
       "seen_at": "2026-09-28T14:24:18+00:00"
     },
     "oracle:oracle:346115": {
@@ -106532,6 +106557,9 @@
     },
     "workday:boeing:JR2026525171": {
       "seen_at": "2026-09-23T17:13:14+00:00"
+    },
+    "workday:boeing:JR2026525177": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
     },
     "workday:boeing:JR2026525213": {
       "seen_at": "2026-09-23T17:13:14+00:00"
@@ -124331,6 +124359,12 @@
     },
     "workday:intel:JR0286967": {
       "seen_at": "2026-09-17T14:59:48+00:00"
+    },
+    "workday:intel:JR0286968": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
+    },
+    "workday:intel:JR0286969": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
     },
     "workday:intel:JR0286970": {
       "seen_at": "2026-09-17T14:59:48+00:00"
@@ -154483,7 +154517,7 @@
       "seen_at": "2026-09-15T18:38:42+00:00"
     },
     "workday:nvidia:JR2025564": {
-      "missing": "2026-09-29T06:23:44+00:00",
+      "closed": "2026-09-29",
       "seen_at": "2026-09-28T19:43:45+00:00"
     },
     "workday:nvidia:JR2025565": {
@@ -154791,7 +154825,7 @@
       "seen_at": "2026-09-17T18:48:51+00:00"
     },
     "workday:nvidia:JR2025963": {
-      "missing": "2026-09-29T06:23:44+00:00",
+      "closed": "2026-09-29",
       "seen_at": "2026-09-28T19:53:35+00:00"
     },
     "workday:nvidia:JR2025965": {
@@ -156954,6 +156988,9 @@
     },
     "workday:onehealthineers:R-31049": {
       "seen_at": "2026-09-25T19:26:27+00:00"
+    },
+    "workday:onehealthineers:R-31053": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
     },
     "workday:onehealthineers:R-31062": {
       "seen_at": "2026-09-28T19:04:15+00:00"
@@ -174471,6 +174508,9 @@
     "workday:td:R_1511434": {
       "seen_at": "2026-09-22T15:05:32+00:00"
     },
+    "workday:td:R_1511435": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
+    },
     "workday:td:R_1511439": {
       "seen_at": "2026-09-16T16:52:07+00:00"
     },
@@ -175415,6 +175455,9 @@
     },
     "workday:td:R_1512772": {
       "seen_at": "2026-09-28T21:14:00+00:00"
+    },
+    "workday:td:R_1512777": {
+      "seen_at": "2026-09-29T12:33:44+00:00"
     },
     "workday:td:R_1512782": {
       "seen_at": "2026-09-23T17:13:14+00:00"
