@@ -163,3 +163,38 @@ def test_cli_builds_from_state_alone(tmp_path):
     out = tmp_path / "site"
     assert dashboard.main(["--store", store.path, "--out", str(out)]) == 0
     assert embedded(out / "index.html")["stats"]["tracked"] == 1
+
+
+def test_page_offers_the_kit_without_embedding_anything_personal(tmp_path):
+    store = store_with(tmp_path, {})
+    text = dashboard.build(store, str(tmp_path / "site"), None, {}, NOW).read_text("utf-8")
+
+    assert 'id="kit"' in text and 'class="kit-btn"' in text  # the kit is on the page
+    assert "@anthropic-ai/sdk@0.129.0/+esm" in text  # a pinned SDK build, loaded on demand
+    assert "dangerouslyAllowBrowser: true" in text
+    assert '"anthropic-workspace-id": workspace' in text  # org-level keys name their workspace
+    assert "SKILLS GAP (REFERENCE ONLY - NOT YOUR EXPERIENCE)" in text
+    # Copy takes only the bullets and cover note: no score, no reference-only gap.
+    assert "kitText.slice(start, gap > start ? gap : undefined)" in text
+    # The ATS score is computed on the page from the requirement lists, must-haves double.
+    assert "ATS MATCH" in text and "2 * ats.mustHit.length + ats.niceHit.length" in text
+    # Match level is shown by color *and* icon + label, never color alone.
+    for level, icon, label in (("strong", "✓", "Strong match"), ("fair", "⚠", "Fair match"),
+                               ("weak", "✗", "Weak match")):
+        assert f'["{level}", "{icon}", "{label}"]' in text
+        assert f".ats-fill.{level}" in text
+    # Kit answers are formatted by building DOM nodes, never by parsing model text as HTML.
+    kit_js = text[text.index("function parseKit"):text.index("async function kitClient")]
+    assert "innerHTML" not in kit_js and "insertAdjacentHTML" not in kit_js
+    assert 'model: KIT_MODEL' in text and 'const KIT_MODEL = "claude-opus-5"' in text
+    # resume and key are read from the viewer's own storage, never baked in
+    assert "sk-ant-" not in text.replace('placeholder="sk-ant-..."', "")
+    assert "localStorage.getItem(k)" in text
+
+
+def test_kit_keeps_bullets_to_one_resume_line(tmp_path):
+    store = store_with(tmp_path, {})
+    text = dashboard.build(store, str(tmp_path / "site"), None, {}, NOW).read_text("utf-8")
+    assert "const BULLET_MAX = 110;" in text
+    assert "at most ${BULLET_MAX} characters" in text  # told to Claude...
+    assert "bullet.length > BULLET_MAX" in text  # ...and checked on the page

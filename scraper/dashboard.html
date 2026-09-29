@@ -96,6 +96,10 @@
   @media (max-width: 720px) {
     .col-src, .col-loc { display: none; }
     .loc-inline { display: block; }
+    .kit-label { display: none; }
+    td, th { padding: 8px 4px; }
+    section.card { padding: 16px 12px; }
+    .kit-btn { padding: 2px 6px; }
   }
   .more { margin-top: 12px; font: inherit; font-size: 14px; background: none; color: var(--link);
           border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
@@ -141,13 +145,85 @@
          max-width: 260px; opacity: 0; transition: opacity .08s; }
   #tip.on { opacity: 1; }
   footer { color: var(--text-muted); font-size: 13px; margin-top: 32px; }
+
+  /* application kit */
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .btn { font: inherit; font-size: 14px; border: 1px solid var(--border); border-radius: 8px;
+         background: var(--surface-1); color: var(--text-primary); padding: 7px 12px; cursor: pointer; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:disabled { opacity: .55; cursor: not-allowed; }
+  td.col-kit { width: 1%; text-align: right; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .kit-btn { font: inherit; font-size: 12px; padding: 2px 9px; cursor: pointer;
+             border: 1px solid var(--border); border-radius: 999px; background: none;
+             color: var(--text-secondary); white-space: nowrap; }
+  .kit-btn:hover { color: var(--link); border-color: var(--link); }
+  dialog { width: min(720px, calc(100vw - 32px)); max-height: calc(100vh - 48px); border: 1px solid var(--border);
+           border-radius: 12px; background: var(--surface-1); color: var(--text-primary); padding: 20px; }
+  dialog::backdrop { background: rgb(0 0 0 / .45); }
+  dialog h2 { font-size: 17px; margin: 0 0 4px; }
+  dialog .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 14px; }
+  dialog label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 4px; }
+  dialog textarea, dialog input { width: 100%; font: inherit; font-size: 14px; color: var(--text-primary);
+           background: var(--surface-0); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+  dialog textarea { min-height: 140px; resize: vertical; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
+  .row .spacer { flex: 1; }
+  .note { color: var(--text-muted); font-size: 12px; margin-top: 8px; }
+  #kit-status { color: var(--text-secondary); font-size: 13px; }
+  #kit-out { margin-top: 14px; display: grid; gap: 10px; }
+  #kit-out:empty { display: none; }
+  .kit-sec { border: 1px solid var(--border); border-radius: 10px; background: var(--surface-0); padding: 12px 14px; }
+  .kit-sec header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .kit-sec h3 { font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+                color: var(--text-secondary); margin: 0; flex: 1; }
+  .kit-sec ul { margin: 0; padding-left: 20px; }
+  .kit-sec li { margin: 4px 0; line-height: 1.5; }
+  .kit-sec p { margin: 0 0 8px; line-height: 1.6; }
+  .kit-sec p:last-child { margin-bottom: 0; }
+  .kit-sec .mini { font: inherit; font-size: 12px; padding: 1px 8px; border: 1px solid var(--border);
+                   border-radius: 999px; background: var(--surface-1); color: var(--text-secondary); cursor: pointer; }
+  .kit-sec .mini:hover { color: var(--link); border-color: var(--link); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--surface-2);
+          border: 1px solid var(--border); }
+  .kit-sec.gap { border-style: dashed; background: transparent; }
+  .kit-sec.gap .ref { font-size: 11px; color: var(--text-muted); border: 1px solid var(--border);
+                      border-radius: 999px; padding: 0 8px; }
+  .kit-sec.gap li { color: var(--text-secondary); }
+  .kit-sec.gap .where { color: var(--text-primary); font-weight: 600; }
+  .miss { display: inline-block; font-size: 12px; font-weight: 600; color: var(--text-primary);
+          background: var(--surface-2); border-radius: 6px; padding: 0 6px; margin-right: 6px; }
+  .muted { color: var(--text-muted); }
+  .ats-top { display: flex; align-items: baseline; gap: 10px; }
+  .ats-score { font-size: 32px; font-weight: 600; line-height: 1.1; }
+  .ats-verdict { color: var(--text-secondary); font-size: 14px; }
+  .ats-meter { height: 8px; border-radius: 4px; background: var(--surface-2); margin: 8px 0 12px; overflow: hidden; }
+  /* Status colors (reserved for state, never series): always paired with an icon + label. */
+  .ats-fill { height: 100%; border-radius: 4px; }
+  .ats-fill.strong { background: #0ca30c; }
+  .ats-fill.fair { background: #fab219; }
+  .ats-fill.weak { background: #d03b3b; }
+  .ats-verdict .icon { font-weight: 700; margin-right: 4px; }
+  .ats-verdict.strong .icon { color: #0ca30c; }
+  .ats-verdict.fair .icon { color: #c98500; }
+  .ats-verdict.weak .icon { color: #d03b3b; }
+  .ats-row { display: flex; gap: 10px; align-items: baseline; margin: 6px 0; }
+  .ats-label { flex: 0 0 96px; font-size: 12px; color: var(--text-secondary); }
+  .chip.hit { background: var(--surface-2); }
+  .chip.miss-chip { background: transparent; border-style: dashed; color: var(--text-secondary); }
+  .long { display: inline-block; margin-left: 6px; font-size: 11px; color: var(--text-secondary);
+          border: 1px dashed var(--border); border-radius: 999px; padding: 0 6px; white-space: nowrap; }
 </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Hunter</h1>
-    <p id="subtitle"></p>
+    <div>
+      <h1>Hunter</h1>
+      <p id="subtitle"></p>
+    </div>
+    <button class="btn" id="open-setup">📝 Kit setup</button>
   </header>
 
   <div class="tiles" id="tiles"></div>
@@ -170,7 +246,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th id="date-h">Sent</th><th>Company</th><th>Role</th><th class="col-loc">Location</th><th class="col-src">Source</th></tr></thead>
+        <thead><tr><th id="date-h">Sent</th><th>Company</th><th>Role</th><th class="col-loc">Location</th><th class="col-src">Source</th><th class="col-kit"><span class="sr-only">Application kit</span></th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
@@ -196,6 +272,40 @@
   </section>
 
   <footer>Built by Hunter from public job postings. Updated hourly.</footer>
+
+  <dialog id="setup" aria-labelledby="setup-h">
+    <h2 id="setup-h">Application kit setup</h2>
+    <p class="sub">Paste these once. They're saved only in this browser (not on this site, not in the repo) and sent only to Anthropic's API when you make a kit.</p>
+    <label for="setup-resume">Your resume (plain text)</label>
+    <textarea id="setup-resume" placeholder="Paste your resume text - experience, projects, skills, education."></textarea>
+    <label for="setup-key">Anthropic API key</label>
+    <input id="setup-key" type="password" autocomplete="off" placeholder="sk-ant-...">
+    <label for="setup-workspace">Workspace ID <span style="font-weight:400;color:var(--text-muted)">(only if your key asks for one)</span></label>
+    <input id="setup-workspace" autocomplete="off" placeholder="wrkspc_...">
+    <p class="note">Each kit is one request to Claude Opus 5 - typically a few cents. Use this only on your own devices: anyone using this browser profile could use the saved key.</p>
+    <div class="row">
+      <button class="btn" id="setup-clear">Forget both</button>
+      <span class="spacer"></span>
+      <button class="btn" id="setup-cancel">Cancel</button>
+      <button class="btn primary" id="setup-save">Save</button>
+    </div>
+  </dialog>
+
+  <dialog id="kit" aria-labelledby="kit-h">
+    <h2 id="kit-h"></h2>
+    <p class="sub"><span id="kit-meta"></span> · <a id="kit-link" target="_blank" rel="noopener">Open posting ↗</a></p>
+    <label for="kit-desc">Job description</label>
+    <textarea id="kit-desc" autofocus placeholder="Open the posting, copy the full description, and paste it here."></textarea>
+    <div class="row">
+      <span id="kit-status"></span>
+      <span class="spacer"></span>
+      <button class="btn" id="kit-close">Close</button>
+      <button class="btn" id="kit-copy" hidden>Copy</button>
+      <button class="btn primary" id="kit-go">Make kit</button>
+    </div>
+    <div id="kit-out" aria-live="polite"></div>
+    <p class="note">A draft: the bullets and cover note only reword your resume - check every line before you use them. The skills gap shows what your resume could have looked like; its bullets and numbers are illustrative, and it isn't copied.</p>
+  </dialog>
 </main>
 <div id="tip" role="tooltip"></div>
 
@@ -242,17 +352,20 @@
       (!cat || r.k === cat) &&
       (!q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q)));
   }
+  let visible = [];
   function renderRows() {
     const rows = currentRows();
+    visible = rows.slice(0, shown);
     $("date-h").textContent = tab === "open" ? "Posted" : "Sent";
     $("jobs-sub").textContent = SUBS[tab];
-    $("rows").innerHTML = rows.slice(0, shown).map((r) => `<tr class="${r.st === "closed" ? "closed" : ""}">
+    $("rows").innerHTML = visible.map((r, i) => `<tr class="${r.st === "closed" ? "closed" : ""}">
       <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
       <td>${esc(r.c)}</td>
       <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
         <span class="loc-inline">${esc(r.l)}</span></td>
       <td class="muted col-loc">${esc(r.l)}</td>
-      <td class="src col-src">${esc(r.s)}</td></tr>`).join("");
+      <td class="src col-src">${esc(r.s)}</td>
+      <td class="col-kit"><button class="kit-btn" data-i="${i}" title="Tailor your resume to this job" aria-label="Application kit">📝<span class="kit-label"> Kit</span></button></td></tr>`).join("");
     $("empty").hidden = rows.length > 0;
     $("more").hidden = rows.length <= shown;
     $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
@@ -315,6 +428,351 @@
      <div class="track" tabindex="0" data-tip="${esc(r.label)}: median ${r.median} days open, from ${r.n} closures">
        <div class="fill" style="width:${(r.median / maxDays) * 100}%"></div></div>
      <div class="val num">${r.median < 1 ? "<1d" : `${r.median}d`} <span>· ${r.n}</span></div>`).join("");
+
+  // Application kit. Everything personal - resume and API key - lives only in
+  // this browser's storage and goes only to Anthropic's API; the page itself
+  // is public and ships none of it. The SDK is fetched on first use, so
+  // viewers who never make a kit never download it.
+  const KIT_MODEL = "claude-opus-5";
+  const SDK_URL = "https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk@0.129.0/+esm";
+  const RESUME_KEY = "hunter.kit.resume", API_KEY = "hunter.kit.apiKey";
+  const WORKSPACE_KEY = "hunter.kit.workspace";
+  // One line of a standard one-page resume holds roughly this many characters.
+  const BULLET_MAX = 110;
+  const KIT_SYSTEM = `You help a job seeker tailor an application to one posting. You get their resume and the job description.
+
+Every resume bullet you write must fit on one line of a one-page resume: at most ${BULLET_MAX} characters, ideally 80-${BULLET_MAX}. Cut filler words, articles and soft adjectives before cutting the result or the metric, and never let a bullet run onto a second line.
+
+Reply with exactly these four sections, as plain text with these headings and no preamble:
+
+ATS MATCH
+List the 8-15 hard requirements an applicant tracking system would screen this posting for: skills, tools, languages, frameworks, certifications, degree, years of experience. Mark each must-have (stated as required) or nice-to-have (preferred, bonus, "a plus"). Then check the candidate's ORIGINAL resume, not your rewritten bullets: a requirement is matched only if the resume states it (common synonyms count, e.g. Postgres = PostgreSQL, JS = JavaScript). Write exactly these four lines, each a comma-separated list, "None" when empty:
+Must-have matched: ...
+Must-have missing: ...
+Nice-to-have matched: ...
+Nice-to-have missing: ...
+
+TAILORED RESUME BULLETS
+4-6 bullets rewritten from the candidate's real experience so they speak to what this job asks for. Reorder and reword freely, lead with the most relevant work, start each with a strong past-tense verb. Use only facts in the resume - never invent employers, projects, numbers, tools or dates.
+
+COVER NOTE
+3-4 sentences the candidate can paste into an application or a referral request: specific to this company and role, grounded in the resume, plain and direct.
+
+SKILLS GAP (REFERENCE ONLY - NOT YOUR EXPERIENCE)
+3-5 bullets, one per skill or experience this posting wants that the resume lacks. Anchor each to one of the candidate's real roles or projects from the resume, and write the resume bullet that role could have carried had they used the missing skill there - so they can see what their resume could have looked like. Write it as a finished resume bullet in Google's XYZ form ("Accomplished [X] as measured by [Y], by doing [Z]"): a strong past-tense verb, a concrete result, a plausible metric, and how the missing skill produced it, kept consistent with the scale of that role. Format each exactly as (the length limit applies to the XYZ bullet itself):
+- [Missing: <skill>] At <role or project from the resume>: <the XYZ bullet>
+These show the candidate their gaps; the bullets and their numbers are illustrative, not the candidate's experience, and must not be presented as such. Write "None - your resume covers this posting" if nothing important is missing.`;
+  // Copy takes only what belongs in an application - the bullets and cover
+  // note - never the score or the reference-only skills gap.
+  const GAP_HEADING = "SKILLS GAP";
+  const BULLETS_HEADING = "TAILORED RESUME BULLETS";
+
+  const saved = {
+    get: (k) => { try { return localStorage.getItem(k) || ""; } catch { return ""; } },
+    set: (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch { /* storage blocked */ } },
+  };
+  let client = null, clientConfig = "", kitJob = null, kitRunning = false, kitText = "";
+
+  function openSetup() {
+    $("setup-resume").value = saved.get(RESUME_KEY);
+    $("setup-key").value = saved.get(API_KEY);
+    $("setup-workspace").value = saved.get(WORKSPACE_KEY);
+    $("setup").showModal();
+  }
+  $("open-setup").addEventListener("click", openSetup);
+  $("setup-cancel").addEventListener("click", () => $("setup").close());
+  $("setup-save").addEventListener("click", () => {
+    saved.set(RESUME_KEY, $("setup-resume").value.trim());
+    saved.set(API_KEY, $("setup-key").value.trim());
+    saved.set(WORKSPACE_KEY, $("setup-workspace").value.trim());
+    $("setup").close();
+  });
+  $("setup-clear").addEventListener("click", () => {
+    saved.set(RESUME_KEY, ""); saved.set(API_KEY, ""); saved.set(WORKSPACE_KEY, "");
+    $("setup-resume").value = ""; $("setup-key").value = ""; $("setup-workspace").value = "";
+  });
+
+  $("rows").addEventListener("click", (e) => {
+    const btn = e.target.closest(".kit-btn");
+    if (!btn) return;
+    kitJob = visible[Number(btn.dataset.i)];
+    $("kit-h").textContent = kitJob.t;
+    $("kit-meta").textContent = [kitJob.c, kitJob.l].filter(Boolean).join(" · ");
+    $("kit-link").href = kitJob.u;
+    $("kit-desc").value = "";
+    setKitText("");
+    flushKit();
+    $("kit-status").textContent = "";
+    $("kit-copy").hidden = true;
+    $("kit").showModal();
+    if (!saved.get(RESUME_KEY) || !saved.get(API_KEY)) {
+      $("kit-status").textContent = "First, add your resume and API key in Kit setup.";
+    }
+  });
+  $("kit-close").addEventListener("click", () => $("kit").close());
+  $("kit-copy").addEventListener("click", async () => {
+    const start = Math.max(kitText.indexOf(BULLETS_HEADING), 0);
+    const gap = kitText.indexOf(GAP_HEADING);
+    try {
+      await navigator.clipboard.writeText(kitText.slice(start, gap > start ? gap : undefined).trim());
+      $("kit-status").textContent = "Copied the bullets and cover note.";
+    }
+    catch { $("kit-status").textContent = "Couldn't copy - select the text instead."; }
+  });
+
+  // Keys created at the organization level (not inside a workspace) must name
+  // the workspace to bill on every request.
+  // Formatting. Claude answers in plain text under four fixed headings; the
+  // page parses that into sections and builds them with DOM nodes and
+  // textContent only, so nothing in a response is ever parsed as HTML.
+  const SECTIONS = [
+    { match: "ATS MATCH", title: "ATS match - your current resume", kind: "ats" },
+    { match: BULLETS_HEADING, title: "Tailored resume bullets", kind: "list", copy: true },
+    { match: "COVER NOTE", title: "Cover note", kind: "prose", copy: true },
+    { match: "KEYWORDS TO CONSIDER", title: "Keywords to consider", kind: "chips" },
+    { match: GAP_HEADING, title: "Skills gap", kind: "gap" },
+  ];
+
+  // The score is computed here, not by the model: coverage of the posting's
+  // requirements, must-haves counting double. Deterministic given the lists,
+  // and every point is traceable to a named requirement.
+  const ATS_LINES = {
+    "must-have matched": "mustHit", "must-have missing": "mustMiss",
+    "nice-to-have matched": "niceHit", "nice-to-have missing": "niceMiss",
+  };
+  function parseAts(lines) {
+    const ats = { mustHit: [], mustMiss: [], niceHit: [], niceMiss: [], seen: 0 };
+    for (const line of lines) {
+      const m = line.replace(BULLET, "").match(/^\s*([a-z- ]+?)\s*:\s*(.*)$/i);
+      const field = m && ATS_LINES[m[1].toLowerCase()];
+      if (!field) continue;
+      ats.seen += 1;
+      ats[field] = /^none\.?$/i.test(m[2].trim()) ? []
+        : m[2].split(",").map((w) => w.trim()).filter(Boolean);
+    }
+    const total = 2 * (ats.mustHit.length + ats.mustMiss.length) + ats.niceHit.length + ats.niceMiss.length;
+    ats.score = total ? Math.round(100 * (2 * ats.mustHit.length + ats.niceHit.length) / total) : null;
+    return ats;
+  }
+
+  function renderAts(sec, lines, done) {
+    const ats = parseAts(lines);
+    if (ats.seen < 4 && !done) { sec.append(el("p", "muted", "Scoring…")); return; }
+    if (ats.score == null) { sec.append(el("p", "muted", "Couldn't find requirements to score.")); return; }
+    const [level, icon, verdict] = ats.score >= 75 ? ["strong", "✓", "Strong match"]
+      : ats.score >= 50 ? ["fair", "⚠", "Fair match"] : ["weak", "✗", "Weak match"];
+    const top = el("div", "ats-top");
+    const label = el("div", `ats-verdict ${level}`);
+    label.append(el("span", "icon", icon), document.createTextNode(verdict));
+    top.append(el("div", "ats-score num", `${ats.score}%`), label);
+    const meter = el("div", "ats-meter");
+    meter.setAttribute("role", "meter");
+    meter.setAttribute("aria-valuenow", String(ats.score));
+    meter.setAttribute("aria-valuemin", "0");
+    meter.setAttribute("aria-valuemax", "100");
+    meter.setAttribute("aria-label", `ATS match ${ats.score}%`);
+    const fill = el("div", `ats-fill ${level}`);
+    fill.style.width = `${ats.score}%`;
+    meter.append(fill);
+    sec.append(top, meter);
+    const group = (label, words, kind) => {
+      if (!words.length) return;
+      const row = el("div", "ats-row");
+      row.append(el("span", "ats-label", label));
+      const chips = el("div", "chips");
+      words.forEach((w) => chips.append(el("span", `chip ${kind}`, `${kind === "hit" ? "✓" : "✗"} ${w}`)));
+      row.append(chips);
+      sec.append(row);
+    };
+    group("Must-have", [...ats.mustHit], "hit");
+    group("", [...ats.mustMiss], "miss-chip");
+    group("Nice-to-have", [...ats.niceHit], "hit");
+    group("", [...ats.niceMiss], "miss-chip");
+    const hits = ats.mustHit.length + ats.niceHit.length;
+    const all = hits + ats.mustMiss.length + ats.niceMiss.length;
+    sec.append(el("p", "note", `${hits} of ${all} requirements found in your resume; must-haves count double. An estimate - real ATS systems vary.`));
+  }
+  const BULLET = /^\s*(?:[-*•]|\d+[.)])\s+/;
+
+  function parseKit(text) {
+    const parts = [];
+    let current = { spec: null, lines: [] };
+    for (const line of text.split("\n")) {
+      const heading = line.trim().replace(/^#+\s*/, "").toUpperCase();
+      const spec = SECTIONS.find((s) => heading.startsWith(s.match));
+      if (spec) {
+        if (current.spec || current.lines.some((l) => l.trim())) parts.push(current);
+        current = { spec, lines: [] };
+      } else {
+        current.lines.push(line);
+      }
+    }
+    parts.push(current);
+    return parts.filter((p) => p.spec || p.lines.some((l) => l.trim()));
+  }
+
+  function el(tag, cls, text) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function renderSection({ spec, lines }) {
+    const body = lines.join("\n").trim();
+    const sec = el("section", `kit-sec${spec && spec.kind === "gap" ? " gap" : ""}`);
+    if (spec) {
+      const head = el("header");
+      head.append(el("h3", null, spec.title));
+      if (spec.kind === "gap") head.append(el("span", "ref", "Reference only - not your experience"));
+      if (spec.copy && body) {
+        const btn = el("button", "mini", "Copy");
+        btn.addEventListener("click", async () => {
+          try { await navigator.clipboard.writeText(body); btn.textContent = "Copied"; }
+          catch { btn.textContent = "Select to copy"; }
+        });
+        head.append(btn);
+      }
+      sec.append(head);
+    }
+    const kind = spec ? spec.kind : "prose";
+    const items = lines.map((l) => l.trim()).filter(Boolean);
+    if (kind === "ats") {
+      renderAts(sec, lines, !kitRunning);
+    } else if (kind === "chips") {
+      const words = body.split(/[,\n]/).map((w) => w.replace(BULLET, "").trim()).filter(Boolean);
+      if (!words.length || /^none\b/i.test(body)) {
+        sec.append(el("p", "muted", body || "…"));
+      } else {
+        const chips = el("div", "chips");
+        words.forEach((w) => chips.append(el("span", "chip", w)));
+        sec.append(chips);
+      }
+    } else if ((kind === "list" || kind === "gap") && items.some((l) => BULLET.test(l))) {
+      const ul = el("ul");
+      for (const line of items) {
+        const text = line.replace(BULLET, "");
+        const li = el("li");
+        const miss = kind === "gap" && text.match(/^\[\s*missing:\s*([^\]]+)\]\s*/i);
+        let bullet = text;  // the part that would go on the resume
+        if (miss) {
+          const rest = text.slice(miss[0].length);
+          const where = rest.match(/^(at [^:]{1,120}):\s*/i);  // "At <role/project>:" from the resume
+          bullet = where ? rest.slice(where[0].length) : rest;
+          li.append(el("span", "miss", miss[1].trim()));
+          if (where) li.append(el("strong", "where", `${where[1]}: `));
+          li.append(document.createTextNode(bullet));
+        } else {
+          li.textContent = text;
+        }
+        if (bullet.length > BULLET_MAX) {
+          li.append(el("span", "long", `long · ${bullet.length} chars`));
+        }
+        ul.append(li);
+      }
+      sec.append(ul);
+    } else {
+      for (const para of body.split(/\n\s*\n/)) sec.append(el("p", body ? null : "muted", para.trim() || "…"));
+    }
+    return sec;
+  }
+
+  // Streaming redraws are batched to one per frame; flushKit() draws the
+  // final text right away, since frames can stall (e.g. a background tab).
+  let renderQueued = false;
+  function flushKit() {
+    renderQueued = false;
+    $("kit-out").replaceChildren(...parseKit(kitText).map(renderSection));
+  }
+  function setKitText(text) {
+    kitText = text;
+    if (renderQueued) return;
+    renderQueued = true;
+    requestAnimationFrame(() => { if (renderQueued) flushKit(); });
+  }
+
+  async function kitClient(key, workspace) {
+    const config = `${key}\n${workspace}`;
+    if (client && clientConfig === config) return client;
+    const { default: Anthropic } = await import(SDK_URL);
+    client = new Anthropic({
+      apiKey: key,
+      dangerouslyAllowBrowser: true,
+      defaultHeaders: workspace ? { "anthropic-workspace-id": workspace } : {},
+    });
+    clientConfig = config;
+    return client;
+  }
+
+  function kitError(err) {
+    const status = err && err.status;
+    if (status === 401) return "Anthropic rejected the API key - check it in Kit setup.";
+    if (status === 400 && String(err.message).includes("anthropic-workspace-id")) {
+      return "This key isn't tied to a workspace. Add your Workspace ID in Kit setup, or create the key inside a workspace in the Anthropic Console.";
+    }
+    if (status === 403) return "This API key isn't allowed to use this model.";
+    if (status === 429) return "Rate limited by Anthropic - wait a minute and try again.";
+    if (status >= 500) return "Anthropic's API had a problem - try again shortly.";
+    return `Couldn't make the kit: ${err && err.message ? err.message : err}`;
+  }
+
+  $("kit-go").addEventListener("click", async () => {
+    if (kitRunning || !kitJob) return;
+    const resume = saved.get(RESUME_KEY), key = saved.get(API_KEY);
+    if (!resume || !key) { $("kit").close(); openSetup(); return; }
+    const description = $("kit-desc").value.trim();
+    if (description.length < 200) {
+      $("kit-status").textContent = "Paste the full job description first - the kit is only as specific as what you give it.";
+      return;
+    }
+    kitRunning = true;
+    $("kit-go").disabled = true;
+    $("kit-copy").hidden = true;
+    setKitText("");
+    $("kit-status").textContent = "Reading the posting…";
+    try {
+      const anthropic = await kitClient(key, saved.get(WORKSPACE_KEY));
+      const stream = anthropic.beta.messages.stream({
+        model: KIT_MODEL,
+        max_tokens: 16000,
+        // If Opus 5 declines, Anthropic re-runs the request on its recommended backup.
+        betas: ["server-side-fallback-2026-07-01"],
+        fallbacks: "default",
+        system: KIT_SYSTEM,
+        messages: [{
+          role: "user",
+          content: `<resume>\n${resume}\n</resume>\n\n<job>\nTitle: ${kitJob.t}\nCompany: ${kitJob.c}\nLocation: ${kitJob.l}\n\n${description}\n</job>`,
+        }],
+      });
+      for await (const event of stream) {
+        if (event.type === "content_block_start" && event.content_block.type === "fallback") {
+          setKitText("");  // the backup model starts over
+          $("kit-status").textContent = "Switching to a backup model…";
+        } else if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
+          $("kit-status").textContent = "Writing…";
+          setKitText(kitText + event.delta.text);
+        }
+      }
+      const message = await stream.finalMessage();
+      flushKit();
+      if (message.stop_reason === "refusal") {
+        setKitText("");
+        $("kit-status").textContent = "Claude declined this request. Try trimming the description to just the role details.";
+      } else if (message.stop_reason === "max_tokens") {
+        $("kit-status").textContent = "The answer was cut off - try again.";
+        $("kit-copy").hidden = !kitText;
+      } else {
+        $("kit-status").textContent = "Done - review before you use it.";
+        $("kit-copy").hidden = false;
+      }
+    } catch (err) {
+      $("kit-status").textContent = kitError(err);
+    } finally {
+      kitRunning = false;  // before the final draw, so it renders as finished
+      flushKit();
+      $("kit-go").disabled = false;
+    }
+  });
 
   // One shared tooltip for every [data-tip] mark: hover or keyboard focus.
   const tip = $("tip");
