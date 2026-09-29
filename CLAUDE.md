@@ -75,7 +75,9 @@ tests still pass:
   must not read `feedback.votes` or `insights.starred` - the repo and its Pages
   site are public. Votes, stars and applications reach the user only through
   the private Telegram summary. `test_public_page_never_contains_votes_stars_or_applications`
-  guards this.
+  guards this. The same goes for the application kit: the resume and API key
+  live only in the viewer's browser storage and go only to Anthropic's API -
+  never into the built page, the state file, or the repo.
 - **The button-press offset is saved with the votes it produced**, in the same
   state file. Advancing it anywhere else can drop presses when a run's state
   commit fails.

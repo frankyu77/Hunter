@@ -33,6 +33,16 @@ The repo is public and so is the dashboard, so it shows job data only - never yo
 
 One-time setup: in the repo, **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**. To preview locally from state alone: `python -m scraper.dashboard` and open `site/index.html`.
 
+### Application kit
+
+Every job on the dashboard has a **📝 Kit** button: paste the job description and you get, within seconds:
+
+- **ATS match** - how well your current resume covers the posting's requirements, as a score with the must-have and nice-to-have requirements you have and lack. An estimate: real ATS systems vary.
+- **Tailored resume bullets** and a short **cover note**, built only from your real experience, each bullet short enough for one resume line.
+- **Skills gap** - reference only: what bullets your past roles could have carried with the skills you're missing.
+
+Set it up once per browser with **📝 Kit setup**: paste your resume as plain text and an Anthropic API key (from console.anthropic.com). Both are stored only in that browser - never on the public page or in the repo. Each kit is one Claude Opus 5 request, typically a few cents. Only save your key on your own devices.
+
 ### Direct-source suggestions
 
 Jobs from aggregator repos (SimplifyJobs etc.) arrive hours to days after the company posts them.
