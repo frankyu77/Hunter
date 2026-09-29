@@ -217,7 +217,7 @@
     [fmt(s.new_week), "new postings, last 7 days"],
     [fmt(s.sent_week), "sent in the last 7 days"],
     [s.open_matching == null ? "—" : fmt(s.open_matching), "open now, never sent to you"],
-    [s.median_close == null ? "—" : `${s.median_close}d`, "typical time a posting stays open"],
+    [s.median_close == null ? "—" : s.median_close < 1 ? "<1d" : `${s.median_close}d`, "typical time a posting stays open"],
   ];
   $("tiles").innerHTML = tiles.map(([v, l]) =>
     `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
@@ -314,7 +314,7 @@
     `<div class="name" title="${esc(r.label)}">${esc(r.label)}</div>
      <div class="track" tabindex="0" data-tip="${esc(r.label)}: median ${r.median} days open, from ${r.n} closures">
        <div class="fill" style="width:${(r.median / maxDays) * 100}%"></div></div>
-     <div class="val num">${r.median}d <span>· ${r.n}</span></div>`).join("");
+     <div class="val num">${r.median < 1 ? "<1d" : `${r.median}d`} <span>· ${r.n}</span></div>`).join("");
 
   // One shared tooltip for every [data-tip] mark: hover or keyboard focus.
   const tip = $("tip");

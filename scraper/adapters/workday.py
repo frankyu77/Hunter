@@ -11,12 +11,22 @@ https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site the
 tenant is "ngc", the host is "wd1", and the site is
 "Northrop_Grumman_External_Site".
 
-Results are newest-first and capped at 20 per page. Large tenants list
-thousands of postings, so fetching everything would cost hundreds of
-requests per company per run; a poller only needs the recent postings,
-so we stop after MAX_POSTINGS. The list endpoint carries no description
-(that would be one extra request per job) - filters match on title only,
-so descriptions stay empty.
+Results come 20 per page. Large tenants list thousands of postings, so
+fetching everything would cost hundreds of requests per company per run;
+a poller only needs the recent ones, so we normally stop after
+MAX_POSTINGS.
+
+The trap: the order is only *mostly* newest-first. NVIDIA and Boeing list
+today's postings, then older ones, as you'd hope - but TD interleaves, with
+a second block of "Posted Today" jobs at positions ~100-230 of 1.7k, so a
+flat 200 cap silently missed ~30 new jobs a day. So past MAX_POSTINGS we
+keep paging while a page still holds a today/yesterday posting, up to
+HARD_MAX_POSTINGS. An ordered board stops at 200 as before. Whether a
+given fetch came back ordered is checked at runtime (``main.fetch_all``),
+since closure tracking may only trust a capped slice that did.
+
+The list endpoint carries no description (that would be one extra request
+per job) - filters match on title only, so descriptions stay empty.
 
 A few tenants live on Workday's second domain instead, with the tenant in
 the path rather than the subdomain: for
@@ -39,6 +49,7 @@ SITE_API_URL = "https://{host}.myworkdaysite.com/wday/cxs/{tenant}/{site}/jobs"
 SITE_BOARD_URL = "https://{host}.myworkdaysite.com/recruiting/{tenant}/{site}"
 PAGE_SIZE = 20
 MAX_POSTINGS = 200
+HARD_MAX_POSTINGS = 1000
 TIMEOUT_SECONDS = 30
 
 
@@ -56,9 +67,10 @@ def fetch(config: dict) -> list[Job]:
     )
 
     jobs: list[Job] = []
-    total = MAX_POSTINGS
-    for offset in range(0, MAX_POSTINGS, PAGE_SIZE):
-        if offset >= total:
+    total = HARD_MAX_POSTINGS
+    recent_on_last_page = False
+    for offset in range(0, HARD_MAX_POSTINGS, PAGE_SIZE):
+        if offset >= total or (offset >= MAX_POSTINGS and not recent_on_last_page):
             break
         response = requests.post(
             api_url,
@@ -75,12 +87,18 @@ def fetch(config: dict) -> list[Job]:
         if offset == 0:
             # Some tenants report total=0 on every page after the first,
             # so only the first page's count can be trusted.
-            total = min(payload.get("total", 0), MAX_POSTINGS)
+            total = min(payload.get("total", 0), HARD_MAX_POSTINGS)
         postings = payload.get("jobPostings", [])
         if not postings:
             break
         jobs.extend(_to_job(posting, tenant, company, base_url) for posting in postings)
+        recent_on_last_page = any(_is_recent(p.get("postedOn", "")) for p in postings)
     return jobs
+
+
+def _is_recent(posted_on: str) -> bool:
+    text = posted_on.lower()
+    return "today" in text or "yesterday" in text
 
 
 def _to_job(posting: dict, tenant: str, company: str, base_url: str) -> Job:

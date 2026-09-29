@@ -6,16 +6,23 @@ field on store entries; nothing touches the dedup decision, so a bug here
 can mislabel a message but can never suppress or duplicate one.
 
 Closure detection is the delicate part. A job "closed" when a source that
-fetched cleanly this run no longer lists it - but three things make a
-missing job look closed when it isn't:
+fetched cleanly no longer lists it - but several things make a missing job
+look closed when it isn't:
 
 - a failed fetch (skipped: errors > 0),
 - a capped fetch (Workday/Oracle/Eightfold stop at the newest
   MAX_POSTINGS): only jobs first seen after the oldest posting the fetch
   still reached are judged, since anything older may simply have scrolled
-  out of the window; a capped fetch from an adapter that isn't
-  newest-first (SmartRecruiters, TikTok) is skipped outright,
-- a partial response (skipped when most tracked postings vanish at once).
+  out of the window; a capped fetch that didn't come back newest-first
+  (SmartRecruiters and TikTok always; TD's Workday in practice) is skipped
+  outright,
+- a partial response (skipped when most tracked postings vanish at once),
+- a blip: a job must stay missing for CLOSE_AFTER before it counts, and
+  its lifetime runs to when it first went missing.
+
+The first version lacked the last two guards and recorded dozens of
+same-day "closures" (TD: 41 from 18 jobs, flapping in and out of an
+unordered cap). LIFETIMES_VERSION discards those samples once on upgrade.
 
 Only jobs first seen after tracking began are followed, because only those
 have a trustworthy start date for lifetime stats.
@@ -45,6 +52,8 @@ WINDOW_MARGIN_DAYS = 3
 # looks like a truncated response, not a hiring freeze.
 PARTIAL_FETCH_RATIO = 0.5
 PARTIAL_FETCH_MIN_TRACKED = 4
+CLOSE_AFTER = timedelta(hours=6)
+LIFETIMES_VERSION = 2
 
 # Aggregator feeds list hundreds of companies nobody chose to watch; season
 # alerts and lifetime stats are only meaningful for the watchlist.
@@ -95,10 +104,13 @@ def find_closures(
     run. Postings that reappeared after being marked closed are reopened."""
     now = now or datetime.now(UTC)
     since = _tracking_since(store, now)
+    _migrate(store)
     current = {job.id for job in jobs}
     for job in jobs:
-        if store.has(job.id) and store.closed_on(job.id):
-            store.reopen(job.id)
+        if store.has(job.id):
+            store.clear_missing(job.id)
+            if store.closed_on(job.id):
+                store.reopen(job.id)
 
     by_source: dict[str, list[Job]] = defaultdict(list)
     for job in jobs:
@@ -141,18 +153,33 @@ def find_closures(
                 "fetch, not closures.", source, len(gone), len(ids),
             )
             continue
-        closed.extend((job_id, source) for job_id in gone)
+        for job_id in gone:
+            missing = store.missing_since(job_id)
+            if missing is None:
+                store.mark_missing(job_id, now.isoformat(timespec="seconds"))
+            elif now - datetime.fromisoformat(missing) >= CLOSE_AFTER:
+                closed.append((job_id, source))
     return closed
+
+
+def _migrate(store: SeenStore) -> None:
+    if store.insights.get("lifetimes_version") != LIFETIMES_VERSION:
+        if store.insights.pop("lifetimes", None):
+            log.info("Discarding lifetime samples recorded before closure debouncing.")
+        store.insights["lifetimes_version"] = LIFETIMES_VERSION
 
 
 def record_closure(
     store: SeenStore, job_id: str, source: str, now: datetime | None = None
 ) -> None:
     now = now or datetime.now(UTC)
-    store.mark_closed(job_id, now.date().isoformat())
+    missing = store.missing_since(job_id)
+    gone_at = datetime.fromisoformat(missing) if missing else now
+    store.mark_closed(job_id, gone_at.date().isoformat())
+    store.clear_missing(job_id)
     if _is_aggregated(source):
         return
-    days = max((now - store.seen_at(job_id)).days, 0)
+    days = max((gone_at - store.seen_at(job_id)).days, 0)
     samples = _section(store, "lifetimes").setdefault(source, [])
     samples.append(days)
     del samples[:-LIFETIME_SAMPLES]

@@ -1,5 +1,6 @@
 """Closures, reposts, hiring seasons, and the messages they produce."""
 
+import json
 from datetime import UTC, datetime, timedelta
 
 import yaml
@@ -70,8 +71,45 @@ def test_tracked_job_missing_from_a_clean_fetch_is_closed(tmp_path):
     jobs = [make_job(n) for n in range(5)]
     store = tracked_store(tmp_path, jobs)
     still_open = jobs[1:]
-    closures = insights.find_closures(store, still_open, {"workday/nvidia": ok(4)}, NOW)
-    assert closures == [(jobs[0].id, "workday/nvidia")]
+    stats = {"workday/nvidia": ok(4)}
+    assert insights.find_closures(store, still_open, stats, NOW) == []  # just missing
+    assert store.missing_since(jobs[0].id)
+    later = NOW + insights.CLOSE_AFTER
+    assert insights.find_closures(store, still_open, stats, later) == [
+        (jobs[0].id, "workday/nvidia")
+    ]
+
+
+def test_a_job_that_blips_out_and_back_is_never_closed(tmp_path):
+    jobs = [make_job(n) for n in range(5)]
+    store = tracked_store(tmp_path, jobs)
+    stats = {"workday/nvidia": ok(4)}
+    insights.find_closures(store, jobs[1:], stats, NOW)  # missing for one run
+    insights.find_closures(store, jobs, {"workday/nvidia": ok(5)}, NOW + timedelta(hours=1))
+    assert store.missing_since(jobs[0].id) is None
+    later = NOW + insights.CLOSE_AFTER + timedelta(hours=1)
+    assert insights.find_closures(store, jobs[1:], stats, later) == []  # the clock restarted
+
+
+def test_lifetime_runs_to_when_the_job_first_went_missing(tmp_path):
+    job = make_job(1)
+    store = tracked_store(tmp_path, [job, *[make_job(n) for n in range(2, 6)]])
+    gone = store.seen_at(job.id) + timedelta(days=3)
+    store.mark_missing(job.id, gone.isoformat())
+    insights.record_closure(store, job.id, job.source, gone + timedelta(days=2))
+    assert store.insights["lifetimes"]["workday/nvidia"] == [3]
+    assert store.closed_on(job.id) == gone.date().isoformat()
+    assert store.missing_since(job.id) is None
+
+
+def test_samples_from_before_debouncing_are_discarded_once(tmp_path):
+    store = tracked_store(tmp_path, [])
+    store.insights["lifetimes"] = {"workday/td": [0] * 41}  # the flapping-era data
+    insights.find_closures(store, [], {}, NOW)
+    assert "lifetimes" not in store.insights
+    store.insights["lifetimes"] = {"workday/td": [4, 5]}
+    insights.find_closures(store, [], {}, NOW)
+    assert store.insights["lifetimes"] == {"workday/td": [4, 5]}  # only once
 
 
 def test_failed_source_closes_nothing(tmp_path):
@@ -91,7 +129,10 @@ def test_capped_fetch_only_judges_jobs_inside_its_date_window(tmp_path):
     # Reaching back well before the job was seen: absence now means closed.
     reach = (NOW - timedelta(days=60)).date().isoformat()
     window = [make_job(n, posted_at=reach) for n in range(1, 5)]
-    closures = insights.find_closures(store, window, {"workday/nvidia": ok(4, True)}, NOW)
+    insights.find_closures(store, window, {"workday/nvidia": ok(4, True)}, NOW)
+    closures = insights.find_closures(
+        store, window, {"workday/nvidia": ok(4, True)}, NOW + insights.CLOSE_AFTER
+    )
     assert closures == [(jobs[0].id, "workday/nvidia")]
 
 
@@ -256,7 +297,10 @@ def test_season_and_closed_alerts():
     assert "Software Intern &amp; Co-op" in alert
     closed = format_closed_alert({"title": "SWE", "company": "nvidia", "url": "https://x"}, 5)
     assert closed.startswith("⚠️ <b>NVIDIA</b>")
-    assert "just closed" in closed and "about 5d" in closed
+    assert "just closed" in closed and "open ~5d" in closed
+    assert "open under a day" in format_closed_alert(
+        {"title": "SWE", "company": "nvidia", "url": "https://x"}, 0
+    )
 
 
 # --- pipeline -----------------------------------------------------------------------
@@ -303,4 +347,12 @@ def test_pipeline_end_to_end_across_runs(tmp_path, monkeypatch, capsys):
 
     listing["jobs"] = listing["jobs"][:1]  # the intern posting closes
     main.main(args)
-    assert SeenStore(str(tmp_path / "seen.json")).closed_on(intern.id)
+    state = tmp_path / "seen.json"
+    assert SeenStore(str(state)).missing_since(intern.id)  # gone, not yet closed
+
+    # Seven hours on (backdate the "missing" mark rather than wait).
+    data = json.loads(state.read_text())
+    data["jobs"][intern.id]["missing"] = (datetime.now(UTC) - timedelta(hours=7)).isoformat()
+    state.write_text(json.dumps(data))
+    main.main(args)
+    assert SeenStore(str(state)).closed_on(intern.id)
