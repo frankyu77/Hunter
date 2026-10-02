@@ -17,7 +17,7 @@ from datetime import UTC, date, datetime
 import requests
 import yaml
 
-from scraper import dashboard, discovery, feedback, filters, health, insights
+from scraper import dashboard, discovery, feedback, filters, health, inbox, insights
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
 from scraper.models import Job, JobNotes
@@ -274,6 +274,7 @@ def main(argv: list[str] | None = None) -> int:
     fetched, stats = fetch_all(sources)
     normalized = normalize(fetched)
     warnings = health.record_run(store.health, stats)
+    acted = 0 if args.dry_run else read_dashboard_actions(store, normalized)
 
     if normalized and len(store) == 0:
         seed(normalized, store)
@@ -323,7 +324,7 @@ def main(argv: list[str] | None = None) -> int:
     store.prune(PRUNE_MAX_AGE_DAYS)
     insights.prune(store)
     feedback.prune(store)
-    build_dashboard(store, normalized, filters_config)
+    build_dashboard(store, normalized, filters_config, now=acted > 0)
     store.save()
 
     for message in warnings:
@@ -360,11 +361,31 @@ def read_button_presses(store: SeenStore) -> None:
         log.info("Read %d button press update(s).", count)
 
 
-def build_dashboard(store: SeenStore, jobs: list[Job], filters_config: dict) -> None:
-    """Hourly: write site/ for the workflow to publish to GitHub Pages. Runs
-    after pruning so it shows exactly the state being saved; a failure only
-    costs this hour's refresh."""
-    if not dashboard.is_due(store):
+def read_dashboard_actions(store: SeenStore, jobs: list[Job]) -> int:
+    """Apply 👍/👎/✅ clicked on the dashboard; return how many. After the
+    fetch, so a job voted on from the "Not sent" tab gets its full snapshot.
+    Skipped on dry runs, like button presses; a failure leaves the actions
+    in the inbox for the next run."""
+    try:
+        count = inbox.process(store, jobs)
+    except Exception:
+        log.exception("Reading dashboard actions failed; they stay in the inbox.")
+        return 0
+    if count:
+        log.info("Applied %d dashboard action(s).", count)
+    return count
+
+
+def build_dashboard(
+    store: SeenStore, jobs: list[Job], filters_config: dict, now: bool = False
+) -> None:
+    """Hourly, or ``now`` when this run applied dashboard clicks - so the
+    page you clicked on reflects them in a few minutes, not an hour. Writes
+    site/ for the workflow to publish to GitHub Pages. Runs after pruning so
+    it shows exactly the state being saved; a failure only costs this
+    refresh. (Pages' 10-builds-an-hour soft limit doesn't apply to sites
+    deployed by an Actions workflow, which this is.)"""
+    if not (now or dashboard.is_due(store)):
         return
     try:
         page = dashboard.build(store, dashboard.SITE_DIR, jobs, filters_config)

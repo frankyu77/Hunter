@@ -10,7 +10,8 @@ The repo is public, and so is Pages on a free account, so the readable
 part of the page is job data only. Votes, stars and applications
 (``feedback.votes``) ship only as the private layer: rows built here and
 handed straight to ``private.seal``, so plaintext never reaches the page.
-Without a passphrase configured there is no private layer at all.
+Without a passphrase configured there is no private layer at all. Once
+unlocked, the page can also send 👍/👎/✅ back (scraper.inbox).
 
 Most of the 60-day store holds just ids and first-seen times, but that is
 enough for hiring activity: an id's prefix names its board. Titles exist only
@@ -39,7 +40,7 @@ from collections import Counter, defaultdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
-from scraper import filters, private
+from scraper import filters, inbox, private
 from scraper.models import Job
 from scraper.notify import categorize, display_company
 from scraper.store import SeenStore
@@ -128,7 +129,15 @@ def collect(
         "open": open_rows,
         "activity": activity,
         "lifetimes": lifetimes,
+        "inbox": _inbox(store),
     }
+
+
+def _inbox(store: SeenStore) -> dict | None:
+    """Where the page posts 👍/👎/✅ (see scraper.inbox): public, just an
+    address. None until a run has created the inbox issue."""
+    number = store.feedback.get("inbox", {}).get("issue")
+    return {"repo": inbox.repo(), "issue": number} if number and inbox.repo() else None
 
 
 def _sealed(store: SeenStore) -> dict | None:
@@ -157,6 +166,9 @@ def _mine(store: SeenStore) -> list[dict]:
             "star": bool(record.get("starred")),
             "applied": (record.get("applied_at") or record.get("updated_at", ""))[:10]
             if record.get("applied") else "",
+            # When each field last changed: the page drops a click it is
+            # still showing as pending once this says the run has it.
+            "set": record.get("set_at", {}),
         }
         rows.append(row)
     return sorted(rows, key=lambda row: row["d"], reverse=True)
@@ -193,8 +205,9 @@ def _not_sent(jobs: list[Job], snapshots: list[dict], filters_config: dict) -> l
     ]
     kept.sort(key=lambda job: job.posted_at or "", reverse=True)
     return [
-        _row({"title": j.title, "company": j.company, "location": j.location, "url": j.url,
-              "source": j.source, "category": categorize(j)}, (j.posted_at or "")[:10])
+        _row({"id": j.id, "title": j.title, "company": j.company, "location": j.location,
+              "url": j.url, "source": j.source, "category": categorize(j)},
+             (j.posted_at or "")[:10])
         for j in kept[:OPEN_LIMIT]
     ]
 
@@ -207,6 +220,7 @@ def _role(company: str, title: str, location: str) -> tuple[str, str, str]:
 
 def _row(snap: dict, day: str) -> dict:
     return {
+        "i": snap.get("id", ""),
         "t": snap.get("title", ""),
         "c": display_company(snap.get("company", "")),
         "l": snap.get("location", ""),

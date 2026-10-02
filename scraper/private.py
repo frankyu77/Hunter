@@ -27,11 +27,18 @@ Why these primitives:
 Changing SALT or ITERATIONS locks every browser out once (they re-prompt);
 it never loses data, because the plaintext lives in the state file.
 
+The same key runs the other way for dashboard actions (scraper.inbox): the
+page encrypts a vote, the run opens it. GCM doubles as authentication
+there - only someone holding the passphrase can produce a message that
+opens. Opening always uses this module's KDF settings, never ones named in
+the message, or a forged message could ask for a billion iterations.
+
 Fails closed: no passphrase, or one that is too short, means no private
 layer at all - never a plaintext fallback.
 """
 
 import base64
+import functools
 import hashlib
 import json
 import logging
@@ -75,19 +82,22 @@ def seal(data: dict, phrase: str) -> dict:
 
 
 def unseal(envelope: dict, phrase: str) -> dict:
-    """The inverse of seal; raises ``cryptography.exceptions.InvalidTag`` on
-    a wrong passphrase. The page does this in JavaScript - this one exists
-    for tests and for checking a published page by hand."""
-    kdf = envelope["kdf"]
-    key = _key(phrase, base64.b64decode(kdf["salt"]), kdf["iterations"])
-    plaintext = AESGCM(key).decrypt(base64.b64decode(envelope["iv"]),
-                                    base64.b64decode(envelope["ct"]), None)
+    """The inverse of seal, and how the run opens the page's messages.
+    Raises ``cryptography.exceptions.InvalidTag`` on a wrong passphrase or a
+    tampered message, and ValueError on KDF settings other than ours."""
+    kdf = envelope.get("kdf")
+    if kdf is not None and (kdf.get("iterations") != ITERATIONS
+                            or base64.b64decode(kdf.get("salt", "")) != SALT):
+        raise ValueError("sealed with different KDF settings")
+    plaintext = AESGCM(_key(phrase)).decrypt(base64.b64decode(envelope["iv"]),
+                                             base64.b64decode(envelope["ct"]), None)
     return json.loads(plaintext)
 
 
-def _key(phrase: str, salt: bytes = SALT, iterations: int = ITERATIONS) -> bytes:
-    return hashlib.pbkdf2_hmac("sha256", _normalize(phrase).encode("utf-8"), salt,
-                               iterations, dklen=32)
+@functools.lru_cache(maxsize=4)  # deliberately slow; a run opens many messages
+def _key(phrase: str) -> bytes:
+    return hashlib.pbkdf2_hmac("sha256", _normalize(phrase).encode("utf-8"), SALT,
+                               ITERATIONS, dklen=32)
 
 
 def _normalize(phrase: str) -> str:

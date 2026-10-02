@@ -21,7 +21,10 @@ State (``SeenStore.feedback``):
     votes   {token: snapshot + vote/starred/applied} - never pruned: this is
             the labelled data a relevance model will train on, and the
             application funnel. Personal: it reaches the public dashboard
-            only encrypted (scraper.private), and the weekly Telegram summary
+            only encrypted (scraper.private), and the weekly Telegram summary.
+            ``set_at`` stamps each field when it last changed, so a dashboard
+            action that arrives late (scraper.inbox) can't undo a newer press
+    inbox   dashboard-action bookkeeping, owned by scraper.inbox
 
 Snapshots are kept because by the time someone votes, the posting may be
 gone from its source; descriptions are left out to keep the committed
@@ -49,10 +52,10 @@ def remember_sent(jobs: list[Job], store: SeenStore, now: datetime | None = None
     sent_at = (now or datetime.now(UTC)).isoformat(timespec="seconds")
     sent = store.feedback.setdefault("sent", {})
     for job in jobs:
-        sent[telegram.callback_token(job.id)] = _snapshot(job) | {"sent_at": sent_at}
+        sent[telegram.callback_token(job.id)] = snapshot(job) | {"sent_at": sent_at}
 
 
-def _snapshot(job: Job) -> dict:
+def snapshot(job: Job) -> dict:
     return {
         "id": job.id,
         "title": job.title,
@@ -116,22 +119,27 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
     else:
         record["vote"] = None if record["vote"] == action else action
     record["updated_at"] = stamp
-
-    # A job with no vote, star or application carries no label; keep the
-    # training set to real signals. Its "sent" snapshot allows a later press.
-    if record["vote"] is None and not record["starred"] and not record["applied"]:
-        votes.pop(token, None)
-    else:
-        votes[token] = record
+    record.setdefault("set_at", {})[_FIELDS[action]] = stamp
+    save(votes, token, record)
     log.info("Button: %s on %s -> vote=%s starred=%s applied=%s",
              action, record["id"], record["vote"], record["starred"], record["applied"])
 
     if markup := message.get("reply_markup"):
-        restyled = telegram.restyle(
-            markup, token, record["starred"], record["vote"], record["applied"]
-        )
+        restyled = telegram.restyle(markup, token, record["starred"], record["applied"])
         _best_effort(telegram.edit_keyboard, chat, message["message_id"], restyled)
     _best_effort(telegram.answer_callback, query["id"], _confirmation(action, record))
+
+
+_FIELDS = {"star": "starred", "applied": "applied", "up": "vote", "down": "vote"}
+
+
+def save(votes: dict, token: str, record: dict) -> None:
+    """A job with no vote, star or application carries no label; keep the
+    training set to real signals. Its "sent" snapshot allows a later press."""
+    if record.get("vote") is None and not record.get("starred") and not record.get("applied"):
+        votes.pop(token, None)
+    else:
+        votes[token] = record
 
 
 def _confirmation(action: str, record: dict) -> str:

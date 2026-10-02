@@ -84,7 +84,13 @@ tests still pass:
   never into the built page, the state file, or the repo.
 - **The button-press offset is saved with the votes it produced**, in the same
   state file. Advancing it anywhere else can drop presses when a run's state
-  commit fails.
+  commit fails. Dashboard actions follow the same rule: `inbox.process` saves
+  applied comment ids in `feedback.inbox.applied`, and only a *later* run
+  deletes those comments.
+- **Dashboard actions set, never toggle, and carry their click time.** Each
+  vote record stamps `set_at[field]` (Telegram presses too), and an action
+  older than the stamp is ignored. That is what makes replaying the inbox
+  after a failed commit harmless.
 
 ## State file
 

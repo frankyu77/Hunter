@@ -87,10 +87,10 @@ def test_callback_data_fits_telegrams_64_byte_limit():
 
 def test_single_message_row_and_state_marks():
     row = telegram.button_row("abc")
-    assert [b["text"] for b in row] == ["⭐ Star", "👍", "👎", "✅ Applied"]
-    assert [b["callback_data"] for b in row] == ["s:abc", "u:abc", "d:abc", "a:abc"]
-    row = telegram.button_row("abc", starred=True, vote="down", applied=True)
-    assert [b["text"] for b in row] == ["⭐ Star ✓", "👍", "👎 ✓", "✅ Applied ✓"]
+    assert [b["text"] for b in row] == ["⭐ Star", "✅ Applied"]  # 👍/👎 are on the dashboard
+    assert [b["callback_data"] for b in row] == ["s:abc", "a:abc"]
+    row = telegram.button_row("abc", starred=True, applied=True)
+    assert [b["text"] for b in row] == ["⭐ Star ✓", "✅ Applied ✓"]
 
 
 def test_digest_entries_are_numbered_to_match_their_button_rows():
@@ -114,10 +114,10 @@ def test_digest_caps_entries_per_message_and_restarts_numbering():
 def test_restyle_redraws_only_the_pressed_row_and_keeps_its_number():
     tokens = ["aaa", "bbb"]
     markup = telegram.keyboard(tokens, numbered=True)
-    restyled = telegram.restyle(markup, "bbb", starred=True, vote=None)
+    restyled = telegram.restyle(markup, "bbb", starred=True)
     rows = restyled["inline_keyboard"]
     assert rows[0] == markup["inline_keyboard"][0]
-    assert [b["text"] for b in rows[1]] == ["2 ⭐ ✓", "2 👍", "2 👎", "2 ✅"]
+    assert [b["text"] for b in rows[1]] == ["2 ⭐ ✓", "2 ✅"]
 
 
 @responses.activate
@@ -282,7 +282,7 @@ def test_applied_press_records_when_and_toggles_off(tmp_path, bot):
     feedback.process_updates(store)
     record = store.feedback["votes"][token]
     assert record["applied"] is True and "applied_at" in record
-    assert [b["text"] for b in bot["edits"][0]["inline_keyboard"][0]][3] == "✅ Applied ✓"
+    assert [b["text"] for b in bot["edits"][0]["inline_keyboard"][0]][-1] == "✅ Applied ✓"
     assert bot["answers"][0] == "✅ Marked applied"
 
     bot["updates"] = [press(2, "a", job)]

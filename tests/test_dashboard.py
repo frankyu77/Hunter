@@ -163,6 +163,17 @@ def test_rebuilds_at_most_hourly(tmp_path):
     assert dashboard.is_due(store, NOW + timedelta(minutes=60))
 
 
+def test_dashboard_clicks_rebuild_right_away_instead_of_waiting_the_hour(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    store = store_with(tmp_path, {})
+    store.insights["dashboard_built_at"] = datetime.now(UTC).isoformat()  # just built
+
+    main.build_dashboard(store, [], {})
+    assert not (tmp_path / dashboard.SITE_DIR).exists()  # not due
+    main.build_dashboard(store, [], {}, now=True)
+    assert (tmp_path / dashboard.SITE_DIR / "index.html").exists()
+
+
 def test_a_failed_build_never_sinks_the_run(tmp_path, monkeypatch):
     def boom(*args, **kwargs):
         raise RuntimeError("disk full")
