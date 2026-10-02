@@ -441,7 +441,18 @@
   }
   saved.set(LAST_KEY, String(Math.max(built, Number(saved.get(LAST_KEY)) || 0)));
   let onlyNew = false;
-  const isNew = (r) => r.f != null && r.f > cutoff;
+  // Jobs you've opened stop being new straight away. Kept per browser, and
+  // only while they would still count as new - older ids are dropped here,
+  // so the list never grows past one visit's worth.
+  const OPENED_KEY = "hunter.opened";
+  let opened;
+  try { opened = new Set(JSON.parse(saved.get(OPENED_KEY) || "[]")); } catch { opened = new Set(); }
+  const stillNew = new Set([...(data.history || []), ...(data.open || [])]
+    .filter((r) => r.f != null && r.f > cutoff).map((r) => r.i));
+  opened = new Set([...opened].filter((id) => stillNew.has(id)));
+  const saveOpened = () => saved.set(OPENED_KEY, opened.size ? JSON.stringify([...opened]) : "");
+  saveOpened();
+  const isNew = (r) => r.f != null && r.f > cutoff && !opened.has(r.i);
   const newIn = (rows) => (rows ? rows.filter(isNew).length : 0);
   function renderNewControls() {
     const counts = {history: newIn(data.history), open: newIn(data.open), mine: 0};
@@ -548,9 +559,24 @@
   $("mark").addEventListener("change", () => { shown = PAGE; renderRows(); });
   $("more").addEventListener("click", () => { shown += PAGE; renderRows(); });
   $("only-new").addEventListener("click", () => { onlyNew = !onlyNew; shown = PAGE; renderRows(); });
+  // Opening a job's link (click, middle-click or Cmd-click) marks it seen.
+  // Under the New filter it then drops out of the list, like an inbox.
+  function markOpened(e) {
+    const link = e.target.closest("#rows td a");
+    if (!link || (e.type === "auxclick" && e.button !== 1)) return;
+    const r = visible[[...$("rows").children].indexOf(link.closest("tr"))];
+    if (!r || !isNew(r)) return;
+    opened.add(r.i);
+    saveOpened();
+    setTimeout(renderRows, 0);  // after the browser has followed the link
+  }
+  $("rows").addEventListener("click", markOpened);
+  $("rows").addEventListener("auxclick", markOpened);
   $("mark-seen").addEventListener("click", () => {
     cutoff = built;
     session.set(CUTOFF_KEY, String(cutoff));
+    opened.clear();
+    saveOpened();
     onlyNew = false;
     renderRows();
   });
