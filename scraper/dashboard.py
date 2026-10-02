@@ -7,7 +7,7 @@ DASHBOARD_EVERY_MINUTES: GitHub Pages rate-limits deployments, and the
 cron runs far more often than the charts change.
 
 The repo is public, and so is Pages on a free account, so the readable
-part of the page is job data only. Votes, stars and applications
+part of the page is job data only. Votes and applications
 (``feedback.votes``) ship only as the private layer: rows built here and
 handed straight to ``private.seal``, so plaintext never reaches the page.
 Without a passphrase configured there is no private layer at all. Once
@@ -155,15 +155,16 @@ def _sealed(store: SeenStore) -> dict | None:
 
 
 def _mine(store: SeenStore) -> list[dict]:
-    """Every job you voted on, starred or applied to, newest first. Shaped
-    like a history row so the page renders it with the same code, plus the
-    marks. Never pruned, so it outlives the 90-day sent history."""
+    """Every job you voted on or applied to, newest first. Shaped like a
+    history row so the page renders it with the same code, plus the marks.
+    Never pruned, so it outlives the 90-day sent history."""
     rows = []
     for record in store.feedback.get("votes", {}).values():
+        if not record.get("vote") and not record.get("applied"):
+            continue  # e.g. an old record that was only starred
         row = _row(record, record.get("updated_at", "")[:10])
         row |= {
             "vote": record.get("vote"),
-            "star": bool(record.get("starred")),
             "applied": (record.get("applied_at") or record.get("updated_at", ""))[:10]
             if record.get("applied") else "",
             # When each field last changed: the page drops a click it is

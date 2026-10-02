@@ -14,24 +14,21 @@ Each run fetches everything currently posted, subtracts everything already in `s
 
 ### Buttons
 
-Every job message has ⭐ / ✅ buttons (digests get one numbered row per entry).
+Every job message has a ✅ **Applied** button to mark a job you applied to (digests get one numbered button per entry). It's also on the dashboard.
 
-- ⭐ **Star** a job to be alerted if its posting closes.
-- ✅ **Applied** marks a job you applied to (also on the dashboard).
-
-👍 / 👎 relevance votes are on the dashboard only (see [Voting from the dashboard](#voting-from-the-dashboard)). Messages sent before that change still show 👍 / 👎, and pressing them still counts.
+👍 / 👎 relevance votes are on the dashboard only (see [Voting from the dashboard](#voting-from-the-dashboard)). Messages sent before that change still show 👍 / 👎, and pressing them still counts. They may also show ⭐, from a starring feature that has since been removed: pressing it does nothing.
 
 Presses are read at the start of the next run (every ~5-15 minutes), so the ✓ on a button appears after that delay, not instantly.
 The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
 
-Once a week the bot also sends you a private summary: jobs sent, 👍/👎, stars, and applications.
+Once a week the bot also sends you a private summary: jobs sent, 👍/👎, and applications.
 
 ### Dashboard
 
 A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<owner>.github.io/<repo>/`: search every job Hunter sent you (90 days) and every open posting that passes your filters, new postings per week per board, and how long each board's postings stay open.
 
 The repo is public and so is the dashboard, so its readable part is job data only.
-Your votes, stars and applications ship as the **private layer** (below), encrypted.
+Your votes and applications ship as the **private layer** (below), encrypted.
 
 ### Private layer
 
@@ -39,9 +36,9 @@ Hunter publishes your personal data on the dashboard *encrypted*: press **🔒 U
 
 Once unlocked you get:
 
-- your marks (⭐ ✅ 👍 👎) on every job row,
-- a **Yours** tab listing every job you voted on, starred or applied to (kept past the 90-day history), filterable by mark,
-- totals: applied, starred, 👍 and 👎.
+- 👍 / 👎 / ✅ buttons on every job row, showing your current marks,
+- a **Yours** tab listing every job you voted on or applied to (kept past the 90-day history), filterable by mark,
+- totals: applied, 👍 and 👎.
 
 Tick **Remember on this device** and the page unlocks itself on later visits. The browser keeps a derived key that can decrypt but can't be read back out; the passphrase itself is never stored or sent anywhere. **🔓 Lock** forgets it on that device.
 

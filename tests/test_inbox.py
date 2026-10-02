@@ -88,7 +88,7 @@ def test_a_late_action_never_overrides_a_newer_change(tmp_path, configured):
     store = sent_store(tmp_path, job)
     token = telegram.callback_token(job.id)
     store.feedback["votes"] = {token: feedback.snapshot(job) | {
-        "vote": "down", "starred": True, "applied": False,
+        "vote": "down", "applied": False,
         "set_at": {"vote": (NOW + timedelta(minutes=1)).isoformat()}}}
     responses.get(COMMENTS, json=[comment(1, job.id, "vote", "up", NOW),
                                   comment(2, job.id, "applied", True, NOW)])
@@ -98,7 +98,6 @@ def test_a_late_action_never_overrides_a_newer_change(tmp_path, configured):
     record = votes(store)[job.id]
     assert record["vote"] == "down"  # the newer Telegram 👎 stands
     assert record["applied"] is True  # a different field is still applied
-    assert record["starred"] is True
 
 
 def test_telegram_presses_stamp_the_field_they_change(tmp_path, monkeypatch):
@@ -142,7 +141,7 @@ def test_comments_that_do_not_open_are_skipped_and_kept(tmp_path, configured):
     tampered_kdf = comment(2, job.id, "vote", "up", NOW)
     tampered_kdf["body"] = json.dumps(json.loads(tampered_kdf["body"])
                                       | {"kdf": {"iterations": 10**12, "salt": ""}})
-    bad_field = comment(3, job.id, "starred", True, NOW)  # ⭐ is Telegram-only
+    bad_field = comment(3, job.id, "starred", True, NOW)  # stars no longer exist
     responses.get(COMMENTS, json=[forged, tampered_kdf, bad_field,
                                   {"id": 4, "body": "nice repo!"}])
 

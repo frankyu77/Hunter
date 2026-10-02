@@ -214,7 +214,6 @@
   .chip.miss-chip { background: transparent; border-style: dashed; color: var(--text-secondary); }
   /* private layer */
   .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  .marks { margin-left: 6px; white-space: nowrap; font-size: 13px; }
   td.col-kit { white-space: nowrap; }
   .acts { display: inline-flex; gap: 2px; margin-right: 6px; vertical-align: middle; }
   .act { font: inherit; font-size: 13px; line-height: 1; padding: 3px 5px; cursor: pointer; border-radius: 6px;
@@ -262,7 +261,6 @@
       </select>
       <select id="mark" aria-label="Your marks" hidden>
         <option value="">Everything you marked</option>
-        <option value="star">⭐ Starred</option>
         <option value="applied">✅ Applied</option>
         <option value="up">👍 Relevant</option>
         <option value="down">👎 Not relevant</option>
@@ -323,7 +321,7 @@
 
   <dialog id="unlock" aria-labelledby="unlock-h">
     <h2 id="unlock-h">Unlock your data</h2>
-    <p class="sub">Your votes, stars and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
+    <p class="sub">Your votes and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
     <form id="unlock-form" method="dialog">
       <label for="unlock-pass">Passphrase</label>
       <input id="unlock-pass" type="password" autocomplete="current-password" required>
@@ -418,7 +416,7 @@
   const SUBS = {
     history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
     open: "Open right now and matching your filters, but never sent to you - mostly postings that already existed when Hunter started watching a board.",
-    mine: "Every job you voted on, starred or marked applied - kept past the 90-day history. Only you can see this tab.",
+    mine: "Every job you voted on or marked applied - kept past the 90-day history. Only you can see this tab.",
   };
   const DATE_H = {history: "Sent", open: "Posted", mine: "Marked"};
   const STATUS = {open: "Still open", closed: "Closed"};
@@ -431,7 +429,7 @@
       if (cat && r.k !== cat) return false;
       if (tab === "mine" && mark) {
         const m = marksOf(r);
-        if (!(mark === "star" ? m.star : mark === "applied" ? m.applied : m.vote === mark)) return false;
+        if (!(mark === "applied" ? m.applied : m.vote === mark)) return false;
       }
       return !q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q);
     });
@@ -441,7 +439,7 @@
   // still on its way overlaid on top.
   function marksOf(r) {
     const m = mineById.get(r.i);
-    const out = {vote: m ? m.vote : null, star: !!(m && m.star), applied: m ? m.applied : "", waiting: {}};
+    const out = {vote: m ? m.vote : null, applied: m ? m.applied : "", waiting: {}};
     for (const field of ["vote", "applied"]) {
       const p = pending[`${r.i}|${field}`];
       if (!p) continue;
@@ -455,10 +453,7 @@
   function myRows() {
     const rows = new Map((mine || []).map((r) => [r.i, r]));
     for (const p of Object.values(pending)) if (!rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
-    return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.star || m.applied; });
-  }
-  function marks(r) {  // ⭐ comes only from Telegram, so it's shown, not a button
-    return mine && marksOf(r).star ? `<span class="marks" title="Starred" aria-label="Starred">⭐</span>` : "";
+    return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied; });
   }
   // Once GitHub has the comment the click can't be lost, so it shows as done;
   // only a click still sitting in this browser looks unfinished.
@@ -483,7 +478,7 @@
     $("rows").innerHTML = visible.map((r, i) => `<tr class="${r.st === "closed" ? "closed" : ""}">
       <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
       <td>${esc(r.c)}</td>
-      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${marks(r)}${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
+      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
         <span class="loc-inline">${esc(r.l)}</span></td>
       <td class="muted col-loc">${esc(r.l)}</td>
       <td class="src col-src">${esc(r.s)}</td>
@@ -571,7 +566,6 @@
     const count = (pred) => fmt(rows.filter(pred).length);
     $("my-tiles").innerHTML = [
       [count((m) => m.applied), "you applied to"],
-      [count((m) => m.star), "starred"],
       [count((m) => m.vote === "up"), "👍 relevant"],
       [count((m) => m.vote === "down"), "👎 not relevant"],
     ].map(([v, l]) => `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");

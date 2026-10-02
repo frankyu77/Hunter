@@ -109,7 +109,6 @@ def apply(store: SeenStore, action: dict, jobs: dict[str, Job], now: datetime) -
 
     stamp = clicked.isoformat(timespec="milliseconds")
     record.setdefault("vote", None)
-    record.setdefault("starred", False)
     record.setdefault("applied", False)
     record[field] = value
     if field == "applied":

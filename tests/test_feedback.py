@@ -1,4 +1,4 @@
-"""Inline buttons: rendering, and turning presses into stars and votes."""
+"""Inline buttons: rendering, and turning presses into votes and applications."""
 
 import json
 from datetime import UTC, datetime, timedelta
@@ -7,7 +7,7 @@ import pytest
 import requests
 import responses
 
-from scraper import feedback, insights, main
+from scraper import feedback, main
 from scraper import notify as telegram
 from scraper.models import Job
 from scraper.store import SeenStore
@@ -87,10 +87,10 @@ def test_callback_data_fits_telegrams_64_byte_limit():
 
 def test_single_message_row_and_state_marks():
     row = telegram.button_row("abc")
-    assert [b["text"] for b in row] == ["⭐ Star", "✅ Applied"]  # 👍/👎 are on the dashboard
-    assert [b["callback_data"] for b in row] == ["s:abc", "a:abc"]
-    row = telegram.button_row("abc", starred=True, applied=True)
-    assert [b["text"] for b in row] == ["⭐ Star ✓", "✅ Applied ✓"]
+    assert [b["text"] for b in row] == ["✅ Applied"]  # 👍/👎 are on the dashboard; no ⭐
+    assert [b["callback_data"] for b in row] == ["a:abc"]
+    row = telegram.button_row("abc", applied=True)
+    assert [b["text"] for b in row] == ["✅ Applied ✓"]
 
 
 def test_digest_entries_are_numbered_to_match_their_button_rows():
@@ -99,7 +99,7 @@ def test_digest_entries_are_numbered_to_match_their_button_rows():
     assert "1. <b>Acme</b>" in text and "3. <b>Acme</b>" in text
     assert tokens == [telegram.callback_token(job.id) for job in jobs]
     rows = telegram.keyboard(tokens, numbered=True)["inline_keyboard"]
-    assert [row[0]["text"] for row in rows] == ["1 ⭐", "2 ⭐", "3 ⭐"]
+    assert [row[0]["text"] for row in rows] == ["1 ✅", "2 ✅", "3 ✅"]
 
 
 def test_digest_caps_entries_per_message_and_restarts_numbering():
@@ -114,10 +114,10 @@ def test_digest_caps_entries_per_message_and_restarts_numbering():
 def test_restyle_redraws_only_the_pressed_row_and_keeps_its_number():
     tokens = ["aaa", "bbb"]
     markup = telegram.keyboard(tokens, numbered=True)
-    restyled = telegram.restyle(markup, "bbb", starred=True)
+    restyled = telegram.restyle(markup, "bbb", applied=True)
     rows = restyled["inline_keyboard"]
     assert rows[0] == markup["inline_keyboard"][0]
-    assert [b["text"] for b in rows[1]] == ["2 ⭐ ✓", "2 ✅"]
+    assert [b["text"] for b in rows[1]] == ["2 ✅ ✓"]
 
 
 @responses.activate
@@ -127,29 +127,21 @@ def test_send_attaches_the_keyboard():
     telegram.send(job)
     payload = json.loads(responses.calls[0].request.body)
     [row] = payload["reply_markup"]["inline_keyboard"]
-    assert row[0]["callback_data"] == f"s:{telegram.callback_token(job.id)}"
+    assert row[0]["callback_data"] == f"a:{telegram.callback_token(job.id)}"
 
 
 # --- presses -----------------------------------------------------------------------
 
 
-def test_star_press_watches_the_job_for_closure_and_toggles_off(tmp_path, bot):
+def test_a_star_press_on_an_old_message_is_answered_and_changes_nothing(tmp_path, bot):
     job = make_job()
     store = sent_store(tmp_path, [job])
 
     bot["updates"] = [press(10, "s", job)]
     assert feedback.process_updates(store) == 1
-    assert job.id in insights.starred(store)
-    assert store.feedback["offset"] == 11
-    vote = store.feedback["votes"][telegram.callback_token(job.id)]
-    assert vote["starred"] is True and vote["title"] == "Software Engineer"
-    assert [b["text"] for b in bot["edits"][0]["inline_keyboard"][0]][0] == "⭐ Star ✓"
-    assert "Starred" in bot["answers"][0]
-
-    bot["updates"] = [press(11, "s", job)]
-    feedback.process_updates(store)
-    assert job.id not in insights.starred(store)
-    assert store.feedback["votes"] == {}  # no label left: dropped from training set
+    assert store.feedback["offset"] == 11  # consumed, not retried forever
+    assert store.feedback.get("votes", {}) == {}
+    assert "Stars were removed" in bot["answers"][0]
 
 
 def test_votes_are_exclusive_and_toggle(tmp_path, bot):
@@ -172,10 +164,10 @@ def test_votes_keep_a_snapshot_after_the_job_leaves_sent(tmp_path, bot):
     bot["updates"] = [press(1, "u", job)]
     feedback.process_updates(store)
     store.feedback["sent"] = {}  # pruned
-    bot["updates"] = [press(2, "s", job)]
+    bot["updates"] = [press(2, "a", job)]
     feedback.process_updates(store)
     vote = store.feedback["votes"][telegram.callback_token(job.id)]
-    assert vote["vote"] == "up" and vote["starred"] is True
+    assert vote["vote"] == "up" and vote["applied"] is True
     assert vote["category"] == "full_time"
 
 
@@ -191,9 +183,9 @@ def test_press_on_an_unknown_job_is_answered_and_skipped(tmp_path, bot):
 def test_press_from_another_chat_is_ignored(tmp_path, bot):
     job = make_job()
     store = sent_store(tmp_path, [job])
-    bot["updates"] = [press(1, "s", job, chat="999")]
+    bot["updates"] = [press(1, "a", job, chat="999")]
     feedback.process_updates(store)
-    assert insights.starred(store) == {}
+    assert store.feedback.get("votes", {}) == {}
 
 
 def test_failed_cosmetic_calls_do_not_lose_the_vote(tmp_path, bot, monkeypatch):
@@ -222,12 +214,11 @@ def test_offset_is_sent_back_so_presses_are_confirmed_once(tmp_path, bot):
 def test_state_round_trips(tmp_path, bot):
     job = make_job()
     store = sent_store(tmp_path, [job])
-    bot["updates"] = [press(1, "s", job)]
+    bot["updates"] = [press(1, "a", job)]
     feedback.process_updates(store)
     store.save()
     reloaded = SeenStore(store.path)
     assert reloaded.feedback == store.feedback
-    assert job.id in insights.starred(reloaded)
 
 
 def test_sent_history_outlives_its_buttons_and_votes_outlive_both(tmp_path, bot):
@@ -240,7 +231,7 @@ def test_sent_history_outlives_its_buttons_and_votes_outlive_both(tmp_path, bot)
     later = datetime.now(UTC) + timedelta(days=feedback.SENT_DAYS + 1)
     feedback.prune(store, later)
     assert len(store.feedback["sent"]) == 2
-    bot["updates"] = [press(2, "s", other)]
+    bot["updates"] = [press(2, "a", other)]
     feedback.process_updates(store, now=later)
     assert "too old" in bot["answers"][-1]
     assert telegram.callback_token(other.id) not in store.feedback["votes"]
@@ -296,14 +287,13 @@ def test_weekly_summary_reports_the_funnel_privately(tmp_path, bot):
     start = datetime.now(UTC) - timedelta(days=8)
     store.feedback["summary_since"] = start.isoformat()
     bot["updates"] = [press(1, "u", jobs[0]), press(2, "u", jobs[1]), press(3, "d", jobs[2]),
-                      press(4, "s", jobs[0]), press(5, "a", jobs[0])]
+                      press(5, "a", jobs[0])]
     feedback.process_updates(store)
-    store.mark_closed(jobs[0].id, datetime.now(UTC).date().isoformat())
 
     summary = feedback.weekly_summary(store)
     assert "Sent 5 jobs" in summary
     assert "👍 2 · 👎 1" in summary
-    assert "⭐ 1 starred · ⚠️ 1 of your starred jobs closed" in summary
+    assert "⭐" not in summary and "starred" not in summary
     assert "✅ 1 applied this week · 1 all-time" in summary
 
     feedback.mark_summarised(store)

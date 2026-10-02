@@ -1,6 +1,6 @@
 """Private layer: personal data published encrypted next to the public dashboard.
 
-The repo and its Pages site are public, so anything personal (votes, stars,
+The repo and its Pages site are public, so anything personal (votes,
 applications) can only ship as ciphertext. The run encrypts it with a key
 derived from the HUNTER_PASSPHRASE secret; the page asks for the same
 passphrase once per browser and decrypts in place with WebCrypto. Nobody

@@ -123,7 +123,7 @@ def test_tabs_never_overlap_and_sent_jobs_carry_their_status(tmp_path):
     assert [row["u"] for row in data["open"]] == [never_sent.url]
 
 
-def test_public_page_never_contains_votes_stars_or_applications(tmp_path):
+def test_public_page_never_contains_votes_or_applications(tmp_path):
     job = make_job(1, title="Quant Developer")
     store = store_with(tmp_path, {job.id: NOW})
     feedback.remember_sent([job], store, NOW)

@@ -5,10 +5,10 @@ via the Bot API sendMessage endpoint (HTML parse mode). Credentials come
 only from environment variables, injected by GitHub Actions Secrets - never
 from config files.
 
-Every job message carries inline ⭐/✅ buttons (👍/👎 moved to the
-dashboard). This module only renders them and exposes the raw Bot API
-calls; what a press *means* lives in
-scraper.feedback. Callback data is "<action>:<token>", where the token is a
+Every job message carries an inline ✅ button (👍/👎 moved to the
+dashboard; stars were removed). This module only renders it and exposes
+the raw Bot API calls; what a press *means* lives in scraper.feedback.
+Callback data is "<action>:<token>", where the token is a
 short hash of the job id - Telegram caps callback data at 64 bytes, and
 aggregator ids alone run longer than that.
 """
@@ -189,7 +189,10 @@ def call(method: str, payload: dict) -> object:
 
 # "u"/"d" (👍/👎) are no longer drawn - voting moved to the dashboard - but
 # messages sent before that still carry them, so their presses still count.
-ACTIONS = {"s": "star", "u": "up", "d": "down", "a": "applied"}
+ACTIONS = {"u": "up", "d": "down", "a": "applied"}
+# Buttons old messages still carry for features that no longer exist: a
+# press is answered with this, and changes nothing.
+RETIRED = {"s": "Stars were removed from Hunter - nothing to do."}
 
 
 def callback_token(job_id: str) -> str:
@@ -199,19 +202,14 @@ def callback_token(job_id: str) -> str:
 def button_row(
     token: str,
     number: int | None = None,
-    starred: bool = False,
     applied: bool = False,
 ) -> list[dict]:
-    """One row of ⭐/✅ for one job; ✓ marks the current state. Digest rows
-    carry the entry number so each row maps to a line of the message. 👍/👎
-    live on the dashboard only."""
+    """One row for one job - just ✅ now; ✓ marks the current state. Digest
+    rows carry the entry number so each row maps to a line of the message.
+    👍/👎 live on the dashboard only."""
     prefix = f"{number} " if number else ""
-    star = "⭐" if number else "⭐ Star"
     done = "✅" if number else "✅ Applied"
-    labels = {
-        "s": f"{prefix}{star}{' ✓' if starred else ''}",
-        "a": f"{prefix}{done}{' ✓' if applied else ''}",
-    }
+    labels = {"a": f"{prefix}{done}{' ✓' if applied else ''}"}
     return [{"text": label, "callback_data": f"{a}:{token}"} for a, label in labels.items()]
 
 
@@ -223,7 +221,7 @@ def keyboard(tokens: list[str], numbered: bool = False) -> dict:
 _ROW_NUMBER = re.compile(r"^(\d+) ")
 
 
-def restyle(markup: dict, token: str, starred: bool, applied: bool = False) -> dict:
+def restyle(markup: dict, token: str, applied: bool) -> dict:
     """The message's keyboard with ``token``'s row redrawn for its new state.
     Rebuilt from the keyboard Telegram echoes back with each press, so no
     per-message layout needs to be stored."""
@@ -232,7 +230,7 @@ def restyle(markup: dict, token: str, starred: bool, applied: bool = False) -> d
         if any(button.get("callback_data", "").endswith(f":{token}") for button in row):
             number = _ROW_NUMBER.match(row[0].get("text", ""))
             row = button_row(
-                token, int(number.group(1)) if number else None, starred, applied
+                token, int(number.group(1)) if number else None, applied
             )
         rows.append(row)
     return {"inline_keyboard": rows}
@@ -334,19 +332,6 @@ def format_season_alert(job: Job, category: str, year: int) -> str:
             f'First posting: <a href="{e(job.url, quote=True)}">{e(job.title)}</a>',
         ]
     )
-
-
-def format_closed_alert(starred: dict, open_days: int | None) -> str:
-    """Alert for a starred job that disappeared from its source. ``starred``
-    is the snapshot saved when it was starred - the job itself is gone."""
-    e = html.escape
-    lines = [
-        f"⚠️ <b>{e(display_company(starred['company']))}</b> — "
-        f'<a href="{e(starred["url"], quote=True)}">{e(starred["title"])}</a> just closed'
-    ]
-    if open_days is not None:
-        lines.append(f"It was open {_days(open_days)}.")
-    return "\n".join(lines)
 
 
 def format_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> list[str]:

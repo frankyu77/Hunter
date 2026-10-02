@@ -72,11 +72,11 @@ tests still pass:
 - **Prune runs last**, after notifications and state writes, so it can't race
   the dedup.
 - **The public dashboard never shows personal signals in plaintext.** The repo
-  and its Pages site are public. Votes, stars and applications reach the page
+  and its Pages site are public. Votes and applications reach the page
   only through `dashboard._sealed`, which hands them straight to
   `private.seal` (AES-GCM, key from the `HUNTER_PASSPHRASE` secret). No
   passphrase means no private layer, never a plaintext fallback.
-  `test_public_page_never_contains_votes_stars_or_applications` and
+  `test_public_page_never_contains_votes_or_applications` and
   `tests/test_private.py` guard this. The page derives its key with the same
   KDF settings and passphrase normalization as `scraper/private.py`, so a
   change on one side must be made on the other. The same goes for the application kit: the resume and API key

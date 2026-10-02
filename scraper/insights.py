@@ -192,25 +192,6 @@ def typical_open_days(store: SeenStore, source: str) -> int | None:
     return round(statistics.median(samples))
 
 
-# --- starred jobs (set by the ⭐ button via scraper.feedback) --------------
-
-
-def star(store: SeenStore, job: Job) -> None:
-    _section(store, "starred")[job.id] = {
-        "title": job.title,
-        "company": job.company,
-        "url": job.url,
-    }
-
-
-def unstar(store: SeenStore, job_id: str) -> None:
-    store.insights.get("starred", {}).pop(job_id, None)
-
-
-def starred(store: SeenStore) -> dict[str, dict]:
-    return store.insights.get("starred", {})
-
-
 # --- reposts and per-job notes ----------------------------------------------
 
 
@@ -317,6 +298,4 @@ def prune(store: SeenStore, now: datetime | None = None) -> None:
     roles = store.insights.get("roles", {})
     for key in [k for k, role in roles.items() if (_parse(role.get("last")) or now) < cutoff]:
         del roles[key]
-    stars = store.insights.get("starred", {})
-    for job_id in [job_id for job_id in stars if not store.has(job_id)]:
-        del stars[job_id]
+    store.insights.pop("starred", None)  # stars were removed; drop any leftovers

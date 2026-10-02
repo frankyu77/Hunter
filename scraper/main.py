@@ -12,7 +12,7 @@ import sys
 import time
 from collections import Counter
 from collections.abc import Callable
-from datetime import UTC, date, datetime
+from datetime import date
 
 import requests
 import yaml
@@ -315,7 +315,7 @@ def main(argv: list[str] | None = None) -> int:
         if job.id not in matched_ids and not store.has(job.id):
             store.add(job)
 
-    announce_closures(closures, store, args.dry_run)
+    record_closures(closures, store)
     announce_discovery(store, config, args.dry_run)
     announce_summary(store, args.dry_run)
 
@@ -348,9 +348,8 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def read_button_presses(store: SeenStore) -> None:
-    """Apply ⭐/👍/👎 presses since the last run. First, so a job starred
-    minutes ago is already watched when this run's closures are checked.
-    Skipped on dry runs: reading would consume the presses. A failure here
+    """Apply Telegram ✅ presses (and 👍/👎 on older messages) since the
+    last run. Skipped on dry runs: reading would consume the presses. A failure here
     never sinks the run - unread presses stay queued at Telegram."""
     try:
         count = feedback.process_updates(store)
@@ -396,7 +395,7 @@ def build_dashboard(
 
 
 def announce_summary(store: SeenStore, dry_run: bool) -> None:
-    """Weekly, privately: your funnel (sent -> 👍 -> ⭐ -> ✅). Marked done only
+    """Weekly, privately: your funnel (sent -> 👍/👎 -> ✅). Marked done only
     once sent, so a failed send retries next run."""
     try:
         summary = feedback.weekly_summary(store)
@@ -447,22 +446,10 @@ def announce_seasons(openings: list, store: SeenStore, dry_run: bool) -> None:
         insights.record_season(store, job, category, year)
 
 
-def announce_closures(closures: list[tuple[str, str]], store: SeenStore, dry_run: bool) -> None:
-    """Record every closure; alert on the starred ones first. A starred
-    closure whose alert fails stays unrecorded, so it is detected - and
-    alerted - again next run (never-miss beats never-duplicate)."""
-    starred = insights.starred(store)
+def record_closures(closures: list[tuple[str, str]], store: SeenStore) -> None:
+    """Record every closure - it feeds how long postings stay open. No
+    alerts: those were for starred jobs, and stars were removed."""
     for job_id, source in closures:
-        if job_id in starred:
-            open_days = (datetime.now(UTC) - store.seen_at(job_id)).days
-            try:
-                if dry_run:
-                    print(f"CLOSED: {starred[job_id]['title']} @ {starred[job_id]['company']}")
-                else:
-                    telegram.send_html(telegram.format_closed_alert(starred[job_id], open_days))
-            except Exception:
-                log.exception("Closure alert failed for %s; retrying next run.", job_id)
-                continue
         insights.record_closure(store, job_id, source)
     if closures:
         log.info("Detected %d closed postings.", len(closures))
