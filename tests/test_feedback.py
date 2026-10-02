@@ -298,3 +298,34 @@ def test_weekly_summary_reports_the_funnel_privately(tmp_path, bot):
 
     feedback.mark_summarised(store)
     assert feedback.weekly_summary(store) is None  # not due for another week
+
+
+def test_telegram_applied_moves_the_job_onto_the_board_and_back(tmp_path, bot):
+    job = make_job()
+    store = sent_store(tmp_path, [job])
+    token = telegram.callback_token(job.id)
+
+    bot["updates"] = [press(1, "a", job)]
+    feedback.process_updates(store)
+    record = store.feedback["votes"][token]
+    assert record["stage"] == "applied"
+    assert record["stage_dates"]["applied"] == record["applied_at"][:10]
+
+    bot["updates"] = [press(2, "a", job)]
+    feedback.process_updates(store)
+    assert token not in store.feedback["votes"]  # unapplied while still just Applied: off the board
+
+
+def test_telegram_applied_never_drags_a_later_stage_backwards(tmp_path, bot):
+    job = make_job()
+    store = sent_store(tmp_path, [job])
+    token = telegram.callback_token(job.id)
+    store.feedback["votes"] = {token: feedback.snapshot(job) | {
+        "vote": None, "applied": True, "stage": "interview",
+        "stage_dates": {"interview": "2026-09-20"}}}
+
+    bot["updates"] = [press(1, "a", job)]  # un-✅
+    feedback.process_updates(store)
+
+    record = store.feedback["votes"][token]
+    assert record["applied"] is False and record["stage"] == "interview"

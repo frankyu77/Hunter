@@ -229,6 +229,32 @@
   .act:hover, .act:focus-visible { opacity: .9; border-color: var(--border); }
   .act[aria-pressed="true"] { filter: none; opacity: 1; background: var(--surface-2); border-color: var(--border); }
   .act.unsent { border-style: dashed; border-color: var(--text-muted); }
+  /* application board */
+  .board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(168px, 1fr); gap: 10px;
+           overflow-x: auto; padding-bottom: 6px; }
+  .bcol { background: var(--surface-0); border: 1px solid var(--border); border-radius: 10px; padding: 8px;
+          min-height: 120px; display: flex; flex-direction: column; gap: 8px; }
+  .bcol.over { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .bcol h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+             color: var(--text-secondary); margin: 2px 2px 0; display: flex; justify-content: space-between; }
+  .bcard { background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px;
+           font-size: 13px; line-height: 1.35; cursor: pointer; }
+  .bcard:hover, .bcard:focus-visible { border-color: var(--accent); outline: none; }
+  .bcard.unsent { border-style: dashed; }
+  .bcard .bco { font-weight: 600; }
+  .bcard a { display: block; margin: 2px 0 4px; }
+  .bcard .bmeta { color: var(--text-muted); font-size: 12px; }
+  .bcard .bnote { color: var(--text-secondary); font-size: 12px; margin: 4px 0 0; overflow: hidden;
+                  text-overflow: ellipsis; white-space: nowrap; }
+  .bempty { color: var(--text-muted); font-size: 12px; margin: 4px 2px; }
+  .stage-pick { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stage-pick button { font: inherit; font-size: 13px; border: 1px solid var(--border); border-radius: 999px;
+                       background: var(--surface-0); color: var(--text-secondary); padding: 4px 10px; cursor: pointer; }
+  .stage-pick button[aria-checked="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .card-dates { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px 10px; }
+  .card-dates label { margin: 0; font-weight: 400; font-size: 12px; color: var(--text-secondary); }
+  .card-dates input { margin-top: 2px; padding: 5px 8px; }
+  #card-notes { min-height: 110px; }
   .steps { margin: 0 0 4px; padding-left: 20px; font-size: 14px; line-height: 1.6; }
   .tiles.mine { margin-top: -12px; }
   .tiles.mine .tile { border-style: dashed; }
@@ -255,6 +281,12 @@
 
   <div class="tiles" id="tiles"></div>
   <div class="tiles mine" id="my-tiles" hidden></div>
+
+  <section class="card" id="board-card" aria-labelledby="board-h" hidden>
+    <h2 id="board-h">Applications</h2>
+    <p class="sub">Drag a card to another column, or click it to change its stage, dates and notes. 📌 on any job adds it to Saved. Only you can see this.</p>
+    <div class="board" id="board"></div>
+  </section>
 
   <section class="card" aria-labelledby="search-h">
     <h2 id="search-h">Jobs</h2>
@@ -344,6 +376,24 @@
         <button class="btn primary" id="unlock-go">Unlock</button>
       </div>
     </form>
+  </dialog>
+
+  <dialog id="card" aria-labelledby="card-h">
+    <h2 id="card-h"></h2>
+    <p class="sub"><span id="card-meta"></span> · <a id="card-link" target="_blank" rel="noopener">Open posting ↗</a></p>
+    <label id="card-stage-l">Stage</label>
+    <div class="stage-pick" id="card-stages" role="radiogroup" aria-labelledby="card-stage-l"></div>
+    <label>Dates</label>
+    <div class="card-dates" id="card-dates"></div>
+    <p class="note">A stage is dated today when you move a job into it. Change any date here.</p>
+    <label for="card-notes">Notes</label>
+    <textarea id="card-notes" maxlength="4000" placeholder="Recruiter, referral, interview rounds, what to follow up on…"></textarea>
+    <div class="row">
+      <button class="btn" id="card-remove">Remove from board</button>
+      <span class="spacer"></span>
+      <button class="btn" id="card-cancel">Cancel</button>
+      <button class="btn primary" id="card-save">Save</button>
+    </div>
   </dialog>
 
   <dialog id="voting" aria-labelledby="voting-h">
@@ -489,25 +539,48 @@
     });
   }
   let visible = [];
-  // Your marks on a row: what the last build published, with any click
-  // still on its way overlaid on top.
+  // The application board's columns (scraper/feedback.py STAGES, same order).
+  const STAGE_NAMES = {saved: "Saved", applied: "Applied", oa: "Online assessment",
+                       interview: "Interview", offer: "Offer", rejected: "Rejected"};
+  const STAGES = Object.keys(STAGE_NAMES);
+  const FIELDS = ["vote", "applied", "stage", "notes", ...STAGES.map((s) => `date:${s}`)];
+  const today = () => new Date().toLocaleDateString("en-CA");  // local YYYY-MM-DD
+  // Your marks on a row - vote, applied, board stage, stage dates, notes:
+  // what the last build published, with any change still on its way
+  // overlaid on top. A job marked applied but never placed on the board
+  // (e.g. from Telegram before the board existed) sits in Applied.
   function marksOf(r) {
-    const m = mineById.get(r.i);
-    const out = {vote: m ? m.vote : null, applied: m ? m.applied : "", waiting: {}};
-    for (const field of ["vote", "applied"]) {
+    const m = mineById.get(r.i) || {};
+    const out = {vote: m.vote ?? null, applied: m.applied || "", stage: m.stage ?? null,
+                 dates: {...(m.dates || {})}, notes: m.notes || "", waiting: {}};
+    for (const field of FIELDS) {
       const p = pending[`${r.i}|${field}`];
       if (!p) continue;
-      out[field] = field === "applied" ? (p.value ? p.at.slice(0, 10) : "") : p.value;
+      if (field === "applied") out.applied = p.value ? p.at.slice(0, 10) : "";
+      else if (field.startsWith("date:")) {
+        if (p.value) out.dates[field.slice(5)] = p.value; else delete out.dates[field.slice(5)];
+      } else out[field] = p.value;
       out.waiting[field] = p.sent ? "sent" : "unsent";
     }
+    out.stage = out.stage || (out.applied ? "applied" : null);
     return out;
   }
-  // Everything you marked, for the Yours tab: published rows plus jobs whose
-  // first mark is still pending.
+  // Everything you marked, for the Yours tab and the board: published rows
+  // plus jobs whose first mark is still pending.
   function myRows() {
     const rows = new Map((mine || []).map((r) => [r.i, r]));
     for (const p of Object.values(pending)) if (!rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
-    return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied; });
+    return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied || m.stage || m.notes; });
+  }
+  // Moving a job to `stage` (null = off the board): dates the new stage
+  // today unless it already has a date, and keeps "applied" in step - every
+  // stage after Saved means you applied.
+  function stageChanges(m, stage) {
+    const changes = {stage};
+    if (stage && !m.dates[stage]) changes[`date:${stage}`] = today();
+    if (stage && stage !== "saved" && !m.applied) changes.applied = true;
+    if ((!stage || stage === "saved") && m.applied) changes.applied = false;
+    return changes;
   }
   // Once GitHub has the comment the click can't be lost, so it shows as done;
   // only a click still sitting in this browser looks unfinished.
@@ -521,7 +594,8 @@
       return `<button class="act${wait ? " unsent" : ""}" data-i="${i}" data-f="${field}" data-v="${value}"
         aria-pressed="${on}" title="${label}${tip}" aria-label="${label}">${icon}</button>`;
     };
-    return `<span class="acts" role="group" aria-label="Your marks">${btn("vote", "up", "👍", "Relevant", m.vote === "up")}${btn("vote", "down", "👎", "Not relevant", m.vote === "down")}${btn("applied", "true", "✅", "Applied", !!m.applied)}</span>`;
+    const board = m.stage ? `On your board: ${STAGE_NAMES[m.stage]}` : "Save to your application board";
+    return `<span class="acts" role="group" aria-label="Your marks">${btn("vote", "up", "👍", "Relevant", m.vote === "up")}${btn("vote", "down", "👎", "Not relevant", m.vote === "down")}${btn("applied", "true", "✅", "Applied", !!m.applied)}${btn("stage", "saved", "📌", board, !!m.stage)}</span>`;
   }
   function renderRows() {
     const rows = currentRows();
@@ -543,6 +617,7 @@
     $("more").hidden = rows.length <= shown;
     $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
     if (mine) renderMyTiles();
+    renderBoard();
   }
   function selectTab(name) {
     tab = name; shown = PAGE;
@@ -693,7 +768,7 @@
   function postError(status) {
     if (status === 401) return "GitHub rejected your token - check it in 🗳 Voting setup.";
     if (status === 403 || status === 404) return `Your token can't comment on ${data.inbox.repo} issues - it needs Issues: Read and write on this repo.`;
-    return `GitHub had a problem (${status}) - your votes are kept and will be retried.`;
+    return `GitHub had a problem (${status}) - your changes are kept and will be retried.`;
   }
   let sending = null;
   function sendPending() {  // one sender at a time; a later call waits its turn
@@ -704,37 +779,166 @@
     const queue = Object.entries(pending).filter(([, p]) => !p.sent);
     if (!queue.length || !mine || !unlockedKey || !data.inbox) return;
     const token = saved.get(TOKEN_KEY);
-    if (!token) { $("act-status").textContent = "Votes are saved in this browser - add a GitHub token in 🗳 Voting setup to send them."; return; }
-    for (const [k, p] of queue) {
-      let res;
-      try {
-        res = await fetch(`https://api.github.com/repos/${data.inbox.repo}/issues/${data.inbox.issue}/comments`, {
-          method: "POST",
-          headers: {Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "Content-Type": "application/json"},
-          body: JSON.stringify({body: await sealAction({id: p.id, field: p.field, value: p.value, at: p.at, row: p.row})}),
-        });
-      } catch {
-        $("act-status").textContent = "Offline? Your votes are kept and will be sent when you're back.";
-        return;
-      }
-      if (!res.ok) { $("act-status").textContent = postError(res.status); return; }
-      if (pending[k] && pending[k].at === p.at) { pending[k].sent = true; savePending(); }
+    if (!token) { $("act-status").textContent = "Your changes are saved in this browser - add a GitHub token in 🗳 Voting setup to send them."; return; }
+    // Everything queued goes in one comment, so one edit is one run.
+    const actions = queue.map(([, p]) => ({id: p.id, field: p.field, value: p.value, at: p.at, row: p.row}));
+    let res;
+    try {
+      res = await fetch(`https://api.github.com/repos/${data.inbox.repo}/issues/${data.inbox.issue}/comments`, {
+        method: "POST",
+        headers: {Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "Content-Type": "application/json"},
+        body: JSON.stringify({body: await sealAction({actions})}),
+      });
+    } catch {
+      $("act-status").textContent = "Offline? Your changes are kept and will be sent when you're back.";
+      return;
     }
+    if (!res.ok) { $("act-status").textContent = postError(res.status); return; }
+    for (const [k, p] of queue) if (pending[k] && pending[k].at === p.at) pending[k].sent = true;
+    savePending();
     $("act-status").textContent = "";
     renderRows();
   }
   window.addEventListener("online", () => mine && sendPending());
 
+  // Queue every change from one click or edit (one shared timestamp) and
+  // send them together.
+  function queueChanges(r, changes) {
+    const at = new Date().toISOString(), row = {t: r.t, c: r.c, l: r.l, u: r.u, k: r.k, s: r.s, d: r.d};
+    for (const [field, value] of Object.entries(changes)) {
+      pending[`${r.i}|${field}`] = {id: r.i, field, value, at, sent: false, row};
+    }
+    savePending();
+    renderRows();
+    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+  }
+
   $("rows").addEventListener("click", (e) => {
     const btn = e.target.closest(".act");
     if (!btn || !mine) return;
     const r = visible[Number(btn.dataset.i)], field = btn.dataset.f, m = marksOf(r);
-    const value = field === "vote" ? (m.vote === btn.dataset.v ? null : btn.dataset.v) : !m.applied;
-    pending[`${r.i}|${field}`] = {id: r.i, field, value, at: new Date().toISOString(), sent: false,
-      row: {t: r.t, c: r.c, l: r.l, u: r.u, k: r.k, s: r.s, d: r.d}};
-    savePending();
-    renderRows();
-    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+    if (field === "vote") {
+      queueChanges(r, {vote: m.vote === btn.dataset.v ? null : btn.dataset.v});
+    } else if (field === "applied") {
+      // Same rule as Telegram's ✅ (feedback._board_follows_applied).
+      const changes = {applied: !m.applied};
+      if (!m.applied && (!m.stage || m.stage === "saved")) Object.assign(changes, stageChanges({...m, applied: "x"}, "applied"));
+      if (m.applied && m.stage === "applied") changes.stage = null;
+      queueChanges(r, changes);
+    } else if (m.stage) {
+      openCard(r);  // 📌 on a job already on the board opens its card
+    } else {
+      queueChanges(r, stageChanges(m, "saved"));
+    }
+  });
+
+  // Application board. Built from the same marks as the rows, so a move
+  // shows at once and syncs through the inbox like a vote.
+  let boardRows = new Map();
+  function renderBoard() {
+    $("board-card").hidden = !mine;
+    if (!mine) { $("board").innerHTML = ""; return; }
+    const now = today();
+    const cards = myRows().map((r) => ({r, m: marksOf(r)})).filter((x) => x.m.stage);
+    boardRows = new Map(cards.map((x) => [x.r.i, x.r]));
+    $("board").innerHTML = STAGES.map((s) => {
+      const col = cards.filter((x) => x.m.stage === s)
+        .sort((a, b) => (b.m.dates[s] || "").localeCompare(a.m.dates[s] || ""));
+      return `<div class="bcol" data-stage="${s}" aria-label="${STAGE_NAMES[s]}">
+        <h3><span>${STAGE_NAMES[s]}</span><span class="num">${col.length}</span></h3>
+        ${col.map(({r, m}) => boardCard(r, m, s, now)).join("") || `<p class="bempty">${s === "saved" ? "📌 a job to save it here" : "Nothing yet"}</p>`}
+      </div>`;
+    }).join("");
+  }
+  function boardCard(r, m, s, now) {
+    const since = m.dates[s];
+    const days = since ? Math.round((Date.parse(now) - Date.parse(since)) / 864e5) : null;
+    const when = since ? `${STAGE_NAMES[s]} ${shortDate(since)}${days > 0 ? ` · ${days}d ago` : " · today"}` : "No date";
+    const unsent = Object.values(m.waiting).includes("unsent");
+    return `<article class="bcard${unsent ? " unsent" : ""}" draggable="true" tabindex="0" data-id="${esc(r.i)}"
+        title="${unsent ? "Not sent yet - will retry" : "Click to edit"}">
+      <div class="bco">${esc(r.c)}</div>
+      <a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>
+      <div class="bmeta">${esc(when)}</div>
+      ${m.notes ? `<p class="bnote">${esc(m.notes.split("\n")[0])}</p>` : ""}
+    </article>`;
+  }
+  const cardOf = (el) => { const c = el.closest(".bcard"); return c && boardRows.get(c.dataset.id); };
+  $("board").addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;  // the link opens the posting
+    const r = cardOf(e.target);
+    if (r) openCard(r);
+  });
+  $("board").addEventListener("keydown", (e) => {
+    const r = e.key === "Enter" && cardOf(e.target);
+    if (r) { e.preventDefault(); openCard(r); }
+  });
+  $("board").addEventListener("dragstart", (e) => {
+    const c = e.target.closest(".bcard");
+    if (c) { e.dataTransfer.setData("text/plain", c.dataset.id); e.dataTransfer.effectAllowed = "move"; }
+  });
+  $("board").addEventListener("dragover", (e) => {
+    const col = e.target.closest(".bcol");
+    if (!col) return;
+    e.preventDefault();
+    document.querySelectorAll(".bcol.over").forEach((c) => c !== col && c.classList.remove("over"));
+    col.classList.add("over");
+  });
+  $("board").addEventListener("dragleave", (e) => {
+    const col = e.target.closest(".bcol");
+    if (col && !col.contains(e.relatedTarget)) col.classList.remove("over");
+  });
+  $("board").addEventListener("drop", (e) => {
+    const col = e.target.closest(".bcol");
+    if (!col) return;
+    e.preventDefault();
+    col.classList.remove("over");
+    const r = boardRows.get(e.dataTransfer.getData("text/plain"));
+    const m = r && marksOf(r);
+    if (m && m.stage !== col.dataset.stage) queueChanges(r, stageChanges(m, col.dataset.stage));
+  });
+
+  let cardRow = null, cardStage = null;
+  function renderCardStages() {
+    $("card-stages").innerHTML = STAGES.map((s) =>
+      `<button type="button" role="radio" data-s="${s}" aria-checked="${s === cardStage}">${STAGE_NAMES[s]}</button>`).join("");
+  }
+  function openCard(r) {
+    cardRow = r;
+    const m = marksOf(r);
+    cardStage = m.stage || "saved";
+    $("card-h").textContent = r.t;
+    $("card-meta").textContent = [r.c, r.l].filter(Boolean).join(" · ");
+    $("card-link").href = r.u;
+    renderCardStages();
+    $("card-dates").innerHTML = STAGES.map((s) =>
+      `<label>${STAGE_NAMES[s]}<input type="date" data-s="${s}" value="${esc(m.dates[s] || "")}"></label>`).join("");
+    $("card-notes").value = m.notes;
+    $("card-remove").hidden = !m.stage;
+    $("card").showModal();
+  }
+  $("card-stages").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-s]");
+    if (b) { cardStage = b.dataset.s; renderCardStages(); }
+  });
+  $("card-cancel").addEventListener("click", () => $("card").close());
+  $("card-save").addEventListener("click", () => {
+    const m = marksOf(cardRow), changes = {};
+    if (cardStage !== m.stage) Object.assign(changes, stageChanges(m, cardStage));
+    // A date typed here wins over the automatic "today".
+    for (const input of $("card-dates").querySelectorAll("input")) {
+      const field = `date:${input.dataset.s}`, value = input.value || null;
+      if (value !== (m.dates[input.dataset.s] || null)) changes[field] = value;
+    }
+    const notes = $("card-notes").value.trim();
+    if (notes !== m.notes) changes.notes = notes || null;
+    $("card").close();
+    if (Object.keys(changes).length) queueChanges(cardRow, changes);
+  });
+  $("card-remove").addEventListener("click", () => {
+    if (!confirm(`Remove ${cardRow.c} - ${cardRow.t} from your board? Its notes are kept.`)) return;
+    $("card").close();
+    queueChanges(cardRow, stageChanges(marksOf(cardRow), null));
   });
 
   function openVoting() {

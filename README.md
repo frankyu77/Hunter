@@ -30,6 +30,17 @@ A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<
 The repo is public and so is the dashboard, so its readable part is job data only.
 Your votes and applications ship as the **private layer** (below), encrypted.
 
+### Application board
+
+Once unlocked, the dashboard shows your applications as a board: **Saved → Applied → Online assessment → Interview → Offer / Rejected**.
+
+- **📌** on any job row adds it to Saved. ✅ (on the dashboard or in Telegram) puts it in Applied.
+- **Drag** a card to another column, or **click** it to pick its stage, edit the date it entered each stage, and keep notes (recruiter, referral, interview rounds…).
+- Each card shows when it entered its current stage and how long ago.
+- Every stage after Saved counts as applied, and moving back to Saved, or off the board, un-marks it.
+
+Changes sync through the same encrypted inbox as votes (one comment per edit), so the board is the same on every device and stays private. There are no reminder pings: Telegram keeps sending you new jobs as before.
+
 ### New since your last visit
 
 Jobs that reached you since you last opened the dashboard are marked **New**: sent to you on the **Sent to you** tab, first seen by Hunter on **Not sent**. Each tab shows how many are new, and the **New (N)** button filters to just those.

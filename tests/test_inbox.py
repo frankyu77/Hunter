@@ -219,3 +219,66 @@ def test_dashboard_publishes_the_inbox_address_and_row_ids(tmp_path, monkeypatch
     assert data["inbox"] == {"repo": REPO, "issue": 7}
     assert data["history"][0]["i"] == job.id
     assert data["open"][0]["i"] == other.id
+
+
+def batch(cid: int, actions: list[dict]) -> dict:
+    envelope = private.seal({"actions": actions}, PHRASE)
+    del envelope["kdf"]
+    return {"id": cid, "body": json.dumps(envelope)}
+
+
+def act(job_id: str, field: str, value, at: datetime = NOW) -> dict:
+    return {"id": job_id, "field": field, "value": value, "at": at.isoformat()}
+
+
+@responses.activate
+def test_one_comment_carries_a_whole_board_move(tmp_path, configured):
+    job = make_job(1)
+    store = sent_store(tmp_path, job)
+    later = NOW + timedelta(minutes=1)
+    responses.get(COMMENTS, json=[
+        batch(1, [act(job.id, "stage", "saved"), act(job.id, "date:saved", "2026-09-28")]),
+        batch(2, [act(job.id, "stage", "interview", later),
+                  act(job.id, "date:interview", "2026-09-30", later),
+                  act(job.id, "applied", True, later),
+                  act(job.id, "notes", "Recruiter: Sam. Onsite Oct 9.", later)]),
+    ])
+
+    assert inbox.process(store, [], NOW) == 2
+
+    record = votes(store)[job.id]
+    assert record["stage"] == "interview"
+    assert record["stage_dates"] == {"saved": "2026-09-28", "interview": "2026-09-30"}
+    assert record["applied"] is True
+    assert record["notes"] == "Recruiter: Sam. Onsite Oct 9."
+
+
+@responses.activate
+def test_removing_from_the_board_clears_stage_but_keeps_notes(tmp_path, configured):
+    job = make_job(1)
+    store = sent_store(tmp_path, job)
+    responses.get(COMMENTS, json=[
+        batch(1, [act(job.id, "stage", "saved"), act(job.id, "notes", "referral from Ana")]),
+        batch(2, [act(job.id, "stage", None, NOW + timedelta(minutes=1)),
+                  act(job.id, "date:saved", None, NOW + timedelta(minutes=1))]),
+    ])
+
+    inbox.process(store, [], NOW)
+
+    record = votes(store)[job.id]
+    assert "stage" not in record and "stage_dates" not in record
+    assert record["notes"] == "referral from Ana"  # notes alone keep the record
+
+
+@pytest.mark.parametrize("field,value", [
+    ("stage", "phone-screen"), ("date:applied", "next tuesday"), ("date:nope", "2026-09-30"),
+    ("notes", "x" * (inbox.NOTES_MAX + 1)), ("applied", 1), ("starred", True),
+])
+@responses.activate
+def test_a_comment_with_any_bad_action_is_rejected_whole(tmp_path, configured, field, value):
+    job = make_job(1)
+    store = sent_store(tmp_path, job)
+    responses.get(COMMENTS, json=[batch(1, [act(job.id, "vote", "up"), act(job.id, field, value)])])
+
+    assert inbox.process(store, [], NOW) == 0
+    assert votes(store) == {}  # not even the valid 👍: one comment is one edit

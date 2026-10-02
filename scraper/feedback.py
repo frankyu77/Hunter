@@ -18,7 +18,8 @@ State (``SeenStore.feedback``):
     sent    {token: job snapshot + sent_at} for every job notified in the
             last HISTORY_DAYS - the dashboard's searchable history. Buttons
             stay live for SENT_DAYS; a later press answers "too old"
-    votes   {token: snapshot + vote/applied} - never pruned: this is
+    votes   {token: snapshot + vote/applied, and the application board's
+            stage/stage_dates/notes} - never pruned: this is
             the labelled data a relevance model will train on, and the
             application funnel. Personal: it reaches the public dashboard
             only encrypted (scraper.private), and the weekly Telegram summary.
@@ -111,6 +112,7 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
             record["applied_at"] = stamp
         else:
             record.pop("applied_at", None)
+        _board_follows_applied(record, stamp)
     else:
         record["vote"] = None if record["vote"] == action else action
     record["updated_at"] = stamp
@@ -127,11 +129,32 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
 
 _FIELDS = {"applied": "applied", "up": "vote", "down": "vote"}
 
+# The application board's columns, in order. The dashboard sets them (via
+# scraper.inbox); every stage from "applied" on means you applied.
+STAGES = ("saved", "applied", "oa", "interview", "offer", "rejected")
+
+
+def _board_follows_applied(record: dict, stamp: str) -> None:
+    """Telegram's ✅ keeps the board in step: marking applied moves a job
+    that isn't past Saved into Applied (dated today); unmarking takes it back
+    off the board only if it was still just Applied. The dashboard sends
+    these fields itself, so this is the Telegram path only."""
+    stamps = record.setdefault("set_at", {})
+    if record["applied"] and record.get("stage") in (None, "saved"):
+        record["stage"] = "applied"
+        record.setdefault("stage_dates", {})["applied"] = stamp[:10]
+        stamps["stage"] = stamps["date:applied"] = stamp
+    elif not record["applied"] and record.get("stage") == "applied":
+        record.pop("stage")
+        stamps["stage"] = stamp
+
 
 def save(votes: dict, token: str, record: dict) -> None:
-    """A job with no vote or application carries no label; keep the
-    training set to real signals. Its "sent" snapshot allows a later press."""
-    if record.get("vote") is None and not record.get("applied"):
+    """A job with no vote, application, board stage or notes carries no
+    signal; keep the training set to real ones. Its "sent" snapshot allows
+    a later press."""
+    if (record.get("vote") is None and not record.get("applied")
+            and not record.get("stage") and not record.get("notes")):
         votes.pop(token, None)
     else:
         votes[token] = record

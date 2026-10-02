@@ -71,7 +71,8 @@ def test_page_carries_votes_only_encrypted(tmp_path, monkeypatch):
     mine = private.unseal(sealed_from(page), PHRASE)["mine"]
     assert mine == [{"i": job.id, "t": "SECRET-VOTED-TITLE", "c": "Acme", "l": "", "u": job.url,
                      "k": "", "s": "", "d": "2026-09-29", "vote": "up",
-                     "applied": "2026-09-29", "set": {}}]
+                     "applied": "2026-09-29", "stage": None, "dates": {}, "notes": "",
+                     "set": {}}]
 
 
 def test_without_a_passphrase_the_page_has_no_private_layer(tmp_path):

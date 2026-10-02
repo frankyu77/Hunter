@@ -87,6 +87,10 @@ tests still pass:
   commit fails. Dashboard actions follow the same rule: `inbox.process` saves
   applied comment ids in `feedback.inbox.applied`, and only a *later* run
   deletes those comments.
+- **"applied" and the board stage move together.** Every stage after
+  `saved` means applied. The dashboard sends both fields itself. Telegram's
+  ✅ goes through `feedback._board_follows_applied`, which only moves a job
+  into or out of `applied`, never back from a later stage.
 - **Dashboard actions set, never toggle, and carry their click time.** Each
   vote record stamps `set_at[field]` (Telegram presses too), and an action
   older than the stamp is ignored. That is what makes replaying the inbox

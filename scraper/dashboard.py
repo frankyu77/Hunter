@@ -155,18 +155,23 @@ def _sealed(store: SeenStore) -> dict | None:
 
 
 def _mine(store: SeenStore) -> list[dict]:
-    """Every job you voted on or applied to, newest first. Shaped like a
-    history row so the page renders it with the same code, plus the marks.
+    """Every job you voted on, applied to or put on the application board,
+    newest first. Shaped like a history row so the page renders it with the
+    same code, plus the marks.
     Never pruned, so it outlives the 90-day sent history."""
     rows = []
     for record in store.feedback.get("votes", {}).values():
-        if not record.get("vote") and not record.get("applied"):
+        if not any(record.get(k) for k in ("vote", "applied", "stage", "notes")):
             continue  # e.g. an old record that was only starred
         row = _row(record, record.get("updated_at", "")[:10])
         row |= {
             "vote": record.get("vote"),
             "applied": (record.get("applied_at") or record.get("updated_at", ""))[:10]
             if record.get("applied") else "",
+            # The application board: column, the day each stage began, notes.
+            "stage": record.get("stage"),
+            "dates": record.get("stage_dates", {}),
+            "notes": record.get("notes", ""),
             # When each field last changed: the page drops a click it is
             # still showing as pending once this says the run has it.
             "set": record.get("set_at", {}),
