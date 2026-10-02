@@ -114,7 +114,7 @@ def collect(
     pooled = [d for samples in store.insights.get("lifetimes", {}).values() for d in samples]
     week_ago = (now - timedelta(days=7)).date().isoformat()
     open_rows = (
-        _not_sent(open_jobs, snapshots, filters_config) if open_jobs is not None else None
+        _not_sent(store, open_jobs, snapshots, filters_config) if open_jobs is not None else None
     )
     return {
         "generated": now.isoformat(timespec="seconds"),
@@ -180,8 +180,10 @@ def _history(store: SeenStore, snapshots: list[dict], live: set[str] | None) -> 
     for snap in snapshots:
         row = _row(snap, snap.get("sent_at", "")[:10])
         row["st"] = _status(store, snap.get("id", ""), live)
+        row["f"] = _epoch(snap.get("sent_at"))
         rows.append(row)
-    return sorted(rows, key=lambda row: row["d"], reverse=True)
+    # Newest first to the second, so everything new is at the top.
+    return sorted(rows, key=lambda row: (row["d"], row["f"] or 0), reverse=True)
 
 
 def _status(store: SeenStore, job_id: str, live: set[str] | None) -> str:
@@ -194,7 +196,9 @@ def _status(store: SeenStore, job_id: str, live: set[str] | None) -> str:
     return ""
 
 
-def _not_sent(jobs: list[Job], snapshots: list[dict], filters_config: dict) -> list[dict]:
+def _not_sent(
+    store: SeenStore, jobs: list[Job], snapshots: list[dict], filters_config: dict
+) -> list[dict]:
     sent_ids = {snap.get("id") for snap in snapshots}
     sent_roles = {_role(snap.get("company", ""), snap.get("title", ""), snap.get("location", ""))
                   for snap in snapshots}
@@ -209,8 +213,21 @@ def _not_sent(jobs: list[Job], snapshots: list[dict], filters_config: dict) -> l
         _row({"id": j.id, "title": j.title, "company": j.company, "location": j.location,
               "url": j.url, "source": j.source, "category": categorize(j)},
              (j.posted_at or "")[:10])
+        | {"f": _epoch(store.first_seen(j.id) if store.has(j.id) else None)}
         for j in kept[:OPEN_LIMIT]
     ]
+
+
+def _epoch(when: datetime | str | None) -> int | None:
+    """When a row reached you - sent, or first seen by Hunter - as epoch
+    seconds: the page highlights rows newer than your last visit. Seconds,
+    not ISO strings, because there are thousands of rows."""
+    if isinstance(when, str):
+        try:
+            when = datetime.fromisoformat(when)
+        except ValueError:
+            return None
+    return int(when.timestamp()) if when else None
 
 
 def _role(company: str, title: str, location: str) -> tuple[str, str, str]:

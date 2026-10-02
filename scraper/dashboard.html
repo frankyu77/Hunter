@@ -92,6 +92,14 @@
   .status.open::before { content: "●"; color: #0ca30c; margin-right: 4px; }
   .status.closed::before { content: "○"; margin-right: 4px; }
   tr.closed a { color: var(--text-secondary); }
+  tr.new td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  .pill-new { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 600; color: var(--accent);
+              border: 1px solid var(--accent); border-radius: 999px; padding: 0 6px; vertical-align: 1px; }
+  .chip-toggle { font: inherit; font-size: 14px; border: 1px solid var(--border); border-radius: 999px;
+                 background: var(--surface-0); color: var(--text-secondary); padding: 6px 12px; cursor: pointer; }
+  .chip-toggle[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip-toggle:disabled { opacity: .5; cursor: default; }
+  .linkish { font: inherit; font-size: 13px; border: 0; background: none; color: var(--link); cursor: pointer; padding: 4px; }
   .loc-inline { display: none; color: var(--text-secondary); font-size: 13px; }
   @media (max-width: 720px) {
     .col-src, .col-loc { display: none; }
@@ -270,6 +278,8 @@
         <button role="tab" id="tab-open" aria-selected="false">Not sent</button>
         <button role="tab" id="tab-mine" aria-selected="false" hidden>Yours</button>
       </div>
+      <button class="chip-toggle" id="only-new" aria-pressed="false" hidden>New</button>
+      <button class="linkish" id="mark-seen" hidden>Mark all seen</button>
     </div>
     <div class="table-wrap">
       <table>
@@ -411,8 +421,51 @@
   // `pending` holds clicks not yet reflected in the published data.
   let mine = null, mineById = new Map(), pending = {};
   if (!hasOpen) { $("tab-open").disabled = true; $("tab-open").title = "Available on the published site"; }
-  $("tab-history").textContent = `Sent to you (${fmt(data.history.length)})`;
-  if (hasOpen) $("tab-open").textContent = `Not sent (${fmt(data.open.length)})`;
+
+  // "New since your last visit": rows that reached you (sent, or first seen
+  // by Hunter: `f`) after the build you last looked at. localStorage keeps
+  // that build's time per browser. sessionStorage pins this visit's cutoff,
+  // so reloading the tab keeps today's highlights until "Mark all seen" or
+  // your next visit. A first visit ever highlights nothing, rather than
+  // calling the whole backlog new.
+  const LAST_KEY = "hunter.lastVisit", CUTOFF_KEY = "hunter.visitCutoff";
+  const session = {
+    get: (k) => { try { return sessionStorage.getItem(k) || ""; } catch { return ""; } },
+    set: (k, v) => { try { sessionStorage.setItem(k, v); } catch { /* storage blocked */ } },
+  };
+  const built = Math.floor(Date.parse(data.generated) / 1000);
+  let cutoff = Number(session.get(CUTOFF_KEY));
+  if (!cutoff) {
+    cutoff = Number(saved.get(LAST_KEY)) || built;
+    session.set(CUTOFF_KEY, String(cutoff));
+  }
+  saved.set(LAST_KEY, String(Math.max(built, Number(saved.get(LAST_KEY)) || 0)));
+  let onlyNew = false;
+  // Jobs you've opened stop being new straight away. Kept per browser, and
+  // only while they would still count as new - older ids are dropped here,
+  // so the list never grows past one visit's worth.
+  const OPENED_KEY = "hunter.opened";
+  let opened;
+  try { opened = new Set(JSON.parse(saved.get(OPENED_KEY) || "[]")); } catch { opened = new Set(); }
+  const stillNew = new Set([...(data.history || []), ...(data.open || [])]
+    .filter((r) => r.f != null && r.f > cutoff).map((r) => r.i));
+  opened = new Set([...opened].filter((id) => stillNew.has(id)));
+  const saveOpened = () => saved.set(OPENED_KEY, opened.size ? JSON.stringify([...opened]) : "");
+  saveOpened();
+  const isNew = (r) => r.f != null && r.f > cutoff && !opened.has(r.i);
+  const newIn = (rows) => (rows ? rows.filter(isNew).length : 0);
+  function renderNewControls() {
+    const counts = {history: newIn(data.history), open: newIn(data.open), mine: 0};
+    const label = (n) => (n ? ` · ${fmt(n)} new` : "");
+    $("tab-history").textContent = `Sent to you (${fmt(data.history.length)}${label(counts.history)})`;
+    if (hasOpen) $("tab-open").textContent = `Not sent (${fmt(data.open.length)}${label(counts.open)})`;
+    const any = counts.history + counts.open > 0;
+    $("only-new").hidden = !any || tab === "mine";
+    $("mark-seen").hidden = !any;
+    $("only-new").textContent = `New (${fmt(counts[tab])})`;
+    $("only-new").disabled = !counts[tab] && !onlyNew;
+    $("only-new").setAttribute("aria-pressed", onlyNew);
+  }
   const SUBS = {
     history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
     open: "Open right now and matching your filters, but never sent to you - mostly postings that already existed when Hunter started watching a board.",
@@ -427,6 +480,7 @@
     const source = tab === "open" ? data.open : tab === "mine" ? myRows() : data.history;
     return source.filter((r) => {
       if (cat && r.k !== cat) return false;
+      if (onlyNew && tab !== "mine" && !isNew(r)) return false;
       if (tab === "mine" && mark) {
         const m = marksOf(r);
         if (!(mark === "applied" ? m.applied : m.vote === mark)) return false;
@@ -475,15 +529,17 @@
     $("date-h").textContent = DATE_H[tab];
     $("mark").hidden = tab !== "mine";
     $("jobs-sub").textContent = SUBS[tab];
-    $("rows").innerHTML = visible.map((r, i) => `<tr class="${r.st === "closed" ? "closed" : ""}">
+    $("rows").innerHTML = visible.map((r, i) => `<tr class="${[r.st === "closed" && "closed", isNew(r) && "new"].filter(Boolean).join(" ")}">
       <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
       <td>${esc(r.c)}</td>
-      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
+      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${isNew(r) ? `<span class="pill-new">New</span>` : ""}${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
         <span class="loc-inline">${esc(r.l)}</span></td>
       <td class="muted col-loc">${esc(r.l)}</td>
       <td class="src col-src">${esc(r.s)}</td>
       <td class="col-kit">${actions(r, i)}<button class="kit-btn" data-i="${i}" title="Tailor your resume to this job" aria-label="Application kit">📝<span class="kit-label"> Kit</span></button></td></tr>`).join("");
     $("empty").hidden = rows.length > 0;
+    $("empty").textContent = onlyNew ? "Nothing new here since your last visit." : "No jobs match.";
+    renderNewControls();
     $("more").hidden = rows.length <= shown;
     $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
     if (mine) renderMyTiles();
@@ -502,7 +558,30 @@
   $("tab-mine").addEventListener("click", () => mine && selectTab("mine"));
   $("mark").addEventListener("change", () => { shown = PAGE; renderRows(); });
   $("more").addEventListener("click", () => { shown += PAGE; renderRows(); });
-  renderRows();
+  $("only-new").addEventListener("click", () => { onlyNew = !onlyNew; shown = PAGE; renderRows(); });
+  // Opening a job's link (click, middle-click or Cmd-click) marks it seen.
+  // Under the New filter it then drops out of the list, like an inbox.
+  function markOpened(e) {
+    const link = e.target.closest("#rows td a");
+    if (!link || (e.type === "auxclick" && e.button !== 1)) return;
+    const r = visible[[...$("rows").children].indexOf(link.closest("tr"))];
+    if (!r || !isNew(r)) return;
+    opened.add(r.i);
+    saveOpened();
+    setTimeout(renderRows, 0);  // after the browser has followed the link
+  }
+  $("rows").addEventListener("click", markOpened);
+  $("rows").addEventListener("auxclick", markOpened);
+  $("mark-seen").addEventListener("click", () => {
+    cutoff = built;
+    session.set(CUTOFF_KEY, String(cutoff));
+    opened.clear();
+    saveOpened();
+    onlyNew = false;
+    renderRows();
+  });
+  // Land on the tab with something new in it.
+  if (!newIn(data.history) && newIn(data.open)) selectTab("open"); else renderRows();
 
   // Private layer. Personal data ships only as AES-GCM ciphertext (see
   // scraper/private.py); this decrypts it in the browser with a key derived
