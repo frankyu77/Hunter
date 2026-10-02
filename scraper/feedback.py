@@ -1,4 +1,4 @@
-"""Button presses -> stars, votes and applications.
+"""Button presses -> votes and applications.
 
 GitHub Actions can't host a webhook, so presses are collected by polling
 getUpdates at the start of each run instead. That makes a press take effect
@@ -18,10 +18,13 @@ State (``SeenStore.feedback``):
     sent    {token: job snapshot + sent_at} for every job notified in the
             last HISTORY_DAYS - the dashboard's searchable history. Buttons
             stay live for SENT_DAYS; a later press answers "too old"
-    votes   {token: snapshot + vote/starred/applied} - never pruned: this is
+    votes   {token: snapshot + vote/applied} - never pruned: this is
             the labelled data a relevance model will train on, and the
             application funnel. Personal: it reaches the public dashboard
-            only encrypted (scraper.private), and the weekly Telegram summary
+            only encrypted (scraper.private), and the weekly Telegram summary.
+            ``set_at`` stamps each field when it last changed, so a dashboard
+            action that arrives late (scraper.inbox) can't undo a newer press
+    inbox   dashboard-action bookkeeping, owned by scraper.inbox
 
 Snapshots are kept because by the time someone votes, the posting may be
 gone from its source; descriptions are left out to keep the committed
@@ -33,7 +36,6 @@ from datetime import UTC, datetime, timedelta
 
 import requests
 
-from scraper import insights
 from scraper import notify as telegram
 from scraper.models import Job
 from scraper.store import SeenStore
@@ -49,10 +51,10 @@ def remember_sent(jobs: list[Job], store: SeenStore, now: datetime | None = None
     sent_at = (now or datetime.now(UTC)).isoformat(timespec="seconds")
     sent = store.feedback.setdefault("sent", {})
     for job in jobs:
-        sent[telegram.callback_token(job.id)] = _snapshot(job) | {"sent_at": sent_at}
+        sent[telegram.callback_token(job.id)] = snapshot(job) | {"sent_at": sent_at}
 
 
-def _snapshot(job: Job) -> dict:
+def snapshot(job: Job) -> dict:
     return {
         "id": job.id,
         "title": job.title,
@@ -85,6 +87,9 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
         return
 
     code, _, token = (query.get("data") or "").partition(":")
+    if retired := telegram.RETIRED.get(code):
+        _best_effort(telegram.answer_callback, query["id"], retired)
+        return
     action = telegram.ACTIONS.get(code)
     votes = store.feedback.setdefault("votes", {})
     known = votes.get(token)
@@ -98,16 +103,9 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
 
     record = {key: value for key, value in known.items() if key != "sent_at"}
     record.setdefault("vote", None)
-    record.setdefault("starred", False)
     record.setdefault("applied", False)
     stamp = now.isoformat(timespec="seconds")
-    if action == "star":
-        record["starred"] = not record["starred"]
-        if record["starred"]:
-            insights.star(store, _job(record))
-        else:
-            insights.unstar(store, record["id"])
-    elif action == "applied":
+    if action == "applied":
         record["applied"] = not record["applied"]
         if record["applied"]:
             record["applied_at"] = stamp
@@ -116,27 +114,30 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
     else:
         record["vote"] = None if record["vote"] == action else action
     record["updated_at"] = stamp
-
-    # A job with no vote, star or application carries no label; keep the
-    # training set to real signals. Its "sent" snapshot allows a later press.
-    if record["vote"] is None and not record["starred"] and not record["applied"]:
-        votes.pop(token, None)
-    else:
-        votes[token] = record
-    log.info("Button: %s on %s -> vote=%s starred=%s applied=%s",
-             action, record["id"], record["vote"], record["starred"], record["applied"])
+    record.setdefault("set_at", {})[_FIELDS[action]] = stamp
+    save(votes, token, record)
+    log.info("Button: %s on %s -> vote=%s applied=%s",
+             action, record["id"], record["vote"], record["applied"])
 
     if markup := message.get("reply_markup"):
-        restyled = telegram.restyle(
-            markup, token, record["starred"], record["vote"], record["applied"]
-        )
+        restyled = telegram.restyle(markup, token, record["applied"])
         _best_effort(telegram.edit_keyboard, chat, message["message_id"], restyled)
     _best_effort(telegram.answer_callback, query["id"], _confirmation(action, record))
 
 
+_FIELDS = {"applied": "applied", "up": "vote", "down": "vote"}
+
+
+def save(votes: dict, token: str, record: dict) -> None:
+    """A job with no vote or application carries no label; keep the
+    training set to real signals. Its "sent" snapshot allows a later press."""
+    if record.get("vote") is None and not record.get("applied"):
+        votes.pop(token, None)
+    else:
+        votes[token] = record
+
+
 def _confirmation(action: str, record: dict) -> str:
-    if action == "star":
-        return "⭐ Starred - you'll hear if it closes" if record["starred"] else "Unstarred"
     if action == "applied":
         return "✅ Marked applied" if record["applied"] else "Application unmarked"
     return {"up": "👍 Noted", "down": "👎 Noted"}.get(record["vote"], "Vote cleared")
@@ -150,19 +151,6 @@ def _best_effort(call, *args) -> None:
         call(*args)
     except requests.exceptions.RequestException as exc:
         log.info("Telegram cosmetic call failed (%s); vote already recorded.", exc)
-
-
-def _job(record: dict) -> Job:
-    return Job(
-        id=record["id"],
-        title=record["title"],
-        company=record["company"],
-        location=record["location"],
-        url=record["url"],
-        posted_at=record["posted_at"],
-        description="",
-        source=record["source"],
-    )
 
 
 def prune(store: SeenStore, now: datetime | None = None) -> None:
@@ -185,7 +173,7 @@ def _sent_at(snapshot: dict) -> datetime:
 def weekly_summary(store: SeenStore, now: datetime | None = None) -> str | None:
     """Your application funnel for the past week, or None if not due yet.
     Sent privately to Telegram - the public dashboard never shows votes,
-    stars or applications. The caller calls ``mark_summarised`` once sent."""
+    or applications. The caller calls ``mark_summarised`` once sent."""
     now = now or datetime.now(UTC)
     feedback = store.feedback
     since = datetime.fromisoformat(
@@ -198,18 +186,12 @@ def weekly_summary(store: SeenStore, now: datetime | None = None) -> str | None:
     recent = [v for v in feedback.get("votes", {}).values() if _stamp(v, "updated_at") >= since]
     up = sum(v.get("vote") == "up" for v in recent)
     down = sum(v.get("vote") == "down" for v in recent)
-    starred = sum(bool(v.get("starred")) for v in recent)
     applied = sum(_stamp(v, "applied_at") >= since for v in feedback.get("votes", {}).values())
     applied_total = sum(bool(v.get("applied")) for v in feedback.get("votes", {}).values())
-    closed = sum(
-        1 for job_id in insights.starred(store)
-        if store.has(job_id) and (on := store.closed_on(job_id)) and on >= since.date().isoformat()
-    )
     lines = [
         f"📊 <b>Your week</b> (last {(now - since).days} days)",
         f"Sent {sent} jobs",
         f"👍 {up} · 👎 {down}",
-        f"⭐ {starred} starred" + (f" · ⚠️ {closed} of your starred jobs closed" if closed else ""),
         f"✅ {applied} applied this week · {applied_total} all-time",
     ]
     return "\n".join(lines)

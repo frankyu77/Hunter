@@ -214,7 +214,14 @@
   .chip.miss-chip { background: transparent; border-style: dashed; color: var(--text-secondary); }
   /* private layer */
   .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  .marks { margin-left: 6px; white-space: nowrap; font-size: 13px; }
+  td.col-kit { white-space: nowrap; }
+  .acts { display: inline-flex; gap: 2px; margin-right: 6px; vertical-align: middle; }
+  .act { font: inherit; font-size: 13px; line-height: 1; padding: 3px 5px; cursor: pointer; border-radius: 6px;
+         border: 1px solid transparent; background: none; filter: grayscale(1); opacity: .45; }
+  .act:hover, .act:focus-visible { opacity: .9; border-color: var(--border); }
+  .act[aria-pressed="true"] { filter: none; opacity: 1; background: var(--surface-2); border-color: var(--border); }
+  .act.unsent { border-style: dashed; border-color: var(--text-muted); }
+  .steps { margin: 0 0 4px; padding-left: 20px; font-size: 14px; line-height: 1.6; }
   .tiles.mine { margin-top: -12px; }
   .tiles.mine .tile { border-style: dashed; }
   #unlock-error { color: #d03b3b; font-size: 13px; min-height: 1.5em; margin: 8px 0 0; }
@@ -233,6 +240,7 @@
     </div>
     <div class="actions">
       <button class="btn" id="lock" hidden>🔒 Unlock</button>
+      <button class="btn" id="open-voting" hidden>🗳 Voting setup</button>
       <button class="btn" id="open-setup">📝 Kit setup</button>
     </div>
   </header>
@@ -253,7 +261,6 @@
       </select>
       <select id="mark" aria-label="Your marks" hidden>
         <option value="">Everything you marked</option>
-        <option value="star">⭐ Starred</option>
         <option value="applied">✅ Applied</option>
         <option value="up">👍 Relevant</option>
         <option value="down">👎 Not relevant</option>
@@ -271,6 +278,7 @@
       </table>
     </div>
     <p class="empty" id="empty" hidden>No jobs match.</p>
+    <p class="note" id="act-status" aria-live="polite"></p>
     <button class="more" id="more" hidden>Show more</button>
   </section>
 
@@ -313,7 +321,7 @@
 
   <dialog id="unlock" aria-labelledby="unlock-h">
     <h2 id="unlock-h">Unlock your data</h2>
-    <p class="sub">Your votes, stars and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
+    <p class="sub">Your votes and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
     <form id="unlock-form" method="dialog">
       <label for="unlock-pass">Passphrase</label>
       <input id="unlock-pass" type="password" autocomplete="current-password" required>
@@ -326,6 +334,26 @@
         <button class="btn primary" id="unlock-go">Unlock</button>
       </div>
     </form>
+  </dialog>
+
+  <dialog id="voting" aria-labelledby="voting-h">
+    <h2 id="voting-h">Voting setup</h2>
+    <p class="sub">👍 / 👎 / ✅ are sent to Hunter as encrypted comments on its inbox issue in <b id="voting-repo"></b>, using a GitHub token saved only in this browser.</p>
+    <ol class="steps">
+      <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token ↗</a>.</li>
+      <li><b>Repository access:</b> Only select repositories → this repo.</li>
+      <li><b>Permissions:</b> Issues → Read and write. Nothing else - this token can't touch code.</li>
+      <li>Pick an expiry, generate, and paste it below.</li>
+    </ol>
+    <label for="voting-token">GitHub token</label>
+    <input id="voting-token" type="password" autocomplete="off" placeholder="github_pat_...">
+    <p class="note">Only save it on your own devices: anyone using this browser profile could post comments with it.</p>
+    <div class="row">
+      <button class="btn" id="voting-clear">Forget token</button>
+      <span class="spacer"></span>
+      <button class="btn" id="voting-cancel">Cancel</button>
+      <button class="btn primary" id="voting-save">Save</button>
+    </div>
   </dialog>
 
   <dialog id="kit" aria-labelledby="kit-h">
@@ -354,6 +382,11 @@
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
   const fmt = (n) => (n == null ? "—" : n.toLocaleString());
+  // Per-browser conveniences (kit setup, voting token, unsent votes).
+  const saved = {
+    get: (k) => { try { return localStorage.getItem(k) || ""; } catch { return ""; } },
+    set: (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch { /* storage blocked */ } },
+  };
   const shortDate = (iso) => new Date(iso + "T00:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"});
 
   // Header + tiles
@@ -375,14 +408,15 @@
   const hasOpen = Array.isArray(data.open);
   let tab = "history", shown = PAGE;
   // Filled in by the private layer once unlocked (see below); empty otherwise.
-  let mine = null, mineByUrl = new Map();
+  // `pending` holds clicks not yet reflected in the published data.
+  let mine = null, mineById = new Map(), pending = {};
   if (!hasOpen) { $("tab-open").disabled = true; $("tab-open").title = "Available on the published site"; }
   $("tab-history").textContent = `Sent to you (${fmt(data.history.length)})`;
   if (hasOpen) $("tab-open").textContent = `Not sent (${fmt(data.open.length)})`;
   const SUBS = {
     history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
     open: "Open right now and matching your filters, but never sent to you - mostly postings that already existed when Hunter started watching a board.",
-    mine: "Every job you voted on, starred or marked applied - kept past the 90-day history. Only you can see this tab.",
+    mine: "Every job you voted on or marked applied - kept past the 90-day history. Only you can see this tab.",
   };
   const DATE_H = {history: "Sent", open: "Posted", mine: "Marked"};
   const STATUS = {open: "Still open", closed: "Closed"};
@@ -390,20 +424,50 @@
   function currentRows() {
     const q = $("q").value.trim().toLowerCase();
     const cat = $("cat").value, mark = $("mark").value;
-    const source = tab === "open" ? data.open : tab === "mine" ? mine : data.history;
-    return source.filter((r) =>
-      (!cat || r.k === cat) &&
-      (tab !== "mine" || !mark || (mark === "star" ? r.star : mark === "applied" ? r.applied : r.vote === mark)) &&
-      (!q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q)));
+    const source = tab === "open" ? data.open : tab === "mine" ? myRows() : data.history;
+    return source.filter((r) => {
+      if (cat && r.k !== cat) return false;
+      if (tab === "mine" && mark) {
+        const m = marksOf(r);
+        if (!(mark === "applied" ? m.applied : m.vote === mark)) return false;
+      }
+      return !q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q);
+    });
   }
   let visible = [];
-  function marks(r) {
-    const m = mineByUrl.get(r.u);
-    if (!m) return "";
-    const parts = [m.star && ["⭐", "starred"], m.applied && ["✅", `applied ${m.applied}`],
-      m.vote === "up" && ["👍", "relevant"], m.vote === "down" && ["👎", "not relevant"]].filter(Boolean);
-    const label = parts.map((p) => p[1]).join(", ");
-    return parts.length ? `<span class="marks" title="${esc(label)}" aria-label="You marked this: ${esc(label)}">${parts.map((p) => p[0]).join("")}</span>` : "";
+  // Your marks on a row: what the last build published, with any click
+  // still on its way overlaid on top.
+  function marksOf(r) {
+    const m = mineById.get(r.i);
+    const out = {vote: m ? m.vote : null, applied: m ? m.applied : "", waiting: {}};
+    for (const field of ["vote", "applied"]) {
+      const p = pending[`${r.i}|${field}`];
+      if (!p) continue;
+      out[field] = field === "applied" ? (p.value ? p.at.slice(0, 10) : "") : p.value;
+      out.waiting[field] = p.sent ? "sent" : "unsent";
+    }
+    return out;
+  }
+  // Everything you marked, for the Yours tab: published rows plus jobs whose
+  // first mark is still pending.
+  function myRows() {
+    const rows = new Map((mine || []).map((r) => [r.i, r]));
+    for (const p of Object.values(pending)) if (!rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
+    return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied; });
+  }
+  // Once GitHub has the comment the click can't be lost, so it shows as done;
+  // only a click still sitting in this browser looks unfinished.
+  const WAIT = {unsent: "Not sent yet - will retry"};
+  function actions(r, i) {
+    if (!mine || !data.inbox || !r.i) return "";
+    const m = marksOf(r);
+    const btn = (field, value, icon, label, on) => {
+      const wait = m.waiting[field] === "unsent" && on;
+      const tip = wait ? ` · ${WAIT.unsent}` : "";
+      return `<button class="act${wait ? " unsent" : ""}" data-i="${i}" data-f="${field}" data-v="${value}"
+        aria-pressed="${on}" title="${label}${tip}" aria-label="${label}">${icon}</button>`;
+    };
+    return `<span class="acts" role="group" aria-label="Your marks">${btn("vote", "up", "👍", "Relevant", m.vote === "up")}${btn("vote", "down", "👎", "Not relevant", m.vote === "down")}${btn("applied", "true", "✅", "Applied", !!m.applied)}</span>`;
   }
   function renderRows() {
     const rows = currentRows();
@@ -414,14 +478,15 @@
     $("rows").innerHTML = visible.map((r, i) => `<tr class="${r.st === "closed" ? "closed" : ""}">
       <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
       <td>${esc(r.c)}</td>
-      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${marks(r)}${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
+      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
         <span class="loc-inline">${esc(r.l)}</span></td>
       <td class="muted col-loc">${esc(r.l)}</td>
       <td class="src col-src">${esc(r.s)}</td>
-      <td class="col-kit"><button class="kit-btn" data-i="${i}" title="Tailor your resume to this job" aria-label="Application kit">📝<span class="kit-label"> Kit</span></button></td></tr>`).join("");
+      <td class="col-kit">${actions(r, i)}<button class="kit-btn" data-i="${i}" title="Tailor your resume to this job" aria-label="Application kit">📝<span class="kit-label"> Kit</span></button></td></tr>`).join("");
     $("empty").hidden = rows.length > 0;
     $("more").hidden = rows.length <= shown;
     $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
+    if (mine) renderMyTiles();
   }
   function selectTab(name) {
     tab = name; shown = PAGE;
@@ -444,13 +509,14 @@
   // from your passphrase. Nothing personal is in the page until then, and
   // the passphrase never leaves this browser. "Remember" stores the derived
   // key in IndexedDB as a non-extractable CryptoKey: usable for decrypting
-  // here, but script can't read the key bytes back out.
+  // (and sealing votes) here, but script can't read the key bytes back out.
   const sealed = JSON.parse($("private").textContent);
   const KEY_DB = "hunter-private", KEY_STORE = "keys", KEY_ID = "dashboard";
   const bytes = (b64) => Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
-  // Identifies the KDF settings a remembered key was derived with; if the
-  // page changes them, the old key is simply not used.
-  const kdfId = sealed ? `${sealed.kdf.hash}:${sealed.kdf.iterations}:${sealed.kdf.salt}` : "";
+  // Identifies the KDF settings and key usages a remembered key was made
+  // with; if the page changes either, the old key is simply not used.
+  const kdfId = sealed ? `${sealed.kdf.hash}:${sealed.kdf.iterations}:${sealed.kdf.salt}:ed` : "";
+  let unlockedKey = null;
 
   function keyStore(mode, act) {
     return new Promise((resolve, reject) => {
@@ -475,37 +541,136 @@
     const base = await crypto.subtle.importKey("raw", raw, "PBKDF2", false, ["deriveKey"]);
     return crypto.subtle.deriveKey(
       {name: "PBKDF2", hash: sealed.kdf.hash, salt: bytes(sealed.kdf.salt), iterations: sealed.kdf.iterations},
-      base, {name: "AES-GCM", length: 256}, false, ["decrypt"]);
+      base, {name: "AES-GCM", length: 256}, false, ["encrypt", "decrypt"]);
   }
   async function decrypt(key) {  // throws on a wrong key: GCM authenticates
     const plain = await crypto.subtle.decrypt({name: "AES-GCM", iv: bytes(sealed.iv)}, key, bytes(sealed.ct));
     return JSON.parse(new TextDecoder().decode(plain));
   }
 
-  function showMine(payload) {
-    const status = new Map(data.history.map((r) => [r.u, r.st]));
-    mine = payload.mine.map((r) => ({...r, st: status.get(r.u) || ""}));
-    mineByUrl = new Map(mine.map((r) => [r.u, r]));
-    const count = (pred) => fmt(mine.filter(pred).length);
-    $("my-tiles").innerHTML = [
-      [count((r) => r.applied), "you applied to"],
-      [count((r) => r.star), "starred"],
-      [count((r) => r.vote === "up"), "👍 relevant"],
-      [count((r) => r.vote === "down"), "👎 not relevant"],
-    ].map(([v, l]) => `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
+  function showMine(payload, key) {
+    unlockedKey = key;
+    const status = new Map(data.history.map((r) => [r.i, r.st]));
+    mine = payload.mine.map((r) => ({...r, st: status.get(r.i) || ""}));
+    mineById = new Map(mine.map((r) => [r.i, r]));
+    loadPending();
     $("my-tiles").hidden = false;
     $("tab-mine").hidden = false;
-    $("tab-mine").textContent = `Yours (${fmt(mine.length)})`;
     $("lock").textContent = "🔓 Lock";
+    $("open-voting").hidden = !data.inbox;
     renderRows();
+    sendPending();
+  }
+  function renderMyTiles() {
+    const rows = myRows().map(marksOf);
+    const count = (pred) => fmt(rows.filter(pred).length);
+    $("my-tiles").innerHTML = [
+      [count((m) => m.applied), "you applied to"],
+      [count((m) => m.vote === "up"), "👍 relevant"],
+      [count((m) => m.vote === "down"), "👎 not relevant"],
+    ].map(([v, l]) => `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
+    $("tab-mine").textContent = `Yours (${fmt(rows.length)})`;
   }
   function hideMine() {
-    mine = null; mineByUrl = new Map();
+    mine = null; mineById = new Map(); pending = {}; unlockedKey = null;
     $("my-tiles").hidden = true; $("my-tiles").innerHTML = "";
     $("tab-mine").hidden = true;
+    $("open-voting").hidden = true;
+    $("act-status").textContent = "";
     $("lock").textContent = "🔒 Unlock";
     if (tab === "mine") selectTab("history"); else renderRows();
   }
+
+  // Voting: 👍 / 👎 / ✅ go back to Hunter as encrypted comments on one
+  // GitHub issue (see scraper/inbox.py for why an issue). A click is saved
+  // in this browser first and only then posted, so a click made offline or
+  // with a bad token is retried rather than lost. The run that applies it
+  // republishes the page within minutes; until then this browser overlays
+  // the click. The overlay goes once a published build shows the run applied
+  // it (its `set` stamp is as new as the click), or the build is two hours
+  // newer than the click - by then the published state is the truth.
+  const PENDING_KEY = "hunter.votes.pending", TOKEN_KEY = "hunter.github.token";
+  const SETTLE_MS = 2 * 60 * 60 * 1000;
+  function loadPending() {
+    try { pending = JSON.parse(saved.get(PENDING_KEY) || "{}"); } catch { pending = {}; }
+    const built = Date.parse(data.generated);
+    for (const [k, p] of Object.entries(pending)) {
+      const m = mineById.get(p.id), stamp = m && m.set && m.set[p.field];
+      if ((stamp && Date.parse(stamp) >= Date.parse(p.at)) || (p.sent && built - Date.parse(p.at) > SETTLE_MS)) {
+        delete pending[k];
+      }
+    }
+    savePending();
+  }
+  const savePending = () => saved.set(PENDING_KEY, Object.keys(pending).length ? JSON.stringify(pending) : "");
+  const b64 = (u8) => btoa(String.fromCharCode(...u8));
+
+  async function sealAction(action) {
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const ct = await crypto.subtle.encrypt({name: "AES-GCM", iv}, unlockedKey,
+      new TextEncoder().encode(JSON.stringify(action)));
+    return JSON.stringify({v: 1, iv: b64(iv), ct: b64(new Uint8Array(ct))});
+  }
+  function postError(status) {
+    if (status === 401) return "GitHub rejected your token - check it in 🗳 Voting setup.";
+    if (status === 403 || status === 404) return `Your token can't comment on ${data.inbox.repo} issues - it needs Issues: Read and write on this repo.`;
+    return `GitHub had a problem (${status}) - your votes are kept and will be retried.`;
+  }
+  let sending = null;
+  function sendPending() {  // one sender at a time; a later call waits its turn
+    sending = (sending || Promise.resolve()).then(sendAll, sendAll);
+    return sending;
+  }
+  async function sendAll() {
+    const queue = Object.entries(pending).filter(([, p]) => !p.sent);
+    if (!queue.length || !mine || !unlockedKey || !data.inbox) return;
+    const token = saved.get(TOKEN_KEY);
+    if (!token) { $("act-status").textContent = "Votes are saved in this browser - add a GitHub token in 🗳 Voting setup to send them."; return; }
+    for (const [k, p] of queue) {
+      let res;
+      try {
+        res = await fetch(`https://api.github.com/repos/${data.inbox.repo}/issues/${data.inbox.issue}/comments`, {
+          method: "POST",
+          headers: {Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "Content-Type": "application/json"},
+          body: JSON.stringify({body: await sealAction({id: p.id, field: p.field, value: p.value, at: p.at, row: p.row})}),
+        });
+      } catch {
+        $("act-status").textContent = "Offline? Your votes are kept and will be sent when you're back.";
+        return;
+      }
+      if (!res.ok) { $("act-status").textContent = postError(res.status); return; }
+      if (pending[k] && pending[k].at === p.at) { pending[k].sent = true; savePending(); }
+    }
+    $("act-status").textContent = "";
+    renderRows();
+  }
+  window.addEventListener("online", () => mine && sendPending());
+
+  $("rows").addEventListener("click", (e) => {
+    const btn = e.target.closest(".act");
+    if (!btn || !mine) return;
+    const r = visible[Number(btn.dataset.i)], field = btn.dataset.f, m = marksOf(r);
+    const value = field === "vote" ? (m.vote === btn.dataset.v ? null : btn.dataset.v) : !m.applied;
+    pending[`${r.i}|${field}`] = {id: r.i, field, value, at: new Date().toISOString(), sent: false,
+      row: {t: r.t, c: r.c, l: r.l, u: r.u, k: r.k, s: r.s, d: r.d}};
+    savePending();
+    renderRows();
+    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+  });
+
+  function openVoting() {
+    $("voting-token").value = saved.get(TOKEN_KEY);
+    $("voting-repo").textContent = data.inbox ? data.inbox.repo : "this repo";
+    $("voting").showModal();
+  }
+  $("open-voting").addEventListener("click", openVoting);
+  $("voting-cancel").addEventListener("click", () => $("voting").close());
+  $("voting-save").addEventListener("click", () => {
+    saved.set(TOKEN_KEY, $("voting-token").value.trim());
+    $("voting").close();
+    sendPending();
+  });
+  $("voting-clear").addEventListener("click", () => { saved.set(TOKEN_KEY, ""); $("voting-token").value = ""; });
 
   if (sealed && sealed.v === 1 && window.crypto && crypto.subtle) {
     $("lock").hidden = false;
@@ -527,7 +692,7 @@
         if ($("unlock-remember").checked) await remember(key);
         $("unlock-pass").value = "";
         $("unlock").close();
-        showMine(payload);
+        showMine(payload, key);
       } finally {
         $("unlock-go").disabled = false;
       }
@@ -536,8 +701,10 @@
     // since, that key no longer opens the page: drop it and stay locked.
     remembered().then(async (saved) => {
       if (!saved || saved.kdf !== kdfId) return;
-      try { showMine(await decrypt(saved.key)); }
-      catch { forget(); }
+      let payload;
+      try { payload = await decrypt(saved.key); }
+      catch { forget(); return; }
+      showMine(payload, saved.key);
     });
   }
 
@@ -625,10 +792,6 @@ These show the candidate their gaps; the bullets and their numbers are illustrat
   const GAP_HEADING = "SKILLS GAP";
   const BULLETS_HEADING = "TAILORED RESUME BULLETS";
 
-  const saved = {
-    get: (k) => { try { return localStorage.getItem(k) || ""; } catch { return ""; } },
-    set: (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch { /* storage blocked */ } },
-  };
   let client = null, clientConfig = "", kitJob = null, kitRunning = false, kitText = "";
 
   function openSetup() {

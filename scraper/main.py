@@ -12,12 +12,12 @@ import sys
 import time
 from collections import Counter
 from collections.abc import Callable
-from datetime import UTC, date, datetime
+from datetime import date
 
 import requests
 import yaml
 
-from scraper import dashboard, discovery, feedback, filters, health, insights
+from scraper import dashboard, discovery, feedback, filters, health, inbox, insights
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
 from scraper.models import Job, JobNotes
@@ -274,6 +274,7 @@ def main(argv: list[str] | None = None) -> int:
     fetched, stats = fetch_all(sources)
     normalized = normalize(fetched)
     warnings = health.record_run(store.health, stats)
+    acted = 0 if args.dry_run else read_dashboard_actions(store, normalized)
 
     if normalized and len(store) == 0:
         seed(normalized, store)
@@ -314,7 +315,7 @@ def main(argv: list[str] | None = None) -> int:
         if job.id not in matched_ids and not store.has(job.id):
             store.add(job)
 
-    announce_closures(closures, store, args.dry_run)
+    record_closures(closures, store)
     announce_discovery(store, config, args.dry_run)
     announce_summary(store, args.dry_run)
 
@@ -323,7 +324,7 @@ def main(argv: list[str] | None = None) -> int:
     store.prune(PRUNE_MAX_AGE_DAYS)
     insights.prune(store)
     feedback.prune(store)
-    build_dashboard(store, normalized, filters_config)
+    build_dashboard(store, normalized, filters_config, now=acted > 0)
     store.save()
 
     for message in warnings:
@@ -347,9 +348,8 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def read_button_presses(store: SeenStore) -> None:
-    """Apply ⭐/👍/👎 presses since the last run. First, so a job starred
-    minutes ago is already watched when this run's closures are checked.
-    Skipped on dry runs: reading would consume the presses. A failure here
+    """Apply Telegram ✅ presses (and 👍/👎 on older messages) since the
+    last run. Skipped on dry runs: reading would consume the presses. A failure here
     never sinks the run - unread presses stay queued at Telegram."""
     try:
         count = feedback.process_updates(store)
@@ -360,11 +360,31 @@ def read_button_presses(store: SeenStore) -> None:
         log.info("Read %d button press update(s).", count)
 
 
-def build_dashboard(store: SeenStore, jobs: list[Job], filters_config: dict) -> None:
-    """Hourly: write site/ for the workflow to publish to GitHub Pages. Runs
-    after pruning so it shows exactly the state being saved; a failure only
-    costs this hour's refresh."""
-    if not dashboard.is_due(store):
+def read_dashboard_actions(store: SeenStore, jobs: list[Job]) -> int:
+    """Apply 👍/👎/✅ clicked on the dashboard; return how many. After the
+    fetch, so a job voted on from the "Not sent" tab gets its full snapshot.
+    Skipped on dry runs, like button presses; a failure leaves the actions
+    in the inbox for the next run."""
+    try:
+        count = inbox.process(store, jobs)
+    except Exception:
+        log.exception("Reading dashboard actions failed; they stay in the inbox.")
+        return 0
+    if count:
+        log.info("Applied %d dashboard action(s).", count)
+    return count
+
+
+def build_dashboard(
+    store: SeenStore, jobs: list[Job], filters_config: dict, now: bool = False
+) -> None:
+    """Hourly, or ``now`` when this run applied dashboard clicks - so the
+    page you clicked on reflects them in a few minutes, not an hour. Writes
+    site/ for the workflow to publish to GitHub Pages. Runs after pruning so
+    it shows exactly the state being saved; a failure only costs this
+    refresh. (Pages' 10-builds-an-hour soft limit doesn't apply to sites
+    deployed by an Actions workflow, which this is.)"""
+    if not (now or dashboard.is_due(store)):
         return
     try:
         page = dashboard.build(store, dashboard.SITE_DIR, jobs, filters_config)
@@ -375,7 +395,7 @@ def build_dashboard(store: SeenStore, jobs: list[Job], filters_config: dict) -> 
 
 
 def announce_summary(store: SeenStore, dry_run: bool) -> None:
-    """Weekly, privately: your funnel (sent -> 👍 -> ⭐ -> ✅). Marked done only
+    """Weekly, privately: your funnel (sent -> 👍/👎 -> ✅). Marked done only
     once sent, so a failed send retries next run."""
     try:
         summary = feedback.weekly_summary(store)
@@ -426,22 +446,10 @@ def announce_seasons(openings: list, store: SeenStore, dry_run: bool) -> None:
         insights.record_season(store, job, category, year)
 
 
-def announce_closures(closures: list[tuple[str, str]], store: SeenStore, dry_run: bool) -> None:
-    """Record every closure; alert on the starred ones first. A starred
-    closure whose alert fails stays unrecorded, so it is detected - and
-    alerted - again next run (never-miss beats never-duplicate)."""
-    starred = insights.starred(store)
+def record_closures(closures: list[tuple[str, str]], store: SeenStore) -> None:
+    """Record every closure - it feeds how long postings stay open. No
+    alerts: those were for starred jobs, and stars were removed."""
     for job_id, source in closures:
-        if job_id in starred:
-            open_days = (datetime.now(UTC) - store.seen_at(job_id)).days
-            try:
-                if dry_run:
-                    print(f"CLOSED: {starred[job_id]['title']} @ {starred[job_id]['company']}")
-                else:
-                    telegram.send_html(telegram.format_closed_alert(starred[job_id], open_days))
-            except Exception:
-                log.exception("Closure alert failed for %s; retrying next run.", job_id)
-                continue
         insights.record_closure(store, job_id, source)
     if closures:
         log.info("Detected %d closed postings.", len(closures))

@@ -66,12 +66,12 @@ def test_page_carries_votes_only_encrypted(tmp_path, monkeypatch):
     text = inserted(page)
 
     assert "Quant Developer" in text
-    for secret in ("SECRET-VOTED-TITLE", '"vote"', '"star"', '"applied"'):
+    for secret in ("SECRET-VOTED-TITLE", '"vote"', '"applied"'):
         assert secret not in text
     mine = private.unseal(sealed_from(page), PHRASE)["mine"]
-    assert mine == [{"t": "SECRET-VOTED-TITLE", "c": "Acme", "l": "", "u": job.url, "k": "",
-                     "s": "", "d": "2026-09-29", "vote": "up", "star": True,
-                     "applied": "2026-09-29"}]
+    assert mine == [{"i": job.id, "t": "SECRET-VOTED-TITLE", "c": "Acme", "l": "", "u": job.url,
+                     "k": "", "s": "", "d": "2026-09-29", "vote": "up",
+                     "applied": "2026-09-29", "set": {}}]
 
 
 def test_without_a_passphrase_the_page_has_no_private_layer(tmp_path):
@@ -92,3 +92,16 @@ def test_a_sealing_failure_publishes_the_public_page_without_it(tmp_path, monkey
     page = dashboard.build(store, str(tmp_path / "site"), [job], {}, NOW)
     assert sealed_from(page) is None
     assert "Quant Developer" in page.read_text(encoding="utf-8")
+
+
+def test_stars_never_reach_the_dashboard(tmp_path, monkeypatch):
+    monkeypatch.setenv(private.PASSPHRASE_ENV, PHRASE)
+    job, store = voted_store(tmp_path)
+    store.feedback["votes"]["only-starred"] = {"id": "x:y:2", "title": "Starred Only",
+                                               "vote": None, "starred": True, "applied": False}
+
+    page = dashboard.build(store, str(tmp_path / "site"), [job], {}, NOW)
+
+    mine = private.unseal(sealed_from(page), PHRASE)["mine"]
+    assert [row["t"] for row in mine] == ["SECRET-VOTED-TITLE"]
+    assert all("star" not in key for row in mine for key in row)

@@ -14,23 +14,21 @@ Each run fetches everything currently posted, subtracts everything already in `s
 
 ### Buttons
 
-Every job message has ⭐ / 👍 / 👎 / ✅ buttons (digests get one numbered row per entry).
+Every job message has a ✅ **Applied** button to mark a job you applied to (digests get one numbered button per entry). It's also on the dashboard.
 
-- ⭐ **Star** a job to be alerted if its posting closes.
-- ✅ **Applied** marks a job you applied to.
-- 👍 / 👎 record whether a job was relevant. Votes are kept in the `feedback.votes` section of `seen_jobs.json` as labelled training data for a future relevance model.
+👍 / 👎 relevance votes are on the dashboard only (see [Voting from the dashboard](#voting-from-the-dashboard)). Messages sent before that change still show 👍 / 👎, and pressing them still counts. They may also show ⭐, from a starring feature that has since been removed: pressing it does nothing.
 
 Presses are read at the start of the next run (every ~5-15 minutes), so the ✓ on a button appears after that delay, not instantly.
 The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
 
-Once a week the bot also sends you a private summary: jobs sent, 👍/👎, stars, and applications.
+Once a week the bot also sends you a private summary: jobs sent, 👍/👎, and applications.
 
 ### Dashboard
 
 A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<owner>.github.io/<repo>/`: search every job Hunter sent you (90 days) and every open posting that passes your filters, new postings per week per board, and how long each board's postings stay open.
 
 The repo is public and so is the dashboard, so its readable part is job data only.
-Your votes, stars and applications ship as the **private layer** (below), encrypted.
+Your votes and applications ship as the **private layer** (below), encrypted.
 
 ### Private layer
 
@@ -38,15 +36,25 @@ Hunter publishes your personal data on the dashboard *encrypted*: press **🔒 U
 
 Once unlocked you get:
 
-- your marks (⭐ ✅ 👍 👎) on every job row,
-- a **Yours** tab listing every job you voted on, starred or applied to (kept past the 90-day history), filterable by mark,
-- totals: applied, starred, 👍 and 👎.
+- 👍 / 👎 / ✅ buttons on every job row, showing your current marks,
+- a **Yours** tab listing every job you voted on or applied to (kept past the 90-day history), filterable by mark,
+- totals: applied, 👍 and 👎.
 
 Tick **Remember on this device** and the page unlocks itself on later visits. The browser keeps a derived key that can decrypt but can't be read back out; the passphrase itself is never stored or sent anywhere. **🔓 Lock** forgets it on that device.
 
 One-time setup: add a repo secret `HUNTER_PASSPHRASE` (Settings -> Secrets and variables -> Actions). Use at least 16 characters, ideally 5 or more random words from a password manager's generator: the encrypted data is public, so a guessable passphrase can be cracked offline. Shorter than 16 characters, or no secret at all, and the dashboard is published with no private layer. Nothing ever falls back to plaintext.
 
 Forgot it? Set a new secret. Nothing is lost: the next hourly build encrypts under the new passphrase, and browsers that remembered the old one just ask again.
+
+### Voting from the dashboard
+
+Once unlocked, every job row has 👍 / 👎 / ✅ buttons: the same votes as the Telegram buttons, feeding the same training data. ⭐ stays Telegram-only.
+
+Votes are kept in the `feedback.votes` section of `seen_jobs.json` as labelled training data for a future relevance model.
+
+A click shows immediately. It's saved in your browser, then sent to Hunter as an **encrypted comment on a "Hunter inbox" issue** in this repo. That comment starts a run, which records the vote and republishes the dashboard right away instead of waiting for the hourly refresh, so it's on the live site within a few minutes. A dashed outline means a click hasn't reached GitHub yet (offline, or no token) and will be retried. Hunter deletes each comment once it's safely recorded.
+
+Setup, once per browser: click **🗳 Voting setup** and paste a [fine-grained GitHub token](https://github.com/settings/personal-access-tokens/new) with access to **only this repo** and **only Issues: Read and write**. It can't touch code, so a leaked one can only post comments. Hunter creates and locks the inbox issue itself on its first run with `HUNTER_PASSPHRASE` set, so only you can comment there.
 
 **Caveat:** this protects the dashboard, not the repo. `seen_jobs.json` is committed to this public repo and still holds `feedback.votes` in plaintext.
 

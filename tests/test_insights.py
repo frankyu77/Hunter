@@ -10,7 +10,6 @@ from scraper.adapters import REGISTRY
 from scraper.models import Job, JobNotes
 from scraper.notify import (
     company_links,
-    format_closed_alert,
     format_digest,
     format_message,
     format_season_alert,
@@ -290,39 +289,33 @@ def test_digest_marks_reposts_and_typical_lifetime():
     assert "levels.fyi" not in message  # links stay out of the digest
 
 
-def test_season_and_closed_alerts():
+def test_season_alert():
     job = make_job(title="Software Intern & Co-op", company="stripe")
     alert = format_season_alert(job, "internship", 2027)
     assert alert.startswith("🚨 <b>Stripe opened Internships · Summer 2027</b>")
     assert "Software Intern &amp; Co-op" in alert
-    closed = format_closed_alert({"title": "SWE", "company": "nvidia", "url": "https://x"}, 5)
-    assert closed.startswith("⚠️ <b>NVIDIA</b>")
-    assert "just closed" in closed and "open ~5d" in closed
-    assert "open under a day" in format_closed_alert(
-        {"title": "SWE", "company": "nvidia", "url": "https://x"}, 0
-    )
 
 
 # --- pipeline -----------------------------------------------------------------------
 
 
-def test_starred_closure_alerts_before_recording_and_retries_on_failure(tmp_path, monkeypatch):
+def test_closures_are_recorded_without_any_alert(tmp_path, monkeypatch):
     job = make_job(1)
     store = tracked_store(tmp_path, [job])
-    insights.star(store, job)
-
-    def down(text):
-        raise RuntimeError("telegram down")
-
-    monkeypatch.setattr(main.telegram, "send_html", down)
-    main.announce_closures([(job.id, job.source)], store, dry_run=False)
-    assert store.closed_on(job.id) is None  # detected again next run
-
     sent = []
     monkeypatch.setattr(main.telegram, "send_html", sent.append)
-    main.announce_closures([(job.id, job.source)], store, dry_run=False)
-    assert len(sent) == 1 and "just closed" in sent[0]
+
+    main.record_closures([(job.id, job.source)], store)
+
     assert store.closed_on(job.id)
+    assert sent == []
+
+
+def test_prune_drops_leftover_stars(tmp_path):
+    store = tracked_store(tmp_path, [make_job(1)])
+    store.insights["starred"] = {"x": {"title": "old"}}
+    insights.prune(store)
+    assert "starred" not in store.insights
 
 
 def test_pipeline_end_to_end_across_runs(tmp_path, monkeypatch, capsys):

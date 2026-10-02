@@ -7,6 +7,11 @@ on:
     # a public repo.
     - cron: "*/5 * * * *"
   workflow_dispatch:
+  # A 👍/👎/✅ from the dashboard lands as a comment on the inbox issue
+  # (scraper/inbox.py); this starts a run to apply it within a minute or two.
+  # Cron would pick it up anyway - the comment stays until a run applies it.
+  issue_comment:
+    types: [created]
 
 # Never let two polls run at once: an overlapping run would race the state
 # commit. Queue the newer one instead of cancelling (never-miss rule).
@@ -19,10 +24,17 @@ permissions:
 
 jobs:
   poll:
+    # Only the owner's comments on the inbox issue start a run; comments on
+    # any other issue or PR are not ours.
+    if: >-
+      github.event_name != 'issue_comment' ||
+      (github.event.comment.user.login == github.repository_owner &&
+       contains(github.event.issue.labels.*.name, 'hunter-inbox'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write
+      issues: write  # read, apply and delete dashboard actions in the inbox issue
     outputs:
       dashboard: ${{ steps.site.outputs.built }}
     steps:
@@ -47,6 +59,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           # Encrypts the dashboard's private layer; unset = no private layer.
           HUNTER_PASSPHRASE: ${{ secrets.HUNTER_PASSPHRASE }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: python -m scraper.main
 
       # The run writes site/ at most hourly (Pages rate-limits deploys).

@@ -37,10 +37,10 @@ class SeenStore:
         # Per-source health counters (managed by scraper.health), persisted
         # alongside the jobs so state stays in one committed file.
         self.health: dict[str, dict] = {}
-        # Derived knowledge (closures, reposts, hiring seasons, starred jobs),
+        # Derived knowledge (closures, reposts, hiring seasons),
         # owned by scraper.insights and persisted here for the same reason.
         self.insights: dict = {}
-        # Button presses and the votes/stars they produced (scraper.feedback).
+        # Button presses and the votes they produced (scraper.feedback).
         self.feedback: dict = {}
         self._load()
 

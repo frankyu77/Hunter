@@ -123,7 +123,7 @@ def test_tabs_never_overlap_and_sent_jobs_carry_their_status(tmp_path):
     assert [row["u"] for row in data["open"]] == [never_sent.url]
 
 
-def test_public_page_never_contains_votes_stars_or_applications(tmp_path):
+def test_public_page_never_contains_votes_or_applications(tmp_path):
     job = make_job(1, title="Quant Developer")
     store = store_with(tmp_path, {job.id: NOW})
     feedback.remember_sent([job], store, NOW)
@@ -161,6 +161,17 @@ def test_rebuilds_at_most_hourly(tmp_path):
     store.insights["dashboard_built_at"] = NOW.isoformat()
     assert not dashboard.is_due(store, NOW + timedelta(minutes=59))
     assert dashboard.is_due(store, NOW + timedelta(minutes=60))
+
+
+def test_dashboard_clicks_rebuild_right_away_instead_of_waiting_the_hour(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    store = store_with(tmp_path, {})
+    store.insights["dashboard_built_at"] = datetime.now(UTC).isoformat()  # just built
+
+    main.build_dashboard(store, [], {})
+    assert not (tmp_path / dashboard.SITE_DIR).exists()  # not due
+    main.build_dashboard(store, [], {}, now=True)
+    assert (tmp_path / dashboard.SITE_DIR / "index.html").exists()
 
 
 def test_a_failed_build_never_sinks_the_run(tmp_path, monkeypatch):
