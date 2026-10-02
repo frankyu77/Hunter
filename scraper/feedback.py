@@ -20,8 +20,8 @@ State (``SeenStore.feedback``):
             stay live for SENT_DAYS; a later press answers "too old"
     votes   {token: snapshot + vote/starred/applied} - never pruned: this is
             the labelled data a relevance model will train on, and the
-            application funnel. Personal: it never reaches the public
-            dashboard, only the private weekly summary in Telegram
+            application funnel. Personal: it reaches the public dashboard
+            only encrypted (scraper.private), and the weekly Telegram summary
 
 Snapshots are kept because by the time someone votes, the posting may be
 gone from its source; descriptions are left out to keep the committed

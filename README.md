@@ -29,7 +29,26 @@ Once a week the bot also sends you a private summary: jobs sent, 👍/👎, star
 
 A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<owner>.github.io/<repo>/`: search every job Hunter sent you (90 days) and every open posting that passes your filters, new postings per week per board, and how long each board's postings stay open.
 
-The repo is public and so is the dashboard, so it shows job data only - never your votes, stars or applications (those stay in the private Telegram summary).
+The repo is public and so is the dashboard, so its readable part is job data only.
+Your votes, stars and applications ship as the **private layer** (below), encrypted.
+
+### Private layer
+
+Hunter publishes your personal data on the dashboard *encrypted*: press **🔒 Unlock**, type your passphrase, and the page decrypts it right there in your browser. Anyone else sees only the public job listings.
+
+Once unlocked you get:
+
+- your marks (⭐ ✅ 👍 👎) on every job row,
+- a **Yours** tab listing every job you voted on, starred or applied to (kept past the 90-day history), filterable by mark,
+- totals: applied, starred, 👍 and 👎.
+
+Tick **Remember on this device** and the page unlocks itself on later visits. The browser keeps a derived key that can decrypt but can't be read back out; the passphrase itself is never stored or sent anywhere. **🔓 Lock** forgets it on that device.
+
+One-time setup: add a repo secret `HUNTER_PASSPHRASE` (Settings -> Secrets and variables -> Actions). Use at least 16 characters, ideally 5 or more random words from a password manager's generator: the encrypted data is public, so a guessable passphrase can be cracked offline. Shorter than 16 characters, or no secret at all, and the dashboard is published with no private layer. Nothing ever falls back to plaintext.
+
+Forgot it? Set a new secret. Nothing is lost: the next hourly build encrypts under the new passphrase, and browsers that remembered the old one just ask again.
+
+**Caveat:** this protects the dashboard, not the repo. `seen_jobs.json` is committed to this public repo and still holds `feedback.votes` in plaintext.
 
 One-time setup: in the repo, **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**. To preview locally from state alone: `python -m scraper.dashboard` and open `site/index.html`.
 
