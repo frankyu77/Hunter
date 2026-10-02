@@ -223,3 +223,16 @@ def test_kit_keeps_bullets_to_one_resume_line(tmp_path):
     assert "const BULLET_MAX = 110;" in text
     assert "at most ${BULLET_MAX} characters" in text  # told to Claude...
     assert "bullet.length > BULLET_MAX" in text  # ...and checked on the page
+
+
+def test_rows_say_when_they_reached_you_for_new_since_last_visit(tmp_path):
+    sent, seen, unknown = make_job(1), make_job(2, title="Data Engineer"), make_job(3, title="QA")
+    store = store_with(tmp_path, {seen.id: NOW - timedelta(hours=2)})
+    feedback.remember_sent([sent], store, NOW - timedelta(hours=1))
+
+    data = dashboard.collect(store, [sent, seen, unknown], {}, NOW)
+
+    assert data["history"][0]["f"] == int((NOW - timedelta(hours=1)).timestamp())  # when sent
+    by_title = {row["t"]: row for row in data["open"]}
+    assert by_title["Data Engineer"]["f"] == int((NOW - timedelta(hours=2)).timestamp())
+    assert by_title["QA"]["f"] is None  # not in state: never highlighted

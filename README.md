@@ -30,6 +30,12 @@ A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<
 The repo is public and so is the dashboard, so its readable part is job data only.
 Your votes and applications ship as the **private layer** (below), encrypted.
 
+### New since your last visit
+
+Jobs that reached you since you last opened the dashboard are marked **New**: sent to you on the **Sent to you** tab, first seen by Hunter on **Not sent**. Each tab shows how many are new, and the **New (N)** button filters to just those.
+
+Your browser remembers when you last looked, so this works per device and without unlocking. New jobs stay highlighted for the rest of the visit, reloads included, until you press **Mark all seen** or come back another time. The very first visit marks nothing new.
+
 ### Private layer
 
 Hunter publishes your personal data on the dashboard *encrypted*: press **🔒 Unlock**, type your passphrase, and the page decrypts it right there in your browser. Anyone else sees only the public job listings.
