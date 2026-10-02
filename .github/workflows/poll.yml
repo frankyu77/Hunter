@@ -45,6 +45,8 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Encrypts the dashboard's private layer; unset = no private layer.
+          HUNTER_PASSPHRASE: ${{ secrets.HUNTER_PASSPHRASE }}
         run: python -m scraper.main
 
       # The run writes site/ at most hourly (Pages rate-limits deploys).

@@ -6,10 +6,11 @@ on Pages and opened straight from disk. Rebuilt at most every
 DASHBOARD_EVERY_MINUTES: GitHub Pages rate-limits deployments, and the
 cron runs far more often than the charts change.
 
-The repo is public, and so is Pages on a free account, so the dashboard
-shows job data only - never ``feedback.votes`` (votes, stars,
-applications). The funnel goes to Telegram privately instead (see
-``feedback.weekly_summary``).
+The repo is public, and so is Pages on a free account, so the readable
+part of the page is job data only. Votes, stars and applications
+(``feedback.votes``) ship only as the private layer: rows built here and
+handed straight to ``private.seal``, so plaintext never reaches the page.
+Without a passphrase configured there is no private layer at all.
 
 Most of the 60-day store holds just ids and first-seen times, but that is
 enough for hiring activity: an id's prefix names its board. Titles exist only
@@ -32,15 +33,18 @@ Local preview: ``python -m scraper.dashboard`` builds site/ from state alone
 
 import argparse
 import json
+import logging
 import statistics
 from collections import Counter, defaultdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
-from scraper import filters
+from scraper import filters, private
 from scraper.models import Job
 from scraper.notify import categorize, display_company
 from scraper.store import SeenStore
+
+log = logging.getLogger(__name__)
 
 DASHBOARD_EVERY_MINUTES = 60
 ACTIVITY_WEEKS = 8
@@ -85,7 +89,11 @@ def build(
     page = out / "index.html"
     # "</" would close the <script> the data sits in.
     payload = json.dumps(data, separators=(",", ":")).replace("</", "<\\/")
-    page.write_text(TEMPLATE.replace("__DATA__", payload), encoding="utf-8")
+    # Sealed first: it is base64 and fixed keys, so it can't contain __DATA__,
+    # whereas job data could contain the private placeholder.
+    sealed = json.dumps(_sealed(store))
+    page.write_text(TEMPLATE.replace("__PRIVATE__", sealed).replace("__DATA__", payload),
+                    encoding="utf-8")
     store.insights["dashboard_built_at"] = now.isoformat(timespec="seconds")
     return page
 
@@ -121,6 +129,37 @@ def collect(
         "activity": activity,
         "lifetimes": lifetimes,
     }
+
+
+def _sealed(store: SeenStore) -> dict | None:
+    """The private layer, encrypted - or None (no layer) if no passphrase is
+    set or sealing fails. A failure here costs the private layer for an
+    hour, never the public page."""
+    phrase = private.passphrase()
+    if phrase is None:
+        return None
+    try:
+        return private.seal({"mine": _mine(store)}, phrase)
+    except Exception:
+        log.exception("Sealing the private layer failed; publishing without it.")
+        return None
+
+
+def _mine(store: SeenStore) -> list[dict]:
+    """Every job you voted on, starred or applied to, newest first. Shaped
+    like a history row so the page renders it with the same code, plus the
+    marks. Never pruned, so it outlives the 90-day sent history."""
+    rows = []
+    for record in store.feedback.get("votes", {}).values():
+        row = _row(record, record.get("updated_at", "")[:10])
+        row |= {
+            "vote": record.get("vote"),
+            "star": bool(record.get("starred")),
+            "applied": (record.get("applied_at") or record.get("updated_at", ""))[:10]
+            if record.get("applied") else "",
+        }
+        rows.append(row)
+    return sorted(rows, key=lambda row: row["d"], reverse=True)
 
 
 def _history(store: SeenStore, snapshots: list[dict], live: set[str] | None) -> list[dict]:

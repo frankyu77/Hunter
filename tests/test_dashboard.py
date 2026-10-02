@@ -25,6 +25,20 @@ def store_with(tmp_path, seen: dict[str, datetime]) -> SeenStore:
     return SeenStore(str(path))
 
 
+def inserted(page) -> str:
+    """What a build put into the page: the two data slots. Everything else
+    must be the template verbatim, so a secret can only hide in these."""
+    text = page.read_text(encoding="utf-8")
+    slots = re.findall(r'(<script id="(?:data|private)" type="application/json">)(.*?)(</script>)',
+                       text, re.S)
+    rest = text
+    for open_tag, body, close in slots:
+        rest = rest.replace(open_tag + body + close, open_tag + close, 1)
+    template = dashboard.TEMPLATE.replace("__DATA__", "").replace("__PRIVATE__", "")
+    assert rest == template
+    return "".join(body for _, body, _ in slots)
+
+
 def embedded(page) -> dict:
     text = page.read_text(encoding="utf-8")
     raw = re.search(r'<script id="data" type="application/json">(.*?)</script>', text, re.S)
@@ -118,7 +132,7 @@ def test_public_page_never_contains_votes_stars_or_applications(tmp_path):
     store.insights["starred"] = {job.id: {"title": "SECRET-STAR", "company": "x", "url": "u"}}
 
     page = dashboard.build(store, str(tmp_path / "site"), [job], {}, NOW)
-    text = page.read_text(encoding="utf-8")
+    text = inserted(page)
 
     assert "Quant Developer" in text  # sent history is shown...
     for secret in ("SECRET-VOTED-TITLE", "SECRET-STAR", '"vote"', '"starred"', '"applied"'):

@@ -212,6 +212,14 @@
   .ats-label { flex: 0 0 96px; font-size: 12px; color: var(--text-secondary); }
   .chip.hit { background: var(--surface-2); }
   .chip.miss-chip { background: transparent; border-style: dashed; color: var(--text-secondary); }
+  /* private layer */
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .marks { margin-left: 6px; white-space: nowrap; font-size: 13px; }
+  .tiles.mine { margin-top: -12px; }
+  .tiles.mine .tile { border-style: dashed; }
+  #unlock-error { color: #d03b3b; font-size: 13px; min-height: 1.5em; margin: 8px 0 0; }
+  .check { display: flex !important; align-items: center; gap: 8px; font-weight: 400 !important; }
+  .check input { width: auto; }
   .long { display: inline-block; margin-left: 6px; font-size: 11px; color: var(--text-secondary);
           border: 1px dashed var(--border); border-radius: 999px; padding: 0 6px; white-space: nowrap; }
 </style>
@@ -223,10 +231,14 @@
       <h1>Hunter</h1>
       <p id="subtitle"></p>
     </div>
-    <button class="btn" id="open-setup">📝 Kit setup</button>
+    <div class="actions">
+      <button class="btn" id="lock" hidden>🔒 Unlock</button>
+      <button class="btn" id="open-setup">📝 Kit setup</button>
+    </div>
   </header>
 
   <div class="tiles" id="tiles"></div>
+  <div class="tiles mine" id="my-tiles" hidden></div>
 
   <section class="card" aria-labelledby="search-h">
     <h2 id="search-h">Jobs</h2>
@@ -239,9 +251,17 @@
         <option value="new_grad">New grad &amp; junior</option>
         <option value="full_time">Full-time</option>
       </select>
+      <select id="mark" aria-label="Your marks" hidden>
+        <option value="">Everything you marked</option>
+        <option value="star">⭐ Starred</option>
+        <option value="applied">✅ Applied</option>
+        <option value="up">👍 Relevant</option>
+        <option value="down">👎 Not relevant</option>
+      </select>
       <div class="tabs" role="tablist">
         <button role="tab" id="tab-history" aria-selected="true">Sent to you</button>
         <button role="tab" id="tab-open" aria-selected="false">Not sent</button>
+        <button role="tab" id="tab-mine" aria-selected="false" hidden>Yours</button>
       </div>
     </div>
     <div class="table-wrap">
@@ -291,6 +311,23 @@
     </div>
   </dialog>
 
+  <dialog id="unlock" aria-labelledby="unlock-h">
+    <h2 id="unlock-h">Unlock your data</h2>
+    <p class="sub">Your votes, stars and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
+    <form id="unlock-form" method="dialog">
+      <label for="unlock-pass">Passphrase</label>
+      <input id="unlock-pass" type="password" autocomplete="current-password" required>
+      <label class="check"><input id="unlock-remember" type="checkbox" checked> Remember on this device</label>
+      <p class="note">Remembering keeps a derived key in this browser that can't be read back out, only used to decrypt. Use it only on your own devices.</p>
+      <p id="unlock-error" role="alert"></p>
+      <div class="row">
+        <span class="spacer"></span>
+        <button class="btn" type="button" id="unlock-cancel">Cancel</button>
+        <button class="btn primary" id="unlock-go">Unlock</button>
+      </div>
+    </form>
+  </dialog>
+
   <dialog id="kit" aria-labelledby="kit-h">
     <h2 id="kit-h"></h2>
     <p class="sub"><span id="kit-meta"></span> · <a id="kit-link" target="_blank" rel="noopener">Open posting ↗</a></p>
@@ -310,6 +347,7 @@
 <div id="tip" role="tooltip"></div>
 
 <script id="data" type="application/json">__DATA__</script>
+<script id="private" type="application/json">__PRIVATE__</script>
 <script>
 (() => {
   const data = JSON.parse(document.getElementById("data").textContent);
@@ -336,32 +374,47 @@
   const PAGE = 25;
   const hasOpen = Array.isArray(data.open);
   let tab = "history", shown = PAGE;
+  // Filled in by the private layer once unlocked (see below); empty otherwise.
+  let mine = null, mineByUrl = new Map();
   if (!hasOpen) { $("tab-open").disabled = true; $("tab-open").title = "Available on the published site"; }
   $("tab-history").textContent = `Sent to you (${fmt(data.history.length)})`;
   if (hasOpen) $("tab-open").textContent = `Not sent (${fmt(data.open.length)})`;
   const SUBS = {
     history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
     open: "Open right now and matching your filters, but never sent to you - mostly postings that already existed when Hunter started watching a board.",
+    mine: "Every job you voted on, starred or marked applied - kept past the 90-day history. Only you can see this tab.",
   };
+  const DATE_H = {history: "Sent", open: "Posted", mine: "Marked"};
   const STATUS = {open: "Still open", closed: "Closed"};
 
   function currentRows() {
     const q = $("q").value.trim().toLowerCase();
-    const cat = $("cat").value;
-    return (tab === "open" ? data.open : data.history).filter((r) =>
+    const cat = $("cat").value, mark = $("mark").value;
+    const source = tab === "open" ? data.open : tab === "mine" ? mine : data.history;
+    return source.filter((r) =>
       (!cat || r.k === cat) &&
+      (tab !== "mine" || !mark || (mark === "star" ? r.star : mark === "applied" ? r.applied : r.vote === mark)) &&
       (!q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q)));
   }
   let visible = [];
+  function marks(r) {
+    const m = mineByUrl.get(r.u);
+    if (!m) return "";
+    const parts = [m.star && ["⭐", "starred"], m.applied && ["✅", `applied ${m.applied}`],
+      m.vote === "up" && ["👍", "relevant"], m.vote === "down" && ["👎", "not relevant"]].filter(Boolean);
+    const label = parts.map((p) => p[1]).join(", ");
+    return parts.length ? `<span class="marks" title="${esc(label)}" aria-label="You marked this: ${esc(label)}">${parts.map((p) => p[0]).join("")}</span>` : "";
+  }
   function renderRows() {
     const rows = currentRows();
     visible = rows.slice(0, shown);
-    $("date-h").textContent = tab === "open" ? "Posted" : "Sent";
+    $("date-h").textContent = DATE_H[tab];
+    $("mark").hidden = tab !== "mine";
     $("jobs-sub").textContent = SUBS[tab];
     $("rows").innerHTML = visible.map((r, i) => `<tr class="${r.st === "closed" ? "closed" : ""}">
       <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
       <td>${esc(r.c)}</td>
-      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
+      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${marks(r)}${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
         <span class="loc-inline">${esc(r.l)}</span></td>
       <td class="muted col-loc">${esc(r.l)}</td>
       <td class="src col-src">${esc(r.s)}</td>
@@ -374,14 +427,119 @@
     tab = name; shown = PAGE;
     $("tab-history").setAttribute("aria-selected", name === "history");
     $("tab-open").setAttribute("aria-selected", name === "open");
+    $("tab-mine").setAttribute("aria-selected", name === "mine");
     renderRows();
   }
   $("q").addEventListener("input", () => { shown = PAGE; renderRows(); });
   $("cat").addEventListener("change", () => { shown = PAGE; renderRows(); });
   $("tab-history").addEventListener("click", () => selectTab("history"));
   $("tab-open").addEventListener("click", () => hasOpen && selectTab("open"));
+  $("tab-mine").addEventListener("click", () => mine && selectTab("mine"));
+  $("mark").addEventListener("change", () => { shown = PAGE; renderRows(); });
   $("more").addEventListener("click", () => { shown += PAGE; renderRows(); });
   renderRows();
+
+  // Private layer. Personal data ships only as AES-GCM ciphertext (see
+  // scraper/private.py); this decrypts it in the browser with a key derived
+  // from your passphrase. Nothing personal is in the page until then, and
+  // the passphrase never leaves this browser. "Remember" stores the derived
+  // key in IndexedDB as a non-extractable CryptoKey: usable for decrypting
+  // here, but script can't read the key bytes back out.
+  const sealed = JSON.parse($("private").textContent);
+  const KEY_DB = "hunter-private", KEY_STORE = "keys", KEY_ID = "dashboard";
+  const bytes = (b64) => Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  // Identifies the KDF settings a remembered key was derived with; if the
+  // page changes them, the old key is simply not used.
+  const kdfId = sealed ? `${sealed.kdf.hash}:${sealed.kdf.iterations}:${sealed.kdf.salt}` : "";
+
+  function keyStore(mode, act) {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(KEY_DB, 1);
+      req.onupgradeneeded = () => req.result.createObjectStore(KEY_STORE);
+      req.onerror = () => reject(req.error);
+      req.onsuccess = () => {
+        const db = req.result, tx = db.transaction(KEY_STORE, mode);
+        const op = act(tx.objectStore(KEY_STORE));
+        tx.oncomplete = () => { db.close(); resolve(op.result); };
+        tx.onerror = () => { db.close(); reject(tx.error); };
+      };
+    });
+  }
+  const remembered = () => keyStore("readonly", (s) => s.get(KEY_ID)).catch(() => null);
+  const remember = (key) => keyStore("readwrite", (s) => s.put({kdf: kdfId, key}, KEY_ID)).catch(() => {});
+  const forget = () => keyStore("readwrite", (s) => s.delete(KEY_ID)).catch(() => {});
+
+  async function deriveKey(phrase) {
+    // Same normalization as private.py, or the keys won't match.
+    const raw = new TextEncoder().encode(phrase.trim().normalize("NFC"));
+    const base = await crypto.subtle.importKey("raw", raw, "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey(
+      {name: "PBKDF2", hash: sealed.kdf.hash, salt: bytes(sealed.kdf.salt), iterations: sealed.kdf.iterations},
+      base, {name: "AES-GCM", length: 256}, false, ["decrypt"]);
+  }
+  async function decrypt(key) {  // throws on a wrong key: GCM authenticates
+    const plain = await crypto.subtle.decrypt({name: "AES-GCM", iv: bytes(sealed.iv)}, key, bytes(sealed.ct));
+    return JSON.parse(new TextDecoder().decode(plain));
+  }
+
+  function showMine(payload) {
+    const status = new Map(data.history.map((r) => [r.u, r.st]));
+    mine = payload.mine.map((r) => ({...r, st: status.get(r.u) || ""}));
+    mineByUrl = new Map(mine.map((r) => [r.u, r]));
+    const count = (pred) => fmt(mine.filter(pred).length);
+    $("my-tiles").innerHTML = [
+      [count((r) => r.applied), "you applied to"],
+      [count((r) => r.star), "starred"],
+      [count((r) => r.vote === "up"), "👍 relevant"],
+      [count((r) => r.vote === "down"), "👎 not relevant"],
+    ].map(([v, l]) => `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
+    $("my-tiles").hidden = false;
+    $("tab-mine").hidden = false;
+    $("tab-mine").textContent = `Yours (${fmt(mine.length)})`;
+    $("lock").textContent = "🔓 Lock";
+    renderRows();
+  }
+  function hideMine() {
+    mine = null; mineByUrl = new Map();
+    $("my-tiles").hidden = true; $("my-tiles").innerHTML = "";
+    $("tab-mine").hidden = true;
+    $("lock").textContent = "🔒 Unlock";
+    if (tab === "mine") selectTab("history"); else renderRows();
+  }
+
+  if (sealed && sealed.v === 1 && window.crypto && crypto.subtle) {
+    $("lock").hidden = false;
+    $("lock").addEventListener("click", () => {
+      if (mine) { forget(); hideMine(); return; }
+      $("unlock-pass").value = ""; $("unlock-error").textContent = "";
+      $("unlock").showModal();
+    });
+    $("unlock-cancel").addEventListener("click", () => $("unlock").close());
+    $("unlock-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      $("unlock-go").disabled = true;
+      $("unlock-error").textContent = "";
+      try {
+        const key = await deriveKey($("unlock-pass").value);
+        let payload;
+        try { payload = await decrypt(key); }
+        catch { $("unlock-error").textContent = "That passphrase doesn't match."; return; }
+        if ($("unlock-remember").checked) await remember(key);
+        $("unlock-pass").value = "";
+        $("unlock").close();
+        showMine(payload);
+      } finally {
+        $("unlock-go").disabled = false;
+      }
+    });
+    // Unlock silently with a remembered key. If the passphrase was changed
+    // since, that key no longer opens the page: drop it and stay locked.
+    remembered().then(async (saved) => {
+      if (!saved || saved.kdf !== kdfId) return;
+      try { showMine(await decrypt(saved.key)); }
+      catch { forget(); }
+    });
+  }
 
   // Weekly totals (one series: no legend, the title names it)
   const act = data.activity;
