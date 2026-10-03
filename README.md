@@ -41,6 +41,21 @@ The dashboard has a second page, **Applications** (tab under the header, or `…
 
 Changes sync through the same encrypted inbox as votes (one comment per edit), so the board is the same on every device and stays private. There are no reminder pings: Telegram keeps sending you new jobs as before.
 
+### Telegram alerts
+
+The **Telegram alerts** page (`…/#alerts`, unlocked) chooses which new jobs ping your phone, for example only software internships in Canada:
+
+- **Level:** internships, new grad & junior, full-time.
+- **Region:** Canada, US, other. A job listed only as "Remote" always counts.
+- **Title contains** and **location contains** any of a few words.
+- An on/off switch to pause job alerts entirely.
+
+While you edit, a preview counts how many of the jobs sent to you in the last 90 days would have matched, with examples, using the same rules the bot uses.
+
+Saving sends the setting through the same encrypted inbox as votes. The next run (a few minutes) starts using it and confirms in Telegram. You never edit `sources.yaml` or commit anything: the bot's own state commit carries it.
+
+These settings only narrow what's *sent*. `sources.yaml` filters still decide what Hunter tracks, so a job the alerts skip is still on the Jobs page, under **Not sent**, marked **New** on your next visit. Season alerts follow the settings too. The weekly summary and source suggestions are unaffected.
+
 ### New since your last visit
 
 Jobs that reached you since you last opened the dashboard are marked **New**: sent to you on the **Sent to you** tab, first seen by Hunter on **Not sent**. Each tab shows how many are new, and the **New (N)** button filters to just those.

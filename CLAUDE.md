@@ -68,7 +68,9 @@ tests still pass:
   previously-seen jobs (just added) both get recorded without notifying,
   otherwise the entire backlog floods the chat.
 - **Filtered-out jobs are still recorded as seen**, after notify — otherwise
-  they re-enter the diff as new on every run forever.
+  they re-enter the diff as new on every run forever. That includes jobs the
+  Telegram alert settings (`scraper/alerts.py`) skip: those settings narrow
+  what is *sent*, never what is tracked or shown on the dashboard.
 - **Prune runs last**, after notifications and state writes, so it can't race
   the dedup.
 - **The public dashboard never shows personal signals in plaintext.** The repo

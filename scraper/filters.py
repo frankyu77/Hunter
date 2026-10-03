@@ -11,6 +11,7 @@ from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 
 from scraper.models import Job
+from scraper.notify import categorize
 from scraper.regions import region
 
 Predicate = Callable[[Job], bool]
@@ -50,6 +51,12 @@ def build_predicates(config: dict) -> list[Predicate]:
     if regions := config.get("regions"):
         allowed = {r.lower() for r in regions}
         predicates.append(lambda job, allowed=allowed: _in_regions(job.location, allowed))
+
+    # Job level, by the same classifier notify headers by: internship,
+    # new_grad or full_time. Used by the Telegram alert settings.
+    if categories := config.get("categories"):
+        levels = set(categories)
+        predicates.append(lambda job, levels=levels: categorize(job) in levels)
 
     # Aggregator feeds backfill and reactivate old postings, which enter the
     # diff as "new" despite being posted long ago. This drops anything whose

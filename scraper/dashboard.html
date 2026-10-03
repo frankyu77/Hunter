@@ -241,6 +241,18 @@
            font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .15s; }
   #toast.on { opacity: 1; pointer-events: auto; }
   #toast a { color: inherit; text-decoration: underline; }
+  /* alert settings */
+  .form fieldset { border: 0; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .form legend { font-size: 13px; font-weight: 600; margin-bottom: 4px; padding: 0; }
+  .form fieldset .note { flex-basis: 100%; margin: 2px 0 0; }
+  .form label.check { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 4px 0; }
+  .form label.block { display: block; font-size: 13px; font-weight: 600; margin: 16px 0 4px; }
+  .form input:not([type]) { width: 100%; font: inherit; font-size: 14px; color: var(--text-primary);
+           background: var(--surface-0); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+  #al-fields[aria-disabled="true"] { opacity: .45; }
+  .al-preview { margin-top: 18px; padding: 12px 14px; border-radius: 10px; background: var(--surface-0);
+                border: 1px solid var(--border); font-size: 14px; }
+  .al-preview ul { margin: 8px 0 0; padding-left: 18px; color: var(--text-secondary); font-size: 13px; }
   /* application board */
   .board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(168px, 1fr); gap: 10px;
            overflow-x: auto; padding-bottom: 6px; }
@@ -294,7 +306,46 @@
   <nav class="views" id="views" aria-label="Pages" hidden>
     <a href="#jobs" id="nav-jobs">Jobs</a>
     <a href="#applications" id="nav-apps">Applications</a>
+    <a href="#alerts" id="nav-alerts">Telegram alerts</a>
   </nav>
+
+  <div id="view-alerts" hidden>
+    <section class="card" id="alerts-locked">
+      <h2>Telegram alerts</h2>
+      <p class="sub">Your alert settings are private. Unlock to change them.</p>
+      <button class="btn primary" id="alerts-unlock">🔒 Unlock</button>
+    </section>
+    <section class="card form" id="alerts-card" aria-labelledby="alerts-h" hidden>
+      <h2 id="alerts-h">Telegram alerts</h2>
+      <p class="sub">Choose which new jobs ping your phone. Hunter still tracks everything your <code>sources.yaml</code> filters allow: a job these settings skip stays on the Jobs page (under Not sent, marked New on your next visit). Leave a group empty to allow anything.</p>
+      <label class="check"><input type="checkbox" id="al-on"> Send new jobs to Telegram</label>
+      <div id="al-fields">
+        <fieldset><legend>Level</legend>
+          <label class="check"><input type="checkbox" name="al-cat" value="internship"> Internships</label>
+          <label class="check"><input type="checkbox" name="al-cat" value="new_grad"> New grad &amp; junior</label>
+          <label class="check"><input type="checkbox" name="al-cat" value="full_time"> Full-time</label>
+        </fieldset>
+        <fieldset><legend>Region</legend>
+          <label class="check"><input type="checkbox" name="al-reg" value="canada"> Canada</label>
+          <label class="check"><input type="checkbox" name="al-reg" value="us"> US</label>
+          <label class="check"><input type="checkbox" name="al-reg" value="other"> Other countries</label>
+          <p class="note">A job listed only as "Remote", or with no location, always counts.</p>
+        </fieldset>
+        <label class="block" for="al-title">Title contains any of</label>
+        <input id="al-title" placeholder="software, developer, backend" autocomplete="off">
+        <label class="block" for="al-loc">Location contains any of</label>
+        <input id="al-loc" placeholder="toronto, vancouver, remote" autocomplete="off">
+        <p class="note">Comma-separated, not case-sensitive. "intern" also matches "internship".</p>
+      </div>
+      <div class="al-preview" id="al-preview" aria-live="polite"></div>
+      <div class="row">
+        <span id="al-status" class="note"></span>
+        <span class="spacer"></span>
+        <button class="btn" id="al-reset" title="Fill the form with no restrictions">Allow everything</button>
+        <button class="btn primary" id="al-save">Save</button>
+      </div>
+    </section>
+  </div>
 
   <div id="view-applications" hidden>
     <section class="card" id="apps-locked">
@@ -546,7 +597,7 @@
   }
   const SUBS = {
     history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
-    open: "Open right now and matching your filters, but never sent to you - mostly postings that already existed when Hunter started watching a board.",
+    open: "Open right now and matching your filters, but never sent to you - postings that already existed when Hunter started watching a board, or that your Telegram alert settings skipped.",
     mine: "Every job you voted on or marked applied - kept past the 90-day history. Only you can see this tab.",
   };
   const DATE_H = {history: "Sent", open: "Posted", mine: "Marked"};
@@ -597,7 +648,7 @@
   // plus jobs whose first mark is still pending.
   function myRows() {
     const rows = new Map((mine || []).map((r) => [r.i, r]));
-    for (const p of Object.values(pending)) if (!rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
+    for (const p of Object.values(pending)) if (p.id && !rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
     return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied || m.stage || m.notes; });
   }
   // Moving a job to `stage` (null = off the board): dates the new stage
@@ -646,6 +697,7 @@
     $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
     if (mine) renderMyTiles();
     renderBoard();
+    renderAlertsView();
   }
   function selectTab(name) {
     tab = name; shown = PAGE;
@@ -735,7 +787,9 @@
     const status = new Map(data.history.map((r) => [r.i, r.st]));
     mine = payload.mine.map((r) => ({...r, st: status.get(r.i) || ""}));
     mineById = new Map(mine.map((r) => [r.i, r]));
+    alertsPublished = payload.alerts || {};
     loadPending();
+    fillAlerts(currentAlerts());
     $("my-tiles").hidden = false;
     $("tab-mine").hidden = false;
     $("lock").textContent = "🔓 Lock";
@@ -754,7 +808,7 @@
     $("tab-mine").textContent = `Yours (${fmt(rows.length)})`;
   }
   function hideMine() {
-    mine = null; mineById = new Map(); pending = {}; unlockedKey = null;
+    mine = null; mineById = new Map(); pending = {}; unlockedKey = null; alertsPublished = null;
     $("my-tiles").hidden = true; $("my-tiles").innerHTML = "";
     $("tab-mine").hidden = true;
     $("open-voting").hidden = true;
@@ -777,7 +831,8 @@
     try { pending = JSON.parse(saved.get(PENDING_KEY) || "{}"); } catch { pending = {}; }
     const built = Date.parse(data.generated);
     for (const [k, p] of Object.entries(pending)) {
-      const m = mineById.get(p.id), stamp = m && m.set && m.set[p.field];
+      const m = mineById.get(p.id);
+      const stamp = p.field === "alerts" ? alertsPublished && alertsPublished.set_at : m && m.set && m.set[p.field];
       if ((stamp && Date.parse(stamp) >= Date.parse(p.at)) || (p.sent && built - Date.parse(p.at) > SETTLE_MS)) {
         delete pending[k];
       }
@@ -867,6 +922,76 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => $("toast").classList.remove("on"), 4000);
   }
+
+  // Telegram alert settings (scraper/alerts.py): which matched jobs ping
+  // your phone. Saved like a vote - one encrypted inbox comment, applied by
+  // the next run, which confirms in Telegram. The preview runs the same
+  // rules as scraper.filters over the jobs already sent to you.
+  let alertsPublished = null;
+  const ALERT_KEY = "|alerts";
+  const words = (s) => s.split(",").map((w) => w.trim()).filter(Boolean);
+  const checked = (name) => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map((i) => i.value);
+  const currentAlerts = () => (pending[ALERT_KEY] ? pending[ALERT_KEY].value : alertsPublished || {});
+  function formAlerts() {
+    return {paused: !$("al-on").checked, categories: checked("al-cat"), regions: checked("al-reg"),
+            title_keywords: words($("al-title").value), locations: words($("al-loc").value)};
+  }
+  function fillAlerts(a) {
+    $("al-on").checked = !a.paused;
+    for (const i of document.querySelectorAll('input[name="al-cat"]')) i.checked = (a.categories || []).includes(i.value);
+    for (const i of document.querySelectorAll('input[name="al-reg"]')) i.checked = (a.regions || []).includes(i.value);
+    $("al-title").value = (a.title_keywords || []).join(", ");
+    $("al-loc").value = (a.locations || []).join(", ");
+    renderAlertsView();
+  }
+  const sameAlerts = (a, b) => {
+    const norm = (x) => JSON.stringify([!!x.paused, ...["categories", "regions", "title_keywords", "locations"]
+      .map((k) => [...(x[k] || [])].map((w) => w.toLowerCase()).sort())]);
+    return norm(a) === norm(b);
+  };
+  function alertMatch(r, a) {
+    const has = (list) => list && list.length;
+    if (has(a.categories) && !a.categories.includes(r.k)) return false;
+    const loc = (r.l || "").trim().toLowerCase();
+    if (has(a.regions) && !a.regions.includes(r.g) && loc && loc !== "remote") return false;
+    if (has(a.title_keywords) && !a.title_keywords.some((w) => r.t.toLowerCase().includes(w.toLowerCase()))) return false;
+    if (has(a.locations) && !a.locations.some((w) => loc.includes(w.toLowerCase()))) return false;
+    return true;
+  }
+  function renderAlertsView() {
+    $("alerts-card").hidden = !mine;
+    $("alerts-locked").hidden = !!mine;
+    if (!mine) return;
+    const a = formAlerts();
+    $("al-fields").setAttribute("aria-disabled", a.paused);
+    const rows = data.history;
+    if (a.paused) {
+      $("al-preview").innerHTML = "<b>Paused.</b> Telegram sends no job alerts; new jobs still show up on the Jobs page.";
+    } else {
+      const hits = rows.filter((r) => alertMatch(r, a));
+      const perWeek = Math.round(hits.length / (90 / 7));
+      $("al-preview").innerHTML = `<b>${fmt(hits.length)}</b> of the ${fmt(rows.length)} jobs sent to you in the last 90 days match`
+        + (hits.length ? ` - about ${fmt(perWeek)} a week.` : ". Loosen a setting, or you'll get no alerts.")
+        + (hits.length ? `<ul>${hits.slice(0, 6).map((r) => `<li>${esc(r.c)} - ${esc(r.t)}${r.l ? ` · ${esc(r.l)}` : ""}</li>`).join("")}</ul>` : "");
+    }
+    const p = pending[ALERT_KEY], dirty = !sameAlerts(a, currentAlerts());
+    $("al-save").disabled = !dirty;
+    const since = alertsPublished && alertsPublished.set_at;
+    $("al-status").textContent = dirty ? "Unsaved changes."
+      : p && !p.sent ? "Saved in this browser - not sent yet, will retry."
+      : p ? "Sent. Hunter applies it on its next run (a few minutes) and confirms in Telegram."
+      : since ? `In use since ${new Date(since).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"})}.`
+      : "In use: every new match is sent (no settings saved yet).";
+  }
+  $("alerts-card").addEventListener("input", renderAlertsView);
+  $("alerts-card").addEventListener("change", renderAlertsView);
+  $("al-reset").addEventListener("click", () => fillAlerts({paused: false}));
+  $("al-save").addEventListener("click", () => {
+    pending[ALERT_KEY] = {id: "", field: "alerts", value: formAlerts(), at: new Date().toISOString(), sent: false, row: {}};
+    savePending();
+    renderAlertsView();
+    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+  });
 
   // Application board. Built from the same marks as the rows, so a move
   // shows at once and syncs through the inbox like a vote.
@@ -1033,18 +1158,20 @@
   // jobs. Both live in this one file so they share the unlock, the data and
   // the queue of unsent changes. No private layer, no Applications page.
   const hasPrivate = !$("lock").hidden;
+  const PAGES = {"#applications": ["view-applications", "nav-apps", "Applications · Hunter"],
+                 "#alerts": ["view-alerts", "nav-alerts", "Telegram alerts · Hunter"]};
   function route() {
-    const apps = hasPrivate && location.hash === "#applications";
-    $("view-applications").hidden = !apps;
-    $("view-jobs").hidden = apps;
-    for (const [id, on] of [["nav-jobs", !apps], ["nav-apps", apps]]) {
-      if (on) $(id).setAttribute("aria-current", "page"); else $(id).removeAttribute("aria-current");
+    const [view, nav, title] = (hasPrivate && PAGES[location.hash]) || ["view-jobs", "nav-jobs", "Hunter dashboard"];
+    for (const v of ["view-jobs", "view-applications", "view-alerts"]) $(v).hidden = v !== view;
+    for (const n of ["nav-jobs", "nav-apps", "nav-alerts"]) {
+      if (n === nav) $(n).setAttribute("aria-current", "page"); else $(n).removeAttribute("aria-current");
     }
-    document.title = apps ? "Applications · Hunter" : "Hunter dashboard";
+    document.title = title;
   }
   $("views").hidden = !hasPrivate;
   window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); $("toast").classList.remove("on"); });
   $("apps-unlock").addEventListener("click", () => $("lock").click());
+  $("alerts-unlock").addEventListener("click", () => $("lock").click());
   route();
 
   // Weekly totals (one series: no legend, the title names it)

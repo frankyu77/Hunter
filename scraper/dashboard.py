@@ -40,9 +40,10 @@ from collections import Counter, defaultdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
-from scraper import filters, inbox, private
+from scraper import alerts, filters, inbox, private
 from scraper.models import Job
 from scraper.notify import categorize, display_company
+from scraper.regions import region
 from scraper.store import SeenStore
 
 log = logging.getLogger(__name__)
@@ -148,7 +149,7 @@ def _sealed(store: SeenStore) -> dict | None:
     if phrase is None:
         return None
     try:
-        return private.seal({"mine": _mine(store)}, phrase)
+        return private.seal({"mine": _mine(store), "alerts": alerts.settings(store)}, phrase)
     except Exception:
         log.exception("Sealing the private layer failed; publishing without it.")
         return None
@@ -247,6 +248,9 @@ def _row(snap: dict, day: str) -> dict:
         "t": snap.get("title", ""),
         "c": display_company(snap.get("company", "")),
         "l": snap.get("location", ""),
+        # Region by the classifier the filters use, so the alert-settings
+        # preview on the page counts exactly what the run would send.
+        "g": region(snap.get("location", "")),
         "u": snap.get("url", ""),
         "k": snap.get("category", ""),
         "s": _source_label(snap.get("source", "")),
