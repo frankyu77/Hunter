@@ -7,6 +7,7 @@ end.
 """
 
 import argparse
+import html
 import logging
 import sys
 import time
@@ -17,7 +18,7 @@ from datetime import date
 import requests
 import yaml
 
-from scraper import dashboard, discovery, feedback, filters, health, inbox, insights
+from scraper import alerts, dashboard, discovery, feedback, filters, health, inbox, insights
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
 from scraper.models import Job, JobNotes
@@ -275,6 +276,7 @@ def main(argv: list[str] | None = None) -> int:
     normalized = normalize(fetched)
     warnings = health.record_run(store.health, stats)
     acted = 0 if args.dry_run else read_dashboard_actions(store, normalized)
+    announce_alert_settings(store, args.dry_run)
 
     if normalized and len(store) == 0:
         seed(normalized, store)
@@ -288,6 +290,9 @@ def main(argv: list[str] | None = None) -> int:
     fresh = seed_new_sources(fresh, normalized, store)
     matched = apply_filters(fresh, filters_config)
     discovery.observe(fresh, matched, store, config)
+    # Of those, what pings Telegram: the alert settings chosen on the
+    # dashboard. The rest stay on the dashboard and are recorded below.
+    matched = alerts.select(matched, store)
 
     # Seasons: everything not being announced this run is recorded silently
     # first, so only a genuinely new cycle can trigger an alert.
@@ -373,6 +378,24 @@ def read_dashboard_actions(store: SeenStore, jobs: list[Job]) -> int:
     if count:
         log.info("Applied %d dashboard action(s).", count)
     return count
+
+
+def announce_alert_settings(store: SeenStore, dry_run: bool) -> None:
+    """Confirm in Telegram that alert settings changed on the dashboard took
+    effect. The flag clears only once sent, so a failed send retries."""
+    current = alerts.settings(store)
+    if not current.get("announce"):
+        return
+    text = f"🔔 <b>Alert settings updated</b>\n{html.escape(alerts.describe(current))}"
+    try:
+        if dry_run:
+            print(f"ALERTS: {alerts.describe(current)}")
+        else:
+            telegram.send_html(text)
+    except Exception:
+        log.exception("Alert-settings confirmation failed; retrying next run.")
+        return
+    current.pop("announce", None)
 
 
 def build_dashboard(

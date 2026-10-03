@@ -69,7 +69,8 @@ def test_page_carries_votes_only_encrypted(tmp_path, monkeypatch):
     for secret in ("SECRET-VOTED-TITLE", '"vote"', '"applied"'):
         assert secret not in text
     mine = private.unseal(sealed_from(page), PHRASE)["mine"]
-    assert mine == [{"i": job.id, "t": "SECRET-VOTED-TITLE", "c": "Acme", "l": "", "u": job.url,
+    assert mine == [{"i": job.id, "t": "SECRET-VOTED-TITLE", "c": "Acme", "l": "", "g": "other",
+                     "u": job.url,
                      "k": "", "s": "", "d": "2026-09-29", "vote": "up",
                      "applied": "2026-09-29", "stage": None, "dates": {}, "notes": "",
                      "set": {}}]

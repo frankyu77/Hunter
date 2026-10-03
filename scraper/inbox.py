@@ -1,7 +1,9 @@
 """Dashboard actions -> vote records, through a GitHub issue inbox.
 
-Actions are 👍 / 👎 / ✅ and the application board's stage, per-stage dates
-and notes. One comment carries every change from one click or edit.
+Actions are 👍 / 👎 / ✅, the application board's stage, per-stage dates
+and notes, and the Telegram alert settings (scraper.alerts - not tied to a
+job, so it carries no id). One comment carries every change from one click
+or edit.
 
 The dashboard is a static page, so a click can't write state directly. It
 posts the action as an encrypted comment on one locked issue in this repo,
@@ -45,7 +47,7 @@ from datetime import UTC, datetime
 
 import requests
 
-from scraper import feedback, private
+from scraper import alerts, feedback, private
 from scraper import notify as telegram
 from scraper.models import Job
 from scraper.store import SeenStore
@@ -75,6 +77,8 @@ def _valid(field: str, value) -> bool:
         return value is None or value in feedback.STAGES
     if field == "notes":
         return value is None or (isinstance(value, str) and len(value) <= NOTES_MAX)
+    if field == "alerts":
+        return alerts.valid(value)
     if field.startswith("date:") and field[5:] in feedback.STAGES:
         return value is None or (isinstance(value, str) and bool(_DATE.fullmatch(value)))
     return False
@@ -116,10 +120,12 @@ def process(store: SeenStore, jobs: list[Job], now: datetime | None = None) -> i
 
 
 def apply(store: SeenStore, action: dict, jobs: dict[str, Job], now: datetime) -> bool:
-    """Set one field on one job's vote record, unless that field changed
-    more recently. Returns whether anything changed."""
-    job_id, field, value = action["id"], action["field"], action["value"]
-    clicked = _parse(action["at"])
+    """Set one field on one job's vote record - or the alert settings -
+    unless it changed more recently. Returns whether anything changed."""
+    field, value, clicked = action["field"], action["value"], _parse(action["at"])
+    if field == "alerts":
+        return alerts.apply(store, value, clicked)
+    job_id = action["id"]
     token = telegram.callback_token(job_id)
     votes = store.feedback.setdefault("votes", {})
     record = dict(votes.get(token) or _snapshot(store, token, job_id, jobs, action))
@@ -182,7 +188,8 @@ def _open(comment: dict, phrase: str) -> list[dict] | None:
         payload = private.unseal(json.loads(comment["body"]), phrase)
         actions = payload.get("actions", [payload])
         for action in actions:
-            if (not isinstance(action.get("id"), str) or not isinstance(action.get("field"), str)
+            if (not isinstance(action.get("field"), str)
+                    or (action["field"] != "alerts" and not isinstance(action.get("id"), str))
                     or not _valid(action["field"], action.get("value"))):
                 raise ValueError(f"unexpected action {action!r}")
             _parse(action["at"])
