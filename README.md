@@ -76,7 +76,7 @@ Once unlocked you get:
 
 Tick **Remember on this device** and the page unlocks itself on later visits. The browser keeps a derived key that can decrypt but can't be read back out; the passphrase itself is never stored or sent anywhere. **🔓 Lock** forgets it on that device.
 
-One-time setup: add a repo secret `HUNTER_PASSPHRASE` (Settings -> Secrets and variables -> Actions). Use at least 16 characters, ideally 5 or more random words from a password manager's generator: the encrypted data is public, so a guessable passphrase can be cracked offline. Shorter than 16 characters, or no secret at all, and the dashboard is published with no private layer. Nothing ever falls back to plaintext.
+One-time setup: add a repo secret `HUNTER_PASSPHRASE` (Settings -> Secrets and variables -> Actions). Any length works, but longer is safer: the encrypted data is public, so a short or guessable passphrase can be cracked offline (runs log a warning under 12 characters). Ideally use 4 or more random words from a password manager's generator. With no secret at all, the dashboard is published with no private layer, and the run log says so. Nothing ever falls back to plaintext.
 
 Forgot it? Set a new secret. Nothing is lost: the next hourly build encrypts under the new passphrase, and browsers that remembered the old one just ask again.
 

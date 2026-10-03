@@ -12,7 +12,9 @@ Why these primitives:
   WebCrypto implements natively (no Argon2 or scrypt), so it is the one both
   ends can share without shipping a crypto library to the page. The
   ciphertext is public and can be attacked offline, so the iteration count
-  follows OWASP's current figure and short passphrases are refused outright.
+  follows OWASP's current figure. Any length is accepted - the owner's call -
+  but a short one is logged as a warning on every run, since that slowdown
+  only helps so much against a guessable passphrase.
 - AES-256-GCM is authenticated: a wrong passphrase fails loudly instead of
   decrypting to garbage, and a tampered payload is rejected. WebCrypto
   expects the 16-byte tag appended to the ciphertext, which is also what
@@ -33,8 +35,8 @@ there - only someone holding the passphrase can produce a message that
 opens. Opening always uses this module's KDF settings, never ones named in
 the message, or a forged message could ask for a billion iterations.
 
-Fails closed: no passphrase, or one that is too short, means no private
-layer at all - never a plaintext fallback.
+Fails closed: no passphrase means no private layer at all - never a
+plaintext fallback.
 """
 
 import base64
@@ -50,7 +52,7 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 log = logging.getLogger(__name__)
 
 PASSPHRASE_ENV = "HUNTER_PASSPHRASE"
-MIN_PASSPHRASE = 16
+SHORT_PASSPHRASE = 12  # below this, warn: easy to guess offline
 ITERATIONS = 600_000
 SALT = b"hunter/private-layer/v1"
 FORMAT = 1
@@ -60,11 +62,14 @@ def passphrase() -> str | None:
     """The configured passphrase, or None if the private layer is off."""
     phrase = _normalize(os.environ.get(PASSPHRASE_ENV, ""))
     if not phrase:
+        # Said out loud: a secret saved under the wrong name or scope is
+        # otherwise indistinguishable from the feature being off.
+        log.info("%s is not set: no private layer, no dashboard voting or board.",
+                 PASSPHRASE_ENV)
         return None
-    if len(phrase) < MIN_PASSPHRASE:
-        log.warning("%s is under %d characters; publishing without the private layer.",
-                    PASSPHRASE_ENV, MIN_PASSPHRASE)
-        return None
+    if len(phrase) < SHORT_PASSPHRASE:
+        log.warning("%s is under %d characters: the encrypted data is public, so a short "
+                    "passphrase can be guessed offline.", PASSPHRASE_ENV, SHORT_PASSPHRASE)
     return phrase
 
 
