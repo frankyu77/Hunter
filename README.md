@@ -32,9 +32,9 @@ Your votes and applications ship as the **private layer** (below), encrypted.
 
 ### Application board
 
-Once unlocked, the dashboard shows your applications as a board: **Saved → Applied → Online assessment → Interview → Offer / Rejected**.
+The dashboard has a second page, **Applications** (tab under the header, or `…/#applications` to bookmark it). Once unlocked, it shows your applications as a board: **Saved → Applied → Online assessment → Interview → Offer / Rejected**.
 
-- **📌** on any job row adds it to Saved. ✅ (on the dashboard or in Telegram) puts it in Applied.
+- **📌** on any job row adds it to Saved (a message links you to the board). ✅ (on the dashboard or in Telegram) puts it in Applied.
 - **Drag** a card to another column, or **click** it to pick its stage, edit the date it entered each stage, and keep notes (recruiter, referral, interview rounds…).
 - Each card shows when it entered its current stage and how long ago.
 - Every stage after Saved counts as applied, and moving back to Saved, or off the board, un-marks it.

@@ -229,6 +229,18 @@
   .act:hover, .act:focus-visible { opacity: .9; border-color: var(--border); }
   .act[aria-pressed="true"] { filter: none; opacity: 1; background: var(--surface-2); border-color: var(--border); }
   .act.unsent { border-style: dashed; border-color: var(--text-muted); }
+  /* pages */
+  .views { display: flex; gap: 4px; margin: 20px 0 0; border-bottom: 1px solid var(--border); }
+  .views a { padding: 8px 14px; color: var(--text-secondary); border-bottom: 2px solid transparent;
+             margin-bottom: -1px; font-weight: 500; }
+  .views a:hover { text-decoration: none; color: var(--text-primary); }
+  .views a[aria-current="page"] { color: var(--text-primary); border-bottom-color: var(--accent); }
+  #view-applications .bcol { min-height: 55vh; }
+  #toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 20;
+           background: var(--text-primary); color: var(--surface-1); padding: 10px 16px; border-radius: 8px;
+           font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .15s; }
+  #toast.on { opacity: 1; pointer-events: auto; }
+  #toast a { color: inherit; text-decoration: underline; }
   /* application board */
   .board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(168px, 1fr); gap: 10px;
            overflow-x: auto; padding-bottom: 6px; }
@@ -279,14 +291,27 @@
     </div>
   </header>
 
+  <nav class="views" id="views" aria-label="Pages" hidden>
+    <a href="#jobs" id="nav-jobs">Jobs</a>
+    <a href="#applications" id="nav-apps">Applications</a>
+  </nav>
+
+  <div id="view-applications" hidden>
+    <section class="card" id="apps-locked">
+      <h2>Applications</h2>
+      <p class="sub">Your application board is private. Unlock to see it.</p>
+      <button class="btn primary" id="apps-unlock">🔒 Unlock</button>
+    </section>
+    <section class="card" id="board-card" aria-labelledby="board-h" hidden>
+      <h2 id="board-h">Applications</h2>
+      <p class="sub">Drag a card to another column, or click it to change its stage, dates and notes. 📌 on any job adds it to Saved. Only you can see this.</p>
+      <div class="board" id="board"></div>
+    </section>
+  </div>
+
+  <div id="view-jobs">
   <div class="tiles" id="tiles"></div>
   <div class="tiles mine" id="my-tiles" hidden></div>
-
-  <section class="card" id="board-card" aria-labelledby="board-h" hidden>
-    <h2 id="board-h">Applications</h2>
-    <p class="sub">Drag a card to another column, or click it to change its stage, dates and notes. 📌 on any job adds it to Saved. Only you can see this.</p>
-    <div class="board" id="board"></div>
-  </section>
 
   <section class="card" aria-labelledby="search-h">
     <h2 id="search-h">Jobs</h2>
@@ -341,6 +366,9 @@
     <p class="empty" id="close-empty" hidden>Not enough closures recorded yet - this fills in over the first weeks.</p>
   </section>
 
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
   <footer>Built by Hunter from public job postings. Updated hourly.</footer>
 
   <dialog id="setup" aria-labelledby="setup-h">
@@ -829,18 +857,28 @@
       openCard(r);  // 📌 on a job already on the board opens its card
     } else {
       queueChanges(r, stageChanges(m, "saved"));
+      toast(`📌 Saved ${esc(r.c)} - see it in <a href="#applications">Applications</a>`);
     }
   });
+  let toastTimer = null;
+  function toast(html) {
+    $("toast").innerHTML = html;
+    $("toast").classList.add("on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => $("toast").classList.remove("on"), 4000);
+  }
 
   // Application board. Built from the same marks as the rows, so a move
   // shows at once and syncs through the inbox like a vote.
   let boardRows = new Map();
   function renderBoard() {
     $("board-card").hidden = !mine;
-    if (!mine) { $("board").innerHTML = ""; return; }
+    $("apps-locked").hidden = !!mine;
+    if (!mine) { $("board").innerHTML = ""; $("nav-apps").textContent = "Applications"; return; }
     const now = today();
     const cards = myRows().map((r) => ({r, m: marksOf(r)})).filter((x) => x.m.stage);
     boardRows = new Map(cards.map((x) => [x.r.i, x.r]));
+    $("nav-apps").textContent = `Applications (${fmt(cards.length)})`;
     $("board").innerHTML = STAGES.map((s) => {
       const col = cards.filter((x) => x.m.stage === s)
         .sort((a, b) => (b.m.dates[s] || "").localeCompare(a.m.dates[s] || ""));
@@ -990,6 +1028,24 @@
       showMine(payload, saved.key);
     });
   }
+
+  // Pages: #applications shows the board on its own page; anything else, the
+  // jobs. Both live in this one file so they share the unlock, the data and
+  // the queue of unsent changes. No private layer, no Applications page.
+  const hasPrivate = !$("lock").hidden;
+  function route() {
+    const apps = hasPrivate && location.hash === "#applications";
+    $("view-applications").hidden = !apps;
+    $("view-jobs").hidden = apps;
+    for (const [id, on] of [["nav-jobs", !apps], ["nav-apps", apps]]) {
+      if (on) $(id).setAttribute("aria-current", "page"); else $(id).removeAttribute("aria-current");
+    }
+    document.title = apps ? "Applications · Hunter" : "Hunter dashboard";
+  }
+  $("views").hidden = !hasPrivate;
+  window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); $("toast").classList.remove("on"); });
+  $("apps-unlock").addEventListener("click", () => $("lock").click());
+  route();
 
   // Weekly totals (one series: no legend, the title names it)
   const act = data.activity;
