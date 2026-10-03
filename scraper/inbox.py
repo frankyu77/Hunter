@@ -1,4 +1,7 @@
-"""Dashboard actions (👍 / 👎 / ✅) -> votes, through a GitHub issue inbox.
+"""Dashboard actions -> vote records, through a GitHub issue inbox.
+
+Actions are 👍 / 👎 / ✅ and the application board's stage, per-stage dates
+and notes. One comment carries every change from one click or edit.
 
 The dashboard is a static page, so a click can't write state directly. It
 posts the action as an encrypted comment on one locked issue in this repo,
@@ -37,6 +40,7 @@ delete issue comments.
 import json
 import logging
 import os
+import re
 from datetime import UTC, datetime
 
 import requests
@@ -56,7 +60,24 @@ BODY = (
     "Each run applies them and removes them. Locked, so only the repo owner can post."
 )
 TIMEOUT = 20
-FIELDS = {"vote": {"up", "down", None}, "applied": {True, False}}
+NOTES_MAX = 4000
+_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def _valid(field: str, value) -> bool:
+    """Whether a dashboard may set ``field`` to ``value``. "date:<stage>" is
+    the day the job entered that board stage."""
+    if field == "vote":
+        return value in ("up", "down", None)
+    if field == "applied":
+        return isinstance(value, bool)
+    if field == "stage":
+        return value is None or value in feedback.STAGES
+    if field == "notes":
+        return value is None or (isinstance(value, str) and len(value) <= NOTES_MAX)
+    if field.startswith("date:") and field[5:] in feedback.STAGES:
+        return value is None or (isinstance(value, str) and bool(_DATE.fullmatch(value)))
+    return False
 
 
 def repo() -> str | None:
@@ -84,10 +105,11 @@ def process(store: SeenStore, jobs: list[Job], now: datetime | None = None) -> i
             if not _delete(comment["id"]):
                 kept.append(comment["id"])
             continue
-        action = _open(comment, phrase)
-        if action is None:
+        actions = _open(comment, phrase)
+        if actions is None:
             continue
-        apply(store, action, by_id, now or datetime.now(UTC))
+        for action in actions:
+            apply(store, action, by_id, now or datetime.now(UTC))
         applied.append(comment["id"])
     state["applied"] = kept + applied
     return len(applied)
@@ -110,7 +132,18 @@ def apply(store: SeenStore, action: dict, jobs: dict[str, Job], now: datetime) -
     stamp = clicked.isoformat(timespec="milliseconds")
     record.setdefault("vote", None)
     record.setdefault("applied", False)
-    record[field] = value
+    if field.startswith("date:"):
+        dates = record.setdefault("stage_dates", {})
+        if value:
+            dates[field[5:]] = value
+        else:
+            dates.pop(field[5:], None)
+        if not dates:
+            del record["stage_dates"]
+    elif field in ("stage", "notes") and not value:
+        record.pop(field, None)  # off the board / notes cleared
+    else:
+        record[field] = value
     if field == "applied":
         if value:
             record["applied_at"] = stamp
@@ -141,15 +174,19 @@ def _snapshot(store: SeenStore, token: str, job_id: str, jobs: dict[str, Job],
             "category": row.get("k", "")}
 
 
-def _open(comment: dict, phrase: str) -> dict | None:
-    """The action in a comment, or None if it isn't one we can trust."""
+def _open(comment: dict, phrase: str) -> list[dict] | None:
+    """The actions in a comment, or None if it isn't one we can trust - all
+    of them, since one comment is one click or edit. A comment holds either
+    {"actions": [...]} or, from older pages, a single action."""
     try:
-        action = private.unseal(json.loads(comment["body"]), phrase)
-        if (not isinstance(action.get("id"), str) or action.get("field") not in FIELDS
-                or action.get("value") not in FIELDS[action["field"]]):
-            raise ValueError(f"unexpected action {action!r}")
-        _parse(action["at"])
-        return action
+        payload = private.unseal(json.loads(comment["body"]), phrase)
+        actions = payload.get("actions", [payload])
+        for action in actions:
+            if (not isinstance(action.get("id"), str) or not isinstance(action.get("field"), str)
+                    or not _valid(action["field"], action.get("value"))):
+                raise ValueError(f"unexpected action {action!r}")
+            _parse(action["at"])
+        return actions
     except Exception as exc:  # anything unopenable is skipped, never fatal
         log.warning("Inbox comment %s is not a dashboard action we can open (%s); left in place.",
                     comment.get("id"), type(exc).__name__)
