@@ -50,12 +50,17 @@ def test_passphrase_is_trimmed_and_normalized_like_the_page_does():
     assert private.unseal(envelope, "café au lait, deux sucres") == {"ok": True}
 
 
-def test_no_or_short_passphrase_means_no_private_layer(monkeypatch):
-    assert private.passphrase() is None
-    monkeypatch.setenv(private.PASSPHRASE_ENV, "too short")
-    assert private.passphrase() is None
+def test_any_passphrase_works_and_a_short_one_is_warned_about(monkeypatch, caplog):
+    assert private.passphrase() is None  # not set: no private layer
+    monkeypatch.setenv(private.PASSPHRASE_ENV, "  \n")
+    assert private.passphrase() is None  # blank counts as not set
+    monkeypatch.setenv(private.PASSPHRASE_ENV, "abc")
+    assert private.passphrase() == "abc"
+    assert "can be guessed offline" in caplog.text
+    caplog.clear()
     monkeypatch.setenv(private.PASSPHRASE_ENV, PHRASE)
     assert private.passphrase() == PHRASE
+    assert "guessed" not in caplog.text
 
 
 def test_page_carries_votes_only_encrypted(tmp_path, monkeypatch):
