@@ -251,35 +251,8 @@ def due_report(
         return None
     section = _section(store)
     since = datetime.fromisoformat(section["since"])
-    probe = probe or _probe
-    resolve = resolve or resolve_greenhouse_board
 
-    # sources.yaml may have changed since these were tallied.
-    skip = _configured(config) | _ignored(config)
-    ranked = sorted(
-        (
-            (key, entry) for key, entry in section.get("candidates", {}).items()
-            if key not in skip and entry["matched"] >= MIN_MATCHED
-        ),
-        key=lambda item: (item[1]["matched"], item[1]["jobs"]),
-        reverse=True,
-    )
-    picks = []
-    for key, entry in ranked[:MAX_PROBES]:
-        if len(picks) == SUGGESTIONS:
-            break
-        board = _likeliest_board(entry, config)
-        if "gh_jid" in board:
-            slug = resolve(board["gh_jid"])
-            board = {"type": "greenhouse", "company": slug} if slug else None
-            if board is None or board_key(board) in skip:
-                continue
-            key = board_key(board)
-        open_now = probe(board)
-        if open_now:
-            picks.append((key, entry | {"board": board}, open_now))
-        else:
-            log.info("Discovery: %s did not verify; not suggesting it.", key)
+    picks = verified(store, config, SUGGESTIONS, MIN_MATCHED, probe, resolve)
 
     gaps = sorted(
         ((name, gap) for name, gap in section.get("gaps", {}).items()
@@ -290,6 +263,52 @@ def due_report(
     if not picks and not gaps:
         return None
     return format_report(picks, gaps, (now - since).days)
+
+
+def ranked(store: SeenStore, config: dict, min_matched: int) -> list[tuple[str, dict]]:
+    """Tallied boards not yet polled or ignored, most matching jobs first.
+    sources.yaml (and auto-added sources) may have changed since the tally."""
+    skip = _configured(config) | _ignored(config)
+    return sorted(
+        ((key, entry) for key, entry in _section(store).get("candidates", {}).items()
+         if key not in skip and entry["matched"] >= min_matched),
+        key=lambda item: (item[1]["matched"], item[1]["jobs"]),
+        reverse=True,
+    )
+
+
+def verified(
+    store: SeenStore, config: dict, limit: int, min_matched: int,
+    probe: Callable[[dict], int | None] | None = None,
+    resolve: Callable[[str], str | None] | None = None,
+    only: set[str] | None = None,
+) -> list[tuple[str, dict, int]]:
+    """Up to ``limit`` boards that fetch with the real adapter and list
+    something, as (key, entry + "board", open now). Shared by the weekly
+    suggestions and scraper.autosources; at most MAX_PROBES are tried.
+    ``only`` restricts it to those tally keys."""
+    probe = probe or _probe
+    resolve = resolve or resolve_greenhouse_board
+    skip = _configured(config) | _ignored(config)
+    picks = []
+    for key, entry in [c for c in ranked(store, config, min_matched)
+                       if only is None or c[0] in only][:MAX_PROBES]:
+        if len(picks) == limit:
+            break
+        tally_key = key
+        board = _likeliest_board(entry, config)
+        if "gh_jid" in board:
+            slug = resolve(board["gh_jid"])
+            board = {"type": "greenhouse", "company": slug} if slug else None
+            if board is None or board_key(board) in skip:
+                continue
+            key = board_key(board)
+        open_now = probe(board)
+        if open_now:
+            picks.append((key, entry | {"board": board, "tally_key": tally_key}, open_now))
+        else:
+            log.info("Discovery: %s did not verify; not suggesting it.", key)
+    return picks
 
 
 def _likeliest_board(entry: dict, config: dict) -> dict:

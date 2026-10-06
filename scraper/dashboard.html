@@ -241,6 +241,15 @@
            font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .15s; }
   #toast.on { opacity: 1; pointer-events: auto; }
   #toast a { color: inherit; text-decoration: underline; }
+  /* sources */
+  .src-status { font-size: 12px; white-space: nowrap; }
+  .src-status.paused, .src-status.failed { color: #c98500; }
+  .src-status.removed { color: var(--text-muted); }
+  .src-btn { font: inherit; font-size: 12px; padding: 2px 10px; cursor: pointer; border-radius: 999px;
+             border: 1px solid var(--border); background: none; color: var(--text-secondary); white-space: nowrap; }
+  .src-btn:hover { color: var(--link); border-color: var(--link); }
+  .src-btn:disabled { opacity: .5; cursor: default; }
+  #removed-wrap td { color: var(--text-secondary); }
   /* alert settings */
   .form fieldset { border: 0; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
   .form legend { font-size: 13px; font-weight: 600; margin-bottom: 4px; padding: 0; }
@@ -307,7 +316,36 @@
     <a href="#jobs" id="nav-jobs">Jobs</a>
     <a href="#applications" id="nav-apps">Applications</a>
     <a href="#alerts" id="nav-alerts">Telegram alerts</a>
+    <a href="#sources" id="nav-sources">Sources</a>
   </nav>
+
+  <div id="view-sources" hidden>
+    <section class="card" id="sources-locked">
+      <h2>Sources</h2>
+      <p class="sub">Unlock to manage which company boards Hunter polls.</p>
+      <button class="btn primary" id="sources-unlock">🔒 Unlock</button>
+    </section>
+    <section class="card" id="sources-card" aria-labelledby="sources-h" hidden>
+      <h2 id="sources-h">Polled directly</h2>
+      <p class="sub" id="sources-sub"></p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Company</th><th class="col-src">Board</th><th>Added</th><th class="num">Sent you</th><th>Status</th><th><span class="sr-only">Action</span></th></tr></thead>
+        <tbody id="auto-rows"></tbody>
+      </table></div>
+      <p class="empty" id="auto-empty" hidden>Nothing added yet. Boards appear here once they've fed you enough jobs late through the feeds.</p>
+      <details id="removed-wrap" hidden><summary id="removed-sum"></summary><div class="table-wrap"><table><tbody id="removed-rows"></tbody></table></div></details>
+    </section>
+    <section class="card" id="suggest-card" aria-labelledby="suggest-h" hidden>
+      <h2 id="suggest-h">Suggestions</h2>
+      <p class="sub">Company boards whose jobs reached you only through the aggregator feeds, hours to days late. Add one to poll it now, without waiting for the automatic threshold.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Company</th><th class="num">Late matching jobs</th><th class="col-src">Board</th><th><span class="sr-only">Action</span></th></tr></thead>
+        <tbody id="suggest-rows"></tbody>
+      </table></div>
+      <p class="empty" id="suggest-empty" hidden>No suggestions right now.</p>
+    </section>
+    <p class="note" id="sources-status" aria-live="polite"></p>
+  </div>
 
   <div id="view-alerts" hidden>
     <section class="card" id="alerts-locked">
@@ -648,7 +686,9 @@
   // plus jobs whose first mark is still pending.
   function myRows() {
     const rows = new Map((mine || []).map((r) => [r.i, r]));
-    for (const p of Object.values(pending)) if (p.id && !rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
+    for (const p of Object.values(pending)) {
+      if (p.id && FIELDS.includes(p.field) && !rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
+    }
     return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied || m.stage || m.notes; });
   }
   // Moving a job to `stage` (null = off the board): dates the new stage
@@ -698,6 +738,7 @@
     if (mine) renderMyTiles();
     renderBoard();
     renderAlertsView();
+    renderSources();
   }
   function selectTab(name) {
     tab = name; shown = PAGE;
@@ -832,7 +873,9 @@
     const built = Date.parse(data.generated);
     for (const [k, p] of Object.entries(pending)) {
       const m = mineById.get(p.id);
-      const stamp = p.field === "alerts" ? alertsPublished && alertsPublished.set_at : m && m.set && m.set[p.field];
+      const stamp = p.field === "alerts" ? alertsPublished && alertsPublished.set_at
+        : p.field === "source" ? (sourceByKey.get(p.id) || {}).set_at
+        : m && m.set && m.set[p.field];
       if ((stamp && Date.parse(stamp) >= Date.parse(p.at)) || (p.sent && built - Date.parse(p.at) > SETTLE_MS)) {
         delete pending[k];
       }
@@ -990,6 +1033,71 @@
     pending[ALERT_KEY] = {id: "", field: "alerts", value: formAlerts(), at: new Date().toISOString(), sent: false, row: {}};
     savePending();
     renderAlertsView();
+    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+  });
+
+  // Sources (scraper/autosources.py): company boards Hunter polls directly
+  // because their jobs kept reaching you late through the feeds. The list
+  // is public data (like sources.yaml); Add / Remove / Resume go through the
+  // inbox like a vote, so they need the page unlocked.
+  const SRC = data.sources;
+  const sourceByKey = new Map(SRC ? SRC.auto.map((r) => [r.key, r]) : []);
+  const BOARD_NAMES = {workday: "Workday", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby",
+    oracle: "Oracle", smartrecruiters: "SmartRecruiters", workable: "Workable", rippling: "Rippling",
+    bamboohr: "BambooHR", eightfold: "Eightfold", successfactors: "SuccessFactors", jibe: "iCIMS",
+    tiktok: "TikTok", amazon: "Amazon"};
+  const STATUS_TEXT = {active: "Polling", paused: "Paused - failing", requested: "Adding…",
+                       failed: "Couldn't add", removed: "Removed"};
+  function srcStatus(key, published) {
+    const p = pending[`${key}|source`];
+    if (!p) return {status: published, waiting: false};
+    const status = {add: "requested", remove: "removed", resume: "active"}[p.value];
+    return {status, waiting: true, unsent: !p.sent};
+  }
+  function srcButton(key, action, label) {
+    return `<button class="src-btn" data-key="${esc(key)}" data-act="${action}">${label}</button>`;
+  }
+  function renderSources() {
+    // Runs from the first renderRows, before this block has run: touch the
+    // consts below only once unlocked (which happens later).
+    $("sources-locked").hidden = !!mine;
+    if (!mine) { $("sources-card").hidden = $("suggest-card").hidden = true; return; }
+    $("sources-card").hidden = $("suggest-card").hidden = !SRC;
+    if (!SRC) { $("sources-locked").hidden = false; $("sources-locked").querySelector(".sub").textContent = "Available on the published site."; return; }
+    $("sources-sub").textContent = `Hunter polls these company boards itself, so new postings reach you within minutes instead of days later through the feeds. It adds one on its own once ${SRC.min_matched} matching jobs have arrived late from it (up to ${SRC.per_week} a week) and tells you in Telegram. Plus ${fmt(SRC.configured)} boards from sources.yaml.`;
+    const rows = SRC.auto.map((r) => ({...r, ...srcStatus(r.key, r.status)}));
+    const shown = rows.filter((r) => r.status !== "removed"), removed = rows.filter((r) => r.status === "removed");
+    $("auto-rows").innerHTML = shown.map((r) => `<tr>
+      <td>${esc(r.name)}</td>
+      <td class="src col-src">${esc(BOARD_NAMES[r.type] || r.type)}</td>
+      <td class="date">${r.added ? esc(shortDate(r.added.slice(0, 10))) : "—"}${r.how === "auto" ? ' <span class="muted">· auto</span>' : ""}</td>
+      <td class="num">${fmt(r.caught)}</td>
+      <td><span class="src-status ${r.status}">${STATUS_TEXT[r.status] || r.status}${r.unsent ? " (not sent yet)" : ""}</span></td>
+      <td>${r.waiting ? "" : r.status === "paused" ? srcButton(r.key, "resume", "Resume") + " " + srcButton(r.key, "remove", "Remove")
+        : r.status === "failed" ? srcButton(r.key, "add", "Try again") + " " + srcButton(r.key, "remove", "Dismiss")
+        : r.status === "requested" ? "" : srcButton(r.key, "remove", "Remove")}</td></tr>`).join("");
+    $("auto-empty").hidden = shown.length > 0;
+    $("removed-wrap").hidden = !removed.length;
+    $("removed-sum").textContent = `Removed (${removed.length}) - never suggested again`;
+    $("removed-rows").innerHTML = removed.map((r) => `<tr><td>${esc(r.name)}</td><td>${r.waiting ? "" : srcButton(r.key, "add", "Add back")}</td></tr>`).join("");
+    const listed = new Set(SRC.auto.map((r) => r.key));
+    const sugg = SRC.suggestions.filter((s) => !listed.has(s.key) || pending[`${s.key}|source`]);
+    $("suggest-rows").innerHTML = sugg.map((s) => {
+      const st = srcStatus(s.key, null);
+      return `<tr><td>${esc(s.name)}</td><td class="num">${fmt(s.matched)} <span class="muted">of ${fmt(s.jobs)}</span></td>
+        <td class="src col-src">${esc(BOARD_NAMES[s.key.split("/")[0]] || s.key.split("/")[0])}</td>
+        <td>${st.waiting ? `<span class="src-status">${STATUS_TEXT[st.status]}</span>` : srcButton(s.key, "add", "Add")}</td></tr>`;
+    }).join("");
+    $("suggest-empty").hidden = sugg.length > 0;
+  }
+  $("view-sources").addEventListener("click", (e) => {
+    const b = e.target.closest(".src-btn");
+    if (!b || !mine) return;
+    pending[`${b.dataset.key}|source`] = {id: b.dataset.key, field: "source", value: b.dataset.act,
+      at: new Date().toISOString(), sent: false, row: {}};
+    savePending();
+    renderSources();
+    $("sources-status").textContent = "Sent to Hunter - the next run applies it and confirms in Telegram.";
     if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
   });
 
@@ -1159,11 +1267,12 @@
   // the queue of unsent changes. No private layer, no Applications page.
   const hasPrivate = !$("lock").hidden;
   const PAGES = {"#applications": ["view-applications", "nav-apps", "Applications · Hunter"],
-                 "#alerts": ["view-alerts", "nav-alerts", "Telegram alerts · Hunter"]};
+                 "#alerts": ["view-alerts", "nav-alerts", "Telegram alerts · Hunter"],
+                 "#sources": ["view-sources", "nav-sources", "Sources · Hunter"]};
   function route() {
     const [view, nav, title] = (hasPrivate && PAGES[location.hash]) || ["view-jobs", "nav-jobs", "Hunter dashboard"];
-    for (const v of ["view-jobs", "view-applications", "view-alerts"]) $(v).hidden = v !== view;
-    for (const n of ["nav-jobs", "nav-apps", "nav-alerts"]) {
+    for (const v of ["view-jobs", "view-applications", "view-alerts", "view-sources"]) $(v).hidden = v !== view;
+    for (const n of ["nav-jobs", "nav-apps", "nav-alerts", "nav-sources"]) {
       if (n === nav) $(n).setAttribute("aria-current", "page"); else $(n).removeAttribute("aria-current");
     }
     document.title = title;
@@ -1172,6 +1281,7 @@
   window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); $("toast").classList.remove("on"); });
   $("apps-unlock").addEventListener("click", () => $("lock").click());
   $("alerts-unlock").addEventListener("click", () => $("lock").click());
+  $("sources-unlock").addEventListener("click", () => $("lock").click());
   route();
 
   // Weekly totals (one series: no legend, the title names it)

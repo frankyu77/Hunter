@@ -1,9 +1,10 @@
 """Dashboard actions -> vote records, through a GitHub issue inbox.
 
 Actions are 👍 / 👎 / ✅, the application board's stage, per-stage dates
-and notes, and the Telegram alert settings (scraper.alerts - not tied to a
-job, so it carries no id). One comment carries every change from one click
-or edit.
+and notes, the Telegram alert settings (scraper.alerts - not tied to a
+job, so it carries no id), and Add / Remove / Resume on the Sources page
+(scraper.autosources - its id is a board key, not a job). One comment
+carries every change from one click or edit.
 
 The dashboard is a static page, so a click can't write state directly. It
 posts the action as an encrypted comment on one locked issue in this repo,
@@ -47,7 +48,7 @@ from datetime import UTC, datetime
 
 import requests
 
-from scraper import alerts, feedback, private
+from scraper import alerts, autosources, feedback, private
 from scraper import notify as telegram
 from scraper.models import Job
 from scraper.store import SeenStore
@@ -79,6 +80,8 @@ def _valid(field: str, value) -> bool:
         return value is None or (isinstance(value, str) and len(value) <= NOTES_MAX)
     if field == "alerts":
         return alerts.valid(value)
+    if field == "source":
+        return value in autosources.ACTIONS
     if field.startswith("date:") and field[5:] in feedback.STAGES:
         return value is None or (isinstance(value, str) and bool(_DATE.fullmatch(value)))
     return False
@@ -125,6 +128,8 @@ def apply(store: SeenStore, action: dict, jobs: dict[str, Job], now: datetime) -
     field, value, clicked = action["field"], action["value"], _parse(action["at"])
     if field == "alerts":
         return alerts.apply(store, value, clicked)
+    if field == "source":  # Sources page: id is the board key
+        return autosources.request(store, action["id"], value, clicked)
     job_id = action["id"]
     token = telegram.callback_token(job_id)
     votes = store.feedback.setdefault("votes", {})
@@ -190,6 +195,8 @@ def _open(comment: dict, phrase: str) -> list[dict] | None:
         for action in actions:
             if (not isinstance(action.get("field"), str)
                     or (action["field"] != "alerts" and not isinstance(action.get("id"), str))
+                    or (action["field"] == "source"
+                        and not autosources.valid(action["id"], action.get("value")))
                     or not _valid(action["field"], action.get("value"))):
                 raise ValueError(f"unexpected action {action!r}")
             _parse(action["at"])
