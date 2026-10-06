@@ -40,7 +40,9 @@ from collections import Counter, defaultdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
-from scraper import alerts, filters, inbox, private
+import yaml
+
+from scraper import alerts, autosources, filters, inbox, private
 from scraper.models import Job
 from scraper.notify import categorize, display_company
 from scraper.regions import region
@@ -83,9 +85,10 @@ def build(
     open_jobs: list[Job] | None = None,
     filters_config: dict | None = None,
     now: datetime | None = None,
+    config: dict | None = None,
 ) -> Path:
     now = now or datetime.now(UTC)
-    data = collect(store, open_jobs, filters_config or {}, now)
+    data = collect(store, open_jobs, filters_config or {}, now, config)
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     page = out / "index.html"
@@ -104,7 +107,8 @@ def build(
 
 
 def collect(
-    store: SeenStore, open_jobs: list[Job] | None, filters_config: dict, now: datetime
+    store: SeenStore, open_jobs: list[Job] | None, filters_config: dict, now: datetime,
+    config: dict | None = None,
 ) -> dict:
     sources = store.insights.get("sources", {})
     snapshots = list(store.feedback.get("sent", {}).values())
@@ -131,7 +135,17 @@ def collect(
         "activity": activity,
         "lifetimes": lifetimes,
         "inbox": _inbox(store),
+        "sources": _sources(store, config, snapshots),
     }
+
+
+def _sources(store: SeenStore, config: dict | None, snapshots: list[dict]) -> dict | None:
+    """The Sources page: auto-added boards and the remaining suggestions.
+    Needs the merged config (sources.yaml + auto-added), so None without one."""
+    if config is None:
+        return None
+    sent_by_source = Counter(snap.get("source", "") for snap in snapshots)
+    return autosources.for_dashboard(store, config, sent_by_source)
 
 
 def _inbox(store: SeenStore) -> dict | None:
@@ -342,8 +356,15 @@ def main(argv: list[str] | None = None) -> int:
                                      description="Build the dashboard from state alone.")
     parser.add_argument("--store", default="seen_jobs.json")
     parser.add_argument("--out", default=SITE_DIR)
+    parser.add_argument("--config", default="sources.yaml")
     args = parser.parse_args(argv)
-    page = build(SeenStore(args.store), args.out)
+    store = SeenStore(args.store)
+    try:
+        with open(args.config, encoding="utf-8") as f:
+            config = autosources.merged_config(yaml.safe_load(f) or {}, store)
+    except FileNotFoundError:
+        config = None
+    page = build(store, args.out, config=config)
     print(f"Wrote {page}")
     return 0
 

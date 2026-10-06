@@ -18,7 +18,17 @@ from datetime import date
 import requests
 import yaml
 
-from scraper import alerts, dashboard, discovery, feedback, filters, health, inbox, insights
+from scraper import (
+    alerts,
+    autosources,
+    dashboard,
+    discovery,
+    feedback,
+    filters,
+    health,
+    inbox,
+    insights,
+)
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
 from scraper.models import Job, JobNotes
@@ -57,8 +67,7 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
     jobs: list[Job] = []
     stats: dict[str, dict] = {}
     for source in sources:
-        name = source.get("company") or source.get("repo") or source.get("name") or "?"
-        label = f"{source.get('type', '?')}/{name}"
+        label = autosources.label(source)
         stat = stats.setdefault(label, {"fetched": 0, "errors": 0})
         try:
             fetch = get_adapter(source["type"])
@@ -266,9 +275,11 @@ def main(argv: list[str] | None = None) -> int:
         level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s"
     )
 
-    config = load_config(args.config)
-    sources = config.get("sources") or []
     store = SeenStore(args.store)
+    # sources.yaml plus the boards Hunter added itself (scraper.autosources).
+    base_config = load_config(args.config)
+    config = autosources.merged_config(base_config, store)
+    sources = config["sources"]
     if not args.dry_run:
         read_button_presses(store)
 
@@ -290,6 +301,9 @@ def main(argv: list[str] | None = None) -> int:
     fresh = seed_new_sources(fresh, normalized, store)
     matched = apply_filters(fresh, filters_config)
     discovery.observe(fresh, matched, store, config)
+    # A job already sent from the company's own board, listed again by a feed
+    # days later, isn't news (it is still tallied above as a late arrival).
+    matched = insights.drop_late_copies(matched, store)
     # Of those, what pings Telegram: the alert settings chosen on the
     # dashboard. The rest stay on the dashboard and are recorded below.
     matched = alerts.select(matched, store)
@@ -321,6 +335,8 @@ def main(argv: list[str] | None = None) -> int:
             store.add(job)
 
     record_closures(closures, store)
+    update_auto_sources(store, config, args.dry_run)
+    config = autosources.merged_config(base_config, store)  # this run's adds
     announce_discovery(store, config, args.dry_run)
     announce_summary(store, args.dry_run)
 
@@ -329,7 +345,7 @@ def main(argv: list[str] | None = None) -> int:
     store.prune(PRUNE_MAX_AGE_DAYS)
     insights.prune(store)
     feedback.prune(store)
-    build_dashboard(store, normalized, filters_config, now=acted > 0)
+    build_dashboard(store, normalized, filters_config, now=acted > 0, config=config)
     store.save()
 
     for message in warnings:
@@ -399,7 +415,8 @@ def announce_alert_settings(store: SeenStore, dry_run: bool) -> None:
 
 
 def build_dashboard(
-    store: SeenStore, jobs: list[Job], filters_config: dict, now: bool = False
+    store: SeenStore, jobs: list[Job], filters_config: dict, now: bool = False,
+    config: dict | None = None,
 ) -> None:
     """Hourly, or ``now`` when this run applied dashboard clicks - so the
     page you clicked on reflects them in a few minutes, not an hour. Writes
@@ -410,7 +427,7 @@ def build_dashboard(
     if not (now or dashboard.is_due(store)):
         return
     try:
-        page = dashboard.build(store, dashboard.SITE_DIR, jobs, filters_config)
+        page = dashboard.build(store, dashboard.SITE_DIR, jobs, filters_config, config=config)
     except Exception:
         log.exception("Dashboard build failed; the published site stays as it was.")
         return
@@ -432,6 +449,26 @@ def announce_summary(store: SeenStore, dry_run: bool) -> None:
         log.exception("Weekly summary failed; retrying next run.")
         return
     feedback.mark_summarised(store)
+
+
+def update_auto_sources(store: SeenStore, config: dict, dry_run: bool) -> None:
+    """Add, verify and pause auto-added sources (scraper.autosources), then
+    tell Telegram about each change. A message is marked done only once
+    sent, so a failed send retries next run; a failed update just waits."""
+    try:
+        autosources.update(store, config)
+    except Exception:
+        log.exception("Updating auto-added sources failed; trying again next run.")
+    for key, text in autosources.announcements(store):
+        try:
+            if dry_run:
+                print(f"SOURCES: {text}")
+            else:
+                telegram.send_html(text)
+        except Exception:
+            log.exception("Auto-source message for %s failed; retrying next run.", key)
+            continue
+        autosources.announced(store, key)
 
 
 def announce_discovery(store: SeenStore, config: dict, dry_run: bool) -> None:

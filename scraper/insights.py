@@ -37,6 +37,7 @@ from datetime import UTC, datetime, timedelta
 from scraper import filters
 from scraper.models import Job, JobNotes
 from scraper.notify import categorize, display_company
+from scraper.regions import region
 from scraper.store import SeenStore
 
 log = logging.getLogger(__name__)
@@ -225,6 +226,33 @@ def remember_roles(jobs: list[Job], store: SeenStore, now: datetime | None = Non
         role = roles.setdefault(_role_key(job), {"first": now_iso})
         role["id"] = job.id
         role["last"] = now_iso
+        if not _is_aggregated(job):
+            # Where a direct board already told you about this role, so its
+            # aggregator copy days later isn't sent again (drop_late_copies).
+            direct = role.setdefault("direct", [])
+            if (where := region(job.location)) not in direct:
+                direct.append(where)
+
+
+def drop_late_copies(jobs: list[Job], store: SeenStore) -> list[Job]:
+    """Drop aggregator jobs you were already sent from the company's own
+    board: same company and title, in a region the direct posting covered.
+    Once a board is polled directly (by hand or by scraper.autosources), the
+    feeds still list its jobs days later under a different id. The region
+    check keeps a genuinely different opening - the Seattle req of a role
+    first sent for Toronto - from being swallowed; when unsure, it sends.
+    Dropped jobs are recorded as seen like any filtered job."""
+    roles = store.insights.get("roles", {})
+    kept = []
+    for job in jobs:
+        role = roles.get(_role_key(job))
+        if (_is_aggregated(job) and role and role.get("id") != job.id
+                and region(job.location) in role.get("direct", [])):
+            log.info("%s: late aggregator copy of %s, already sent; not resending.",
+                     job.id, role["id"])
+            continue
+        kept.append(job)
+    return kept
 
 
 # --- hiring seasons ---------------------------------------------------------

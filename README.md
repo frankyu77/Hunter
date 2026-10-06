@@ -104,13 +104,21 @@ Every job on the dashboard has a **📝 Kit** button: paste the job description 
 
 Set it up once per browser with **📝 Kit setup**: paste your resume as plain text and an Anthropic API key (from console.anthropic.com). Both are stored only in that browser - never on the public page or in the repo. Each kit is one Claude Opus 5 request, typically a few cents. Only save your key on your own devices.
 
-### Direct-source suggestions
+### Direct sources: added automatically
 
 Jobs from aggregator repos (SimplifyJobs etc.) arrive hours to days after the company posts them.
 Their apply links usually point at the company's own job board, which Hunter can poll directly: Greenhouse, Ashby, Lever, Workday, Oracle, SmartRecruiters, Workable, Rippling, BambooHR, Eightfold, SuccessFactors and iCIMS-backed ("Jibe") career sites, plus TikTok and Amazon.
-Once a week the bot sends the top 5 such companies that aren't in `sources.yaml` yet, each checked live and given as a ready-to-paste entry.
-The same message names the platforms with no adapter yet that most of your other matches came from.
-To stop a company being suggested, add its `ignore key` under `discovery: ignore:` in `sources.yaml`.
+
+Hunter does this on its own:
+
+- Once a company board has fed you **3 matching jobs** late through the feeds, and a live fetch of it works, Hunter starts polling it directly, so new postings arrive within minutes. It adds at most 3 a week (25 in total), checks once a day, and tells you in Telegram ("🧭 Now polling RTX directly").
+- A newly added board's existing jobs are recorded silently, like any new source, so adding one never floods your chat.
+- A board that fails 5 runs in a row is paused (so it can't slow every run), and Telegram tells you.
+- Once Hunter polls a board directly, the same job showing up days later in a feed isn't sent again. That check covers the same company and title in the same region, so a different-city opening still gets through.
+
+The dashboard's **Sources** page (unlocked) lists the boards Hunter added, with how many jobs each has sent you, and **Remove** (never suggested again), **Resume** for a paused one, and **Add** for any other suggestion, without waiting for the threshold. These are kept in Hunter's state, not `sources.yaml`, so there's nothing to commit. Boards you list in `sources.yaml` yourself work as before.
+
+Once a week the bot also still sends the top 5 remaining suggestions, and names the platforms with no adapter yet that most of your other matches came from. To stop a company being suggested from `sources.yaml`, add its `ignore key` under `discovery: ignore:`.
 
 ## Setup
 

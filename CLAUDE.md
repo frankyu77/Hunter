@@ -48,6 +48,11 @@ purely by type string; the orchestrator never special-cases a source.
 7. Teach `scraper/discovery.py` to recognise the platform's apply links, so
    the weekly report can suggest its boards.
 
+Boards Hunter adds on its own (`scraper/autosources.py`) live in state and
+are merged into the config at the start of each run (`merged_config`), so
+fetching, health, silent seeding and discovery treat them exactly like
+`sources.yaml` entries. Never special-case them downstream.
+
 ## Invariants
 
 These are deliberate, and a change that violates one is a bug even if the
@@ -71,6 +76,10 @@ tests still pass:
   they re-enter the diff as new on every run forever. That includes jobs the
   Telegram alert settings (`scraper/alerts.py`) skip: those settings narrow
   what is *sent*, never what is tracked or shown on the dashboard.
+- **The one deliberate duplicate filter:** `insights.drop_late_copies` skips
+  an aggregator job only when the same company and title were already sent
+  from a direct board in the same region. Widening it (dropping the region
+  check, say) would start losing genuinely different openings.
 - **Prune runs last**, after notifications and state writes, so it can't race
   the dedup.
 - **The public dashboard never shows personal signals in plaintext.** The repo
