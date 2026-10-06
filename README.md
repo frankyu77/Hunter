@@ -12,13 +12,11 @@ sources.yaml -> FETCH -> NORMALIZE -> DEDUP -> FILTER -> NOTIFY (Telegram)
 
 Each run fetches everything currently posted, subtracts everything already in `seen_jobs.json`, and notifies only the remainder.
 
-### Buttons
+### Telegram messages
 
-Every job message has a ✅ **Applied** button to mark a job you applied to (digests get one numbered button per entry). It's also on the dashboard.
+Job messages are plain notifications with no buttons. Everything you do with a job (👍 / 👎, ✅ applied, the application board) happens on the dashboard (see [Voting from the dashboard](#voting-from-the-dashboard)).
 
-👍 / 👎 relevance votes are on the dashboard only (see [Voting from the dashboard](#voting-from-the-dashboard)). Messages sent before that change still show 👍 / 👎, and pressing them still counts. They may also show ⭐, from a starring feature that has since been removed: pressing it does nothing.
-
-Presses are read at the start of the next run (every ~5-15 minutes), so the ✓ on a button appears after that delay, not instantly.
+Messages sent before that change still show buttons (✅, 👍 / 👎, and ⭐ from a starring feature that has since been removed). Pressing ✅, 👍 or 👎 on one still counts; ⭐ does nothing. Presses are read at the start of the next run, so the ✓ appears after a few minutes.
 The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
 
 Once a week the bot also sends you a private summary: jobs sent, 👍/👎, and applications.
@@ -34,7 +32,7 @@ Your votes and applications ship as the **private layer** (below), encrypted.
 
 The dashboard has a second page, **Applications** (tab under the header, or `…/#applications` to bookmark it). Once unlocked, it shows your applications as a board: **Saved → Applied → Online assessment → Interview → Offer / Rejected**.
 
-- **📌** on any job row adds it to Saved (a message links you to the board). ✅ (on the dashboard or in Telegram) puts it in Applied.
+- **📌** on any job row adds it to Saved (a message links you to the board). ✅ puts it in Applied.
 - **Drag** a card to another column, or **click** it to pick its stage, edit the date it entered each stage, and keep notes (recruiter, referral, interview rounds…).
 - Each card shows when it entered its current stage and how long ago.
 - Every stage after Saved counts as applied, and moving back to Saved, or off the board, un-marks it.
@@ -82,7 +80,7 @@ Forgot it? Set a new secret. Nothing is lost: the next hourly build encrypts und
 
 ### Voting from the dashboard
 
-Once unlocked, every job row has 👍 / 👎 / ✅ buttons: the same votes as the Telegram buttons, feeding the same training data. ⭐ stays Telegram-only.
+Once unlocked, every job row has 👍 / 👎 / ✅ buttons, feeding the relevance model's training data. Telegram messages have no buttons; this is the only place to vote.
 
 Votes are kept in the `feedback.votes` section of `seen_jobs.json` as labelled training data for a future relevance model.
 

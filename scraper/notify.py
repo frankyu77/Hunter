@@ -5,10 +5,10 @@ via the Bot API sendMessage endpoint (HTML parse mode). Credentials come
 only from environment variables, injected by GitHub Actions Secrets - never
 from config files.
 
-Every job message carries an inline ✅ button (👍/👎 moved to the
-dashboard; stars were removed). This module only renders it and exposes
-the raw Bot API calls; what a press *means* lives in scraper.feedback.
-Callback data is "<action>:<token>", where the token is a
+Job messages carry no buttons (votes, ✅ applied and the rest are on the
+dashboard). This module renders messages and exposes the raw Bot API calls;
+older messages still have buttons, and what a press on one *means* lives in
+scraper.feedback. Callback data is "<action>:<token>", where the token is a
 short hash of the job id - Telegram caps callback data at 64 bytes, and
 aggregator ids alone run longer than that.
 """
@@ -131,15 +131,15 @@ def group_duplicates(jobs: list[Job]) -> list[list[Job]]:
 def send(
     job: Job, copies: int = 1, notes: JobNotes | None = None, school: str | None = None
 ) -> None:
-    _post(format_message(job, copies, notes, school), keyboard([callback_token(job.id)]))
+    _post(format_message(job, copies, notes, school))
     log.info("Notified: %s", job.id)
     time.sleep(SEND_PAUSE_SECONDS)
 
 
 def send_digest(jobs: list[Job], notes: dict[str, JobNotes] | None = None) -> None:
     messages = digest_messages(jobs, notes)
-    for text, tokens in messages:
-        _post(text, keyboard(tokens, numbered=True))
+    for text, _tokens in messages:
+        _post(text)
         time.sleep(SEND_PAUSE_SECONDS)
     log.info("Notified: digest of %d jobs in %d message(s)", len(jobs), len(messages))
 
@@ -186,9 +186,12 @@ def call(method: str, payload: dict) -> object:
 
 
 # --- buttons ------------------------------------------------------------------
+#
+# New messages carry no buttons: voting, ✅ applied and everything else live
+# on the dashboard. What's below only serves messages sent before that,
+# which still show ⭐ / 👍 / 👎 / ✅ - their presses are still read
+# (scraper.feedback) and still count, so an old button never silently fails.
 
-# "u"/"d" (👍/👎) are no longer drawn - voting moved to the dashboard - but
-# messages sent before that still carry them, so their presses still count.
 ACTIONS = {"u": "up", "d": "down", "a": "applied"}
 # Buttons old messages still carry for features that no longer exist: a
 # press is answered with this, and changes nothing.
