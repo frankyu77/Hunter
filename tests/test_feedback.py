@@ -121,13 +121,13 @@ def test_restyle_redraws_only_the_pressed_row_and_keeps_its_number():
 
 
 @responses.activate
-def test_send_attaches_the_keyboard():
+def test_new_messages_carry_no_buttons():
     responses.post("https://api.telegram.org/bott0k/sendMessage", json={"ok": True})
-    job = make_job()
-    telegram.send(job)
-    payload = json.loads(responses.calls[0].request.body)
-    [row] = payload["reply_markup"]["inline_keyboard"]
-    assert row[0]["callback_data"] == f"a:{telegram.callback_token(job.id)}"
+    jobs = [make_job(n, title=f"Engineer, Team {n}x") for n in range(3)]
+    telegram.send(jobs[0])
+    telegram.send_digest(jobs)
+    for call in responses.calls:
+        assert "reply_markup" not in json.loads(call.request.body)
 
 
 # --- presses -----------------------------------------------------------------------
