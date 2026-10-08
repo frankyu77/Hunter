@@ -11,8 +11,10 @@ from collections.abc import Callable
 from scraper.adapters import (
     amazon,
     ashby,
+    atlassian,
     bamboohr,
     eightfold,
+    eightfold_v2,
     github_repo,
     greenhouse,
     jibe,
@@ -43,6 +45,8 @@ REGISTRY: dict[str, Callable[[dict], list[Job]]] = {
     "eightfold": eightfold.fetch,
     "tiktok": tiktok.fetch,
     "amazon": amazon.fetch,
+    "atlassian": atlassian.fetch,
+    "eightfold_v2": eightfold_v2.fetch,
 }
 
 

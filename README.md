@@ -105,7 +105,7 @@ Set it up once per browser with **📝 Kit setup**: paste your resume as plain t
 ### Direct sources: added automatically
 
 Jobs from aggregator repos (SimplifyJobs etc.) arrive hours to days after the company posts them.
-Their apply links usually point at the company's own job board, which Hunter can poll directly: Greenhouse, Ashby, Lever, Workday, Oracle, SmartRecruiters, Workable, Rippling, BambooHR, Eightfold, SuccessFactors and iCIMS-backed ("Jibe") career sites, plus TikTok and Amazon.
+Their apply links usually point at the company's own job board, which Hunter can poll directly: Greenhouse, Ashby, Lever, Workday, Oracle, SmartRecruiters, Workable, Rippling, BambooHR, Eightfold, SuccessFactors and iCIMS-backed ("Jibe") career sites, plus TikTok, Amazon, Netflix and Atlassian.
 
 Hunter does this on its own:
 

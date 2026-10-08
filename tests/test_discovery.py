@@ -83,6 +83,9 @@ def job(url: str, company: str = "Acme Corp", n: int = 1, source: str = FEED) ->
          {"type": "tiktok", "recruitment_ids": ["2"]}),
         ("https://amazon.jobs/en/jobs/10408763/software-development-engineer-2026",
          {"type": "amazon"}),
+        ("https://explore.jobs.netflix.net/careers/job/790318686994",
+         {"type": "eightfold_v2", "company": "netflix", "tenant": "netflix",
+          "host": "explore.jobs.netflix.net", "domain": "netflix.com"}),
         ("https://www.optiver.com/join-us/jobs/8451763002/?gh_jid=8451763002",
          {"type": "greenhouse", "gh_jid": "8451763002", "via": "www.optiver.com"}),
     ],
@@ -103,6 +106,15 @@ def test_board_for_recognises_supported_ats_links(url, board):
 )
 def test_board_for_ignores_unsupported_links(url):
     assert discovery.board_for(job(url)) is None
+
+
+def test_atlassian_icims_links_mean_its_own_careers_feed():
+    for url in ("https://globalcareers-atlassian.icims.com/jobs/25480/account-executive/job",
+                "https://campus-americas.icims.com/jobs/26272/data-engineer-intern/job"):
+        assert discovery.board_for(job(url, company="Atlassian")) == {"type": "atlassian"}
+        assert discovery.board_key({"type": "atlassian"}) == "atlassian"
+    # Another company's iCIMS portal is still unsupported.
+    assert discovery.board_for(job("https://campus-americas.icims.com/jobs/1/x/job")) is None
 
 
 def test_board_keys_match_config_entries_regardless_of_label_and_site():

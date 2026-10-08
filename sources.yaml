@@ -15,10 +15,12 @@
 #   Each adapter's docstring (scraper/adapters/) names its endpoint and config
 #   keys. The weekly discovery report suggests entries ready to paste.
 #
-# FAANG (Meta/Apple/Amazon/Netflix/Google) run custom career sites with no
-# public board API - their new-grad roles arrive via the SimplifyJobs feed
-# below instead. Microsoft is the exception: its careers site runs on
-# Eightfold, whose public search API the `eightfold` adapter reads.
+# Meta, Apple and Google run custom career sites with no public board API -
+# their new-grad roles arrive via the SimplifyJobs feeds below instead.
+# Amazon (`amazon`), Netflix (`eightfold_v2`), Atlassian (`atlassian`) and
+# Microsoft (`eightfold`) have adapters for their own sites. Also probed and
+# not pollable (2026-10-06): Uber, Shopify, LinkedIn (own sites), Intuit and
+# Palo Alto Networks (Workday refuses), Grammarly, Etsy, HubSpot (no board).
 
 sources:
   # --- fintech ---
@@ -227,6 +229,103 @@ sources:
     host: ibqbjb.fa.ocs.oraclecloud.com
     site_number: CX_1
     site_name: HoneywellCareerSite
+
+  # --- big tech (each probed live before adding, 2026-10-06) ---
+  - type: amazon            # US + Canada, newest first
+  - type: eightfold_v2      # Netflix: PCSX is off for it; the v2 API reads the whole board
+    company: netflix
+    tenant: netflix
+    host: explore.jobs.netflix.net
+    domain: netflix.com
+  - type: atlassian         # its own careers feed; apply links go to iCIMS
+  - type: tiktok
+    recruitment_ids: ["2"]  # early careers only: the whole board overflows the cap
+  - type: eightfold
+    company: qualcomm
+    tenant: qualcomm
+    domain: qualcomm.com
+  - type: jibe
+    company: amd
+    host: careers.amd.com
+  - type: jibe
+    company: docusign
+    host: careers.docusign.com
+  - type: workday
+    company: autodesk
+    tenant: autodesk
+    host: wd1
+    site: Ext
+  - type: workday
+    company: cisco
+    tenant: cisco
+    host: wd5
+    site: Cisco_Careers
+  - type: workday
+    company: snap
+    tenant: snapchat
+    host: wd1
+    site: snap
+  - type: workday
+    company: paypal
+    tenant: paypal
+    host: wd1
+    site: jobs
+  - type: workday
+    company: workday
+    tenant: workday
+    host: wd5
+    site: Workday
+  - type: workday
+    company: zoom
+    tenant: zoom
+    host: wd5
+    site: Zoom
+  - type: workday
+    company: ebay
+    tenant: ebay
+    host: wd5
+    site: apply
+  - type: workday
+    company: zillow
+    tenant: zillow
+    host: wd5
+    site: Zillow_Group_External
+  - type: workday
+    company: crowdstrike
+    tenant: crowdstrike
+    host: wd5
+    site: crowdstrikecareers
+  - type: workday
+    company: expedia-group
+    tenant: expedia
+    host: wd108
+    site: search
+  - type: smartrecruiters
+    company: ServiceNow
+    countries: [us, ca]
+  - type: smartrecruiters
+    company: Canva
+    countries: [us, ca]
+  - type: greenhouse
+    company: waymo
+  - type: greenhouse
+    company: xai
+  - type: greenhouse
+    company: doordashusa
+  - type: greenhouse
+    company: okta
+  - type: greenhouse
+    company: mongodb
+  - type: greenhouse
+    company: elastic
+  - type: greenhouse
+    company: scaleai
+  - type: greenhouse
+    company: samsara
+  - type: ashby
+    company: confluent
+  - type: ashby
+    company: plaid
 
   # --- cross-company aggregators (cover FAANG and hundreds more) ---
   - type: github

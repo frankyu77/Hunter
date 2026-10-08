@@ -12,8 +12,10 @@ from scraper.adapters import (
     REGISTRY,
     amazon,
     ashby,
+    atlassian,
     bamboohr,
     eightfold,
+    eightfold_v2,
     get_adapter,
     github_repo,
     greenhouse,
@@ -28,6 +30,7 @@ from scraper.adapters import (
     workable,
     workday,
 )
+from scraper.regions import region
 
 
 def test_registry_dispatches_all_types():
@@ -59,6 +62,8 @@ def test_registry_has_no_stale_entries():
         "jibe",
         "successfactors",
         "eightfold",
+        "eightfold_v2",
+        "atlassian",
         "tiktok",
         "amazon",
     }
@@ -510,3 +515,44 @@ def test_workday_ordered_board_still_stops_at_the_cap(fixture, monkeypatch):
         responses.post(WORKDAY_URL, json={"total": 1706, "jobPostings": [old] * 20})
     assert len(workday.fetch(WORKDAY_CONFIG)) == 40
     assert len(responses.calls) == 2
+
+
+@responses.activate
+def test_atlassian_maps_its_careers_feed(fixture):
+    responses.get(atlassian.API_URL, json=fixture("atlassian.json"))
+    jobs = atlassian.fetch({"type": "atlassian"})
+
+    intern = jobs[0]
+    assert intern.id.startswith("atlassian:atlassian:")
+    assert intern.title == "Data Engineer Intern, 2027 Summer U.S."
+    assert intern.location.startswith("Seattle - United States - Seattle, Washington United States")
+    # Internships and other jobs sit on different iCIMS portals.
+    assert intern.url.startswith("https://campus-americas.icims.com/jobs/")
+    assert jobs[2].url.startswith("https://globalcareers-atlassian.icims.com/jobs/")
+    assert intern.posted_at and len(intern.posted_at) == 10
+    assert intern.source == "atlassian/atlassian"
+    assert region(intern.location) == "us" and region(jobs[1].location) == "canada"
+    assert "<" not in intern.description
+
+
+@responses.activate
+def test_eightfold_v2_reads_every_page_since_it_is_not_newest_first(fixture):
+    pages = fixture("eightfold_v2_netflix.json")
+    url = "https://explore.jobs.netflix.net/api/apply/v2/jobs"
+    responses.get(url, json=pages["page1"])
+    responses.get(url, json=pages["page2"])
+    config = {"type": "eightfold_v2", "company": "netflix", "tenant": "netflix",
+              "host": "explore.jobs.netflix.net", "domain": "netflix.com"}
+
+    jobs = eightfold_v2.fetch(config)
+
+    assert len(jobs) == 12  # stops when it has the board's whole count
+    assert [c.request.params["start"] for c in responses.calls] == ["0", "10"]
+    job = jobs[0]
+    first = pages["page1"]["positions"][0]
+    assert job.id == f"eightfold:netflix:{first['id']}"
+    assert job.title == first["name"]
+    assert job.url == first["canonicalPositionUrl"]
+    assert job.source == "eightfold_v2/netflix"
+    assert job.posted_at.endswith("+00:00")
+    assert not newest_first(eightfold_v2.fetch)

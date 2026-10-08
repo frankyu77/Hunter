@@ -68,7 +68,7 @@ _EIGHTFOLD_HOST = re.compile(r"^([a-z0-9-]+)\.eightfold\.ai$")
 _EIGHTFOLD_CUSTOM_HOSTS = {"apply.careers.microsoft.com": ("microsoft", "microsoft.com")}
 _CX_SITE = re.compile(r"^CX_\d+$")
 # One employer, one board: keyed by type alone.
-_SINGLE_BOARD = {"tiktok", "amazon"}
+_SINGLE_BOARD = {"tiktok", "amazon", "atlassian"}
 # Region filter names -> each adapter's country codes.
 _COUNTRY_CODES = {
     "smartrecruiters": {"us": "us", "canada": "ca"},
@@ -142,6 +142,13 @@ def board_for(job: Job) -> dict | None:
         return {"type": "tiktok", "recruitment_ids": ["2"]}
     if host in ("amazon.jobs", "www.amazon.jobs"):
         return {"type": "amazon"}
+    # Atlassian's apply links go to iCIMS portals (globalcareers-atlassian,
+    # campus-americas), which have no API, but its own site has a feed.
+    if host.endswith(".icims.com") and slug == "atlassian":
+        return {"type": "atlassian"}
+    if host == "explore.jobs.netflix.net":
+        return {"type": "eightfold_v2", "company": "netflix", "tenant": "netflix",
+                "host": host, "domain": "netflix.com"}
     if "icims" in query and not host.endswith("icims.com"):
         return {"type": "jibe", "company": slug, "host": host}
     if query.get("ats") == ["successfactors"]:
@@ -164,7 +171,7 @@ def board_key(source: dict) -> str:
     if kind == "greenhouse" and "gh_jid" in source:
         return f"greenhouse/@{source.get('via')}".lower()
     field = {"workday": "tenant", "oracle": "host", "jibe": "host", "successfactors": "host",
-             "eightfold": "tenant"}.get(kind, "company")
+             "eightfold": "tenant", "eightfold_v2": "tenant"}.get(kind, "company")
     return f"{kind}/{source.get(field)}".lower()
 
 
