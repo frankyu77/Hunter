@@ -46,19 +46,23 @@ def record_run(health: dict, stats: dict, today: date | None = None) -> list[str
 
         if stat["errors"]:
             entry["consecutive_failures"] += 1
+            if stat.get("error"):
+                entry["last_error"] = stat["error"]
             if (
                 entry["consecutive_failures"] >= CONSECUTIVE_FAILURES_THRESHOLD
                 and not entry["warned_failures"]
             ):
                 entry["warned_failures"] = True
+                last = f" Last error: {entry['last_error']}" if entry.get("last_error") else ""
                 warnings.append(
-                    f"{label} has failed {entry['consecutive_failures']} runs in a row. "
+                    f"{label} has failed {entry['consecutive_failures']} runs in a row.{last} "
                     "Check the source config or the Actions logs."
                 )
             continue
 
         entry["consecutive_failures"] = 0
         entry["warned_failures"] = False
+        entry.pop("last_error", None)
 
         if stat["fetched"] == 0:
             if entry["zero_since"] is None:
