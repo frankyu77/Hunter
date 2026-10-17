@@ -102,7 +102,8 @@ def test_one_broken_source_does_not_sink_the_run(monkeypatch):
     )
 
     assert [job.source for job in jobs] == ["ok/good"]
-    assert stats["boom/bad"] == {"fetched": 0, "errors": 1}
+    assert stats["boom/bad"] == {"fetched": 0, "errors": 1,
+                                 "error": "RuntimeError: adapter exploded"}
     assert stats["ok/good"] == {"fetched": 1, "errors": 0, "truncated": False}
 
 
@@ -207,3 +208,43 @@ def test_store_round_trips_health(tmp_path):
     store.save()
 
     assert SeenStore(path).health == {"lever/acme": {"consecutive_failures": 2}}
+
+
+
+def test_fetch_errors_are_described_and_annotated_on_actions(monkeypatch, capsys):
+    def blocked(config):
+        response = requests.Response()
+        response.status_code = 403
+        response.url = f"https://{config['tenant']}.wd5.myworkdayjobs.com/wday/cxs/x/y/jobs"
+        response._content = b"<html><title>Access denied</title></html>"
+        raise requests.exceptions.HTTPError(response=response)
+
+    monkeypatch.setitem(REGISTRY, "blocked", blocked)
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    sources = [{"type": "blocked", "company": c, "tenant": c} for c in ("nvidia", "td")]
+
+    _, stats = main.fetch_all(sources)
+
+    assert stats["blocked/nvidia"]["error"] == (
+        "HTTP 403 from nvidia.wd5.myworkdayjobs.com: <html><title>Access denied</title></html>")
+    out = capsys.readouterr().out
+    # One annotation for the shared cause, naming every source that hit it.
+    assert out.count("::warning title=Fetch failed::") == 1
+    assert "2 source(s): blocked/nvidia, blocked/td -- HTTP 403 from *.wd5.myworkdayjobs.com" in out
+
+
+def test_no_annotations_outside_actions(monkeypatch, capsys):
+    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
+    main.annotate_failures({"x/y": {"fetched": 0, "errors": 1, "error": "boom"}})
+    assert capsys.readouterr().out == ""
+
+
+def test_failure_warning_says_what_went_wrong_and_recovery_clears_it():
+    counters = {}
+    failing = {"workday/nvidia": {"fetched": 0, "errors": 1, "error": "HTTP 403 from x"}}
+    warnings = []
+    for _ in range(health.CONSECUTIVE_FAILURES_THRESHOLD):
+        warnings += health.record_run(counters, failing)
+    assert len(warnings) == 1 and "Last error: HTTP 403 from x" in warnings[0]
+    health.record_run(counters, {"workday/nvidia": {"fetched": 5, "errors": 0}})
+    assert "last_error" not in counters["workday/nvidia"]

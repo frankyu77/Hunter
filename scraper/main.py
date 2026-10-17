@@ -9,11 +9,14 @@ end.
 import argparse
 import html
 import logging
+import os
+import re
 import sys
 import time
 from collections import Counter
 from collections.abc import Callable
 from datetime import date
+from urllib.parse import urlparse
 
 import requests
 import yaml
@@ -79,10 +82,43 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
                 stat["unordered"] = True
             log.info("%s: fetched %d jobs", label, len(fetched))
             jobs.extend(fetched)
-        except Exception:
+        except Exception as exc:
             stat["errors"] += 1
+            stat["error"] = describe_error(exc)
             log.exception("%s: fetch failed; continuing with remaining sources", label)
+    annotate_failures(stats)
     return jobs, stats
+
+
+def describe_error(exc: Exception) -> str:
+    """One line saying what a failed fetch got back - for health warnings
+    and run annotations, which (unlike the logs) don't need a login to read."""
+    if isinstance(exc, requests.exceptions.HTTPError) and exc.response is not None:
+        response = exc.response
+        host = urlparse(response.url or "").netloc
+        snippet = " ".join(response.text[:120].split())
+        return f"HTTP {response.status_code} from {host}" + (f": {snippet}" if snippet else "")
+    return f"{type(exc).__name__}: {' '.join(str(exc).split())[:160]}"
+
+
+def annotate_failures(stats: dict[str, dict]) -> None:
+    """On GitHub Actions, one warning annotation per distinct error naming the
+    sources that hit it. Grouped because Actions shows only ~10 warnings per
+    step, and a provider-wide block (every Workday board at once) would
+    otherwise bury the rest."""
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        return
+    by_error: dict[str, list[str]] = {}
+    for label, stat in stats.items():
+        if stat.get("error"):
+            # Group by what failed, not which board: drop the host's tenant part.
+            key = re.sub(r"from [\w.-]+?\.(?=[\w-]+\.\w+\b)", "from *.", stat["error"])
+            by_error.setdefault(key, []).append(label)
+    for error, labels in sorted(by_error.items(), key=lambda item: -len(item[1])):
+        message = f"{len(labels)} source(s): {', '.join(labels)} -- {error}"
+        # Workflow-command escaping: %, CR and LF must be encoded.
+        escaped = message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        print(f"::warning title=Fetch failed::{escaped}", flush=True)
 
 
 def _dated_newest_first(jobs: list[Job]) -> bool:
