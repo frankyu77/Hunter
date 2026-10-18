@@ -21284,8 +21284,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 5,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"E76E41MVEGM1FJ\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 6,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"8CDCF3MVEGYTHZ\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -21411,7 +21411,7 @@
       }
     },
     "auto_sources_checked": "2026-10-18T00:35:42+00:00",
-    "dashboard_built_at": "2026-10-18T22:35:35+00:00",
+    "dashboard_built_at": "2026-10-18T23:45:19+00:00",
     "discovery": {
       "candidates": {
         "ashby/1password": {
@@ -21509,6 +21509,14 @@
           "jobs": 2,
           "matched": 0,
           "name": "Composio"
+        },
+        "ashby/ellipsislabs": {
+          "boards": {
+            "{\"company\": \"ellipsislabs\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Ellipsis Labs"
         },
         "ashby/exa": {
           "boards": {
@@ -25788,7 +25796,8 @@
         0,
         18,
         18,
-        18
+        18,
+        17
       ],
       "greenhouse/datadog": [
         1,
@@ -38408,6 +38417,9 @@
     "amazon:amazon:10582189": {
       "seen_at": "2026-10-18T19:25:22+00:00"
     },
+    "amazon:amazon:10582202": {
+      "seen_at": "2026-10-18T23:45:19+00:00"
+    },
     "ashby:cohere:011f3609-e5f1-4700-8140-f717f39a45b0": {
       "seen_at": "2026-09-24T06:14:49+00:00"
     },
@@ -46511,6 +46523,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26241": {
+      "missing": "2026-10-18T23:45:19+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26250": {
@@ -46604,6 +46617,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26380": {
+      "missing": "2026-10-18T23:45:19+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26381": {
@@ -47300,6 +47314,7 @@
       "seen_at": "2026-10-15T00:07:38+00:00"
     },
     "atlassian:atlassian:27483": {
+      "missing": "2026-10-18T23:45:19+00:00",
       "seen_at": "2026-10-15T00:07:38+00:00"
     },
     "atlassian:atlassian:27486": {
@@ -67443,6 +67458,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:93f17a30-5861-4a48-b301-7aed69379a4d": {
       "seen_at": "2026-09-03T10:09:59+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:93f774ec-026f-401e-90e9-1d2bbe9631d8": {
+      "seen_at": "2026-10-18T23:45:19+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9405c9d8-da2c-4eb9-8f60-08bc2ea2a791": {
       "seen_at": "2026-09-03T20:32:14+00:00"
@@ -116836,7 +116854,7 @@
       "seen_at": "2026-09-10T17:50:27+00:00"
     },
     "greenhouse:databricks:8790285002": {
-      "missing": "2026-10-18T17:45:05+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-01T14:23:35+00:00"
     },
     "greenhouse:databricks:8790289002": {
