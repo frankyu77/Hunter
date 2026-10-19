@@ -21105,8 +21105,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -21538,8 +21537,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 78,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"AA86D1MVF6OYRB\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 79,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"AA86D1MVF71RUY\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -25943,6 +25942,9 @@
         10,
         2
       ],
+      "eightfold/qualcomm": [
+        0
+      ],
       "eightfold_v2/netflix": [
         7,
         7,
@@ -26468,7 +26470,6 @@
         8
       ],
       "greenhouse/okta": [
-        5,
         0,
         5,
         0,
@@ -26517,7 +26518,8 @@
         4,
         4,
         0,
-        3
+        3,
+        5
       ],
       "greenhouse/pinterest": [
         0,
@@ -49297,6 +49299,9 @@
     "eightfold:microsoft:1970393556980962": {
       "seen_at": "2026-10-08T09:35:52+00:00"
     },
+    "eightfold:microsoft:1970393556980964": {
+      "seen_at": "2026-10-19T11:55:38+00:00"
+    },
     "eightfold:microsoft:1970393556980987": {
       "seen_at": "2026-09-28T21:43:29+00:00"
     },
@@ -55639,7 +55644,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318616118": {
-      "missing": "2026-10-19T11:35:50+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318616256": {
@@ -55836,7 +55840,6 @@
       "seen_at": "2026-10-16T21:56:36+00:00"
     },
     "eightfold:netflix:790318938531": {
-      "missing": "2026-10-19T11:35:50+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318948903": {
@@ -56017,6 +56020,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:qualcomm:446718664874": {
+      "missing": "2026-10-19T11:55:38+00:00",
       "seen_at": "2026-10-19T08:55:54+00:00"
     },
     "eightfold:qualcomm:446718665705": {
@@ -56209,6 +56213,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:qualcomm:446720486356": {
+      "missing": "2026-10-19T11:55:38+00:00",
       "seen_at": "2026-10-19T11:25:46+00:00"
     },
     "eightfold:qualcomm:446720486593": {
@@ -56458,7 +56463,7 @@
       "seen_at": "2026-10-08T09:35:52+00:00"
     },
     "eightfold:qualcomm:446721139150": {
-      "missing": "2026-10-19T05:55:18+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-19T05:45:48+00:00"
     },
     "eightfold:qualcomm:446721139812": {
@@ -129739,7 +129744,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8164066": {
-      "missing": "2026-10-19T05:55:18+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:okta:8165103": {
@@ -173390,6 +173395,9 @@
     },
     "workday:adobe:R172780": {
       "seen_at": "2026-10-15T12:16:20+00:00"
+    },
+    "workday:adobe:R173015": {
+      "seen_at": "2026-10-19T11:55:38+00:00"
     },
     "workday:adobe:R173016": {
       "seen_at": "2026-10-19T09:55:32+00:00"
@@ -239707,6 +239715,9 @@
     "workday:nvidia:JR2013922": {
       "seen_at": "2026-08-30T07:32:12+00:00"
     },
+    "workday:nvidia:JR2013956": {
+      "seen_at": "2026-10-19T11:55:38+00:00"
+    },
     "workday:nvidia:JR2014030": {
       "seen_at": "2026-09-21T18:59:46+00:00"
     },
@@ -256869,6 +256880,9 @@
     },
     "workday:td:R_1498757": {
       "seen_at": "2026-09-06T09:25:31+00:00"
+    },
+    "workday:td:R_1498767": {
+      "seen_at": "2026-10-19T11:55:38+00:00"
     },
     "workday:td:R_1498776": {
       "seen_at": "2026-09-25T22:35:58+00:00"
