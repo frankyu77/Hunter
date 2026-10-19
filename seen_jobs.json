@@ -21203,7 +21203,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -21647,8 +21648,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 136,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"674F38MVFS4J6D\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 137,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"219008MVFSHCBR\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -26490,7 +26491,6 @@
         5,
         5,
         5,
-        5,
         6,
         6,
         6,
@@ -26520,6 +26520,7 @@
         8,
         8,
         1,
+        11,
         11
       ],
       "greenhouse/dropbox": [
@@ -26968,7 +26969,8 @@
         14,
         13,
         2,
-        8
+        8,
+        13
       ],
       "greenhouse/vercel": [
         1,
@@ -27015,6 +27017,7 @@
         8,
         8,
         8,
+        11,
         11
       ],
       "greenhouse/xai": [
@@ -27421,8 +27424,6 @@
       ],
       "smartrecruiters/ServiceNow": [
         0,
-        0,
-        0,
         6,
         6,
         6,
@@ -27469,7 +27470,9 @@
         3,
         11,
         11,
-        3
+        3,
+        11,
+        4
       ],
       "tiktok/tiktok": [
         0,
@@ -39499,6 +39502,9 @@
     },
     "amazon:amazon:10583412": {
       "seen_at": "2026-10-19T21:46:06+00:00"
+    },
+    "amazon:amazon:10583435": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "ashby:cohere:011f3609-e5f1-4700-8140-f717f39a45b0": {
       "seen_at": "2026-09-24T06:14:49+00:00"
@@ -56633,10 +56639,10 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318738586": {
+      "missing": "2026-10-19T21:56:18+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318746569": {
-      "missing": "2026-10-19T21:46:05+00:00",
       "seen_at": "2026-10-16T18:56:56+00:00"
     },
     "eightfold:netflix:790318747006": {
@@ -56886,6 +56892,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:qualcomm:446718097779": {
+      "missing": "2026-10-19T21:56:18+00:00",
       "seen_at": "2026-10-19T06:35:22+00:00"
     },
     "eightfold:qualcomm:446718308040": {
@@ -56895,6 +56902,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:qualcomm:446718321920": {
+      "missing": "2026-10-19T21:56:18+00:00",
       "seen_at": "2026-10-19T07:55:30+00:00"
     },
     "eightfold:qualcomm:446718354168": {
@@ -58190,6 +58198,9 @@
     },
     "eightfold:qualcomm:446721636765": {
       "seen_at": "2026-10-19T19:06:37+00:00"
+    },
+    "eightfold:qualcomm:446721637643": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
       "closed": "2026-10-04",
@@ -121628,7 +121639,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:7732483": {
-      "missing": "2026-10-19T15:54:44+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:7735713": {
@@ -125620,6 +125631,9 @@
     "greenhouse:figma:6224085004": {
       "closed": "2026-10-16",
       "seen_at": "2026-10-16T12:25:54+00:00"
+    },
+    "greenhouse:figma:6224661004": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "greenhouse:figma:6225172004": {
       "seen_at": "2026-10-19T08:25:49+00:00"
@@ -139651,7 +139665,7 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "greenhouse:twilio:8067027": {
-      "missing": "2026-10-19T15:54:44+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-05T19:04:40+00:00"
     },
     "greenhouse:twilio:8067147": {
@@ -140845,7 +140859,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7858106": {
-      "missing": "2026-10-19T15:54:44+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7863159": {
@@ -155982,6 +155996,9 @@
     "oracle:oracle:336717": {
       "seen_at": "2026-10-02T16:33:48+00:00"
     },
+    "oracle:oracle:336733": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
+    },
     "oracle:oracle:336777": {
       "seen_at": "2026-09-01T21:59:35+00:00"
     },
@@ -162650,6 +162667,9 @@
     "oracle:oracle:347982": {
       "seen_at": "2026-10-19T21:26:22+00:00"
     },
+    "oracle:oracle:347993": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
+    },
     "oracle:texas-instruments:25001591": {
       "seen_at": "2026-08-28T16:00:48+00:00"
     },
@@ -166430,7 +166450,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000148298449": {
-      "missing": "2026-10-19T15:54:44+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000148303489": {
@@ -167657,7 +167677,7 @@
       "seen_at": "2026-10-15T12:26:41+00:00"
     },
     "smartrecruiters:ServiceNow:744000155759359": {
-      "missing": "2026-10-19T15:54:44+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-15T13:26:21+00:00"
     },
     "smartrecruiters:ServiceNow:744000155769820": {
@@ -189230,6 +189250,9 @@
     "workday:cibc:2621233": {
       "seen_at": "2026-10-19T20:16:42+00:00"
     },
+    "workday:cibc:2621234": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
+    },
     "workday:cibc:2621238": {
       "seen_at": "2026-10-16T22:07:34+00:00"
     },
@@ -190881,6 +190904,12 @@
     "workday:cisco:2025877": {
       "seen_at": "2026-10-14T07:56:13+00:00"
     },
+    "workday:cisco:2025880": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
+    },
+    "workday:cisco:2025881": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
+    },
     "workday:cisco:2025888": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -191030,6 +191059,9 @@
     },
     "workday:cisco:2026256": {
       "seen_at": "2026-10-08T06:46:23+00:00"
+    },
+    "workday:cisco:2026269": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "workday:cisco:2026279": {
       "seen_at": "2026-10-14T16:56:25+00:00"
@@ -194211,6 +194243,7 @@
       "seen_at": "2026-10-08T07:56:03+00:00"
     },
     "workday:ebay:R0076632": {
+      "missing": "2026-10-19T21:56:18+00:00",
       "seen_at": "2026-10-17T15:35:35+00:00"
     },
     "workday:ebay:R0076633": {
@@ -194372,6 +194405,9 @@
     },
     "workday:ebay:R0076944": {
       "seen_at": "2026-10-08T06:46:23+00:00"
+    },
+    "workday:ebay:R0076947": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "workday:ebay:R0076960": {
       "seen_at": "2026-10-19T13:25:58+00:00"
@@ -216265,6 +216301,9 @@
     "workday:intel:JR0288083": {
       "seen_at": "2026-10-16T17:07:00+00:00"
     },
+    "workday:intel:JR0288084": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
+    },
     "workday:intel:JR0288086": {
       "seen_at": "2026-10-14T18:57:47+00:00"
     },
@@ -216438,6 +216477,9 @@
     },
     "workday:intel:JR0288222": {
       "seen_at": "2026-10-16T09:06:32+00:00"
+    },
+    "workday:intel:JR0288223": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "workday:intel:JR0288229": {
       "seen_at": "2026-10-16T09:06:32+00:00"
@@ -216947,6 +216989,9 @@
     },
     "workday:micron:JR102203": {
       "seen_at": "2026-09-03T05:50:03+00:00"
+    },
+    "workday:micron:JR102229": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "workday:micron:JR102241": {
       "seen_at": "2026-09-23T17:13:14+00:00"
@@ -238496,6 +238541,9 @@
     },
     "workday:ngc:R10254996": {
       "seen_at": "2026-10-07T17:44:02+00:00"
+    },
+    "workday:ngc:R10254997": {
+      "seen_at": "2026-10-19T21:56:18+00:00"
     },
     "workday:ngc:R10255000": {
       "seen_at": "2026-10-07T17:53:52+00:00"
