@@ -21105,7 +21105,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -21537,8 +21538,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 77,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"E76E41MVF6C6WX\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 78,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"AA86D1MVF6OYRB\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -26585,7 +26586,8 @@
         7,
         14,
         1,
-        15
+        15,
+        17
       ],
       "greenhouse/samsara": [
         0,
@@ -53546,6 +53548,9 @@
     "eightfold:microsoft:1970393557037651": {
       "seen_at": "2026-10-17T09:35:14+00:00"
     },
+    "eightfold:microsoft:1970393557037658": {
+      "seen_at": "2026-10-19T11:46:31+00:00"
+    },
     "eightfold:microsoft:1970393557037667": {
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
@@ -54283,6 +54288,9 @@
     },
     "eightfold:microsoft:1970393557043279": {
       "seen_at": "2026-10-19T10:55:40+00:00"
+    },
+    "eightfold:microsoft:1970393557043281": {
+      "seen_at": "2026-10-19T11:46:31+00:00"
     },
     "eightfold:netflix:790298013499": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -73631,7 +73639,7 @@
       "seen_at": "2026-10-05T23:03:58+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dbb839ad-3507-43c5-980d-660e142114dd": {
-      "missing": "2026-10-19T05:36:16+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dbc1b4ce-18c5-46c3-a223-dde10ddb51f0": {
@@ -86632,7 +86640,7 @@
       "seen_at": "2026-10-02T10:43:26+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:6942172c-4edc-4339-b395-fb8080da9906": {
-      "missing": "2026-10-19T05:36:16+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-05T15:03:49+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:69430fc1-dbac-4fba-8c07-697012305db3": {
@@ -87335,7 +87343,7 @@
       "seen_at": "2026-09-19T01:13:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:70276fbb-025b-4544-b0c0-db8dc7259234": {
-      "missing": "2026-10-19T05:36:16+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-09-29T17:04:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:703287b2-4c66-439b-af82-01074bd3526e": {
@@ -103712,6 +103720,7 @@
       "seen_at": "2026-09-04T19:20:07+00:00"
     },
     "greenhouse:adyen:8041307": {
+      "missing": "2026-10-19T11:46:31+00:00",
       "seen_at": "2026-10-15T10:25:38+00:00"
     },
     "greenhouse:adyen:8041403": {
@@ -132716,7 +132725,7 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "greenhouse:roblox:7477577": {
-      "missing": "2026-10-19T05:36:16+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-01T06:23:43+00:00"
     },
     "greenhouse:roblox:7482015": {
@@ -149162,9 +149171,6 @@
     "oracle:honeywell:156125": {
       "seen_at": "2026-09-04T04:55:24+00:00"
     },
-    "oracle:honeywell:156126": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
-    },
     "oracle:honeywell:156128": {
       "seen_at": "2026-09-02T11:14:20+00:00"
     },
@@ -155809,15 +155815,6 @@
     "oracle:oracle:343332": {
       "seen_at": "2026-08-20T14:56:58+00:00"
     },
-    "oracle:oracle:343333": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
-    },
-    "oracle:oracle:343334": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
-    },
-    "oracle:oracle:343335": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
-    },
     "oracle:oracle:343345": {
       "seen_at": "2026-08-21T05:21:22+00:00"
     },
@@ -155832,9 +155829,6 @@
     },
     "oracle:oracle:343366": {
       "seen_at": "2026-08-21T08:35:09+00:00"
-    },
-    "oracle:oracle:343368": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
     },
     "oracle:oracle:343383": {
       "seen_at": "2026-08-28T16:00:48+00:00"
@@ -188972,6 +188966,9 @@
     "workday:cisco:2024754": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "workday:cisco:2024767": {
+      "seen_at": "2026-10-19T11:46:31+00:00"
+    },
     "workday:cisco:2024768": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -201391,9 +201388,6 @@
     },
     "workday:hp:3161596": {
       "seen_at": "2026-09-28T16:14:31+00:00"
-    },
-    "workday:hp:3161670": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
     },
     "workday:hp:3161720": {
       "seen_at": "2026-10-07T08:14:15+00:00"
@@ -215412,9 +215406,6 @@
     },
     "workday:micron:JR103641": {
       "seen_at": "2026-09-24T01:19:39+00:00"
-    },
-    "workday:micron:JR103650": {
-      "seen_at": "2026-08-20T11:40:38+00:00"
     },
     "workday:micron:JR103654": {
       "seen_at": "2026-09-24T01:19:39+00:00"
@@ -247735,7 +247726,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:paypal:R0137820": {
-      "missing": "2026-10-19T09:55:31+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:paypal:R0137821": {
@@ -248244,6 +248234,7 @@
       "seen_at": "2026-10-08T20:26:15+00:00"
     },
     "workday:paypal:R0138393": {
+      "missing": "2026-10-19T11:46:31+00:00",
       "seen_at": "2026-10-14T13:26:23+00:00"
     },
     "workday:paypal:R0138394": {
@@ -255086,6 +255077,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:snapchat:R0046013": {
+      "missing": "2026-10-19T11:46:31+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:snapchat:R0046055": {
@@ -255107,7 +255099,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:snapchat:R0046092": {
-      "missing": "2026-10-19T08:15:51+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:snapchat:R0046105": {
