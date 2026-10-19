@@ -21537,8 +21537,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 69,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"E76E41MVF3H42Z\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 70,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"8CDCF3MVF3U5MG\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -21664,7 +21664,7 @@
       }
     },
     "auto_sources_checked": "2026-10-19T00:45:54+00:00",
-    "dashboard_built_at": "2026-10-19T09:25:49+00:00",
+    "dashboard_built_at": "2026-10-19T10:26:13+00:00",
     "discovery": {
       "candidates": {
         "ashby/1password": {
@@ -24330,6 +24330,14 @@
           "matched": 2,
           "name": "CACI"
         },
+        "workday/cadence": {
+          "boards": {
+            "{\"company\": \"cadence-design-systems\", \"host\": \"wd1\", \"site\": \"Univ_Careers\", \"tenant\": \"cadence\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Cadence Design Systems"
+        },
         "workday/capitalhealth": {
           "boards": {
             "{\"company\": \"capital-health\", \"host\": \"wd1\", \"site\": \"CapitalHealthCareers\", \"tenant\": \"capitalhealth\", \"type\": \"workday\"}": 1
@@ -25935,8 +25943,6 @@
         2
       ],
       "eightfold_v2/netflix": [
-        6,
-        7,
         7,
         7,
         7,
@@ -25984,7 +25990,9 @@
         8,
         8,
         8,
-        8
+        8,
+        10,
+        10
       ],
       "greenhouse/adyen": [
         0,
@@ -27736,6 +27744,7 @@
         14,
         8,
         0,
+        13,
         13,
         13
       ],
@@ -52736,6 +52745,9 @@
     "eightfold:microsoft:1970393557023200": {
       "seen_at": "2026-10-02T23:53:46+00:00"
     },
+    "eightfold:microsoft:1970393557023203": {
+      "seen_at": "2026-10-19T10:26:13+00:00"
+    },
     "eightfold:microsoft:1970393557023204": {
       "seen_at": "2026-10-05T18:13:46+00:00"
     },
@@ -54206,6 +54218,9 @@
     "eightfold:microsoft:1970393557042099": {
       "seen_at": "2026-10-18T10:55:25+00:00"
     },
+    "eightfold:microsoft:1970393557042125": {
+      "seen_at": "2026-10-19T10:26:13+00:00"
+    },
     "eightfold:microsoft:1970393557042145": {
       "seen_at": "2026-10-16T18:07:17+00:00"
     },
@@ -54457,7 +54472,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315562772": {
-      "missing": "2026-10-19T04:25:55+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315673635": {
@@ -54578,7 +54593,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316092017": {
-      "missing": "2026-10-19T04:15:57+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316109290": {
@@ -56013,7 +56028,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:qualcomm:446719430900": {
-      "missing": "2026-10-19T10:15:56+00:00",
       "seen_at": "2026-10-19T06:25:35+00:00"
     },
     "eightfold:qualcomm:446719435810": {
@@ -57137,8 +57151,10 @@
       "seen_at": "2026-10-19T06:35:22+00:00"
     },
     "eightfold:qualcomm:446721626932": {
-      "missing": "2026-10-19T10:15:56+00:00",
       "seen_at": "2026-10-19T05:15:29+00:00"
+    },
+    "eightfold:qualcomm:446721630251": {
+      "seen_at": "2026-10-19T10:26:13+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
       "closed": "2026-10-04",
@@ -60351,6 +60367,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:2c69b87b-a3b9-4a6c-b179-1e31b348731a": {
       "seen_at": "2026-10-14T00:37:37+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:2c715da0-fadf-4c6d-870a-68fb4e8f0eee": {
+      "seen_at": "2026-10-19T10:26:13+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:2c845569-b5b9-4897-a41f-1b32531b8332": {
       "seen_at": "2026-10-04T09:43:24+00:00"
@@ -171775,6 +171794,9 @@
     "tiktok:tiktok:7698312417738246453": {
       "seen_at": "2026-10-19T10:05:52+00:00"
     },
+    "tiktok:tiktok:7698320630827026693": {
+      "seen_at": "2026-10-19T10:26:13+00:00"
+    },
     "workday:adobe:R159538": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -173539,7 +173561,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD100758": {
-      "missing": "2026-10-19T09:55:31+00:00",
       "seen_at": "2026-10-19T03:15:57+00:00"
     },
     "workday:autodesk:26WD100760": {
@@ -174377,6 +174398,7 @@
       "seen_at": "2026-10-14T14:16:35+00:00"
     },
     "workday:autodesk:26WD99679": {
+      "missing": "2026-10-19T10:26:13+00:00",
       "seen_at": "2026-10-19T08:06:17+00:00"
     },
     "workday:autodesk:26WD99785": {
@@ -248692,7 +248714,7 @@
       "seen_at": "2026-09-23T20:22:17+00:00"
     },
     "workday:rbc:R-0000188784": {
-      "missing": "2026-10-19T04:25:55+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-06T01:33:13+00:00"
     },
     "workday:rbc:R-0000188791": {
