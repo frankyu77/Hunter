@@ -21370,7 +21370,7 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_error": "HTTP 503 from iawmqy.fa.ocs.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
       "warned_failures": false,
       "warned_zero": false,
@@ -21527,8 +21527,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 26,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"65D9EAMVEO4FE0\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 27,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"B70B23MVEOH1PR\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -27133,12 +27133,6 @@
         8
       ],
       "workday/autodesk": [
-        7,
-        0,
-        7,
-        7,
-        7,
-        7,
         1,
         7,
         8,
@@ -27179,6 +27173,12 @@
         1,
         10,
         10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        4,
         10,
         10,
         10,
@@ -54012,6 +54012,9 @@
     },
     "eightfold:microsoft:1970393557041818": {
       "seen_at": "2026-10-16T07:15:43+00:00"
+    },
+    "eightfold:microsoft:1970393557041831": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
     },
     "eightfold:microsoft:1970393557041841": {
       "seen_at": "2026-10-16T12:25:54+00:00"
@@ -152185,6 +152188,9 @@
     "oracle:honeywell:158687": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "oracle:honeywell:158689": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
+    },
     "oracle:honeywell:158691": {
       "seen_at": "2026-10-07T05:53:58+00:00"
     },
@@ -173114,6 +173120,9 @@
       "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
+    "workday:autodesk:26WD100758": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
+    },
     "workday:autodesk:26WD100760": {
       "closed": "2026-10-08",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -173283,7 +173292,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101007": {
-      "missing": "2026-10-18T21:15:34+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101016": {
@@ -173353,7 +173362,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101095": {
-      "missing": "2026-10-18T21:15:34+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:autodesk:26WD101115": {
@@ -173437,7 +173446,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101227": {
-      "missing": "2026-10-18T21:15:34+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101228": {
@@ -173452,7 +173461,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101236": {
-      "missing": "2026-10-18T21:15:34+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101237": {
@@ -173481,7 +173490,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101273": {
-      "missing": "2026-10-18T21:15:34+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101274": {
@@ -173504,7 +173513,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101306": {
-      "missing": "2026-10-18T21:15:34+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101307": {
@@ -173916,6 +173925,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD99448": {
+      "missing": "2026-10-19T03:15:57+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD99470": {
@@ -201120,6 +201130,9 @@
     "workday:hp:3164525": {
       "seen_at": "2026-09-03T22:47:11+00:00"
     },
+    "workday:hp:3164527": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
+    },
     "workday:hp:3164560": {
       "seen_at": "2026-09-04T09:11:03+00:00"
     },
@@ -213968,6 +213981,9 @@
     "workday:intel:JR0288118": {
       "seen_at": "2026-10-16T09:06:32+00:00"
     },
+    "workday:intel:JR0288119": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
+    },
     "workday:intel:JR0288120": {
       "seen_at": "2026-10-14T09:36:04+00:00"
     },
@@ -219510,6 +219526,12 @@
     },
     "workday:micron:JR113121": {
       "seen_at": "2026-09-22T10:25:33+00:00"
+    },
+    "workday:micron:JR113130": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
+    },
+    "workday:micron:JR113149": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
     },
     "workday:micron:JR113156": {
       "seen_at": "2026-10-01T15:24:23+00:00"
@@ -244632,11 +244654,17 @@
     "workday:nvidia:JR2027805": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "workday:nvidia:JR2027806": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
+    },
     "workday:nvidia:JR2027811": {
       "seen_at": "2026-10-14T18:46:40+00:00"
     },
     "workday:nvidia:JR2027817": {
       "seen_at": "2026-10-15T21:46:10+00:00"
+    },
+    "workday:nvidia:JR2027819": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
     },
     "workday:nvidia:JR2027826": {
       "seen_at": "2026-10-16T08:06:26+00:00"
@@ -244709,6 +244737,9 @@
     },
     "workday:nvidia:JR2028021": {
       "seen_at": "2026-10-17T00:07:25+00:00"
+    },
+    "workday:nvidia:JR2028031": {
+      "seen_at": "2026-10-19T03:15:57+00:00"
     },
     "workday:nvidia:JR2028054": {
       "seen_at": "2026-10-15T22:36:29+00:00"
