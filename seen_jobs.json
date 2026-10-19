@@ -21093,7 +21093,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -21537,8 +21538,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 59,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"725537MVEZWNP4\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 60,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"E76E41MVF09R5M\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -26426,7 +26427,6 @@
       "greenhouse/okta": [
         5,
         5,
-        5,
         0,
         5,
         0,
@@ -26473,7 +26473,8 @@
         9,
         9,
         4,
-        4
+        4,
+        0
       ],
       "greenhouse/pinterest": [
         0,
@@ -26969,7 +26970,6 @@
         0,
         0,
         0,
-        0,
         1,
         1,
         1,
@@ -27000,7 +27000,8 @@
         0,
         0,
         2,
-        0
+        0,
+        1
       ],
       "oracle/texas-instruments": [
         0,
@@ -27819,7 +27820,6 @@
         7,
         7,
         7,
-        7,
         1,
         7,
         7,
@@ -27858,7 +27858,8 @@
         9,
         9,
         9,
-        1
+        1,
+        5
       ],
       "workday/zillow": [
         0,
@@ -55520,7 +55521,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318616118": {
-      "missing": "2026-10-19T08:35:52+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318616256": {
@@ -56372,6 +56372,7 @@
       "seen_at": "2026-10-08T09:16:06+00:00"
     },
     "eightfold:qualcomm:446721192352": {
+      "missing": "2026-10-19T08:46:18+00:00",
       "seen_at": "2026-10-19T08:06:17+00:00"
     },
     "eightfold:qualcomm:446721197055": {
@@ -56753,6 +56754,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:qualcomm:446721466596": {
+      "missing": "2026-10-19T08:46:18+00:00",
       "seen_at": "2026-10-19T06:25:35+00:00"
     },
     "eightfold:qualcomm:446721467284": {
@@ -130320,7 +130322,7 @@
       "seen_at": "2026-10-16T23:36:38+00:00"
     },
     "greenhouse:okta:8299819": {
-      "missing": "2026-10-19T02:45:46+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-19T01:55:58+00:00"
     },
     "greenhouse:pinterest:5412514": {
@@ -146606,6 +146608,9 @@
     "oracle:dell:298152": {
       "seen_at": "2026-10-01T22:53:27+00:00"
     },
+    "oracle:dell:298158": {
+      "seen_at": "2026-10-19T08:46:18+00:00"
+    },
     "oracle:dell:298166": {
       "seen_at": "2026-09-01T21:59:35+00:00"
     },
@@ -161064,7 +161069,7 @@
       "seen_at": "2026-10-16T20:06:15+00:00"
     },
     "oracle:oracle:347832": {
-      "missing": "2026-10-19T02:36:39+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-17T05:25:58+00:00"
     },
     "oracle:oracle:347841": {
@@ -190005,6 +190010,9 @@
     "workday:cisco:2027770": {
       "seen_at": "2026-10-16T07:15:43+00:00"
     },
+    "workday:cisco:2027780": {
+      "seen_at": "2026-10-19T08:46:18+00:00"
+    },
     "workday:cisco:2027784": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -190196,6 +190204,9 @@
     },
     "workday:cisco:2028367": {
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "workday:cisco:2028368": {
+      "seen_at": "2026-10-19T08:46:18+00:00"
     },
     "workday:cisco:2028379": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -244853,7 +244864,6 @@
       "seen_at": "2026-10-15T22:56:15+00:00"
     },
     "workday:nvidia:JR2027468": {
-      "missing": "2026-10-19T07:45:42+00:00",
       "seen_at": "2026-10-19T07:25:32+00:00"
     },
     "workday:nvidia:JR2027469": {
@@ -245000,7 +245010,6 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:nvidia:JR2027630": {
-      "missing": "2026-10-19T07:45:42+00:00",
       "seen_at": "2026-10-19T07:35:57+00:00"
     },
     "workday:nvidia:JR2027632": {
@@ -268028,7 +268037,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0108893": {
-      "missing": "2026-10-19T08:35:52+00:00",
       "seen_at": "2026-10-08T13:16:01+00:00"
     },
     "workday:workday:JR-0108915": {
@@ -268553,6 +268561,7 @@
       "seen_at": "2026-10-16T19:17:47+00:00"
     },
     "workday:workday:JR-0110395": {
+      "missing": "2026-10-19T08:46:18+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0110396": {
@@ -268866,7 +268875,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:workday:JR-0110783": {
-      "missing": "2026-10-19T02:45:46+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:workday:JR-0110790": {
