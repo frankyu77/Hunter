@@ -21082,7 +21082,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -21370,9 +21371,9 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "last_error": "HTTP 503 from iawmqy.fa.ocs.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
-      "warned_failures": false,
+      "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
@@ -21527,8 +21528,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 28,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"EF772EMVEOTRNE\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 29,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"674F38MVEP746R\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -27133,14 +27134,6 @@
         8
       ],
       "workday/autodesk": [
-        2,
-        8,
-        8,
-        8,
-        8,
-        8,
-        0,
-        0,
         8,
         8,
         8,
@@ -27182,6 +27175,14 @@
         10,
         4,
         4,
+        10,
+        4,
+        10,
+        4,
+        10,
+        10,
+        4,
+        10,
         10
       ],
       "workday/becton-dickinson": [
@@ -55377,9 +55378,11 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318601563": {
+      "missing": "2026-10-19T03:36:30+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318602179": {
+      "missing": "2026-10-19T03:36:30+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318602375": {
@@ -75858,9 +75861,6 @@
     "github:SimplifyJobs/New-Grad-Positions:fdb15ff9-23fb-4c1b-98bf-972ee623f2b4": {
       "seen_at": "2026-09-11T00:23:54+00:00"
     },
-    "github:SimplifyJobs/New-Grad-Positions:fdb7c5e9-3d58-4332-bb5d-4b3446253fd0": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "github:SimplifyJobs/New-Grad-Positions:fddb96ea-f70c-4c77-9b3b-b3ce7c7a3b8d": {
       "seen_at": "2026-09-03T20:32:14+00:00"
     },
@@ -96197,9 +96197,6 @@
       "closed": "2026-10-14",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "github:SimplifyJobs/Summer2026-Internships:ce6bb4b3-0f2f-4eb0-b490-e518ef1dba06": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "github:SimplifyJobs/Summer2026-Internships:ce6e7eab-28ed-4bf3-832d-a386a859b37a": {
       "seen_at": "2026-09-11T23:43:31+00:00"
     },
@@ -114595,7 +114592,6 @@
       "seen_at": "2026-09-04T00:29:45+00:00"
     },
     "greenhouse:databricks:7897431002": {
-      "missing": "2026-10-19T03:25:53+00:00",
       "seen_at": "2026-10-16T03:46:27+00:00"
     },
     "greenhouse:databricks:7898766002": {
@@ -114977,7 +114973,6 @@
       "seen_at": "2026-09-04T00:29:45+00:00"
     },
     "greenhouse:databricks:8357216002": {
-      "missing": "2026-10-19T03:25:53+00:00",
       "seen_at": "2026-10-03T07:01:33+00:00"
     },
     "greenhouse:databricks:8362737002": {
@@ -116637,6 +116632,7 @@
       "seen_at": "2026-09-14T18:49:56+00:00"
     },
     "greenhouse:databricks:8679980002": {
+      "missing": "2026-10-19T03:36:30+00:00",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:databricks:8679982002": {
@@ -117467,6 +117463,7 @@
       "seen_at": "2026-09-21T22:26:42+00:00"
     },
     "greenhouse:databricks:8829029002": {
+      "missing": "2026-10-19T03:36:30+00:00",
       "seen_at": "2026-09-30T05:13:39+00:00"
     },
     "greenhouse:databricks:8829033002": {
@@ -119386,6 +119383,9 @@
     },
     "greenhouse:datadog:8247435": {
       "seen_at": "2026-10-08T14:36:02+00:00"
+    },
+    "greenhouse:datadog:8247518": {
+      "seen_at": "2026-10-19T03:36:30+00:00"
     },
     "greenhouse:datadog:8247540": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -132856,9 +132856,6 @@
     "greenhouse:roblox:8140565": {
       "seen_at": "2026-08-21T22:35:52+00:00"
     },
-    "greenhouse:roblox:8142712": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "greenhouse:roblox:8143149": {
       "seen_at": "2026-08-24T17:18:26+00:00"
     },
@@ -141181,6 +141178,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "jibe:careers.amd.com:88060": {
+      "missing": "2026-10-19T03:36:30+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "jibe:careers.amd.com:88429": {
@@ -147834,9 +147832,6 @@
     "oracle:honeywell:154477": {
       "seen_at": "2026-09-03T18:01:19+00:00"
     },
-    "oracle:honeywell:154500": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "oracle:honeywell:154504": {
       "seen_at": "2026-09-24T15:58:38+00:00"
     },
@@ -153549,8 +153544,14 @@
     "oracle:honeywell:160252": {
       "seen_at": "2026-10-19T03:25:53+00:00"
     },
+    "oracle:honeywell:160253": {
+      "seen_at": "2026-10-19T03:36:30+00:00"
+    },
     "oracle:honeywell:160254": {
       "seen_at": "2026-10-15T17:46:57+00:00"
+    },
+    "oracle:honeywell:160255": {
+      "seen_at": "2026-10-19T03:36:30+00:00"
     },
     "oracle:honeywell:160280": {
       "seen_at": "2026-10-16T14:56:12+00:00"
@@ -173193,7 +173194,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD100892": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:autodesk:26WD100898": {
@@ -173474,7 +173475,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101239": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101241": {
@@ -173512,7 +173513,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101282": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:autodesk:26WD101304": {
@@ -173563,7 +173564,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:autodesk:26WD101353": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101354": {
@@ -173610,7 +173611,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:autodesk:26WD101387": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101388": {
@@ -173641,15 +173642,15 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101424": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:autodesk:26WD101430": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101433": {
-      "missing": "2026-10-18T21:35:23+00:00",
+      "closed": "2026-10-18",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD101435": {
@@ -183531,9 +183532,6 @@
     },
     "workday:cibc:2617261": {
       "seen_at": "2026-08-20T14:56:58+00:00"
-    },
-    "workday:cibc:2617262": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
     },
     "workday:cibc:2617265": {
       "seen_at": "2026-09-02T15:09:24+00:00"
@@ -200953,9 +200951,6 @@
     "workday:hp:3163236": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "workday:hp:3163255": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "workday:hp:3163300": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -201854,9 +201849,6 @@
     },
     "workday:hp:3166661": {
       "seen_at": "2026-10-14T00:15:59+00:00"
-    },
-    "workday:hp:3166662": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
     },
     "workday:hp:3166671": {
       "seen_at": "2026-08-26T11:03:15+00:00"
@@ -220900,6 +220892,9 @@
     "workday:micron:JR114471": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "workday:micron:JR114479": {
+      "seen_at": "2026-10-19T03:36:30+00:00"
+    },
     "workday:micron:JR114481": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -224070,9 +224065,6 @@
     },
     "workday:ngc:R10246689": {
       "seen_at": "2026-08-20T16:58:39+00:00"
-    },
-    "workday:ngc:R10246690": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
     },
     "workday:ngc:R10246692": {
       "seen_at": "2026-08-25T05:02:40+00:00"
@@ -240500,9 +240492,6 @@
     "workday:nvidia:JR2022922": {
       "seen_at": "2026-09-28T21:04:49+00:00"
     },
-    "workday:nvidia:JR2022939": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "workday:nvidia:JR2022940": {
       "seen_at": "2026-08-29T00:25:52+00:00"
     },
@@ -240693,9 +240682,6 @@
     },
     "workday:nvidia:JR2023440": {
       "seen_at": "2026-08-26T09:58:39+00:00"
-    },
-    "workday:nvidia:JR2023442": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
     },
     "workday:nvidia:JR2023443": {
       "seen_at": "2026-08-20T07:58:01+00:00"
@@ -249566,9 +249552,6 @@
     "workday:salesforce:JR354753": {
       "seen_at": "2026-08-20T23:57:41+00:00"
     },
-    "workday:salesforce:JR354773": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
-    },
     "workday:salesforce:JR354774": {
       "seen_at": "2026-10-07T23:24:15+00:00"
     },
@@ -257465,9 +257448,6 @@
     },
     "workday:td:R_1505595": {
       "seen_at": "2026-08-26T16:04:54+00:00"
-    },
-    "workday:td:R_1505597": {
-      "seen_at": "2026-08-20T03:33:02+00:00"
     },
     "workday:td:R_1505598": {
       "seen_at": "2026-08-24T17:52:29+00:00"
