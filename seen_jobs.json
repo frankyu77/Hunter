@@ -21149,8 +21149,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -21582,8 +21581,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 98,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"C102C4MVFDV8YM\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 99,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"42C5A5MVFE76T5\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -23379,9 +23378,9 @@
         },
         "smartrecruiters/abbvie": {
           "boards": {
-            "{\"company\": \"AbbVie\", \"type\": \"smartrecruiters\"}": 1
+            "{\"company\": \"AbbVie\", \"type\": \"smartrecruiters\"}": 2
           },
-          "jobs": 1,
+          "jobs": 2,
           "matched": 1,
           "name": "AbbVie"
         },
@@ -24684,6 +24683,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Exelixis"
+        },
+        "workday/fanniemae": {
+          "boards": {
+            "{\"company\": \"fannie-mae\", \"host\": \"wd1\", \"site\": \"FannieMaeCareers\", \"tenant\": \"fanniemae\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Fannie Mae"
         },
         "workday/flir": {
           "boards": {
@@ -26621,7 +26628,8 @@
         8,
         8,
         8,
-        8
+        8,
+        2
       ],
       "greenhouse/okta": [
         6,
@@ -26974,6 +26982,9 @@
         2,
         2,
         0,
+        5,
+        5,
+        5,
         5
       ],
       "jibe/docusign": [
@@ -39121,6 +39132,15 @@
     },
     "amazon:amazon:10582609": {
       "seen_at": "2026-10-19T15:07:33+00:00"
+    },
+    "amazon:amazon:10582627": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
+    "amazon:amazon:10582629": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
+    "amazon:amazon:10582630": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "ashby:cohere:011f3609-e5f1-4700-8140-f717f39a45b0": {
       "seen_at": "2026-09-24T06:14:49+00:00"
@@ -64223,6 +64243,9 @@
     "github:SimplifyJobs/New-Grad-Positions:5c0f2bf8-d822-47f3-ba65-b7e177d47252": {
       "closed": "2026-10-15",
       "seen_at": "2026-10-05T22:44:03+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:5c1339cf-b909-45f0-8b4d-d3383a87dde2": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:5c1a8980-80b6-47f5-ac86-372fac8bef13": {
       "seen_at": "2026-09-11T00:23:54+00:00"
@@ -89700,6 +89723,9 @@
     "github:SimplifyJobs/Summer2026-Internships:856205c2-0e42-4511-9086-192bd7d20932": {
       "seen_at": "2026-09-15T14:58:44+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:8569a45d-e504-4cc5-897a-de907ab8e0f7": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:85721ea7-7039-4fed-bd43-becafa1de541": {
       "seen_at": "2026-09-21T07:03:58+00:00"
     },
@@ -106377,7 +106403,6 @@
       "seen_at": "2026-10-06T16:04:30+00:00"
     },
     "greenhouse:airbnb:8257909": {
-      "closed": "2026-10-14",
       "seen_at": "2026-10-06T00:53:14+00:00"
     },
     "greenhouse:airbnb:8258743": {
@@ -112217,6 +112242,7 @@
       "seen_at": "2026-09-28T16:34:18+00:00"
     },
     "greenhouse:chime:8681191002": {
+      "missing": "2026-10-19T15:16:24+00:00",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:chime:8681193002": {
@@ -113832,6 +113858,9 @@
     },
     "greenhouse:cloudflare:8241905": {
       "seen_at": "2026-10-01T03:04:33+00:00"
+    },
+    "greenhouse:cloudflare:8242481": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "greenhouse:cloudflare:8242904": {
       "seen_at": "2026-10-07T13:13:52+00:00"
@@ -119549,6 +119578,9 @@
     "greenhouse:datadog:8109441": {
       "seen_at": "2026-10-16T20:57:11+00:00"
     },
+    "greenhouse:datadog:8113116": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "greenhouse:datadog:8113520": {
       "seen_at": "2026-08-28T16:00:48+00:00"
     },
@@ -120403,6 +120435,9 @@
     },
     "greenhouse:discord:8730666002": {
       "seen_at": "2026-08-20T17:24:39+00:00"
+    },
+    "greenhouse:discord:8731898002": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "greenhouse:discord:8757366002": {
       "seen_at": "2026-08-29T00:25:52+00:00"
@@ -128226,7 +128261,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:7694717": {
-      "missing": "2026-10-19T09:16:06+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-16T14:56:12+00:00"
     },
     "greenhouse:mongodb:7696633": {
@@ -139575,6 +139610,9 @@
     "greenhouse:vercel:6142959004": {
       "seen_at": "2026-08-25T19:39:01+00:00"
     },
+    "greenhouse:vercel:6147956004": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "greenhouse:vercel:6148624004": {
       "seen_at": "2026-09-22T05:50:20+00:00"
     },
@@ -142016,7 +142054,7 @@
       "seen_at": "2026-10-19T07:45:42+00:00"
     },
     "jibe:careers.amd.com:88010": {
-      "missing": "2026-10-19T09:16:06+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "jibe:careers.amd.com:88060": {
@@ -142120,6 +142158,9 @@
     },
     "jibe:careers.amd.com:91485": {
       "seen_at": "2026-10-14T18:57:47+00:00"
+    },
+    "jibe:careers.amd.com:91528": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "jibe:careers.amd.com:91550": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -142834,7 +142875,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.amd.com:93237": {
-      "missing": "2026-10-19T09:16:06+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "jibe:careers.amd.com:93238": {
@@ -143091,7 +143132,7 @@
       "seen_at": "2026-10-19T04:35:42+00:00"
     },
     "jibe:careers.amd.com:93558": {
-      "missing": "2026-10-19T09:16:06+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "jibe:careers.amd.com:93565": {
@@ -143246,6 +143287,7 @@
       "seen_at": "2026-10-15T16:56:49+00:00"
     },
     "jibe:careers.amd.com:93879": {
+      "missing": "2026-10-19T15:16:24+00:00",
       "seen_at": "2026-10-16T14:16:10+00:00"
     },
     "jibe:careers.amd.com:93915": {
@@ -174176,6 +174218,7 @@
       "seen_at": "2026-10-08T08:45:33+00:00"
     },
     "workday:autodesk:26WD100929": {
+      "missing": "2026-10-19T15:16:24+00:00",
       "seen_at": "2026-10-18T22:06:01+00:00"
     },
     "workday:autodesk:26WD100930": {
@@ -174932,7 +174975,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD99677": {
-      "closed": "2026-10-17",
       "seen_at": "2026-10-14T14:16:35+00:00"
     },
     "workday:autodesk:26WD99679": {
@@ -177258,6 +177300,9 @@
     },
     "workday:bdx:R-556706": {
       "seen_at": "2026-10-02T20:53:33+00:00"
+    },
+    "workday:bdx:R-556718": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "workday:bdx:R-556719": {
       "seen_at": "2026-10-06T14:33:59+00:00"
@@ -183396,6 +183441,9 @@
     "workday:boeing:JR2026526703": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "workday:boeing:JR2026526704": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "workday:boeing:JR2026526730": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -183506,6 +183554,9 @@
     },
     "workday:cibc:2504264": {
       "seen_at": "2026-09-25T22:35:58+00:00"
+    },
+    "workday:cibc:2508996": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "workday:cibc:2517686": {
       "seen_at": "2026-10-19T06:06:17+00:00"
@@ -190687,6 +190738,9 @@
     },
     "workday:cisco:2027780": {
       "seen_at": "2026-10-19T08:46:18+00:00"
+    },
+    "workday:cisco:2027782": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "workday:cisco:2027784": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -206212,6 +206266,9 @@
     "workday:hp:3169896": {
       "seen_at": "2026-10-14T18:46:40+00:00"
     },
+    "workday:hp:3170001": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "workday:hp:3170040": {
       "seen_at": "2026-10-15T08:56:20+00:00"
     },
@@ -211831,8 +211888,14 @@
     "workday:hpe:1216193": {
       "seen_at": "2026-10-19T15:07:33+00:00"
     },
+    "workday:hpe:1216194": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "workday:hpe:1216196": {
       "seen_at": "2026-10-08T20:06:59+00:00"
+    },
+    "workday:hpe:1216198": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "workday:hpe:1216201": {
       "seen_at": "2026-10-01T13:04:40+00:00"
@@ -222495,6 +222558,9 @@
     },
     "workday:micron:JR115273": {
       "seen_at": "2026-10-19T07:25:32+00:00"
+    },
+    "workday:micron:JR115355": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "workday:micron:JR43741": {
       "seen_at": "2026-09-24T22:46:53+00:00"
@@ -239125,6 +239191,9 @@
     },
     "workday:ngc:R10256176": {
       "seen_at": "2026-10-19T00:25:46+00:00"
+    },
+    "workday:ngc:R10256178": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
     },
     "workday:ngc:R10256183": {
       "seen_at": "2026-10-15T14:16:39+00:00"
@@ -268547,6 +268616,9 @@
     "workday:td:R_1517445": {
       "seen_at": "2026-10-19T14:36:08+00:00"
     },
+    "workday:td:R_1517472": {
+      "seen_at": "2026-10-19T15:16:24+00:00"
+    },
     "workday:workday:JR-0094713": {
       "closed": "2026-10-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -268597,6 +268669,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0105400": {
+      "missing": "2026-10-19T15:16:24+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0105401": {
@@ -269347,7 +269420,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0110413": {
-      "missing": "2026-10-19T14:56:06+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0110417": {
