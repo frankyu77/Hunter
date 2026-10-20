@@ -22098,8 +22098,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 152,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"725537MVFXU9DU\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
+      "consecutive_failures": 153,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: {\"errorCode\":\"HTTP_429\",\"errorCaseId\":\"EE870CMVFY79MD\",\"httpStatus\":429,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -27237,7 +27237,8 @@
         17,
         16,
         18,
-        2
+        2,
+        5
       ],
       "greenhouse/datadog": [
         1,
@@ -27288,7 +27289,6 @@
         5,
         5,
         5,
-        5,
         6,
         6,
         6,
@@ -27318,6 +27318,7 @@
         8,
         8,
         1,
+        11,
         11,
         11,
         11,
@@ -27890,6 +27891,7 @@
         5,
         3,
         5,
+        5,
         5
       ],
       "jibe/docusign": [
@@ -28177,7 +28179,6 @@
         4
       ],
       "smartrecruiters/RenesasElectronics": [
-        8,
         0,
         8,
         8,
@@ -28226,7 +28227,8 @@
         13,
         13,
         0,
-        0
+        0,
+        13
       ],
       "smartrecruiters/ServiceNow": [
         0,
@@ -40543,6 +40545,12 @@
     },
     "amazon:amazon:10583518": {
       "seen_at": "2026-10-20T00:06:19+00:00"
+    },
+    "amazon:amazon:10583531": {
+      "seen_at": "2026-10-20T00:35:49+00:00"
+    },
+    "amazon:amazon:10583533": {
+      "seen_at": "2026-10-20T00:35:49+00:00"
     },
     "ashby:cohere:011f3609-e5f1-4700-8140-f717f39a45b0": {
       "seen_at": "2026-09-24T06:14:49+00:00"
@@ -57827,6 +57835,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318866949": {
+      "missing": "2026-10-20T00:35:49+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318875539": {
@@ -59306,6 +59315,9 @@
     },
     "eightfold:qualcomm:446721636765": {
       "seen_at": "2026-10-19T19:06:37+00:00"
+    },
+    "eightfold:qualcomm:446721637032": {
+      "seen_at": "2026-10-20T00:35:49+00:00"
     },
     "eightfold:qualcomm:446721637643": {
       "seen_at": "2026-10-19T21:56:18+00:00"
@@ -119565,7 +119577,7 @@
       "seen_at": "2026-10-16T08:16:59+00:00"
     },
     "greenhouse:databricks:8707779002": {
-      "missing": "2026-10-19T18:26:08+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:databricks:8709386002": {
@@ -123456,7 +123468,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8121399": {
-      "missing": "2026-10-19T18:26:08+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8121933": {
@@ -145245,7 +145257,7 @@
       "seen_at": "2026-10-08T09:16:06+00:00"
     },
     "jibe:careers.amd.com:93441": {
-      "missing": "2026-10-19T18:26:08+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "jibe:careers.amd.com:93442": {
@@ -166962,7 +166974,7 @@
       "seen_at": "2026-10-06T03:43:20+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000153554619": {
-      "missing": "2026-10-19T18:26:08+00:00",
+      "closed": "2026-10-19",
       "seen_at": "2026-10-06T03:43:20+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000153554769": {
@@ -167379,7 +167391,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000129017890": {
-      "missing": "2026-10-20T00:25:59+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000129600529": {
@@ -195699,7 +195710,6 @@
       "seen_at": "2026-10-08T07:56:03+00:00"
     },
     "workday:ebay:R0076632": {
-      "missing": "2026-10-19T21:56:18+00:00",
       "seen_at": "2026-10-17T15:35:35+00:00"
     },
     "workday:ebay:R0076633": {
@@ -195723,6 +195733,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:ebay:R0076688": {
+      "missing": "2026-10-20T00:35:49+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:ebay:R0076689": {
@@ -271306,6 +271317,7 @@
       "seen_at": "2026-10-17T14:55:56+00:00"
     },
     "workday:workday:JR-0107919": {
+      "missing": "2026-10-20T00:35:49+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0107977": {
@@ -271452,6 +271464,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0109167": {
+      "missing": "2026-10-20T00:35:49+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0109174": {
@@ -271814,6 +271827,7 @@
       "seen_at": "2026-10-08T18:36:50+00:00"
     },
     "workday:workday:JR-0110197": {
+      "missing": "2026-10-20T00:35:49+00:00",
       "seen_at": "2026-10-14T14:57:05+00:00"
     },
     "workday:workday:JR-0110199": {
@@ -272258,6 +272272,9 @@
     },
     "workday:workday:JR-0110774": {
       "seen_at": "2026-10-08T21:46:03+00:00"
+    },
+    "workday:workday:JR-0110775": {
+      "seen_at": "2026-10-20T00:35:49+00:00"
     },
     "workday:workday:JR-0110777": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -273344,7 +273361,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:zoom:R19711": {
-      "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:zoom:R19716": {
