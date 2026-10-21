@@ -22721,7 +22721,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -22733,7 +22734,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -23291,7 +23293,7 @@
       }
     },
     "auto_sources_checked": "2026-10-21T00:46:10+00:00",
-    "dashboard_built_at": "2026-10-21T11:15:48+00:00",
+    "dashboard_built_at": "2026-10-21T12:17:13+00:00",
     "discovery": {
       "candidates": {
         "ashby/brainco": {
@@ -24152,7 +24154,8 @@
         1,
         1,
         13,
-        2
+        2,
+        22
       ],
       "greenhouse/discord": [
         0,
@@ -24498,7 +24501,8 @@
         9,
         0,
         5,
-        5
+        5,
+        0
       ],
       "greenhouse/reddit": [
         3,
@@ -24792,8 +24796,6 @@
         12
       ],
       "jibe/amd": [
-        1,
-        1,
         2,
         2,
         0,
@@ -24841,7 +24843,9 @@
         6,
         1,
         7,
-        1
+        1,
+        4,
+        4
       ],
       "jibe/docusign": [
         6,
@@ -25945,7 +25949,6 @@
         3
       ],
       "workday/workday": [
-        1,
         5,
         2,
         11,
@@ -25994,6 +25997,7 @@
         7,
         12,
         1,
+        12,
         12
       ],
       "workday/zillow": [
@@ -26064,7 +26068,6 @@
         5,
         5,
         5,
-        5,
         0,
         5,
         6,
@@ -26098,6 +26101,7 @@
         6,
         12,
         6,
+        12,
         12
       ]
     },
@@ -56183,11 +56187,9 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:qualcomm:446715779579": {
-      "missing": "2026-10-21T12:06:24+00:00",
       "seen_at": "2026-10-21T09:25:57+00:00"
     },
     "eightfold:qualcomm:446715936757": {
-      "missing": "2026-10-21T12:06:24+00:00",
       "seen_at": "2026-10-21T08:55:48+00:00"
     },
     "eightfold:qualcomm:446716190676": {
@@ -56494,7 +56496,6 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:qualcomm:446720246463": {
-      "missing": "2026-10-21T12:06:24+00:00",
       "seen_at": "2026-10-21T11:35:50+00:00"
     },
     "eightfold:qualcomm:446720255088": {
@@ -56663,7 +56664,6 @@
       "seen_at": "2026-10-08T22:36:29+00:00"
     },
     "eightfold:qualcomm:446720931841": {
-      "missing": "2026-10-21T11:56:03+00:00",
       "seen_at": "2026-10-21T08:55:48+00:00"
     },
     "eightfold:qualcomm:446720932891": {
@@ -120821,7 +120821,7 @@
       "seen_at": "2026-09-28T01:28:17+00:00"
     },
     "greenhouse:datadog:8095826": {
-      "missing": "2026-10-21T06:07:44+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-09-29T05:04:35+00:00"
     },
     "greenhouse:datadog:8095963": {
@@ -132503,6 +132503,9 @@
     "greenhouse:okta:8305257": {
       "seen_at": "2026-10-21T06:07:44+00:00"
     },
+    "greenhouse:okta:8305423": {
+      "seen_at": "2026-10-21T12:17:13+00:00"
+    },
     "greenhouse:pinterest:5412514": {
       "seen_at": "2026-09-24T19:41:39+00:00"
     },
@@ -132902,7 +132905,7 @@
       "seen_at": "2026-08-24T21:04:03+00:00"
     },
     "greenhouse:pinterest:8081002": {
-      "missing": "2026-10-21T06:16:05+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-21T00:46:10+00:00"
     },
     "greenhouse:pinterest:8081452": {
@@ -145131,7 +145134,7 @@
       "seen_at": "2026-10-21T09:35:53+00:00"
     },
     "jibe:careers.amd.com:93598": {
-      "missing": "2026-10-21T06:07:44+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-16T15:57:41+00:00"
     },
     "jibe:careers.amd.com:93602": {
@@ -145268,7 +145271,7 @@
       "seen_at": "2026-10-14T22:37:05+00:00"
     },
     "jibe:careers.amd.com:93764": {
-      "missing": "2026-10-21T06:07:44+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-16T15:26:08+00:00"
     },
     "jibe:careers.amd.com:93766": {
@@ -150087,6 +150090,9 @@
     },
     "oracle:dell:299725": {
       "seen_at": "2026-10-20T13:56:15+00:00"
+    },
+    "oracle:dell:299726": {
+      "seen_at": "2026-10-21T12:17:13+00:00"
     },
     "oracle:dell:299734": {
       "seen_at": "2026-10-20T10:06:30+00:00"
@@ -227100,6 +227106,9 @@
     "workday:micron:JR115357": {
       "seen_at": "2026-10-19T15:26:39+00:00"
     },
+    "workday:micron:JR115369": {
+      "seen_at": "2026-10-21T12:17:13+00:00"
+    },
     "workday:micron:JR115491": {
       "seen_at": "2026-10-20T06:55:47+00:00"
     },
@@ -244123,6 +244132,9 @@
     },
     "workday:ngc:R10256750": {
       "seen_at": "2026-10-20T02:56:11+00:00"
+    },
+    "workday:ngc:R10256753": {
+      "seen_at": "2026-10-21T12:17:13+00:00"
     },
     "workday:ngc:R10256756": {
       "seen_at": "2026-10-20T02:25:54+00:00"
@@ -273252,6 +273264,9 @@
     "workday:td:R_1516507": {
       "seen_at": "2026-10-15T16:08:07+00:00"
     },
+    "workday:td:R_1516508": {
+      "seen_at": "2026-10-21T12:17:13+00:00"
+    },
     "workday:td:R_1516514": {
       "seen_at": "2026-10-14T14:46:36+00:00"
     },
@@ -274005,7 +274020,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0108006": {
-      "missing": "2026-10-21T06:16:05+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:workday:JR-0108016": {
@@ -276193,7 +276208,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:zoom:R19737": {
-      "missing": "2026-10-21T06:07:44+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:zoom:R19739": {
