@@ -23337,7 +23337,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -23825,6 +23826,17 @@
   },
   "insights": {
     "auto_sources": {
+      "ashby/brainco": {
+        "added": "2026-10-22T00:46:37+00:00",
+        "board": {
+          "company": "brainco",
+          "type": "ashby"
+        },
+        "how": "auto",
+        "matched": 3,
+        "name": "Brain Co.",
+        "status": "active"
+      },
       "greenhouse/asteraearlycareer2027": {
         "added": "2026-10-14T00:15:59+00:00",
         "board": {
@@ -23863,6 +23875,20 @@
         "name": "Renesas Electronics",
         "status": "active"
       },
+      "workday/aero": {
+        "added": "2026-10-22T00:46:37+00:00",
+        "board": {
+          "company": "aerospace-corporation",
+          "host": "wd5",
+          "site": "External",
+          "tenant": "aero",
+          "type": "workday"
+        },
+        "how": "auto",
+        "matched": 4,
+        "name": "Aerospace Corporation",
+        "status": "active"
+      },
       "workday/generalmotors": {
         "added": "2026-10-14T00:15:59+00:00",
         "board": {
@@ -23876,6 +23902,20 @@
         "matched": 17,
         "name": "General Motors",
         "status": "paused"
+      },
+      "workday/globalfoundries": {
+        "added": "2026-10-22T00:46:37+00:00",
+        "board": {
+          "company": "globalfoundries",
+          "host": "wd1",
+          "site": "External",
+          "tenant": "globalfoundries",
+          "type": "workday"
+        },
+        "how": "auto",
+        "matched": 5,
+        "name": "GlobalFoundries",
+        "status": "active"
       },
       "workday/globalhr": {
         "added": "2026-10-06T03:33:33+00:00",
@@ -23906,7 +23946,7 @@
         "status": "paused"
       }
     },
-    "auto_sources_checked": "2026-10-21T00:46:10+00:00",
+    "auto_sources_checked": "2026-10-22T00:46:37+00:00",
     "dashboard_built_at": "2026-10-22T00:15:53+00:00",
     "discovery": {
       "candidates": {
@@ -25518,7 +25558,8 @@
         15,
         15,
         14,
-        14
+        14,
+        0
       ],
       "greenhouse/databricks": [
         0,
@@ -25595,7 +25636,6 @@
         13
       ],
       "greenhouse/doordashusa": [
-        6,
         0,
         6,
         6,
@@ -25643,6 +25683,7 @@
         12,
         12,
         12,
+        13,
         13,
         13
       ],
@@ -26165,8 +26206,6 @@
         5,
         5,
         5,
-        5,
-        5,
         6,
         6,
         6,
@@ -26201,7 +26240,9 @@
         13,
         13,
         13,
-        13
+        13,
+        13,
+        1
       ],
       "greenhouse/xai": [
         0,
@@ -26239,7 +26280,8 @@
         12,
         12,
         13,
-        12
+        12,
+        13
       ],
       "jibe/amd": [
         5,
@@ -26971,10 +27013,6 @@
         6
       ],
       "workday/expedia-group": [
-        8,
-        8,
-        8,
-        8,
         2,
         2,
         8,
@@ -27020,6 +27058,10 @@
         13,
         7,
         7,
+        13,
+        0,
+        1,
+        13,
         13
       ],
       "workday/general-motors": [
@@ -57268,6 +57310,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316432035": {
+      "missing": "2026-10-22T00:46:37+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316432046": {
@@ -79821,6 +79864,7 @@
       "seen_at": "2026-09-22T01:00:03+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:036bb194-ad99-4e27-ae0c-6109d89190d7": {
+      "missing": "2026-10-22T00:46:37+00:00",
       "seen_at": "2026-10-21T23:06:10+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:037d751e-e964-4164-ad1e-5cd1b7b6cb57": {
@@ -119437,7 +119481,7 @@
       "seen_at": "2026-10-20T18:56:13+00:00"
     },
     "greenhouse:coinbase:8304046": {
-      "missing": "2026-10-21T18:36:53+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-21T17:46:05+00:00"
     },
     "greenhouse:coinbase:8311335": {
@@ -126424,7 +126468,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8233051": {
-      "missing": "2026-10-21T18:46:23+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8233065": {
@@ -145751,7 +145795,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8135455": {
-      "missing": "2026-10-21T18:46:23+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8140089": {
@@ -146264,7 +146308,7 @@
       "seen_at": "2026-10-16T20:47:00+00:00"
     },
     "greenhouse:waymo:8281938": {
-      "missing": "2026-10-21T18:36:53+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-20T12:16:44+00:00"
     },
     "greenhouse:waymo:8283558": {
@@ -146454,7 +146498,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:xai:5071895007": {
-      "missing": "2026-10-21T18:46:23+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:xai:5077471007": {
@@ -152405,6 +152449,9 @@
     "oracle:dell:296522": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "oracle:dell:296529": {
+      "seen_at": "2026-10-22T00:46:37+00:00"
+    },
     "oracle:dell:296539": {
       "seen_at": "2026-08-26T01:53:51+00:00"
     },
@@ -153527,6 +153574,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "oracle:dell:299279": {
+      "missing": "2026-10-22T00:46:37+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "oracle:dell:299281": {
@@ -175036,7 +175084,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7634347340944148741": {
-      "missing": "2026-10-22T00:35:50+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7634362049033849093": {
@@ -175076,7 +175123,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7636721092492708149": {
-      "missing": "2026-10-22T00:35:50+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7636976435994953989": {
@@ -179286,6 +179332,9 @@
     },
     "tiktok:tiktok:7699000656422209845": {
       "seen_at": "2026-10-21T06:25:44+00:00"
+    },
+    "tiktok:tiktok:7699045478030199045": {
+      "seen_at": "2026-10-22T00:46:37+00:00"
     },
     "tiktok:tiktok:7699082217625159989": {
       "seen_at": "2026-10-21T12:36:29+00:00"
@@ -184972,6 +185021,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:bdx:R-557772": {
+      "missing": "2026-10-22T00:46:37+00:00",
       "seen_at": "2026-10-19T15:54:44+00:00"
     },
     "workday:bdx:R-557777": {
@@ -191105,6 +191155,9 @@
     },
     "workday:boeing:JR2026527591": {
       "seen_at": "2026-10-21T22:26:00+00:00"
+    },
+    "workday:boeing:JR2026527599": {
+      "seen_at": "2026-10-22T00:46:37+00:00"
     },
     "workday:cibc:2406959": {
       "seen_at": "2026-10-20T23:07:15+00:00"
@@ -202340,7 +202393,7 @@
       "seen_at": "2026-10-20T23:46:43+00:00"
     },
     "workday:expedia:R-108840": {
-      "missing": "2026-10-21T18:36:53+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-21T08:06:10+00:00"
     },
     "workday:expedia:R-108877": {
@@ -202426,7 +202479,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-109347": {
-      "missing": "2026-10-21T18:36:53+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-20T16:07:26+00:00"
     },
     "workday:expedia:R-109352": {
@@ -202579,7 +202632,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:expedia:R-109716": {
-      "missing": "2026-10-21T18:36:53+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-109723": {
@@ -202614,7 +202667,7 @@
       "seen_at": "2026-10-16T09:16:10+00:00"
     },
     "workday:expedia:R-109808": {
-      "missing": "2026-10-21T18:36:53+00:00",
+      "closed": "2026-10-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-109813": {
@@ -224492,6 +224545,9 @@
     },
     "workday:intel:JR0288177": {
       "seen_at": "2026-10-15T21:16:28+00:00"
+    },
+    "workday:intel:JR0288178": {
+      "seen_at": "2026-10-22T00:46:37+00:00"
     },
     "workday:intel:JR0288179": {
       "seen_at": "2026-10-19T08:35:52+00:00"
