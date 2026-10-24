@@ -25290,13 +25290,15 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -25578,8 +25580,7 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 1,
-      "last_error": "ReadTimeout: HTTPSConnectionPool(host='iawmqy.fa.ocs.oraclecloud.com', port=443): Read timed out. (read timeout=30)",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -31469,7 +31470,6 @@
         9
       ],
       "oracle/dell": [
-        0,
         1,
         1,
         1,
@@ -31518,7 +31518,8 @@
         0,
         0,
         0,
-        0
+        0,
+        1
       ],
       "oracle/honeywell": [
         1,
@@ -65915,7 +65916,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318600987": {
-      "missing": "2026-10-24T02:58:24+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318601563": {
@@ -120237,6 +120237,12 @@
     "greenhouse:affirm:7854835003": {
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
+    "greenhouse:affirm:7860703003": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
+    },
+    "greenhouse:affirm:7860705003": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
+    },
     "greenhouse:affirm:7864959003": {
       "closed": "2026-10-22",
       "seen_at": "2026-10-20T22:08:04+00:00"
@@ -128151,6 +128157,9 @@
     "greenhouse:cloudflare:7954702": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
+    "greenhouse:cloudflare:7956845": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
+    },
     "greenhouse:cloudflare:7958083": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -128597,6 +128606,9 @@
     },
     "greenhouse:cloudflare:8140643": {
       "seen_at": "2026-10-24T02:16:30+00:00"
+    },
+    "greenhouse:cloudflare:8140704": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
     },
     "greenhouse:cloudflare:8141364": {
       "seen_at": "2026-09-03T05:50:03+00:00"
@@ -166444,7 +166456,7 @@
       "seen_at": "2026-10-19T19:56:58+00:00"
     },
     "oracle:dell:300718": {
-      "missing": "2026-10-23T20:56:42+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-22T14:47:21+00:00"
     },
     "oracle:dell:300748": {
@@ -193412,6 +193424,9 @@
     },
     "workday:adobe:R171421": {
       "seen_at": "2026-08-26T08:30:25+00:00"
+    },
+    "workday:adobe:R171422": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
     },
     "workday:adobe:R171425": {
       "seen_at": "2026-09-02T15:09:24+00:00"
@@ -244274,6 +244289,12 @@
     },
     "workday:micron:JR109884": {
       "seen_at": "2026-08-31T13:40:08+00:00"
+    },
+    "workday:micron:JR109885": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
+    },
+    "workday:micron:JR109887": {
+      "seen_at": "2026-10-24T03:07:16+00:00"
     },
     "workday:micron:JR109888": {
       "seen_at": "2026-08-25T07:44:58+00:00"
