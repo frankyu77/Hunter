@@ -25578,7 +25578,8 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "ReadTimeout: HTTPSConnectionPool(host='iawmqy.fa.ocs.oraclecloud.com', port=443): Read timed out. (read timeout=30)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -30315,7 +30316,6 @@
         1
       ],
       "greenhouse/airbnb": [
-        15,
         6,
         14,
         14,
@@ -30364,7 +30364,8 @@
         17,
         0,
         6,
-        2
+        2,
+        7
       ],
       "greenhouse/anthropic": [
         0,
@@ -30468,7 +30469,13 @@
         5,
         5,
         5,
-        5
+        5,
+        20,
+        20,
+        17,
+        17,
+        17,
+        17
       ],
       "greenhouse/chime": [
         15,
@@ -30623,7 +30630,6 @@
         8,
         8,
         8,
-        8,
         1,
         11,
         11,
@@ -30665,7 +30671,8 @@
         15,
         9,
         15,
-        7
+        7,
+        15
       ],
       "greenhouse/dropbox": [
         0,
@@ -31123,7 +31130,6 @@
         15
       ],
       "greenhouse/stripe": [
-        5,
         7,
         7,
         6,
@@ -31172,7 +31178,8 @@
         4,
         6,
         9,
-        0
+        0,
+        5
       ],
       "greenhouse/twilio": [
         1,
@@ -31744,8 +31751,6 @@
       ],
       "smartrecruiters/ServiceNow": [
         0,
-        0,
-        0,
         13,
         13,
         13,
@@ -31792,7 +31797,9 @@
         7,
         2,
         2,
-        15
+        15,
+        15,
+        9
       ],
       "tiktok/tiktok": [
         0,
@@ -121084,7 +121091,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:airbnb:8131310": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-16T15:16:52+00:00"
     },
     "greenhouse:airbnb:8140993": {
@@ -126968,11 +126975,11 @@
       "seen_at": "2026-09-29T20:54:01+00:00"
     },
     "greenhouse:brex:8672976002": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-02T20:23:42+00:00"
     },
     "greenhouse:brex:8672997002": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-02T20:23:42+00:00"
     },
     "greenhouse:brex:8687485002": {
@@ -127411,19 +127418,19 @@
       "seen_at": "2026-10-06T18:24:13+00:00"
     },
     "greenhouse:brex:8871793002": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-06T19:14:21+00:00"
     },
     "greenhouse:brex:8871795002": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-06T19:14:21+00:00"
     },
     "greenhouse:brex:8871796002": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-06T19:24:36+00:00"
     },
     "greenhouse:brex:8871800002": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-06T19:24:36+00:00"
     },
     "greenhouse:brex:8877364002": {
@@ -136915,7 +136922,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8048507": {
-      "missing": "2026-10-23T20:26:32+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8048543": {
@@ -154008,7 +154015,7 @@
       "seen_at": "2026-10-23T09:26:01+00:00"
     },
     "greenhouse:stripe:8129958": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-18T19:25:22+00:00"
     },
     "greenhouse:stripe:8130052": {
@@ -185299,7 +185306,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000147314789": {
-      "missing": "2026-10-23T20:16:51+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000147325353": {
@@ -186588,7 +186595,7 @@
       "seen_at": "2026-10-14T18:57:47+00:00"
     },
     "smartrecruiters:ServiceNow:744000155594219": {
-      "missing": "2026-10-23T20:26:32+00:00",
+      "closed": "2026-10-23",
       "seen_at": "2026-10-14T18:57:47+00:00"
     },
     "smartrecruiters:ServiceNow:744000155594899": {
