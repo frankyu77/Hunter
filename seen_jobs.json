@@ -25698,7 +25698,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -30910,7 +30911,8 @@
         18,
         21,
         6,
-        20
+        20,
+        12
       ],
       "atlassian/atlassian": [
         10,
@@ -32627,6 +32629,7 @@
         14,
         14,
         15,
+        17,
         17
       ],
       "workday/autodesk": [
@@ -32821,7 +32824,6 @@
         9
       ],
       "workday/ebay": [
-        2,
         5,
         5,
         2,
@@ -32870,7 +32872,8 @@
         1,
         15,
         16,
-        0
+        0,
+        17
       ],
       "workday/expedia-group": [
         13,
@@ -55472,7 +55475,7 @@
       "seen_at": "2026-09-08T14:36:59+00:00"
     },
     "ashby:wealthsimple:581eee5b-329b-4de3-a9ac-72bf9ce0c654": {
-      "missing": "2026-10-26T04:15:57+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "ashby:wealthsimple:5aa8ef88-97a2-4c4b-a6e0-2a9709083b07": {
@@ -65517,6 +65520,12 @@
     "eightfold:microsoft:1970393557046358": {
       "seen_at": "2026-10-26T03:15:57+00:00"
     },
+    "eightfold:microsoft:1970393557046579": {
+      "seen_at": "2026-10-26T10:26:00+00:00"
+    },
+    "eightfold:microsoft:1970393557046593": {
+      "seen_at": "2026-10-26T10:26:00+00:00"
+    },
     "eightfold:microsoft:1970393557047001": {
       "seen_at": "2026-10-26T09:26:04+00:00"
     },
@@ -69203,13 +69212,13 @@
       "seen_at": "2026-10-26T08:55:42+00:00"
     },
     "eightfold:qualcomm:446721734450": {
+      "missing": "2026-10-26T10:26:00+00:00",
       "seen_at": "2026-10-26T02:35:51+00:00"
     },
     "eightfold:qualcomm:446721734550": {
       "seen_at": "2026-10-26T05:55:23+00:00"
     },
     "eightfold:qualcomm:446721734571": {
-      "missing": "2026-10-26T10:15:22+00:00",
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
     "eightfold:qualcomm:446721737748": {
@@ -117406,7 +117415,7 @@
       "seen_at": "2026-09-25T10:32:55+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6856cfb6-8073-4e85-be17-6846ca432c05": {
-      "missing": "2026-10-26T04:25:55+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-23T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6889390f-30ad-42a0-9126-421ad4550b1e": {
@@ -118284,7 +118293,7 @@
       "seen_at": "2026-10-25T04:55:40+00:00"
     },
     "github:vanshb03/Summer2027-Internships:af22a82a-63b4-496a-9adc-ace82bc40b30": {
-      "missing": "2026-10-26T04:25:55+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-17T18:36:04+00:00"
     },
     "github:vanshb03/Summer2027-Internships:af4b7f97-fb40-4eb9-af1c-83d4a4349ba0": {
@@ -118406,7 +118415,7 @@
       "seen_at": "2026-10-17T18:36:04+00:00"
     },
     "github:vanshb03/Summer2027-Internships:ba2d6ec7-8972-4871-aee8-612c9cce02c7": {
-      "missing": "2026-10-26T04:25:55+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-19T00:55:58+00:00"
     },
     "github:vanshb03/Summer2027-Internships:ba604553-3741-4561-a3c6-20275c29aee5": {
@@ -119059,7 +119068,7 @@
       "seen_at": "2026-10-05T15:53:37+00:00"
     },
     "github:vanshb03/Summer2027-Internships:ef18f6a5-cb38-496a-875f-d4d2598b811a": {
-      "missing": "2026-10-26T04:25:55+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-22T02:36:24+00:00"
     },
     "github:vanshb03/Summer2027-Internships:f034eba7-acb0-40ff-a2a4-e230ad4de31a": {
@@ -166208,6 +166217,9 @@
     "oracle:dell:299734": {
       "seen_at": "2026-10-20T10:06:30+00:00"
     },
+    "oracle:dell:299735": {
+      "seen_at": "2026-10-26T10:26:00+00:00"
+    },
     "oracle:dell:299739": {
       "seen_at": "2026-10-20T10:15:54+00:00"
     },
@@ -166877,7 +166889,6 @@
       "seen_at": "2026-10-06T03:43:20+00:00"
     },
     "oracle:dell:R277767": {
-      "missing": "2026-10-20T21:26:36+00:00",
       "seen_at": "2026-10-05T09:54:01+00:00"
     },
     "oracle:dell:R277929": {
@@ -172548,6 +172559,9 @@
     },
     "oracle:honeywell:160114": {
       "seen_at": "2026-10-14T06:26:31+00:00"
+    },
+    "oracle:honeywell:160115": {
+      "seen_at": "2026-10-26T10:26:00+00:00"
     },
     "oracle:honeywell:160117": {
       "seen_at": "2026-10-14T05:56:35+00:00"
@@ -192153,7 +192167,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7691180167225739573": {
-      "missing": "2026-10-26T04:25:55+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7691181055466588421": {
@@ -216182,7 +216196,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:ebay:R0076499": {
-      "missing": "2026-10-26T04:15:57+00:00",
+      "closed": "2026-10-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:ebay:R0076529": {
