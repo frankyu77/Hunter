@@ -28392,7 +28392,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -30117,7 +30118,6 @@
       "greenhouse/doordashusa": [
         12,
         12,
-        12,
         13,
         13,
         13,
@@ -30164,7 +30164,8 @@
         19,
         19,
         19,
-        4
+        4,
+        19
       ],
       "greenhouse/dropbox": [
         0,
@@ -30432,8 +30433,6 @@
         13,
         13,
         13,
-        13,
-        13,
         14,
         14,
         0,
@@ -30477,7 +30476,9 @@
         19,
         19,
         19,
-        19
+        19,
+        19,
+        6
       ],
       "greenhouse/pinterest": [
         0,
@@ -30773,7 +30774,8 @@
         4,
         1,
         27,
-        12
+        12,
+        29
       ],
       "greenhouse/vercel": [
         1,
@@ -31318,8 +31320,6 @@
         13
       ],
       "smartrecruiters/ServiceNow": [
-        15,
-        15,
         9,
         15,
         0,
@@ -31367,7 +31367,9 @@
         19,
         19,
         5,
-        10
+        10,
+        12,
+        0
       ],
       "tiktok/tiktok": [
         0,
@@ -31475,7 +31477,6 @@
       ],
       "workday/becton-dickinson": [
         4,
-        4,
         5,
         4,
         4,
@@ -31523,6 +31524,7 @@
         4,
         7,
         5,
+        0,
         0
       ],
       "workday/boeing": [
@@ -68146,6 +68148,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318877206": {
+      "missing": "2026-10-28T04:36:45+00:00",
       "seen_at": "2026-10-16T18:16:22+00:00"
     },
     "eightfold:netflix:790318883356": {
@@ -68171,9 +68174,11 @@
       "seen_at": "2026-10-16T07:35:50+00:00"
     },
     "eightfold:netflix:790318920828": {
+      "missing": "2026-10-28T04:36:45+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318922379": {
+      "missing": "2026-10-28T04:36:45+00:00",
       "seen_at": "2026-10-15T12:46:15+00:00"
     },
     "eightfold:netflix:790318927263": {
@@ -68254,6 +68259,7 @@
       "seen_at": "2026-10-21T23:55:24+00:00"
     },
     "eightfold:netflix:790319065455": {
+      "missing": "2026-10-28T04:36:45+00:00",
       "seen_at": "2026-10-22T13:46:52+00:00"
     },
     "eightfold:netflix:790319069839": {
@@ -70580,6 +70586,12 @@
     },
     "eightfold:qualcomm:446721765270": {
       "seen_at": "2026-10-28T00:07:58+00:00"
+    },
+    "eightfold:qualcomm:446721765966": {
+      "seen_at": "2026-10-28T04:36:45+00:00"
+    },
+    "eightfold:qualcomm:446721765981": {
+      "seen_at": "2026-10-28T04:36:45+00:00"
     },
     "eightfold:qualcomm:446721765985": {
       "seen_at": "2026-10-28T04:25:54+00:00"
@@ -142678,7 +142690,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:7984848": {
-      "missing": "2026-10-27T22:26:00+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:7990832": {
@@ -147947,6 +147959,9 @@
     "greenhouse:gitlab:8911684002": {
       "seen_at": "2026-10-23T16:17:02+00:00"
     },
+    "greenhouse:gitlab:8916232002": {
+      "seen_at": "2026-10-28T04:36:45+00:00"
+    },
     "greenhouse:hootsuite:8002584": {
       "seen_at": "2026-09-06T09:25:31+00:00"
     },
@@ -152266,7 +152281,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8103816": {
-      "missing": "2026-10-27T22:35:49+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8103955": {
@@ -153360,7 +153375,7 @@
       "seen_at": "2026-10-22T16:47:15+00:00"
     },
     "greenhouse:okta:8306330": {
-      "missing": "2026-10-27T22:26:00+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-10-21T17:26:09+00:00"
     },
     "greenhouse:okta:8306620": {
@@ -162332,7 +162347,7 @@
       "seen_at": "2026-09-30T20:14:27+00:00"
     },
     "greenhouse:twilio:8201630": {
-      "missing": "2026-10-27T22:26:00+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "greenhouse:twilio:8201677": {
@@ -185907,6 +185922,9 @@
     "oracle:oracle:347555": {
       "seen_at": "2026-10-15T02:36:23+00:00"
     },
+    "oracle:oracle:347556": {
+      "seen_at": "2026-10-28T04:36:45+00:00"
+    },
     "oracle:oracle:347558": {
       "seen_at": "2026-10-14T17:56:54+00:00"
     },
@@ -193130,7 +193148,7 @@
       "seen_at": "2026-10-15T18:36:27+00:00"
     },
     "smartrecruiters:ServiceNow:744000155831265": {
-      "missing": "2026-10-27T22:26:00+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-10-15T18:56:10+00:00"
     },
     "smartrecruiters:ServiceNow:744000155835759": {
@@ -193729,7 +193747,7 @@
       "seen_at": "2026-10-27T21:55:59+00:00"
     },
     "smartrecruiters:ServiceNow:744000157899260": {
-      "missing": "2026-10-27T22:26:00+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-10-27T21:55:59+00:00"
     },
     "smartrecruiters:ServiceNow:744000157900224": {
@@ -203196,6 +203214,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD97787": {
+      "missing": "2026-10-28T04:36:45+00:00",
       "seen_at": "2026-10-20T23:07:15+00:00"
     },
     "workday:autodesk:26WD97978": {
@@ -206056,7 +206075,7 @@
       "seen_at": "2026-10-23T18:26:43+00:00"
     },
     "workday:bdx:R-558633": {
-      "missing": "2026-10-27T22:35:49+00:00",
+      "closed": "2026-10-27",
       "seen_at": "2026-10-26T23:45:17+00:00"
     },
     "workday:bdx:R-558659": {
