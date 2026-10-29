@@ -29173,7 +29173,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -29185,8 +29186,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -29673,6 +29673,28 @@
         "name": "Brain Co.",
         "status": "active"
       },
+      "ashby/f7d8749a-72d6-407c-bf98-292ea630c73a": {
+        "added": "2026-10-29T01:07:17+00:00",
+        "board": {
+          "company": "f7d8749a-72d6-407c-bf98-292ea630c73a",
+          "type": "ashby"
+        },
+        "how": "auto",
+        "matched": 9,
+        "name": "Shield AI",
+        "status": "active"
+      },
+      "ashby/quadric": {
+        "added": "2026-10-29T01:07:17+00:00",
+        "board": {
+          "company": "quadric",
+          "type": "ashby"
+        },
+        "how": "auto",
+        "matched": 4,
+        "name": "Quadric",
+        "status": "active"
+      },
       "greenhouse/asteraearlycareer2027": {
         "added": "2026-10-14T00:15:59+00:00",
         "board": {
@@ -29694,6 +29716,21 @@
         "how": "auto",
         "matched": 8,
         "name": "Cirrus Logic",
+        "status": "active"
+      },
+      "smartrecruiters/intuitive": {
+        "added": "2026-10-29T01:07:17+00:00",
+        "board": {
+          "company": "Intuitive",
+          "countries": [
+            "ca",
+            "us"
+          ],
+          "type": "smartrecruiters"
+        },
+        "how": "auto",
+        "matched": 4,
+        "name": "Intuitive Surgical",
         "status": "active"
       },
       "smartrecruiters/renesaselectronics": {
@@ -29782,7 +29819,7 @@
         "status": "paused"
       }
     },
-    "auto_sources_checked": "2026-10-28T01:07:06+00:00",
+    "auto_sources_checked": "2026-10-29T01:07:17+00:00",
     "dashboard_built_at": "2026-10-29T00:45:53+00:00",
     "discovery": {
       "candidates": {
@@ -33677,7 +33714,6 @@
       ],
       "workday/expedia-group": [
         17,
-        17,
         12,
         11,
         17,
@@ -33725,7 +33761,8 @@
         6,
         12,
         20,
-        20
+        20,
+        0
       ],
       "workday/general-motors": [
         0,
@@ -58281,6 +58318,9 @@
     "ashby:snowflake:b47c2374-1a78-4356-95d8-50cf6a5c7193": {
       "seen_at": "2026-10-28T19:26:54+00:00"
     },
+    "ashby:snowflake:b4e3fdf1-8e22-4f20-a7a3-776903c0b07d": {
+      "seen_at": "2026-10-29T01:07:17+00:00"
+    },
     "ashby:snowflake:b59a856f-2132-4c4e-957b-d51304bc4631": {
       "seen_at": "2026-09-30T20:04:05+00:00"
     },
@@ -58327,6 +58367,9 @@
     },
     "ashby:snowflake:bd570db9-73d3-4aa9-a238-307407677cc5": {
       "seen_at": "2026-10-20T16:56:50+00:00"
+    },
+    "ashby:snowflake:be15bb2b-f43e-427a-9c59-9d09eab48d66": {
+      "seen_at": "2026-10-29T01:07:17+00:00"
     },
     "ashby:snowflake:be507782-82b6-44bc-a3fb-51567d97bbc2": {
       "seen_at": "2026-10-27T02:06:50+00:00"
@@ -70912,7 +70955,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318448253": {
-      "missing": "2026-10-29T00:45:53+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318463791": {
@@ -71055,14 +71097,12 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318598901": {
-      "missing": "2026-10-29T00:45:53+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318600987": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318601563": {
-      "missing": "2026-10-29T00:45:53+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318602179": {
@@ -71250,7 +71290,6 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318875539": {
-      "missing": "2026-10-29T00:45:53+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318877206": {
@@ -100118,6 +100157,7 @@
       "seen_at": "2026-09-26T00:52:47+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3475b425-7296-4926-a897-0f74a61038af": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-02T23:04:18+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3486525d-1f09-4720-a77a-ba0caba47dd0": {
@@ -104732,6 +104772,7 @@
       "seen_at": "2026-10-16T23:16:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5f8e95d8-b5c0-4d21-9ec0-a25bd2e3943f": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-23T01:36:08+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5f9b61ea-c697-42d6-a9f1-fc9dbc1e6318": {
@@ -105459,6 +105500,7 @@
       "seen_at": "2026-10-23T14:57:26+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:6610fc1e-6cb7-4c46-984b-e47a167d4860": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-23T12:07:47+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:66154b24-f9a8-43fb-8911-8bffb75278df": {
@@ -105566,6 +105608,7 @@
       "seen_at": "2026-09-21T01:36:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:67257e1c-0c0e-4806-be26-e049ce9d65d1": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-17T09:04:31+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:67340ee9-6aab-4f03-995d-9c97cc144f15": {
@@ -105761,6 +105804,7 @@
       "seen_at": "2026-09-04T00:29:45+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:69271ed8-2aca-42a9-88ae-860250a656f9": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-21T22:36:20+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:692cb87c-949d-4c21-bbb0-8aec9daaa90e": {
@@ -160044,6 +160088,7 @@
       "seen_at": "2026-09-25T19:26:27+00:00"
     },
     "greenhouse:robinhood:8188665": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-01T17:55:05+00:00"
     },
     "greenhouse:robinhood:8189005": {
@@ -199378,6 +199423,7 @@
       "seen_at": "2026-10-28T19:56:38+00:00"
     },
     "smartrecruiters:ServiceNow:744000158379665": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-28T20:17:24+00:00"
     },
     "smartrecruiters:ServiceNow:744000158381779": {
@@ -199406,6 +199452,9 @@
     },
     "smartrecruiters:ServiceNow:744000158405759": {
       "seen_at": "2026-10-28T23:55:48+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000158408529": {
+      "seen_at": "2026-10-29T01:07:17+00:00"
     },
     "tiktok:tiktok:7221152612590209338": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -207873,6 +207922,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:autodesk:26WD100820": {
+      "missing": "2026-10-29T01:07:16+00:00",
       "seen_at": "2026-10-28T21:07:01+00:00"
     },
     "workday:autodesk:26WD100826": {
@@ -231788,7 +231838,7 @@
       "seen_at": "2026-10-28T17:36:48+00:00"
     },
     "workday:expedia:R-110897": {
-      "missing": "2026-10-28T18:57:08+00:00",
+      "closed": "2026-10-28",
       "seen_at": "2026-10-28T17:56:57+00:00"
     },
     "workday:expedia:R-110909": {
@@ -296856,6 +296906,9 @@
     },
     "workday:salesforce:JR364794": {
       "seen_at": "2026-10-22T07:26:21+00:00"
+    },
+    "workday:salesforce:JR364801": {
+      "seen_at": "2026-10-29T01:07:17+00:00"
     },
     "workday:salesforce:JR364808": {
       "seen_at": "2026-10-21T15:36:16+00:00"
