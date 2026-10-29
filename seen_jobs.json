@@ -29482,7 +29482,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
@@ -29927,7 +29927,8 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 401 from rbc.wd3.myworkdayjobs.com: {\"errorCode\":\"HTTP_401\",\"errorCaseId\":\"F98150MVTIKAH1\",\"httpStatus\":401,\"message\":\"Unable to verify credentials for syst",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -32367,7 +32368,8 @@
         1,
         5,
         14,
-        30
+        30,
+        15
       ],
       "greenhouse/affirm": [
         14,
@@ -132779,7 +132781,7 @@
       "seen_at": "2026-09-17T18:48:51+00:00"
     },
     "greenhouse:adyen:8098671": {
-      "missing": "2026-10-29T06:26:04+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:adyen:8099261": {
@@ -159483,6 +159485,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8205425": {
+      "missing": "2026-10-29T12:26:51+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8205430": {
@@ -177971,6 +177974,7 @@
       "seen_at": "2026-09-04T00:29:45+00:00"
     },
     "lever:palantir:599b1907-aba1-4303-837b-66e69a521636": {
+      "missing": "2026-10-29T12:26:51+00:00",
       "seen_at": "2026-09-29T10:23:45+00:00"
     },
     "lever:palantir:5a28f3a5-8655-47f2-ab19-a79b8a319da8": {
@@ -179584,6 +179588,9 @@
     },
     "oracle:dell:295690": {
       "seen_at": "2026-09-21T18:59:46+00:00"
+    },
+    "oracle:dell:295716": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
     },
     "oracle:dell:295735": {
       "seen_at": "2026-09-01T06:52:55+00:00"
@@ -181523,8 +181530,14 @@
     "oracle:dell:300866": {
       "seen_at": "2026-10-22T20:26:23+00:00"
     },
+    "oracle:dell:300867": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
+    },
     "oracle:dell:300869": {
       "seen_at": "2026-10-22T20:36:21+00:00"
+    },
+    "oracle:dell:300870": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
     },
     "oracle:dell:300879": {
       "seen_at": "2026-10-22T21:06:58+00:00"
@@ -185855,6 +185868,9 @@
     },
     "oracle:honeywell:159004": {
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "oracle:honeywell:159007": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
     },
     "oracle:honeywell:159008": {
       "seen_at": "2026-10-26T10:45:32+00:00"
@@ -199815,6 +199831,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000153568790": {
+      "missing": "2026-10-29T12:26:51+00:00",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000153587209": {
@@ -200467,6 +200484,9 @@
     },
     "smartrecruiters:Intuitive:744000158426640": {
       "seen_at": "2026-10-29T01:36:16+00:00"
+    },
+    "smartrecruiters:Intuitive:744000158504640": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000118870517": {
       "seen_at": "2026-10-06T03:43:20+00:00"
@@ -201966,6 +201986,9 @@
     },
     "smartrecruiters:RenesasElectronics:744000158404229": {
       "seen_at": "2026-10-28T23:26:00+00:00"
+    },
+    "smartrecruiters:RenesasElectronics:744000158504449": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -237104,7 +237127,6 @@
       "seen_at": "2026-10-16T10:25:47+00:00"
     },
     "workday:expedia:R-110640": {
-      "closed": "2026-10-21",
       "seen_at": "2026-10-15T20:46:31+00:00"
     },
     "workday:expedia:R-110642": {
@@ -283571,6 +283593,9 @@
     "workday:ngc:R10256293": {
       "seen_at": "2026-10-15T20:36:54+00:00"
     },
+    "workday:ngc:R10256295": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
+    },
     "workday:ngc:R10256296": {
       "seen_at": "2026-10-16T13:36:22+00:00"
     },
@@ -295030,7 +295055,6 @@
       "seen_at": "2026-10-08T19:06:35+00:00"
     },
     "workday:paypal:R0137439": {
-      "missing": "2026-10-29T12:17:03+00:00",
       "seen_at": "2026-10-28T07:46:25+00:00"
     },
     "workday:paypal:R0137440": {
@@ -295744,6 +295768,7 @@
       "seen_at": "2026-10-20T21:37:48+00:00"
     },
     "workday:paypal:R0138262": {
+      "missing": "2026-10-29T12:26:51+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:paypal:R0138263": {
@@ -317034,6 +317059,12 @@
     },
     "workday:td:R_1519614": {
       "seen_at": "2026-10-28T20:56:05+00:00"
+    },
+    "workday:td:R_1519658": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
+    },
+    "workday:td:R_1519659": {
+      "seen_at": "2026-10-29T12:26:51+00:00"
     },
     "workday:td:R_1519660": {
       "seen_at": "2026-10-29T12:17:04+00:00"
