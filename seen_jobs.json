@@ -30307,7 +30307,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -30319,7 +30320,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -34176,10 +34178,6 @@
         13
       ],
       "greenhouse/anthropic": [
-        0,
-        10,
-        14,
-        6,
         14,
         12,
         11,
@@ -34225,7 +34223,11 @@
         1,
         15,
         14,
-        7
+        7,
+        8,
+        6,
+        6,
+        29
       ],
       "greenhouse/asana": [
         0,
@@ -34839,7 +34841,6 @@
         21
       ],
       "greenhouse/okta": [
-        14,
         15,
         15,
         15,
@@ -34888,7 +34889,8 @@
         21,
         21,
         21,
-        9
+        9,
+        21
       ],
       "greenhouse/pinterest": [
         0,
@@ -34939,7 +34941,8 @@
         23,
         27,
         0,
-        28
+        28,
+        29
       ],
       "greenhouse/reddit": [
         3,
@@ -35013,6 +35016,7 @@
         22,
         14,
         29,
+        15,
         15
       ],
       "greenhouse/samsara": [
@@ -36539,7 +36543,6 @@
         13,
         13,
         13,
-        13,
         14,
         14,
         14,
@@ -36580,6 +36583,7 @@
         9,
         20,
         15,
+        21,
         21,
         21,
         21,
@@ -139744,6 +139748,7 @@
       "seen_at": "2026-09-04T00:29:45+00:00"
     },
     "greenhouse:anthropic:5163060008": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-20T20:56:54+00:00"
     },
     "greenhouse:anthropic:5164551008": {
@@ -140893,7 +140898,7 @@
       "seen_at": "2026-10-20T16:56:50+00:00"
     },
     "greenhouse:anthropic:5398280008": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-20T20:56:54+00:00"
     },
     "greenhouse:anthropic:5398328008": {
@@ -140912,11 +140917,11 @@
       "seen_at": "2026-10-23T16:17:02+00:00"
     },
     "greenhouse:anthropic:5399158008": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-23T15:37:17+00:00"
     },
     "greenhouse:anthropic:5399162008": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-23T15:37:17+00:00"
     },
     "greenhouse:anthropic:5399223008": {
@@ -141573,7 +141578,7 @@
       "seen_at": "2026-10-14T10:55:54+00:00"
     },
     "greenhouse:anthropic:5439804008": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-09-30T15:44:16+00:00"
     },
     "greenhouse:anthropic:5439830008": {
@@ -157665,6 +157670,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8177115": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8177119": {
@@ -164821,7 +164827,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8142022": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8142155": {
@@ -166567,7 +166573,7 @@
       "seen_at": "2026-10-02T22:14:15+00:00"
     },
     "greenhouse:pinterest:8234002": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-09-30T01:23:46+00:00"
     },
     "greenhouse:pinterest:8234110": {
@@ -169263,7 +169269,7 @@
       "seen_at": "2026-10-14T18:18:21+00:00"
     },
     "greenhouse:roblox:8260221": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:roblox:8261393": {
@@ -183803,6 +183809,7 @@
       "seen_at": "2026-10-22T13:46:52+00:00"
     },
     "oracle:dell:294368": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-29T15:57:07+00:00"
     },
     "oracle:dell:294441": {
@@ -183937,12 +183944,15 @@
       "seen_at": "2026-09-04T04:55:24+00:00"
     },
     "oracle:dell:295242": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-29T15:47:08+00:00"
     },
     "oracle:dell:295243": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-29T15:57:07+00:00"
     },
     "oracle:dell:295245": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-29T16:16:36+00:00"
     },
     "oracle:dell:295321": {
@@ -184397,6 +184407,7 @@
       "seen_at": "2026-10-28T12:56:36+00:00"
     },
     "oracle:dell:297513": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-25T13:15:28+00:00"
     },
     "oracle:dell:297519": {
@@ -201178,6 +201189,9 @@
     "oracle:oracle:349077": {
       "seen_at": "2026-10-29T05:26:49+00:00"
     },
+    "oracle:oracle:349078": {
+      "seen_at": "2026-10-30T00:07:01+00:00"
+    },
     "oracle:oracle:349080": {
       "seen_at": "2026-10-28T11:25:34+00:00"
     },
@@ -208802,6 +208816,7 @@
       "seen_at": "2026-10-16T03:46:27+00:00"
     },
     "smartrecruiters:ServiceNow:744000155909609": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-16T05:15:42+00:00"
     },
     "smartrecruiters:ServiceNow:744000156018889": {
@@ -216929,6 +216944,9 @@
     },
     "workday:adobe:R172474": {
       "seen_at": "2026-10-06T05:43:47+00:00"
+    },
+    "workday:adobe:R172476": {
+      "seen_at": "2026-10-30T00:07:01+00:00"
     },
     "workday:adobe:R172482": {
       "seen_at": "2026-10-06T16:14:01+00:00"
@@ -242054,6 +242072,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:expedia:R-109835": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-109837": {
@@ -242064,6 +242083,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-109846": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-08T11:25:26+00:00"
     },
     "workday:expedia:R-109852": {
@@ -242257,6 +242277,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "workday:expedia:R-110171": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-110175": {
@@ -242574,6 +242595,7 @@
       "seen_at": "2026-10-26T14:16:50+00:00"
     },
     "workday:expedia:R-110835": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-26T00:05:37+00:00"
     },
     "workday:expedia:R-110838": {
@@ -309560,6 +309582,9 @@
     "workday:salesforce:JR366396": {
       "seen_at": "2026-10-29T23:55:45+00:00"
     },
+    "workday:salesforce:JR366397": {
+      "seen_at": "2026-10-30T00:07:01+00:00"
+    },
     "workday:snapchat:H126SWEE3": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -309805,7 +309830,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:snapchat:R0046000": {
-      "missing": "2026-10-29T17:56:16+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:snapchat:R0046013": {
@@ -326616,6 +326641,7 @@
       "seen_at": "2026-10-21T00:16:46+00:00"
     },
     "workday:zoom:R19778": {
+      "missing": "2026-10-30T00:07:00+00:00",
       "seen_at": "2026-10-21T08:55:48+00:00"
     },
     "workday:zoom:R19779": {
