@@ -30401,7 +30401,8 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -34520,7 +34521,6 @@
         14
       ],
       "greenhouse/databricks": [
-        11,
         8,
         6,
         0,
@@ -34569,7 +34569,8 @@
         2,
         4,
         23,
-        25
+        25,
+        31
       ],
       "greenhouse/datadog": [
         0,
@@ -35355,7 +35356,6 @@
       "greenhouse/waymo": [
         8,
         8,
-        8,
         11,
         11,
         11,
@@ -35402,6 +35402,7 @@
         20,
         20,
         20,
+        21,
         21
       ],
       "greenhouse/xai": [
@@ -65441,6 +65442,7 @@
       "seen_at": "2026-10-23T23:07:09+00:00"
     },
     "atlassian:atlassian:26992": {
+      "missing": "2026-10-30T03:26:00+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26993": {
@@ -150228,7 +150230,7 @@
       "seen_at": "2026-09-04T00:29:45+00:00"
     },
     "greenhouse:databricks:8567849002": {
-      "missing": "2026-10-29T21:16:41+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "greenhouse:databricks:8567957002": {
@@ -177119,7 +177121,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8198218": {
-      "missing": "2026-10-29T21:16:41+00:00",
+      "closed": "2026-10-29",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8198582": {
@@ -192422,6 +192424,9 @@
     },
     "oracle:honeywell:160324": {
       "seen_at": "2026-10-29T05:56:24+00:00"
+    },
+    "oracle:honeywell:160325": {
+      "seen_at": "2026-10-30T03:26:00+00:00"
     },
     "oracle:honeywell:160328": {
       "seen_at": "2026-10-22T11:56:26+00:00"
@@ -274030,6 +274035,9 @@
     },
     "workday:micron:JR115401": {
       "seen_at": "2026-10-27T16:09:42+00:00"
+    },
+    "workday:micron:JR115402": {
+      "seen_at": "2026-10-30T03:26:00+00:00"
     },
     "workday:micron:JR115446": {
       "seen_at": "2026-10-24T06:08:37+00:00"
