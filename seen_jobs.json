@@ -30451,7 +30451,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -34467,7 +34468,6 @@
         21
       ],
       "greenhouse/adyen": [
-        2,
         0,
         4,
         0,
@@ -34516,7 +34516,8 @@
         0,
         28,
         15,
-        0
+        0,
+        25
       ],
       "greenhouse/affirm": [
         14,
@@ -34774,7 +34775,8 @@
         25,
         30,
         5,
-        31
+        31,
+        0
       ],
       "greenhouse/coinbase": [
         1,
@@ -34805,7 +34807,6 @@
         1
       ],
       "greenhouse/databricks": [
-        10,
         0,
         1,
         7,
@@ -34854,7 +34855,8 @@
         31,
         7,
         27,
-        1
+        1,
+        22
       ],
       "greenhouse/datadog": [
         0,
@@ -35003,7 +35005,6 @@
         21
       ],
       "greenhouse/elastic": [
-        11,
         12,
         12,
         12,
@@ -35052,7 +35053,8 @@
         20,
         21,
         21,
-        21
+        21,
+        22
       ],
       "greenhouse/figma": [
         0,
@@ -54324,6 +54326,9 @@
     },
     "amazon:amazon:10593473": {
       "seen_at": "2026-10-30T15:46:07+00:00"
+    },
+    "amazon:amazon:10593476": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
     },
     "amazon:amazon:10593498": {
       "seen_at": "2026-10-30T15:16:17+00:00"
@@ -98295,7 +98300,7 @@
       "seen_at": "2026-09-23T23:03:40+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d88515c5-27c1-4151-849e-66ee6c00bec5": {
-      "missing": "2026-10-30T10:06:24+00:00",
+      "closed": "2026-10-30",
       "seen_at": "2026-10-26T15:07:48+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d899f8fd-9b88-4410-8fe0-21f2f0ac1d3d": {
@@ -137115,7 +137120,7 @@
       "seen_at": "2026-09-04T19:20:07+00:00"
     },
     "greenhouse:adyen:7574487": {
-      "missing": "2026-10-30T09:56:27+00:00",
+      "closed": "2026-10-30",
       "seen_at": "2026-10-05T09:03:36+00:00"
     },
     "greenhouse:adyen:7582298": {
@@ -148199,7 +148204,7 @@
       "seen_at": "2026-10-22T09:26:01+00:00"
     },
     "greenhouse:cloudflare:8275944": {
-      "missing": "2026-10-30T10:06:24+00:00",
+      "closed": "2026-10-30",
       "seen_at": "2026-10-29T13:26:11+00:00"
     },
     "greenhouse:cloudflare:8276155": {
@@ -152875,7 +152880,7 @@
       "seen_at": "2026-10-20T16:07:26+00:00"
     },
     "greenhouse:databricks:8873053002": {
-      "missing": "2026-10-30T09:56:27+00:00",
+      "closed": "2026-10-30",
       "seen_at": "2026-10-07T11:53:41+00:00"
     },
     "greenhouse:databricks:8874579002": {
@@ -158926,7 +158931,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8214702": {
-      "missing": "2026-10-30T10:06:24+00:00",
+      "closed": "2026-10-30",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8220098": {
@@ -167907,6 +167912,9 @@
     },
     "greenhouse:pinterest:8324804": {
       "seen_at": "2026-10-30T01:16:32+00:00"
+    },
+    "greenhouse:pinterest:8325601": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
     },
     "greenhouse:pinterest:8331501": {
       "seen_at": "2026-10-29T14:56:57+00:00"
@@ -201568,6 +201576,9 @@
     "oracle:oracle:348041": {
       "seen_at": "2026-10-21T17:26:09+00:00"
     },
+    "oracle:oracle:348042": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
+    },
     "oracle:oracle:348045": {
       "seen_at": "2026-10-20T20:26:59+00:00"
     },
@@ -202940,7 +202951,6 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "oracle:texas-instruments:25011536": {
-      "missing": "2026-10-30T15:56:26+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "oracle:texas-instruments:25011604": {
@@ -204123,7 +204133,6 @@
       "seen_at": "2026-09-16T06:48:59+00:00"
     },
     "oracle:texas-instruments:25017995": {
-      "missing": "2026-10-30T15:08:45+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "oracle:texas-instruments:25017996": {
@@ -204359,7 +204368,6 @@
       "seen_at": "2026-09-29T14:14:28+00:00"
     },
     "oracle:texas-instruments:25018195": {
-      "closed": "2026-10-29",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "oracle:texas-instruments:25018196": {
@@ -206572,6 +206580,7 @@
       "seen_at": "2026-10-29T13:07:15+00:00"
     },
     "smartrecruiters:Intuitive:744000157921189": {
+      "missing": "2026-10-30T16:07:34+00:00",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000158032779": {
@@ -239441,6 +239450,9 @@
     },
     "workday:cisco:2028673": {
       "seen_at": "2026-10-16T11:35:47+00:00"
+    },
+    "workday:cisco:2028680": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
     },
     "workday:cisco:2028681": {
       "seen_at": "2026-10-29T10:55:35+00:00"
@@ -275404,6 +275416,9 @@
     "workday:micron:JR115666": {
       "seen_at": "2026-10-27T04:36:16+00:00"
     },
+    "workday:micron:JR115667": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
+    },
     "workday:micron:JR115668": {
       "seen_at": "2026-10-27T04:36:16+00:00"
     },
@@ -288366,6 +288381,9 @@
     "workday:ngc:R10254512": {
       "seen_at": "2026-10-19T07:05:48+00:00"
     },
+    "workday:ngc:R10254513": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
+    },
     "workday:ngc:R10254515": {
       "seen_at": "2026-10-07T16:05:04+00:00"
     },
@@ -291858,6 +291876,9 @@
     "workday:ngc:R10256797": {
       "seen_at": "2026-10-20T16:16:08+00:00"
     },
+    "workday:ngc:R10256798": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
+    },
     "workday:ngc:R10256799": {
       "seen_at": "2026-10-20T15:56:59+00:00"
     },
@@ -293771,6 +293792,9 @@
     "workday:ngc:R10258023": {
       "seen_at": "2026-10-28T15:27:04+00:00"
     },
+    "workday:ngc:R10258024": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
+    },
     "workday:ngc:R10258027": {
       "seen_at": "2026-10-28T23:45:48+00:00"
     },
@@ -294302,6 +294326,9 @@
     "workday:ngc:R10258508": {
       "seen_at": "2026-10-30T12:16:46+00:00"
     },
+    "workday:ngc:R10258510": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
+    },
     "workday:ngc:R10258511": {
       "seen_at": "2026-10-30T13:07:12+00:00"
     },
@@ -294340,6 +294367,9 @@
     },
     "workday:ngc:R10258548": {
       "seen_at": "2026-10-30T15:36:37+00:00"
+    },
+    "workday:ngc:R10258551": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
     },
     "workday:ngc:R10258555": {
       "seen_at": "2026-10-30T15:46:07+00:00"
@@ -306240,6 +306270,9 @@
     },
     "workday:salesforce:JR354492": {
       "seen_at": "2026-10-07T14:34:40+00:00"
+    },
+    "workday:salesforce:JR354494": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
     },
     "workday:salesforce:JR354513": {
       "seen_at": "2026-10-06T06:53:23+00:00"
@@ -324986,6 +325019,9 @@
     },
     "workday:td:R_1518301": {
       "seen_at": "2026-10-27T20:16:49+00:00"
+    },
+    "workday:td:R_1518306": {
+      "seen_at": "2026-10-30T16:07:35+00:00"
     },
     "workday:td:R_1518308": {
       "seen_at": "2026-10-22T18:46:37+00:00"
