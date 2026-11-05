@@ -140,6 +140,10 @@ sources:
     tenant: salesforce
     host: wd12
     site: External_Career_Site
+    # Salesforce's board refuses about half of all requests with 429 (seen
+    # Oct 2026, from any IP), so read only the newest 3 pages; polled every
+    # 10 minutes, that's still days of postings.
+    max_postings: 60
   - type: workday
     company: clio
     tenant: clio

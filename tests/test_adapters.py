@@ -6,6 +6,8 @@ import json
 import re
 from datetime import UTC, datetime, timedelta
 
+import pytest
+import requests
 import responses
 
 from scraper.adapters import (
@@ -556,3 +558,54 @@ def test_eightfold_v2_reads_every_page_since_it_is_not_newest_first(fixture):
     assert job.source == "eightfold_v2/netflix"
     assert job.posted_at.endswith("+00:00")
     assert not newest_first(eightfold_v2.fetch)
+
+
+@responses.activate
+def test_workday_retries_a_throttled_page_without_refetching_the_rest(fixture, monkeypatch):
+    monkeypatch.setattr(workday.time, "sleep", lambda s: None)
+    posting = fixture("workday_ngc.json")["jobPostings"][0]
+    throttled = {"status": 429, "json": {"errorCode": "HTTP_429"}}
+    responses.post(WORKDAY_URL, json={"total": 23, "jobPostings": [posting] * 20})
+    responses.post(WORKDAY_URL, **throttled)
+    responses.post(WORKDAY_URL, **throttled)
+    responses.post(WORKDAY_URL, json={"total": 23, "jobPostings": [posting] * 3})
+
+    jobs = workday.fetch(WORKDAY_CONFIG)
+
+    assert len(jobs) == 23
+    assert [c.request.body for c in responses.calls].count(responses.calls[0].request.body) == 1
+    assert len(responses.calls) == 4  # page 1 once, page 2 three times
+
+
+@responses.activate
+def test_workday_gives_up_on_a_refused_board_quickly_and_main_does_not_retry_it(
+        fixture, monkeypatch):
+    from scraper import main
+    waits = []
+    monkeypatch.setattr(workday.time, "sleep", waits.append)
+    monkeypatch.setattr(main.time, "sleep", waits.append)
+    for _ in range(20):
+        responses.post(WORKDAY_URL, status=429, json={"errorCode": "HTTP_429"})
+
+    with pytest.raises(requests.exceptions.HTTPError) as caught:
+        main.fetch_with_retry(workday.fetch, WORKDAY_CONFIG, "workday/northrop-grumman")
+
+    assert caught.value.already_retried
+    assert len(responses.calls) == workday.PAGE_RETRIES + 1  # no whole-board retries on top
+    assert sum(waits) == workday.PAGE_RETRIES * workday.PAGE_RETRY_WAIT_SECONDS
+
+
+@responses.activate
+def test_a_source_can_lower_the_workday_cap_and_closures_still_see_a_slice(fixture,
+                                                                         monkeypatch):
+    from scraper import main
+    posting = fixture("workday_ngc.json")["jobPostings"][0]
+    fresh = posting | {"postedOn": "Posted Today"}
+    for _ in range(6):
+        responses.post(WORKDAY_URL, json={"total": 1706, "jobPostings": [fresh] * 20})
+    monkeypatch.setitem(REGISTRY, "workday", workday.fetch)
+
+    jobs, stats = main.fetch_all([WORKDAY_CONFIG | {"max_postings": 60}])
+
+    assert len(jobs) == 60 and len(responses.calls) == 3  # a hard stop, fresh or not
+    assert stats["workday/northrop-grumman"]["truncated"]  # not mistaken for the whole board
