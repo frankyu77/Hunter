@@ -116,6 +116,10 @@ Hunter does this on its own:
 
 The dashboard's **Sources** page (unlocked) lists the boards Hunter added, with how many jobs each has sent you, and **Remove** (never suggested again), **Resume** for a paused one, and **Add** for any other suggestion, without waiting for the threshold. These are kept in Hunter's state, not `sources.yaml`, so there's nothing to commit. Boards you list in `sources.yaml` yourself work as before.
 
+**Found by web search too (optional).** Companies that never appear in the feeds can still be found: once a day Hunter runs a few site-restricted web searches (like `site:jobs.ashbyhq.com software engineer intern Canada`, across Ashby, Greenhouse, Lever, Workable, SmartRecruiters, Rippling, BambooHR and Workday). Every board in the results is checked live, and added like the boards above only if it has open jobs passing your `sources.yaml` filters right now. At most 5 a week, labelled "search" on the Sources page. Search only finds boards: their jobs still come from polling the board directly every run, which is minutes fresher than any search index. Edit the searches under `search_discovery: queries:` in `sources.yaml`.
+
+Setup: create a free [Tavily](https://app.tavily.com) account (1,000 searches a month, no credit card), copy the API key (`tvly-...`), and add it as the repo secret `TAVILY_API_KEY`. The default 7 searches a day use about 210 of the 1,000. Without the secret this is off.
+
 Once a week the bot also still sends the top 5 remaining suggestions, and names the platforms with no adapter yet that most of your other matches came from. To stop a company being suggested from `sources.yaml`, add its `ignore key` under `discovery: ignore:`.
 
 ## Setup

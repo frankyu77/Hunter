@@ -348,6 +348,20 @@ sources:
     path: .github/scripts/listings.json
     branch: dev
 
+# Daily web search for company boards no feed has shown us
+# (scraper/searchdiscovery.py). Needs the TAVILY_API_KEY repo secret; each
+# query costs one of Tavily's 1,000 free searches a month, so keep this list
+# short. A board is added only if it has open jobs passing the filters above.
+search_discovery:
+  queries:
+    - software engineer intern Canada
+    - software developer intern Toronto
+    - software engineering intern Vancouver
+    - software engineer intern 2027 United States
+    - new grad software engineer Canada
+    - new grad software engineer United States
+    - cloud engineer intern
+
 # Weekly "worth polling directly?" suggestions (scraper/discovery.py) come
 # with an ignore key; list keys here to stop a company being suggested.
 discovery:

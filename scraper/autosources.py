@@ -149,8 +149,15 @@ def _activate(section: dict, key: str, entry: dict, how: str, stamp: str) -> Non
         "board": entry["board"], "name": entry["name"], "status": "active",
         "added": stamp, "how": how, "matched": entry["matched"], "announce": "added",
     }
-    log.info("Auto source %s (%s) added: %d matching jobs came late via the feeds.",
-             key, entry["name"], entry["matched"])
+    log.info("Auto source %s (%s) added (%s): %d matching jobs.",
+             key, entry["name"], how, entry["matched"])
+
+
+def activate(store: SeenStore, key: str, board: dict, name: str, matched: int, how: str,
+             stamp: str) -> None:
+    """Start polling a board found some other way (scraper.searchdiscovery)."""
+    _activate(_section(store), key, {"board": board, "name": name, "matched": matched},
+              how, stamp)
 
 
 # --- dashboard clicks (via scraper.inbox) ----------------------------------------
@@ -198,8 +205,12 @@ def announcements(store: SeenStore) -> list[tuple[str, str]]:
             continue
         name = e(entry.get("name", key))
         if kind == "added":
-            why = (f"{entry['matched']} matching jobs reached you late through the "
-                   "aggregator feeds. " if entry.get("how") == "auto" else "")
+            why = {
+                "auto": f"{entry['matched']} matching jobs reached you late through the "
+                        "aggregator feeds. ",
+                "search": f"Found by web search: {entry['matched']} of its open jobs match "
+                          "your filters. ",
+            }.get(entry.get("how"), "")
             text = (f"🧭 <b>Now polling {name} directly</b>\n{why}New postings now arrive "
                     "within minutes. Remove it on the dashboard's Sources page.")
         elif kind == "paused":
