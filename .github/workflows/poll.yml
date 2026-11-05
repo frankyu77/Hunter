@@ -71,6 +71,8 @@ jobs:
           # Encrypts the dashboard's private layer; unset = no private layer.
           HUNTER_PASSPHRASE: ${{ secrets.HUNTER_PASSPHRASE }}
           GITHUB_TOKEN: ${{ github.token }}
+          # Daily web search for new company boards; unset = off.
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python -m scraper.main
 
       # The run writes site/ at most hourly (Pages rate-limits deploys).

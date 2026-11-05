@@ -1064,13 +1064,13 @@
     if (!mine) { $("sources-card").hidden = $("suggest-card").hidden = true; return; }
     $("sources-card").hidden = $("suggest-card").hidden = !SRC;
     if (!SRC) { $("sources-locked").hidden = false; $("sources-locked").querySelector(".sub").textContent = "Available on the published site."; return; }
-    $("sources-sub").textContent = `Hunter polls these company boards itself, so new postings reach you within minutes instead of days later through the feeds. It adds one on its own once ${SRC.min_matched} matching jobs have arrived late from it (up to ${SRC.per_week} a week) and tells you in Telegram. Plus ${fmt(SRC.configured)} boards from sources.yaml.`;
+    $("sources-sub").textContent = `Hunter polls these company boards itself, so new postings reach you within minutes instead of days later through the feeds. It adds one on its own once ${SRC.min_matched} matching jobs have arrived late from it (up to ${SRC.per_week} a week), or when a daily web search finds a board with jobs matching your filters ("search"), and tells you in Telegram. Plus ${fmt(SRC.configured)} boards from sources.yaml.`;
     const rows = SRC.auto.map((r) => ({...r, ...srcStatus(r.key, r.status)}));
     const shown = rows.filter((r) => r.status !== "removed"), removed = rows.filter((r) => r.status === "removed");
     $("auto-rows").innerHTML = shown.map((r) => `<tr>
       <td>${esc(r.name)}</td>
       <td class="src col-src">${esc(BOARD_NAMES[r.type] || r.type)}</td>
-      <td class="date">${r.added ? esc(shortDate(r.added.slice(0, 10))) : "—"}${r.how === "auto" ? ' <span class="muted">· auto</span>' : ""}</td>
+      <td class="date">${r.added ? esc(shortDate(r.added.slice(0, 10))) : "—"}${r.how === "auto" || r.how === "search" ? ` <span class="muted">· ${r.how}</span>` : ""}</td>
       <td class="num">${fmt(r.caught)}</td>
       <td><span class="src-status ${r.status}">${STATUS_TEXT[r.status] || r.status}${r.unsent ? " (not sent yet)" : ""}</span></td>
       <td>${r.waiting ? "" : r.status === "paused" ? srcButton(r.key, "resume", "Resume") + " " + srcButton(r.key, "remove", "Remove")

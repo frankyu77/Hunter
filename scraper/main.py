@@ -31,6 +31,7 @@ from scraper import (
     health,
     inbox,
     insights,
+    searchdiscovery,
 )
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
@@ -491,6 +492,12 @@ def update_auto_sources(store: SeenStore, config: dict, dry_run: bool) -> None:
     """Add, verify and pause auto-added sources (scraper.autosources), then
     tell Telegram about each change. A message is marked done only once
     sent, so a failed send retries next run; a failed update just waits."""
+    try:
+        # Daily web search for boards no feed has shown us (no-op without
+        # the TAVILY_API_KEY secret). Its adds are announced below.
+        searchdiscovery.run(store, config)
+    except Exception:
+        log.exception("Search discovery failed; trying again next run.")
     try:
         autosources.update(store, config)
     except Exception:
