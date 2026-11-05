@@ -76,7 +76,8 @@ def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
             fetch = get_adapter(source["type"])
             fetched = fetch_with_retry(fetch, source, label)
             stat["fetched"] += len(fetched)
-            cap = max_postings(fetch)
+            # A source can lower its adapter's cap (workday: max_postings).
+            cap = source.get("max_postings") or max_postings(fetch)
             stat["truncated"] = cap is not None and len(fetched) >= cap
             if stat["truncated"] and not (newest_first(fetch) and _dated_newest_first(fetched)):
                 stat["unordered"] = True
@@ -164,6 +165,8 @@ def fetch_with_retry(fetch: Callable, config: dict, label: str) -> list[Job]:
 
 
 def _retryable(exc: Exception) -> bool:
+    if getattr(exc, "already_retried", False):
+        return False  # the adapter already retried it page by page
     # 429 is the one 4xx that isn't a config error: the source is asking us to
     # slow down, and backing off is exactly the fix (Microsoft does this).
     if isinstance(exc, requests.exceptions.HTTPError):

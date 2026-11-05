@@ -28,6 +28,22 @@ since closure tracking may only trust a capped slice that did.
 The list endpoint carries no description (that would be one extra request
 per job) - filters match on title only, so descriptions stay empty.
 
+Throttling: some tenants answer a share of requests with 429 at random,
+however they are spaced (Salesforce, Oct 2026: about half, from any IP).
+Restarting the whole board on a 429 - what the generic retry in
+``main.fetch_with_retry`` does - throws away the pages already fetched and
+rarely gets ten pages through in one go. So a refused page is retried on its
+own, PAGE_RETRIES times, PAGE_RETRY_WAIT_SECONDS apart. If it still fails,
+the error is marked ``already_retried`` so main doesn't retry the whole
+board on top: a board that is refused outright then costs seconds, not
+minutes, which matters when many tenants are throttled at once.
+
+``max_postings`` in a source's config lowers the cap for one board (e.g. a
+heavily throttled one), and is then a hard stop: the "keep paging past the
+cap while postings are recent" rule below doesn't apply to it.
+``main.fetch_all`` reads the same key, so closure tracking still treats the
+shorter fetch as the newest slice rather than the whole board.
+
 A few tenants live on Workday's second domain instead, with the tenant in
 the path rather than the subdomain: for
 https://wd5.myworkdaysite.com/recruiting/microchiphr/External set
@@ -36,6 +52,7 @@ https://wd5.myworkdaysite.com/recruiting/microchiphr/External set
 """
 
 import re
+import time
 from datetime import UTC, datetime, timedelta
 
 import requests
@@ -51,6 +68,8 @@ PAGE_SIZE = 20
 MAX_POSTINGS = 200
 HARD_MAX_POSTINGS = 1000
 TIMEOUT_SECONDS = 30
+PAGE_RETRIES = 4
+PAGE_RETRY_WAIT_SECONDS = 2
 
 
 def fetch(config: dict) -> list[Job]:
@@ -66,34 +85,45 @@ def fetch(config: dict) -> list[Job]:
         tenant=tenant, host=host, site=site
     )
 
+    soft_cap = config.get("max_postings", MAX_POSTINGS)
+    hard_cap = soft_cap if "max_postings" in config else HARD_MAX_POSTINGS
     jobs: list[Job] = []
-    total = HARD_MAX_POSTINGS
+    total = hard_cap
     recent_on_last_page = False
-    for offset in range(0, HARD_MAX_POSTINGS, PAGE_SIZE):
-        if offset >= total or (offset >= MAX_POSTINGS and not recent_on_last_page):
+    for offset in range(0, hard_cap, PAGE_SIZE):
+        if offset >= total or (offset >= soft_cap and not recent_on_last_page):
             break
-        response = requests.post(
-            api_url,
-            json={
-                "appliedFacets": {},
-                "limit": PAGE_SIZE,
-                "offset": offset,
-                "searchText": config.get("search_text", ""),
-            },
-            timeout=TIMEOUT_SECONDS,
-        )
-        response.raise_for_status()
-        payload = response.json()
+        payload = _page(api_url, {
+            "appliedFacets": {},
+            "limit": PAGE_SIZE,
+            "offset": offset,
+            "searchText": config.get("search_text", ""),
+        })
         if offset == 0:
             # Some tenants report total=0 on every page after the first,
             # so only the first page's count can be trusted.
-            total = min(payload.get("total", 0), HARD_MAX_POSTINGS)
+            total = min(payload.get("total", 0), hard_cap)
         postings = payload.get("jobPostings", [])
         if not postings:
             break
         jobs.extend(_to_job(posting, tenant, company, base_url) for posting in postings)
         recent_on_last_page = any(_is_recent(p.get("postedOn", "")) for p in postings)
     return jobs
+
+
+def _page(api_url: str, body: dict) -> dict:
+    """One page, retrying a 429 on just this page (see module docstring)."""
+    for attempt in range(PAGE_RETRIES + 1):
+        response = requests.post(api_url, json=body, timeout=TIMEOUT_SECONDS)
+        if response.status_code != 429 or attempt == PAGE_RETRIES:
+            break
+        time.sleep(PAGE_RETRY_WAIT_SECONDS)
+    try:
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as exc:
+        exc.already_retried = response.status_code == 429
+        raise
+    return response.json()
 
 
 def _is_recent(posted_on: str) -> bool:
