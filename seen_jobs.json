@@ -36363,7 +36363,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -37138,7 +37139,7 @@
       }
     },
     "auto_sources_checked": "2026-11-05T01:45:55+00:00",
-    "dashboard_built_at": "2026-11-05T21:55:59+00:00",
+    "dashboard_built_at": "2026-11-05T22:56:13+00:00",
     "discovery": {
       "candidates": {
         "ashby/aiprise": {
@@ -38723,8 +38724,6 @@
         17
       ],
       "ashby/snowflake": [
-        0,
-        2,
         21,
         8,
         2,
@@ -38772,7 +38771,9 @@
         0,
         22,
         16,
-        34
+        34,
+        22,
+        3
       ],
       "ashby/wealthsimple": [
         9,
@@ -38797,7 +38798,6 @@
         2
       ],
       "atlassian/atlassian": [
-        21,
         21,
         7,
         22,
@@ -38846,7 +38846,8 @@
         27,
         28,
         28,
-        7
+        7,
+        8
       ],
       "eightfold/qualcomm": [
         0,
@@ -39386,7 +39387,6 @@
       ],
       "greenhouse/datadog": [
         8,
-        8,
         19,
         18,
         9,
@@ -39434,7 +39434,8 @@
         1,
         15,
         1,
-        11
+        11,
+        3
       ],
       "greenhouse/discord": [
         0,
@@ -39620,7 +39621,8 @@
         32,
         5,
         1,
-        2
+        2,
+        34
       ],
       "greenhouse/gitlab": [
         0,
@@ -39889,7 +39891,6 @@
         28
       ],
       "greenhouse/pinterest": [
-        11,
         13,
         7,
         10,
@@ -39938,7 +39939,8 @@
         28,
         14,
         15,
-        14
+        14,
+        32
       ],
       "greenhouse/reddit": [
         3,
@@ -62393,6 +62395,9 @@
     "amazon:amazon:10597316": {
       "seen_at": "2026-11-05T02:36:23+00:00"
     },
+    "amazon:amazon:10597320": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
+    },
     "amazon:amazon:10597332": {
       "seen_at": "2026-11-05T03:36:01+00:00"
     },
@@ -72176,7 +72181,7 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "ashby:snowflake:2bce303d-8f46-4290-851b-ec02d6cd456a": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "ashby:snowflake:2bda263c-000e-4369-894e-6f535cc9d098": {
@@ -72841,7 +72846,7 @@
       "seen_at": "2026-11-02T17:07:46+00:00"
     },
     "ashby:snowflake:89588286-28f8-495c-99d6-cfe4a169c006": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-11-01T18:55:15+00:00"
     },
     "ashby:snowflake:896f250b-b553-458d-b0d4-80ea9ceee826": {
@@ -74497,7 +74502,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26674": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-10-27T18:16:53+00:00"
     },
     "atlassian:atlassian:26675": {
@@ -87973,7 +87978,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318497409": {
-      "missing": "2026-11-05T22:46:13+00:00",
       "seen_at": "2026-10-23T19:36:42+00:00"
     },
     "eightfold:netflix:790318497575": {
@@ -88090,7 +88094,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318621079": {
-      "missing": "2026-11-05T22:46:13+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318622925": {
@@ -143737,7 +143740,7 @@
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:9c282fbd-4cbc-44b7-ab73-716b59b88838": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-10-26T17:07:13+00:00"
     },
     "github:vanshb03/Summer2027-Internships:9c419789-6d1b-4cf5-aa4b-4443c7368d0d": {
@@ -163844,7 +163847,7 @@
       "seen_at": "2026-09-07T12:33:12+00:00"
     },
     "greenhouse:datadog:8173897": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-11-01T18:55:15+00:00"
     },
     "greenhouse:datadog:8173964": {
@@ -164479,8 +164482,14 @@
     "greenhouse:datadog:8334237": {
       "seen_at": "2026-11-02T13:56:16+00:00"
     },
+    "greenhouse:datadog:8334261": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
+    },
     "greenhouse:datadog:8334273": {
       "seen_at": "2026-11-02T13:06:43+00:00"
+    },
+    "greenhouse:datadog:8334294": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
     },
     "greenhouse:datadog:8335047": {
       "seen_at": "2026-10-30T15:56:26+00:00"
@@ -169725,7 +169734,7 @@
       "seen_at": "2026-10-05T20:58:57+00:00"
     },
     "greenhouse:figma:6211910004": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-10-02T15:04:15+00:00"
     },
     "greenhouse:figma:6212642004": {
@@ -177036,7 +177045,7 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "greenhouse:pinterest:7507652": {
-      "missing": "2026-11-05T16:46:33+00:00",
+      "closed": "2026-11-05",
       "seen_at": "2026-10-04T12:03:24+00:00"
     },
     "greenhouse:pinterest:7525112": {
@@ -192223,6 +192232,7 @@
       "seen_at": "2026-11-05T04:15:57+00:00"
     },
     "jibe:careers.amd.com:96190": {
+      "missing": "2026-11-05T22:56:13+00:00",
       "seen_at": "2026-11-05T16:17:19+00:00"
     },
     "jibe:careers.amd.com:96238": {
@@ -192252,6 +192262,7 @@
       "seen_at": "2026-11-05T16:17:19+00:00"
     },
     "jibe:careers.amd.com:96263": {
+      "missing": "2026-11-05T22:56:13+00:00",
       "seen_at": "2026-11-05T16:17:19+00:00"
     },
     "jibe:careers.amd.com:96265": {
@@ -192283,6 +192294,7 @@
       "seen_at": "2026-11-02T21:55:54+00:00"
     },
     "jibe:careers.amd.com:96905": {
+      "missing": "2026-11-05T22:56:13+00:00",
       "seen_at": "2026-11-02T21:55:54+00:00"
     },
     "jibe:careers.amd.com:96907": {
@@ -213500,6 +213512,9 @@
     "oracle:oracle:349598": {
       "seen_at": "2026-11-05T08:35:58+00:00"
     },
+    "oracle:oracle:349602": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
+    },
     "oracle:oracle:349605": {
       "seen_at": "2026-11-03T23:36:06+00:00"
     },
@@ -216019,6 +216034,9 @@
     },
     "oracle:texas-instruments:25019800": {
       "seen_at": "2026-11-04T15:17:57+00:00"
+    },
+    "oracle:texas-instruments:25019822": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -240864,6 +240882,9 @@
     "workday:boeing:JR2026526108": {
       "seen_at": "2026-10-22T20:07:05+00:00"
     },
+    "workday:boeing:JR2026526116": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
+    },
     "workday:boeing:JR2026526130": {
       "seen_at": "2026-10-22T18:07:15+00:00"
     },
@@ -242259,6 +242280,7 @@
       "seen_at": "2026-09-16T16:52:07+00:00"
     },
     "workday:cibc:2608281": {
+      "missing": "2026-11-05T22:56:13+00:00",
       "seen_at": "2026-11-05T19:54:17+00:00"
     },
     "workday:cibc:2608282": {
@@ -247614,6 +247636,7 @@
       "seen_at": "2026-11-04T15:06:48+00:00"
     },
     "workday:cibc:2622725": {
+      "missing": "2026-11-05T22:56:13+00:00",
       "seen_at": "2026-11-05T20:00:23+00:00"
     },
     "workday:cibc:2622726": {
@@ -247655,6 +247678,9 @@
     },
     "workday:cibc:2622767": {
       "seen_at": "2026-11-04T16:56:23+00:00"
+    },
+    "workday:cibc:2622770": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
     },
     "workday:cibc:2622777": {
       "seen_at": "2026-11-04T18:17:41+00:00"
@@ -247706,6 +247732,9 @@
     },
     "workday:cibc:2622845": {
       "seen_at": "2026-11-05T14:56:21+00:00"
+    },
+    "workday:cibc:2622897": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
     },
     "workday:cibc:2622900": {
       "seen_at": "2026-11-05T22:46:16+00:00"
@@ -307465,6 +307494,9 @@
     "workday:ngc:R10259133": {
       "seen_at": "2026-11-03T22:36:13+00:00"
     },
+    "workday:ngc:R10259136": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
+    },
     "workday:ngc:R10259137": {
       "seen_at": "2026-11-05T14:16:33+00:00"
     },
@@ -342975,6 +343007,9 @@
     "workday:workday:JR-0111194": {
       "closed": "2026-10-31",
       "seen_at": "2026-10-28T18:46:30+00:00"
+    },
+    "workday:workday:JR-0111205": {
+      "seen_at": "2026-11-05T22:56:13+00:00"
     },
     "workday:workday:JR-0111208": {
       "seen_at": "2026-11-04T09:06:26+00:00"
