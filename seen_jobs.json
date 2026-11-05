@@ -35246,7 +35246,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -35826,6 +35827,18 @@
         "name": "Renesas Electronics",
         "status": "active"
       },
+      "successfactors/jobs.l3harris.com": {
+        "added": "2026-11-05T01:45:55+00:00",
+        "board": {
+          "company": "l3harris-technologies",
+          "host": "jobs.l3harris.com",
+          "type": "successfactors"
+        },
+        "how": "auto",
+        "matched": 4,
+        "name": "L3Harris Technologies",
+        "status": "active"
+      },
       "workday/aero": {
         "added": "2026-10-22T00:46:37+00:00",
         "board": {
@@ -35895,10 +35908,24 @@
         "matched": 27,
         "name": "KLA",
         "status": "paused"
+      },
+      "workday/zebra": {
+        "added": "2026-11-05T01:45:55+00:00",
+        "board": {
+          "company": "zebra-technologies",
+          "host": "wd501",
+          "site": "Zebra_careers",
+          "tenant": "zebra",
+          "type": "workday"
+        },
+        "how": "auto",
+        "matched": 3,
+        "name": "Zebra Technologies",
+        "status": "active"
       }
     },
-    "auto_sources_checked": "2026-11-04T01:36:39+00:00",
-    "dashboard_built_at": "2026-11-05T00:45:52+00:00",
+    "auto_sources_checked": "2026-11-05T01:45:55+00:00",
+    "dashboard_built_at": "2026-11-05T01:46:02+00:00",
     "discovery": {
       "candidates": {
         "ashby/aiprise": {
@@ -38282,7 +38309,6 @@
         4
       ],
       "jibe/docusign": [
-        7,
         0,
         20,
         21,
@@ -38331,7 +38357,8 @@
         7,
         7,
         27,
-        8
+        8,
+        0
       ],
       "lever/cirrus": [
         0,
@@ -63686,6 +63713,9 @@
     "ashby:notion:a31cd66b-1729-4ba9-9fb7-bf9099ed01e6": {
       "seen_at": "2026-10-14T02:16:27+00:00"
     },
+    "ashby:notion:a356be47-4b45-41c8-9fc9-9e3754d337bc": {
+      "seen_at": "2026-11-05T01:45:55+00:00"
+    },
     "ashby:notion:a59ae31e-059e-4f6b-84a7-0fa9db88c72b": {
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
@@ -67223,6 +67253,9 @@
     "ashby:plaid:361c4725-ab72-4895-a3aa-9b642f4927a9": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
+    "ashby:plaid:39168403-8a4d-47eb-b601-67f7f84a7439": {
+      "seen_at": "2026-11-05T01:45:55+00:00"
+    },
     "ashby:plaid:3a0611c3-7b8e-4962-bb48-dcd7ba04f352": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -67518,6 +67551,9 @@
     },
     "ashby:plaid:b4ec08cf-64c6-41ea-b98e-32b35bf20e4b": {
       "seen_at": "2026-10-08T06:46:23+00:00"
+    },
+    "ashby:plaid:b5060d3e-7714-4f71-8141-b3956ef3af57": {
+      "seen_at": "2026-11-05T01:45:55+00:00"
     },
     "ashby:plaid:b9a8a319-ee80-4e91-95d8-4e5d3ca1336a": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -68824,6 +68860,9 @@
     },
     "ashby:snowflake:4557ced6-d472-45c7-ab02-15c2024e8936": {
       "seen_at": "2026-10-01T23:53:48+00:00"
+    },
+    "ashby:snowflake:45821765-e536-4eea-a95d-8bc16fa1bbeb": {
+      "seen_at": "2026-11-05T01:45:55+00:00"
     },
     "ashby:snowflake:45f2aa43-731d-4bab-a02b-9ef979f2c86e": {
       "closed": "2026-10-28",
@@ -129276,7 +129315,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:def9df22-e128-4dda-9596-1d0de6902d93": {
-      "missing": "2026-11-04T19:40:55+00:00",
+      "closed": "2026-11-04",
       "seen_at": "2026-10-30T22:36:20+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:defe0ecf-e622-445a-8906-9a12cc51c6dc": {
@@ -130797,7 +130836,7 @@
       "seen_at": "2026-10-20T07:25:50+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ec159791-d370-4496-82ec-5d49bd200bbf": {
-      "missing": "2026-11-04T19:40:55+00:00",
+      "closed": "2026-11-04",
       "seen_at": "2026-10-26T22:36:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ec191dc6-7088-46ac-bb3d-1fec1dae6328": {
@@ -131041,7 +131080,7 @@
       "seen_at": "2026-09-14T22:09:41+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ee6ec003-29b0-4b45-84ff-f2bc079dd1cf": {
-      "missing": "2026-11-04T19:40:55+00:00",
+      "closed": "2026-11-04",
       "seen_at": "2026-10-28T06:36:07+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ee7765e2-658f-4be4-a4a8-45e6f41a7c4b": {
@@ -131611,7 +131650,7 @@
       "seen_at": "2026-10-03T09:43:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f3ea53ba-e5c9-4206-8d4c-5aa29ea06ebd": {
-      "missing": "2026-11-04T19:40:55+00:00",
+      "closed": "2026-11-04",
       "seen_at": "2026-10-30T23:07:11+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f3f511bf-3743-4678-bb0e-7b009b6b5dae": {
@@ -187596,7 +187635,7 @@
       "seen_at": "2026-10-28T21:36:27+00:00"
     },
     "jibe:careers.docusign.com:30610": {
-      "missing": "2026-11-04T19:40:55+00:00",
+      "closed": "2026-11-04",
       "seen_at": "2026-11-04T19:33:39+00:00"
     },
     "jibe:careers.docusign.com:30612": {
@@ -209598,6 +209637,9 @@
     },
     "smartrecruiters:Canva:6000000001546652": {
       "seen_at": "2026-11-04T01:15:50+00:00"
+    },
+    "smartrecruiters:Canva:6000000001550963": {
+      "seen_at": "2026-11-05T01:45:55+00:00"
     },
     "smartrecruiters:Intuitive:744000085665365": {
       "seen_at": "2026-10-29T01:16:24+00:00"
@@ -264443,6 +264485,7 @@
       "seen_at": "2026-10-19T19:16:21+00:00"
     },
     "workday:hpe:1208303": {
+      "missing": "2026-11-05T01:45:55+00:00",
       "seen_at": "2026-11-05T01:35:40+00:00"
     },
     "workday:hpe:1208310": {
@@ -265050,6 +265093,7 @@
       "seen_at": "2026-10-19T12:26:22+00:00"
     },
     "workday:hpe:1210911": {
+      "missing": "2026-11-05T01:45:55+00:00",
       "seen_at": "2026-11-05T01:35:40+00:00"
     },
     "workday:hpe:1210928": {
@@ -281218,6 +281262,9 @@
     },
     "workday:micron:JR116188": {
       "seen_at": "2026-11-03T01:16:06+00:00"
+    },
+    "workday:micron:JR116192": {
+      "seen_at": "2026-11-05T01:45:55+00:00"
     },
     "workday:micron:JR116193": {
       "seen_at": "2026-10-28T01:36:16+00:00"
