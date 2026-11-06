@@ -36716,7 +36716,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -38912,9 +38913,9 @@
         },
         "workday/roche": {
           "boards": {
-            "{\"company\": \"roche\", \"host\": \"wd3\", \"site\": \"roche-ext\", \"tenant\": \"roche\", \"type\": \"workday\"}": 1
+            "{\"company\": \"roche\", \"host\": \"wd3\", \"site\": \"roche-ext\", \"tenant\": \"roche\", \"type\": \"workday\"}": 2
           },
-          "jobs": 1,
+          "jobs": 2,
           "matched": 0,
           "name": "Roche"
         },
@@ -78388,6 +78389,9 @@
     "eightfold:microsoft:1970393556978869": {
       "seen_at": "2026-10-15T04:56:16+00:00"
     },
+    "eightfold:microsoft:1970393556978909": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
+    },
     "eightfold:microsoft:1970393556978983": {
       "seen_at": "2026-10-14T20:26:46+00:00"
     },
@@ -92891,7 +92895,6 @@
       "seen_at": "2026-11-03T11:45:58+00:00"
     },
     "eightfold:qualcomm:446721944031": {
-      "missing": "2026-11-06T13:26:11+00:00",
       "seen_at": "2026-11-06T00:26:38+00:00"
     },
     "eightfold:qualcomm:446721944032": {
@@ -93535,6 +93538,7 @@
       "seen_at": "2026-10-31T12:25:50+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:076e4d7b-c105-4b49-866b-5ac1f12ec7b3": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-11-01T07:15:29+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:07705204-70be-436b-85af-c48fd1f5e63d": {
@@ -93549,6 +93553,7 @@
       "seen_at": "2026-09-23T01:53:35+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:0798c35c-4866-4fe4-8dd1-65d91ad52e42": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-10-29T10:07:13+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:079c49ad-86ee-4d90-80de-5d7ec4d99c4a": {
@@ -103611,7 +103616,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:90c10d80-558b-4325-9b3e-e883b3db1a7d": {
-      "missing": "2026-11-06T07:36:13+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:90e4443e-dd1d-448c-bb21-43af38d9ee82": {
@@ -108338,7 +108343,7 @@
       "seen_at": "2026-10-17T23:55:37+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d1b2bb51-6a06-4eac-a2a3-b2f9b039dde0": {
-      "missing": "2026-11-06T07:36:13+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-11-02T16:07:03+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d1b5651a-a709-4397-98d6-3a1bd58df7fd": {
@@ -109900,6 +109905,7 @@
       "seen_at": "2026-10-07T23:13:49+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e5621469-d49a-465d-a557-2ef4692874ce": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-11-04T00:06:48+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e566d725-aeae-48ef-8f28-53e7201d04b0": {
@@ -110208,7 +110214,7 @@
       "seen_at": "2026-10-07T12:14:05+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ea2571ea-f9cf-436b-92e7-7e6f41f93efb": {
-      "missing": "2026-11-06T07:36:13+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-10-02T08:23:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ea3f3cbc-74b2-495a-b20d-db469c9ce81e": {
@@ -127328,7 +127334,7 @@
       "seen_at": "2026-09-12T18:48:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:900cb2e6-bb32-47f1-b267-ed7ef0f7142a": {
-      "missing": "2026-11-06T07:36:13+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-10-06T23:04:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:90152193-d0a4-41f6-9a8c-c9a3d4f2a4c7": {
@@ -131374,6 +131380,9 @@
       "closed": "2026-10-27",
       "seen_at": "2026-10-26T14:37:21+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:b5719b13-e976-4a46-a904-a27b96888b47": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:b57a206e-05f4-4b02-9ccd-b54ba30848e2": {
       "seen_at": "2026-10-06T23:33:39+00:00"
     },
@@ -131502,6 +131511,7 @@
       "seen_at": "2026-09-17T00:43:21+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b6b193dc-5974-4336-a73b-253af3ceaec2": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-10-26T22:36:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b6c102ff-263e-4702-96a9-65f26a42bb79": {
@@ -136674,7 +136684,7 @@
       "seen_at": "2026-10-01T22:33:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e4738229-86c5-4fe9-9a51-cbce3fd29815": {
-      "missing": "2026-11-06T07:36:13+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-10-06T06:43:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e477b869-0cb5-4ce8-8992-2d8545e4e8ca": {
@@ -137796,7 +137806,7 @@
       "seen_at": "2026-09-15T14:58:44+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ee1db599-f6bc-4f33-97e1-d5b75fa8d948": {
-      "missing": "2026-11-06T07:36:13+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ee26f84b-8716-4224-b62a-7396f372fe1c": {
@@ -154854,6 +154864,7 @@
       "seen_at": "2026-11-04T11:45:33+00:00"
     },
     "greenhouse:anthropic:5473079008": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-11-04T17:07:18+00:00"
     },
     "greenhouse:anthropic:5473110008": {
@@ -154864,6 +154875,9 @@
     },
     "greenhouse:anthropic:5473862008": {
       "seen_at": "2026-11-06T08:25:44+00:00"
+    },
+    "greenhouse:anthropic:5475240008": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
     },
     "greenhouse:asana:6352958": {
       "seen_at": "2026-11-04T13:45:52+00:00"
@@ -185210,6 +185224,9 @@
     "greenhouse:stripe:8077887": {
       "seen_at": "2026-09-20T21:48:53+00:00"
     },
+    "greenhouse:stripe:8077971": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
+    },
     "greenhouse:stripe:8078082": {
       "seen_at": "2026-09-11T23:43:31+00:00"
     },
@@ -194281,6 +194298,7 @@
       "seen_at": "2026-10-28T14:16:51+00:00"
     },
     "jibe:careers.docusign.com:30018": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-10-28T14:07:45+00:00"
     },
     "jibe:careers.docusign.com:30024": {
@@ -195220,7 +195238,6 @@
       "seen_at": "2026-10-21T19:46:44+00:00"
     },
     "jibe:careers.docusign.com:30574": {
-      "missing": "2026-11-06T13:16:20+00:00",
       "seen_at": "2026-10-21T23:06:10+00:00"
     },
     "jibe:careers.docusign.com:30575": {
@@ -197135,6 +197152,7 @@
       "seen_at": "2026-09-10T22:31:05+00:00"
     },
     "lever:spotify:29252640-3fc6-4ba9-8dac-2838093bab96": {
+      "missing": "2026-11-06T13:36:22+00:00",
       "seen_at": "2026-10-08T18:16:56+00:00"
     },
     "lever:spotify:2a55d6c9-c564-443a-be3e-a3851db5a93b": {
@@ -244232,7 +244250,6 @@
       "seen_at": "2026-11-05T16:56:35+00:00"
     },
     "workday:boeing:JR2026528815": {
-      "missing": "2026-11-06T12:45:46+00:00",
       "seen_at": "2026-11-06T12:36:51+00:00"
     },
     "workday:boeing:JR2026528834": {
@@ -255686,6 +255703,9 @@
     "workday:cisco:2029922": {
       "seen_at": "2026-10-28T11:06:42+00:00"
     },
+    "workday:cisco:2029926": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
+    },
     "workday:cisco:2029939": {
       "seen_at": "2026-11-06T00:46:28+00:00"
     },
@@ -255841,6 +255861,9 @@
     },
     "workday:cisco:2030339": {
       "seen_at": "2026-11-02T11:55:41+00:00"
+    },
+    "workday:cisco:2030345": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
     },
     "workday:cisco:2030368": {
       "seen_at": "2026-11-03T16:09:11+00:00"
@@ -283913,6 +283936,9 @@
     },
     "workday:intel:JR0288692": {
       "seen_at": "2026-10-28T04:25:54+00:00"
+    },
+    "workday:intel:JR0288695": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
     },
     "workday:intel:JR0288696": {
       "seen_at": "2026-11-03T17:08:58+00:00"
@@ -329575,6 +329601,9 @@
     },
     "workday:salesforce:JR367594": {
       "seen_at": "2026-11-06T13:07:09+00:00"
+    },
+    "workday:salesforce:JR367595": {
+      "seen_at": "2026-11-06T13:36:22+00:00"
     },
     "workday:snapchat:H126SWEE3": {
       "seen_at": "2026-10-08T06:46:23+00:00"
