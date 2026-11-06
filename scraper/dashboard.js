@@ -911,8 +911,8 @@
     current = name;
     if (name === "resume") {
       loadEditor();
-      const e = tabEntry(activeId);
-      if (!e.pdfUrl && !e.error && !compiling && autoCompile() && (!isResume(activeId) || resumeText())) compileTex();
+      const e = activeId && tabEntry(activeId);
+      if (e && !e.pdfUrl && !e.error && !compiling && autoCompile() && (!isResume(activeId) || resumeText())) compileTex();
     }
     if (name === "home") renderHome();
   }
@@ -985,16 +985,19 @@ Tools:
   const tplById = (id) => templates.find((x) => x.id === id);
 
   // Tabs, like an IDE: resume.tex (your resume - what Make kit and Chat
-  // read) is always open; a template opens in a tab of its own and you edit
-  // the template itself. Each tab keeps its own CodeMirror document, last
-  // PDF and log. Which tabs are open is remembered.
+  // read) and each template open in tabs of their own, and you edit the
+  // file itself. Any tab can close; with none open the editor asks you to
+  // pick something. Each tab keeps its own CodeMirror document, last PDF and
+  // log. Which tabs are open is remembered.
   const RESUME_TAB = "resume", TABS_KEY = "hunter.resume.tabs";
   const tabs = new Map();  // id -> {doc, text, pdfUrl, log, error}
   let openIds = [RESUME_TAB], activeId = RESUME_TAB;
   try {
     const kept = JSON.parse(saved.get(TABS_KEY) || "{}");
-    openIds = [RESUME_TAB, ...(kept.open || []).filter((id) => id !== RESUME_TAB && tplById(id))];
-    if (openIds.includes(kept.active)) activeId = kept.active;
+    if (Array.isArray(kept.open)) {
+      openIds = kept.open.filter((id, n, all) => (id === RESUME_TAB || tplById(id)) && all.indexOf(id) === n);
+      activeId = openIds.includes(kept.active) ? kept.active : openIds[0] || null;
+    }
   } catch { /* start with just the resume */ }
   const isResume = (id) => id === RESUME_TAB;
   const tabName = (id) => (isResume(id) ? "resume.tex" : (tplById(id) || {}).name || "template");
@@ -1006,9 +1009,10 @@ Tools:
   }
   const tabText = (id) => { const e = tabs.get(id); return e ? (e.doc ? e.doc.getValue() : e.text) : sourceOf(id); };
   let cm = null, editorLoading = false, texTimer = null, dirtyId = null, bumped = false;
-  const texValue = () => tabText(activeId);
+  const texValue = () => (activeId ? tabText(activeId) : "");
   function texState(text) {
-    $("tex-state").textContent = `${isResume(activeId) ? "resume.tex" : `${tabName(activeId)} · template`} · ${text}`;
+    $("tex-state").textContent = !activeId ? "no file open"
+      : `${isResume(activeId) ? "resume.tex" : `${tabName(activeId)} · template`} · ${text}`;
   }
   function saveTab(id) {
     const text = tabText(id);
@@ -1029,6 +1033,7 @@ Tools:
     if (dirtyId) { saveTab(dirtyId); dirtyId = null; }
   }
   function onTexInput() {
+    if (!activeId) return;
     if (!cm) tabEntry(activeId).text = $("tex").value;
     dirtyId = activeId;  // saved to the tab it was typed in, even after a switch
     texState("saving…");
@@ -1046,11 +1051,17 @@ Tools:
       const name = esc(tabName(id)), on = id === activeId;
       return `<span class="ftab${on ? " on" : ""}${isResume(id) ? "" : " tpl-tab"}">
         <button class="ftab-name" role="tab" aria-selected="${on}" data-tab="${esc(id)}" title="${isResume(id) ? "Your resume - what Make kit and Chat use" : `Template: ${name}`}">${name}</button>
-        ${isResume(id) ? "" : `<button class="ftab-x" data-close="${esc(id)}" aria-label="Close ${name}" title="Close">×</button>`}</span>`;
-    }).join("") + (isResume(activeId) ? "" : `<button class="btn sm use-resume" id="tpl-apply" title="Copy this template into resume.tex">Use as resume</button>`);
+        <button class="ftab-x" data-close="${esc(id)}" aria-label="Close ${name}" title="Close">×</button></span>`;
+    }).join("") + (!activeId || isResume(activeId) ? "" : `<button class="btn sm use-resume" id="tpl-apply" title="Copy this template into resume.tex">Use as resume</button>`);
+    // Nothing open: the editor makes way for a prompt, and the file actions rest.
+    $("editor-pane").classList.toggle("empty", !activeId);
+    $("tex-empty").hidden = !!activeId;
+    $("tex-empty-templates").hidden = !$("tpl-pane").classList.contains("collapsed");
+    for (const id of ["tex-compile", "tex-download", "tpl-save"]) $(id).disabled = !activeId;
   }
   function saveTabsState() {
-    saved.set(TABS_KEY, openIds.length > 1 || !isResume(activeId) ? JSON.stringify({open: openIds, active: activeId}) : "");
+    const usual = openIds.length === 1 && isResume(activeId);
+    saved.set(TABS_KEY, usual ? "" : JSON.stringify({open: openIds, active: activeId}));
   }
   function showTab(id) {
     if (id !== RESUME_TAB && !tplById(id)) return;
@@ -1064,7 +1075,9 @@ Tools:
     } else {
       $("tex").value = e.text;
     }
+    const wasEmpty = $("editor-pane").classList.contains("empty");
     renderTabs();
+    if (cm && wasEmpty) cm.refresh();  // it was hidden
     renderTemplates();
     showPdf();
     saveTabsState();
@@ -1072,15 +1085,23 @@ Tools:
     if (!e.pdfUrl && !e.error && current === "resume" && autoCompile() && (!isResume(id) || resumeText())) compileSoon();
   }
   function closeTab(id) {
-    if (isResume(id) || !openIds.includes(id)) return;
+    if (!openIds.includes(id)) return;
     if (dirtyId === id) flushSave();
     const at = openIds.indexOf(id);
     openIds.splice(at, 1);
     const e = tabs.get(id);
     if (e && e.pdfUrl) URL.revokeObjectURL(e.pdfUrl);
     tabs.delete(id);
-    if (activeId === id) showTab(openIds[Math.min(at, openIds.length - 1)]);
-    else { renderTabs(); renderTemplates(); saveTabsState(); }
+    if (activeId === id && openIds.length) { showTab(openIds[Math.min(at, openIds.length - 1)]); return; }
+    if (activeId === id) {  // that was the last tab
+      activeId = null;
+      clearTimeout(compileTimer);
+      showPdf();
+      texState("");
+    }
+    renderTabs();
+    renderTemplates();
+    saveTabsState();
   }
   $("file-tabs").addEventListener("click", (e) => {
     const close = e.target.closest("[data-close]"), tab = e.target.closest("[data-tab]");
@@ -1106,7 +1127,9 @@ Tools:
     toast(`resume.tex now holds "${esc(t.name)}"`);
     if (autoCompile()) compileSoon();
   }
-  $("tex").value = tabEntry(activeId).text;
+  $("tex").value = activeId ? tabEntry(activeId).text : "";
+  $("tex-empty-open").addEventListener("click", () => showTab(RESUME_TAB));
+  $("tex-empty-templates").addEventListener("click", () => setTemplatesOpen(true));
 
   const CM = "https://cdn.jsdelivr.net/npm/codemirror@5.65.21";
   const loadScript = (src, integrity) => new Promise((resolve, reject) => {
@@ -1125,7 +1148,7 @@ Tools:
       await loadScript(`${CM}/lib/codemirror.min.js`, "sha384-0g/X0mKSHhn466L6gmwQ9T6fCIeXJnwNSxvvJ0BdQtCDDS0FexoLx+DrxcZEZzEg");
       await loadScript(`${CM}/mode/stex/stex.min.js`, "sha384-Qg7Ah3Bzo+N+IgWb3JvRtDVOkqbGdpvskWvAo7gCjJGO/Owdh8uTqcuCS7DZp/AD");
       cm = window.CodeMirror.fromTextArea($("tex"), {mode: "stex", lineNumbers: true, lineWrapping: true, indentUnit: 2});
-      tabEntry(activeId).doc = cm.getDoc();
+      if (activeId) tabEntry(activeId).doc = cm.getDoc();
       cm.on("change", onTexInput);
     } catch {
       // Plain textarea it is: it saves the same way.
@@ -1189,6 +1212,17 @@ Tools:
   // The preview shows the open tab's last good PDF; while it has none, its
   // last error (or how to start).
   function showPdf() {
+    if (!activeId) {
+      $("pdf-download").disabled = true;
+      $("tex-log-wrap").hidden = true;
+      $("pdf-frame").hidden = true;
+      $("pdf-frame").removeAttribute("src");
+      $("paper").hidden = false;
+      $("paper").classList.remove("error");
+      $("paper-h").textContent = "PDF preview";
+      $("paper-msg").textContent = "Open a file to see its PDF here.";
+      return;
+    }
     const e = tabEntry(activeId);
     $("pdf-download").disabled = !e.pdfUrl;
     $("tex-log").textContent = e.log;
@@ -1209,6 +1243,7 @@ Tools:
   }
   async function compileTex() {
     clearTimeout(compileTimer);
+    if (!activeId) return;
     if (compiling) { compileAgain = true; return; }
     compiling = true;
     texStatus = "running";
@@ -1248,7 +1283,7 @@ Tools:
       if (id === activeId) texState("compile failed");
     } finally {
       compiling = false;
-      $("tex-compile").disabled = false;
+      $("tex-compile").disabled = !activeId;
       if (id === activeId) showPdf();
       renderNav();
       if (compileAgain) { compileAgain = false; compileTex(); }
@@ -1274,8 +1309,10 @@ Tools:
           t.edited ? esc(`Edited ${relTime(t.edited)}`) : t.at ? esc(`Saved ${relTime(t.at)}`) : "Starter template"}</small></button>
         <button class="icon-btn" data-rename="${esc(t.id)}" aria-label="Rename ${esc(t.name)}">${ICON_EDIT}</button>
         <button class="icon-btn" data-delete="${esc(t.id)}" aria-label="Delete ${esc(t.name)}">${ICON_DEL}</button></li>`;
-    $("tpl-list").innerHTML = templates.length ? [...templates].sort((a, b) => b.at - a.at).map(item).join("")
-      : `<li class="note">No templates yet.</li>`;
+    const resumeRow = `<li class="tpl pinned${isResume(activeId) ? " on" : openIds.includes(RESUME_TAB) ? " open" : ""}">
+        <button class="tpl-use" data-use="${RESUME_TAB}" title="Open resume.tex in a tab"><span>resume.tex</span><small>Your resume</small></button></li>`;
+    $("tpl-list").innerHTML = resumeRow + (templates.length ? [...templates].sort((a, b) => b.at - a.at).map(item).join("")
+      : `<li class="note">No templates yet.</li>`);
   }
   let tplEditing = null;  // a template's id when renaming, null when saving a new one
   function openTemplateDialog(tpl) {
@@ -1334,7 +1371,8 @@ Tools:
   });
   renderTabs();
   renderTemplates();
-  texState(isResume(activeId) && !resumeText() ? "starter template - not saved until you edit" : "saved in this browser");
+  texState(activeId && isResume(activeId) && !resumeText() ? "starter template - not saved until you edit" : "saved in this browser");
+  if (!activeId) showPdf();
 
   // The templates panel folds to a thin strip; the choice is kept.
   const TPL_OPEN_KEY = "hunter.resume.templatesCollapsed";
@@ -1345,6 +1383,7 @@ Tools:
     $("tpl-toggle").setAttribute("aria-label", label);
     $("tpl-toggle").title = label;
     saved.set(TPL_OPEN_KEY, open ? "" : "1");
+    $("tex-empty-templates").hidden = open;
     if (cm) setTimeout(() => cm.refresh(), 0);  // the editor got wider or narrower
   }
   setTemplatesOpen(!saved.get(TPL_OPEN_KEY));

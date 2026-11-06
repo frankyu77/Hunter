@@ -275,8 +275,16 @@
           <p class="note">Click a template to open it in a tab. Kept only in this browser.</p>
         </div>
       </aside>
-      <div class="editor-pane">
+      <div class="editor-pane" id="editor-pane">
         <div class="file-tabs" id="file-tabs" role="tablist" aria-label="Open files"></div>
+        <div class="tex-empty" id="tex-empty" hidden>
+          <b>No files open</b>
+          <span>Choose a template on the left to start your resume, or open the resume you have.</span>
+          <span class="tex-empty-actions">
+            <button class="btn primary sm" id="tex-empty-open">Open resume.tex</button>
+            <button class="btn sm" id="tex-empty-templates" hidden>Show templates</button>
+          </span>
+        </div>
         <label for="tex" class="sr-only">LaTeX source</label>
         <textarea id="tex" spellcheck="false" autocomplete="off"></textarea>
       </div>

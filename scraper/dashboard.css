@@ -322,6 +322,14 @@
             border-radius: 4px; font-size: 14px; line-height: 1; }
   .ftab-x:hover { background: var(--bg-hover); color: var(--text); }
   .use-resume { margin-left: auto; flex: none; height: 28px; }
+  .file-tabs:empty { min-height: 41px; }
+  .editor-pane.empty .CodeMirror, .editor-pane.empty #tex { display: none; }
+  .tex-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+               padding: 24px; text-align: center; color: var(--text-muted); }
+  .tex-empty b { color: var(--text); font-size: 15px; }
+  .tex-empty span { max-width: 340px; }
+  .tex-empty-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .tpl.pinned { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; margin-bottom: 4px; }
   .tpl.open .tpl-use span:first-child::after { content: " ●"; color: var(--text-muted); font-size: 9px; vertical-align: 2px; }
   #tex { flex: 1; width: 100%; resize: none; border: 0; outline: none; background: var(--bg-sidebar); color: var(--code);
          padding: 14px 16px; font-size: 12.5px; line-height: 1.75; tab-size: 2; }
