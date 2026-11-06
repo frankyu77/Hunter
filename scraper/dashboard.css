@@ -219,8 +219,9 @@
   .jobs td:first-child { padding-left: 16px; }
   .jobs td:last-child { padding: 8px 16px 8px 8px; text-align: right; white-space: nowrap; }
   .jobs tbody tr:hover { background: var(--bg-hover); }
-  .jobs .role { font-weight: 500; color: var(--text); min-width: 220px; }
-  .jobs .loc { max-width: 220px; }
+  .jobs .role { font-weight: 500; color: var(--text); min-width: 200px; }
+  .jobs .loc { max-width: 170px; }
+  .jobs .src { max-width: 170px; overflow: hidden; text-overflow: ellipsis; }
   .jobs .loc, .jobs .seen { color: var(--text-secondary); }
   .jobs .seen { font-size: 12px; white-space: nowrap; }
   .jobs .src { color: var(--link); white-space: nowrap; }
@@ -231,8 +232,9 @@
              color: var(--text); font-size: 12px; vertical-align: middle; display: inline-flex; align-items: center; gap: 6px; }
   .row-act:hover, .kit-btn:hover { background: var(--bg-chip); color: var(--text); }
   .row-act.square { width: 32px; padding: 0; justify-content: center; color: var(--text-secondary); }
-  .row-act[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
-  .row-act[aria-pressed="true"] svg path { fill: currentColor; }
+  .applied-btn svg { opacity: .35; }
+  .applied-btn[aria-pressed="true"] { color: var(--success); border-color: var(--success); background: var(--bg-success-soft); }
+  .applied-btn[aria-pressed="true"] svg { opacity: 1; }
   .row-act.unsent { border-style: dashed; }
   .row-act.open { border: 0; background: var(--bg-chip); }
   .row-act.open:hover { background: var(--bg-hover); }

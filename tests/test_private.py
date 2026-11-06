@@ -81,6 +81,16 @@ def test_page_carries_votes_only_encrypted(tmp_path, monkeypatch):
                      "set": {}}]
 
 
+def test_a_retired_saved_stage_reaches_the_page_as_no_stage(tmp_path, monkeypatch):
+    monkeypatch.setenv(private.PASSPHRASE_ENV, PHRASE)
+    job, store = voted_store(tmp_path)
+    store.feedback["votes"]["tok"] |= {"applied": False, "stage": "saved"}
+
+    page = dashboard.build(store, str(tmp_path / "site"), [job], {}, NOW)
+
+    assert private.unseal(sealed_from(page), PHRASE)["mine"][0]["stage"] is None
+
+
 def test_your_name_reaches_the_page_only_sealed(tmp_path, monkeypatch):
     monkeypatch.setenv(private.PASSPHRASE_ENV, PHRASE)
     job, store = voted_store(tmp_path)

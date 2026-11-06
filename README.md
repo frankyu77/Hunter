@@ -26,7 +26,7 @@ Once a week the bot also sends you a private summary: jobs sent, 👍/👎, and 
 A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<owner>.github.io/<repo>/`. Each section has its own address, all in one page:
 
 - **Home** (`#home`): new postings since your last visit, how many jobs you've applied to, your resume, the freshest matches, your pipeline, and a box that starts a chat with Claude.
-- **Job board** (`#jobs`): every job Hunter sent you (90 days) and every open posting that passes your filters, with filters for date, level, region, source, status and whether it was sent to Telegram, and tabs for All, New, Applied and Not sent. Each row has **Save** (onto your application board), **Make kit** and **Open ↗**.
+- **Job board** (`#jobs`): every job Hunter sent you (90 days) and every open posting that passes your filters, with filters for date, level, region, source, status and whether it was sent to Telegram, and tabs for All, New, Applied and Not sent. Each row has **Applied** (marks it applied and puts it on your application board), **Make kit** and **Open ↗**.
 - **Applications** (`#applications`), **Resume** (`#resume`), **Chat** (`#chat`), **Telegram alerts** (`#alerts`) and **Sources** (`#sources`), below.
 
 The page greets visitors as "Individual". Once you unlock, it greets you by the `name` in `sources.yaml` under `profile:`, which reaches the page only inside the encrypted layer.
@@ -38,12 +38,12 @@ Your votes and applications ship as the **private layer** (below), encrypted.
 
 ### Application board
 
-The **Applications** page (`…/#applications`), once unlocked, it shows your applications as a board: **Saved → Applied → Online assessment → Interview → Offer / Rejected**.
+The **Applications** page (`…/#applications`), once unlocked, it shows your applications as a board: **Applied → Online assessment → Interview → Offer / Rejected**.
 
-- **Save** on any job row adds it to Saved (a message links you to the board). Marking it **Applied** in its Make kit window puts it in Applied.
+- **Applied** on any job row (or in its Make kit window) marks it applied and puts it in the Applied column. Press it again to unmark it, which takes it off the board (it asks first if the job had moved past Applied).
 - **Drag** a card to another column, or **click** it to pick its stage, edit the date it entered each stage, and keep notes (recruiter, referral, interview rounds…).
 - Each card shows when it entered its current stage and how long ago.
-- Every stage after Saved counts as applied, and moving back to Saved, or off the board, un-marks it.
+- Every stage counts as applied: a job is on the board exactly when you've applied. Removing it from the board un-marks it.
 
 Changes sync through the same encrypted inbox as votes (one comment per edit), so the board is the same on every device and stays private. There are no reminder pings: Telegram keeps sending you new jobs as before.
 
@@ -76,7 +76,7 @@ Hunter publishes your personal data on the dashboard *encrypted*: press the lock
 
 Once unlocked you get:
 
-- **Save** on every job row, and **Relevant / Not relevant / Applied** in each job's Make kit window, showing your current marks,
+- **Applied** on every job row, and **Relevant / Not relevant / Applied** in each job's Make kit window, showing your current marks,
 - the **Applied** tab (kept past the 90-day history) and a Status filter for your marks,
 - the application board, your pipeline and applied count on Home, and the Telegram alerts and Sources settings.
 

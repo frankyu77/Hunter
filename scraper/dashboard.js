@@ -92,9 +92,9 @@
   const newCount = () => ALL.filter(isNew).length;
 
   // The application board's columns (scraper/feedback.py STAGES, same order).
-  const STAGE_NAMES = {saved: "Saved", applied: "Applied", oa: "Online assessment",
+  const STAGE_NAMES = {applied: "Applied", oa: "Online assessment",
                        interview: "Interview", offer: "Offer", rejected: "Rejected"};
-  const STAGE_COLORS = {saved: "var(--text-muted)", applied: "var(--stage-applied)", oa: "var(--accent)",
+  const STAGE_COLORS = {applied: "var(--stage-applied)", oa: "var(--accent)",
                         interview: "var(--accent)", offer: "var(--success)", rejected: "var(--danger)"};
   const STAGES = Object.keys(STAGE_NAMES);
   const FIELDS = ["vote", "applied", "stage", "notes", ...STAGES.map((s) => `date:${s}`)];
@@ -127,6 +127,7 @@
       } else out[field] = p.value;
       out.waiting[field] = p.sent ? "sent" : "unsent";
     }
+    if (out.stage && !STAGE_NAMES[out.stage]) out.stage = null;  // e.g. the retired "saved"
     out.stage = out.stage || (out.applied ? "applied" : null);
     return out;
   }
@@ -141,13 +142,13 @@
       .map((r) => ({...r, sent: sentIds.has(r.i)}));
   }
   // Moving a job to `stage` (null = off the board): dates the new stage
-  // today unless it already has a date, and keeps "applied" in step - every
-  // stage after Saved means you applied.
+  // today unless it already has a date, and keeps "applied" in step - a job
+  // is on the board exactly when you've applied to it.
   function stageChanges(m, stage) {
     const changes = {stage};
     if (stage && !m.dates[stage]) changes[`date:${stage}`] = today();
-    if (stage && stage !== "saved" && !m.applied) changes.applied = true;
-    if ((!stage || stage === "saved") && m.applied) changes.applied = false;
+    if (stage && !m.applied) changes.applied = true;
+    if (!stage && m.applied) changes.applied = false;
     return changes;
   }
 
@@ -168,7 +169,7 @@
       if (status === "open" || status === "closed") { if (r.st !== status) return false; }
       else if (status) {
         const m = marksOf(r);
-        if (!(status === "saved" ? m.stage : m.vote === status)) return false;
+        if (m.vote !== status) return false;
       }
       return !q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q);
     });
@@ -181,17 +182,18 @@
     new: `<svg width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="New"><circle cx="12" cy="12" r="5" fill="var(--accent)"/></svg>`,
     closed: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" role="img" aria-label="Closed"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>`,
     seen: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-faint)" stroke-width="2" role="img" aria-label="Seen"><circle cx="12" cy="12" r="9"/></svg>`,
-    save: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>`,
+    check: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>`,
   };
   const statusOf = (r) => (mine && marksOf(r).applied ? "applied" : r.st === "closed" ? "closed" : isNew(r) ? "new" : "seen");
   const seenText = (r) => (r.f ? relTime(r.f * 1000) : r.d ? shortDate(r.d) : "—");
 
   let visible = [];
-  function saveButton(r, i) {
+  function appliedButton(r, i) {
     const m = mine ? marksOf(r) : {};
-    const on = !!m.stage, unsent = mine && m.waiting.stage === "unsent";
-    const label = on ? `On your board: ${STAGE_NAMES[m.stage]}` : "Save to your application board";
-    return `<button class="row-act square save-btn${unsent ? " unsent" : ""}" data-i="${i}" aria-pressed="${on}" title="${esc(label)}${unsent ? " · not sent yet - will retry" : ""}" aria-label="${esc(label)}">${ICON.save}</button>`;
+    const on = !!m.applied, unsent = mine && m.waiting.applied === "unsent";
+    const tip = !on ? "Mark as applied - adds it to your application board"
+      : m.stage && m.stage !== "applied" ? `Applied · ${STAGE_NAMES[m.stage]} on your board · click to unmark` : "Applied · click to unmark";
+    return `<button class="row-act applied-btn${unsent ? " unsent" : ""}" data-i="${i}" aria-pressed="${on}" title="${esc(tip)}${unsent ? " · not sent yet - will retry" : ""}">${ICON.check}Applied</button>`;
   }
   function renderRows() {
     const locked = tab === "applied" && !mine;
@@ -211,10 +213,10 @@
       <td>${r.k ? `<span class="level">${LEVELS[r.k] || esc(r.k)}</span>` : ""}</td>
       <td class="seen num" title="${r.d ? esc(r.sent ? `Sent ${r.d}` : `Posted ${r.d}`) : ""}">${esc(seenText(r))}</td>
       <td class="src" title="${esc(r.s)}">${esc(srcName(r))}</td>
-      <td>${saveButton(r, i)} <button class="kit-btn" data-i="${i}" title="Tailor your resume to this job">Make kit</button>
+      <td>${appliedButton(r, i)} <button class="kit-btn" data-i="${i}" title="Tailor your resume to this job">Make kit</button>
         <a class="row-act open" href="${esc(r.u)}" target="_blank" rel="noopener" data-i="${i}">Open ↗</a></td></tr>`).join("");
     $("empty").hidden = locked || rows.length > 0;
-    $("empty").textContent = tab === "new" ? "Nothing new since your last visit." : tab === "applied" ? "No applications yet - mark a job Applied from its kit, or move it on your board." : "No jobs match.";
+    $("empty").textContent = tab === "new" ? "Nothing new since your last visit." : tab === "applied" ? "No applications yet - press Applied on a job." : "No jobs match.";
     const range = rows.length ? `${fmt(first + 1)}–${fmt(first + visible.length)}` : "0";
     $("jobs-count").textContent = locked ? "" : `Showing ${range} of ${fmt(rows.length)}`;
     $("pager").hidden = locked || !rows.length;
@@ -556,29 +558,25 @@
     else toast("Sync isn't set up yet - Hunter creates its inbox issue on the next run.");
     return false;
   }
-  function saveJob(r) {
-    if (!canMark()) return;
-    const m = marksOf(r);
-    if (m.stage) { openCard(r); return; }  // already on the board: open its card
-    queueChanges(r, stageChanges(m, "saved"));
-    toast(`Saved ${esc(r.c)} - see it in <a href="#applications">Applications</a>`);
-  }
   $("rows").addEventListener("click", (e) => {
-    const btn = e.target.closest(".save-btn");
-    if (btn) saveJob(visible[Number(btn.dataset.i)]);
+    const btn = e.target.closest(".applied-btn");
+    if (btn) markClick(visible[Number(btn.dataset.i)], "applied");
   });
-  // 👍 / 👎 / applied, from the job's kit window.
+  // Applied (on each job row and in its kit window) and 👍 / 👎 (kit window).
+  // Marking applied puts the job in the board's Applied column; unmarking
+  // takes it off the board - after asking, if it had moved further along.
   function markClick(r, field, value) {
     if (!canMark()) return;
     const m = marksOf(r);
     if (field === "vote") {
       queueChanges(r, {vote: m.vote === value ? null : value});
+    } else if (!m.applied) {
+      queueChanges(r, m.stage ? {applied: true} : stageChanges(m, "applied"));
+      toast(`Marked ${esc(r.c)} applied - it's on your <a href="#applications">application board</a>`);
     } else {
-      // Same rule as Telegram's ✅ (feedback._board_follows_applied).
-      const changes = {applied: !m.applied};
-      if (!m.applied && (!m.stage || m.stage === "saved")) Object.assign(changes, stageChanges({...m, applied: "x"}, "applied"));
-      if (m.applied && m.stage === "applied") changes.stage = null;
-      queueChanges(r, changes);
+      if (m.stage && m.stage !== "applied"
+          && !confirm(`Unmark ${r.c} - ${r.t} as applied? It's at ${STAGE_NAMES[m.stage]} on your board, and unmarking takes it off the board. Its notes are kept.`)) return;
+      queueChanges(r, m.stage ? stageChanges(m, null) : {applied: false});
     }
     renderKitMarks();
   }
@@ -735,7 +733,7 @@
         .sort((a, b) => (b.m.dates[st] || "").localeCompare(a.m.dates[st] || ""));
       return `<div class="bcol" data-stage="${st}" aria-label="${STAGE_NAMES[st]}">
         <h3><span class="dot" style="background:${STAGE_COLORS[st]}"></span><span>${STAGE_NAMES[st]}</span><span class="n num">${col.length}</span></h3>
-        ${col.map(({r, m}) => boardCard(r, m, st, now)).join("") || `<p class="bempty">${st === "saved" ? "Save a job from the job board" : "Nothing yet"}</p>`}
+        ${col.map(({r, m}) => boardCard(r, m, st, now)).join("") || `<p class="bempty">${st === "applied" ? "Press Applied on a job to add it here" : "Nothing yet"}</p>`}
       </div>`;
     }).join("");
   }
@@ -795,7 +793,7 @@
   function openCard(r) {
     cardRow = r;
     const m = marksOf(r);
-    cardStage = m.stage || "saved";
+    cardStage = m.stage || "applied";
     $("card-h").textContent = r.t;
     $("card-meta").textContent = [r.c, r.l].filter(Boolean).join(" · ");
     $("card-link").href = r.u;
@@ -825,7 +823,7 @@
     if (Object.keys(changes).length && canMark()) queueChanges(cardRow, changes);
   });
   $("card-remove").addEventListener("click", () => {
-    if (!confirm(`Remove ${cardRow.c} - ${cardRow.t} from your board? Its notes are kept.`)) return;
+    if (!confirm(`Remove ${cardRow.c} - ${cardRow.t} from your board? It will no longer be marked applied. Its notes are kept.`)) return;
     $("card").close();
     if (canMark()) queueChanges(cardRow, stageChanges(marksOf(cardRow), null));
   });

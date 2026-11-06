@@ -50,7 +50,7 @@ from pathlib import Path
 
 import yaml
 
-from scraper import alerts, autosources, filters, inbox, private
+from scraper import alerts, autosources, feedback, filters, inbox, private
 from scraper.models import Job
 from scraper.notify import categorize, display_company
 from scraper.regions import region
@@ -195,7 +195,8 @@ def _mine(store: SeenStore) -> list[dict]:
             "applied": (record.get("applied_at") or record.get("updated_at", ""))[:10]
             if record.get("applied") else "",
             # The application board: column, the day each stage began, notes.
-            "stage": record.get("stage"),
+            # A stage that's no longer a column (the retired "saved") is none.
+            "stage": record.get("stage") if record.get("stage") in feedback.STAGES else None,
             "dates": record.get("stage_dates", {}),
             "notes": record.get("notes", ""),
             # When each field last changed: the page drops a click it is
