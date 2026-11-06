@@ -217,6 +217,17 @@ def test_page_offers_the_kit_without_embedding_anything_personal(tmp_path):
     assert "localStorage.getItem(k)" in text
 
 
+def test_every_section_has_its_own_hash_route(tmp_path):
+    store = store_with(tmp_path, {})
+    text = dashboard.build(store, str(tmp_path / "site"), None, {}, NOW).read_text("utf-8")
+    for route in ("home", "jobs", "applications", "resume", "chat", "alerts", "sources"):
+        assert f'id="view-{route}"' in text and f'href="#{route}"' in text
+    # The template's three source files are joined, not left as placeholders.
+    assert "/*__CSS__*/" not in text and "/*__JS__*/" not in text
+    # The editor is fetched from a pinned version and checked against its hash.
+    assert "codemirror@5.65.21" in text and 'integrity: "sha384-' in text
+
+
 def test_kit_keeps_bullets_to_one_resume_line(tmp_path):
     store = store_with(tmp_path, {})
     text = dashboard.build(store, str(tmp_path / "site"), None, {}, NOW).read_text("utf-8")

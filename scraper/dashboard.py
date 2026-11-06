@@ -1,8 +1,12 @@
 """Static dashboard, published to GitHub Pages.
 
 Built from state plus the current run's fetch into one self-contained
-``index.html`` (data embedded, no external requests), so the same file works
-on Pages and opened straight from disk. Rebuilt at most every
+``index.html`` (data embedded), so the same file works on Pages and opened
+straight from disk. Its source is three files - dashboard.html, .css and .js
+- joined into TEMPLATE here, so the page needs no build step. The only
+things it fetches are the font (Google Fonts), and, on first use, the
+pinned Anthropic SDK, CodeMirror and the Siglum TeX engine (jsdelivr; the
+engine's TeX packages come from packages.siglum.org, by package name only). Rebuilt at most every
 DASHBOARD_EVERY_MINUTES: GitHub Pages rate-limits deployments, and the
 cron runs far more often than the charts change.
 
@@ -11,14 +15,18 @@ part of the page is job data only. Votes and applications
 (``feedback.votes``) ship only as the private layer: rows built here and
 handed straight to ``private.seal``, so plaintext never reaches the page.
 Without a passphrase configured there is no private layer at all. Once
-unlocked, the page can also send 👍/👎/✅ back (scraper.inbox).
+unlocked, the page can also send marks and board moves back (scraper.inbox).
+Your name (``profile.name`` in sources.yaml) is sealed with them. The resume
+(LaTeX, in the page's editor) and the Anthropic API key used by Make kit and
+Chat live only in the viewer's browser storage; the resume compiles to PDF
+in the browser, so it never leaves it except to Anthropic's API.
 
 Most of the 60-day store holds just ids and first-seen times, but that is
 enough for hiring activity: an id's prefix names its board. Titles exist only
 for jobs you were sent (``feedback.sent``, 90 days) and jobs open right now,
-which is what the search covers - as two tabs that never overlap: "Sent to
-you" (each marked still open / closed where known) and "Not sent" (open now,
-never reported: mostly the backlog recorded silently when a source was
+which is what the job board covers - two sets that never overlap: jobs sent
+to you (each marked still open / closed where known) and "Not sent" (open
+now, never reported: mostly the backlog recorded silently when a source was
 added). A sent job is matched by id and by company+title+location, so the
 collapsed "×3" duplicates of a sent job don't resurface as "not sent".
 
@@ -96,7 +104,7 @@ def build(
     payload = json.dumps(data, separators=(",", ":")).replace("</", "<\\/")
     # Sealed first: it is base64 and fixed keys, so it can't contain __DATA__,
     # whereas job data could contain the private placeholder.
-    sealed = json.dumps(_sealed(store))
+    sealed = json.dumps(_sealed(store, config))
     page.write_text(TEMPLATE.replace("__PRIVATE__", sealed).replace("__DATA__", payload),
                     encoding="utf-8")
     store.insights["dashboard_built_at"] = now.isoformat(timespec="seconds")
@@ -155,15 +163,18 @@ def _inbox(store: SeenStore) -> dict | None:
     return {"repo": inbox.repo(), "issue": number} if number and inbox.repo() else None
 
 
-def _sealed(store: SeenStore) -> dict | None:
+def _sealed(store: SeenStore, config: dict | None = None) -> dict | None:
     """The private layer, encrypted - or None (no layer) if no passphrase is
     set or sealing fails. A failure here costs the private layer for an
-    hour, never the public page."""
+    hour, never the public page. Your name rides along, so the public page
+    greets an anonymous "Individual" and only an unlocked one greets you."""
     phrase = private.passphrase()
     if phrase is None:
         return None
+    profile = (config or {}).get("profile") or {}
     try:
-        return private.seal({"mine": _mine(store), "alerts": alerts.settings(store)}, phrase)
+        return private.seal({"mine": _mine(store), "alerts": alerts.settings(store),
+                             "profile": {"name": str(profile.get("name") or "")}}, phrase)
     except Exception:
         log.exception("Sealing the private layer failed; publishing without it.")
         return None
@@ -348,7 +359,15 @@ def _source_label(source: str) -> str:
 
 # --- page ---------------------------------------------------------------------
 
-TEMPLATE = (Path(__file__).with_name("dashboard.html")).read_text(encoding="utf-8")
+def _template() -> str:
+    def read(name: str) -> str:
+        return Path(__file__).with_name(name).read_text(encoding="utf-8")
+
+    return (read("dashboard.html").replace("/*__CSS__*/", read("dashboard.css"))
+            .replace("/*__JS__*/", read("dashboard.js")))
+
+
+TEMPLATE = _template()
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -81,6 +81,17 @@ def test_page_carries_votes_only_encrypted(tmp_path, monkeypatch):
                      "set": {}}]
 
 
+def test_your_name_reaches_the_page_only_sealed(tmp_path, monkeypatch):
+    monkeypatch.setenv(private.PASSPHRASE_ENV, PHRASE)
+    job, store = voted_store(tmp_path)
+    config = {"sources": [], "profile": {"name": "Secretname Person", "school": "x"}}
+
+    page = dashboard.build(store, str(tmp_path / "site"), [job], {}, NOW, config=config)
+
+    assert "Secretname" not in inserted(page)  # the public page greets "Individual"
+    assert private.unseal(sealed_from(page), PHRASE)["profile"] == {"name": "Secretname Person"}
+
+
 def test_without_a_passphrase_the_page_has_no_private_layer(tmp_path):
     job, store = voted_store(tmp_path)
     page = dashboard.build(store, str(tmp_path / "site"), [job], {}, NOW)
