@@ -515,7 +515,8 @@
   }
   async function sendAll() {
     const queue = Object.entries(pending).filter(([, p]) => !p.sent);
-    if (!queue.length || !mine || !unlockedKey || !data.inbox) return;
+    if (!queue.length || !mine || !unlockedKey) return;
+    if (!data.inbox) { $("act-status").textContent = NO_SYNC; return; }
     const token = saved.get(TOKEN_KEY);
     if (!token) { syncStatus("Your changes are saved in this browser - add a GitHub token under Settings to send them."); return; }
     // Everything queued goes in one comment, so one edit is one run.
@@ -548,14 +549,22 @@
     }
     savePending();
     render();
+    requestSync();
+  }
+  // After a change is queued (and already showing): send it, asking for a
+  // GitHub token first if there's none. A copy of the page with no inbox
+  // address (a local preview, or before Hunter's first run makes the issue)
+  // keeps changes in this browser, unsent, rather than refusing them.
+  const NO_SYNC = "Marked in this browser only - this copy of the page isn't connected to Hunter's inbox, so changes aren't synced.";
+  function requestSync() {
+    if (!data.inbox) { $("act-status").textContent = NO_SYNC; return; }
     if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
   }
-  // Marking needs the unlocked layer and somewhere to send the change.
+  // Marking needs the unlocked layer: it holds your existing marks.
   function canMark() {
-    if (mine && data.inbox) return true;
-    if (!hasPrivate) toast("Saving needs the private layer - set the HUNTER_PASSPHRASE secret.");
-    else if (!mine) openUnlock();
-    else toast("Sync isn't set up yet - Hunter creates its inbox issue on the next run.");
+    if (mine) return true;
+    if (!hasPrivate) toast("Marking needs the private layer - set the HUNTER_PASSPHRASE secret.");
+    else openUnlock();
     return false;
   }
   $("rows").addEventListener("click", (e) => {
@@ -572,7 +581,7 @@
       queueChanges(r, {vote: m.vote === value ? null : value});
     } else if (!m.applied) {
       queueChanges(r, m.stage ? {applied: true} : stageChanges(m, "applied"));
-      toast(`Marked ${esc(r.c)} applied - it's on your <a href="#applications">application board</a>`);
+      toast(`Marked ${esc(r.c)} applied - it's on your <a href="#applications">application board</a>${data.inbox ? "" : " (this browser only, not synced)"}`);
     } else {
       if (m.stage && m.stage !== "applied"
           && !confirm(`Unmark ${r.c} - ${r.t} as applied? It's at ${STAGE_NAMES[m.stage]} on your board, and unmarking takes it off the board. Its notes are kept.`)) return;
@@ -656,7 +665,7 @@
     pending[ALERT_KEY] = {id: "", field: "alerts", value: formAlerts(), at: new Date().toISOString(), sent: false, row: {}};
     savePending();
     render();
-    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+    requestSync();
   });
 
   // Sources (scraper/autosources.py): company boards Hunter polls directly
@@ -715,7 +724,7 @@
     savePending();
     renderSources();
     $("sources-status").textContent = "Sent to Hunter - the next run applies it and confirms in Telegram.";
-    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
+    requestSync();
   });
 
   // Application board. Built from the same marks as the job rows, so a move
@@ -1493,7 +1502,7 @@ These show the candidate their gaps; the bullets and their numbers are illustrat
   });
 
   function renderKitMarks() {
-    const show = !!(kitJob && kitJob.i && mine && data.inbox);
+    const show = !!(kitJob && kitJob.i && mine);
     $("kit-marks").hidden = !show;
     if (!show) return;
     const m = marksOf(kitJob);
