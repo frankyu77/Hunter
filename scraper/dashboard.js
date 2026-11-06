@@ -1822,19 +1822,31 @@ These show the candidate their gaps; the bullets and their numbers are illustrat
     $("chat-who").textContent = key ? `Claude ${modelName(chatModel)} · your API key` : "Add your Claude API key";
   }
   $("chat-who").parentElement.addEventListener("click", () => !saved.get(API_KEY) && openSetup());
+  // What Claude can see, and as of when - newer postings aren't in it yet.
+  $("chat-asof").textContent = `Sees the ${fmt(Math.min(CHAT_JOBS, ALL.length))} newest jobs, as of ${new Date(generated).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"})}`;
+  $("chat-asof").title = "The job board Claude sees is the snapshot this page was built from. Postings Hunter found after that, and older ones, aren't in it.";
   renderChatHead();
 
   let convo = null, chatBusy = false;
+  // Timestamps go in as UTC, so Claude can compare any two of them.
+  const utc = (ms) => `${new Date(ms).toISOString().slice(0, 16).replace("T", " ")} UTC`;
   function chatSystem() {
     const jobs = ALL.slice(0, CHAT_JOBS);
     const lines = jobs.map((r, n) => {
       const m = mine ? marksOf(r) : {};
-      return `[J${n + 1}] ${r.t} | ${r.c} | ${r.l || "no location"} | ${LEVELS[r.k] || r.k || "level unknown"} | first seen ${r.f ? new Date(r.f * 1000).toISOString().slice(0, 10) : r.d || "?"}`
+      return `[J${n + 1}] ${r.t} | ${r.c} | ${r.l || "no location"} | ${LEVELS[r.k] || r.k || "level unknown"} | first seen ${r.f ? utc(r.f * 1000) : r.d || "?"}`
         + ` | ${r.sent ? "sent to you" : "not sent"}${r.st ? ` | ${r.st}` : ""}${isNew(r) ? " | NEW" : ""}${m.stage ? ` | on your board: ${STAGE_NAMES[m.stage]}` : ""}`;
     });
     const resume = resumeText();
     const who = profileName ? firstName() : "the user";
-    const text = `You are Hunter's assistant, helping ${who} with their job search. Hunter polls company job boards and sends ${who} new postings. Today is ${new Date().toDateString()}.
+    const oldest = jobs.length ? jobs[jobs.length - 1] : null;
+    const text = `You are Hunter's assistant, helping ${who} with their job search. Hunter polls company job boards and sends ${who} new postings on Telegram.
+
+It is now ${utc(Date.now())}. The job board below is a snapshot taken at ${utc(generated)}, when this page was last built (Hunter rebuilds it about hourly). It lists the ${fmt(jobs.length)} newest of the ${fmt(ALL.length)} jobs on the board${oldest ? `, back to ${oldest.f ? utc(oldest.f * 1000) : oldest.d}` : ""}. So:
+- A posting Hunter found after the snapshot isn't listed, even if ${who} already got a Telegram message about it.
+- Older postings aren't listed either.
+- If you can't find a company or posting, say so and give these two reasons as the likely ones, with the snapshot time. Don't conclude that Hunter doesn't track that company: you can't see its source list.
+Only describe Hunter features named here. Companies are tracked from its sources.yaml file and from boards it adds on its own (the Sources page); you can't add one.
 
 Write plain text: no Markdown (no **, #, tables or links); use "-" for lists. Be direct and specific.
 
