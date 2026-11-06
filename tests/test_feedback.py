@@ -316,6 +316,19 @@ def test_telegram_applied_moves_the_job_onto_the_board_and_back(tmp_path, bot):
     assert token not in store.feedback["votes"]  # unapplied while still just Applied: off the board
 
 
+def test_telegram_applied_moves_a_retired_saved_job_into_applied(tmp_path, bot):
+    job = make_job()
+    store = sent_store(tmp_path, [job])
+    token = telegram.callback_token(job.id)
+    store.feedback["votes"] = {token: feedback.snapshot(job) | {
+        "vote": None, "applied": False, "stage": "saved"}}  # from before Saved was removed
+
+    bot["updates"] = [press(1, "a", job)]
+    feedback.process_updates(store)
+
+    assert store.feedback["votes"][token]["stage"] == "applied"
+
+
 def test_telegram_applied_never_drags_a_later_stage_backwards(tmp_path, bot):
     job = make_job()
     store = sent_store(tmp_path, [job])

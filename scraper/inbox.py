@@ -1,6 +1,6 @@
 """Dashboard actions -> vote records, through a GitHub issue inbox.
 
-Actions are 👍 / 👎 / ✅, the application board's stage, per-stage dates
+Actions are 👍 / 👎 / applied, the application board's stage, per-stage dates
 and notes, the Telegram alert settings (scraper.alerts - not tied to a
 job, so it carries no id), and Add / Remove / Resume on the Sources page
 (scraper.autosources - its id is a board key, not a job). One comment

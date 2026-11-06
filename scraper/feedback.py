@@ -130,17 +130,18 @@ def _apply(query: dict, store: SeenStore, now: datetime) -> None:
 _FIELDS = {"applied": "applied", "up": "vote", "down": "vote"}
 
 # The application board's columns, in order. The dashboard sets them (via
-# scraper.inbox); every stage from "applied" on means you applied.
-STAGES = ("saved", "applied", "oa", "interview", "offer", "rejected")
+# scraper.inbox); a job is on the board because you applied to it. There is
+# no "saved" column: a stage outside STAGES is rejected by the inbox.
+STAGES = ("applied", "oa", "interview", "offer", "rejected")
 
 
 def _board_follows_applied(record: dict, stamp: str) -> None:
-    """Telegram's ✅ keeps the board in step: marking applied moves a job
-    that isn't past Saved into Applied (dated today); unmarking takes it back
-    off the board only if it was still just Applied. The dashboard sends
-    these fields itself, so this is the Telegram path only."""
+    """Telegram's ✅ keeps the board in step: marking applied puts a job
+    that isn't on the board into Applied (dated today); unmarking takes it
+    back off the board only if it was still just Applied. The dashboard
+    sends these fields itself, so this is the Telegram path only."""
     stamps = record.setdefault("set_at", {})
-    if record["applied"] and record.get("stage") in (None, "saved"):
+    if record["applied"] and record.get("stage") not in STAGES:
         record["stage"] = "applied"
         record.setdefault("stage_dates", {})["applied"] = stamp[:10]
         stamps["stage"] = stamps["date:applied"] = stamp

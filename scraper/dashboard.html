@@ -3,359 +3,350 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hunter dashboard</title>
+<title>Hunter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-  :root {
-    color-scheme: light;
-    --surface-0: #f4f4f1;
-    --surface-1: #fcfcfb;
-    --surface-2: #efeeea;
-    --border: #e2e1dc;
-    --grid: #e9e8e3;
-    --text-primary: #0b0b0b;
-    --text-secondary: #52514e;
-    --text-muted: #6f6e69;
-    --accent: #2a78d6;
-    --link: #1c5cab;
-    /* sequential blue, low -> high; near-zero recedes toward the surface */
-    --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #6da7ec;
-    --seq-4: #3987e5; --seq-5: #256abf; --seq-6: #104281;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:where(:not([data-theme="light"])) {
-      color-scheme: dark;
-      --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #262624;
-      --border: #30302e; --grid: #2b2b29;
-      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #9a998f;
-      --accent: #3987e5; --link: #86b6ef;
-      --seq-1: #184f95; --seq-2: #1c5cab; --seq-3: #256abf;
-      --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #b7d3f6;
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #262624;
-    --border: #30302e; --grid: #2b2b29;
-    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #9a998f;
-    --accent: #3987e5; --link: #86b6ef;
-    --seq-1: #184f95; --seq-2: #1c5cab; --seq-3: #256abf;
-    --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #b7d3f6;
-  }
-
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--surface-0); color: var(--text-primary);
-    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  main { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
-  header h1 { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spacing: -0.01em; }
-  header p { margin: 0; color: var(--text-secondary); }
-  a { color: var(--link); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .num { font-variant-numeric: tabular-nums; }
-
-  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-           gap: 12px; margin: 24px 0; }
-  .tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
-          padding: 14px 16px; }
-  .tile .value { font-size: 28px; font-weight: 600; line-height: 1.15; }
-  .tile .label { color: var(--text-secondary); font-size: 13px; margin-top: 2px; }
-
-  section.card { background: var(--surface-1); border: 1px solid var(--border);
-                 border-radius: 12px; padding: 20px; margin-top: 16px; }
-  .card h2 { font-size: 17px; margin: 0; }
-  .card .sub { color: var(--text-secondary); font-size: 13px; margin: 2px 0 16px; }
-
-  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; align-items: center; }
-  .controls input, .controls select {
-    font: inherit; color: var(--text-primary); background: var(--surface-0);
-    border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; min-width: 0;
-  }
-  .controls input { flex: 1 1 220px; }
-  .tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  .tabs button { font: inherit; font-size: 14px; border: 0; background: var(--surface-0);
-                 color: var(--text-secondary); padding: 7px 12px; cursor: pointer; }
-  .tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
-  .tabs button:disabled { cursor: not-allowed; opacity: .5; }
-
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  th { text-align: left; font-weight: 600; color: var(--text-secondary); font-size: 12px;
-       text-transform: uppercase; letter-spacing: .04em; padding: 8px; border-bottom: 1px solid var(--border); }
-  td { padding: 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
-  td.date { white-space: nowrap; color: var(--text-secondary); }
-  td.muted { color: var(--text-secondary); }
-  td.src { color: var(--text-muted); font-size: 13px; white-space: nowrap; }
-  .status { display: inline-block; font-size: 12px; margin-left: 6px; white-space: nowrap;
-            color: var(--text-secondary); }
-  .status.open::before { content: "●"; color: #0ca30c; margin-right: 4px; }
-  .status.closed::before { content: "○"; margin-right: 4px; }
-  tr.closed a { color: var(--text-secondary); }
-  tr.new td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
-  .pill-new { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 600; color: var(--accent);
-              border: 1px solid var(--accent); border-radius: 999px; padding: 0 6px; vertical-align: 1px; }
-  .chip-toggle { font: inherit; font-size: 14px; border: 1px solid var(--border); border-radius: 999px;
-                 background: var(--surface-0); color: var(--text-secondary); padding: 6px 12px; cursor: pointer; }
-  .chip-toggle[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .chip-toggle:disabled { opacity: .5; cursor: default; }
-  .linkish { font: inherit; font-size: 13px; border: 0; background: none; color: var(--link); cursor: pointer; padding: 4px; }
-  .loc-inline { display: none; color: var(--text-secondary); font-size: 13px; }
-  @media (max-width: 720px) {
-    .col-src, .col-loc { display: none; }
-    .loc-inline { display: block; }
-    .kit-label { display: none; }
-    td, th { padding: 8px 4px; }
-    section.card { padding: 16px 12px; }
-    .kit-btn { padding: 2px 6px; }
-  }
-  .more { margin-top: 12px; font: inherit; font-size: 14px; background: none; color: var(--link);
-          border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
-  .empty { color: var(--text-muted); padding: 16px 0; }
-
-  /* column chart */
-  .columns { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px;
-             align-items: end; height: 140px; border-bottom: 1px solid var(--border); }
-  .col { position: relative; height: 100%; display: flex; align-items: flex-end; cursor: default; }
-  .col .bar { width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
-  .col:hover .bar, .col:focus .bar { filter: brightness(1.12); }
-  .col.partial .bar { opacity: .45; }
-  .col-labels { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px;
-                font-size: 12px; color: var(--text-muted); margin-top: 6px; text-align: center; }
-
-  /* heatmap */
-  .heat { display: grid; gap: 2px; margin-top: 24px; font-size: 13px; }
-  .heat .name { color: var(--text-secondary); white-space: nowrap; overflow: hidden;
-                text-overflow: ellipsis; padding-right: 8px; line-height: 22px; }
-  .heat .cell { height: 22px; border-radius: 4px; background: var(--surface-2); }
-  .heat .cell.l1 { background: var(--seq-1); } .heat .cell.l2 { background: var(--seq-2); }
-  .heat .cell.l3 { background: var(--seq-3); } .heat .cell.l4 { background: var(--seq-4); }
-  .heat .cell.l5 { background: var(--seq-5); } .heat .cell.l6 { background: var(--seq-6); }
-  .heat .wk { font-size: 12px; color: var(--text-muted); text-align: center; }
-  .legend { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px;
-            color: var(--text-secondary); flex-wrap: wrap; }
-  .legend .sw { width: 18px; height: 12px; border-radius: 3px; background: var(--surface-2); }
-
-  /* horizontal bars */
-  .hbars { display: grid; grid-template-columns: minmax(90px, 200px) 1fr auto; gap: 8px 12px;
-           align-items: center; font-size: 14px; }
-  .hbars .name { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .hbars .track { height: 12px; }
-  .hbars .fill { height: 12px; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
-  .hbars .val { color: var(--text-primary); white-space: nowrap; }
-  .hbars .val span { color: var(--text-muted); }
-
-  details { margin-top: 16px; font-size: 14px; }
-  summary { cursor: pointer; color: var(--text-secondary); }
-
-  #tip { position: fixed; pointer-events: none; z-index: 10; background: var(--text-primary);
-         color: var(--surface-1); font-size: 13px; padding: 6px 9px; border-radius: 6px;
-         max-width: 260px; opacity: 0; transition: opacity .08s; }
-  #tip.on { opacity: 1; }
-  footer { color: var(--text-muted); font-size: 13px; margin-top: 32px; }
-
-  /* application kit */
-  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-  .btn { font: inherit; font-size: 14px; border: 1px solid var(--border); border-radius: 8px;
-         background: var(--surface-1); color: var(--text-primary); padding: 7px 12px; cursor: pointer; }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .btn:disabled { opacity: .55; cursor: not-allowed; }
-  td.col-kit { width: 1%; text-align: right; }
-  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  .kit-btn { font: inherit; font-size: 12px; padding: 2px 9px; cursor: pointer;
-             border: 1px solid var(--border); border-radius: 999px; background: none;
-             color: var(--text-secondary); white-space: nowrap; }
-  .kit-btn:hover { color: var(--link); border-color: var(--link); }
-  dialog { width: min(720px, calc(100vw - 32px)); max-height: calc(100vh - 48px); border: 1px solid var(--border);
-           border-radius: 12px; background: var(--surface-1); color: var(--text-primary); padding: 20px; }
-  dialog::backdrop { background: rgb(0 0 0 / .45); }
-  dialog h2 { font-size: 17px; margin: 0 0 4px; }
-  dialog .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 14px; }
-  dialog label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 4px; }
-  dialog textarea, dialog input { width: 100%; font: inherit; font-size: 14px; color: var(--text-primary);
-           background: var(--surface-0); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
-  dialog textarea { min-height: 140px; resize: vertical; }
-  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
-  .row .spacer { flex: 1; }
-  .note { color: var(--text-muted); font-size: 12px; margin-top: 8px; }
-  #kit-status { color: var(--text-secondary); font-size: 13px; }
-  #kit-out { margin-top: 14px; display: grid; gap: 10px; }
-  #kit-out:empty { display: none; }
-  .kit-sec { border: 1px solid var(--border); border-radius: 10px; background: var(--surface-0); padding: 12px 14px; }
-  .kit-sec header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-  .kit-sec h3 { font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
-                color: var(--text-secondary); margin: 0; flex: 1; }
-  .kit-sec ul { margin: 0; padding-left: 20px; }
-  .kit-sec li { margin: 4px 0; line-height: 1.5; }
-  .kit-sec p { margin: 0 0 8px; line-height: 1.6; }
-  .kit-sec p:last-child { margin-bottom: 0; }
-  .kit-sec .mini { font: inherit; font-size: 12px; padding: 1px 8px; border: 1px solid var(--border);
-                   border-radius: 999px; background: var(--surface-1); color: var(--text-secondary); cursor: pointer; }
-  .kit-sec .mini:hover { color: var(--link); border-color: var(--link); }
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip { font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--surface-2);
-          border: 1px solid var(--border); }
-  .kit-sec.gap { border-style: dashed; background: transparent; }
-  .kit-sec.gap .ref { font-size: 11px; color: var(--text-muted); border: 1px solid var(--border);
-                      border-radius: 999px; padding: 0 8px; }
-  .kit-sec.gap li { color: var(--text-secondary); }
-  .kit-sec.gap .where { color: var(--text-primary); font-weight: 600; }
-  .miss { display: inline-block; font-size: 12px; font-weight: 600; color: var(--text-primary);
-          background: var(--surface-2); border-radius: 6px; padding: 0 6px; margin-right: 6px; }
-  .muted { color: var(--text-muted); }
-  .ats-top { display: flex; align-items: baseline; gap: 10px; }
-  .ats-score { font-size: 32px; font-weight: 600; line-height: 1.1; }
-  .ats-verdict { color: var(--text-secondary); font-size: 14px; }
-  .ats-meter { height: 8px; border-radius: 4px; background: var(--surface-2); margin: 8px 0 12px; overflow: hidden; }
-  /* Status colors (reserved for state, never series): always paired with an icon + label. */
-  .ats-fill { height: 100%; border-radius: 4px; }
-  .ats-fill.strong { background: #0ca30c; }
-  .ats-fill.fair { background: #fab219; }
-  .ats-fill.weak { background: #d03b3b; }
-  .ats-verdict .icon { font-weight: 700; margin-right: 4px; }
-  .ats-verdict.strong .icon { color: #0ca30c; }
-  .ats-verdict.fair .icon { color: #c98500; }
-  .ats-verdict.weak .icon { color: #d03b3b; }
-  .ats-row { display: flex; gap: 10px; align-items: baseline; margin: 6px 0; }
-  .ats-label { flex: 0 0 96px; font-size: 12px; color: var(--text-secondary); }
-  .chip.hit { background: var(--surface-2); }
-  .chip.miss-chip { background: transparent; border-style: dashed; color: var(--text-secondary); }
-  /* private layer */
-  .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  td.col-kit { white-space: nowrap; }
-  .acts { display: inline-flex; gap: 2px; margin-right: 6px; vertical-align: middle; }
-  .act { font: inherit; font-size: 13px; line-height: 1; padding: 3px 5px; cursor: pointer; border-radius: 6px;
-         border: 1px solid transparent; background: none; filter: grayscale(1); opacity: .45; }
-  .act:hover, .act:focus-visible { opacity: .9; border-color: var(--border); }
-  .act[aria-pressed="true"] { filter: none; opacity: 1; background: var(--surface-2); border-color: var(--border); }
-  .act.unsent { border-style: dashed; border-color: var(--text-muted); }
-  /* pages */
-  .views { display: flex; gap: 4px; margin: 20px 0 0; border-bottom: 1px solid var(--border); }
-  .views a { padding: 8px 14px; color: var(--text-secondary); border-bottom: 2px solid transparent;
-             margin-bottom: -1px; font-weight: 500; }
-  .views a:hover { text-decoration: none; color: var(--text-primary); }
-  .views a[aria-current="page"] { color: var(--text-primary); border-bottom-color: var(--accent); }
-  #view-applications .bcol { min-height: 55vh; }
-  #toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 20;
-           background: var(--text-primary); color: var(--surface-1); padding: 10px 16px; border-radius: 8px;
-           font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .15s; }
-  #toast.on { opacity: 1; pointer-events: auto; }
-  #toast a { color: inherit; text-decoration: underline; }
-  /* sources */
-  .src-status { font-size: 12px; white-space: nowrap; }
-  .src-status.paused, .src-status.failed { color: #c98500; }
-  .src-status.removed { color: var(--text-muted); }
-  .src-btn { font: inherit; font-size: 12px; padding: 2px 10px; cursor: pointer; border-radius: 999px;
-             border: 1px solid var(--border); background: none; color: var(--text-secondary); white-space: nowrap; }
-  .src-btn:hover { color: var(--link); border-color: var(--link); }
-  .src-btn:disabled { opacity: .5; cursor: default; }
-  #removed-wrap td { color: var(--text-secondary); }
-  /* alert settings */
-  .form fieldset { border: 0; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
-  .form legend { font-size: 13px; font-weight: 600; margin-bottom: 4px; padding: 0; }
-  .form fieldset .note { flex-basis: 100%; margin: 2px 0 0; }
-  .form label.check { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 4px 0; }
-  .form label.block { display: block; font-size: 13px; font-weight: 600; margin: 16px 0 4px; }
-  .form input:not([type]) { width: 100%; font: inherit; font-size: 14px; color: var(--text-primary);
-           background: var(--surface-0); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
-  #al-fields[aria-disabled="true"] { opacity: .45; }
-  .al-preview { margin-top: 18px; padding: 12px 14px; border-radius: 10px; background: var(--surface-0);
-                border: 1px solid var(--border); font-size: 14px; }
-  .al-preview ul { margin: 8px 0 0; padding-left: 18px; color: var(--text-secondary); font-size: 13px; }
-  /* application board */
-  .board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(168px, 1fr); gap: 10px;
-           overflow-x: auto; padding-bottom: 6px; }
-  .bcol { background: var(--surface-0); border: 1px solid var(--border); border-radius: 10px; padding: 8px;
-          min-height: 120px; display: flex; flex-direction: column; gap: 8px; }
-  .bcol.over { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-  .bcol h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
-             color: var(--text-secondary); margin: 2px 2px 0; display: flex; justify-content: space-between; }
-  .bcard { background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px;
-           font-size: 13px; line-height: 1.35; cursor: pointer; }
-  .bcard:hover, .bcard:focus-visible { border-color: var(--accent); outline: none; }
-  .bcard.unsent { border-style: dashed; }
-  .bcard .bco { font-weight: 600; }
-  .bcard a { display: block; margin: 2px 0 4px; }
-  .bcard .bmeta { color: var(--text-muted); font-size: 12px; }
-  .bcard .bnote { color: var(--text-secondary); font-size: 12px; margin: 4px 0 0; overflow: hidden;
-                  text-overflow: ellipsis; white-space: nowrap; }
-  .bempty { color: var(--text-muted); font-size: 12px; margin: 4px 2px; }
-  .stage-pick { display: flex; flex-wrap: wrap; gap: 6px; }
-  .stage-pick button { font: inherit; font-size: 13px; border: 1px solid var(--border); border-radius: 999px;
-                       background: var(--surface-0); color: var(--text-secondary); padding: 4px 10px; cursor: pointer; }
-  .stage-pick button[aria-checked="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .card-dates { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px 10px; }
-  .card-dates label { margin: 0; font-weight: 400; font-size: 12px; color: var(--text-secondary); }
-  .card-dates input { margin-top: 2px; padding: 5px 8px; }
-  #card-notes { min-height: 110px; }
-  .steps { margin: 0 0 4px; padding-left: 20px; font-size: 14px; line-height: 1.6; }
-  .tiles.mine { margin-top: -12px; }
-  .tiles.mine .tile { border-style: dashed; }
-  #unlock-error { color: #d03b3b; font-size: 13px; min-height: 1.5em; margin: 8px 0 0; }
-  .check { display: flex !important; align-items: center; gap: 8px; font-weight: 400 !important; }
-  .check input { width: auto; }
-  .long { display: inline-block; margin-left: 6px; font-size: 11px; color: var(--text-secondary);
-          border: 1px dashed var(--border); border-radius: 999px; padding: 0 6px; white-space: nowrap; }
+/*__CSS__*/
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <div>
-      <h1>Hunter</h1>
-      <p id="subtitle"></p>
-    </div>
-    <div class="actions">
-      <button class="btn" id="lock" hidden>🔒 Unlock</button>
-      <button class="btn" id="open-voting" hidden>🗳 Voting setup</button>
-      <button class="btn" id="open-setup">📝 Kit setup</button>
-    </div>
-  </header>
+<div class="app" id="app">
 
-  <nav class="views" id="views" aria-label="Pages" hidden>
-    <a href="#jobs" id="nav-jobs">Jobs</a>
-    <a href="#applications" id="nav-apps">Applications</a>
-    <a href="#alerts" id="nav-alerts">Telegram alerts</a>
-    <a href="#sources" id="nav-sources">Sources</a>
-  </nav>
+<div class="topbar">
+  <button class="icon-btn" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <a class="brand" href="#home"><span class="logo">H_</span><span class="brand-text"><b>Hunter</b></span></a>
+</div>
 
-  <div id="view-sources" hidden>
-    <section class="card" id="sources-locked">
-      <h2>Sources</h2>
-      <p class="sub">Unlock to manage which company boards Hunter polls.</p>
-      <button class="btn primary" id="sources-unlock">🔒 Unlock</button>
-    </section>
-    <section class="card" id="sources-card" aria-labelledby="sources-h" hidden>
-      <h2 id="sources-h">Polled directly</h2>
-      <p class="sub" id="sources-sub"></p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Company</th><th class="col-src">Board</th><th>Added</th><th class="num">Sent you</th><th>Status</th><th><span class="sr-only">Action</span></th></tr></thead>
-        <tbody id="auto-rows"></tbody>
-      </table></div>
-      <p class="empty" id="auto-empty" hidden>Nothing added yet. Boards appear here once they've fed you enough jobs late through the feeds.</p>
-      <details id="removed-wrap" hidden><summary id="removed-sum"></summary><div class="table-wrap"><table><tbody id="removed-rows"></tbody></table></div></details>
-    </section>
-    <section class="card" id="suggest-card" aria-labelledby="suggest-h" hidden>
-      <h2 id="suggest-h">Suggestions</h2>
-      <p class="sub">Company boards whose jobs reached you only through the aggregator feeds, hours to days late. Add one to poll it now, without waiting for the automatic threshold.</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Company</th><th class="num">Late matching jobs</th><th class="col-src">Board</th><th><span class="sr-only">Action</span></th></tr></thead>
-        <tbody id="suggest-rows"></tbody>
-      </table></div>
-      <p class="empty" id="suggest-empty" hidden>No suggestions right now.</p>
-    </section>
-    <p class="note" id="sources-status" aria-live="polite"></p>
+<nav class="sidebar" id="sidebar" aria-label="Main">
+  <a class="brand" href="#home">
+    <span class="logo">H_</span>
+    <span class="brand-text"><b>Hunter</b><span id="workspace-name"></span></span>
+  </a>
+
+  <label class="gsearch">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <span class="sr-only">Search jobs</span>
+    <input id="gsearch" type="search" placeholder="Search jobs…" autocomplete="off">
+    <kbd aria-hidden="true">⌘K</kbd>
+  </label>
+
+  <a class="navlink" href="#home" data-route="home">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+    <span class="label">Home</span>
+  </a>
+  <a class="navlink" href="#jobs" data-route="jobs">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16v12H4zM9 7V5h6v2M4 12h16"/></svg>
+    <span class="label">Job board</span><span class="badge" id="nav-new" hidden></span>
+  </a>
+  <a class="navlink" href="#applications" data-route="applications">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h6v16H4zM14 4h6v10h-6z"/></svg>
+    <span class="label">Applications</span><span class="badge" id="nav-apps" hidden></span>
+  </a>
+  <a class="navlink" href="#resume" data-route="resume">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h4"/></svg>
+    <span class="label">Resume</span>
+  </a>
+  <a class="navlink" href="#chat" data-route="chat">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+    <span class="label">Chat</span>
+  </a>
+
+  <div class="side-h">Automations</div>
+  <div class="autos">
+    <a class="auto" href="#sources" data-route="sources"><span class="dot" id="auto-poll-dot"></span><span>Board poller</span><small id="auto-poll"></small></a>
+    <a class="auto" href="#alerts" data-route="alerts"><span class="dot" id="auto-alerts-dot"></span><span>Telegram alerts</span><small id="auto-alerts"></small></a>
+    <a class="auto" href="#resume"><span class="dot" id="auto-tex-dot"></span><span>Resume compile</span><small id="auto-tex"></small></a>
   </div>
 
-  <div id="view-alerts" hidden>
-    <section class="card" id="alerts-locked">
-      <h2>Telegram alerts</h2>
-      <p class="sub">Your alert settings are private. Unlock to change them.</p>
-      <button class="btn primary" id="alerts-unlock">🔒 Unlock</button>
-    </section>
-    <section class="card form" id="alerts-card" aria-labelledby="alerts-h" hidden>
-      <h2 id="alerts-h">Telegram alerts</h2>
-      <p class="sub">Choose which new jobs ping your phone. Hunter still tracks everything your <code>sources.yaml</code> filters allow: a job these settings skip stays on the Jobs page (under Not sent, marked New on your next visit). Leave a group empty to allow anything.</p>
+  <div class="me">
+    <span class="avatar" id="me-initial"></span>
+    <span class="me-text"><span id="me-name"></span><span id="me-state">Locked</span></span>
+    <button class="icon-btn" id="lock" title="Unlock your data" aria-label="Unlock your data" hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path id="lock-shackle" d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    </button>
+    <button class="icon-btn" id="settings" aria-label="Settings" aria-haspopup="menu" aria-expanded="false" aria-controls="settings-menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </button>
+    <div class="menu" id="settings-menu" role="menu" hidden>
+      <button role="menuitem" id="open-setup">Claude API key</button>
+      <button role="menuitem" id="open-voting" hidden>GitHub token (sync)</button>
+      <button role="menuitem" id="menu-alerts">Telegram alerts</button>
+      <button role="menuitem" id="menu-sources">Sources</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- HOME -->
+  <section class="view home" id="view-home" aria-labelledby="greeting">
+    <div class="greet">
+      <span class="date" id="today"></span>
+      <h1 id="greeting"></h1>
+      <p id="greet-sub"></p>
+    </div>
+
+    <form class="composer" id="composer">
+      <div class="composer-top">
+        <label for="ask" class="sr-only">Message Hunter</label>
+        <textarea id="ask" rows="2" placeholder="Message Hunter… try “which new postings fit my resume?”"></textarea>
+        <label for="ask-model" class="sr-only">Model</label>
+        <select id="ask-model" class="model-pick"></select>
+      </div>
+      <div class="attached" id="ask-files"></div>
+      <div class="composer-bar">
+        <button type="button" class="tool" id="ask-attach" aria-label="Attach a text file" title="Attach a text file">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11l-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7"/></svg>
+        </button>
+        <button type="button" class="tool" id="ask-search" aria-label="Search the job board" title="Search the job board for what you typed">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+        <button type="button" class="tool wide" id="ask-command" aria-label="Insert a shortcut" title="Shortcuts: /apply, /tailor, /prep">&gt;_</button>
+        <div class="seg" role="group" aria-label="Mode">
+          <button type="button" aria-pressed="false" disabled title="Agent mode is coming later">Agent</button>
+          <button type="button" aria-pressed="true">Chat</button>
+        </div>
+        <button type="submit" class="send" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+      </div>
+    </form>
+    <p class="shortcuts">Type <button type="button" data-cmd="/apply">/apply</button>, <button type="button" data-cmd="/tailor">/tailor</button> or <button type="button" data-cmd="/prep">/prep</button> for shortcuts.</p>
+
+    <div class="cards">
+      <a class="stat-card" href="#jobs" id="card-new">
+        <span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/></svg></span>
+        <span class="stat-value num" id="stat-new"></span>
+        <span class="stat-label"><b>New postings</b><span>Since your last visit</span></span>
+      </a>
+      <a class="stat-card" href="#applications">
+        <span class="stat-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span>
+        <span class="stat-value num" id="stat-applied"></span>
+        <span class="stat-label"><b>Jobs applied to</b><span id="stat-applied-sub">Across every stage</span></span>
+      </a>
+      <a class="stat-card" href="#resume">
+        <span class="stat-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h4"/></svg></span>
+        <span class="stat-value num" id="stat-resume"></span>
+        <span class="stat-label"><b>Current resume</b><span id="stat-resume-sub">Open the editor</span></span>
+      </a>
+    </div>
+
+    <div class="two-col">
+      <section class="panel" aria-labelledby="fresh-h">
+        <div class="panel-head"><h2 id="fresh-h">Fresh matches</h2><a href="#jobs">Open job board</a></div>
+        <div id="fresh"></div>
+      </section>
+      <section class="panel" aria-labelledby="pipe-h">
+        <div class="panel-head"><h2 id="pipe-h">Pipeline</h2><a href="#applications">Open applications</a></div>
+        <div class="pipeline" id="pipeline"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- JOB BOARD -->
+  <section class="view" id="view-jobs" aria-labelledby="jobs-h" hidden>
+    <div class="page-head">
+      <h1 id="jobs-h">Job board</h1>
+      <div class="head-actions">
+        <button class="btn" id="refresh">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>Refresh
+        </button>
+        <button class="btn primary" id="mark-seen">Mark all seen</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <label class="sr-only" for="f-days">Date</label>
+      <select class="field" id="f-days">
+        <option value="">Any time</option>
+        <option value="1">Last 24 hours</option>
+        <option value="7">Last 7 days</option>
+        <option value="30">Last 30 days</option>
+      </select>
+      <label class="sr-only" for="cat">Level</label>
+      <select class="field" id="cat">
+        <option value="">Level</option>
+        <option value="internship">Internship</option>
+        <option value="new_grad">New grad &amp; junior</option>
+        <option value="full_time">Full-time</option>
+      </select>
+      <label class="sr-only" for="f-region">Region</label>
+      <select class="field" id="f-region">
+        <option value="">Region</option>
+        <option value="canada">Canada</option>
+        <option value="us">US</option>
+        <option value="other">Other countries</option>
+      </select>
+      <label class="sr-only" for="f-source">Source</label>
+      <select class="field" id="f-source"><option value="">Source</option></select>
+      <label class="sr-only" for="f-status">Status</label>
+      <select class="field" id="f-status">
+        <option value="">Status</option>
+        <option value="open">Still open</option>
+        <option value="closed">Closed</option>
+        <option value="up" data-private hidden>You marked relevant</option>
+        <option value="down" data-private hidden>You marked not relevant</option>
+      </select>
+      <label class="sr-only" for="f-sent">Sent to Telegram</label>
+      <select class="field" id="f-sent">
+        <option value="">Sent to Telegram</option>
+        <option value="yes">Sent to you</option>
+        <option value="no">Not sent</option>
+      </select>
+      <label class="sr-only" for="q">Filter by role or company</label>
+      <input class="field" id="q" type="search" placeholder="Role or company" autocomplete="off">
+      <span class="count" id="jobs-count" aria-live="polite"></span>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Which jobs">
+      <button role="tab" id="tab-all" aria-selected="true">All</button>
+      <button role="tab" id="tab-new" aria-selected="false">New</button>
+      <button role="tab" id="tab-applied" aria-selected="false">Applied</button>
+      <button role="tab" id="tab-open" aria-selected="false">Not sent</button>
+    </div>
+
+    <div class="panel locked" id="applied-locked" hidden>
+      <p>The jobs you applied to are private. Unlock to see them.</p>
+      <button class="btn primary" data-unlock>Unlock</button>
+    </div>
+
+    <div class="table-wrap" id="jobs-table">
+      <table class="jobs">
+        <thead><tr>
+          <th><span class="sr-only">Status</span></th>
+          <th>Role</th><th>Company</th><th>Location</th><th>Level</th><th id="date-h">First seen</th><th>Source</th>
+          <th>Actions</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="empty" hidden>No jobs match.</p>
+    <p class="status-line" id="act-status" aria-live="polite"></p>
+    <nav class="pager" id="pager" aria-label="Job board pages">
+      <span class="page-info" id="page-info"></span>
+      <div class="page-links" id="page-links"></div>
+      <label class="per-page">Per page
+        <select class="field" id="per-page"><option>25</option><option>50</option><option>100</option></select>
+      </label>
+    </nav>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="view" id="view-applications" aria-labelledby="apps-h" hidden>
+    <div class="page-head">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h1 id="apps-h">Applications</h1><span class="hint">Drag a card to change its stage, or click it to edit dates and notes</span></div>
+    </div>
+    <div class="panel locked" id="apps-locked">
+      <p>Your application board is private. Unlock to see it.</p>
+      <button class="btn primary" data-unlock>Unlock</button>
+    </div>
+    <div class="board" id="board" hidden></div>
+  </section>
+
+  <!-- RESUME -->
+  <section class="view" id="view-resume" aria-labelledby="resume-h" hidden>
+    <div class="page-head">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h1 id="resume-h">Resume</h1><span class="file-state" id="tex-state" aria-live="polite"></span></div>
+      <div class="head-actions">
+        <button class="btn" disabled title="Version history is coming later">History</button>
+        <button class="btn" id="tex-tailor">Tailor with Claude</button>
+        <label class="check auto-compile"><input type="checkbox" id="tex-auto"> Auto-compile</label>
+        <button class="btn" id="tex-download" title="Download the LaTeX source">.tex</button>
+        <button class="btn" id="pdf-download" disabled>Download PDF</button>
+        <button class="btn primary" id="tex-compile" title="Compile (⌘S)">Recompile</button>
+      </div>
+    </div>
+    <div class="split" id="tex-split">
+      <aside class="tpl-pane" id="tpl-pane" aria-labelledby="tpl-h">
+        <div class="tpl-head">
+          <h2 id="tpl-h">Templates</h2>
+          <button class="icon-btn" id="tpl-toggle" aria-expanded="true" aria-controls="tpl-body" aria-label="Collapse templates" title="Collapse templates">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg>
+          </button>
+        </div>
+        <div class="tpl-body" id="tpl-body">
+          <button class="btn sm" id="tpl-save" title="Save the current LaTeX as a template">+ Save as template</button>
+          <ul class="tpl-list" id="tpl-list"></ul>
+          <p class="note">Click a template to open it in a tab. Kept only in this browser.</p>
+        </div>
+      </aside>
+      <div class="editor-pane" id="editor-pane">
+        <div class="file-tabs" id="file-tabs" role="tablist" aria-label="Open files"></div>
+        <div class="tex-empty" id="tex-empty" hidden>
+          <b>No files open</b>
+          <span>Choose a template on the left to start your resume, or open the resume you have.</span>
+          <span class="tex-empty-actions">
+            <button class="btn primary sm" id="tex-empty-open">Open resume.tex</button>
+            <button class="btn sm" id="tex-empty-templates" hidden>Show templates</button>
+          </span>
+        </div>
+        <label for="tex" class="sr-only">LaTeX source</label>
+        <textarea id="tex" spellcheck="false" autocomplete="off"></textarea>
+      </div>
+      <div class="preview-pane" aria-label="PDF preview">
+        <iframe id="pdf-frame" title="Compiled resume (PDF)" hidden></iframe>
+        <div class="paper" id="paper">
+          <b id="paper-h">PDF preview</b>
+          <span id="paper-msg">Press Recompile to build your PDF. The first compile downloads the TeX engine (about 40 MB, cached after that).</span>
+        </div>
+      </div>
+    </div>
+    <div class="pane-resize" id="pane-resize" role="separator" aria-orientation="horizontal" tabindex="0"
+         aria-label="Resize the editor and preview" title="Drag to resize · double-click to fit the window"><span></span></div>
+    <details class="tex-log" id="tex-log-wrap" hidden><summary>Compile log</summary><pre id="tex-log"></pre></details>
+    <p class="note">Saved only in this browser - never on this site or in the repo - and compiled right here: only the names of TeX packages it needs are downloaded. It goes to Anthropic's API only when you make a kit or chat.</p>
+  </section>
+
+  <!-- CHAT -->
+  <section class="view chat" id="view-chat" aria-labelledby="chat-h" hidden>
+    <div class="page-head">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h1 id="chat-h">Chat</h1><span class="file-state" id="chat-asof"></span></div>
+      <div class="head-actions">
+        <span class="pill"><span class="dot" id="chat-dot"></span><span id="chat-who"></span></span>
+        <label for="chat-model" class="sr-only">Model</label>
+        <select id="chat-model" class="field"></select>
+        <button class="btn sm" id="chat-new">New chat</button>
+      </div>
+    </div>
+    <div class="thread" id="thread" aria-live="polite">
+      <div class="chat-empty" id="chat-empty">
+        <b>Ask about your job search</b>
+        <span>Claude sees your job board and the resume in your editor.</span>
+      </div>
+    </div>
+    <div class="chips-row" id="chat-chips">
+      <button class="chip-btn" data-prompt="Which of today's new postings fit my resume best?">Best fits today</button>
+      <button class="chip-btn" data-prompt="Tailor my resume to this posting: ">Tailor resume to a posting</button>
+      <button class="chip-btn" data-prompt="Draft a short cover note for ">Draft a cover note</button>
+      <button class="chip-btn" data-prompt="Prep me for an interview at ">Prep me for an interview</button>
+    </div>
+    <form class="chat-input" id="chat-form">
+      <button type="button" class="tool" id="chat-attach" aria-label="Attach a text file" title="Attach a text file">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11l-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7"/></svg>
+      </button>
+      <label for="chat-in" class="sr-only">Message Claude</label>
+      <textarea id="chat-in" rows="2" placeholder="Message Claude…"></textarea>
+      <button type="submit" class="send" id="chat-send" aria-label="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </button>
+    </form>
+    <div class="attached" id="chat-files"></div>
+    <input type="file" id="file-pick" accept=".txt,.md,.tex,.csv,.json,text/*" hidden>
+  </section>
+
+  <!-- TELEGRAM ALERTS -->
+  <section class="view narrow" id="view-alerts" aria-labelledby="alerts-page-h" hidden>
+    <div class="page-head"><h1 id="alerts-page-h">Telegram alerts</h1></div>
+    <div class="panel locked" id="alerts-locked">
+      <p>Your alert settings are private. Unlock to change them.</p>
+      <button class="btn primary" data-unlock>Unlock</button>
+    </div>
+    <section class="panel form" id="alerts-card" hidden>
+      <p class="sub" style="margin-top:0">Choose which new jobs ping your phone. Hunter still tracks everything your <code>sources.yaml</code> filters allow: a job these settings skip stays on the job board (under Not sent, marked New on your next visit). Leave a group empty to allow anything.</p>
       <label class="check"><input type="checkbox" id="al-on"> Send new jobs to Telegram</label>
       <div id="al-fields">
         <fieldset><legend>Level</legend>
@@ -370,1328 +361,169 @@
           <p class="note">A job listed only as "Remote", or with no location, always counts.</p>
         </fieldset>
         <label class="block" for="al-title">Title contains any of</label>
-        <input id="al-title" placeholder="software, developer, backend" autocomplete="off">
+        <input class="field" id="al-title" placeholder="software, developer, backend" autocomplete="off">
         <label class="block" for="al-loc">Location contains any of</label>
-        <input id="al-loc" placeholder="toronto, vancouver, remote" autocomplete="off">
+        <input class="field" id="al-loc" placeholder="toronto, vancouver, remote" autocomplete="off">
         <p class="note">Comma-separated, not case-sensitive. "intern" also matches "internship".</p>
       </div>
       <div class="al-preview" id="al-preview" aria-live="polite"></div>
       <div class="row">
-        <span id="al-status" class="note"></span>
+        <span id="al-status" class="note" style="margin:0"></span>
         <span class="spacer"></span>
         <button class="btn" id="al-reset" title="Fill the form with no restrictions">Allow everything</button>
         <button class="btn primary" id="al-save">Save</button>
       </div>
     </section>
-  </div>
+  </section>
 
-  <div id="view-applications" hidden>
-    <section class="card" id="apps-locked">
-      <h2>Applications</h2>
-      <p class="sub">Your application board is private. Unlock to see it.</p>
-      <button class="btn primary" id="apps-unlock">🔒 Unlock</button>
+  <!-- SOURCES -->
+  <section class="view narrow" id="view-sources" aria-labelledby="sources-page-h" hidden>
+    <div class="page-head"><h1 id="sources-page-h">Sources</h1></div>
+    <div class="tiles" id="tiles"></div>
+    <div class="panel locked" id="sources-locked">
+      <p>Unlock to manage which company boards Hunter polls.</p>
+      <button class="btn primary" data-unlock>Unlock</button>
+    </div>
+    <section class="panel" id="sources-card" aria-labelledby="sources-h" hidden>
+      <h2 id="sources-h">Polled directly</h2>
+      <p class="sub" id="sources-sub"></p>
+      <div style="overflow-x:auto"><table class="data-table">
+        <thead><tr><th>Company</th><th>Board</th><th>Added</th><th class="num">Sent you</th><th>Status</th><th><span class="sr-only">Action</span></th></tr></thead>
+        <tbody id="auto-rows"></tbody>
+      </table></div>
+      <p class="empty" id="auto-empty" hidden>Nothing added yet. Boards appear here once they've fed you enough jobs late through the feeds.</p>
+      <details id="removed-wrap" hidden><summary id="removed-sum"></summary><table class="data-table"><tbody id="removed-rows"></tbody></table></details>
     </section>
-    <section class="card" id="board-card" aria-labelledby="board-h" hidden>
-      <h2 id="board-h">Applications</h2>
-      <p class="sub">Drag a card to another column, or click it to change its stage, dates and notes. 📌 on any job adds it to Saved. Only you can see this.</p>
-      <div class="board" id="board"></div>
+    <section class="panel" id="suggest-card" aria-labelledby="suggest-h" hidden>
+      <h2 id="suggest-h">Suggestions</h2>
+      <p class="sub">Company boards whose jobs reached you only through the aggregator feeds, hours to days late. Add one to poll it now, without waiting for the automatic threshold.</p>
+      <div style="overflow-x:auto"><table class="data-table">
+        <thead><tr><th>Company</th><th class="num">Late matching jobs</th><th>Board</th><th><span class="sr-only">Action</span></th></tr></thead>
+        <tbody id="suggest-rows"></tbody>
+      </table></div>
+      <p class="empty" id="suggest-empty" hidden>No suggestions right now.</p>
     </section>
-  </div>
+    <p class="status-line" id="sources-status" aria-live="polite"></p>
 
-  <div id="view-jobs">
-  <div class="tiles" id="tiles"></div>
-  <div class="tiles mine" id="my-tiles" hidden></div>
-
-  <section class="card" aria-labelledby="search-h">
-    <h2 id="search-h">Jobs</h2>
-    <p class="sub" id="jobs-sub"></p>
-    <div class="controls">
-      <input id="q" type="search" placeholder="Search title, company, location" aria-label="Search jobs">
-      <select id="cat" aria-label="Category">
-        <option value="">All levels</option>
-        <option value="internship">Internships</option>
-        <option value="new_grad">New grad &amp; junior</option>
-        <option value="full_time">Full-time</option>
-      </select>
-      <select id="mark" aria-label="Your marks" hidden>
-        <option value="">Everything you marked</option>
-        <option value="applied">✅ Applied</option>
-        <option value="up">👍 Relevant</option>
-        <option value="down">👎 Not relevant</option>
-      </select>
-      <div class="tabs" role="tablist">
-        <button role="tab" id="tab-history" aria-selected="true">Sent to you</button>
-        <button role="tab" id="tab-open" aria-selected="false">Not sent</button>
-        <button role="tab" id="tab-mine" aria-selected="false" hidden>Yours</button>
-      </div>
-      <button class="chip-toggle" id="only-new" aria-pressed="false" hidden>New</button>
-      <button class="linkish" id="mark-seen" hidden>Mark all seen</button>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th id="date-h">Sent</th><th>Company</th><th>Role</th><th class="col-loc">Location</th><th class="col-src">Source</th><th class="col-kit"><span class="sr-only">Application kit</span></th></tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </div>
-    <p class="empty" id="empty" hidden>No jobs match.</p>
-    <p class="note" id="act-status" aria-live="polite"></p>
-    <button class="more" id="more" hidden>Show more</button>
+    <p class="note">Built by Hunter from public job postings. <span id="built-at"></span></p>
   </section>
 
-  <section class="card" aria-labelledby="act-h">
-    <h2 id="act-h">New postings per week</h2>
-    <p class="sub" id="act-sub"></p>
-    <div class="columns" id="columns"></div>
-    <div class="col-labels" id="col-labels"></div>
-    <div class="heat" id="heat"></div>
-    <div class="legend" id="legend"></div>
-    <details><summary>Show as table</summary><div class="table-wrap"><table id="act-table"></table></div></details>
-  </section>
-
-  <section class="card" aria-labelledby="close-h">
-    <h2 id="close-h">How long postings stay open</h2>
-    <p class="sub">Median days from first seen to gone, per board. Boards with fewer than 5 closures are left out.</p>
-    <div class="hbars" id="hbars"></div>
-    <p class="empty" id="close-empty" hidden>Not enough closures recorded yet - this fills in over the first weeks.</p>
-  </section>
-
-  </div>
-
-  <div id="toast" role="status" aria-live="polite"></div>
-  <footer>Built by Hunter from public job postings. Updated hourly.</footer>
-
-  <dialog id="setup" aria-labelledby="setup-h">
-    <h2 id="setup-h">Application kit setup</h2>
-    <p class="sub">Paste these once. They're saved only in this browser (not on this site, not in the repo) and sent only to Anthropic's API when you make a kit.</p>
-    <label for="setup-resume">Your resume (plain text)</label>
-    <textarea id="setup-resume" placeholder="Paste your resume text - experience, projects, skills, education."></textarea>
-    <label for="setup-key">Anthropic API key</label>
-    <input id="setup-key" type="password" autocomplete="off" placeholder="sk-ant-...">
-    <label for="setup-workspace">Workspace ID <span style="font-weight:400;color:var(--text-muted)">(only if your key asks for one)</span></label>
-    <input id="setup-workspace" autocomplete="off" placeholder="wrkspc_...">
-    <p class="note">Each kit is one request to Claude Opus 5 - typically a few cents. Use this only on your own devices: anyone using this browser profile could use the saved key.</p>
-    <div class="row">
-      <button class="btn" id="setup-clear">Forget both</button>
-      <span class="spacer"></span>
-      <button class="btn" id="setup-cancel">Cancel</button>
-      <button class="btn primary" id="setup-save">Save</button>
-    </div>
-  </dialog>
-
-  <dialog id="unlock" aria-labelledby="unlock-h">
-    <h2 id="unlock-h">Unlock your data</h2>
-    <p class="sub">Your votes and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
-    <form id="unlock-form" method="dialog">
-      <label for="unlock-pass">Passphrase</label>
-      <input id="unlock-pass" type="password" autocomplete="current-password" required>
-      <label class="check"><input id="unlock-remember" type="checkbox" checked> Remember on this device</label>
-      <p class="note">Remembering keeps a derived key in this browser that can't be read back out, only used to decrypt. Use it only on your own devices.</p>
-      <p id="unlock-error" role="alert"></p>
-      <div class="row">
-        <span class="spacer"></span>
-        <button class="btn" type="button" id="unlock-cancel">Cancel</button>
-        <button class="btn primary" id="unlock-go">Unlock</button>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog id="card" aria-labelledby="card-h">
-    <h2 id="card-h"></h2>
-    <p class="sub"><span id="card-meta"></span> · <a id="card-link" target="_blank" rel="noopener">Open posting ↗</a></p>
-    <label id="card-stage-l">Stage</label>
-    <div class="stage-pick" id="card-stages" role="radiogroup" aria-labelledby="card-stage-l"></div>
-    <label>Dates</label>
-    <div class="card-dates" id="card-dates"></div>
-    <p class="note">A stage is dated today when you move a job into it. Change any date here.</p>
-    <label for="card-notes">Notes</label>
-    <textarea id="card-notes" maxlength="4000" placeholder="Recruiter, referral, interview rounds, what to follow up on…"></textarea>
-    <div class="row">
-      <button class="btn" id="card-remove">Remove from board</button>
-      <span class="spacer"></span>
-      <button class="btn" id="card-cancel">Cancel</button>
-      <button class="btn primary" id="card-save">Save</button>
-    </div>
-  </dialog>
-
-  <dialog id="voting" aria-labelledby="voting-h">
-    <h2 id="voting-h">Voting setup</h2>
-    <p class="sub">👍 / 👎 / ✅ are sent to Hunter as encrypted comments on its inbox issue in <b id="voting-repo"></b>, using a GitHub token saved only in this browser.</p>
-    <ol class="steps">
-      <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token ↗</a>.</li>
-      <li><b>Repository access:</b> Only select repositories → this repo.</li>
-      <li><b>Permissions:</b> Issues → Read and write. Nothing else - this token can't touch code.</li>
-      <li>Pick an expiry, generate, and paste it below.</li>
-    </ol>
-    <label for="voting-token">GitHub token</label>
-    <input id="voting-token" type="password" autocomplete="off" placeholder="github_pat_...">
-    <p class="note">Only save it on your own devices: anyone using this browser profile could post comments with it.</p>
-    <div class="row">
-      <button class="btn" id="voting-clear">Forget token</button>
-      <span class="spacer"></span>
-      <button class="btn" id="voting-cancel">Cancel</button>
-      <button class="btn primary" id="voting-save">Save</button>
-    </div>
-  </dialog>
-
-  <dialog id="kit" aria-labelledby="kit-h">
-    <h2 id="kit-h"></h2>
-    <p class="sub"><span id="kit-meta"></span> · <a id="kit-link" target="_blank" rel="noopener">Open posting ↗</a></p>
-    <label for="kit-desc">Job description</label>
-    <textarea id="kit-desc" autofocus placeholder="Open the posting, copy the full description, and paste it here."></textarea>
-    <div class="row">
-      <span id="kit-status"></span>
-      <span class="spacer"></span>
-      <button class="btn" id="kit-close">Close</button>
-      <button class="btn" id="kit-copy" hidden>Copy</button>
-      <button class="btn primary" id="kit-go">Make kit</button>
-    </div>
-    <div id="kit-out" aria-live="polite"></div>
-    <p class="note">A draft: the bullets and cover note only reword your resume - check every line before you use them. The skills gap shows what your resume could have looked like; its bullets and numbers are illustrative, and it isn't copied.</p>
-  </dialog>
 </main>
-<div id="tip" role="tooltip"></div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="setup" aria-labelledby="setup-h">
+  <h2 id="setup-h">Claude API key</h2>
+  <p class="sub">Make kit and Chat call Claude straight from this page with your own Anthropic API key. It's saved only in this browser (not on this site, not in the repo) and sent only to Anthropic's API. Your resume comes from the Resume editor.</p>
+  <label for="setup-key">Anthropic API key</label>
+  <input id="setup-key" type="password" autocomplete="off" placeholder="sk-ant-...">
+  <label for="setup-workspace">Workspace ID <span class="muted" style="font-weight:400">(only if your key asks for one)</span></label>
+  <input id="setup-workspace" autocomplete="off" placeholder="wrkspc_...">
+  <p class="note">Billed to your API account, not a Claude subscription: a kit is typically a few cents. Use this only on your own devices - anyone using this browser profile could use the saved key.</p>
+  <div class="row">
+    <button class="btn" id="setup-clear">Forget key</button>
+    <span class="spacer"></span>
+    <button class="btn" id="setup-cancel">Cancel</button>
+    <button class="btn primary" id="setup-save">Save</button>
+  </div>
+</dialog>
+
+<dialog id="unlock" aria-labelledby="unlock-h">
+  <h2 id="unlock-h">Unlock your data</h2>
+  <p class="sub">Your votes and applications are published on this page encrypted. Your passphrase (the <code>HUNTER_PASSPHRASE</code> repo secret) decrypts them here, in this browser. It is never sent anywhere.</p>
+  <form id="unlock-form" method="dialog">
+    <label for="unlock-pass">Passphrase</label>
+    <input id="unlock-pass" type="password" autocomplete="current-password" required>
+    <label class="check"><input id="unlock-remember" type="checkbox" checked> Remember on this device</label>
+    <p class="note">Remembering keeps a derived key in this browser that can't be read back out, only used to decrypt. Use it only on your own devices.</p>
+    <p id="unlock-error" role="alert"></p>
+    <div class="row">
+      <span class="spacer"></span>
+      <button class="btn" type="button" id="unlock-cancel">Cancel</button>
+      <button class="btn primary" id="unlock-go">Unlock</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="tpl-dialog" class="small" aria-labelledby="tpl-dialog-h">
+  <form id="tpl-form" method="dialog">
+    <h2 id="tpl-dialog-h">Save as template</h2>
+    <label for="tpl-name">Name</label>
+    <input id="tpl-name" maxlength="60" required autocomplete="off" placeholder="e.g. Backend - one page">
+    <p class="note" id="tpl-note"></p>
+    <div class="row">
+      <span class="spacer"></span>
+      <button class="btn" type="button" id="tpl-cancel">Cancel</button>
+      <button class="btn primary" id="tpl-ok">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="card" aria-labelledby="card-h">
+  <h2 id="card-h"></h2>
+  <p class="sub"><span id="card-meta"></span> · <a id="card-link" target="_blank" rel="noopener">Open posting ↗</a></p>
+  <label id="card-stage-l">Stage</label>
+  <div class="stage-pick" id="card-stages" role="radiogroup" aria-labelledby="card-stage-l"></div>
+  <label>Dates</label>
+  <div class="card-dates" id="card-dates"></div>
+  <p class="note">A stage is dated today when you move a job into it. Change any date here.</p>
+  <label for="card-notes">Notes</label>
+  <textarea id="card-notes" maxlength="4000" placeholder="Recruiter, referral, interview rounds, what to follow up on…"></textarea>
+  <div class="row">
+    <button class="btn" id="card-remove">Remove from board</button>
+    <span class="spacer"></span>
+    <button class="btn" id="card-cancel">Cancel</button>
+    <button class="btn primary" id="card-save">Save</button>
+  </div>
+</dialog>
+
+<dialog id="voting" aria-labelledby="voting-h">
+  <h2 id="voting-h">GitHub token</h2>
+  <p class="sub">Your marks, board moves and settings are sent to Hunter as encrypted comments on its inbox issue in <b id="voting-repo"></b>, using a GitHub token saved only in this browser.</p>
+  <ol class="steps">
+    <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token ↗</a>.</li>
+    <li><b>Repository access:</b> Only select repositories → this repo.</li>
+    <li><b>Permissions:</b> Issues → Read and write. Nothing else - this token can't touch code.</li>
+    <li>Pick an expiry, generate, and paste it below.</li>
+  </ol>
+  <label for="voting-token">GitHub token</label>
+  <input id="voting-token" type="password" autocomplete="off" placeholder="github_pat_...">
+  <p class="note">Only save it on your own devices: anyone using this browser profile could post comments with it.</p>
+  <div class="row">
+    <button class="btn" id="voting-clear">Forget token</button>
+    <span class="spacer"></span>
+    <button class="btn" id="voting-cancel">Cancel</button>
+    <button class="btn primary" id="voting-save">Save</button>
+  </div>
+</dialog>
+
+<dialog id="kit" aria-labelledby="kit-h">
+  <h2 id="kit-h"></h2>
+  <p class="sub"><span id="kit-meta"></span> · <a id="kit-link" target="_blank" rel="noopener">Open posting ↗</a></p>
+  <div class="marks" id="kit-marks" role="group" aria-label="Your marks" hidden>
+    <span class="lbl">Your marks</span>
+    <button class="btn sm" data-f="vote" data-v="up" aria-pressed="false">Relevant</button>
+    <button class="btn sm" data-f="vote" data-v="down" aria-pressed="false">Not relevant</button>
+    <button class="btn sm" data-f="applied" data-v="true" aria-pressed="false">Applied</button>
+  </div>
+  <label for="kit-desc">Job description</label>
+  <textarea id="kit-desc" autofocus placeholder="Open the posting, copy the full description, and paste it here."></textarea>
+  <div class="row">
+    <span id="kit-status"></span>
+    <span class="spacer"></span>
+    <button class="btn" id="kit-close">Close</button>
+    <button class="btn" id="kit-copy" hidden>Copy</button>
+    <button class="btn primary" id="kit-go">Make kit</button>
+  </div>
+  <div id="kit-out" aria-live="polite"></div>
+  <p class="note">A draft built from <b>resume.tex</b> (the first tab on the Resume page): the ATS match compares the posting with it, and the bullets and cover note only reword it - check every line before you use them. The skills gap shows what resume.tex could have looked like; its bullets and numbers are illustrative, and it isn't copied.</p>
+</dialog>
 
 <script id="data" type="application/json">__DATA__</script>
 <script id="private" type="application/json">__PRIVATE__</script>
 <script>
-(() => {
-  const data = JSON.parse(document.getElementById("data").textContent);
-  const $ = (id) => document.getElementById(id);
-  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
-  const fmt = (n) => (n == null ? "—" : n.toLocaleString());
-  // Per-browser conveniences (kit setup, voting token, unsent votes).
-  const saved = {
-    get: (k) => { try { return localStorage.getItem(k) || ""; } catch { return ""; } },
-    set: (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch { /* storage blocked */ } },
-  };
-  const shortDate = (iso) => new Date(iso + "T00:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"});
-
-  // Header + tiles
-  const updated = new Date(data.generated);
-  $("subtitle").textContent = `Updated ${updated.toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"})}`;
-  const s = data.stats;
-  const tiles = [
-    [fmt(s.tracked), "postings tracked (60 days)"],
-    [fmt(s.new_week), "new postings, last 7 days"],
-    [fmt(s.sent_week), "sent in the last 7 days"],
-    [s.open_matching == null ? "—" : fmt(s.open_matching), "open now, never sent to you"],
-    [s.median_close == null ? "—" : s.median_close < 1 ? "<1d" : `${s.median_close}d`, "typical time a posting stays open"],
-  ];
-  $("tiles").innerHTML = tiles.map(([v, l]) =>
-    `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
-
-  // Jobs table
-  const PAGE = 25;
-  const hasOpen = Array.isArray(data.open);
-  let tab = "history", shown = PAGE;
-  // Filled in by the private layer once unlocked (see below); empty otherwise.
-  // `pending` holds clicks not yet reflected in the published data.
-  let mine = null, mineById = new Map(), pending = {};
-  if (!hasOpen) { $("tab-open").disabled = true; $("tab-open").title = "Available on the published site"; }
-
-  // "New since your last visit": rows that reached you (sent, or first seen
-  // by Hunter: `f`) after the build you last looked at. localStorage keeps
-  // that build's time per browser. sessionStorage pins this visit's cutoff,
-  // so reloading the tab keeps today's highlights until "Mark all seen" or
-  // your next visit. A first visit ever highlights nothing, rather than
-  // calling the whole backlog new.
-  const LAST_KEY = "hunter.lastVisit", CUTOFF_KEY = "hunter.visitCutoff";
-  const session = {
-    get: (k) => { try { return sessionStorage.getItem(k) || ""; } catch { return ""; } },
-    set: (k, v) => { try { sessionStorage.setItem(k, v); } catch { /* storage blocked */ } },
-  };
-  const built = Math.floor(Date.parse(data.generated) / 1000);
-  let cutoff = Number(session.get(CUTOFF_KEY));
-  if (!cutoff) {
-    cutoff = Number(saved.get(LAST_KEY)) || built;
-    session.set(CUTOFF_KEY, String(cutoff));
-  }
-  saved.set(LAST_KEY, String(Math.max(built, Number(saved.get(LAST_KEY)) || 0)));
-  let onlyNew = false;
-  // Jobs you've opened stop being new straight away. Kept per browser, and
-  // only while they would still count as new - older ids are dropped here,
-  // so the list never grows past one visit's worth.
-  const OPENED_KEY = "hunter.opened";
-  let opened;
-  try { opened = new Set(JSON.parse(saved.get(OPENED_KEY) || "[]")); } catch { opened = new Set(); }
-  const stillNew = new Set([...(data.history || []), ...(data.open || [])]
-    .filter((r) => r.f != null && r.f > cutoff).map((r) => r.i));
-  opened = new Set([...opened].filter((id) => stillNew.has(id)));
-  const saveOpened = () => saved.set(OPENED_KEY, opened.size ? JSON.stringify([...opened]) : "");
-  saveOpened();
-  const isNew = (r) => r.f != null && r.f > cutoff && !opened.has(r.i);
-  const newIn = (rows) => (rows ? rows.filter(isNew).length : 0);
-  function renderNewControls() {
-    const counts = {history: newIn(data.history), open: newIn(data.open), mine: 0};
-    const label = (n) => (n ? ` · ${fmt(n)} new` : "");
-    $("tab-history").textContent = `Sent to you (${fmt(data.history.length)}${label(counts.history)})`;
-    if (hasOpen) $("tab-open").textContent = `Not sent (${fmt(data.open.length)}${label(counts.open)})`;
-    const any = counts.history + counts.open > 0;
-    $("only-new").hidden = !any || tab === "mine";
-    $("mark-seen").hidden = !any;
-    $("only-new").textContent = `New (${fmt(counts[tab])})`;
-    $("only-new").disabled = !counts[tab] && !onlyNew;
-    $("only-new").setAttribute("aria-pressed", onlyNew);
-  }
-  const SUBS = {
-    history: "Every job Hunter sent you in the last 90 days, marked still open or closed where known.",
-    open: "Open right now and matching your filters, but never sent to you - postings that already existed when Hunter started watching a board, or that your Telegram alert settings skipped.",
-    mine: "Every job you voted on or marked applied - kept past the 90-day history. Only you can see this tab.",
-  };
-  const DATE_H = {history: "Sent", open: "Posted", mine: "Marked"};
-  const STATUS = {open: "Still open", closed: "Closed"};
-
-  function currentRows() {
-    const q = $("q").value.trim().toLowerCase();
-    const cat = $("cat").value, mark = $("mark").value;
-    const source = tab === "open" ? data.open : tab === "mine" ? myRows() : data.history;
-    return source.filter((r) => {
-      if (cat && r.k !== cat) return false;
-      if (onlyNew && tab !== "mine" && !isNew(r)) return false;
-      if (tab === "mine" && mark) {
-        const m = marksOf(r);
-        if (!(mark === "applied" ? m.applied : m.vote === mark)) return false;
-      }
-      return !q || `${r.t} ${r.c} ${r.l} ${r.s}`.toLowerCase().includes(q);
-    });
-  }
-  let visible = [];
-  // The application board's columns (scraper/feedback.py STAGES, same order).
-  const STAGE_NAMES = {saved: "Saved", applied: "Applied", oa: "Online assessment",
-                       interview: "Interview", offer: "Offer", rejected: "Rejected"};
-  const STAGES = Object.keys(STAGE_NAMES);
-  const FIELDS = ["vote", "applied", "stage", "notes", ...STAGES.map((s) => `date:${s}`)];
-  const today = () => new Date().toLocaleDateString("en-CA");  // local YYYY-MM-DD
-  // Your marks on a row - vote, applied, board stage, stage dates, notes:
-  // what the last build published, with any change still on its way
-  // overlaid on top. A job marked applied but never placed on the board
-  // (e.g. from Telegram before the board existed) sits in Applied.
-  function marksOf(r) {
-    const m = mineById.get(r.i) || {};
-    const out = {vote: m.vote ?? null, applied: m.applied || "", stage: m.stage ?? null,
-                 dates: {...(m.dates || {})}, notes: m.notes || "", waiting: {}};
-    for (const field of FIELDS) {
-      const p = pending[`${r.i}|${field}`];
-      if (!p) continue;
-      if (field === "applied") out.applied = p.value ? p.at.slice(0, 10) : "";
-      else if (field.startsWith("date:")) {
-        if (p.value) out.dates[field.slice(5)] = p.value; else delete out.dates[field.slice(5)];
-      } else out[field] = p.value;
-      out.waiting[field] = p.sent ? "sent" : "unsent";
-    }
-    out.stage = out.stage || (out.applied ? "applied" : null);
-    return out;
-  }
-  // Everything you marked, for the Yours tab and the board: published rows
-  // plus jobs whose first mark is still pending.
-  function myRows() {
-    const rows = new Map((mine || []).map((r) => [r.i, r]));
-    for (const p of Object.values(pending)) {
-      if (p.id && FIELDS.includes(p.field) && !rows.has(p.id)) rows.set(p.id, {...p.row, i: p.id, d: p.at.slice(0, 10)});
-    }
-    return [...rows.values()].filter((r) => { const m = marksOf(r); return m.vote || m.applied || m.stage || m.notes; });
-  }
-  // Moving a job to `stage` (null = off the board): dates the new stage
-  // today unless it already has a date, and keeps "applied" in step - every
-  // stage after Saved means you applied.
-  function stageChanges(m, stage) {
-    const changes = {stage};
-    if (stage && !m.dates[stage]) changes[`date:${stage}`] = today();
-    if (stage && stage !== "saved" && !m.applied) changes.applied = true;
-    if ((!stage || stage === "saved") && m.applied) changes.applied = false;
-    return changes;
-  }
-  // Once GitHub has the comment the click can't be lost, so it shows as done;
-  // only a click still sitting in this browser looks unfinished.
-  const WAIT = {unsent: "Not sent yet - will retry"};
-  function actions(r, i) {
-    if (!mine || !data.inbox || !r.i) return "";
-    const m = marksOf(r);
-    const btn = (field, value, icon, label, on) => {
-      const wait = m.waiting[field] === "unsent" && on;
-      const tip = wait ? ` · ${WAIT.unsent}` : "";
-      return `<button class="act${wait ? " unsent" : ""}" data-i="${i}" data-f="${field}" data-v="${value}"
-        aria-pressed="${on}" title="${label}${tip}" aria-label="${label}">${icon}</button>`;
-    };
-    const board = m.stage ? `On your board: ${STAGE_NAMES[m.stage]}` : "Save to your application board";
-    return `<span class="acts" role="group" aria-label="Your marks">${btn("vote", "up", "👍", "Relevant", m.vote === "up")}${btn("vote", "down", "👎", "Not relevant", m.vote === "down")}${btn("applied", "true", "✅", "Applied", !!m.applied)}${btn("stage", "saved", "📌", board, !!m.stage)}</span>`;
-  }
-  function renderRows() {
-    const rows = currentRows();
-    visible = rows.slice(0, shown);
-    $("date-h").textContent = DATE_H[tab];
-    $("mark").hidden = tab !== "mine";
-    $("jobs-sub").textContent = SUBS[tab];
-    $("rows").innerHTML = visible.map((r, i) => `<tr class="${[r.st === "closed" && "closed", isNew(r) && "new"].filter(Boolean).join(" ")}">
-      <td class="date num">${r.d ? esc(shortDate(r.d)) : "—"}</td>
-      <td>${esc(r.c)}</td>
-      <td><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>${isNew(r) ? `<span class="pill-new">New</span>` : ""}${r.st ? `<span class="status ${r.st}">${STATUS[r.st]}</span>` : ""}
-        <span class="loc-inline">${esc(r.l)}</span></td>
-      <td class="muted col-loc">${esc(r.l)}</td>
-      <td class="src col-src">${esc(r.s)}</td>
-      <td class="col-kit">${actions(r, i)}<button class="kit-btn" data-i="${i}" title="Tailor your resume to this job" aria-label="Application kit">📝<span class="kit-label"> Kit</span></button></td></tr>`).join("");
-    $("empty").hidden = rows.length > 0;
-    $("empty").textContent = onlyNew ? "Nothing new here since your last visit." : "No jobs match.";
-    renderNewControls();
-    $("more").hidden = rows.length <= shown;
-    $("more").textContent = `Show ${Math.min(PAGE, rows.length - shown)} more of ${fmt(rows.length - shown)}`;
-    if (mine) renderMyTiles();
-    renderBoard();
-    renderAlertsView();
-    renderSources();
-  }
-  function selectTab(name) {
-    tab = name; shown = PAGE;
-    $("tab-history").setAttribute("aria-selected", name === "history");
-    $("tab-open").setAttribute("aria-selected", name === "open");
-    $("tab-mine").setAttribute("aria-selected", name === "mine");
-    renderRows();
-  }
-  $("q").addEventListener("input", () => { shown = PAGE; renderRows(); });
-  $("cat").addEventListener("change", () => { shown = PAGE; renderRows(); });
-  $("tab-history").addEventListener("click", () => selectTab("history"));
-  $("tab-open").addEventListener("click", () => hasOpen && selectTab("open"));
-  $("tab-mine").addEventListener("click", () => mine && selectTab("mine"));
-  $("mark").addEventListener("change", () => { shown = PAGE; renderRows(); });
-  $("more").addEventListener("click", () => { shown += PAGE; renderRows(); });
-  $("only-new").addEventListener("click", () => { onlyNew = !onlyNew; shown = PAGE; renderRows(); });
-  // Opening a job's link (click, middle-click or Cmd-click) marks it seen.
-  // Under the New filter it then drops out of the list, like an inbox.
-  function markOpened(e) {
-    const link = e.target.closest("#rows td a");
-    if (!link || (e.type === "auxclick" && e.button !== 1)) return;
-    const r = visible[[...$("rows").children].indexOf(link.closest("tr"))];
-    if (!r || !isNew(r)) return;
-    opened.add(r.i);
-    saveOpened();
-    setTimeout(renderRows, 0);  // after the browser has followed the link
-  }
-  $("rows").addEventListener("click", markOpened);
-  $("rows").addEventListener("auxclick", markOpened);
-  $("mark-seen").addEventListener("click", () => {
-    cutoff = built;
-    session.set(CUTOFF_KEY, String(cutoff));
-    opened.clear();
-    saveOpened();
-    onlyNew = false;
-    renderRows();
-  });
-  // Land on the tab with something new in it.
-  if (!newIn(data.history) && newIn(data.open)) selectTab("open"); else renderRows();
-
-  // Private layer. Personal data ships only as AES-GCM ciphertext (see
-  // scraper/private.py); this decrypts it in the browser with a key derived
-  // from your passphrase. Nothing personal is in the page until then, and
-  // the passphrase never leaves this browser. "Remember" stores the derived
-  // key in IndexedDB as a non-extractable CryptoKey: usable for decrypting
-  // (and sealing votes) here, but script can't read the key bytes back out.
-  const sealed = JSON.parse($("private").textContent);
-  const KEY_DB = "hunter-private", KEY_STORE = "keys", KEY_ID = "dashboard";
-  const bytes = (b64) => Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
-  // Identifies the KDF settings and key usages a remembered key was made
-  // with; if the page changes either, the old key is simply not used.
-  const kdfId = sealed ? `${sealed.kdf.hash}:${sealed.kdf.iterations}:${sealed.kdf.salt}:ed` : "";
-  let unlockedKey = null;
-
-  function keyStore(mode, act) {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(KEY_DB, 1);
-      req.onupgradeneeded = () => req.result.createObjectStore(KEY_STORE);
-      req.onerror = () => reject(req.error);
-      req.onsuccess = () => {
-        const db = req.result, tx = db.transaction(KEY_STORE, mode);
-        const op = act(tx.objectStore(KEY_STORE));
-        tx.oncomplete = () => { db.close(); resolve(op.result); };
-        tx.onerror = () => { db.close(); reject(tx.error); };
-      };
-    });
-  }
-  const remembered = () => keyStore("readonly", (s) => s.get(KEY_ID)).catch(() => null);
-  const remember = (key) => keyStore("readwrite", (s) => s.put({kdf: kdfId, key}, KEY_ID)).catch(() => {});
-  const forget = () => keyStore("readwrite", (s) => s.delete(KEY_ID)).catch(() => {});
-
-  async function deriveKey(phrase) {
-    // Same normalization as private.py, or the keys won't match.
-    const raw = new TextEncoder().encode(phrase.trim().normalize("NFC"));
-    const base = await crypto.subtle.importKey("raw", raw, "PBKDF2", false, ["deriveKey"]);
-    return crypto.subtle.deriveKey(
-      {name: "PBKDF2", hash: sealed.kdf.hash, salt: bytes(sealed.kdf.salt), iterations: sealed.kdf.iterations},
-      base, {name: "AES-GCM", length: 256}, false, ["encrypt", "decrypt"]);
-  }
-  async function decrypt(key) {  // throws on a wrong key: GCM authenticates
-    const plain = await crypto.subtle.decrypt({name: "AES-GCM", iv: bytes(sealed.iv)}, key, bytes(sealed.ct));
-    return JSON.parse(new TextDecoder().decode(plain));
-  }
-
-  function showMine(payload, key) {
-    unlockedKey = key;
-    const status = new Map(data.history.map((r) => [r.i, r.st]));
-    mine = payload.mine.map((r) => ({...r, st: status.get(r.i) || ""}));
-    mineById = new Map(mine.map((r) => [r.i, r]));
-    alertsPublished = payload.alerts || {};
-    loadPending();
-    fillAlerts(currentAlerts());
-    $("my-tiles").hidden = false;
-    $("tab-mine").hidden = false;
-    $("lock").textContent = "🔓 Lock";
-    $("open-voting").hidden = !data.inbox;
-    renderRows();
-    sendPending();
-  }
-  function renderMyTiles() {
-    const rows = myRows().map(marksOf);
-    const count = (pred) => fmt(rows.filter(pred).length);
-    $("my-tiles").innerHTML = [
-      [count((m) => m.applied), "you applied to"],
-      [count((m) => m.vote === "up"), "👍 relevant"],
-      [count((m) => m.vote === "down"), "👎 not relevant"],
-    ].map(([v, l]) => `<div class="tile"><div class="value num">${v}</div><div class="label">${l}</div></div>`).join("");
-    $("tab-mine").textContent = `Yours (${fmt(rows.length)})`;
-  }
-  function hideMine() {
-    mine = null; mineById = new Map(); pending = {}; unlockedKey = null; alertsPublished = null;
-    $("my-tiles").hidden = true; $("my-tiles").innerHTML = "";
-    $("tab-mine").hidden = true;
-    $("open-voting").hidden = true;
-    $("act-status").textContent = "";
-    $("lock").textContent = "🔒 Unlock";
-    if (tab === "mine") selectTab("history"); else renderRows();
-  }
-
-  // Voting: 👍 / 👎 / ✅ go back to Hunter as encrypted comments on one
-  // GitHub issue (see scraper/inbox.py for why an issue). A click is saved
-  // in this browser first and only then posted, so a click made offline or
-  // with a bad token is retried rather than lost. The run that applies it
-  // republishes the page within minutes; until then this browser overlays
-  // the click. The overlay goes once a published build shows the run applied
-  // it (its `set` stamp is as new as the click), or the build is two hours
-  // newer than the click - by then the published state is the truth.
-  const PENDING_KEY = "hunter.votes.pending", TOKEN_KEY = "hunter.github.token";
-  const SETTLE_MS = 2 * 60 * 60 * 1000;
-  function loadPending() {
-    try { pending = JSON.parse(saved.get(PENDING_KEY) || "{}"); } catch { pending = {}; }
-    const built = Date.parse(data.generated);
-    for (const [k, p] of Object.entries(pending)) {
-      const m = mineById.get(p.id);
-      const stamp = p.field === "alerts" ? alertsPublished && alertsPublished.set_at
-        : p.field === "source" ? (sourceByKey.get(p.id) || {}).set_at
-        : m && m.set && m.set[p.field];
-      if ((stamp && Date.parse(stamp) >= Date.parse(p.at)) || (p.sent && built - Date.parse(p.at) > SETTLE_MS)) {
-        delete pending[k];
-      }
-    }
-    savePending();
-  }
-  const savePending = () => saved.set(PENDING_KEY, Object.keys(pending).length ? JSON.stringify(pending) : "");
-  const b64 = (u8) => btoa(String.fromCharCode(...u8));
-
-  async function sealAction(action) {
-    const iv = crypto.getRandomValues(new Uint8Array(12));
-    const ct = await crypto.subtle.encrypt({name: "AES-GCM", iv}, unlockedKey,
-      new TextEncoder().encode(JSON.stringify(action)));
-    return JSON.stringify({v: 1, iv: b64(iv), ct: b64(new Uint8Array(ct))});
-  }
-  function postError(status) {
-    if (status === 401) return "GitHub rejected your token - check it in 🗳 Voting setup.";
-    if (status === 403 || status === 404) return `Your token can't comment on ${data.inbox.repo} issues - it needs Issues: Read and write on this repo.`;
-    return `GitHub had a problem (${status}) - your changes are kept and will be retried.`;
-  }
-  let sending = null;
-  function sendPending() {  // one sender at a time; a later call waits its turn
-    sending = (sending || Promise.resolve()).then(sendAll, sendAll);
-    return sending;
-  }
-  async function sendAll() {
-    const queue = Object.entries(pending).filter(([, p]) => !p.sent);
-    if (!queue.length || !mine || !unlockedKey || !data.inbox) return;
-    const token = saved.get(TOKEN_KEY);
-    if (!token) { $("act-status").textContent = "Your changes are saved in this browser - add a GitHub token in 🗳 Voting setup to send them."; return; }
-    // Everything queued goes in one comment, so one edit is one run.
-    const actions = queue.map(([, p]) => ({id: p.id, field: p.field, value: p.value, at: p.at, row: p.row}));
-    let res;
-    try {
-      res = await fetch(`https://api.github.com/repos/${data.inbox.repo}/issues/${data.inbox.issue}/comments`, {
-        method: "POST",
-        headers: {Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "Content-Type": "application/json"},
-        body: JSON.stringify({body: await sealAction({actions})}),
-      });
-    } catch {
-      $("act-status").textContent = "Offline? Your changes are kept and will be sent when you're back.";
-      return;
-    }
-    if (!res.ok) { $("act-status").textContent = postError(res.status); return; }
-    for (const [k, p] of queue) if (pending[k] && pending[k].at === p.at) pending[k].sent = true;
-    savePending();
-    $("act-status").textContent = "";
-    renderRows();
-  }
-  window.addEventListener("online", () => mine && sendPending());
-
-  // Queue every change from one click or edit (one shared timestamp) and
-  // send them together.
-  function queueChanges(r, changes) {
-    const at = new Date().toISOString(), row = {t: r.t, c: r.c, l: r.l, u: r.u, k: r.k, s: r.s, d: r.d};
-    for (const [field, value] of Object.entries(changes)) {
-      pending[`${r.i}|${field}`] = {id: r.i, field, value, at, sent: false, row};
-    }
-    savePending();
-    renderRows();
-    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
-  }
-
-  $("rows").addEventListener("click", (e) => {
-    const btn = e.target.closest(".act");
-    if (!btn || !mine) return;
-    const r = visible[Number(btn.dataset.i)], field = btn.dataset.f, m = marksOf(r);
-    if (field === "vote") {
-      queueChanges(r, {vote: m.vote === btn.dataset.v ? null : btn.dataset.v});
-    } else if (field === "applied") {
-      // Same rule as Telegram's ✅ (feedback._board_follows_applied).
-      const changes = {applied: !m.applied};
-      if (!m.applied && (!m.stage || m.stage === "saved")) Object.assign(changes, stageChanges({...m, applied: "x"}, "applied"));
-      if (m.applied && m.stage === "applied") changes.stage = null;
-      queueChanges(r, changes);
-    } else if (m.stage) {
-      openCard(r);  // 📌 on a job already on the board opens its card
-    } else {
-      queueChanges(r, stageChanges(m, "saved"));
-      toast(`📌 Saved ${esc(r.c)} - see it in <a href="#applications">Applications</a>`);
-    }
-  });
-  let toastTimer = null;
-  function toast(html) {
-    $("toast").innerHTML = html;
-    $("toast").classList.add("on");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => $("toast").classList.remove("on"), 4000);
-  }
-
-  // Telegram alert settings (scraper/alerts.py): which matched jobs ping
-  // your phone. Saved like a vote - one encrypted inbox comment, applied by
-  // the next run, which confirms in Telegram. The preview runs the same
-  // rules as scraper.filters over the jobs already sent to you.
-  let alertsPublished = null;
-  const ALERT_KEY = "|alerts";
-  const words = (s) => s.split(",").map((w) => w.trim()).filter(Boolean);
-  const checked = (name) => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map((i) => i.value);
-  const currentAlerts = () => (pending[ALERT_KEY] ? pending[ALERT_KEY].value : alertsPublished || {});
-  function formAlerts() {
-    return {paused: !$("al-on").checked, categories: checked("al-cat"), regions: checked("al-reg"),
-            title_keywords: words($("al-title").value), locations: words($("al-loc").value)};
-  }
-  function fillAlerts(a) {
-    $("al-on").checked = !a.paused;
-    for (const i of document.querySelectorAll('input[name="al-cat"]')) i.checked = (a.categories || []).includes(i.value);
-    for (const i of document.querySelectorAll('input[name="al-reg"]')) i.checked = (a.regions || []).includes(i.value);
-    $("al-title").value = (a.title_keywords || []).join(", ");
-    $("al-loc").value = (a.locations || []).join(", ");
-    renderAlertsView();
-  }
-  const sameAlerts = (a, b) => {
-    const norm = (x) => JSON.stringify([!!x.paused, ...["categories", "regions", "title_keywords", "locations"]
-      .map((k) => [...(x[k] || [])].map((w) => w.toLowerCase()).sort())]);
-    return norm(a) === norm(b);
-  };
-  function alertMatch(r, a) {
-    const has = (list) => list && list.length;
-    if (has(a.categories) && !a.categories.includes(r.k)) return false;
-    const loc = (r.l || "").trim().toLowerCase();
-    if (has(a.regions) && !a.regions.includes(r.g) && loc && loc !== "remote") return false;
-    if (has(a.title_keywords) && !a.title_keywords.some((w) => r.t.toLowerCase().includes(w.toLowerCase()))) return false;
-    if (has(a.locations) && !a.locations.some((w) => loc.includes(w.toLowerCase()))) return false;
-    return true;
-  }
-  function renderAlertsView() {
-    $("alerts-card").hidden = !mine;
-    $("alerts-locked").hidden = !!mine;
-    if (!mine) return;
-    const a = formAlerts();
-    $("al-fields").setAttribute("aria-disabled", a.paused);
-    const rows = data.history;
-    if (a.paused) {
-      $("al-preview").innerHTML = "<b>Paused.</b> Telegram sends no job alerts; new jobs still show up on the Jobs page.";
-    } else {
-      const hits = rows.filter((r) => alertMatch(r, a));
-      const perWeek = Math.round(hits.length / (90 / 7));
-      $("al-preview").innerHTML = `<b>${fmt(hits.length)}</b> of the ${fmt(rows.length)} jobs sent to you in the last 90 days match`
-        + (hits.length ? ` - about ${fmt(perWeek)} a week.` : ". Loosen a setting, or you'll get no alerts.")
-        + (hits.length ? `<ul>${hits.slice(0, 6).map((r) => `<li>${esc(r.c)} - ${esc(r.t)}${r.l ? ` · ${esc(r.l)}` : ""}</li>`).join("")}</ul>` : "");
-    }
-    const p = pending[ALERT_KEY], dirty = !sameAlerts(a, currentAlerts());
-    $("al-save").disabled = !dirty;
-    const since = alertsPublished && alertsPublished.set_at;
-    $("al-status").textContent = dirty ? "Unsaved changes."
-      : p && !p.sent ? "Saved in this browser - not sent yet, will retry."
-      : p ? "Sent. Hunter applies it on its next run (a few minutes) and confirms in Telegram."
-      : since ? `In use since ${new Date(since).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"})}.`
-      : "In use: every new match is sent (no settings saved yet).";
-  }
-  $("alerts-card").addEventListener("input", renderAlertsView);
-  $("alerts-card").addEventListener("change", renderAlertsView);
-  $("al-reset").addEventListener("click", () => fillAlerts({paused: false}));
-  $("al-save").addEventListener("click", () => {
-    pending[ALERT_KEY] = {id: "", field: "alerts", value: formAlerts(), at: new Date().toISOString(), sent: false, row: {}};
-    savePending();
-    renderAlertsView();
-    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
-  });
-
-  // Sources (scraper/autosources.py): company boards Hunter polls directly
-  // because their jobs kept reaching you late through the feeds. The list
-  // is public data (like sources.yaml); Add / Remove / Resume go through the
-  // inbox like a vote, so they need the page unlocked.
-  const SRC = data.sources;
-  const sourceByKey = new Map(SRC ? SRC.auto.map((r) => [r.key, r]) : []);
-  const BOARD_NAMES = {workday: "Workday", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby",
-    oracle: "Oracle", smartrecruiters: "SmartRecruiters", workable: "Workable", rippling: "Rippling",
-    bamboohr: "BambooHR", eightfold: "Eightfold", successfactors: "SuccessFactors", jibe: "iCIMS",
-    tiktok: "TikTok", amazon: "Amazon"};
-  const STATUS_TEXT = {active: "Polling", paused: "Paused - failing", requested: "Adding…",
-                       failed: "Couldn't add", removed: "Removed"};
-  function srcStatus(key, published) {
-    const p = pending[`${key}|source`];
-    if (!p) return {status: published, waiting: false};
-    const status = {add: "requested", remove: "removed", resume: "active"}[p.value];
-    return {status, waiting: true, unsent: !p.sent};
-  }
-  function srcButton(key, action, label) {
-    return `<button class="src-btn" data-key="${esc(key)}" data-act="${action}">${label}</button>`;
-  }
-  function renderSources() {
-    // Runs from the first renderRows, before this block has run: touch the
-    // consts below only once unlocked (which happens later).
-    $("sources-locked").hidden = !!mine;
-    if (!mine) { $("sources-card").hidden = $("suggest-card").hidden = true; return; }
-    $("sources-card").hidden = $("suggest-card").hidden = !SRC;
-    if (!SRC) { $("sources-locked").hidden = false; $("sources-locked").querySelector(".sub").textContent = "Available on the published site."; return; }
-    $("sources-sub").textContent = `Hunter polls these company boards itself, so new postings reach you within minutes instead of days later through the feeds. It adds one on its own once ${SRC.min_matched} matching jobs have arrived late from it (up to ${SRC.per_week} a week), or when a daily web search finds a board with jobs matching your filters ("search"), and tells you in Telegram. Plus ${fmt(SRC.configured)} boards from sources.yaml.`;
-    const rows = SRC.auto.map((r) => ({...r, ...srcStatus(r.key, r.status)}));
-    const shown = rows.filter((r) => r.status !== "removed"), removed = rows.filter((r) => r.status === "removed");
-    $("auto-rows").innerHTML = shown.map((r) => `<tr>
-      <td>${esc(r.name)}</td>
-      <td class="src col-src">${esc(BOARD_NAMES[r.type] || r.type)}</td>
-      <td class="date">${r.added ? esc(shortDate(r.added.slice(0, 10))) : "—"}${r.how === "auto" || r.how === "search" ? ` <span class="muted">· ${r.how}</span>` : ""}</td>
-      <td class="num">${fmt(r.caught)}</td>
-      <td><span class="src-status ${r.status}">${STATUS_TEXT[r.status] || r.status}${r.unsent ? " (not sent yet)" : ""}</span></td>
-      <td>${r.waiting ? "" : r.status === "paused" ? srcButton(r.key, "resume", "Resume") + " " + srcButton(r.key, "remove", "Remove")
-        : r.status === "failed" ? srcButton(r.key, "add", "Try again") + " " + srcButton(r.key, "remove", "Dismiss")
-        : r.status === "requested" ? "" : srcButton(r.key, "remove", "Remove")}</td></tr>`).join("");
-    $("auto-empty").hidden = shown.length > 0;
-    $("removed-wrap").hidden = !removed.length;
-    $("removed-sum").textContent = `Removed (${removed.length}) - never suggested again`;
-    $("removed-rows").innerHTML = removed.map((r) => `<tr><td>${esc(r.name)}</td><td>${r.waiting ? "" : srcButton(r.key, "add", "Add back")}</td></tr>`).join("");
-    const listed = new Set(SRC.auto.map((r) => r.key));
-    const sugg = SRC.suggestions.filter((s) => !listed.has(s.key) || pending[`${s.key}|source`]);
-    $("suggest-rows").innerHTML = sugg.map((s) => {
-      const st = srcStatus(s.key, null);
-      return `<tr><td>${esc(s.name)}</td><td class="num">${fmt(s.matched)} <span class="muted">of ${fmt(s.jobs)}</span></td>
-        <td class="src col-src">${esc(BOARD_NAMES[s.key.split("/")[0]] || s.key.split("/")[0])}</td>
-        <td>${st.waiting ? `<span class="src-status">${STATUS_TEXT[st.status]}</span>` : srcButton(s.key, "add", "Add")}</td></tr>`;
-    }).join("");
-    $("suggest-empty").hidden = sugg.length > 0;
-  }
-  $("view-sources").addEventListener("click", (e) => {
-    const b = e.target.closest(".src-btn");
-    if (!b || !mine) return;
-    pending[`${b.dataset.key}|source`] = {id: b.dataset.key, field: "source", value: b.dataset.act,
-      at: new Date().toISOString(), sent: false, row: {}};
-    savePending();
-    renderSources();
-    $("sources-status").textContent = "Sent to Hunter - the next run applies it and confirms in Telegram.";
-    if (!saved.get(TOKEN_KEY)) openVoting(); else sendPending();
-  });
-
-  // Application board. Built from the same marks as the rows, so a move
-  // shows at once and syncs through the inbox like a vote.
-  let boardRows = new Map();
-  function renderBoard() {
-    $("board-card").hidden = !mine;
-    $("apps-locked").hidden = !!mine;
-    if (!mine) { $("board").innerHTML = ""; $("nav-apps").textContent = "Applications"; return; }
-    const now = today();
-    const cards = myRows().map((r) => ({r, m: marksOf(r)})).filter((x) => x.m.stage);
-    boardRows = new Map(cards.map((x) => [x.r.i, x.r]));
-    $("nav-apps").textContent = `Applications (${fmt(cards.length)})`;
-    $("board").innerHTML = STAGES.map((s) => {
-      const col = cards.filter((x) => x.m.stage === s)
-        .sort((a, b) => (b.m.dates[s] || "").localeCompare(a.m.dates[s] || ""));
-      return `<div class="bcol" data-stage="${s}" aria-label="${STAGE_NAMES[s]}">
-        <h3><span>${STAGE_NAMES[s]}</span><span class="num">${col.length}</span></h3>
-        ${col.map(({r, m}) => boardCard(r, m, s, now)).join("") || `<p class="bempty">${s === "saved" ? "📌 a job to save it here" : "Nothing yet"}</p>`}
-      </div>`;
-    }).join("");
-  }
-  function boardCard(r, m, s, now) {
-    const since = m.dates[s];
-    const days = since ? Math.round((Date.parse(now) - Date.parse(since)) / 864e5) : null;
-    const when = since ? `${STAGE_NAMES[s]} ${shortDate(since)}${days > 0 ? ` · ${days}d ago` : " · today"}` : "No date";
-    const unsent = Object.values(m.waiting).includes("unsent");
-    return `<article class="bcard${unsent ? " unsent" : ""}" draggable="true" tabindex="0" data-id="${esc(r.i)}"
-        title="${unsent ? "Not sent yet - will retry" : "Click to edit"}">
-      <div class="bco">${esc(r.c)}</div>
-      <a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>
-      <div class="bmeta">${esc(when)}</div>
-      ${m.notes ? `<p class="bnote">${esc(m.notes.split("\n")[0])}</p>` : ""}
-    </article>`;
-  }
-  const cardOf = (el) => { const c = el.closest(".bcard"); return c && boardRows.get(c.dataset.id); };
-  $("board").addEventListener("click", (e) => {
-    if (e.target.closest("a")) return;  // the link opens the posting
-    const r = cardOf(e.target);
-    if (r) openCard(r);
-  });
-  $("board").addEventListener("keydown", (e) => {
-    const r = e.key === "Enter" && cardOf(e.target);
-    if (r) { e.preventDefault(); openCard(r); }
-  });
-  $("board").addEventListener("dragstart", (e) => {
-    const c = e.target.closest(".bcard");
-    if (c) { e.dataTransfer.setData("text/plain", c.dataset.id); e.dataTransfer.effectAllowed = "move"; }
-  });
-  $("board").addEventListener("dragover", (e) => {
-    const col = e.target.closest(".bcol");
-    if (!col) return;
-    e.preventDefault();
-    document.querySelectorAll(".bcol.over").forEach((c) => c !== col && c.classList.remove("over"));
-    col.classList.add("over");
-  });
-  $("board").addEventListener("dragleave", (e) => {
-    const col = e.target.closest(".bcol");
-    if (col && !col.contains(e.relatedTarget)) col.classList.remove("over");
-  });
-  $("board").addEventListener("drop", (e) => {
-    const col = e.target.closest(".bcol");
-    if (!col) return;
-    e.preventDefault();
-    col.classList.remove("over");
-    const r = boardRows.get(e.dataTransfer.getData("text/plain"));
-    const m = r && marksOf(r);
-    if (m && m.stage !== col.dataset.stage) queueChanges(r, stageChanges(m, col.dataset.stage));
-  });
-
-  let cardRow = null, cardStage = null;
-  function renderCardStages() {
-    $("card-stages").innerHTML = STAGES.map((s) =>
-      `<button type="button" role="radio" data-s="${s}" aria-checked="${s === cardStage}">${STAGE_NAMES[s]}</button>`).join("");
-  }
-  function openCard(r) {
-    cardRow = r;
-    const m = marksOf(r);
-    cardStage = m.stage || "saved";
-    $("card-h").textContent = r.t;
-    $("card-meta").textContent = [r.c, r.l].filter(Boolean).join(" · ");
-    $("card-link").href = r.u;
-    renderCardStages();
-    $("card-dates").innerHTML = STAGES.map((s) =>
-      `<label>${STAGE_NAMES[s]}<input type="date" data-s="${s}" value="${esc(m.dates[s] || "")}"></label>`).join("");
-    $("card-notes").value = m.notes;
-    $("card-remove").hidden = !m.stage;
-    $("card").showModal();
-  }
-  $("card-stages").addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-s]");
-    if (b) { cardStage = b.dataset.s; renderCardStages(); }
-  });
-  $("card-cancel").addEventListener("click", () => $("card").close());
-  $("card-save").addEventListener("click", () => {
-    const m = marksOf(cardRow), changes = {};
-    if (cardStage !== m.stage) Object.assign(changes, stageChanges(m, cardStage));
-    // A date typed here wins over the automatic "today".
-    for (const input of $("card-dates").querySelectorAll("input")) {
-      const field = `date:${input.dataset.s}`, value = input.value || null;
-      if (value !== (m.dates[input.dataset.s] || null)) changes[field] = value;
-    }
-    const notes = $("card-notes").value.trim();
-    if (notes !== m.notes) changes.notes = notes || null;
-    $("card").close();
-    if (Object.keys(changes).length) queueChanges(cardRow, changes);
-  });
-  $("card-remove").addEventListener("click", () => {
-    if (!confirm(`Remove ${cardRow.c} - ${cardRow.t} from your board? Its notes are kept.`)) return;
-    $("card").close();
-    queueChanges(cardRow, stageChanges(marksOf(cardRow), null));
-  });
-
-  function openVoting() {
-    $("voting-token").value = saved.get(TOKEN_KEY);
-    $("voting-repo").textContent = data.inbox ? data.inbox.repo : "this repo";
-    $("voting").showModal();
-  }
-  $("open-voting").addEventListener("click", openVoting);
-  $("voting-cancel").addEventListener("click", () => $("voting").close());
-  $("voting-save").addEventListener("click", () => {
-    saved.set(TOKEN_KEY, $("voting-token").value.trim());
-    $("voting").close();
-    sendPending();
-  });
-  $("voting-clear").addEventListener("click", () => { saved.set(TOKEN_KEY, ""); $("voting-token").value = ""; });
-
-  if (sealed && sealed.v === 1 && window.crypto && crypto.subtle) {
-    $("lock").hidden = false;
-    $("lock").addEventListener("click", () => {
-      if (mine) { forget(); hideMine(); return; }
-      $("unlock-pass").value = ""; $("unlock-error").textContent = "";
-      $("unlock").showModal();
-    });
-    $("unlock-cancel").addEventListener("click", () => $("unlock").close());
-    $("unlock-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      $("unlock-go").disabled = true;
-      $("unlock-error").textContent = "";
-      try {
-        const key = await deriveKey($("unlock-pass").value);
-        let payload;
-        try { payload = await decrypt(key); }
-        catch { $("unlock-error").textContent = "That passphrase doesn't match."; return; }
-        if ($("unlock-remember").checked) await remember(key);
-        $("unlock-pass").value = "";
-        $("unlock").close();
-        showMine(payload, key);
-      } finally {
-        $("unlock-go").disabled = false;
-      }
-    });
-    // Unlock silently with a remembered key. If the passphrase was changed
-    // since, that key no longer opens the page: drop it and stay locked.
-    remembered().then(async (saved) => {
-      if (!saved || saved.kdf !== kdfId) return;
-      let payload;
-      try { payload = await decrypt(saved.key); }
-      catch { forget(); return; }
-      showMine(payload, saved.key);
-    });
-  }
-
-  // Pages: #applications shows the board on its own page; anything else, the
-  // jobs. Both live in this one file so they share the unlock, the data and
-  // the queue of unsent changes. No private layer, no Applications page.
-  const hasPrivate = !$("lock").hidden;
-  const PAGES = {"#applications": ["view-applications", "nav-apps", "Applications · Hunter"],
-                 "#alerts": ["view-alerts", "nav-alerts", "Telegram alerts · Hunter"],
-                 "#sources": ["view-sources", "nav-sources", "Sources · Hunter"]};
-  function route() {
-    const [view, nav, title] = (hasPrivate && PAGES[location.hash]) || ["view-jobs", "nav-jobs", "Hunter dashboard"];
-    for (const v of ["view-jobs", "view-applications", "view-alerts", "view-sources"]) $(v).hidden = v !== view;
-    for (const n of ["nav-jobs", "nav-apps", "nav-alerts", "nav-sources"]) {
-      if (n === nav) $(n).setAttribute("aria-current", "page"); else $(n).removeAttribute("aria-current");
-    }
-    document.title = title;
-  }
-  $("views").hidden = !hasPrivate;
-  window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); $("toast").classList.remove("on"); });
-  $("apps-unlock").addEventListener("click", () => $("lock").click());
-  $("alerts-unlock").addEventListener("click", () => $("lock").click());
-  $("sources-unlock").addEventListener("click", () => $("lock").click());
-  route();
-
-  // Weekly totals (one series: no legend, the title names it)
-  const act = data.activity;
-  const weekLabel = (w) => `Week of ${shortDate(w)}`;
-  const maxTotal = Math.max(1, ...act.totals);
-  $("act-sub").textContent = `All boards, last ${act.weeks.length} weeks (this week so far on the right). Below: the ${act.rows.length} busiest boards.`;
-  $("columns").innerHTML = act.totals.map((n, i) =>
-    `<div class="col${i === act.totals.length - 1 ? " partial" : ""}" tabindex="0" data-tip="${esc(weekLabel(act.weeks[i]))}${i === act.totals.length - 1 ? " (so far)" : ""}: ${fmt(n)} new postings">
-       <div class="bar" style="height:${(n / maxTotal) * 100}%"></div></div>`).join("");
-  $("col-labels").innerHTML = act.weeks.map((w) => `<div>${esc(shortDate(w))}</div>`).join("");
-
-  // Heatmap: busiest boards x weeks, quantile buckets of the non-zero counts
-  const values = act.rows.flatMap((r) => r.counts).filter((n) => n > 0).sort((a, b) => a - b);
-  const q = (p) => values.length ? values[Math.min(values.length - 1, Math.floor(p * values.length))] : 0;
-  const cuts = [q(1 / 6), q(2 / 6), q(3 / 6), q(4 / 6), q(5 / 6)];
-  const level = (n) => n <= 0 ? 0 : 1 + cuts.filter((c) => n > c).length;
-  const heat = $("heat");
-  heat.style.gridTemplateColumns = `minmax(90px, 200px) repeat(${act.weeks.length}, 1fr)`;
-  heat.innerHTML = act.rows.map((r) =>
-    `<div class="name" title="${esc(r.label)}">${esc(r.label)}</div>` +
-    r.counts.map((n, i) => `<div class="cell l${level(n)}" tabindex="0"
-      data-tip="${esc(r.label)} · ${esc(weekLabel(act.weeks[i]))}: ${fmt(n)} new"></div>`).join("")
-  ).join("") + `<div></div>` + act.weeks.map((w) => `<div class="wk">${esc(shortDate(w))}</div>`).join("");
-  const bounds = [0, ...cuts];
-  $("legend").innerHTML = `New postings:` +
-    `<span class="sw"></span>0` +
-    [1, 2, 3, 4, 5, 6].map((l) => {
-      const lo = l === 1 ? 1 : bounds[l - 1] + 1, hi = l === 6 ? null : bounds[l];
-      if (hi !== null && hi < lo) return "";
-      return `<span class="sw l${l}" style="background:var(--seq-${l})"></span>${hi === null ? `${lo}+` : lo === hi ? lo : `${lo}–${hi}`}`;
-    }).join("");
-  $("act-table").innerHTML =
-    `<thead><tr><th>Board</th>${act.weeks.map((w) => `<th class="num">${esc(shortDate(w))}</th>`).join("")}</tr></thead>` +
-    `<tbody><tr><td><b>All boards</b></td>${act.totals.map((n) => `<td class="num">${fmt(n)}</td>`).join("")}</tr>` +
-    act.rows.map((r) => `<tr><td>${esc(r.label)}</td>${r.counts.map((n) => `<td class="num">${fmt(n)}</td>`).join("")}</tr>`).join("") +
-    `</tbody>`;
-
-  // Time to close
-  const life = data.lifetimes;
-  $("close-empty").hidden = life.length > 0;
-  const maxDays = Math.max(1, ...life.map((r) => r.median));
-  $("hbars").innerHTML = life.map((r) =>
-    `<div class="name" title="${esc(r.label)}">${esc(r.label)}</div>
-     <div class="track" tabindex="0" data-tip="${esc(r.label)}: median ${r.median} days open, from ${r.n} closures">
-       <div class="fill" style="width:${(r.median / maxDays) * 100}%"></div></div>
-     <div class="val num">${r.median < 1 ? "<1d" : `${r.median}d`} <span>· ${r.n}</span></div>`).join("");
-
-  // Application kit. Everything personal - resume and API key - lives only in
-  // this browser's storage and goes only to Anthropic's API; the page itself
-  // is public and ships none of it. The SDK is fetched on first use, so
-  // viewers who never make a kit never download it.
-  const KIT_MODEL = "claude-opus-5";
-  const SDK_URL = "https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk@0.129.0/+esm";
-  const RESUME_KEY = "hunter.kit.resume", API_KEY = "hunter.kit.apiKey";
-  const WORKSPACE_KEY = "hunter.kit.workspace";
-  // One line of a standard one-page resume holds roughly this many characters.
-  const BULLET_MAX = 110;
-  const KIT_SYSTEM = `You help a job seeker tailor an application to one posting. You get their resume and the job description.
-
-Every resume bullet you write must fit on one line of a one-page resume: at most ${BULLET_MAX} characters, ideally 80-${BULLET_MAX}. Cut filler words, articles and soft adjectives before cutting the result or the metric, and never let a bullet run onto a second line.
-
-Reply with exactly these four sections, as plain text with these headings and no preamble:
-
-ATS MATCH
-List the 8-15 hard requirements an applicant tracking system would screen this posting for: skills, tools, languages, frameworks, certifications, degree, years of experience. Mark each must-have (stated as required) or nice-to-have (preferred, bonus, "a plus"). Then check the candidate's ORIGINAL resume, not your rewritten bullets: a requirement is matched only if the resume states it (common synonyms count, e.g. Postgres = PostgreSQL, JS = JavaScript). Write exactly these four lines, each a comma-separated list, "None" when empty:
-Must-have matched: ...
-Must-have missing: ...
-Nice-to-have matched: ...
-Nice-to-have missing: ...
-
-TAILORED RESUME BULLETS
-4-6 bullets rewritten from the candidate's real experience so they speak to what this job asks for. Reorder and reword freely, lead with the most relevant work, start each with a strong past-tense verb. Use only facts in the resume - never invent employers, projects, numbers, tools or dates.
-
-COVER NOTE
-3-4 sentences the candidate can paste into an application or a referral request: specific to this company and role, grounded in the resume, plain and direct.
-
-SKILLS GAP (REFERENCE ONLY - NOT YOUR EXPERIENCE)
-3-5 bullets, one per skill or experience this posting wants that the resume lacks. Anchor each to one of the candidate's real roles or projects from the resume, and write the resume bullet that role could have carried had they used the missing skill there - so they can see what their resume could have looked like. Write it as a finished resume bullet in Google's XYZ form ("Accomplished [X] as measured by [Y], by doing [Z]"): a strong past-tense verb, a concrete result, a plausible metric, and how the missing skill produced it, kept consistent with the scale of that role. Format each exactly as (the length limit applies to the XYZ bullet itself):
-- [Missing: <skill>] At <role or project from the resume>: <the XYZ bullet>
-These show the candidate their gaps; the bullets and their numbers are illustrative, not the candidate's experience, and must not be presented as such. Write "None - your resume covers this posting" if nothing important is missing.`;
-  // Copy takes only what belongs in an application - the bullets and cover
-  // note - never the score or the reference-only skills gap.
-  const GAP_HEADING = "SKILLS GAP";
-  const BULLETS_HEADING = "TAILORED RESUME BULLETS";
-
-  let client = null, clientConfig = "", kitJob = null, kitRunning = false, kitText = "";
-
-  function openSetup() {
-    $("setup-resume").value = saved.get(RESUME_KEY);
-    $("setup-key").value = saved.get(API_KEY);
-    $("setup-workspace").value = saved.get(WORKSPACE_KEY);
-    $("setup").showModal();
-  }
-  $("open-setup").addEventListener("click", openSetup);
-  $("setup-cancel").addEventListener("click", () => $("setup").close());
-  $("setup-save").addEventListener("click", () => {
-    saved.set(RESUME_KEY, $("setup-resume").value.trim());
-    saved.set(API_KEY, $("setup-key").value.trim());
-    saved.set(WORKSPACE_KEY, $("setup-workspace").value.trim());
-    $("setup").close();
-  });
-  $("setup-clear").addEventListener("click", () => {
-    saved.set(RESUME_KEY, ""); saved.set(API_KEY, ""); saved.set(WORKSPACE_KEY, "");
-    $("setup-resume").value = ""; $("setup-key").value = ""; $("setup-workspace").value = "";
-  });
-
-  $("rows").addEventListener("click", (e) => {
-    const btn = e.target.closest(".kit-btn");
-    if (!btn) return;
-    kitJob = visible[Number(btn.dataset.i)];
-    $("kit-h").textContent = kitJob.t;
-    $("kit-meta").textContent = [kitJob.c, kitJob.l].filter(Boolean).join(" · ");
-    $("kit-link").href = kitJob.u;
-    $("kit-desc").value = "";
-    setKitText("");
-    flushKit();
-    $("kit-status").textContent = "";
-    $("kit-copy").hidden = true;
-    $("kit").showModal();
-    if (!saved.get(RESUME_KEY) || !saved.get(API_KEY)) {
-      $("kit-status").textContent = "First, add your resume and API key in Kit setup.";
-    }
-  });
-  $("kit-close").addEventListener("click", () => $("kit").close());
-  $("kit-copy").addEventListener("click", async () => {
-    const start = Math.max(kitText.indexOf(BULLETS_HEADING), 0);
-    const gap = kitText.indexOf(GAP_HEADING);
-    try {
-      await navigator.clipboard.writeText(kitText.slice(start, gap > start ? gap : undefined).trim());
-      $("kit-status").textContent = "Copied the bullets and cover note.";
-    }
-    catch { $("kit-status").textContent = "Couldn't copy - select the text instead."; }
-  });
-
-  // Keys created at the organization level (not inside a workspace) must name
-  // the workspace to bill on every request.
-  // Formatting. Claude answers in plain text under four fixed headings; the
-  // page parses that into sections and builds them with DOM nodes and
-  // textContent only, so nothing in a response is ever parsed as HTML.
-  const SECTIONS = [
-    { match: "ATS MATCH", title: "ATS match - your current resume", kind: "ats" },
-    { match: BULLETS_HEADING, title: "Tailored resume bullets", kind: "list", copy: true },
-    { match: "COVER NOTE", title: "Cover note", kind: "prose", copy: true },
-    { match: "KEYWORDS TO CONSIDER", title: "Keywords to consider", kind: "chips" },
-    { match: GAP_HEADING, title: "Skills gap", kind: "gap" },
-  ];
-
-  // The score is computed here, not by the model: coverage of the posting's
-  // requirements, must-haves counting double. Deterministic given the lists,
-  // and every point is traceable to a named requirement.
-  const ATS_LINES = {
-    "must-have matched": "mustHit", "must-have missing": "mustMiss",
-    "nice-to-have matched": "niceHit", "nice-to-have missing": "niceMiss",
-  };
-  function parseAts(lines) {
-    const ats = { mustHit: [], mustMiss: [], niceHit: [], niceMiss: [], seen: 0 };
-    for (const line of lines) {
-      const m = line.replace(BULLET, "").match(/^\s*([a-z- ]+?)\s*:\s*(.*)$/i);
-      const field = m && ATS_LINES[m[1].toLowerCase()];
-      if (!field) continue;
-      ats.seen += 1;
-      ats[field] = /^none\.?$/i.test(m[2].trim()) ? []
-        : m[2].split(",").map((w) => w.trim()).filter(Boolean);
-    }
-    const total = 2 * (ats.mustHit.length + ats.mustMiss.length) + ats.niceHit.length + ats.niceMiss.length;
-    ats.score = total ? Math.round(100 * (2 * ats.mustHit.length + ats.niceHit.length) / total) : null;
-    return ats;
-  }
-
-  function renderAts(sec, lines, done) {
-    const ats = parseAts(lines);
-    if (ats.seen < 4 && !done) { sec.append(el("p", "muted", "Scoring…")); return; }
-    if (ats.score == null) { sec.append(el("p", "muted", "Couldn't find requirements to score.")); return; }
-    const [level, icon, verdict] = ats.score >= 75 ? ["strong", "✓", "Strong match"]
-      : ats.score >= 50 ? ["fair", "⚠", "Fair match"] : ["weak", "✗", "Weak match"];
-    const top = el("div", "ats-top");
-    const label = el("div", `ats-verdict ${level}`);
-    label.append(el("span", "icon", icon), document.createTextNode(verdict));
-    top.append(el("div", "ats-score num", `${ats.score}%`), label);
-    const meter = el("div", "ats-meter");
-    meter.setAttribute("role", "meter");
-    meter.setAttribute("aria-valuenow", String(ats.score));
-    meter.setAttribute("aria-valuemin", "0");
-    meter.setAttribute("aria-valuemax", "100");
-    meter.setAttribute("aria-label", `ATS match ${ats.score}%`);
-    const fill = el("div", `ats-fill ${level}`);
-    fill.style.width = `${ats.score}%`;
-    meter.append(fill);
-    sec.append(top, meter);
-    const group = (label, words, kind) => {
-      if (!words.length) return;
-      const row = el("div", "ats-row");
-      row.append(el("span", "ats-label", label));
-      const chips = el("div", "chips");
-      words.forEach((w) => chips.append(el("span", `chip ${kind}`, `${kind === "hit" ? "✓" : "✗"} ${w}`)));
-      row.append(chips);
-      sec.append(row);
-    };
-    group("Must-have", [...ats.mustHit], "hit");
-    group("", [...ats.mustMiss], "miss-chip");
-    group("Nice-to-have", [...ats.niceHit], "hit");
-    group("", [...ats.niceMiss], "miss-chip");
-    const hits = ats.mustHit.length + ats.niceHit.length;
-    const all = hits + ats.mustMiss.length + ats.niceMiss.length;
-    sec.append(el("p", "note", `${hits} of ${all} requirements found in your resume; must-haves count double. An estimate - real ATS systems vary.`));
-  }
-  const BULLET = /^\s*(?:[-*•]|\d+[.)])\s+/;
-
-  function parseKit(text) {
-    const parts = [];
-    let current = { spec: null, lines: [] };
-    for (const line of text.split("\n")) {
-      const heading = line.trim().replace(/^#+\s*/, "").toUpperCase();
-      const spec = SECTIONS.find((s) => heading.startsWith(s.match));
-      if (spec) {
-        if (current.spec || current.lines.some((l) => l.trim())) parts.push(current);
-        current = { spec, lines: [] };
-      } else {
-        current.lines.push(line);
-      }
-    }
-    parts.push(current);
-    return parts.filter((p) => p.spec || p.lines.some((l) => l.trim()));
-  }
-
-  function el(tag, cls, text) {
-    const node = document.createElement(tag);
-    if (cls) node.className = cls;
-    if (text != null) node.textContent = text;
-    return node;
-  }
-
-  function renderSection({ spec, lines }) {
-    const body = lines.join("\n").trim();
-    const sec = el("section", `kit-sec${spec && spec.kind === "gap" ? " gap" : ""}`);
-    if (spec) {
-      const head = el("header");
-      head.append(el("h3", null, spec.title));
-      if (spec.kind === "gap") head.append(el("span", "ref", "Reference only - not your experience"));
-      if (spec.copy && body) {
-        const btn = el("button", "mini", "Copy");
-        btn.addEventListener("click", async () => {
-          try { await navigator.clipboard.writeText(body); btn.textContent = "Copied"; }
-          catch { btn.textContent = "Select to copy"; }
-        });
-        head.append(btn);
-      }
-      sec.append(head);
-    }
-    const kind = spec ? spec.kind : "prose";
-    const items = lines.map((l) => l.trim()).filter(Boolean);
-    if (kind === "ats") {
-      renderAts(sec, lines, !kitRunning);
-    } else if (kind === "chips") {
-      const words = body.split(/[,\n]/).map((w) => w.replace(BULLET, "").trim()).filter(Boolean);
-      if (!words.length || /^none\b/i.test(body)) {
-        sec.append(el("p", "muted", body || "…"));
-      } else {
-        const chips = el("div", "chips");
-        words.forEach((w) => chips.append(el("span", "chip", w)));
-        sec.append(chips);
-      }
-    } else if ((kind === "list" || kind === "gap") && items.some((l) => BULLET.test(l))) {
-      const ul = el("ul");
-      for (const line of items) {
-        const text = line.replace(BULLET, "");
-        const li = el("li");
-        const miss = kind === "gap" && text.match(/^\[\s*missing:\s*([^\]]+)\]\s*/i);
-        let bullet = text;  // the part that would go on the resume
-        if (miss) {
-          const rest = text.slice(miss[0].length);
-          const where = rest.match(/^(at [^:]{1,120}):\s*/i);  // "At <role/project>:" from the resume
-          bullet = where ? rest.slice(where[0].length) : rest;
-          li.append(el("span", "miss", miss[1].trim()));
-          if (where) li.append(el("strong", "where", `${where[1]}: `));
-          li.append(document.createTextNode(bullet));
-        } else {
-          li.textContent = text;
-        }
-        if (bullet.length > BULLET_MAX) {
-          li.append(el("span", "long", `long · ${bullet.length} chars`));
-        }
-        ul.append(li);
-      }
-      sec.append(ul);
-    } else {
-      for (const para of body.split(/\n\s*\n/)) sec.append(el("p", body ? null : "muted", para.trim() || "…"));
-    }
-    return sec;
-  }
-
-  // Streaming redraws are batched to one per frame; flushKit() draws the
-  // final text right away, since frames can stall (e.g. a background tab).
-  let renderQueued = false;
-  function flushKit() {
-    renderQueued = false;
-    $("kit-out").replaceChildren(...parseKit(kitText).map(renderSection));
-  }
-  function setKitText(text) {
-    kitText = text;
-    if (renderQueued) return;
-    renderQueued = true;
-    requestAnimationFrame(() => { if (renderQueued) flushKit(); });
-  }
-
-  async function kitClient(key, workspace) {
-    const config = `${key}\n${workspace}`;
-    if (client && clientConfig === config) return client;
-    const { default: Anthropic } = await import(SDK_URL);
-    client = new Anthropic({
-      apiKey: key,
-      dangerouslyAllowBrowser: true,
-      defaultHeaders: workspace ? { "anthropic-workspace-id": workspace } : {},
-    });
-    clientConfig = config;
-    return client;
-  }
-
-  function kitError(err) {
-    const status = err && err.status;
-    if (status === 401) return "Anthropic rejected the API key - check it in Kit setup.";
-    if (status === 400 && String(err.message).includes("anthropic-workspace-id")) {
-      return "This key isn't tied to a workspace. Add your Workspace ID in Kit setup, or create the key inside a workspace in the Anthropic Console.";
-    }
-    if (status === 403) return "This API key isn't allowed to use this model.";
-    if (status === 429) return "Rate limited by Anthropic - wait a minute and try again.";
-    if (status >= 500) return "Anthropic's API had a problem - try again shortly.";
-    return `Couldn't make the kit: ${err && err.message ? err.message : err}`;
-  }
-
-  $("kit-go").addEventListener("click", async () => {
-    if (kitRunning || !kitJob) return;
-    const resume = saved.get(RESUME_KEY), key = saved.get(API_KEY);
-    if (!resume || !key) { $("kit").close(); openSetup(); return; }
-    const description = $("kit-desc").value.trim();
-    if (description.length < 200) {
-      $("kit-status").textContent = "Paste the full job description first - the kit is only as specific as what you give it.";
-      return;
-    }
-    kitRunning = true;
-    $("kit-go").disabled = true;
-    $("kit-copy").hidden = true;
-    setKitText("");
-    $("kit-status").textContent = "Reading the posting…";
-    try {
-      const anthropic = await kitClient(key, saved.get(WORKSPACE_KEY));
-      const stream = anthropic.beta.messages.stream({
-        model: KIT_MODEL,
-        max_tokens: 16000,
-        // If Opus 5 declines, Anthropic re-runs the request on its recommended backup.
-        betas: ["server-side-fallback-2026-07-01"],
-        fallbacks: "default",
-        system: KIT_SYSTEM,
-        messages: [{
-          role: "user",
-          content: `<resume>\n${resume}\n</resume>\n\n<job>\nTitle: ${kitJob.t}\nCompany: ${kitJob.c}\nLocation: ${kitJob.l}\n\n${description}\n</job>`,
-        }],
-      });
-      for await (const event of stream) {
-        if (event.type === "content_block_start" && event.content_block.type === "fallback") {
-          setKitText("");  // the backup model starts over
-          $("kit-status").textContent = "Switching to a backup model…";
-        } else if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-          $("kit-status").textContent = "Writing…";
-          setKitText(kitText + event.delta.text);
-        }
-      }
-      const message = await stream.finalMessage();
-      flushKit();
-      if (message.stop_reason === "refusal") {
-        setKitText("");
-        $("kit-status").textContent = "Claude declined this request. Try trimming the description to just the role details.";
-      } else if (message.stop_reason === "max_tokens") {
-        $("kit-status").textContent = "The answer was cut off - try again.";
-        $("kit-copy").hidden = !kitText;
-      } else {
-        $("kit-status").textContent = "Done - review before you use it.";
-        $("kit-copy").hidden = false;
-      }
-    } catch (err) {
-      $("kit-status").textContent = kitError(err);
-    } finally {
-      kitRunning = false;  // before the final draw, so it renders as finished
-      flushKit();
-      $("kit-go").disabled = false;
-    }
-  });
-
-  // One shared tooltip for every [data-tip] mark: hover or keyboard focus.
-  const tip = $("tip");
-  const show = (el, x, y) => {
-    tip.textContent = el.dataset.tip; tip.classList.add("on");
-    const w = tip.offsetWidth, h = tip.offsetHeight;
-    tip.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, x - w / 2)) + "px";
-    tip.style.top = Math.max(8, y - h - 12) + "px";
-  };
-  document.addEventListener("mouseover", (e) => {
-    const el = e.target.closest("[data-tip]"); if (el) show(el, e.clientX, e.clientY);
-  });
-  document.addEventListener("mousemove", (e) => {
-    const el = e.target.closest("[data-tip]");
-    if (el) show(el, e.clientX, e.clientY); else tip.classList.remove("on");
-  });
-  document.addEventListener("focusin", (e) => {
-    const el = e.target.closest("[data-tip]"); if (!el) return;
-    const r = el.getBoundingClientRect(); show(el, r.left + r.width / 2, r.top);
-  });
-  document.addEventListener("focusout", () => tip.classList.remove("on"));
-})();
+/*__JS__*/
 </script>
 </body>
 </html>

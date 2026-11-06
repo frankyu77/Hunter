@@ -369,8 +369,11 @@ discovery:
 
 # About you. `school` narrows each message's LinkedIn link to alumni at the
 # company (people most likely to refer you); leave empty for a plain search.
+# `name` is how the dashboard greets you once unlocked; it ships only inside
+# the encrypted private layer, so the public page just says "Individual".
 profile:
   school: "University of British Columbia"
+  name: "Frank Yu"
 
 # Filters target graduate / junior software roles (SWE, full stack, backend,
 # platform, SRE, forward deployed) plus internships. Matching is

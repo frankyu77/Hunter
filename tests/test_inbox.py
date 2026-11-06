@@ -237,7 +237,7 @@ def test_one_comment_carries_a_whole_board_move(tmp_path, configured):
     store = sent_store(tmp_path, job)
     later = NOW + timedelta(minutes=1)
     responses.get(COMMENTS, json=[
-        batch(1, [act(job.id, "stage", "saved"), act(job.id, "date:saved", "2026-09-28")]),
+        batch(1, [act(job.id, "stage", "applied"), act(job.id, "date:applied", "2026-09-28")]),
         batch(2, [act(job.id, "stage", "interview", later),
                   act(job.id, "date:interview", "2026-09-30", later),
                   act(job.id, "applied", True, later),
@@ -248,7 +248,7 @@ def test_one_comment_carries_a_whole_board_move(tmp_path, configured):
 
     record = votes(store)[job.id]
     assert record["stage"] == "interview"
-    assert record["stage_dates"] == {"saved": "2026-09-28", "interview": "2026-09-30"}
+    assert record["stage_dates"] == {"applied": "2026-09-28", "interview": "2026-09-30"}
     assert record["applied"] is True
     assert record["notes"] == "Recruiter: Sam. Onsite Oct 9."
 
@@ -258,9 +258,9 @@ def test_removing_from_the_board_clears_stage_but_keeps_notes(tmp_path, configur
     job = make_job(1)
     store = sent_store(tmp_path, job)
     responses.get(COMMENTS, json=[
-        batch(1, [act(job.id, "stage", "saved"), act(job.id, "notes", "referral from Ana")]),
+        batch(1, [act(job.id, "stage", "applied"), act(job.id, "notes", "referral from Ana")]),
         batch(2, [act(job.id, "stage", None, NOW + timedelta(minutes=1)),
-                  act(job.id, "date:saved", None, NOW + timedelta(minutes=1))]),
+                  act(job.id, "date:applied", None, NOW + timedelta(minutes=1))]),
     ])
 
     inbox.process(store, [], NOW)
@@ -271,7 +271,8 @@ def test_removing_from_the_board_clears_stage_but_keeps_notes(tmp_path, configur
 
 
 @pytest.mark.parametrize("field,value", [
-    ("stage", "phone-screen"), ("date:applied", "next tuesday"), ("date:nope", "2026-09-30"),
+    ("stage", "phone-screen"), ("stage", "saved"), ("date:saved", "2026-09-30"),
+    ("date:applied", "next tuesday"), ("date:nope", "2026-09-30"),
     ("notes", "x" * (inbox.NOTES_MAX + 1)), ("applied", 1), ("starred", True),
 ])
 @responses.activate
