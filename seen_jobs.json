@@ -36716,7 +36716,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -38715,6 +38716,14 @@
           "matched": 0,
           "name": "Halma"
         },
+        "workday/icf": {
+          "boards": {
+            "{\"company\": \"icf-international\", \"host\": \"wd5\", \"site\": \"icfexternal_career_site\", \"tenant\": \"icf\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "ICF International"
+        },
         "workday/ilitch": {
           "boards": {
             "{\"company\": \"little-caesars-enterprises\", \"host\": \"wd5\", \"site\": \"lc\", \"tenant\": \"ilitch\", \"type\": \"workday\"}": 3
@@ -38829,6 +38838,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "National Laboratory of the Rockies"
+        },
+        "workday/nxp": {
+          "boards": {
+            "{\"company\": \"nxp-semiconductors\", \"host\": \"wd3\", \"site\": \"careers\", \"tenant\": \"nxp\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "NXP Semiconductors"
         },
         "workday/osv-rubicon": {
           "boards": {
@@ -87508,6 +87525,9 @@
     "eightfold:microsoft:1970393557051489": {
       "seen_at": "2026-11-03T12:06:22+00:00"
     },
+    "eightfold:microsoft:1970393557051503": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "eightfold:microsoft:1970393557051508": {
       "seen_at": "2026-11-05T23:46:29+00:00"
     },
@@ -92861,7 +92881,6 @@
       "seen_at": "2026-11-03T11:45:58+00:00"
     },
     "eightfold:qualcomm:446721944031": {
-      "missing": "2026-11-06T12:36:51+00:00",
       "seen_at": "2026-11-06T00:26:38+00:00"
     },
     "eightfold:qualcomm:446721944032": {
@@ -92940,6 +92959,7 @@
       "seen_at": "2026-11-06T04:35:45+00:00"
     },
     "eightfold:qualcomm:446721992887": {
+      "missing": "2026-11-06T12:45:46+00:00",
       "seen_at": "2026-11-06T01:06:52+00:00"
     },
     "eightfold:qualcomm:446721996927": {
@@ -98385,6 +98405,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:4c1cfc26-75fa-4773-a2ef-3d4b85926e9e": {
       "seen_at": "2026-09-16T01:44:55+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:4c2c8e7d-cddf-48d9-b0cc-075ea6d1d6ff": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:4c2d5f64-e8be-4bd2-b925-eea984ca00ab": {
       "closed": "2026-11-02",
@@ -111083,6 +111106,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:f6464fe5-b3c4-448f-bf2a-5ad108ea9a86": {
       "seen_at": "2026-11-05T09:16:09+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:f6552574-8bd8-4bcb-856a-f3131dfdad9f": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:f65657ff-9f42-4256-ac69-c3a4b36628ea": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -124487,6 +124513,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:75eae133-33cf-40a0-80fd-3aabdf37a56f": {
       "seen_at": "2026-10-06T23:04:09+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:75efacf7-58e1-468e-9621-e23a1444acdf": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:75f94663-dd00-4cd8-b2fb-699b8be8e382": {
       "seen_at": "2026-09-17T23:46:53+00:00"
@@ -153571,6 +153600,9 @@
     "greenhouse:anthropic:5412272008": {
       "seen_at": "2026-11-01T18:55:15+00:00"
     },
+    "greenhouse:anthropic:5412334008": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "greenhouse:anthropic:5412734008": {
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
@@ -158308,6 +158340,9 @@
     "greenhouse:cloudflare:8045309": {
       "seen_at": "2026-09-09T23:14:12+00:00"
     },
+    "greenhouse:cloudflare:8045321": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "greenhouse:cloudflare:8045914": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -158861,6 +158896,9 @@
     },
     "greenhouse:cloudflare:8184169": {
       "seen_at": "2026-09-16T22:25:40+00:00"
+    },
+    "greenhouse:cloudflare:8184838": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:cloudflare:8185503": {
       "seen_at": "2026-09-09T18:34:37+00:00"
@@ -161694,6 +161732,9 @@
     "greenhouse:databricks:8440900002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
+    "greenhouse:databricks:8440922002": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "greenhouse:databricks:8440940002": {
       "seen_at": "2026-10-07T00:14:16+00:00"
     },
@@ -162892,6 +162933,9 @@
     "greenhouse:databricks:8700398002": {
       "seen_at": "2026-09-09T15:09:57+00:00"
     },
+    "greenhouse:databricks:8700402002": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "greenhouse:databricks:8701065002": {
       "seen_at": "2026-10-17T21:15:21+00:00"
     },
@@ -163036,6 +163080,9 @@
     },
     "greenhouse:databricks:8737153002": {
       "seen_at": "2026-09-09T11:15:17+00:00"
+    },
+    "greenhouse:databricks:8737167002": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:databricks:8737171002": {
       "seen_at": "2026-10-25T16:15:57+00:00"
@@ -163257,6 +163304,9 @@
     },
     "greenhouse:databricks:8785065002": {
       "seen_at": "2026-09-10T10:08:18+00:00"
+    },
+    "greenhouse:databricks:8785221002": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:databricks:8785294002": {
       "seen_at": "2026-09-22T10:25:33+00:00"
@@ -164275,6 +164325,9 @@
     },
     "greenhouse:datadog:4452918": {
       "seen_at": "2026-09-24T15:58:38+00:00"
+    },
+    "greenhouse:datadog:4599111": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:datadog:4599148": {
       "seen_at": "2026-09-24T01:19:39+00:00"
@@ -165456,6 +165509,9 @@
     "greenhouse:datadog:8172855": {
       "missing": "2026-11-06T08:36:22+00:00",
       "seen_at": "2026-11-01T18:55:15+00:00"
+    },
+    "greenhouse:datadog:8172864": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:datadog:8173897": {
       "closed": "2026-11-05",
@@ -168799,6 +168855,9 @@
     },
     "greenhouse:duolingo:8612120002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "greenhouse:duolingo:8625579002": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:duolingo:8628658002": {
       "seen_at": "2026-09-08T23:23:20+00:00"
@@ -185925,6 +185984,9 @@
     },
     "greenhouse:stripe:8176728": {
       "seen_at": "2026-09-16T16:52:07+00:00"
+    },
+    "greenhouse:stripe:8176730": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:stripe:8176733": {
       "seen_at": "2026-09-24T11:45:19+00:00"
@@ -244141,6 +244203,7 @@
       "seen_at": "2026-11-05T16:56:35+00:00"
     },
     "workday:boeing:JR2026528815": {
+      "missing": "2026-11-06T12:45:46+00:00",
       "seen_at": "2026-11-06T12:36:51+00:00"
     },
     "workday:boeing:JR2026528834": {
@@ -255603,6 +255666,9 @@
     "workday:cisco:2029942": {
       "seen_at": "2026-11-06T11:48:05+00:00"
     },
+    "workday:cisco:2029945": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "workday:cisco:2029949": {
       "seen_at": "2026-10-26T10:15:22+00:00"
     },
@@ -255806,6 +255872,9 @@
     },
     "workday:cisco:2030945": {
       "seen_at": "2026-11-05T08:06:07+00:00"
+    },
+    "workday:cisco:2030978": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "workday:cisco:2030989": {
       "seen_at": "2026-11-05T15:37:29+00:00"
@@ -269944,6 +270013,9 @@
     "workday:hp:3167344": {
       "seen_at": "2026-09-09T21:10:14+00:00"
     },
+    "workday:hp:3167345": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "workday:hp:3167359": {
       "seen_at": "2026-11-01T07:05:40+00:00"
     },
@@ -280237,6 +280309,9 @@
     "workday:hpe:1218468": {
       "seen_at": "2026-11-02T02:45:04+00:00"
     },
+    "workday:hpe:1218721": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "workday:hpe:1218726": {
       "seen_at": "2026-11-03T18:56:28+00:00"
     },
@@ -286747,6 +286822,9 @@
     "workday:micron:JR110694": {
       "seen_at": "2026-11-05T01:16:10+00:00"
     },
+    "workday:micron:JR110699": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
+    },
     "workday:micron:JR110703": {
       "seen_at": "2026-09-21T13:54:41+00:00"
     },
@@ -287025,6 +287103,9 @@
     },
     "workday:micron:JR111158": {
       "seen_at": "2026-09-22T15:05:32+00:00"
+    },
+    "workday:micron:JR111161": {
+      "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "workday:micron:JR111162": {
       "seen_at": "2026-09-10T05:52:45+00:00"
