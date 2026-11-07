@@ -1,201 +1,241 @@
 # Hunter
 
-Polls a watchlist of job sources (ATS job boards and curated GitHub repos), detects postings never seen before, filters them, and pushes each new match to Telegram.
-Runs on a GitHub Actions cron schedule; every run is stateless and persists its dedup state to `seen_jobs.json`.
+Hunter watches company job boards for new postings and sends each new match to your phone on Telegram, usually within minutes of it going up. Everything else happens on a private dashboard:
 
-## How it works
+- browse jobs
+- track your applications
+- tailor your resume with Claude
+
+It runs free on GitHub Actions and GitHub Pages. You don't need a server.
+
+![Home page](docs/screenshots/home.png)
+
+<sub>Screenshots use demo data.</sub>
+
+## Contents
+
+- [What it does](#what-it-does)
+- [The dashboard](#the-dashboard)
+- [Setup](#setup)
+- [Privacy](#privacy)
+- [Running locally](#running-locally)
+
+## What it does
+
+- **Watches job boards.** It polls your watchlist every few minutes: company boards on Greenhouse, Ashby, Lever, Workday and about a dozen more, plus curated GitHub job lists such as SimplifyJobs.
+- **Sends only new jobs.** A job is sent once, and only if it passes your filters (level, keywords, region).
+- **Finds new company boards on its own.** When a company keeps appearing late through the GitHub lists, Hunter starts polling that company's board directly.
+- **Sends a weekly summary in Telegram:** jobs sent, your marks and applications, and suggested boards to add.
+- **Publishes a dashboard.** It's a single page on GitHub Pages, and anything personal on it is encrypted.
 
 ```
-sources.yaml -> FETCH -> NORMALIZE -> DEDUP -> FILTER -> NOTIFY (Telegram)
-                (adapters)  (Job)   (seen_jobs.json) (predicates)
+sources.yaml → fetch → normalize → dedup → filter → Telegram
+                                     ↑
+                              seen_jobs.json (committed state)
 ```
 
-Each run fetches everything currently posted, subtracts everything already in `seen_jobs.json`, and notifies only the remainder.
+## The dashboard
 
-### Telegram messages
+The dashboard is published at `https://<you>.github.io/<repo>/`. Anyone can see the public job listings. Your applications, marks and settings show up only after you unlock with your passphrase.
 
-Job messages are plain notifications with no buttons. Everything you do with a job (👍 / 👎, applied, the application board) happens on the dashboard (see [Voting from the dashboard](#voting-from-the-dashboard)).
+### Job board
 
-Messages sent before that change still show buttons (✅, 👍 / 👎, and ⭐ from a starring feature that has since been removed). Pressing ✅, 👍 or 👎 on one still counts; ⭐ does nothing. Presses are read at the start of the next run, so the ✓ appears after a few minutes.
-The bot must not have a webhook set: Telegram refuses to hand presses to `getUpdates` while one exists.
+![Job board](docs/screenshots/jobs.png)
 
-Once a week the bot also sends you a private summary: jobs sent, 👍/👎, and applications.
+- **Contents:** every job sent to you in the last 90 days, plus open postings that pass your filters.
+- **Filters:** date, level, region, source and status. The tabs are **All**, **New**, **Applied** and **Not sent**.
+- **New:** jobs that arrived since your last visit show a blue dot. Opening a job clears its dot.
+- **Row buttons:**
+  - **Applied** puts the job on your application board.
+  - **Make kit** tailors your resume to the job.
+  - **Open ↗** goes to the posting.
 
-### Dashboard
+### Applications
 
-A static dashboard is rebuilt hourly and published to GitHub Pages at `https://<owner>.github.io/<repo>/`. Each section has its own address, all in one page:
+Your applications move through **Applied → Online assessment → Interview → Offer / Rejected**. You can see them as a board or as a list.
 
-- **Home** (`#home`): new postings since your last visit, how many jobs you've applied to, your resume, the freshest matches, your pipeline, and a box that starts a chat with Claude.
-- **Job board** (`#jobs`): every job Hunter sent you (90 days) and every open posting that passes your filters, with filters for date, level, region, source, status and whether it was sent to Telegram, and tabs for All, New, Applied and Not sent. Each row has **Applied** (marks it applied and puts it on your application board), **Make kit** and **Open ↗**.
-- **Applications** (`#applications`), **Resume** (`#resume`), **Chat** (`#chat`), **Telegram alerts** (`#alerts`) and **Sources** (`#sources`), below.
+![Application board](docs/screenshots/board.png)
 
-The page greets visitors as "Individual". Once you unlock, it greets you by the `name` in `sources.yaml` under `profile:`, which reaches the page only inside the encrypted layer.
+- **Moving a job:** drag its card to another column. You can also click a card to change its stage, edit the stage dates, or add notes.
+- **Long columns:** each column shows its 8 newest cards. Press **Load more…** to see the rest.
 
-The sidebar shows whether the poller ran recently and whether Telegram alerts are on. Settings (⚙, bottom left) hold your Claude API key and GitHub token.
+![Application list](docs/screenshots/list.png)
 
-The repo is public and so is the dashboard, so its readable part is job data only.
-Your votes and applications ship as the **private layer** (below), encrypted.
+- **The list:** switch with **Board / List** at the top right. The list works like a spreadsheet:
+  - Sort by any column.
+  - Filter by stage, or search, including your notes.
+  - Change a stage straight from its dropdown.
+- **Same on every device:** changes sync, so after you unlock you see the same board everywhere (see [GitHub token](#github-token-sync)).
 
-### Application board
+<img src="docs/screenshots/card.png" alt="Editing an application" width="500">
 
-The **Applications** page (`…/#applications`), once unlocked, it shows your applications as a board: **Applied → Online assessment → Interview → Offer / Rejected**.
+### Make kit
 
-- **Applied** on any job row (or in its Make kit window) marks it applied and puts it in the Applied column. Press it again to unmark it, which takes it off the board (it asks first if the job had moved past Applied).
-- **Drag** a card to another column, or **click** it to pick its stage, edit the date it entered each stage, and keep notes (recruiter, referral, interview rounds…).
-- Each card shows when it entered its current stage and how long ago. Cards are all the same size; long titles and notes are cut short there, and the card window shows them whole. A column shows its 8 newest cards; **Load more…** shows 8 more and **Show fewer** folds it back.
-- **Board / List** (top right) switches to a spreadsheet-style list: company, role, location, stage, applied date, last update and notes. Click a column header to sort by it, filter by stage or search (notes included), change a stage straight from its dropdown, or click a row to edit it. Your browser remembers which view you picked.
-- Every stage counts as applied: a job is on the board exactly when you've applied. Removing it from the board un-marks it.
+![Make kit](docs/screenshots/kit.png)
 
-Changes sync through the same encrypted inbox as votes (one comment per edit), so the board is the same on every device and stays private. There are no reminder pings: Telegram keeps sending you new jobs as before.
+Paste a job description and Claude returns:
 
-### Telegram alerts
+- **ATS match:** how well your resume covers the posting's requirements.
+- **Tailored bullets and a short cover note:** reworded from your resume only.
+- **Skills gap:** what's missing, for reference.
 
-The **Telegram alerts** page (`…/#alerts`, unlocked) chooses which new jobs ping your phone, for example only software internships in Canada:
+The kit also has **Relevant / Not relevant** buttons. Those marks are saved as training data for a future relevance model.
 
-- **Level:** internships, new grad & junior, full-time.
-- **Region:** Canada, US, other. A job listed only as "Remote" always counts.
-- **Title contains** and **location contains** any of a few words.
-- An on/off switch to pause job alerts entirely.
-
-While you edit, a preview counts how many of the jobs sent to you in the last 90 days would have matched, with examples, using the same rules the bot uses.
-
-Saving sends the setting through the same encrypted inbox as votes. The next run (a few minutes) starts using it and confirms in Telegram. You never edit `sources.yaml` or commit anything: the bot's own state commit carries it.
-
-These settings only narrow what's *sent*. `sources.yaml` filters still decide what Hunter tracks, so a job the alerts skip is still on the job board, under **Not sent**, marked **New** on your next visit. Season alerts follow the settings too. The weekly summary and source suggestions are unaffected.
-
-### New since your last visit
-
-Jobs that reached you since you last opened the dashboard are marked **New** (a blue dot): sent to you, or first seen by Hunter on a board but not sent. The **New (N)** tab lists just those, and Home counts them.
-
-Opening a job marks it seen: its dot goes away and the counts drop. On the **New** tab it leaves the list, so you can work through new jobs like an inbox.
-
-Your browser remembers when you last looked, so this works per device and without unlocking. The rest stay highlighted for the whole visit, reloads included, until you open them, press **Mark all seen**, or come back another time. The very first visit marks nothing new.
-
-### Private layer
-
-Hunter publishes your personal data on the dashboard *encrypted*: press the lock (bottom left) or any **Unlock** button, type your passphrase, and the page decrypts it right there in your browser. Anyone else sees only the public job listings.
-
-Once unlocked you get:
-
-- **Applied** on every job row, and **Relevant / Not relevant / Applied** in each job's Make kit window, showing your current marks,
-- the **Applied** tab (kept past the 90-day history) and a Status filter for your marks,
-- the application board, your pipeline and applied count on Home, and the Telegram alerts and Sources settings.
-
-Tick **Remember on this device** and the page unlocks itself on later visits. The browser keeps a derived key that can decrypt but can't be read back out; the passphrase itself is never stored or sent anywhere. Locking again forgets it on that device.
-
-One-time setup: add a repo secret `HUNTER_PASSPHRASE` (Settings -> Secrets and variables -> Actions). Any length works, but longer is safer: the encrypted data is public, so a short or guessable passphrase can be cracked offline (runs log a warning under 12 characters). Ideally use 4 or more random words from a password manager's generator. With no secret at all, the dashboard is published with no private layer, and the run log says so. Nothing ever falls back to plaintext.
-
-Forgot it? Set a new secret. Nothing is lost: the next hourly build encrypts under the new passphrase, and browsers that remembered the old one just ask again.
-
-### Voting from the dashboard
-
-Once unlocked, each job's **Make kit** window has **Relevant** (👍), **Not relevant** (👎) and **Applied** buttons, feeding the relevance model's training data. Telegram messages have no buttons; this is the only place to vote.
-
-Votes are kept in the `feedback.votes` section of `seen_jobs.json` as labelled training data for a future relevance model.
-
-A click shows immediately. It's saved in your browser, then sent to Hunter as an **encrypted comment on a "Hunter inbox" issue** in this repo. That comment starts a run, which records the vote and republishes the dashboard right away instead of waiting for the hourly refresh, so it's on the live site within a few minutes. A dashed outline means a click hasn't reached GitHub yet (offline, or no token) and will be retried. Hunter deletes each comment once it's safely recorded.
-
-Setup, once per browser: open **⚙ → GitHub token (sync)** and paste a [fine-grained GitHub token](https://github.com/settings/personal-access-tokens/new) with access to **only this repo** and **only Issues: Read and write**. It can't touch code, so a leaked one can only post comments. Hunter creates and locks the inbox issue itself on its first run with `HUNTER_PASSPHRASE` set, so only you can comment there.
-
-**Caveat:** this protects the dashboard, not the repo. `seen_jobs.json` is committed to this public repo and still holds `feedback.votes` in plaintext.
-
-One-time setup: in the repo, **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**. To preview locally from state alone: `python -m scraper.dashboard` and open `site/index.html`.
-
-### Application kit
-
-Every job on the dashboard has a **Make kit** button: paste the job description and you get, within seconds:
-
-- **ATS match** - how well your current resume covers the posting's requirements, as a score with the must-have and nice-to-have requirements you have and lack. An estimate: real ATS systems vary.
-- **Tailored resume bullets** and a short **cover note**, built only from your real experience, each bullet short enough for one resume line.
-- **Skills gap** - reference only: what bullets your past roles could have carried with the skills you're missing.
-
-It uses the resume in the **Resume** editor and an Anthropic API key (from console.anthropic.com) you add once per browser under **⚙ → Claude API key**. Both are stored only in that browser - never on the public page or in the repo. Each kit is one Claude Opus 5 request, typically a few cents. Only save your key on your own devices.
+Make kit needs a [Claude API key](#claude-api-key). Each kit costs a few cents.
 
 ### Resume
 
-The **Resume** page (`#resume`) is a LaTeX editor (CodeMirror) beside a live PDF preview, like Overleaf. Your source is saved in that browser as you type and is the resume Make kit and Chat send to Claude.
+![Resume editor](docs/screenshots/resume.png)
 
-It compiles with pdfLaTeX right in your browser (the [Siglum](https://github.com/SiglumProject/siglum) WebAssembly TeX engine), so your resume never leaves the page. The first compile downloads the engine and common TeX packages (about 40 MB, then cached); after that a compile takes a second or two. Only the names of extra TeX packages your source uses are requested, from packages.siglum.org. With **Auto-compile** on it recompiles shortly after you stop typing; otherwise press **Recompile** (⌘S). A LaTeX error shows its message and line, the last good PDF stays up, and the full log is under **Compile log**. **Download PDF** and **.tex** save copies. A plain-text resume saved by the old Kit setup moves into the editor on your first visit.
-
-**Templates** (the panel on the left) are named LaTeX files kept alongside your resume. Like an IDE, clicking one opens it in its own tab next to **resume.tex**, and you edit the template itself (it saves as you type). Each tab compiles to its own PDF. **Use as resume** (shown on a template's tab) copies that template into resume.tex after asking - resume.tex is the one Make kit and Chat use. **+ Save as template** saves the open tab under a name (an existing name is replaced). Close any tab, resume.tex included, with **×** or a middle-click; open tabs are remembered. resume.tex stays pinned at the top of the Templates list to reopen it, and with every tab closed the editor asks you to choose a template to start your resume. Rename or delete a template from the buttons on its row; a **Starter** template is there to begin with. Templates are kept only in that browser, like the resume. The sidebar button in its header folds the panel into a thin strip to give the editor more room.
-
-The editor, preview and templates fill the window. Drag the handle under them to make them taller or shorter (or focus it and use the arrow keys); double-click it to fit the window again. Your height and whether templates are folded are remembered in that browser.
+- **An Overleaf-style LaTeX editor** with a live PDF preview. It compiles in your browser (WebAssembly pdfLaTeX), so your resume never leaves the page.
+- **resume.tex** is the resume that Make kit and Chat use.
+- **Templates:** save them and open them in tabs, like an IDE.
+- **Stays in one browser:** everything here is kept only in this browser.
 
 ### Chat
 
-The **Chat** page (`#chat`), and the message box on Home, talk to Claude straight from the page with your own API key (billed to your API account, not a Claude subscription). Pick Opus 5.5, Sonnet 5.5 or Haiku 5.5. Claude sees your job board (the 300 newest jobs) and your resume, and the jobs it recommends show up as cards with **Make kit** and **Open ↗**. `/apply`, `/tailor` and `/prep` are shortcuts for common requests. A conversation lasts until you press **New chat** or leave the page. Nothing is stored.
+You can talk to Claude about your job board and resume using your own API key. Pick Opus, Sonnet or Haiku. Jobs Claude recommends appear as cards with **Make kit** and **Open**. Typing `/apply`, `/tailor` or `/prep` fills in a ready-made prompt for common requests.
 
-### Direct sources: added automatically
+### Telegram alerts
 
-Jobs from aggregator repos (SimplifyJobs etc.) arrive hours to days after the company posts them.
-Their apply links usually point at the company's own job board, which Hunter can poll directly: Greenhouse, Ashby, Lever, Workday, Oracle, SmartRecruiters, Workable, Rippling, BambooHR, Eightfold, SuccessFactors and iCIMS-backed ("Jibe") career sites, plus TikTok, Amazon, Netflix and Atlassian.
+![Telegram alerts](docs/screenshots/alerts.png)
 
-Hunter does this on its own:
+- **Choose which new jobs ping your phone** by level, region and keywords in the title or location.
+- **Preview before saving:** a live count shows how many recent jobs would have matched.
+- **Alerts only filter notifications.** Jobs they skip are still on the job board, under **Not sent**.
 
-- Once a company board has fed you **3 matching jobs** late through the feeds, and a live fetch of it works, Hunter starts polling it directly, so new postings arrive within minutes. It adds at most 3 a week (25 in total), checks once a day, and tells you in Telegram ("🧭 Now polling RTX directly").
-- A newly added board's existing jobs are recorded silently, like any new source, so adding one never floods your chat.
-- A board that fails 5 runs in a row is paused (so it can't slow every run), and Telegram tells you.
-- Once Hunter polls a board directly, the same job showing up days later in a feed isn't sent again. That check covers the same company and title in the same region, so a different-city opening still gets through.
+### Sources
 
-The dashboard's **Sources** page (unlocked) lists the boards Hunter added, with how many jobs each has sent you, and **Remove** (never suggested again), **Resume** for a paused one, and **Add** for any other suggestion, without waiting for the threshold. These are kept in Hunter's state, not `sources.yaml`, so there's nothing to commit. Boards you list in `sources.yaml` yourself work as before.
+![Sources](docs/screenshots/sources.png)
 
-**Found by web search too (optional).** Companies that never appear in the feeds can still be found: once a day Hunter runs a few site-restricted web searches (like `site:jobs.ashbyhq.com software engineer intern Canada`, across Ashby, Greenhouse, Lever, Workable, SmartRecruiters, Rippling, BambooHR and Workday). Every board in the results is checked live, and added like the boards above only if it has open jobs passing your `sources.yaml` filters right now. At most 5 a week, labelled "search" on the Sources page. Search only finds boards: their jobs still come from polling the board directly every run, which is minutes fresher than any search index. Edit the searches under `search_discovery: queries:` in `sources.yaml`.
+This page lists the company boards Hunter added by itself, with how many jobs each one sent you. From here you can **Remove** a board, **Resume** a paused one, or **Add** a suggested one.
 
-Setup: create a free [Tavily](https://app.tavily.com) account (1,000 searches a month, no credit card), copy the API key (`tvly-...`), and add it as the repo secret `TAVILY_API_KEY`. The default 7 searches a day use about 210 of the 1,000. Without the secret this is off.
+<details>
+<summary>How Hunter picks boards to add</summary>
 
-Once a week the bot also still sends the top 5 remaining suggestions, and names the platforms with no adapter yet that most of your other matches came from. To stop a company being suggested from `sources.yaml`, add its `ignore key` under `discovery: ignore:`.
+- **When:** a company board has fed you 3 matching jobs late through the GitHub lists, and a live fetch of the board works.
+- **Limits:** at most 3 new boards a week and 25 in total. Telegram tells you each time.
+- **No flood:** a new board's existing jobs are recorded silently.
+- **Failing boards:** a board that fails 5 runs in a row is paused.
+- **Optional web search:** set `TAVILY_API_KEY` and Hunter also searches the web daily for boards with matching jobs, adding up to 5 a week. Edit the searches under `search_discovery:` in `sources.yaml`.
+
+</details>
 
 ## Setup
 
-### 1. Create a Telegram bot
+### 1. Get the code
 
-1. Open Telegram and message [@BotFather](https://t.me/BotFather).
-2. Send `/newbot` and follow the prompts (pick a name and a unique username ending in `bot`).
-3. BotFather replies with an HTTP API token that looks like `123456789:AAE...xyz`.
-   This is your `TELEGRAM_BOT_TOKEN`. Treat it like a password.
+Fork or clone this repo into your own GitHub account. Then enable Actions on the **Actions** tab.
 
-### 2. Get your chat ID
+### 2. Create a Telegram bot
 
-1. Send any message (for example `hi`) to your new bot so a chat exists.
-2. Open `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` in a browser.
-3. Find `"chat":{"id":...}` in the JSON response.
-   That number is your `TELEGRAM_CHAT_ID` (for a group chat it is negative).
+1. In Telegram, message [@BotFather](https://t.me/BotFather) and send `/newbot`.
+2. Pick a name and a username ending in `bot`.
+3. BotFather replies with a token like `123456789:AAE…xyz`. This is your **`TELEGRAM_BOT_TOKEN`**. Keep it secret.
+4. Send any message (e.g. `hi`) to your new bot.
+5. Open `https://api.telegram.org/bot<TOKEN>/getUpdates` in a browser and find `"chat":{"id":…}`. That number is your **`TELEGRAM_CHAT_ID`**. A group chat's ID is negative.
 
-### 3. Set the GitHub Secrets
+> Don't set a webhook on the bot. Hunter reads updates with `getUpdates`, which Telegram blocks while a webhook exists.
 
-In the repo: Settings -> Secrets and variables -> Actions -> New repository secret.
+### 3. Add repo secrets
 
-| Secret | Value |
-| --- | --- |
-| `TELEGRAM_BOT_TOKEN` | the token from BotFather |
-| `TELEGRAM_CHAT_ID` | the chat id from `getUpdates` |
+Go to **Settings → Secrets and variables → Actions → New repository secret**.
 
-Secrets are injected into runs as environment variables.
-Never put them in `sources.yaml` or any other tracked file.
+| Secret | Required | What it is |
+| --- | --- | --- |
+| `TELEGRAM_BOT_TOKEN` | yes | Token from BotFather |
+| `TELEGRAM_CHAT_ID` | yes | Chat ID from `getUpdates` |
+| `HUNTER_PASSPHRASE` | for the private dashboard | Your dashboard passphrase. Use 4+ random words; the encrypted data is public, so a weak one can be cracked offline. |
+| `TAVILY_API_KEY` | no | Turns on web-search discovery. The free [Tavily](https://app.tavily.com) plan is enough. |
 
-### 4. Add sources
+Never put secrets in `sources.yaml` or any other committed file.
 
-Edit `sources.yaml`.
-Adding a company on a supported ATS is one entry, for example:
+- **No `HUNTER_PASSPHRASE`:** the dashboard is published with no private layer. There is no plaintext fallback.
+- **Forgot it?** Set a new one. The next build uses it, and nothing is lost.
+
+### 4. Turn on GitHub Pages
+
+Go to **Settings → Pages → Build and deployment → Source: GitHub Actions**. The dashboard republishes every hour, and within minutes of a change you make on it.
+
+### 5. Edit `sources.yaml`
 
 ```yaml
-sources:
+sources:            # boards to watch - one entry per company
   - type: ashby
     company: wealthsimple
+
+profile:
+  name: "Your Name" # the dashboard greets you with this once unlocked
+
+filters:            # what counts as a match
+  include_keywords: [engineer, developer, software, intern]
+  exclude_keywords: [senior, staff, principal, manager]
 ```
+
+The comments at the top of `sources.yaml` list the API URL to check for each board type before adding a company.
+
+### 6. Set up the dashboard in your browser
+
+Open your dashboard and press the lock (bottom left) to unlock it with `HUNTER_PASSPHRASE`. Tick **Remember on this device** to skip this next time.
+
+<img src="docs/screenshots/unlock.png" alt="Unlock dialog" width="500">
+
+Then add your keys under **⚙ Settings** (bottom left). Each browser stores its own copy, and neither key is ever published or committed.
+
+#### Claude API key
+
+<img src="docs/screenshots/setup-api-key.png" alt="Claude API key dialog" width="500">
+
+Make kit and Chat need this key.
+
+1. Create a key at [console.anthropic.com](https://console.anthropic.com) → **API keys**. It starts with `sk-ant-`.
+2. Paste it under **⚙ → Claude API key**.
+
+Usage is billed to your API account; a Claude subscription doesn't cover it.
+
+#### GitHub token (sync)
+
+<img src="docs/screenshots/setup-github-token.png" alt="GitHub token dialog" width="500">
+
+This token lets your Applied marks, board moves and settings reach Hunter.
+
+1. Create a [fine-grained token](https://github.com/settings/personal-access-tokens/new).
+2. Under **Repository access**, choose only this repo.
+3. Under **Permissions**, set only **Issues → Read and write**. The token can't touch your code.
+4. Paste it under **⚙ → GitHub token (sync)**.
+
+Each change is sent as an encrypted comment on a locked "Hunter inbox" issue, which Hunter creates on its first run. That comment starts a run, and the change shows up on every device a few minutes later.
+
+- **Not sent yet:** a card with a dashed outline hasn't been sent. It is kept in your browser and retried.
+- **No token in this browser:** changes queue there until you add one. You only need a token on browsers you make changes from.
+
+### 7. Optional: poll more reliably
+
+GitHub's built-in schedule often runs late. For steady polling, trigger the workflow from an external cron service such as [cron-job.org](https://cron-job.org), every 5–10 minutes:
+
+- **Request:** `POST https://api.github.com/repos/<you>/<repo>/actions/workflows/poll.yml/dispatches`
+- **Headers:** `Authorization: Bearer <token>` and `Accept: application/vnd.github+json`
+- **Body:** `{"ref":"main"}`
+- **Token:** a fine-grained token for this repo with **Actions → Read and write**. Don't reuse the Issues token above.
+
+If the service reports a `422`, check that the body names a branch that exists.
+
+## Privacy
+
+The repo and the dashboard are public, so:
+
+- **Encrypted:** your applications, marks, alert settings and name reach the page only encrypted with AES-GCM, using a key derived from your passphrase. The page decrypts them in your browser, and the passphrase is never stored or sent.
+- **Browser only:** your resume, templates and API key stay in your browser. They are sent only to Anthropic's API, when you use Make kit or Chat.
+- **Caveat:** `seen_jobs.json`, the state file committed to the repo, still holds your votes and applications in plaintext. Encryption protects the dashboard, not the repo.
 
 ## Running locally
 
 ```bash
 pip install -r requirements.txt
-python -m scraper.main --dry-run
+python -m scraper.main --dry-run   # full run, prints messages instead of sending
+python -m scraper.dashboard        # build the dashboard into site/index.html
+ruff check .                       # lint
+pytest                             # tests run fully offline
 ```
 
-`--dry-run` prints would-be notifications to stdout instead of sending to Telegram; everything before the notify stage behaves exactly like a real run.
-
-## Development
-
-```bash
-ruff check .   # lint
-pytest         # tests run fully offline (HTTP is mocked)
-```
+`CLAUDE.md` covers the code layout, how to add a new board type, and the rules a change must not break.
