@@ -253,20 +253,26 @@
 
   /* --- applications board -------------------------------------------------- */
   .board { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; align-items: flex-start; }
-  .bcol { flex: 0 0 240px; background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: 14px; padding: 12px;
+  .bcol { flex: 1 1 0; min-width: 200px; background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: 14px; padding: 12px;
           display: flex; flex-direction: column; gap: 10px; min-height: 55vh; }
   .bcol.over { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
   .bcol h3 { display: flex; align-items: center; gap: 8px; padding: 4px 4px 6px; margin: 0; font-size: 13px; font-weight: 600; }
   .bcol h3 .n { margin-left: auto; font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  /* Every card is the same size: long names, titles and notes are cut off
+     here (the card dialog shows them whole), so a note can't stretch its
+     column. */
   .bcard { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px;
-           display: flex; flex-direction: column; gap: 6px; cursor: pointer; }
+           display: flex; flex-direction: column; gap: 6px; cursor: pointer; height: 132px; min-width: 0; overflow: hidden; flex: none; }
+  .bcard > * { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bcard > a { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+               overflow-wrap: anywhere; line-height: 1.4; }
   .bcard:hover, .bcard:focus-visible { border-color: var(--border-hover); outline: none; }
   .bcard.unsent { border-style: dashed; }
   .bcard .bco { font-weight: 600; }
   .bcard a { color: var(--text-secondary); }
   .bcard a:hover { color: var(--link-hover); }
   .bcard .bmeta { font-size: 12px; color: var(--text-muted); }
-  .bcard .bnote { font-size: 12px; color: var(--text-secondary); margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bcard .bnote { font-size: 12px; color: var(--text-secondary); margin: 0; }
   .bempty { color: var(--text-muted); font-size: 12px; margin: 4px; }
 
   /* --- resume -------------------------------------------------------------- */

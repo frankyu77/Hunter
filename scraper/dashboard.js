@@ -749,7 +749,8 @@
   function boardCard(r, m, st, now) {
     const since = m.dates[st];
     const days = since ? Math.round((Date.parse(now) - Date.parse(since)) / 864e5) : null;
-    const whenText = since ? `${STAGE_NAMES[st]} ${shortDate(since)}${days > 0 ? ` · ${days}d ago` : " · today"}` : "No date";
+    // The column already names the stage, so the card gives just its date.
+    const whenText = since ? `${shortDate(since)}${days > 0 ? ` · ${days}d ago` : " · today"}` : "No date";
     const unsent = Object.values(m.waiting).includes("unsent");
     return `<article class="bcard${unsent ? " unsent" : ""}" draggable="true" tabindex="0" data-id="${esc(r.i)}"
         title="${unsent ? "Not sent yet - will retry" : "Click to edit"}">
