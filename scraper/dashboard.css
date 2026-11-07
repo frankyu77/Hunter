@@ -253,21 +253,55 @@
 
   /* --- applications board -------------------------------------------------- */
   .board { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; align-items: flex-start; }
-  .bcol { flex: 0 0 240px; background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: 14px; padding: 12px;
+  .bcol { flex: 1 1 0; min-width: 200px; background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: 14px; padding: 12px;
           display: flex; flex-direction: column; gap: 10px; min-height: 55vh; }
   .bcol.over { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
   .bcol h3 { display: flex; align-items: center; gap: 8px; padding: 4px 4px 6px; margin: 0; font-size: 13px; font-weight: 600; }
   .bcol h3 .n { margin-left: auto; font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  /* Every card is the same size: long names, titles and notes are cut off
+     here (the card dialog shows them whole), so a note can't stretch its
+     column. */
   .bcard { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px;
-           display: flex; flex-direction: column; gap: 6px; cursor: pointer; }
+           display: flex; flex-direction: column; gap: 6px; cursor: pointer; height: 132px; min-width: 0; overflow: hidden; flex: none; }
+  .bcard > * { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bcard > a { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+               overflow-wrap: anywhere; line-height: 1.4; }
   .bcard:hover, .bcard:focus-visible { border-color: var(--border-hover); outline: none; }
   .bcard.unsent { border-style: dashed; }
   .bcard .bco { font-weight: 600; }
   .bcard a { color: var(--text-secondary); }
   .bcard a:hover { color: var(--link-hover); }
   .bcard .bmeta { font-size: 12px; color: var(--text-muted); }
-  .bcard .bnote { font-size: 12px; color: var(--text-secondary); margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bcard .bnote { font-size: 12px; color: var(--text-secondary); margin: 0; }
   .bempty { color: var(--text-muted); font-size: 12px; margin: 4px; }
+  .col-more { border: 1px dashed var(--border-strong); border-radius: 10px; background: transparent; color: var(--text-secondary);
+              padding: 10px; font-size: 12px; text-align: center; }
+  .col-more:hover { background: var(--bg-hover); color: var(--text); }
+  /* List view: the job board's table, one row per application. */
+  .apps-list { display: flex; flex-direction: column; gap: 14px; }
+  #apps-q { width: 260px; }
+  .apps-table { min-width: 1000px; table-layout: fixed; }
+  .apps-table th:nth-child(2) { width: 22%; }
+  .apps-table th:nth-child(3) { width: 14%; } .apps-table th:nth-child(4) { width: 170px; }
+  .apps-table th:nth-child(5), .apps-table th:nth-child(6) { width: 110px; }
+  .apps-table th:first-child { padding-left: 16px; width: 12%; }
+  .apps-table th { white-space: nowrap; }
+  .apps-table th:last-child { text-align: left; }
+  .apps-table td:last-child { text-align: left; white-space: nowrap; padding-right: 16px; }
+  .apps-table td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .apps-table .co { font-weight: 600; }
+  .apps-table .role { min-width: 0; }
+  .apps-table .role a { color: var(--text); }
+  .apps-table .role a:hover { color: var(--link-hover); }
+  .apps-table .note { color: var(--text-secondary); font-size: 12px; }
+  .app-row { cursor: pointer; }
+  .app-row:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+  .app-row.unsent td:first-child { box-shadow: inset 2px 0 0 var(--accent); }
+  .sort-btn { border: 0; background: none; color: inherit; font: inherit; padding: 0; display: inline-flex; gap: 6px; cursor: pointer; }
+  .sort-btn:hover { color: var(--text); }
+  th[aria-sort="ascending"] .sort-btn, th[aria-sort="descending"] .sort-btn { color: var(--text); }
+  .stage-sel { height: 30px; font-size: 12px; width: 130px; margin-left: 8px; vertical-align: middle; }
+  .apps-table td .dot { display: inline-block; vertical-align: middle; }
 
   /* --- resume -------------------------------------------------------------- */
   .file-state { font-size: 12px; color: var(--text-muted); }

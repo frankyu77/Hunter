@@ -729,27 +729,54 @@
 
   // Application board. Built from the same marks as the job rows, so a move
   // shows at once and syncs through the inbox like a vote.
+  // The same applications also show as a list (a spreadsheet-style table);
+  // which one you last picked is kept per browser.
+  const APPS_VIEW_KEY = "hunter.apps.view";
+  let appsView = saved.get(APPS_VIEW_KEY) === "list" ? "list" : "board";
+  // A busy column (Applied, Rejected) would make the page very long, so each
+  // shows its newest few cards and loads more on request. How far each one
+  // is opened lasts until the page is reloaded.
+  const COL_PAGE = 8;
+  const colShown = {};
   let boardRows = new Map();
   function renderBoard() {
-    $("board").hidden = !mine;
+    const list = appsView === "list";
+    $("apps-as-board").setAttribute("aria-pressed", String(!list));
+    $("apps-as-list").setAttribute("aria-pressed", String(list));
+    $("apps-hint").textContent = list ? "Change a stage in place, or click a row to edit dates and notes"
+      : "Drag a card to change its stage, or click it to edit dates and notes";
+    $("board").hidden = !mine || list;
+    $("apps-list").hidden = !mine || !list;
     $("apps-locked").hidden = !!mine;
-    if (!mine) { $("board").innerHTML = ""; return; }
+    if (!mine) { $("board").innerHTML = ""; $("apps-rows").innerHTML = ""; return; }
     const now = today();
     const cards = myRows().map((r) => ({r, m: marksOf(r)})).filter((x) => x.m.stage);
     boardRows = new Map(cards.map((x) => [x.r.i, x.r]));
+    if (list) { renderAppsList(cards, now); return; }
     $("board").innerHTML = STAGES.map((st) => {
       const col = cards.filter((x) => x.m.stage === st)
         .sort((a, b) => (b.m.dates[st] || "").localeCompare(a.m.dates[st] || ""));
+      const shown = col.slice(0, colShown[st] || COL_PAGE), rest = col.length - shown.length;
       return `<div class="bcol" data-stage="${st}" aria-label="${STAGE_NAMES[st]}">
         <h3><span class="dot" style="background:${STAGE_COLORS[st]}"></span><span>${STAGE_NAMES[st]}</span><span class="n num">${col.length}</span></h3>
-        ${col.map(({r, m}) => boardCard(r, m, st, now)).join("") || `<p class="bempty">${st === "applied" ? "Press Applied on a job to add it here" : "Nothing yet"}</p>`}
+        ${shown.map(({r, m}) => boardCard(r, m, st, now)).join("") || `<p class="bempty">${st === "applied" ? "Press Applied on a job to add it here" : "Nothing yet"}</p>`}
+        ${rest > 0 ? `<button type="button" class="col-more" data-more="${st}">Load more… <span class="muted">${rest} left</span></button>` : ""}
+        ${shown.length > COL_PAGE ? `<button type="button" class="col-more" data-less="${st}">Show fewer</button>` : ""}
       </div>`;
     }).join("");
   }
+  $("board").addEventListener("click", (e) => {
+    const b = e.target.closest(".col-more");
+    if (!b) return;
+    if (b.dataset.more) colShown[b.dataset.more] = (colShown[b.dataset.more] || COL_PAGE) + COL_PAGE;
+    else delete colShown[b.dataset.less];
+    renderBoard();
+  });
   function boardCard(r, m, st, now) {
     const since = m.dates[st];
     const days = since ? Math.round((Date.parse(now) - Date.parse(since)) / 864e5) : null;
-    const whenText = since ? `${STAGE_NAMES[st]} ${shortDate(since)}${days > 0 ? ` · ${days}d ago` : " · today"}` : "No date";
+    // The column already names the stage, so the card gives just its date.
+    const whenText = since ? `${shortDate(since)}${days > 0 ? ` · ${days}d ago` : " · today"}` : "No date";
     const unsent = Object.values(m.waiting).includes("unsent");
     return `<article class="bcard${unsent ? " unsent" : ""}" draggable="true" tabindex="0" data-id="${esc(r.i)}"
         title="${unsent ? "Not sent yet - will retry" : "Click to edit"}">
@@ -759,6 +786,92 @@
       ${m.notes ? `<p class="bnote">${esc(m.notes.split("\n")[0])}</p>` : ""}
     </article>`;
   }
+  for (const [id, view] of [["apps-as-board", "board"], ["apps-as-list", "list"]]) {
+    $(id).addEventListener("click", () => { appsView = view; saved.set(APPS_VIEW_KEY, view); renderBoard(); });
+  }
+
+  // List view: one row per application, sortable by any column.
+  const APPS_COLS = [
+    {key: "company", name: "Company"}, {key: "role", name: "Role"}, {key: "location", name: "Location"},
+    {key: "stage", name: "Stage"}, {key: "applied", name: "Applied"}, {key: "updated", name: "Last update"},
+    {key: "notes", name: "Notes"},
+  ];
+  let appsSort = {key: "updated", desc: true};
+  $("apps-stage").innerHTML = `<option value="">All stages</option>` +
+    STAGES.map((st) => `<option value="${st}">${STAGE_NAMES[st]}</option>`).join("");
+  // The latest date on any stage: when the application last moved.
+  const lastUpdate = (m) => Object.values(m.dates).filter(Boolean).sort().pop() || "";
+  function appsValue(x, key) {
+    const {r, m} = x;
+    return key === "company" ? (r.c || "").toLowerCase() : key === "role" ? (r.t || "").toLowerCase()
+      : key === "location" ? (r.l || "").toLowerCase() : key === "stage" ? STAGES.indexOf(m.stage)
+      : key === "applied" ? m.dates.applied || "" : key === "updated" ? lastUpdate(m) : m.notes.toLowerCase();
+  }
+  function renderAppsList(cards, now) {
+    const stage = $("apps-stage").value, q = $("apps-q").value.trim().toLowerCase();
+    $("apps-stage").classList.toggle("set", !!stage);
+    const rows = cards.filter(({r, m}) => (!stage || m.stage === stage)
+      && (!q || [r.c, r.t, r.l, m.notes].some((v) => (v || "").toLowerCase().includes(q))));
+    const {key, desc} = appsSort;
+    rows.sort((a, b) => {
+      const va = appsValue(a, key), vb = appsValue(b, key);
+      // Blanks sort last either way, so an unset date never tops the list.
+      if (va === "" || vb === "") return (va === "") - (vb === "");
+      const c = va < vb ? -1 : va > vb ? 1 : 0;
+      return (desc ? -c : c) || (a.r.c || "").localeCompare(b.r.c || "");
+    });
+    $("apps-head").innerHTML = APPS_COLS.map((c) => {
+      const sort = c.key === key ? (desc ? "descending" : "ascending") : "none";
+      return `<th aria-sort="${sort}"><button type="button" class="sort-btn" data-key="${c.key}">${c.name}<span class="sort-mark" aria-hidden="true">${
+        sort === "none" ? "" : desc ? "↓" : "↑"}</span></button></th>`;
+    }).join("");
+    const day = (d) => d ? `<span title="${esc(d)}">${esc(shortDate(d))}</span>` : `<span class="muted">-</span>`;
+    $("apps-rows").innerHTML = rows.map(({r, m}) => {
+      const unsent = Object.values(m.waiting).includes("unsent");
+      return `<tr class="app-row${unsent ? " unsent" : ""}" data-id="${esc(r.i)}" tabindex="0"
+          title="${unsent ? "Not sent yet - will retry" : "Click to edit dates and notes"}">
+        <td class="co">${esc(r.c)}</td>
+        <td class="role"><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a></td>
+        <td class="loc">${esc(r.l || "")}</td>
+        <td><span class="dot" style="background:${STAGE_COLORS[m.stage]}"></span><label class="sr-only" for="st-${esc(r.i)}">Stage</label>
+          <select class="field stage-sel" id="st-${esc(r.i)}">${STAGES.map((st) =>
+            `<option value="${st}"${st === m.stage ? " selected" : ""}>${STAGE_NAMES[st]}</option>`).join("")}</select></td>
+        <td class="seen">${day(m.dates.applied)}</td>
+        <td class="seen">${day(lastUpdate(m))}</td>
+        <td class="note" title="${esc(m.notes)}">${esc(m.notes.split("\n")[0])}</td>
+      </tr>`;
+    }).join("");
+    $("apps-count").textContent = `${rows.length} of ${cards.length}`;
+    $("apps-empty").hidden = rows.length > 0;
+    $("apps-empty").textContent = cards.length ? "No applications match." : "Press Applied on a job to add it here.";
+  }
+  $("apps-stage").addEventListener("change", renderBoard);
+  $("apps-q").addEventListener("input", renderBoard);
+  $("apps-head").addEventListener("click", (e) => {
+    const b = e.target.closest(".sort-btn");
+    if (!b) return;
+    // A new column starts newest/last first for dates, A-Z for the rest.
+    const dated = b.dataset.key === "applied" || b.dataset.key === "updated";
+    appsSort = appsSort.key === b.dataset.key ? {key: b.dataset.key, desc: !appsSort.desc} : {key: b.dataset.key, desc: dated};
+    renderBoard();
+  });
+  const appRowOf = (el) => { const tr = el.closest(".app-row"); return tr && boardRows.get(tr.dataset.id); };
+  $("apps-rows").addEventListener("change", (e) => {
+    const sel = e.target.closest(".stage-sel"), r = sel && appRowOf(sel);
+    const m = r && marksOf(r);
+    if (!m || sel.value === m.stage) return;
+    if (canMark()) queueChanges(r, stageChanges(m, sel.value)); else renderBoard();
+  });
+  $("apps-rows").addEventListener("click", (e) => {
+    if (e.target.closest("a, select, label")) return;  // the link opens the posting; the select changes the stage
+    const r = appRowOf(e.target);
+    if (r) openCard(r);
+  });
+  $("apps-rows").addEventListener("keydown", (e) => {
+    const r = e.key === "Enter" && e.target.classList.contains("app-row") && appRowOf(e.target);
+    if (r) { e.preventDefault(); openCard(r); }
+  });
+
   const cardOf = (el) => { const c = el.closest(".bcard"); return c && boardRows.get(c.dataset.id); };
   $("board").addEventListener("click", (e) => {
     if (e.target.closest("a")) return;  // the link opens the posting
