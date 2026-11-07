@@ -274,6 +274,31 @@
   .bcard .bmeta { font-size: 12px; color: var(--text-muted); }
   .bcard .bnote { font-size: 12px; color: var(--text-secondary); margin: 0; }
   .bempty { color: var(--text-muted); font-size: 12px; margin: 4px; }
+  /* List view: the job board's table, one row per application. */
+  .apps-list { display: flex; flex-direction: column; gap: 14px; }
+  #apps-q { width: 260px; }
+  .apps-table { min-width: 1000px; table-layout: fixed; }
+  .apps-table th:nth-child(2) { width: 22%; }
+  .apps-table th:nth-child(3) { width: 14%; } .apps-table th:nth-child(4) { width: 170px; }
+  .apps-table th:nth-child(5), .apps-table th:nth-child(6) { width: 110px; }
+  .apps-table th:first-child { padding-left: 16px; width: 12%; }
+  .apps-table th { white-space: nowrap; }
+  .apps-table th:last-child { text-align: left; }
+  .apps-table td:last-child { text-align: left; white-space: nowrap; padding-right: 16px; }
+  .apps-table td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .apps-table .co { font-weight: 600; }
+  .apps-table .role { min-width: 0; }
+  .apps-table .role a { color: var(--text); }
+  .apps-table .role a:hover { color: var(--link-hover); }
+  .apps-table .note { color: var(--text-secondary); font-size: 12px; }
+  .app-row { cursor: pointer; }
+  .app-row:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+  .app-row.unsent td:first-child { box-shadow: inset 2px 0 0 var(--accent); }
+  .sort-btn { border: 0; background: none; color: inherit; font: inherit; padding: 0; display: inline-flex; gap: 6px; cursor: pointer; }
+  .sort-btn:hover { color: var(--text); }
+  th[aria-sort="ascending"] .sort-btn, th[aria-sort="descending"] .sort-btn { color: var(--text); }
+  .stage-sel { height: 30px; font-size: 12px; width: 130px; margin-left: 8px; vertical-align: middle; }
+  .apps-table td .dot { display: inline-block; vertical-align: middle; }
 
   /* --- resume -------------------------------------------------------------- */
   .file-state { font-size: 12px; color: var(--text-muted); }

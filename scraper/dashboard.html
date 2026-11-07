@@ -238,13 +238,33 @@
   <!-- APPLICATIONS -->
   <section class="view" id="view-applications" aria-labelledby="apps-h" hidden>
     <div class="page-head">
-      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h1 id="apps-h">Applications</h1><span class="hint">Drag a card to change its stage, or click it to edit dates and notes</span></div>
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h1 id="apps-h">Applications</h1><span class="hint" id="apps-hint">Drag a card to change its stage, or click it to edit dates and notes</span></div>
+      <div class="seg" role="group" aria-label="Show applications as">
+        <button type="button" id="apps-as-board" aria-pressed="true">Board</button>
+        <button type="button" id="apps-as-list" aria-pressed="false">List</button>
+      </div>
     </div>
     <div class="panel locked" id="apps-locked">
       <p>Your application board is private. Unlock to see it.</p>
       <button class="btn primary" data-unlock>Unlock</button>
     </div>
     <div class="board" id="board" hidden></div>
+    <div class="apps-list" id="apps-list" hidden>
+      <div class="filters">
+        <label class="sr-only" for="apps-stage">Stage</label>
+        <select class="field" id="apps-stage"></select>
+        <label class="sr-only" for="apps-q">Filter by role, company or notes</label>
+        <input class="field" id="apps-q" type="search" placeholder="Role, company or notes" autocomplete="off">
+        <span class="count" id="apps-count" aria-live="polite"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="jobs apps-table">
+          <thead><tr id="apps-head"></tr></thead>
+          <tbody id="apps-rows"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="apps-empty" hidden>No applications match.</p>
+    </div>
   </section>
 
   <!-- RESUME -->
