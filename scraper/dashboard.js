@@ -733,6 +733,11 @@
   // which one you last picked is kept per browser.
   const APPS_VIEW_KEY = "hunter.apps.view";
   let appsView = saved.get(APPS_VIEW_KEY) === "list" ? "list" : "board";
+  // A busy column (Applied, Rejected) would make the page very long, so each
+  // shows its newest few cards and loads more on request. How far each one
+  // is opened lasts until the page is reloaded.
+  const COL_PAGE = 8;
+  const colShown = {};
   let boardRows = new Map();
   function renderBoard() {
     const list = appsView === "list";
@@ -751,12 +756,22 @@
     $("board").innerHTML = STAGES.map((st) => {
       const col = cards.filter((x) => x.m.stage === st)
         .sort((a, b) => (b.m.dates[st] || "").localeCompare(a.m.dates[st] || ""));
+      const shown = col.slice(0, colShown[st] || COL_PAGE), rest = col.length - shown.length;
       return `<div class="bcol" data-stage="${st}" aria-label="${STAGE_NAMES[st]}">
         <h3><span class="dot" style="background:${STAGE_COLORS[st]}"></span><span>${STAGE_NAMES[st]}</span><span class="n num">${col.length}</span></h3>
-        ${col.map(({r, m}) => boardCard(r, m, st, now)).join("") || `<p class="bempty">${st === "applied" ? "Press Applied on a job to add it here" : "Nothing yet"}</p>`}
+        ${shown.map(({r, m}) => boardCard(r, m, st, now)).join("") || `<p class="bempty">${st === "applied" ? "Press Applied on a job to add it here" : "Nothing yet"}</p>`}
+        ${rest > 0 ? `<button type="button" class="col-more" data-more="${st}">Load more… <span class="muted">${rest} left</span></button>` : ""}
+        ${shown.length > COL_PAGE ? `<button type="button" class="col-more" data-less="${st}">Show fewer</button>` : ""}
       </div>`;
     }).join("");
   }
+  $("board").addEventListener("click", (e) => {
+    const b = e.target.closest(".col-more");
+    if (!b) return;
+    if (b.dataset.more) colShown[b.dataset.more] = (colShown[b.dataset.more] || COL_PAGE) + COL_PAGE;
+    else delete colShown[b.dataset.less];
+    renderBoard();
+  });
   function boardCard(r, m, st, now) {
     const since = m.dates[st];
     const days = since ? Math.round((Date.parse(now) - Date.parse(since)) / 864e5) : null;

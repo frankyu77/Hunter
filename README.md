@@ -42,7 +42,7 @@ The **Applications** page (`…/#applications`), once unlocked, it shows your ap
 
 - **Applied** on any job row (or in its Make kit window) marks it applied and puts it in the Applied column. Press it again to unmark it, which takes it off the board (it asks first if the job had moved past Applied).
 - **Drag** a card to another column, or **click** it to pick its stage, edit the date it entered each stage, and keep notes (recruiter, referral, interview rounds…).
-- Each card shows when it entered its current stage and how long ago. Cards are all the same size; long titles and notes are cut short there, and the card window shows them whole.
+- Each card shows when it entered its current stage and how long ago. Cards are all the same size; long titles and notes are cut short there, and the card window shows them whole. A column shows its 8 newest cards; **Load more…** shows 8 more and **Show fewer** folds it back.
 - **Board / List** (top right) switches to a spreadsheet-style list: company, role, location, stage, applied date, last update and notes. Click a column header to sort by it, filter by stage or search (notes included), change a stage straight from its dropdown, or click a row to edit it. Your browser remembers which view you picked.
 - Every stage counts as applied: a job is on the board exactly when you've applied. Removing it from the board un-marks it.
 
