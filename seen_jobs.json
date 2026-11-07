@@ -39194,7 +39194,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
@@ -39567,23 +39567,20 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 11,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 10,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 10,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -39618,7 +39615,8 @@
       "zero_since": null
     },
     "workday/expedia-group": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 500 from expedia.wd108.myworkdayjobs.com: {\"errorCode\":\"HTTP_500\",\"errorCaseId\":\"81B04EMW666O0U\",\"httpStatus\":500,\"message\":\"\",\"messageParams\":{}}",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -39636,23 +39634,20 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 11,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 11,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 10,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -39663,9 +39658,8 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 11,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -39688,9 +39682,8 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 11,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -44276,7 +44269,6 @@
       ],
       "greenhouse/waymo": [
         14,
-        14,
         15,
         15,
         15,
@@ -44321,6 +44313,7 @@
         27,
         28,
         28,
+        29,
         29,
         29,
         29,
@@ -45057,7 +45050,6 @@
         21
       ],
       "workday/becton-dickinson": [
-        5,
         0,
         0,
         7,
@@ -45106,7 +45098,8 @@
         1,
         1,
         11,
-        11
+        11,
+        15
       ],
       "workday/boeing": [
         0,
@@ -45481,8 +45474,6 @@
         1,
         1,
         1,
-        1,
-        1,
         0,
         0,
         0,
@@ -45503,6 +45494,8 @@
         0,
         0,
         1,
+        0,
+        0,
         0,
         0,
         0
@@ -93165,7 +93158,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318041617": {
-      "missing": "2026-11-07T08:45:36+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318043838": {
@@ -93908,6 +93900,7 @@
       "seen_at": "2026-10-29T23:55:45+00:00"
     },
     "eightfold:netflix:790319146642": {
+      "missing": "2026-11-07T08:57:31+00:00",
       "seen_at": "2026-10-26T23:25:32+00:00"
     },
     "eightfold:netflix:790319147092": {
@@ -93978,6 +93971,7 @@
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216323": {
+      "missing": "2026-11-07T08:57:31+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319229344": {
@@ -166470,6 +166464,9 @@
     "greenhouse:databricks:7643201002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
+    "greenhouse:databricks:7647294002": {
+      "seen_at": "2026-11-07T08:57:31+00:00"
+    },
     "greenhouse:databricks:7647353002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -166480,6 +166477,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:databricks:7648674002": {
+      "missing": "2026-11-07T08:57:31+00:00",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:databricks:7649409002": {
@@ -195618,7 +195616,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8222098": {
-      "missing": "2026-11-07T02:55:24+00:00",
+      "closed": "2026-11-07",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8223735": {
@@ -244362,7 +244360,7 @@
       "seen_at": "2026-10-20T12:45:26+00:00"
     },
     "workday:bdx:R-558223": {
-      "missing": "2026-11-06T19:36:21+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-10-22T15:36:32+00:00"
     },
     "workday:bdx:R-558225": {
@@ -294138,7 +294136,7 @@
       "seen_at": "2026-11-05T01:16:10+00:00"
     },
     "workday:micron:JR110699": {
-      "missing": "2026-11-06T19:16:29+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "workday:micron:JR110703": {
@@ -298696,7 +298694,7 @@
       "seen_at": "2026-11-06T19:56:04+00:00"
     },
     "workday:micron:JR115819": {
-      "missing": "2026-11-06T23:26:01+00:00",
+      "closed": "2026-11-06",
       "seen_at": "2026-11-06T23:15:58+00:00"
     },
     "workday:micron:JR115821": {
