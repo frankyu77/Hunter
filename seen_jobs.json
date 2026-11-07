@@ -39238,7 +39238,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -39250,8 +39251,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -40494,6 +40494,14 @@
           "matched": 0,
           "name": "HP Inc."
         },
+        "greenhouse/idmeuniversityrecruiting": {
+          "boards": {
+            "{\"company\": \"idmeuniversityrecruiting\", \"type\": \"greenhouse\"}": 2
+          },
+          "jobs": 2,
+          "matched": 0,
+          "name": "ID.me"
+        },
         "greenhouse/imbueunlisted": {
           "boards": {
             "{\"company\": \"imbueunlisted\", \"type\": \"greenhouse\"}": 1
@@ -40926,6 +40934,14 @@
           "matched": 7,
           "name": "Zoox"
         },
+        "oracle/eofe.fa.us2.oraclecloud.com": {
+          "boards": {
+            "{\"company\": \"bny\", \"host\": \"eofe.fa.us2.oraclecloud.com\", \"site_name\": \"CX_1001\", \"site_number\": \"CX_1001\", \"type\": \"oracle\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "BNY"
+        },
         "oracle/hckd.fa.us2.oraclecloud.com": {
           "boards": {
             "{\"company\": \"molina-healthcare\", \"host\": \"hckd.fa.us2.oraclecloud.com\", \"site_name\": \"CX_1\", \"site_number\": \"CX_1\", \"type\": \"oracle\"}": 2
@@ -41045,6 +41061,14 @@
           "jobs": 3,
           "matched": 2,
           "name": "Lawrence Livermore National Laboratory (LLNL)"
+        },
+        "smartrecruiters/m3usa": {
+          "boards": {
+            "{\"company\": \"M3USA\", \"type\": \"smartrecruiters\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "M3USA"
         },
         "smartrecruiters/paconsulting": {
           "boards": {
@@ -41181,6 +41205,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Public Service Enterprise Group"
+        },
+        "successfactors/jobs.ulalaunch.com": {
+          "boards": {
+            "{\"company\": \"united-launch-alliance\", \"host\": \"jobs.ulalaunch.com\", \"type\": \"successfactors\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "United Launch Alliance"
         },
         "workable/ballotpedia": {
           "boards": {
@@ -42447,6 +42479,13 @@
           ],
           "jobs": 200,
           "matched": 71
+        },
+        "jobs.apple.com": {
+          "companies": [
+            "Apple"
+          ],
+          "jobs": 1,
+          "matched": 0
         },
         "metacareers.com": {
           "companies": [
@@ -93602,6 +93641,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318597004": {
+      "missing": "2026-11-07T14:55:47+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318598054": {
@@ -103504,6 +103544,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:54ee945c-a61c-44d7-afa8-06d4dc3912db": {
       "seen_at": "2026-11-05T08:35:58+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:54fa0359-e2dd-4ea9-b5f6-ee5acc6fb30d": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:54ffe567-084d-4859-95af-06b65edc71e6": {
       "seen_at": "2026-09-30T21:43:42+00:00"
@@ -119480,6 +119523,9 @@
       "closed": "2026-10-19",
       "seen_at": "2026-10-15T15:07:33+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:1dbaaa95-dacf-4709-a836-79579d54610e": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:1dda6476-4e02-4025-a7b8-95a4e556235c": {
       "closed": "2026-11-06",
       "seen_at": "2026-10-16T23:16:15+00:00"
@@ -124380,6 +124426,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:4bc949a8-4e60-4c6b-90c8-fb7077b8a2b2": {
       "seen_at": "2026-09-29T23:04:03+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:4bcd5c66-dd7f-4827-9604-aaf0042ab85a": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:4bd46e38-6629-44aa-b557-05c1094d119c": {
       "seen_at": "2026-09-23T01:53:35+00:00"
@@ -136957,6 +137006,9 @@
     "github:SimplifyJobs/Summer2026-Internships:bd0197ea-ca8d-4e77-beba-34e6e94538f1": {
       "seen_at": "2026-09-10T17:50:27+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:bd0cd1a6-e7ec-46d9-a69f-7ac3e099ab85": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:bd15f88f-f59c-49a4-915c-8c54dc3c8adc": {
       "seen_at": "2026-09-30T23:14:04+00:00"
     },
@@ -141650,6 +141702,9 @@
     "github:SimplifyJobs/Summer2026-Internships:e6d6ec47-cd13-413a-9a17-5fd096e2fdce": {
       "seen_at": "2026-10-28T23:06:41+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:e6dbbc55-6f12-4929-aae1-6c7b7e14a24b": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:e6df818f-b6e5-4b99-829a-1caa3b2e180c": {
       "seen_at": "2026-09-11T23:43:31+00:00"
     },
@@ -143078,6 +143133,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:f373a612-0ef4-40c7-8033-08f1354ac0ab": {
       "seen_at": "2026-10-20T22:36:56+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:f399fec7-04c5-4420-adfe-5cdef6866b8a": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f39ef049-309c-48e5-9169-f9eb0d44b087": {
       "seen_at": "2026-11-02T18:16:15+00:00"
@@ -154228,6 +154286,9 @@
     },
     "greenhouse:adyen:7895373": {
       "seen_at": "2026-11-05T08:25:55+00:00"
+    },
+    "greenhouse:adyen:7908806": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:adyen:7912710": {
       "seen_at": "2026-09-09T15:09:57+00:00"
@@ -166387,6 +166448,9 @@
     "greenhouse:databricks:7734812002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
+    "greenhouse:databricks:7737233002": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:databricks:7762173002": {
       "seen_at": "2026-10-28T13:07:46+00:00"
     },
@@ -170337,6 +170401,9 @@
     "greenhouse:datadog:8052114": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
+    "greenhouse:datadog:8052118": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:datadog:8053714": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -170522,6 +170589,12 @@
     "greenhouse:datadog:8113654": {
       "seen_at": "2026-09-26T17:57:23+00:00"
     },
+    "greenhouse:datadog:8114161": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
+    "greenhouse:datadog:8114186": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:datadog:8115033": {
       "seen_at": "2026-10-06T22:13:56+00:00"
     },
@@ -170570,6 +170643,9 @@
     },
     "greenhouse:datadog:8128810": {
       "seen_at": "2026-10-14T00:37:37+00:00"
+    },
+    "greenhouse:datadog:8129799": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:datadog:8130003": {
       "closed": "2026-10-30",
@@ -170749,6 +170825,9 @@
     },
     "greenhouse:datadog:8180681": {
       "seen_at": "2026-09-25T15:29:39+00:00"
+    },
+    "greenhouse:datadog:8181440": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:datadog:8184565": {
       "closed": "2026-11-02",
@@ -177304,11 +177383,17 @@
     "greenhouse:gitlab:8782306002": {
       "seen_at": "2026-09-09T15:09:57+00:00"
     },
+    "greenhouse:gitlab:8782471002": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:gitlab:8783485002": {
       "seen_at": "2026-09-09T06:06:04+00:00"
     },
     "greenhouse:gitlab:8783610002": {
       "seen_at": "2026-09-08T18:07:19+00:00"
+    },
+    "greenhouse:gitlab:8784056002": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:gitlab:8784185002": {
       "seen_at": "2026-09-16T06:48:59+00:00"
@@ -185163,6 +185248,9 @@
     "greenhouse:reddit:8022449": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
+    "greenhouse:reddit:8023563": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:reddit:8023926": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -190519,6 +190607,9 @@
     "greenhouse:stripe:8031782": {
       "seen_at": "2026-11-05T20:25:46+00:00"
     },
+    "greenhouse:stripe:8031833": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:stripe:8036233": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -190600,6 +190691,9 @@
     },
     "greenhouse:stripe:8050878": {
       "seen_at": "2026-09-09T23:14:12+00:00"
+    },
+    "greenhouse:stripe:8052814": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:stripe:8053011": {
       "seen_at": "2026-09-17T21:50:50+00:00"
@@ -191381,6 +191475,9 @@
     "greenhouse:stripe:8168552": {
       "seen_at": "2026-09-09T21:10:14+00:00"
     },
+    "greenhouse:stripe:8168813": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:stripe:8170772": {
       "seen_at": "2026-11-02T14:47:03+00:00"
     },
@@ -191521,6 +191618,9 @@
     "greenhouse:stripe:8175828": {
       "seen_at": "2026-09-15T23:47:37+00:00"
     },
+    "greenhouse:stripe:8175832": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
+    },
     "greenhouse:stripe:8175834": {
       "seen_at": "2026-11-02T14:47:03+00:00"
     },
@@ -191582,6 +191682,9 @@
     "greenhouse:stripe:8179349": {
       "closed": "2026-11-06",
       "seen_at": "2026-10-22T10:16:36+00:00"
+    },
+    "greenhouse:stripe:8179419": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:stripe:8180254": {
       "seen_at": "2026-09-17T18:48:51+00:00"
@@ -193526,6 +193629,9 @@
     },
     "greenhouse:twilio:8178588": {
       "seen_at": "2026-09-15T23:47:37+00:00"
+    },
+    "greenhouse:twilio:8178812": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "greenhouse:twilio:8180238": {
       "seen_at": "2026-09-08T21:06:58+00:00"
@@ -204171,6 +204277,9 @@
     },
     "oracle:dell:296480": {
       "seen_at": "2026-09-11T13:36:50+00:00"
+    },
+    "oracle:dell:296487": {
+      "seen_at": "2026-11-07T14:55:48+00:00"
     },
     "oracle:dell:296522": {
       "seen_at": "2026-10-14T00:15:59+00:00"
