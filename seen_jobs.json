@@ -39362,7 +39362,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -40157,6 +40158,14 @@
           "matched": 0,
           "name": "Apex"
         },
+        "ashby/artificialanalysis": {
+          "boards": {
+            "{\"company\": \"artificialanalysis\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Artificial Analysis"
+        },
         "ashby/base-power": {
           "boards": {
             "{\"company\": \"base-power\", \"type\": \"ashby\"}": 1
@@ -40364,6 +40373,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Parspec"
+        },
+        "ashby/perplexity": {
+          "boards": {
+            "{\"company\": \"perplexity\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Perplexity AI"
         },
         "ashby/pylon-labs": {
           "boards": {
@@ -105684,6 +105701,9 @@
     "github:SimplifyJobs/New-Grad-Positions:6c48d7cb-d59c-4c94-99b5-5a897366072a": {
       "seen_at": "2026-09-11T23:43:31+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:6c6b37b8-2259-4edd-ae65-128df2b447ea": {
+      "seen_at": "2026-11-08T00:06:32+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:6c72404b-9ee0-44e5-af22-0d7ecc4dd5c4": {
       "closed": "2026-10-23",
       "seen_at": "2026-10-08T23:06:14+00:00"
@@ -106154,6 +106174,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:72f6e435-1060-4700-9b90-48d82c3b1972": {
       "seen_at": "2026-09-26T05:38:46+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:72f871b3-7dc6-4dd8-9772-c6e0268eb857": {
+      "seen_at": "2026-11-08T00:06:32+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:72fa9d02-67b5-4d71-a7d9-85ff46a7d681": {
       "seen_at": "2026-09-11T00:23:54+00:00"
@@ -115186,7 +115209,6 @@
       "seen_at": "2026-09-18T06:35:36+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ebecfe1f-3890-4cf8-8663-d7b118197e24": {
-      "missing": "2026-11-07T23:45:09+00:00",
       "seen_at": "2026-10-15T07:07:32+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ebf3420f-6713-4032-af7f-74495c424af5": {
@@ -115483,6 +115505,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:efd12c2b-ee8c-4336-b12d-d2cfad76be41": {
+      "missing": "2026-11-08T00:06:32+00:00",
       "seen_at": "2026-11-06T03:06:51+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:efd4ba04-1e6b-4ae8-8da1-68788a3be0e8": {
@@ -117238,7 +117261,6 @@
       "seen_at": "2026-10-26T22:36:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:06098497-6840-4802-8838-81e0dbdec164": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:060c5b3e-72e6-4565-8196-5327e4baf243": {
@@ -118222,7 +118244,6 @@
       "seen_at": "2026-11-02T10:25:36+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0f4448c3-2086-46c1-b64b-2ecdf04a0881": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0f457023-4491-454a-bc5c-fc8ea237a9a1": {
@@ -118900,7 +118921,6 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1560332f-3e4c-4d15-819d-df9bf4889deb": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-15T07:07:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1560cb5a-5cc1-4788-aa55-44b8c25b2336": {
@@ -120824,7 +120844,6 @@
       "seen_at": "2026-10-24T12:06:50+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:260ebea6-b3a6-4e5e-8824-71490c13d10f": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:26134efd-a4c8-4c77-8131-6ee7b6bfa646": {
@@ -122049,7 +122068,6 @@
       "seen_at": "2026-10-22T22:36:43+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3197c0fa-efa1-4efc-9c3a-37fd84829e4a": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-26T20:16:18+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:319f5acd-d41e-4a2d-ba38-489c86ff3b27": {
@@ -123905,7 +123923,6 @@
       "seen_at": "2026-09-15T00:35:51+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:439c65c1-64f2-461c-8ca1-ca36969ef10a": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-15T07:07:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:43a087b0-8161-42b8-85f6-745398fec20d": {
@@ -123981,7 +123998,6 @@
       "seen_at": "2026-10-04T14:43:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:443c0a68-63ca-4026-94b7-cf3e555f2d0f": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-15T07:07:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:443c6322-3e3b-48b4-9fd4-3a9c04931db8": {
@@ -126504,7 +126520,6 @@
       "seen_at": "2026-09-15T00:35:51+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5bdec003-2a02-42a4-a602-467541840552": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5be21c8e-1326-4ca1-9b44-d4839ecb5574": {
@@ -127067,7 +127082,6 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:60f69f38-4cc3-4dbd-a041-e8208a00725c": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:60f8cb68-d09b-40e1-83e3-85541cc9d3d4": {
@@ -127243,7 +127257,6 @@
       "seen_at": "2026-09-15T23:47:37+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:629fac72-4880-42e9-b648-cdfa036a00ac": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-14T06:37:11+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:62a58db2-7867-4166-bfeb-81e7fc0f9aac": {
@@ -129345,7 +129358,6 @@
       "seen_at": "2026-10-25T02:05:58+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:765bb91e-34d7-4746-8e11-8598e700e845": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:765cf08e-bec4-4b7c-b810-b06b2b3d4040": {
@@ -129682,7 +129694,6 @@
       "seen_at": "2026-09-17T00:43:21+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:792220f4-3ba1-4cf8-843e-e23208ba8d24": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:792ba5ee-a91f-4674-a32b-415aec46bf35": {
@@ -130514,7 +130525,6 @@
       "seen_at": "2026-10-08T23:16:27+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:814b873c-2c4e-4173-85d1-c90cf9ccc964": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:814d5fac-0c8f-4eb3-81af-52e7b9509c3a": {
@@ -130938,7 +130948,6 @@
       "seen_at": "2026-11-02T20:45:57+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:8540d9e9-5a90-4ecb-a7f6-b854e696fb8e": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-14T06:37:11+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:85438569-5146-4790-a606-8ff4f540dc33": {
@@ -133477,7 +133486,6 @@
       "seen_at": "2026-09-16T12:12:19+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9d3e4916-4e1e-4317-83a1-92d2664ed59b": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9d3f1c22-843d-4d5f-822e-542fba89e477": {
@@ -134697,7 +134705,6 @@
       "seen_at": "2026-10-06T07:03:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:a815c1a3-823d-405a-99ea-e82fbbb247cd": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:a8192ed5-e5e9-415e-a09c-8bbc96ebe4bd": {
@@ -136330,7 +136337,6 @@
       "seen_at": "2026-10-01T22:33:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b6a6b28f-c858-4ef8-b6b4-aeda2206e9ad": {
-      "closed": "2026-11-07",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b6b0bc09-5fc8-4d8e-ad3f-ffdd70e0315e": {
@@ -137080,7 +137086,6 @@
       "seen_at": "2026-10-06T06:43:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:bc2e9762-a592-48ef-9e42-21dfdec88ec4": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-14T06:37:11+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:bc33b19a-c530-4a54-8133-36436abba0f9": {
@@ -137353,7 +137358,6 @@
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:bec41fe0-ae4c-44d3-bddd-15ca4a245c18": {
-      "closed": "2026-11-07",
       "seen_at": "2026-10-28T01:36:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:becc9f50-d65f-4749-b064-6d3e221e83da": {
@@ -142246,7 +142250,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ea185fae-1828-4e79-9bfa-34dc512cce8c": {
-      "missing": "2026-11-07T23:35:02+00:00",
       "seen_at": "2026-10-15T07:07:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ea18d599-afb1-4b87-8d7f-5298310d2473": {
@@ -143229,7 +143232,6 @@
       "seen_at": "2026-10-28T22:36:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f3cb1e27-85ef-4529-9ba5-6fb9462c60e9": {
-      "missing": "2026-11-07T23:35:02+00:00",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f3ce0494-256c-4884-acf3-f8db79e4216d": {
@@ -143268,7 +143270,6 @@
       "seen_at": "2026-10-15T22:36:29+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f3fffaac-34e8-4f3e-aa74-fb1928331995": {
-      "missing": "2026-11-07T23:35:02+00:00",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f4082cd5-efa8-433b-a046-a2780c5286b5": {
@@ -143571,7 +143572,6 @@
       "seen_at": "2026-09-14T18:49:56+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f6b73d49-ad99-40ba-844a-4f885a901a91": {
-      "missing": "2026-11-07T23:35:02+00:00",
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f6b7f447-ad5a-434e-bf7f-b120f36843eb": {
