@@ -41706,7 +41706,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -41718,7 +41719,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
@@ -42487,7 +42488,7 @@
       }
     },
     "auto_sources_checked": "2026-11-11T02:07:02+00:00",
-    "dashboard_built_at": "2026-11-11T13:06:49+00:00",
+    "dashboard_built_at": "2026-11-11T14:16:35+00:00",
     "discovery": {
       "candidates": {
         "ashby/afterquery": {
@@ -42497,6 +42498,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "AfterQuery"
+        },
+        "ashby/dyna-robotics": {
+          "boards": {
+            "{\"company\": \"dyna-robotics\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Dyna Robotics"
         },
         "ashby/formulary": {
           "boards": {
@@ -42689,6 +42698,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Trilogy Health Services"
+        },
+        "lever/standtogether": {
+          "boards": {
+            "{\"company\": \"standtogether\", \"type\": \"lever\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Stand Together"
         },
         "successfactors/careers.acuityinc.com": {
           "boards": {
@@ -44993,7 +45010,6 @@
         33
       ],
       "jibe/amd": [
-        6,
         0,
         0,
         6,
@@ -45038,6 +45054,7 @@
         0,
         3,
         1,
+        0,
         0,
         0,
         0,
@@ -46475,7 +46492,6 @@
         1,
         1,
         1,
-        1,
         0,
         1,
         1,
@@ -46519,7 +46535,8 @@
         1,
         4,
         4,
-        6
+        6,
+        1
       ],
       "workday/zillow": [
         17,
@@ -81405,6 +81422,9 @@
     "ashby:snowflake:efd6dbf9-fc71-4b8a-a328-c7c83cf79515": {
       "seen_at": "2026-10-08T05:24:32+00:00"
     },
+    "ashby:snowflake:f06268bb-40d8-4e57-82c5-31ec5844bf92": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
+    },
     "ashby:snowflake:f083c922-9d5d-4e26-9c43-0b5362809604": {
       "closed": "2026-11-05",
       "seen_at": "2026-10-02T14:53:52+00:00"
@@ -104439,6 +104459,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:2b6607d0-73bb-44f6-b977-28c83e8ea7a0": {
       "seen_at": "2026-10-29T15:07:21+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:2b70eb5b-5b8d-4ff2-bd17-7885e217e855": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:2b74c4c8-12dc-47b6-a08b-acc3ea0ee0be": {
       "seen_at": "2026-09-17T05:25:00+00:00"
@@ -140063,6 +140086,9 @@
     "github:SimplifyJobs/Summer2026-Internships:b8ae5631-fcba-47bf-a0d0-e14c18d4a882": {
       "closed": "2026-11-07",
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:b8af3c73-ae72-4e65-9e91-d90b4215c39d": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b8b0e684-6f34-44c2-ab88-4abfe4a5ff53": {
       "seen_at": "2026-09-28T23:03:46+00:00"
@@ -176633,6 +176659,9 @@
     "greenhouse:datadog:8365206": {
       "seen_at": "2026-11-09T12:36:21+00:00"
     },
+    "greenhouse:datadog:8368886": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
+    },
     "greenhouse:discord:8214127002": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -177130,7 +177159,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:7248556": {
-      "closed": "2026-10-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:7272947": {
@@ -186430,6 +186458,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8081197": {
+      "missing": "2026-11-11T14:16:35+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8081430": {
@@ -203196,7 +203225,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.amd.com:89831": {
-      "missing": "2026-11-11T08:15:46+00:00",
+      "closed": "2026-11-11",
       "seen_at": "2026-11-11T01:16:38+00:00"
     },
     "jibe:careers.amd.com:89833": {
@@ -238690,6 +238719,9 @@
     "successfactors:jobs.l3harris.com:1429763300": {
       "seen_at": "2026-11-11T09:15:58+00:00"
     },
+    "successfactors:jobs.l3harris.com:1429777400": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
+    },
     "successfactors:jobs.l3harris.com:1429908800": {
       "seen_at": "2026-11-11T09:15:58+00:00"
     },
@@ -273332,6 +273364,7 @@
       "seen_at": "2026-10-08T14:46:15+00:00"
     },
     "workday:expedia:R-104546": {
+      "missing": "2026-11-11T14:16:35+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-104573": {
@@ -322364,6 +322397,9 @@
     "workday:ngc:R10259205": {
       "seen_at": "2026-11-09T18:56:08+00:00"
     },
+    "workday:ngc:R10259207": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
+    },
     "workday:ngc:R10259209": {
       "seen_at": "2026-11-04T15:46:59+00:00"
     },
@@ -326555,7 +326591,6 @@
       "seen_at": "2026-10-31T00:26:21+00:00"
     },
     "workday:nvidia:JR2022951": {
-      "missing": "2026-11-11T12:36:28+00:00",
       "seen_at": "2026-11-11T12:06:30+00:00"
     },
     "workday:nvidia:JR2022959": {
@@ -327531,7 +327566,6 @@
       "seen_at": "2026-09-13T23:34:27+00:00"
     },
     "workday:nvidia:JR2025436": {
-      "missing": "2026-11-11T13:55:56+00:00",
       "seen_at": "2026-11-10T22:16:26+00:00"
     },
     "workday:nvidia:JR2025442": {
@@ -335428,6 +335462,9 @@
     },
     "workday:salesforce:JR331267": {
       "seen_at": "2026-09-28T07:07:23+00:00"
+    },
+    "workday:salesforce:JR331289": {
+      "seen_at": "2026-11-11T14:16:35+00:00"
     },
     "workday:salesforce:JR331314": {
       "seen_at": "2026-10-08T13:56:14+00:00"
@@ -358858,7 +358895,7 @@
       "seen_at": "2026-11-09T22:55:42+00:00"
     },
     "workday:zebra:JR104012": {
-      "missing": "2026-11-11T08:15:46+00:00",
+      "closed": "2026-11-11",
       "seen_at": "2026-11-10T05:46:01+00:00"
     },
     "workday:zebra:JR104015": {
