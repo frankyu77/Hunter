@@ -41695,13 +41695,15 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -42933,7 +42935,6 @@
         0
       ],
       "ashby/f7d8749a-72d6-407c-bf98-292ea630c73a": [
-        3,
         5,
         5,
         5,
@@ -42982,7 +42983,8 @@
         12,
         12,
         12,
-        0
+        0,
+        13
       ],
       "ashby/linear": [
         0,
@@ -46350,7 +46352,6 @@
       ],
       "workday/workday": [
         0,
-        0,
         5,
         3,
         6,
@@ -46398,7 +46399,8 @@
         0,
         7,
         6,
-        12
+        12,
+        0
       ],
       "workday/zebra-technologies": [
         0,
@@ -73643,7 +73645,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:f7ba7c4e-0feb-4ce8-a64f-74034790c606": {
-      "missing": "2026-11-11T04:15:52+00:00",
+      "closed": "2026-11-11",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:f8229e59-7680-4268-905c-e7d0a728c9ac": {
@@ -77665,6 +77667,9 @@
     "ashby:openai:f4467078-033c-4638-ac7e-69a532276d85": {
       "closed": "2026-11-04",
       "seen_at": "2026-09-28T18:06:01+00:00"
+    },
+    "ashby:openai:f4552c9d-e15f-4f2c-bf03-fd2cc1e11068": {
+      "seen_at": "2026-11-11T10:16:00+00:00"
     },
     "ashby:openai:f4720507-3c44-4162-af21-206ac3a78007": {
       "seen_at": "2026-09-15T23:47:37+00:00"
@@ -95663,6 +95668,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301384045": {
+      "missing": "2026-11-11T10:16:00+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301384078": {
@@ -297333,6 +297339,9 @@
     "workday:intel:JR0288937": {
       "seen_at": "2026-11-06T14:55:36+00:00"
     },
+    "workday:intel:JR0288938": {
+      "seen_at": "2026-11-11T10:16:00+00:00"
+    },
     "workday:intel:JR0288943": {
       "seen_at": "2026-11-05T08:55:39+00:00"
     },
@@ -304366,6 +304375,9 @@
     },
     "workday:micron:JR115878": {
       "seen_at": "2026-10-23T01:06:44+00:00"
+    },
+    "workday:micron:JR115879": {
+      "seen_at": "2026-11-11T10:16:00+00:00"
     },
     "workday:micron:JR115888": {
       "seen_at": "2026-10-27T04:45:54+00:00"
@@ -341555,6 +341567,9 @@
     "workday:salesforce:JR367463": {
       "seen_at": "2026-11-07T03:06:27+00:00"
     },
+    "workday:salesforce:JR367469": {
+      "seen_at": "2026-11-11T10:16:00+00:00"
+    },
     "workday:salesforce:JR367508": {
       "seen_at": "2026-11-05T20:16:07+00:00"
     },
@@ -357295,7 +357310,7 @@
       "seen_at": "2026-11-09T05:06:06+00:00"
     },
     "workday:workday:JR-0111121": {
-      "missing": "2026-11-11T04:15:52+00:00",
+      "closed": "2026-11-11",
       "seen_at": "2026-11-11T03:36:15+00:00"
     },
     "workday:workday:JR-0111122": {
