@@ -41454,7 +41454,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -42315,7 +42316,8 @@
         22,
         14,
         19,
-        7
+        7,
+        0
       ],
       "ashby/cursor": [
         34,
@@ -42893,8 +42895,6 @@
         35
       ],
       "greenhouse/airbnb": [
-        0,
-        2,
         12,
         1,
         5,
@@ -42942,7 +42942,9 @@
         25,
         41,
         42,
-        6
+        6,
+        27,
+        27
       ],
       "greenhouse/anthropic": [
         15,
@@ -43684,8 +43686,6 @@
         5
       ],
       "greenhouse/lyft": [
-        17,
-        13,
         20,
         22,
         7,
@@ -43733,7 +43733,9 @@
         5,
         12,
         14,
-        11
+        11,
+        24,
+        24
       ],
       "greenhouse/mongodb": [
         25,
@@ -44779,7 +44781,6 @@
         0
       ],
       "smartrecruiters/Intuitive": [
-        0,
         7,
         7,
         7,
@@ -44828,7 +44829,8 @@
         12,
         1,
         12,
-        12
+        12,
+        0
       ],
       "smartrecruiters/RenesasElectronics": [
         7,
@@ -44883,8 +44885,6 @@
         35
       ],
       "smartrecruiters/ServiceNow": [
-        29,
-        0,
         4,
         32,
         32,
@@ -44932,7 +44932,9 @@
         13,
         12,
         20,
-        24
+        24,
+        13,
+        0
       ],
       "tiktok/tiktok": [
         18,
@@ -69278,7 +69280,7 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "ashby:cohere:53c89232-1de7-42b5-ab9d-b5290451c7e8": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-11-09T22:16:31+00:00"
     },
     "ashby:cohere:554a9380-ab50-4338-88a9-c6b8ab19d92e": {
@@ -97277,7 +97279,6 @@
       "seen_at": "2026-10-08T18:56:41+00:00"
     },
     "eightfold:qualcomm:446718541869": {
-      "missing": "2026-11-11T01:25:53+00:00",
       "seen_at": "2026-11-10T22:36:50+00:00"
     },
     "eightfold:qualcomm:446718543239": {
@@ -160148,11 +160149,11 @@
       "seen_at": "2026-10-05T22:23:26+00:00"
     },
     "greenhouse:airbnb:8120611": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:airbnb:8120721": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:airbnb:8121074": {
@@ -184029,11 +184030,11 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:lyft:8883412002": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-10-16T20:36:36+00:00"
     },
     "greenhouse:lyft:8883423002": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-10-16T20:36:36+00:00"
     },
     "greenhouse:lyft:8883515002": {
@@ -197265,6 +197266,9 @@
     },
     "greenhouse:stripe:8352150": {
       "seen_at": "2026-11-10T18:37:12+00:00"
+    },
+    "greenhouse:stripe:8352154": {
+      "seen_at": "2026-11-11T01:32:46+00:00"
     },
     "greenhouse:stripe:8352238": {
       "seen_at": "2026-11-05T03:55:59+00:00"
@@ -230752,7 +230756,7 @@
       "seen_at": "2026-11-09T22:16:31+00:00"
     },
     "smartrecruiters:Intuitive:744000160738309": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-11-09T22:26:07+00:00"
     },
     "smartrecruiters:Intuitive:744000160740669": {
@@ -235523,7 +235527,7 @@
       "seen_at": "2026-10-27T21:35:59+00:00"
     },
     "smartrecruiters:ServiceNow:744000158157409": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-10-27T21:35:59+00:00"
     },
     "smartrecruiters:ServiceNow:744000158157450": {
@@ -236403,7 +236407,7 @@
       "seen_at": "2026-11-10T19:17:04+00:00"
     },
     "smartrecruiters:ServiceNow:744000160951810": {
-      "missing": "2026-11-10T19:26:00+00:00",
+      "closed": "2026-11-10",
       "seen_at": "2026-11-10T19:17:04+00:00"
     },
     "smartrecruiters:ServiceNow:744000160952250": {
@@ -249527,6 +249531,7 @@
       "seen_at": "2026-11-04T22:55:43+00:00"
     },
     "workday:bdx:R-559598": {
+      "missing": "2026-11-11T01:32:46+00:00",
       "seen_at": "2026-11-04T22:55:43+00:00"
     },
     "workday:bdx:R-559655": {
@@ -321099,6 +321104,9 @@
     },
     "workday:ngc:R10259900": {
       "seen_at": "2026-11-09T23:06:46+00:00"
+    },
+    "workday:ngc:R10259901": {
+      "seen_at": "2026-11-11T01:32:46+00:00"
     },
     "workday:ngc:R10259902": {
       "seen_at": "2026-11-09T23:26:11+00:00"
