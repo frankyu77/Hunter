@@ -43506,7 +43506,8 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47102,8 +47103,6 @@
         6
       ],
       "atlassian/atlassian": [
-        16,
-        27,
         28,
         28,
         7,
@@ -47151,7 +47150,9 @@
         35,
         35,
         36,
-        36
+        36,
+        16,
+        17
       ],
       "eightfold/qualcomm": [
         0,
@@ -48883,7 +48884,6 @@
       "jibe/docusign": [
         32,
         32,
-        32,
         19,
         32,
         0,
@@ -48930,7 +48930,8 @@
         35,
         35,
         35,
-        2
+        2,
+        0
       ],
       "lever/cirrus": [
         0,
@@ -50123,7 +50124,6 @@
         1
       ],
       "workday/paypal": [
-        13,
         3,
         26,
         10,
@@ -50172,7 +50172,8 @@
         0,
         15,
         20,
-        9
+        9,
+        20
       ],
       "workday/rbc": [
         0,
@@ -50489,7 +50490,6 @@
       "workday/zoom": [
         26,
         26,
-        26,
         6,
         13,
         4,
@@ -50536,7 +50536,8 @@
         13,
         1,
         0,
-        7
+        7,
+        36
       ]
     },
     "lifetimes_version": 2,
@@ -90618,7 +90619,7 @@
       "seen_at": "2026-10-26T08:06:21+00:00"
     },
     "atlassian:atlassian:26565": {
-      "missing": "2026-11-13T07:22:13+00:00",
+      "closed": "2026-11-13",
       "seen_at": "2026-10-28T06:06:49+00:00"
     },
     "atlassian:atlassian:26566": {
@@ -90740,7 +90741,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "atlassian:atlassian:26748": {
-      "missing": "2026-11-13T07:22:13+00:00",
+      "closed": "2026-11-13",
       "seen_at": "2026-10-27T06:55:20+00:00"
     },
     "atlassian:atlassian:26751": {
@@ -104198,6 +104199,9 @@
     },
     "eightfold:microsoft:1970393557055992": {
       "seen_at": "2026-11-11T00:36:56+00:00"
+    },
+    "eightfold:microsoft:1970393557055999": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
     },
     "eightfold:microsoft:1970393557056005": {
       "seen_at": "2026-11-09T20:56:44+00:00"
@@ -176820,7 +176824,6 @@
       "seen_at": "2026-10-06T09:53:53+00:00"
     },
     "greenhouse:asana:7964317": {
-      "closed": "2026-10-20",
       "seen_at": "2026-10-20T10:45:27+00:00"
     },
     "greenhouse:asana:7964361": {
@@ -195428,6 +195431,9 @@
     "greenhouse:gitlab:8926435002": {
       "seen_at": "2026-11-02T22:26:23+00:00"
     },
+    "greenhouse:gitlab:8926653002": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
+    },
     "greenhouse:gitlab:8927560002": {
       "seen_at": "2026-11-04T16:37:05+00:00"
     },
@@ -200804,6 +200810,7 @@
       "seen_at": "2026-10-29T10:07:13+00:00"
     },
     "greenhouse:okta:8203708": {
+      "missing": "2026-11-13T13:26:53+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8204491": {
@@ -200981,6 +200988,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8233336": {
+      "missing": "2026-11-13T13:26:53+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8234036": {
@@ -220837,7 +220845,7 @@
       "seen_at": "2026-11-12T14:36:01+00:00"
     },
     "jibe:careers.docusign.com:31023": {
-      "missing": "2026-11-13T07:22:13+00:00",
+      "closed": "2026-11-13",
       "seen_at": "2026-11-13T02:06:37+00:00"
     },
     "jibe:careers.docusign.com:31025": {
@@ -224945,6 +224953,9 @@
     "lever:spotify:abcc8b41-7553-4054-b5eb-8d3e49e00e25": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
+    "lever:spotify:ac7b1bb0-2300-47a4-8d9d-f80e9392bd19": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
+    },
     "lever:spotify:b27f51aa-9702-486b-ba24-157263d623e9": {
       "seen_at": "2026-09-24T19:41:39+00:00"
     },
@@ -228201,6 +228212,9 @@
     },
     "oracle:dell:D12227": {
       "seen_at": "2026-09-16T16:52:07+00:00"
+    },
+    "oracle:dell:D12298": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
     },
     "oracle:dell:D12312": {
       "seen_at": "2026-11-06T16:35:55+00:00"
@@ -249699,6 +249713,9 @@
     "smartrecruiters:BoschGroup:744000161481004": {
       "seen_at": "2026-11-13T13:16:16+00:00"
     },
+    "smartrecruiters:BoschGroup:744000161483349": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -255113,6 +255130,7 @@
       "seen_at": "2026-11-12T19:17:11+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000159372809": {
+      "missing": "2026-11-13T13:26:53+00:00",
       "seen_at": "2026-11-12T19:17:11+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000159376788": {
@@ -285966,6 +285984,7 @@
       "seen_at": "2026-11-11T16:57:29+00:00"
     },
     "workday:cibc:2623394": {
+      "missing": "2026-11-13T13:26:53+00:00",
       "seen_at": "2026-11-12T15:56:16+00:00"
     },
     "workday:cibc:2623427": {
@@ -291924,6 +291943,9 @@
     "workday:cisco:2029411": {
       "seen_at": "2026-10-26T06:46:39+00:00"
     },
+    "workday:cisco:2029412": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
+    },
     "workday:cisco:2029414": {
       "seen_at": "2026-11-13T06:55:36+00:00"
     },
@@ -292484,6 +292506,9 @@
     },
     "workday:cisco:2030312": {
       "seen_at": "2026-11-03T03:45:20+00:00"
+    },
+    "workday:cisco:2030320": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
     },
     "workday:cisco:2030337": {
       "seen_at": "2026-11-02T11:45:37+00:00"
@@ -359632,7 +359657,7 @@
       "seen_at": "2026-10-23T19:46:43+00:00"
     },
     "workday:paypal:R0138537": {
-      "missing": "2026-11-13T07:22:13+00:00",
+      "closed": "2026-11-13",
       "seen_at": "2026-10-23T10:45:49+00:00"
     },
     "workday:paypal:R0138538": {
@@ -361555,6 +361580,9 @@
     },
     "workday:salesforce:JR347430": {
       "seen_at": "2026-09-15T21:46:27+00:00"
+    },
+    "workday:salesforce:JR347552": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
     },
     "workday:salesforce:JR347675": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -368013,6 +368041,9 @@
     },
     "workday:salesforce:JR368314": {
       "seen_at": "2026-11-13T04:06:51+00:00"
+    },
+    "workday:salesforce:JR368325": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
     },
     "workday:salesforce:JR368330": {
       "seen_at": "2026-11-13T08:16:03+00:00"
@@ -381951,6 +381982,9 @@
     "workday:td:R_1522090": {
       "seen_at": "2026-11-12T20:56:01+00:00"
     },
+    "workday:td:R_1522119": {
+      "seen_at": "2026-11-13T13:26:54+00:00"
+    },
     "workday:td:R_1522134": {
       "seen_at": "2026-11-13T12:46:13+00:00"
     },
@@ -386005,7 +386039,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:zoom:R18878": {
-      "missing": "2026-11-13T07:22:13+00:00",
+      "closed": "2026-11-13",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:zoom:R18922": {
