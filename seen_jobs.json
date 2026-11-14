@@ -43943,8 +43943,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44316,7 +44315,8 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44340,7 +44340,7 @@
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 70,
+      "consecutive_failures": 71,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -44383,30 +44383,29 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 70,
+      "consecutive_failures": 71,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 70,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -44417,14 +44416,14 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 70,
+      "consecutive_failures": 71,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -129851,7 +129850,7 @@
       "seen_at": "2026-10-29T15:07:21+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dcad63ca-676a-4159-a102-8c42f2d872c5": {
-      "missing": "2026-11-14T11:13:25+00:00",
+      "closed": "2026-11-14",
       "seen_at": "2026-11-13T10:45:58+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dcaee8da-55dd-4649-9460-913115743ec6": {
@@ -129906,7 +129905,7 @@
       "seen_at": "2026-10-28T23:06:41+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dd5ec129-4b7c-422b-8927-f7c265938023": {
-      "missing": "2026-11-14T11:13:25+00:00",
+      "closed": "2026-11-14",
       "seen_at": "2026-11-09T01:25:36+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dd676495-705e-42f9-b036-e687837386ad": {
@@ -131292,7 +131291,7 @@
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:efaec2f3-aac7-4d48-8c20-2fdc525641a7": {
-      "missing": "2026-11-14T11:13:25+00:00",
+      "closed": "2026-11-14",
       "seen_at": "2026-11-12T23:36:26+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:efbcc264-9964-46e4-8c68-955da309af57": {
@@ -131925,7 +131924,7 @@
       "seen_at": "2026-11-07T18:25:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:f8dff735-83eb-4c12-bafc-e9568cf30001": {
-      "missing": "2026-11-14T11:13:25+00:00",
+      "closed": "2026-11-14",
       "seen_at": "2026-11-10T00:15:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:f8ef2f72-c616-4dfd-8ef1-4e9b547c4e67": {
@@ -159990,7 +159989,7 @@
       "seen_at": "2026-10-14T01:36:24+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f6f476c2-5053-433d-91b6-ffe423294891": {
-      "missing": "2026-11-14T11:13:25+00:00",
+      "closed": "2026-11-14",
       "seen_at": "2026-11-11T02:36:13+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f6fb04a7-b7e2-4890-8a03-fe80a235e6e5": {
@@ -220531,6 +220530,12 @@
     },
     "jibe:careers.amd.com:93757": {
       "seen_at": "2026-10-14T22:37:05+00:00"
+    },
+    "jibe:careers.amd.com:93758": {
+      "seen_at": "2026-11-14T17:15:23+00:00"
+    },
+    "jibe:careers.amd.com:93759": {
+      "seen_at": "2026-11-14T17:15:23+00:00"
     },
     "jibe:careers.amd.com:93761": {
       "seen_at": "2026-10-30T22:36:20+00:00"
@@ -333065,6 +333070,9 @@
     "workday:micron:JR94588": {
       "seen_at": "2026-10-23T16:08:08+00:00"
     },
+    "workday:micron:JR94615": {
+      "seen_at": "2026-11-14T17:15:23+00:00"
+    },
     "workday:micron:JR94695": {
       "seen_at": "2026-10-23T16:08:08+00:00"
     },
@@ -360848,6 +360856,9 @@
     },
     "workday:onehealthineers:R-31930": {
       "seen_at": "2026-11-12T15:26:54+00:00"
+    },
+    "workday:onehealthineers:R-31933": {
+      "seen_at": "2026-11-14T17:15:23+00:00"
     },
     "workday:onehealthineers:R-31935": {
       "seen_at": "2026-11-11T00:36:56+00:00"
