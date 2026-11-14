@@ -43899,7 +43899,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44277,28 +44278,28 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -44311,9 +44312,8 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 69,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -44324,7 +44324,7 @@
       "zero_since": null
     },
     "workday/crowdstrike": {
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -44343,49 +44343,49 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 77,
+      "consecutive_failures": 78,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -44410,7 +44410,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -44423,7 +44423,7 @@
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
@@ -44436,16 +44436,15 @@
       "zero_since": null
     },
     "workday/zillow": {
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/zoom": {
-      "consecutive_failures": 68,
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     }
@@ -44800,7 +44799,7 @@
       }
     },
     "auto_sources_checked": "2026-11-14T02:53:14+00:00",
-    "dashboard_built_at": "2026-11-14T13:34:08+00:00",
+    "dashboard_built_at": "2026-11-14T14:44:12+00:00",
     "discovery": {
       "candidates": {
         "ashby/afterquery": {
@@ -46932,6 +46931,14 @@
           "jobs": 2,
           "matched": 0,
           "name": "Kiss Products"
+        },
+        "workday/ksb": {
+          "boards": {
+            "{\"company\": \"ksb\", \"host\": \"wd3\", \"site\": \"KSB_ExternalCareerSite\", \"tenant\": \"ksb\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "KSB"
         },
         "workday/latticesemi": {
           "boards": {
@@ -119539,6 +119546,9 @@
       "closed": "2026-11-10",
       "seen_at": "2026-11-05T02:36:21+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:592832c4-8c59-4f59-9723-66d098b34bde": {
+      "seen_at": "2026-11-14T14:44:12+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:59307afb-eb2a-496c-8815-402ff6fafd53": {
       "seen_at": "2026-11-05T08:35:58+00:00"
     },
@@ -154344,7 +154354,7 @@
       "seen_at": "2026-11-05T03:06:30+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c6638cbe-82ec-44ed-a6db-0a7bb2d60c6a": {
-      "missing": "2026-11-14T08:43:36+00:00",
+      "closed": "2026-11-14",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c667509a-a75f-4862-a9ae-d0ca20846b62": {
@@ -293406,6 +293416,9 @@
     "workday:cisco:2027103": {
       "seen_at": "2026-10-16T15:47:41+00:00"
     },
+    "workday:cisco:2027106": {
+      "seen_at": "2026-11-14T14:44:12+00:00"
+    },
     "workday:cisco:2027109": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -294050,6 +294063,9 @@
     },
     "workday:cisco:2027855": {
       "seen_at": "2026-11-03T23:55:55+00:00"
+    },
+    "workday:cisco:2027857": {
+      "seen_at": "2026-11-14T14:44:12+00:00"
     },
     "workday:cisco:2027859": {
       "seen_at": "2026-10-24T08:16:58+00:00"
@@ -295290,6 +295306,9 @@
     "workday:cisco:2029101": {
       "seen_at": "2026-10-21T10:45:41+00:00"
     },
+    "workday:cisco:2029102": {
+      "seen_at": "2026-11-14T14:44:12+00:00"
+    },
     "workday:cisco:2029108": {
       "seen_at": "2026-10-26T20:16:18+00:00"
     },
@@ -295418,6 +295437,9 @@
     },
     "workday:cisco:2029245": {
       "seen_at": "2026-10-30T14:47:06+00:00"
+    },
+    "workday:cisco:2029251": {
+      "seen_at": "2026-11-14T14:44:12+00:00"
     },
     "workday:cisco:2029260": {
       "seen_at": "2026-11-13T05:07:56+00:00"
