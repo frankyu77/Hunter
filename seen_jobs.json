@@ -44031,7 +44031,8 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44915,7 +44916,7 @@
       }
     },
     "auto_sources_checked": "2026-11-15T02:55:30+00:00",
-    "dashboard_built_at": "2026-11-15T10:56:33+00:00",
+    "dashboard_built_at": "2026-11-15T12:06:28+00:00",
     "discovery": {
       "candidates": {
         "ashby/afterquery": {
@@ -47518,9 +47519,9 @@
         "workday/ncratleos": {
           "boards": {
             "{\"company\": \"ncr-atleos\", \"host\": \"wd1\", \"site\": \"ext_intern\", \"tenant\": \"ncratleos\", \"type\": \"workday\"}": 1,
-            "{\"company\": \"ncr-atleos\", \"host\": \"wd1\", \"site\": \"ext_non_usalteos\", \"tenant\": \"ncratleos\", \"type\": \"workday\"}": 3
+            "{\"company\": \"ncr-atleos\", \"host\": \"wd1\", \"site\": \"ext_non_usalteos\", \"tenant\": \"ncratleos\", \"type\": \"workday\"}": 4
           },
-          "jobs": 4,
+          "jobs": 5,
           "matched": 0,
           "name": "NCR Atleos"
         },
@@ -51757,7 +51758,6 @@
         1
       ],
       "workday/expedia-group": [
-        20,
         14,
         11,
         28,
@@ -51806,7 +51806,8 @@
         37,
         37,
         9,
-        19
+        19,
+        37
       ],
       "workday/general-motors": [
         0,
@@ -52267,7 +52268,6 @@
         4
       ],
       "workday/workday": [
-        1,
         15,
         9,
         9,
@@ -52316,7 +52316,8 @@
         15,
         2,
         15,
-        4
+        4,
+        10
       ],
       "workday/zebra-technologies": [
         2,
@@ -115865,6 +115866,9 @@
     "github:SimplifyJobs/New-Grad-Positions:2085ccad-8d75-4447-984d-d190fde07eb0": {
       "seen_at": "2026-10-22T22:36:43+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:20949419-4cf1-49fe-a1ba-650c7ab72e3e": {
+      "seen_at": "2026-11-15T12:06:28+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:20973a23-d0cf-4cbf-ac75-122dc243504b": {
       "seen_at": "2026-10-06T07:03:52+00:00"
     },
@@ -125583,6 +125587,7 @@
       "seen_at": "2026-09-21T18:59:46+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9d4bdf3b-b23d-4858-80f0-a8d8279cdc65": {
+      "missing": "2026-11-15T12:06:27+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9d5ab9cc-2af9-4430-af63-0d0f31bf19e2": {
@@ -137871,7 +137876,7 @@
       "seen_at": "2026-10-22T02:07:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2dd43b4d-a243-4996-826b-d46251f0fc5e": {
-      "missing": "2026-11-15T06:05:58+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-10-08T15:36:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2dd7e557-6d6f-4e8e-881c-5fa5d8be48d2": {
@@ -300467,7 +300472,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-110016": {
-      "missing": "2026-11-15T06:05:58+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:expedia:R-110017": {
@@ -324305,6 +324310,9 @@
     },
     "workday:intel:JR0288920": {
       "seen_at": "2026-11-08T12:35:33+00:00"
+    },
+    "workday:intel:JR0288921": {
+      "seen_at": "2026-11-15T12:06:28+00:00"
     },
     "workday:intel:JR0288922": {
       "seen_at": "2026-11-08T12:35:33+00:00"
@@ -384852,7 +384860,7 @@
       "seen_at": "2026-11-11T03:36:15+00:00"
     },
     "workday:workday:JR-0111122": {
-      "missing": "2026-11-15T06:05:58+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-11-04T19:33:39+00:00"
     },
     "workday:workday:JR-0111124": {
