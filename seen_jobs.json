@@ -44496,7 +44496,8 @@
       "zero_since": null
     },
     "workday/expedia-group": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from expedia.wd108.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44550,7 +44551,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44580,7 +44582,8 @@
       "zero_since": null
     },
     "workday/zebra-technologies": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from zebra.wd501.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50522,7 +50525,6 @@
         1
       ],
       "greenhouse/samsara": [
-        9,
         29,
         30,
         31,
@@ -50571,7 +50573,8 @@
         36,
         36,
         36,
-        8
+        8,
+        38
       ],
       "greenhouse/scaleai": [
         12,
@@ -51177,7 +51180,6 @@
       "oracle/oracle": [
         0,
         0,
-        0,
         1,
         0,
         1,
@@ -51224,7 +51226,8 @@
         0,
         0,
         0,
-        0
+        0,
+        2
       ],
       "oracle/texas-instruments": [
         6,
@@ -77389,6 +77392,9 @@
     "amazon:amazon:10605407": {
       "seen_at": "2026-11-14T20:07:24+00:00"
     },
+    "amazon:amazon:10605408": {
+      "seen_at": "2026-11-15T23:05:51+00:00"
+    },
     "amazon:amazon:10605423": {
       "seen_at": "2026-11-14T22:45:36+00:00"
     },
@@ -86259,6 +86265,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "ashby:plaid:ae758a3d-19ec-45c5-99b0-140046f5aea3": {
+      "missing": "2026-11-15T23:05:51+00:00",
       "seen_at": "2026-10-08T19:30:30+00:00"
     },
     "ashby:plaid:b08416e4-9e82-46ee-b51c-59da9c776255": {
@@ -209490,7 +209497,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8173658": {
-      "missing": "2026-11-15T16:56:00+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8174625": {
@@ -245977,7 +245984,7 @@
       "seen_at": "2026-11-12T17:36:27+00:00"
     },
     "oracle:oracle:350374": {
-      "missing": "2026-11-15T16:56:00+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-11-13T08:26:31+00:00"
     },
     "oracle:oracle:350379": {
