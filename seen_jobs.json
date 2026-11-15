@@ -44052,7 +44052,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
@@ -44497,9 +44497,9 @@
       "zero_since": null
     },
     "workday/expedia-group": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "last_error": "HTTP 429 from expedia.wd108.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "warned_failures": false,
+      "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
@@ -44552,9 +44552,9 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "warned_failures": false,
+      "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
@@ -44583,7 +44583,8 @@
       "zero_since": null
     },
     "workday/zebra-technologies": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from zebra.wd501.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49099,7 +49100,6 @@
         3
       ],
       "atlassian/atlassian": [
-        7,
         11,
         25,
         9,
@@ -49148,7 +49148,8 @@
         7,
         36,
         37,
-        31
+        31,
+        38
       ],
       "eightfold/qualcomm": [
         0,
@@ -50525,7 +50526,6 @@
         1
       ],
       "greenhouse/samsara": [
-        29,
         30,
         31,
         31,
@@ -50574,6 +50574,7 @@
         36,
         36,
         8,
+        38,
         38
       ],
       "greenhouse/scaleai": [
@@ -52417,8 +52418,6 @@
         4
       ],
       "workday/workday": [
-        15,
-        9,
         9,
         16,
         19,
@@ -52466,7 +52465,9 @@
         2,
         15,
         4,
-        10
+        10,
+        5,
+        5
       ],
       "workday/zebra-technologies": [
         2,
@@ -77407,6 +77408,12 @@
     "amazon:amazon:10605453": {
       "seen_at": "2026-11-15T06:36:08+00:00"
     },
+    "amazon:amazon:10605477": {
+      "seen_at": "2026-11-15T23:45:45+00:00"
+    },
+    "amazon:amazon:10605478": {
+      "seen_at": "2026-11-15T23:45:45+00:00"
+    },
     "amazon:amazon:10605479": {
       "seen_at": "2026-11-15T23:35:53+00:00"
     },
@@ -93087,7 +93094,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26053": {
-      "missing": "2026-11-15T17:38:14+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:26058": {
@@ -109120,6 +109127,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318539683": {
+      "missing": "2026-11-15T23:45:44+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318581246": {
@@ -109624,6 +109632,7 @@
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216290": {
+      "missing": "2026-11-15T23:45:44+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216322": {
@@ -109651,6 +109660,7 @@
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "eightfold:netflix:790319249128": {
+      "missing": "2026-11-15T23:45:44+00:00",
       "seen_at": "2026-10-30T01:36:32+00:00"
     },
     "eightfold:netflix:790319253437": {
@@ -109688,6 +109698,7 @@
       "seen_at": "2026-11-11T18:17:05+00:00"
     },
     "eightfold:netflix:790319263071": {
+      "missing": "2026-11-15T23:45:44+00:00",
       "seen_at": "2026-11-03T17:46:46+00:00"
     },
     "eightfold:netflix:790319289797": {
@@ -109876,6 +109887,7 @@
       "seen_at": "2026-11-13T05:07:56+00:00"
     },
     "eightfold:netflix:790319493678": {
+      "missing": "2026-11-15T23:45:44+00:00",
       "seen_at": "2026-11-15T00:15:15+00:00"
     },
     "eightfold:netflix:790319493694": {
@@ -109891,7 +109903,6 @@
       "seen_at": "2026-11-13T17:16:45+00:00"
     },
     "eightfold:netflix:790319503099": {
-      "missing": "2026-11-15T23:35:53+00:00",
       "seen_at": "2026-11-14T01:31:24+00:00"
     },
     "eightfold:netflix:790319503105": {
@@ -120865,6 +120876,7 @@
       "seen_at": "2026-11-06T23:39:27+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:60ba5d46-1da9-4411-9d8c-797c4a1811f2": {
+      "missing": "2026-11-15T23:45:44+00:00",
       "seen_at": "2026-11-11T00:07:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:60eedf32-89b8-4de4-b2e1-d69503416974": {
@@ -208830,7 +208842,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7516554": {
-      "missing": "2026-11-15T17:45:33+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7520397": {
@@ -245932,6 +245944,9 @@
     },
     "oracle:oracle:350301": {
       "seen_at": "2026-11-11T21:53:42+00:00"
+    },
+    "oracle:oracle:350302": {
+      "seen_at": "2026-11-15T23:45:45+00:00"
     },
     "oracle:oracle:350303": {
       "seen_at": "2026-11-12T11:25:48+00:00"
@@ -383376,11 +383391,11 @@
       "seen_at": "2026-11-10T17:37:00+00:00"
     },
     "workday:workday:JR-0111374": {
-      "missing": "2026-11-15T17:45:33+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-11-09T19:36:44+00:00"
     },
     "workday:workday:JR-0111375": {
-      "missing": "2026-11-15T17:45:33+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-11-09T20:46:55+00:00"
     },
     "workday:workday:JR-0111378": {
