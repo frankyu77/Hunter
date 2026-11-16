@@ -44074,8 +44074,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44459,7 +44458,8 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44519,7 +44519,7 @@
       "zero_since": null
     },
     "workday/expedia-group": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "last_error": "HTTP 429 from expedia.wd108.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
@@ -44574,7 +44574,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
@@ -44967,7 +44967,7 @@
       }
     },
     "auto_sources_checked": "2026-11-16T02:55:30+00:00",
-    "dashboard_built_at": "2026-11-16T05:45:24+00:00",
+    "dashboard_built_at": "2026-11-16T06:45:49+00:00",
     "discovery": {
       "candidates": {
         "ashby/abundant": {
@@ -49620,7 +49620,6 @@
         2
       ],
       "greenhouse/anthropic": [
-        2,
         3,
         9,
         9,
@@ -49669,7 +49668,8 @@
         25,
         32,
         20,
-        12
+        12,
+        19
       ],
       "greenhouse/asana": [
         0,
@@ -51704,7 +51704,6 @@
         0,
         0,
         0,
-        0,
         1,
         1,
         1,
@@ -51728,6 +51727,7 @@
         2,
         3,
         3,
+        0,
         0,
         0
       ],
@@ -107879,6 +107879,9 @@
     "eightfold:microsoft:1970393557073003": {
       "seen_at": "2026-11-13T23:48:34+00:00"
     },
+    "eightfold:microsoft:1970393557073008": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
+    },
     "eightfold:microsoft:1970393557073013": {
       "seen_at": "2026-11-13T21:27:22+00:00"
     },
@@ -107890,6 +107893,9 @@
     },
     "eightfold:microsoft:1970393557073018": {
       "seen_at": "2026-11-13T20:29:16+00:00"
+    },
+    "eightfold:microsoft:1970393557073045": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
     },
     "eightfold:microsoft:1970393557073104": {
       "seen_at": "2026-11-13T07:06:37+00:00"
@@ -108141,6 +108147,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315141428": {
+      "missing": "2026-11-16T06:45:49+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315141431": {
@@ -108991,6 +108998,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317897571": {
+      "missing": "2026-11-16T06:45:49+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317904926": {
@@ -109707,6 +109715,7 @@
       "seen_at": "2026-10-15T16:36:45+00:00"
     },
     "eightfold:netflix:790318981534": {
+      "missing": "2026-11-16T06:45:49+00:00",
       "seen_at": "2026-10-15T21:38:02+00:00"
     },
     "eightfold:netflix:790318982323": {
@@ -109756,6 +109765,7 @@
       "seen_at": "2026-10-20T22:46:40+00:00"
     },
     "eightfold:netflix:790319033336": {
+      "missing": "2026-11-16T06:45:49+00:00",
       "seen_at": "2026-10-26T20:56:50+00:00"
     },
     "eightfold:netflix:790319034421": {
@@ -110136,7 +110146,6 @@
       "seen_at": "2026-11-11T19:16:15+00:00"
     },
     "eightfold:netflix:790319462403": {
-      "missing": "2026-11-16T06:36:00+00:00",
       "seen_at": "2026-11-11T21:19:02+00:00"
     },
     "eightfold:netflix:790319462408": {
@@ -110179,6 +110188,7 @@
       "seen_at": "2026-11-13T17:16:45+00:00"
     },
     "eightfold:netflix:790319503099": {
+      "missing": "2026-11-16T06:45:49+00:00",
       "seen_at": "2026-11-14T01:31:24+00:00"
     },
     "eightfold:netflix:790319503105": {
@@ -110195,6 +110205,9 @@
     },
     "eightfold:netflix:790319529702": {
       "seen_at": "2026-11-16T05:06:17+00:00"
+    },
+    "eightfold:netflix:790319531762": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
     },
     "eightfold:qualcomm:446704809279": {
       "seen_at": "2026-11-14T03:03:21+00:00"
@@ -175588,6 +175601,7 @@
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
     "greenhouse:airbnb:7904321": {
+      "missing": "2026-11-16T06:45:49+00:00",
       "seen_at": "2026-10-07T04:44:05+00:00"
     },
     "greenhouse:airbnb:7916840": {
@@ -178083,7 +178097,7 @@
       "seen_at": "2026-10-28T00:36:04+00:00"
     },
     "greenhouse:anthropic:5409299008": {
-      "missing": "2026-11-16T00:45:44+00:00",
+      "closed": "2026-11-16",
       "seen_at": "2026-10-28T00:36:04+00:00"
     },
     "greenhouse:anthropic:5409551008": {
@@ -198067,6 +198081,9 @@
     "greenhouse:gitlab:8926445002": {
       "seen_at": "2026-11-16T06:26:17+00:00"
     },
+    "greenhouse:gitlab:8926449002": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
+    },
     "greenhouse:gitlab:8926653002": {
       "seen_at": "2026-11-13T13:26:54+00:00"
     },
@@ -204490,6 +204507,9 @@
     },
     "greenhouse:okta:8354795": {
       "seen_at": "2026-11-13T20:29:16+00:00"
+    },
+    "greenhouse:okta:8354829": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
     },
     "greenhouse:okta:8355883": {
       "seen_at": "2026-11-05T16:36:39+00:00"
@@ -245974,6 +245994,9 @@
     "oracle:oracle:350303": {
       "seen_at": "2026-11-12T11:25:48+00:00"
     },
+    "oracle:oracle:350305": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
+    },
     "oracle:oracle:350309": {
       "seen_at": "2026-11-12T15:46:40+00:00"
     },
@@ -258787,7 +258810,7 @@
       "seen_at": "2026-11-15T06:25:28+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000161673079": {
-      "missing": "2026-11-16T00:45:44+00:00",
+      "closed": "2026-11-16",
       "seen_at": "2026-11-15T06:25:28+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000161673089": {
@@ -310701,6 +310724,9 @@
     "workday:hp:3168167": {
       "seen_at": "2026-10-21T21:47:26+00:00"
     },
+    "workday:hp:3168174": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
+    },
     "workday:hp:3168182": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -324275,6 +324301,9 @@
     },
     "workday:intel:JR0289132": {
       "seen_at": "2026-11-11T00:07:54+00:00"
+    },
+    "workday:intel:JR0289135": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
     },
     "workday:intel:JR0289156": {
       "seen_at": "2026-11-11T08:26:48+00:00"
@@ -357110,6 +357139,9 @@
     },
     "workday:onehealthineers:R-29480": {
       "seen_at": "2026-09-25T22:35:58+00:00"
+    },
+    "workday:onehealthineers:R-29525": {
+      "seen_at": "2026-11-16T06:45:49+00:00"
     },
     "workday:onehealthineers:R-29528": {
       "seen_at": "2026-10-16T22:16:55+00:00"
