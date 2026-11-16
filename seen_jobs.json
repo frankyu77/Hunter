@@ -44052,7 +44052,8 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44496,7 +44497,7 @@
       "zero_since": null
     },
     "workday/expedia-group": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_error": "HTTP 429 from expedia.wd108.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
@@ -44551,9 +44552,8 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 9,
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -44944,7 +44944,7 @@
       }
     },
     "auto_sources_checked": "2026-11-15T02:55:30+00:00",
-    "dashboard_built_at": "2026-11-16T01:15:18+00:00",
+    "dashboard_built_at": "2026-11-16T02:16:42+00:00",
     "discovery": {
       "candidates": {
         "ashby/abundant": {
@@ -50689,7 +50689,6 @@
       ],
       "greenhouse/samsara": [
         31,
-        31,
         14,
         14,
         32,
@@ -50735,6 +50734,7 @@
         36,
         36,
         8,
+        38,
         38,
         38,
         38
@@ -79149,6 +79149,7 @@
       "seen_at": "2026-11-10T07:36:18+00:00"
     },
     "ashby:cursor:bdae07e2-54ad-4e66-a56e-e6442483f15b": {
+      "missing": "2026-11-16T02:16:42+00:00",
       "seen_at": "2026-11-09T20:36:13+00:00"
     },
     "ashby:cursor:bf428650-8744-4f97-81e2-0e5a20c5316c": {
@@ -110167,7 +110168,6 @@
       "seen_at": "2026-11-05T08:45:55+00:00"
     },
     "eightfold:qualcomm:446716147763": {
-      "missing": "2026-11-16T02:06:56+00:00",
       "seen_at": "2026-11-14T03:03:21+00:00"
     },
     "eightfold:qualcomm:446716159659": {
@@ -176403,7 +176403,6 @@
       "seen_at": "2026-11-02T19:16:01+00:00"
     },
     "greenhouse:airbnb:8336191": {
-      "closed": "2026-11-05",
       "seen_at": "2026-11-05T06:15:36+00:00"
     },
     "greenhouse:airbnb:8336590": {
@@ -209501,7 +209500,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8207928": {
-      "missing": "2026-11-15T20:15:52+00:00",
+      "closed": "2026-11-15",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8209909": {
@@ -258500,6 +258499,7 @@
       "seen_at": "2026-11-15T05:35:36+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000161672389": {
+      "missing": "2026-11-16T02:16:42+00:00",
       "seen_at": "2026-11-15T05:35:36+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000161672399": {
@@ -258652,7 +258652,14 @@
       "seen_at": "2026-11-16T01:55:22+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000161719932": {
+      "missing": "2026-11-16T02:16:42+00:00",
       "seen_at": "2026-11-16T02:06:56+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000161720069": {
+      "seen_at": "2026-11-16T02:16:42+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000161720569": {
+      "seen_at": "2026-11-16T02:16:42+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -285019,6 +285026,9 @@
     },
     "workday:cibc:2620056": {
       "seen_at": "2026-10-01T19:44:07+00:00"
+    },
+    "workday:cibc:2620060": {
+      "seen_at": "2026-11-16T02:16:42+00:00"
     },
     "workday:cibc:2620070": {
       "closed": "2026-10-27",
@@ -331034,6 +331044,9 @@
     "workday:micron:JR117049": {
       "seen_at": "2026-11-10T16:09:44+00:00"
     },
+    "workday:micron:JR117058": {
+      "seen_at": "2026-11-16T02:16:42+00:00"
+    },
     "workday:micron:JR117083": {
       "seen_at": "2026-11-10T16:09:44+00:00"
     },
@@ -349015,6 +349028,9 @@
     },
     "workday:nvidia:JR1992092": {
       "seen_at": "2026-10-30T23:26:18+00:00"
+    },
+    "workday:nvidia:JR1992192": {
+      "seen_at": "2026-11-16T02:16:42+00:00"
     },
     "workday:nvidia:JR1992361": {
       "seen_at": "2026-10-30T23:26:18+00:00"
