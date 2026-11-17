@@ -44780,36 +44780,32 @@
       "zero_since": null
     },
     "lever/eqbank": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 502 from api.lever.co: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "lever/palantir": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 504 from api.lever.co: <html> <head><title>504 Gateway Time-out</title></head> <body> <center><h1>504 Gateway Time-out</h1></center> </body",
+      "consecutive_failures": 2,
+      "last_error": "ReadTimeout: HTTPSConnectionPool(host='api.lever.co', port=443): Read timed out. (read timeout=30)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "lever/shieldai": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 503 from api.lever.co: <html> <head><title>503 Service Temporarily Unavailable</title></head> <body> <center><h1>503 Service Temporarily Una",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": "2026-11-13"
     },
     "lever/spotify": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 500 from api.lever.co: <!DOCTYPE html><meta charset=\"utf-8\"><title>Internal server error \u2013 500</title><style>@font-face {font-family: 'Meta';sr",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "lever/tri": {
-      "consecutive_failures": 1,
-      "last_error": "HTTP 502 from api.lever.co: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -44887,176 +44883,177 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 158,
+      "consecutive_failures": 159,
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 29,
+      "consecutive_failures": 30,
       "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 162,
+      "consecutive_failures": 163,
       "last_error": "HTTP 429 from boeing.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 8,
+      "consecutive_failures": 9,
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 100,
+      "consecutive_failures": 101,
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/crowdstrike": {
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "last_error": "HTTP 429 from crowdstrike.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/ebay": {
-      "consecutive_failures": 57,
+      "consecutive_failures": 58,
       "last_error": "HTTP 429 from ebay.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/expedia-group": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429 from expedia.wd108.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 131,
+      "consecutive_failures": 132,
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 134,
+      "consecutive_failures": 135,
       "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 135,
+      "consecutive_failures": 136,
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 131,
+      "consecutive_failures": 132,
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 83,
+      "consecutive_failures": 84,
       "last_error": "HTTP 429 from workday.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/zillow": {
-      "consecutive_failures": 115,
+      "consecutive_failures": 116,
       "last_error": "HTTP 429 from zillow.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/zoom": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "last_error": "HTTP 429 from zoom.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "warned_failures": false,
+      "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     }
@@ -50851,7 +50848,6 @@
         26
       ],
       "greenhouse/airbnb": [
-        19,
         0,
         14,
         22,
@@ -50900,7 +50896,8 @@
         2,
         2,
         18,
-        0
+        0,
+        3
       ],
       "greenhouse/anthropic": [
         6,
@@ -83997,6 +83994,9 @@
       "closed": "2026-11-06",
       "seen_at": "2026-11-03T16:17:22+00:00"
     },
+    "ashby:notion:2f7589e1-b08d-49b1-83aa-2ea2454550db": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "ashby:notion:3038ee95-ed44-49a5-9808-1382c4e6cfe9": {
       "seen_at": "2026-11-06T16:16:06+00:00"
     },
@@ -110338,6 +110338,9 @@
     "eightfold:microsoft:1970393557074078": {
       "seen_at": "2026-11-16T05:55:31+00:00"
     },
+    "eightfold:microsoft:1970393557074081": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "eightfold:microsoft:1970393557074084": {
       "seen_at": "2026-11-16T07:27:08+00:00"
     },
@@ -112530,7 +112533,6 @@
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319425306": {
-      "missing": "2026-11-17T11:51:44+00:00",
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319427586": {
@@ -112588,7 +112590,6 @@
       "seen_at": "2026-11-16T15:36:33+00:00"
     },
     "eightfold:netflix:790319460323": {
-      "missing": "2026-11-17T11:51:44+00:00",
       "seen_at": "2026-11-11T19:16:15+00:00"
     },
     "eightfold:netflix:790319462403": {
@@ -176466,6 +176467,9 @@
     "greenhouse:adyen:7340050": {
       "seen_at": "2026-11-03T12:55:37+00:00"
     },
+    "greenhouse:adyen:7342856": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "greenhouse:adyen:7342860": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -176552,6 +176556,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:adyen:7720026": {
+      "missing": "2026-11-17T12:00:06+00:00",
       "seen_at": "2026-11-09T15:26:39+00:00"
     },
     "greenhouse:adyen:7764908": {
@@ -179507,7 +179512,7 @@
       "seen_at": "2026-10-27T16:56:01+00:00"
     },
     "greenhouse:airbnb:8326765": {
-      "missing": "2026-11-17T05:56:54+00:00",
+      "closed": "2026-11-17",
       "seen_at": "2026-11-13T09:16:49+00:00"
     },
     "greenhouse:airbnb:8327049": {
@@ -181422,6 +181427,9 @@
     },
     "greenhouse:anthropic:5428014008": {
       "seen_at": "2026-09-25T15:29:39+00:00"
+    },
+    "greenhouse:anthropic:5428030008": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
     },
     "greenhouse:anthropic:5428124008": {
       "seen_at": "2026-09-22T18:48:52+00:00"
@@ -186873,6 +186881,9 @@
     "greenhouse:cloudflare:8206674": {
       "seen_at": "2026-09-22T01:00:03+00:00"
     },
+    "greenhouse:cloudflare:8207326": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "greenhouse:cloudflare:8207632": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -186887,6 +186898,9 @@
     },
     "greenhouse:cloudflare:8211848": {
       "seen_at": "2026-09-21T22:26:42+00:00"
+    },
+    "greenhouse:cloudflare:8212060": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
     },
     "greenhouse:cloudflare:8212088": {
       "seen_at": "2026-09-22T15:05:32+00:00"
@@ -187764,6 +187778,9 @@
     },
     "greenhouse:cloudflare:8381749": {
       "seen_at": "2026-11-13T21:18:46+00:00"
+    },
+    "greenhouse:cloudflare:8383449": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
     },
     "greenhouse:cloudflare:8383577": {
       "seen_at": "2026-11-16T16:28:29+00:00"
@@ -193724,6 +193741,9 @@
     },
     "greenhouse:datadog:8203657": {
       "seen_at": "2026-11-14T18:55:48+00:00"
+    },
+    "greenhouse:datadog:8203733": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
     },
     "greenhouse:datadog:8204554": {
       "seen_at": "2026-09-22T21:43:40+00:00"
@@ -232805,6 +232825,9 @@
     "oracle:dell:298860": {
       "seen_at": "2026-09-25T05:34:18+00:00"
     },
+    "oracle:dell:298874": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "oracle:dell:298899": {
       "seen_at": "2026-10-20T17:06:31+00:00"
     },
@@ -256761,6 +256784,9 @@
     "smartrecruiters:BoschGroup:744000162058979": {
       "seen_at": "2026-11-17T11:51:47+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162060309": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -265215,6 +265241,7 @@
       "seen_at": "2026-11-17T08:46:23+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162017771": {
+      "missing": "2026-11-17T12:00:06+00:00",
       "seen_at": "2026-11-17T08:56:08+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162018528": {
@@ -265283,6 +265310,7 @@
       "seen_at": "2026-11-17T08:56:08+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162021249": {
+      "missing": "2026-11-17T12:00:06+00:00",
       "seen_at": "2026-11-17T08:56:08+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162021399": {
@@ -265383,6 +265411,7 @@
       "seen_at": "2026-11-17T10:07:14+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162038639": {
+      "missing": "2026-11-17T12:00:06+00:00",
       "seen_at": "2026-11-17T10:07:14+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162039249": {
@@ -265412,8 +265441,17 @@
     "smartrecruiters:SAPITBusinessSysteme:744000162055508": {
       "seen_at": "2026-11-17T11:51:47+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000162058825": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
     "smartrecruiters:SAPITBusinessSysteme:744000162058939": {
       "seen_at": "2026-11-17T11:51:47+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162059190": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162059294": {
+      "seen_at": "2026-11-17T12:00:06+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
