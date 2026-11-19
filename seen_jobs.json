@@ -45389,16 +45389,16 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T17:27:33+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T17:23:30+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45770,7 +45770,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T17:27:33+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45809,7 +45812,10 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T17:27:33+00:00",
+      "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46473,6 +46479,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Quadrillion"
+        },
+        "ashby/quantum": {
+          "boards": {
+            "{\"company\": \"quantum\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Quantum"
         },
         "ashby/spacial": {
           "boards": {
@@ -49505,7 +49519,6 @@
         42
       ],
       "greenhouse/okta": [
-        27,
         22,
         36,
         36,
@@ -49554,10 +49567,10 @@
         36,
         31,
         35,
-        28
+        28,
+        22
       ],
       "greenhouse/pinterest": [
-        27,
         0,
         28,
         29,
@@ -49606,7 +49619,8 @@
         25,
         0,
         19,
-        48
+        48,
+        22
       ],
       "greenhouse/reddit": [
         3,
@@ -49884,7 +49898,6 @@
         41
       ],
       "greenhouse/stripe": [
-        6,
         45,
         14,
         15,
@@ -49933,7 +49946,8 @@
         16,
         16,
         16,
-        8
+        8,
+        3
       ],
       "greenhouse/tenstorrentuniversity": [
         11
@@ -78952,6 +78966,9 @@
     },
     "amazon:amazon:10609455": {
       "seen_at": "2026-11-19T17:04:44+00:00"
+    },
+    "amazon:amazon:10609514": {
+      "seen_at": "2026-11-19T17:27:34+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -135216,6 +135233,9 @@
       "closed": "2026-10-29",
       "seen_at": "2026-10-28T06:36:07+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:e5892aa7-3c5f-4ce8-81b1-9c90e2a80f59": {
+      "seen_at": "2026-11-19T17:27:34+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:e5906d37-fe28-4871-a242-a005148afc9a": {
       "seen_at": "2026-09-22T05:50:20+00:00"
     },
@@ -182010,6 +182030,9 @@
     "greenhouse:anthropic:5138289008": {
       "seen_at": "2026-10-07T14:23:58+00:00"
     },
+    "greenhouse:anthropic:5138549008": {
+      "seen_at": "2026-11-19T17:27:34+00:00"
+    },
     "greenhouse:anthropic:5139628008": {
       "closed": "2026-11-09",
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -189500,6 +189523,7 @@
       "seen_at": "2026-11-06T23:46:22+00:00"
     },
     "greenhouse:cloudflare:8327965": {
+      "missing": "2026-11-19T17:27:33+00:00",
       "seen_at": "2026-10-28T13:45:53+00:00"
     },
     "greenhouse:cloudflare:8328089": {
@@ -205166,6 +205190,9 @@
     "greenhouse:janestreet:8641377002": {
       "seen_at": "2026-11-18T21:26:48+00:00"
     },
+    "greenhouse:janestreet:8643171002": {
+      "seen_at": "2026-11-19T17:27:34+00:00"
+    },
     "greenhouse:janestreet:8646746002": {
       "seen_at": "2026-10-31T07:13:42+00:00"
     },
@@ -210343,7 +210370,7 @@
       "seen_at": "2026-10-27T03:35:57+00:00"
     },
     "greenhouse:okta:8326941": {
-      "missing": "2026-11-19T11:23:58+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-27T11:26:27+00:00"
     },
     "greenhouse:okta:8327888": {
@@ -211132,7 +211159,7 @@
       "seen_at": "2026-10-14T16:46:46+00:00"
     },
     "greenhouse:pinterest:8146085": {
-      "missing": "2026-11-19T11:23:58+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-27T16:16:44+00:00"
     },
     "greenhouse:pinterest:8152750": {
@@ -218153,7 +218180,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:stripe:8043052": {
-      "missing": "2026-11-19T11:23:58+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-16T09:36:37+00:00"
     },
     "greenhouse:stripe:8043083": {
@@ -231755,6 +231782,9 @@
     "lever:palantir:4775e970-ade8-4a0d-8145-9255dc4cbac9": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "lever:palantir:484658a9-d6da-4d5f-9ab3-7c9f6ae3cd71": {
+      "seen_at": "2026-11-19T17:27:34+00:00"
+    },
     "lever:palantir:484908de-c32a-4259-be91-6b1f8738c14a": {
       "seen_at": "2026-11-04T03:35:43+00:00"
     },
@@ -237991,6 +238021,9 @@
     },
     "oracle:dell:301838": {
       "seen_at": "2026-11-11T07:46:20+00:00"
+    },
+    "oracle:dell:301843": {
+      "seen_at": "2026-11-19T17:27:34+00:00"
     },
     "oracle:dell:301849": {
       "seen_at": "2026-11-03T12:45:45+00:00"
@@ -401529,7 +401562,7 @@
     "workday/autodesk": "2026-11-19T16:10:38+00:00",
     "workday/becton-dickinson": "2026-11-19T16:40:37+00:00",
     "workday/boeing": "2026-11-19T16:30:49+00:00",
-    "workday/cibc": "2026-11-19T15:20:30+00:00",
+    "workday/cibc": "2026-11-19T17:23:56+00:00",
     "workday/cisco": "2026-11-19T16:10:38+00:00",
     "workday/clio": "2026-11-19T17:10:27+00:00",
     "workday/hp": "2026-11-19T15:40:30+00:00",
