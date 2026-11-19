@@ -45706,9 +45706,8 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 190,
-      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -45816,8 +45815,10 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
+      "failing_since": "2026-11-19T06:04:10+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -50430,8 +50431,6 @@
         2
       ],
       "smartrecruiters/ServiceNow": [
-        0,
-        12,
         7,
         14,
         3,
@@ -50479,7 +50478,9 @@
         2,
         1,
         35,
-        41
+        41,
+        15,
+        0
       ],
       "tiktok/tiktok": [
         36,
@@ -170737,7 +170738,7 @@
       "seen_at": "2026-10-29T02:16:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7c09ea99-3ed9-4307-89c3-28b016b9e7b3": {
-      "missing": "2026-11-18T23:56:19+00:00",
+      "closed": "2026-11-18",
       "seen_at": "2026-10-24T05:06:40+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7c16a112-1e44-4443-8c23-375351ba44b5": {
@@ -172898,7 +172899,7 @@
       "seen_at": "2026-11-03T06:55:51+00:00"
     },
     "github:vanshb03/Summer2027-Internships:aa0151db-14e4-48b2-b31e-250a3964aa1f": {
-      "missing": "2026-11-18T23:56:19+00:00",
+      "closed": "2026-11-18",
       "seen_at": "2026-11-14T17:25:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:aa09be7d-ec57-4c7e-aa99-322a69368a4d": {
@@ -173237,7 +173238,7 @@
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:b0cfc3a8-d022-474f-b50f-4271f781c244": {
-      "missing": "2026-11-18T23:56:19+00:00",
+      "closed": "2026-11-18",
       "seen_at": "2026-10-24T05:06:40+00:00"
     },
     "github:vanshb03/Summer2027-Internships:b0d26fff-1ce0-4295-bb72-a186bebfb770": {
@@ -174678,7 +174679,7 @@
       "seen_at": "2026-10-26T16:46:46+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cef133d5-4d20-4b0e-863f-4ecd3232298d": {
-      "missing": "2026-11-18T23:56:19+00:00",
+      "closed": "2026-11-18",
       "seen_at": "2026-11-11T05:55:44+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cefcba71-0efe-4d66-a73d-202ad27b1b2f": {
@@ -183281,6 +183282,9 @@
     },
     "greenhouse:anthropic:5473999008": {
       "seen_at": "2026-11-17T13:36:34+00:00"
+    },
+    "greenhouse:anthropic:5474013008": {
+      "seen_at": "2026-11-19T06:04:10+00:00"
     },
     "greenhouse:anthropic:5474544008": {
       "closed": "2026-11-18",
@@ -254911,6 +254915,7 @@
       "seen_at": "2026-11-09T16:26:32+00:00"
     },
     "oracle:texas-instruments:25019646": {
+      "missing": "2026-11-19T06:04:10+00:00",
       "seen_at": "2026-11-05T18:26:10+00:00"
     },
     "oracle:texas-instruments:25019647": {
@@ -255020,6 +255025,7 @@
       "seen_at": "2026-11-18T18:26:54+00:00"
     },
     "oracle:texas-instruments:25019858": {
+      "missing": "2026-11-19T06:04:10+00:00",
       "seen_at": "2026-11-12T21:56:25+00:00"
     },
     "oracle:texas-instruments:25019859": {
@@ -260189,6 +260195,9 @@
     },
     "smartrecruiters:BoschGroup:744000162439819": {
       "seen_at": "2026-11-19T05:43:47+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162441095": {
+      "seen_at": "2026-11-19T06:04:10+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -269583,6 +269592,9 @@
     "smartrecruiters:SAPITBusinessSysteme:744000162433889": {
       "seen_at": "2026-11-19T04:57:05+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000162441368": {
+      "seen_at": "2026-11-19T06:04:10+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -272681,7 +272693,7 @@
       "seen_at": "2026-11-03T03:55:38+00:00"
     },
     "smartrecruiters:ServiceNow:744000159291939": {
-      "missing": "2026-11-18T23:56:19+00:00",
+      "closed": "2026-11-18",
       "seen_at": "2026-11-03T04:06:14+00:00"
     },
     "smartrecruiters:ServiceNow:744000159292709": {
@@ -273894,7 +273906,7 @@
       "seen_at": "2026-11-17T23:07:41+00:00"
     },
     "smartrecruiters:ServiceNow:744000162189027": {
-      "missing": "2026-11-18T23:56:19+00:00",
+      "closed": "2026-11-18",
       "seen_at": "2026-11-18T00:36:50+00:00"
     },
     "smartrecruiters:ServiceNow:744000162190039": {
@@ -308272,7 +308284,6 @@
       "seen_at": "2026-10-19T15:54:44+00:00"
     },
     "workday:clio:REQ-5503": {
-      "closed": "2026-10-22",
       "seen_at": "2026-10-08T14:26:45+00:00"
     },
     "workday:clio:REQ-5504": {
@@ -308350,6 +308361,9 @@
       "missing": "2026-11-17T22:37:49+00:00",
       "seen_at": "2026-11-04T13:16:55+00:00"
     },
+    "workday:clio:REQ-5626": {
+      "seen_at": "2026-11-19T06:04:10+00:00"
+    },
     "workday:clio:REQ-5628": {
       "seen_at": "2026-11-04T22:36:16+00:00"
     },
@@ -308379,6 +308393,9 @@
     },
     "workday:clio:REQ-5646": {
       "seen_at": "2026-11-13T16:27:08+00:00"
+    },
+    "workday:clio:REQ-5647": {
+      "seen_at": "2026-11-19T06:04:10+00:00"
     },
     "workday:clio:REQ-5650": {
       "seen_at": "2026-11-06T19:16:35+00:00"
@@ -398012,8 +398029,10 @@
   "polling": {
     "workday/becton-dickinson": "2026-11-19T05:50:27+00:00",
     "workday/boeing": "2026-11-19T05:40:32+00:00",
+    "workday/clio": "2026-11-19T06:00:36+00:00",
     "workday/northrop-grumman": "2026-11-19T05:40:32+00:00",
     "workday/salesforce": "2026-11-19T05:50:27+00:00",
-    "workday/siemens-healthineers": "2026-11-19T05:50:27+00:00"
+    "workday/siemens-healthineers": "2026-11-19T05:50:27+00:00",
+    "workday/td": "2026-11-19T06:00:36+00:00"
   }
 }
