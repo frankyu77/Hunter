@@ -45284,7 +45284,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T09:14:14+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45775,7 +45778,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 388,
+      "consecutive_failures": 389,
       "failing_since": "2026-11-19T06:44:51+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -48286,8 +48289,6 @@
         15
       ],
       "greenhouse/anthropic": [
-        10,
-        30,
         3,
         4,
         30,
@@ -48335,7 +48336,9 @@
         13,
         11,
         15,
-        35
+        35,
+        43,
+        30
       ],
       "greenhouse/asana": [
         0,
@@ -112012,7 +112015,6 @@
       "seen_at": "2026-10-28T22:06:56+00:00"
     },
     "eightfold:netflix:790319075119": {
-      "missing": "2026-11-19T09:04:14+00:00",
       "seen_at": "2026-10-23T00:26:26+00:00"
     },
     "eightfold:netflix:790319075410": {
@@ -112020,11 +112022,9 @@
       "seen_at": "2026-10-23T00:26:26+00:00"
     },
     "eightfold:netflix:790319075412": {
-      "missing": "2026-11-19T09:04:14+00:00",
       "seen_at": "2026-10-22T21:06:58+00:00"
     },
     "eightfold:netflix:790319075873": {
-      "missing": "2026-11-19T09:04:14+00:00",
       "seen_at": "2026-10-22T21:36:24+00:00"
     },
     "eightfold:netflix:790319076054": {
@@ -150800,7 +150800,7 @@
       "seen_at": "2026-11-03T09:26:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:853f43c9-8095-4fb8-880b-20c796875015": {
-      "missing": "2026-11-19T03:07:17+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-02T20:45:57+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:8540d9e9-5a90-4ecb-a7f6-b854e696fb8e": {
@@ -153018,7 +153018,7 @@
       "seen_at": "2026-10-27T23:16:34+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:989307cb-3526-457e-a8ee-77b6cdda5c4f": {
-      "missing": "2026-11-19T03:07:17+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-09-30T16:33:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9894c188-6812-4c2c-8aaa-787cdba604ec": {
@@ -155841,7 +155841,7 @@
       "seen_at": "2026-11-02T15:37:21+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b1ddd57b-bd0d-4f01-acd3-b803848a6f3f": {
-      "missing": "2026-11-19T03:07:17+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-18T13:47:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b1e539b6-36e7-4ebf-85d8-38f7357fff68": {
@@ -182360,7 +182360,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:anthropic:5426613008": {
-      "missing": "2026-11-19T03:07:17+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-06T19:54:25+00:00"
     },
     "greenhouse:anthropic:5426617008": {
@@ -183060,7 +183060,7 @@
       "seen_at": "2026-10-19T05:15:29+00:00"
     },
     "greenhouse:anthropic:5456481008": {
-      "missing": "2026-11-19T03:07:17+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-19T17:26:50+00:00"
     },
     "greenhouse:anthropic:5456491008": {
@@ -200112,6 +200112,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8237463": {
+      "missing": "2026-11-19T09:14:14+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8237466": {
@@ -270001,6 +270002,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162462797": {
       "seen_at": "2026-11-19T08:53:59+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162463421": {
+      "seen_at": "2026-11-19T09:14:14+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -398830,7 +398834,7 @@
     "workday/hp": "2026-11-19T08:40:26+00:00",
     "workday/hpe": "2026-11-19T08:50:28+00:00",
     "workday/intel": "2026-11-19T09:00:36+00:00",
-    "workday/micron": "2026-11-19T06:40:26+00:00",
+    "workday/micron": "2026-11-19T09:10:29+00:00",
     "workday/northrop-grumman": "2026-11-19T07:00:36+00:00",
     "workday/nvidia": "2026-11-19T08:30:35+00:00",
     "workday/rbc": "2026-11-19T08:10:30+00:00",
