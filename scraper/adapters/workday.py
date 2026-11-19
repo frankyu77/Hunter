@@ -11,53 +11,60 @@ https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site the
 tenant is "ngc", the host is "wd1", and the site is
 "Northrop_Grumman_External_Site".
 
-Results come 20 per page. Large tenants list thousands of postings, so
-fetching everything would cost hundreds of requests per company per run;
-a poller only needs the recent ones, so we normally stop after
-MAX_POSTINGS.
-
-The trap: the order is only *mostly* newest-first. NVIDIA and Boeing list
-today's postings, then older ones, as you'd hope - but TD interleaves, with
-a second block of "Posted Today" jobs at positions ~100-230 of 1.7k, so a
-flat 200 cap silently missed ~30 new jobs a day. So past MAX_POSTINGS we
-keep paging while a page still holds a today/yesterday posting, up to
-HARD_MAX_POSTINGS. An ordered board stops at 200 as before. Whether a
-given fetch came back ordered is checked at runtime (``main.fetch_all``),
-since closure tracking may only trust a capped slice that did.
-
-The list endpoint carries no description (that would be one extra request
-per job) - filters match on title only, so descriptions stay empty.
-
-Throttling: some tenants answer a share of requests with 429 at random,
-however they are spaced (Salesforce, Oct 2026: about half, from any IP).
-Restarting the whole board on a 429 - what the generic retry in
-``main.fetch_with_retry`` does - throws away the pages already fetched and
-rarely gets ten pages through in one go. So a refused page is retried on its
-own, PAGE_RETRIES times, PAGE_RETRY_WAIT_SECONDS apart. If it still fails,
-the error is marked ``already_retried`` so main doesn't retry the whole
-board on top: a board that is refused outright then costs seconds, not
-minutes, which matters when many tenants are throttled at once.
-
-``max_postings`` in a source's config lowers the cap for one board (e.g. a
-heavily throttled one), and is then a hard stop: the "keep paging past the
-cap while postings are recent" rule below doesn't apply to it.
-``main.fetch_all`` reads the same key, so closure tracking still treats the
-shorter fetch as the newest slice rather than the whole board.
-
 A few tenants live on Workday's second domain instead, with the tenant in
 the path rather than the subdomain: for
 https://wd5.myworkdaysite.com/recruiting/microchiphr/External set
 ``domain: myworkdaysite.com`` (tenant "microchiphr", host "wd5", site
 "External"). The API is identical apart from the URL.
+
+The list endpoint carries no description (that would be one extra request
+per job) - filters match on title only, so descriptions stay empty.
+
+Throttling is the whole design problem here. Since mid-November 2026
+Workday's edge answers GitHub Actions runners with an HTML 429 page on most
+requests - every tenant, every wdN host. Runner IPs are shared, so we can't
+control all of that, but we can stop being a large part of it. The old
+shape (all ~25 tenants every 5-minute run, 10-50 pages each, whole board
+thrown away on one refused page) made several hundred requests an hour and
+lost the big boards almost every run. So, from coarse to fine:
+
+- Pacing (``PACING``, applied by ``scraper.pacing``): a board is polled at
+  most every ``every_minutes``, the longest-waiting boards first, at most
+  ``per_run`` of them and for at most ``budget_seconds`` per run, with a
+  short random pause between boards. That spreads the tenants across runs
+  instead of hitting all of them at once, while each one still comes round
+  about every half hour. If ``breaker_after`` boards in a row come back
+  throttled, the run stops touching Workday; the untouched boards stay
+  first in line for the next run.
+- Depth: normally MAX_POSTINGS (3 pages). The order is only *mostly*
+  newest-first - TD interleaves a second block of "Posted Today" jobs a
+  hundred or so positions in - so past the cap we keep paging while a page
+  still holds a today/yesterday posting, up to HARD_MAX_POSTINGS. Whether a
+  given fetch came back ordered is checked at runtime
+  (``main.fetch_all``), since closure tracking may only trust a capped
+  slice that did. ``max_postings`` in a source's config lowers the cap for
+  one board and is then a hard stop; ``main.fetch_all`` reads the same key.
+- Pages: a random 1-3 s pause between pages; a refused page is retried on
+  its own (restarting the board would throw away the pages already read)
+  with jittered backoff (RETRY_WAITS), or after the server's Retry-After if
+  that is longer. A Retry-After beyond MAX_WAIT_SECONDS, or a wait past the
+  run's Workday deadline, gives up at once.
+- Partial results: if a later page is still refused, the pages already
+  read are returned as a ``PartialFetch``, which main treats as the newest
+  slice of the board (never the whole board, so nothing is marked closed
+  for being on the pages we didn't get). Only a refused *first* page fails
+  the board, marked ``already_retried`` so main doesn't retry it again.
 """
 
+import random
 import re
 import time
 from datetime import UTC, datetime, timedelta
+from email.utils import parsedate_to_datetime
 
 import requests
 
-from scraper.models import Job
+from scraper.models import Job, PartialFetch
 
 API_URL = "https://{tenant}.{host}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
 BOARD_URL = "https://{tenant}.{host}.myworkdayjobs.com/{site}"
@@ -65,11 +72,25 @@ SITE_DOMAIN = "myworkdaysite.com"
 SITE_API_URL = "https://{host}.myworkdaysite.com/wday/cxs/{tenant}/{site}/jobs"
 SITE_BOARD_URL = "https://{host}.myworkdaysite.com/recruiting/{tenant}/{site}"
 PAGE_SIZE = 20
-MAX_POSTINGS = 200
-HARD_MAX_POSTINGS = 1000
+MAX_POSTINGS = 60
+HARD_MAX_POSTINGS = 200
 TIMEOUT_SECONDS = 30
-PAGE_RETRIES = 4
-PAGE_RETRY_WAIT_SECONDS = 2
+RETRY_WAITS = (2, 5, 15, 30)  # before each retry of a refused page, +/-20% jitter
+MAX_WAIT_SECONDS = 60  # a longer Retry-After means "not this run"
+PAGE_PAUSE_SECONDS = (1, 3)
+
+# Read by scraper.pacing (see the module docstring). About 25 tenants at up
+# to 9 a run, one run every 5-10 minutes, brings each round every ~20-30
+# minutes when Workday isn't refusing us. The rest of a run's fetches take
+# ~165 s, so 75 s here keeps the whole job near 4 minutes, inside the
+# 5-minute schedule. (Unthrottled, a 3-page board costs ~7 s.)
+PACING = {
+    "every_minutes": 20,
+    "per_run": 9,
+    "budget_seconds": 75,
+    "pause_seconds": (1, 3),
+    "breaker_after": 2,
+}
 
 
 def fetch(config: dict) -> list[Job]:
@@ -84,6 +105,9 @@ def fetch(config: dict) -> list[Job]:
     base_url = (SITE_BOARD_URL if on_site_domain else BOARD_URL).format(
         tenant=tenant, host=host, site=site
     )
+    # time.monotonic() by which this run's Workday time is up; set by
+    # scraper.pacing, absent when the adapter is called on its own.
+    deadline = config.get("_deadline")
 
     soft_cap = config.get("max_postings", MAX_POSTINGS)
     hard_cap = soft_cap if "max_postings" in config else HARD_MAX_POSTINGS
@@ -93,12 +117,21 @@ def fetch(config: dict) -> list[Job]:
     for offset in range(0, hard_cap, PAGE_SIZE):
         if offset >= total or (offset >= soft_cap and not recent_on_last_page):
             break
-        payload = _page(api_url, {
-            "appliedFacets": {},
-            "limit": PAGE_SIZE,
-            "offset": offset,
-            "searchText": config.get("search_text", ""),
-        })
+        if offset:
+            if _past(deadline):
+                return PartialFetch(jobs)
+            time.sleep(random.uniform(*PAGE_PAUSE_SECONDS))
+        try:
+            payload = _page(api_url, {
+                "appliedFacets": {},
+                "limit": PAGE_SIZE,
+                "offset": offset,
+                "searchText": config.get("search_text", ""),
+            }, deadline)
+        except requests.exceptions.HTTPError as exc:
+            if jobs and getattr(exc, "already_retried", False):
+                return PartialFetch(jobs, throttled=True)
+            raise
         if offset == 0:
             # Some tenants report total=0 on every page after the first,
             # so only the first page's count can be trusted.
@@ -111,19 +144,55 @@ def fetch(config: dict) -> list[Job]:
     return jobs
 
 
-def _page(api_url: str, body: dict) -> dict:
+def _page(api_url: str, body: dict, deadline: float | None = None) -> dict:
     """One page, retrying a 429 on just this page (see module docstring)."""
-    for attempt in range(PAGE_RETRIES + 1):
+    for attempt in range(len(RETRY_WAITS) + 1):
         response = requests.post(api_url, json=body, timeout=TIMEOUT_SECONDS)
-        if response.status_code != 429 or attempt == PAGE_RETRIES:
+        if response.status_code != 429 or attempt == len(RETRY_WAITS):
             break
-        time.sleep(PAGE_RETRY_WAIT_SECONDS)
+        wait = _wait(RETRY_WAITS[attempt], response)
+        if wait is None or (deadline is not None and time.monotonic() + wait > deadline):
+            break
+        time.sleep(wait)
     try:
         response.raise_for_status()
     except requests.exceptions.HTTPError as exc:
         exc.already_retried = response.status_code == 429
         raise
     return response.json()
+
+
+def _wait(backoff: float, response: requests.Response) -> float | None:
+    """Seconds to wait before retrying a refused page, or None to give up:
+    the jittered backoff, or the server's Retry-After if that is longer."""
+    wait = backoff * random.uniform(0.8, 1.2)
+    retry_after = _retry_after(response.headers.get("Retry-After"))
+    if retry_after is not None:
+        if retry_after > MAX_WAIT_SECONDS:
+            return None
+        wait = max(wait, retry_after)
+    return wait
+
+
+def _retry_after(value: str | None) -> float | None:
+    """Retry-After is either delta-seconds or an HTTP date."""
+    if not value:
+        return None
+    try:
+        return max(0.0, float(value))
+    except ValueError:
+        pass
+    try:
+        when = parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return None
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=UTC)
+    return max(0.0, (when - datetime.now(UTC)).total_seconds())
+
+
+def _past(deadline: float | None) -> bool:
+    return deadline is not None and time.monotonic() >= deadline
 
 
 def _is_recent(posted_on: str) -> bool:

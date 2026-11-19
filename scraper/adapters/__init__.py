@@ -63,6 +63,12 @@ def newest_first(fetch: Callable[[dict], list[Job]]) -> bool:
     return getattr(inspect.getmodule(fetch), "NEWEST_FIRST", True)
 
 
+def pacing(fetch: Callable[[dict], list[Job]]) -> dict | None:
+    """The adapter's PACING policy, if its provider throttles us: how often
+    each board may be polled and how many a run may touch (scraper.pacing)."""
+    return getattr(inspect.getmodule(fetch), "PACING", None)
+
+
 def get_adapter(type_str: str) -> Callable[[dict], list[Job]]:
     try:
         return REGISTRY[type_str]

@@ -21,3 +21,11 @@ def no_passphrase(monkeypatch):
     # never leak into a test: they switch on the private layer and the inbox.
     for name in ("HUNTER_PASSPHRASE", "GITHUB_TOKEN", "GITHUB_REPOSITORY"):
         monkeypatch.delenv(name, raising=False)
+
+
+@pytest.fixture(autouse=True)
+def no_workday_page_pauses(monkeypatch):
+    # The adapter pauses 1-3 s between pages to spread its load; tests that
+    # care about waits record them through their own sleep stub.
+    from scraper.adapters import workday
+    monkeypatch.setattr(workday, "PAGE_PAUSE_SECONDS", (0, 0))

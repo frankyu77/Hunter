@@ -99,6 +99,16 @@ def test_a_failing_board_is_paused_and_resume_starts_it_fresh(tmp_path):
     assert "workday/rtx" not in store.health
 
 
+def test_a_board_that_is_only_rate_limited_is_not_paused(tmp_path):
+    store = tallied(tmp_path)
+    run_update(store)
+    store.health["workday/rtx"] = {"consecutive_failures": 40, "throttled": True}
+
+    run_update(store, now=NOW + timedelta(hours=1))
+
+    assert statuses(store)["workday/globalhr"] == "active"
+
+
 def test_dashboard_add_remove_and_add_back(tmp_path):
     store = tallied(tmp_path)
     store.insights["auto_sources_checked"] = NOW.isoformat()  # no automatic adds today

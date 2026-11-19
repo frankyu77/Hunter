@@ -492,6 +492,11 @@ def test_eightfold_on_a_company_domain_uses_that_host(fixture):
     assert responses.calls[0].request.params["domain"] == "microsoft.com"
 
 
+def test_workday_reads_three_pages_by_default_and_at_most_ten():
+    assert workday.MAX_POSTINGS == 3 * workday.PAGE_SIZE
+    assert workday.HARD_MAX_POSTINGS == 10 * workday.PAGE_SIZE
+
+
 @responses.activate
 def test_workday_keeps_paging_past_the_cap_while_pages_hold_new_postings(fixture, monkeypatch):
     # TD-style ordering: a block of fresh postings runs across the cap.
@@ -591,8 +596,77 @@ def test_workday_gives_up_on_a_refused_board_quickly_and_main_does_not_retry_it(
         main.fetch_with_retry(workday.fetch, WORKDAY_CONFIG, "workday/northrop-grumman")
 
     assert caught.value.already_retried
-    assert len(responses.calls) == workday.PAGE_RETRIES + 1  # no whole-board retries on top
-    assert sum(waits) == workday.PAGE_RETRIES * workday.PAGE_RETRY_WAIT_SECONDS
+    assert len(responses.calls) == len(workday.RETRY_WAITS) + 1  # no whole-board retries
+    # Growing waits, each jittered within 20% of its base.
+    assert len(waits) == len(workday.RETRY_WAITS)
+    for wait, base in zip(waits, workday.RETRY_WAITS, strict=True):
+        assert 0.8 * base <= wait <= 1.2 * base
+
+
+@responses.activate
+def test_workday_keeps_the_pages_it_got_when_a_later_page_stays_throttled(
+        fixture, monkeypatch):
+    from scraper import main
+    from scraper.models import PartialFetch
+    monkeypatch.setattr(workday.time, "sleep", lambda s: None)
+    monkeypatch.setitem(REGISTRY, "workday", workday.fetch)
+    posting = fixture("workday_ngc.json")["jobPostings"][0]
+    fresh = posting | {"postedOn": "Posted Today"}
+
+    def board_throttled_after_page_one():
+        responses.reset()
+        responses.post(WORKDAY_URL, json={"total": 500, "jobPostings": [fresh] * 20})
+        responses.post(WORKDAY_URL, status=429, body="<!DOCTYPE html><html>throttled</html>")
+
+    board_throttled_after_page_one()
+    jobs = workday.fetch(WORKDAY_CONFIG)
+    assert isinstance(jobs, PartialFetch) and jobs.throttled
+    assert len(jobs) == 20
+    assert len(responses.calls) == 1 + len(workday.RETRY_WAITS) + 1  # page 2 retried, then kept
+
+    board_throttled_after_page_one()
+    jobs, stats = main.fetch_all([WORKDAY_CONFIG])
+    stat = stats["workday/northrop-grumman"]
+    assert len(jobs) == 20 and stat["errors"] == 0  # a success, not a lost board...
+    assert stat["truncated"]  # ...but only the newest slice: nothing closes for being absent
+
+
+@responses.activate
+def test_workday_waits_as_long_as_retry_after_asks(fixture, monkeypatch):
+    waits = []
+    monkeypatch.setattr(workday.time, "sleep", waits.append)
+    responses.post(WORKDAY_URL, status=429, headers={"Retry-After": "9"})
+    responses.post(WORKDAY_URL, json=fixture("workday_ngc.json"))
+
+    assert len(workday.fetch(WORKDAY_CONFIG)) == 3
+    assert waits == [9.0]  # longer than the first backoff (2 s), so it wins
+
+
+@responses.activate
+def test_workday_gives_up_at_once_when_retry_after_is_too_long_or_past_the_deadline(
+        monkeypatch):
+    waits = []
+    monkeypatch.setattr(workday.time, "sleep", waits.append)
+    for _ in range(10):
+        responses.post(WORKDAY_URL, status=429, headers={"Retry-After": "600"})
+    with pytest.raises(requests.exceptions.HTTPError):
+        workday.fetch(WORKDAY_CONFIG)
+    assert len(responses.calls) == 1 and waits == []
+
+    responses.calls.reset()
+    responses.replace(responses.POST, WORKDAY_URL, status=429)
+    out_of_time = WORKDAY_CONFIG | {"_deadline": workday.time.monotonic() + 1}
+    with pytest.raises(requests.exceptions.HTTPError) as caught:
+        workday.fetch(out_of_time)
+    assert caught.value.already_retried
+    assert len(responses.calls) == 1 and waits == []  # a 2 s backoff would overrun
+
+
+def test_workday_reads_retry_after_as_seconds_or_a_date():
+    assert workday._retry_after("12") == 12.0
+    assert workday._retry_after("Wed, 21 Oct 2015 07:28:00 GMT") == 0.0  # already past
+    assert workday._retry_after("soon") is None
+    assert workday._retry_after(None) is None
 
 
 @responses.activate
