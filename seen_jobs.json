@@ -45714,7 +45714,10 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T07:53:53+00:00",
+      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46209,7 +46212,7 @@
       }
     },
     "auto_sources_checked": "2026-11-19T03:07:17+00:00",
-    "dashboard_built_at": "2026-11-19T06:53:38+00:00",
+    "dashboard_built_at": "2026-11-19T07:53:54+00:00",
     "discovery": {
       "candidates": {
         "ashby/architect": {
@@ -47489,7 +47492,6 @@
         10
       ],
       "ashby/cursor": [
-        33,
         6,
         6,
         6,
@@ -47538,7 +47540,8 @@
         8,
         8,
         8,
-        14
+        14,
+        36
       ],
       "ashby/f7d8749a-72d6-407c-bf98-292ea630c73a": [
         14,
@@ -48232,7 +48235,6 @@
         15
       ],
       "greenhouse/anthropic": [
-        45,
         10,
         30,
         3,
@@ -48281,7 +48283,8 @@
         17,
         13,
         11,
-        15
+        15,
+        35
       ],
       "greenhouse/asana": [
         0,
@@ -79300,7 +79303,7 @@
       "seen_at": "2026-11-05T23:16:08+00:00"
     },
     "ashby:cursor:0b37a162-0bba-4627-8ec9-e497080abace": {
-      "missing": "2026-11-19T01:46:35+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "ashby:cursor:0cf937d6-ed98-42fa-a737-bb3f9f9b8aed": {
@@ -95427,7 +95430,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27368": {
-      "closed": "2026-11-11",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27369": {
@@ -110111,7 +110113,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790300350307": {
-      "missing": "2026-11-19T07:43:03+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790300762468": {
@@ -182859,7 +182860,7 @@
       "seen_at": "2026-10-20T14:45:59+00:00"
     },
     "greenhouse:anthropic:5452909008": {
-      "missing": "2026-11-19T01:46:35+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-14T21:56:28+00:00"
     },
     "greenhouse:anthropic:5452922008": {
@@ -189821,6 +189822,9 @@
     },
     "greenhouse:coinbase:8348533": {
       "seen_at": "2026-11-06T23:15:58+00:00"
+    },
+    "greenhouse:coinbase:8349028": {
+      "seen_at": "2026-11-19T07:53:54+00:00"
     },
     "greenhouse:coinbase:8350017": {
       "seen_at": "2026-11-03T16:56:30+00:00"
@@ -227826,6 +227830,9 @@
     "jibe:careers.amd.com:98135": {
       "seen_at": "2026-11-17T19:26:53+00:00"
     },
+    "jibe:careers.amd.com:98403": {
+      "seen_at": "2026-11-19T07:53:54+00:00"
+    },
     "jibe:careers.amd.com:98601": {
       "seen_at": "2026-11-16T16:06:44+00:00"
     },
@@ -246342,6 +246349,9 @@
     "oracle:oracle:345825": {
       "seen_at": "2026-10-05T14:04:02+00:00"
     },
+    "oracle:oracle:345827": {
+      "seen_at": "2026-11-19T07:53:54+00:00"
+    },
     "oracle:oracle:345829": {
       "seen_at": "2026-11-11T03:56:12+00:00"
     },
@@ -260387,6 +260397,9 @@
     "smartrecruiters:BoschGroup:744000162453149": {
       "seen_at": "2026-11-19T07:43:03+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162453899": {
+      "seen_at": "2026-11-19T07:53:54+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -269794,7 +269807,11 @@
       "seen_at": "2026-11-19T07:05:17+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000162447929": {
+      "missing": "2026-11-19T07:53:53+00:00",
       "seen_at": "2026-11-19T07:14:04+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162453659": {
+      "seen_at": "2026-11-19T07:53:54+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -398577,7 +398594,7 @@
     "workday/boeing": "2026-11-19T07:10:27+00:00",
     "workday/cibc": "2026-11-19T06:10:30+00:00",
     "workday/cisco": "2026-11-19T06:50:28+00:00",
-    "workday/clio": "2026-11-19T06:00:36+00:00",
+    "workday/clio": "2026-11-19T07:50:26+00:00",
     "workday/hp": "2026-11-19T06:30:35+00:00",
     "workday/hpe": "2026-11-19T06:30:35+00:00",
     "workday/intel": "2026-11-19T06:30:35+00:00",
