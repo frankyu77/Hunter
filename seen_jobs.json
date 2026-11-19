@@ -45290,16 +45290,16 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T11:53:31+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T12:04:30+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45686,7 +45686,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-19T06:53:38+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -45719,7 +45719,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 53,
+      "consecutive_failures": 54,
       "failing_since": "2026-11-19T06:53:38+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50318,8 +50318,6 @@
         1
       ],
       "oracle/texas-instruments": [
-        11,
-        18,
         0,
         3,
         14,
@@ -50367,7 +50365,9 @@
         0,
         7,
         7,
-        12
+        12,
+        13,
+        6
       ],
       "smartrecruiters/BoschGroup": [
         0,
@@ -109745,6 +109745,9 @@
     "eightfold:microsoft:1970393557072741": {
       "seen_at": "2026-11-12T15:26:54+00:00"
     },
+    "eightfold:microsoft:1970393557072759": {
+      "seen_at": "2026-11-19T12:04:30+00:00"
+    },
     "eightfold:microsoft:1970393557072770": {
       "seen_at": "2026-11-12T19:46:14+00:00"
     },
@@ -112896,6 +112899,9 @@
     },
     "eightfold:qualcomm:446717639048": {
       "seen_at": "2026-11-10T14:56:19+00:00"
+    },
+    "eightfold:qualcomm:446717656625": {
+      "seen_at": "2026-11-19T12:04:30+00:00"
     },
     "eightfold:qualcomm:446717660699": {
       "closed": "2026-10-20",
@@ -178701,6 +178707,12 @@
     "greenhouse:affirm:7804955003": {
       "seen_at": "2026-10-23T02:06:27+00:00"
     },
+    "greenhouse:affirm:7806679003": {
+      "seen_at": "2026-11-19T12:04:30+00:00"
+    },
+    "greenhouse:affirm:7806681003": {
+      "seen_at": "2026-11-19T12:04:30+00:00"
+    },
     "greenhouse:affirm:7806920003": {
       "seen_at": "2026-11-18T19:09:23+00:00"
     },
@@ -237422,7 +237434,6 @@
       "seen_at": "2026-10-29T20:16:31+00:00"
     },
     "oracle:dell:D12364": {
-      "closed": "2026-11-06",
       "seen_at": "2026-10-29T19:56:47+00:00"
     },
     "oracle:dell:D12427": {
@@ -244380,6 +244391,9 @@
     },
     "oracle:honeywell:162380": {
       "seen_at": "2026-11-18T03:57:31+00:00"
+    },
+    "oracle:honeywell:162394": {
+      "seen_at": "2026-11-19T12:04:30+00:00"
     },
     "oracle:honeywell:162405": {
       "seen_at": "2026-11-16T09:20:23+00:00"
@@ -255422,7 +255436,7 @@
       "seen_at": "2026-11-09T16:26:32+00:00"
     },
     "oracle:texas-instruments:25019646": {
-      "missing": "2026-11-19T06:04:10+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-05T18:26:10+00:00"
     },
     "oracle:texas-instruments:25019647": {
@@ -255532,7 +255546,7 @@
       "seen_at": "2026-11-18T18:26:54+00:00"
     },
     "oracle:texas-instruments:25019858": {
-      "missing": "2026-11-19T06:04:10+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-12T21:56:25+00:00"
     },
     "oracle:texas-instruments:25019859": {
@@ -399228,11 +399242,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-19T11:00:55+00:00",
-    "workday/autodesk": "2026-11-19T09:20:26+00:00",
+    "workday/autodesk": "2026-11-19T12:00:36+00:00",
     "workday/becton-dickinson": "2026-11-19T09:50:32+00:00",
     "workday/boeing": "2026-11-19T09:40:29+00:00",
     "workday/cibc": "2026-11-19T10:40:29+00:00",
-    "workday/cisco": "2026-11-19T06:50:28+00:00",
+    "workday/cisco": "2026-11-19T12:00:36+00:00",
     "workday/clio": "2026-11-19T10:20:26+00:00",
     "workday/hp": "2026-11-19T11:20:29+00:00",
     "workday/hpe": "2026-11-19T11:30:36+00:00",
