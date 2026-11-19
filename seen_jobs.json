@@ -45284,10 +45284,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T09:14:14+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45686,7 +45683,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-19T06:53:38+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -45839,8 +45836,10 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 63,
+      "consecutive_failures": 64,
+      "failing_since": "2026-11-19T09:24:08+00:00",
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
@@ -49635,7 +49634,6 @@
         11
       ],
       "greenhouse/twilio": [
-        32,
         30,
         32,
         36,
@@ -49684,7 +49682,8 @@
         12,
         0,
         15,
-        43
+        43,
+        15
       ],
       "greenhouse/vercel": [
         1,
@@ -127613,7 +127612,7 @@
       "seen_at": "2026-09-23T01:53:35+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8e8910ff-d27c-4f3c-871e-d348e505c0c5": {
-      "missing": "2026-11-19T03:16:45+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-12T10:35:38+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8e8f7392-2530-41cd-b2fe-8ba9e55a6f68": {
@@ -128777,7 +128776,7 @@
       "seen_at": "2026-09-25T22:35:58+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9bcddcb5-7dfc-4804-9f8f-af292c00da3f": {
-      "missing": "2026-11-19T03:16:45+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-04T07:23:00+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9bce2b53-ec9b-4c1a-b696-d715a04e75e4": {
@@ -193564,6 +193563,9 @@
     "greenhouse:databricks:8937118002": {
       "seen_at": "2026-11-12T21:16:19+00:00"
     },
+    "greenhouse:databricks:8937360002": {
+      "seen_at": "2026-11-19T09:24:08+00:00"
+    },
     "greenhouse:databricks:8937807002": {
       "seen_at": "2026-11-13T10:45:58+00:00"
     },
@@ -193596,6 +193598,15 @@
     },
     "greenhouse:databricks:8944097002": {
       "seen_at": "2026-11-15T04:45:24+00:00"
+    },
+    "greenhouse:databricks:8948868002": {
+      "seen_at": "2026-11-19T09:24:08+00:00"
+    },
+    "greenhouse:databricks:8948870002": {
+      "seen_at": "2026-11-19T09:24:08+00:00"
+    },
+    "greenhouse:databricks:8948900002": {
+      "seen_at": "2026-11-19T09:24:08+00:00"
     },
     "greenhouse:databricks:8948988002": {
       "seen_at": "2026-11-18T16:57:29+00:00"
@@ -219982,7 +219993,7 @@
       "seen_at": "2026-09-28T15:27:54+00:00"
     },
     "greenhouse:twilio:8026199": {
-      "missing": "2026-11-19T03:16:45+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-03T18:37:11+00:00"
     },
     "greenhouse:twilio:8026207": {
@@ -243987,6 +243998,7 @@
       "seen_at": "2026-11-16T18:47:22+00:00"
     },
     "oracle:honeywell:162174": {
+      "missing": "2026-11-19T09:24:08+00:00",
       "seen_at": "2026-11-17T16:38:53+00:00"
     },
     "oracle:honeywell:162179": {
@@ -260559,6 +260571,9 @@
     },
     "smartrecruiters:BoschGroup:744000162462500": {
       "seen_at": "2026-11-19T08:53:59+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162467170": {
+      "seen_at": "2026-11-19T09:24:08+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -398825,7 +398840,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-19T08:20:28+00:00",
-    "workday/autodesk": "2026-11-19T06:50:28+00:00",
+    "workday/autodesk": "2026-11-19T09:20:26+00:00",
     "workday/becton-dickinson": "2026-11-19T07:20:25+00:00",
     "workday/boeing": "2026-11-19T07:10:27+00:00",
     "workday/cibc": "2026-11-19T08:04:50+00:00",
@@ -398840,6 +398855,7 @@
     "workday/rbc": "2026-11-19T08:10:30+00:00",
     "workday/salesforce": "2026-11-19T07:40:25+00:00",
     "workday/siemens-healthineers": "2026-11-19T07:30:34+00:00",
+    "workday/snap": "2026-11-19T09:20:26+00:00",
     "workday/td": "2026-11-19T08:00:41+00:00"
   }
 }
