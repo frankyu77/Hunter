@@ -13,7 +13,8 @@ File layout (a bare ``{}`` is also accepted as the empty first-run state):
       },
       "health": {...},
       "insights": {...},
-      "feedback": {...}
+      "feedback": {...},
+      "polling": {"<source label>": "<last attempted, ISO time>"}
     }
 
 ``closed`` is set only on jobs first seen after closure tracking began (see
@@ -42,6 +43,8 @@ class SeenStore:
         self.insights: dict = {}
         # Button presses and the votes they produced (scraper.feedback).
         self.feedback: dict = {}
+        # When each throttled-provider board was last attempted (scraper.pacing).
+        self.polling: dict[str, str] = {}
         self._load()
 
     def _load(self) -> None:
@@ -55,6 +58,7 @@ class SeenStore:
         self.health = data.get("health", {})
         self.insights = data.get("insights", {})
         self.feedback = data.get("feedback", {})
+        self.polling = data.get("polling", {})
 
     def __len__(self) -> int:
         return len(self._jobs)
@@ -114,6 +118,7 @@ class SeenStore:
                 "health": self.health,
                 "insights": self.insights,
                 "feedback": self.feedback,
+                "polling": self.polling,
             }
             json.dump(data, f, indent=2, sort_keys=True)
             f.write("\n")

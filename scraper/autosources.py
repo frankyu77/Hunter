@@ -102,7 +102,8 @@ def update(store: SeenStore, config: dict, now: datetime | None = None,
 
     for key, entry in section.items():
         failures = store.health.get(label(entry.get("board") or {}), {})
-        if (entry.get("status") == "active"
+        # A board that is only rate-limited isn't broken (scraper.health).
+        if (entry.get("status") == "active" and not failures.get("throttled")
                 and failures.get("consecutive_failures", 0) >= PAUSE_AFTER_FAILURES):
             entry.update(status="paused", announce="paused")
             log.info("Auto source %s paused after %d failed runs.", key, PAUSE_AFTER_FAILURES)

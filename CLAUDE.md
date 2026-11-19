@@ -80,6 +80,11 @@ tests still pass:
   an aggregator job only when the same company and title were already sent
   from a direct board in the same region. Widening it (dropping the region
   check, say) would start losing genuinely different openings.
+- **A paced board that sat out a run was not fetched, not empty.**
+  `scraper/pacing.py` rotates throttled providers (Workday's `PACING`) a few
+  boards per run; the rest get `"skipped"` stats, which health, closure
+  tracking and the attempt stamps must all leave untouched. A partial fetch
+  (`models.PartialFetch`) is likewise only the newest slice of its board.
 - **Prune runs last**, after notifications and state writes, so it can't race
   the dedup.
 - **The public dashboard never shows personal signals in plaintext.** The repo

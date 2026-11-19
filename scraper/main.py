@@ -31,11 +31,12 @@ from scraper import (
     health,
     inbox,
     insights,
+    pacing,
     searchdiscovery,
 )
 from scraper import notify as telegram
 from scraper.adapters import get_adapter, max_postings, newest_first
-from scraper.models import Job, JobNotes
+from scraper.models import Job, JobNotes, PartialFetch
 from scraper.store import SeenStore
 
 log = logging.getLogger("scraper")
@@ -59,37 +60,61 @@ def load_config(path: str) -> dict:
     return config
 
 
-def fetch_all(sources: list[dict]) -> tuple[list[Job], dict[str, dict]]:
+def fetch_all(
+    sources: list[dict], pacer: pacing.Pacer | None = None
+) -> tuple[list[Job], dict[str, dict]]:
     """Fetch every source, each inside its own try/except (bulkhead):
     one broken source must never sink the run. Returns the jobs plus
     per-source stats for the run summary, health and closure tracking.
 
-    ``truncated`` marks a fetch that hit its adapter's MAX_POSTINGS cap, so
-    closure tracking knows the list is only the newest slice; ``unordered``
-    marks a capped fetch that isn't newest-first, where absence proves
-    nothing."""
+    ``truncated`` marks a fetch that hit its adapter's MAX_POSTINGS cap, or
+    stopped early (a ``PartialFetch``), so closure tracking knows the list
+    is only the newest slice; ``unordered`` marks a capped fetch that isn't
+    newest-first, where absence proves nothing. ``throttled`` marks a 429.
+    ``skipped`` marks a board the ``pacer`` held back this run (not due, or
+    its provider's budget or breaker ran out): it was not fetched at all."""
     jobs: list[Job] = []
     stats: dict[str, dict] = {}
     for source in sources:
         label = autosources.label(source)
+        if pacer and not pacer.admit(source, label):
+            stats.setdefault(label, {"fetched": 0, "errors": 0, "skipped": True})
+            continue
         stat = stats.setdefault(label, {"fetched": 0, "errors": 0})
+        stat.pop("skipped", None)
+        throttled = False
         try:
             fetch = get_adapter(source["type"])
-            fetched = fetch_with_retry(fetch, source, label)
+            fetched = fetch_with_retry(fetch, pacer.config(source) if pacer else source, label)
             stat["fetched"] += len(fetched)
+            partial = isinstance(fetched, PartialFetch)
+            throttled = partial and fetched.throttled
             # A source can lower its adapter's cap (workday: max_postings).
             cap = source.get("max_postings") or max_postings(fetch)
-            stat["truncated"] = cap is not None and len(fetched) >= cap
+            stat["truncated"] = partial or (cap is not None and len(fetched) >= cap)
             if stat["truncated"] and not (newest_first(fetch) and _dated_newest_first(fetched)):
                 stat["unordered"] = True
+            if partial:
+                log.warning("%s: stopped early%s; kept %d jobs as the newest slice", label,
+                            " (throttled)" if throttled else "", len(fetched))
             log.info("%s: fetched %d jobs", label, len(fetched))
             jobs.extend(fetched)
         except Exception as exc:
             stat["errors"] += 1
             stat["error"] = describe_error(exc)
+            throttled = _throttled(exc)
+            if throttled:
+                stat["throttled"] = True
             log.exception("%s: fetch failed; continuing with remaining sources", label)
+        if pacer:
+            pacer.done(source, label, throttled)
     annotate_failures(stats)
     return jobs, stats
+
+
+def _throttled(exc: Exception) -> bool:
+    return (isinstance(exc, requests.exceptions.HTTPError) and exc.response is not None
+            and exc.response.status_code == 429)
 
 
 def describe_error(exc: Exception) -> str:
@@ -323,7 +348,8 @@ def main(argv: list[str] | None = None) -> int:
     if not args.dry_run:
         read_button_presses(store)
 
-    fetched, stats = fetch_all(sources)
+    # Throttled providers (Workday) poll a rotating few boards per run.
+    fetched, stats = fetch_all(sources, pacing.Pacer(sources, store))
     normalized = normalize(fetched)
     warnings = health.record_run(store.health, stats)
     acted = 0 if args.dry_run else read_dashboard_actions(store, normalized)
@@ -569,6 +595,9 @@ def summarize(stats: dict, fresh: list[Job], matched: list[Job], sent: list[Job]
     sent_by = Counter(job.source for job in sent)
     for label in sorted(stats):
         stat = stats[label]
+        if stat.get("skipped"):
+            log.info("%s: skipped this run (paced)", label)
+            continue
         log.info(
             "%s: fetched=%d new=%d filtered_out=%d notified=%d errors=%d",
             label,
