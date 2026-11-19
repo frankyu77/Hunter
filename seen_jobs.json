@@ -45295,25 +45295,22 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T14:13:50+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T14:04:38+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T14:04:38+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45774,10 +45771,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-19T08:53:58+00:00",
-      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47386,6 +47380,14 @@
           "jobs": 3,
           "matched": 3,
           "name": "Sallie Mae"
+        },
+        "workday/semtech": {
+          "boards": {
+            "{\"company\": \"semtech\", \"host\": \"wd1\", \"site\": \"SemtechCareers\", \"tenant\": \"semtech\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Semtech"
         },
         "workday/starfish": {
           "boards": {
@@ -78519,6 +78521,9 @@
     },
     "amazon:amazon:10609311": {
       "seen_at": "2026-11-19T13:53:40+00:00"
+    },
+    "amazon:amazon:10609326": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -125570,6 +125575,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:724c692b-60b3-40ed-a47a-d7826e1e55f6": {
       "seen_at": "2026-09-22T01:00:03+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:724f54d0-f1b3-41a3-914f-78c8a4f22355": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:726a67fb-9bab-4e59-97a7-777e543943ab": {
       "seen_at": "2026-10-21T23:06:10+00:00"
@@ -183911,11 +183919,17 @@
     "greenhouse:asana:7964157": {
       "seen_at": "2026-11-17T17:07:10+00:00"
     },
+    "greenhouse:asana:7964297": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "greenhouse:asana:7964316": {
       "seen_at": "2026-10-06T09:53:53+00:00"
     },
     "greenhouse:asana:7964317": {
       "seen_at": "2026-10-20T10:45:27+00:00"
+    },
+    "greenhouse:asana:7964361": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "greenhouse:asana:7964388": {
       "seen_at": "2026-11-05T09:36:13+00:00"
@@ -189096,6 +189110,9 @@
     "greenhouse:cloudflare:8384276": {
       "seen_at": "2026-11-13T19:37:32+00:00"
     },
+    "greenhouse:cloudflare:8384364": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "greenhouse:cloudflare:8384969": {
       "seen_at": "2026-11-17T02:07:04+00:00"
     },
@@ -192084,6 +192101,9 @@
     },
     "greenhouse:databricks:8644183002": {
       "seen_at": "2026-10-05T04:33:07+00:00"
+    },
+    "greenhouse:databricks:8644185002": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "greenhouse:databricks:8645052002": {
       "seen_at": "2026-09-27T17:08:32+00:00"
@@ -207362,6 +207382,9 @@
     },
     "greenhouse:mongodb:8345848": {
       "seen_at": "2026-11-02T13:06:43+00:00"
+    },
+    "greenhouse:mongodb:8346138": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "greenhouse:mongodb:8346181": {
       "seen_at": "2026-11-06T19:36:21+00:00"
@@ -228652,6 +228675,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30212": {
+      "missing": "2026-11-19T14:13:51+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30214": {
@@ -229716,6 +229740,9 @@
     },
     "jibe:careers.docusign.com:31025": {
       "seen_at": "2026-11-13T09:55:43+00:00"
+    },
+    "jibe:careers.docusign.com:31026": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "jibe:careers.docusign.com:31056": {
       "seen_at": "2026-11-18T13:28:13+00:00"
@@ -261103,6 +261130,9 @@
     "smartrecruiters:BoschGroup:744000162521049": {
       "seen_at": "2026-11-19T14:04:38+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162521415": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "smartrecruiters:BoschGroup:744000162521499": {
       "seen_at": "2026-11-19T14:04:38+00:00"
     },
@@ -266149,6 +266179,9 @@
     "smartrecruiters:RenesasElectronics:744000162383404": {
       "seen_at": "2026-11-18T20:09:08+00:00"
     },
+    "smartrecruiters:RenesasElectronics:744000162524209": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "smartrecruiters:SAPITBusinessSysteme:744000152628469": {
       "seen_at": "2026-11-12T19:17:11+00:00"
     },
@@ -270633,8 +270666,14 @@
     "smartrecruiters:SAPITBusinessSysteme:744000162519149": {
       "seen_at": "2026-11-19T13:53:40+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000162519325": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "smartrecruiters:SAPITBusinessSysteme:744000162520300": {
       "seen_at": "2026-11-19T14:04:38+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162522734": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -328148,6 +328187,9 @@
     "workday:hpe:1205083": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "workday:hpe:1205227": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "workday:hpe:1205618": {
       "seen_at": "2026-11-18T22:28:57+00:00"
     },
@@ -329017,6 +329059,9 @@
     },
     "workday:hpe:1211844": {
       "seen_at": "2026-10-30T06:16:09+00:00"
+    },
+    "workday:hpe:1211886": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "workday:hpe:1211889": {
       "seen_at": "2026-11-03T19:26:21+00:00"
@@ -332557,6 +332602,9 @@
     "workday:hpe:1216328": {
       "seen_at": "2026-10-26T19:46:16+00:00"
     },
+    "workday:hpe:1216335": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "workday:hpe:1216338": {
       "seen_at": "2026-10-19T01:55:58+00:00"
     },
@@ -332743,6 +332791,9 @@
     },
     "workday:hpe:1216543": {
       "seen_at": "2026-10-20T01:45:57+00:00"
+    },
+    "workday:hpe:1216545": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "workday:hpe:1216552": {
       "seen_at": "2026-10-05T16:43:45+00:00"
@@ -333130,6 +333181,9 @@
     "workday:hpe:1217081": {
       "seen_at": "2026-10-26T07:45:52+00:00"
     },
+    "workday:hpe:1217082": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "workday:hpe:1217084": {
       "seen_at": "2026-10-27T10:46:26+00:00"
     },
@@ -333500,6 +333554,9 @@
     "workday:hpe:1217594": {
       "seen_at": "2026-11-04T14:56:05+00:00"
     },
+    "workday:hpe:1217595": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "workday:hpe:1217599": {
       "seen_at": "2026-11-09T01:15:49+00:00"
     },
@@ -333744,6 +333801,9 @@
     "workday:hpe:1217848": {
       "seen_at": "2026-11-11T09:35:58+00:00"
     },
+    "workday:hpe:1217850": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
     "workday:hpe:1217852": {
       "seen_at": "2026-11-15T18:35:48+00:00"
     },
@@ -333893,6 +333953,12 @@
     },
     "workday:hpe:1218105": {
       "seen_at": "2026-11-04T17:26:31+00:00"
+    },
+    "workday:hpe:1218107": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
+    },
+    "workday:hpe:1218109": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "workday:hpe:1218113": {
       "seen_at": "2026-11-09T03:06:23+00:00"
@@ -334159,6 +334225,9 @@
     },
     "workday:hpe:1218974": {
       "seen_at": "2026-11-16T03:55:41+00:00"
+    },
+    "workday:hpe:1218990": {
+      "seen_at": "2026-11-19T14:13:51+00:00"
     },
     "workday:hpe:1218994": {
       "seen_at": "2026-11-13T10:25:57+00:00"
@@ -399952,7 +400021,7 @@
     "workday/cisco": "2026-11-19T12:00:36+00:00",
     "workday/clio": "2026-11-19T13:00:40+00:00",
     "workday/hp": "2026-11-19T14:00:42+00:00",
-    "workday/hpe": "2026-11-19T11:30:36+00:00",
+    "workday/hpe": "2026-11-19T14:10:33+00:00",
     "workday/intel": "2026-11-19T11:40:27+00:00",
     "workday/micron": "2026-11-19T11:50:25+00:00",
     "workday/northrop-grumman": "2026-11-19T12:10:42+00:00",
