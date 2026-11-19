@@ -45284,7 +45284,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-19T10:36:35+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45296,10 +45299,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-19T10:12:51+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45611,9 +45611,7 @@
       "zero_since": null
     },
     "oracle/honeywell": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T10:26:51+00:00",
-      "last_error": "ReadTimeout: HTTPSConnectionPool(host='ibqbjb.fa.ocs.oraclecloud.com', port=443): Read timed out. (read timeout=30)",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45847,7 +45845,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 427,
+      "consecutive_failures": 428,
       "failing_since": "2026-11-19T06:04:10+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -46912,9 +46910,9 @@
         },
         "smartrecruiters/stefanini1": {
           "boards": {
-            "{\"company\": \"Stefanini1\", \"type\": \"smartrecruiters\"}": 1
+            "{\"company\": \"Stefanini1\", \"type\": \"smartrecruiters\"}": 2
           },
-          "jobs": 1,
+          "jobs": 2,
           "matched": 0,
           "name": "Stefanini"
         },
@@ -47460,9 +47458,10 @@
             "Element Materials Technology",
             "AMERICAN SYSTEMS",
             "Amer Sports",
-            "HERE Technologies"
+            "HERE Technologies",
+            "REI Systems"
           ],
-          "jobs": 8,
+          "jobs": 9,
           "matched": 4
         },
         "jobs.apple.com": {
@@ -48347,8 +48346,6 @@
         15
       ],
       "greenhouse/anthropic": [
-        4,
-        30,
         30,
         2,
         25,
@@ -48396,7 +48393,9 @@
         35,
         43,
         30,
-        36
+        36,
+        15,
+        9
       ],
       "greenhouse/asana": [
         0,
@@ -49208,7 +49207,6 @@
       ],
       "greenhouse/mongodb": [
         29,
-        29,
         30,
         32,
         0,
@@ -49256,7 +49254,8 @@
         40,
         21,
         40,
-        12
+        12,
+        0
       ],
       "greenhouse/okta": [
         36,
@@ -93056,6 +93055,7 @@
       "seen_at": "2026-10-01T05:53:53+00:00"
     },
     "ashby:snowflake:8bbbd764-cdd6-4f53-8a3f-096902f2d966": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "ashby:snowflake:8c7f0983-2a21-47b5-8c40-74dba33368cd": {
@@ -112058,6 +112058,7 @@
       "seen_at": "2026-10-19T18:06:20+00:00"
     },
     "eightfold:netflix:790319022497": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-10-20T00:06:19+00:00"
     },
     "eightfold:netflix:790319022521": {
@@ -112180,7 +112181,6 @@
       "seen_at": "2026-10-27T06:45:55+00:00"
     },
     "eightfold:netflix:790319161027": {
-      "missing": "2026-11-19T10:04:13+00:00",
       "seen_at": "2026-10-27T09:45:52+00:00"
     },
     "eightfold:netflix:790319163062": {
@@ -112412,12 +112412,14 @@
       "seen_at": "2026-11-10T01:46:05+00:00"
     },
     "eightfold:netflix:790319425242": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-11-10T00:45:37+00:00"
     },
     "eightfold:netflix:790319425266": {
       "seen_at": "2026-11-10T00:56:21+00:00"
     },
     "eightfold:netflix:790319425305": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319425306": {
@@ -125999,6 +126001,7 @@
       "seen_at": "2026-10-02T08:23:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:78f4cbe8-99fd-4731-881d-5a76c611d88d": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-11-02T18:16:15+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:7900b65d-9f07-4d31-b68f-cfa6cc770e37": {
@@ -127172,6 +127175,9 @@
     "github:SimplifyJobs/New-Grad-Positions:87bc18fa-af6a-4672-8408-f7a6d2f098f7": {
       "closed": "2026-10-29",
       "seen_at": "2026-10-27T22:45:55+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:87c2e736-8797-423e-8b2c-09dd0f6eee3b": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:87c40439-ed10-4b6a-99b3-511100982f8f": {
       "closed": "2026-11-18",
@@ -128408,6 +128414,7 @@
       "seen_at": "2026-10-06T06:43:35+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:970abbb2-7906-4686-914b-09bd6d622dd5": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-11-14T02:53:14+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:972a395a-4b76-444b-8f8a-9ce1e1a55d22": {
@@ -128550,6 +128557,9 @@
     "github:SimplifyJobs/New-Grad-Positions:98a3e335-f0b6-4ecd-b464-77ef59962136": {
       "closed": "2026-10-21",
       "seen_at": "2026-10-20T23:07:15+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:98a47c6e-06dd-4d9d-95c5-02197443ddc8": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:98a5f175-c19c-4fcc-8c0f-64e9911dad00": {
       "seen_at": "2026-11-04T00:06:48+00:00"
@@ -129976,6 +129986,7 @@
       "seen_at": "2026-11-13T19:08:01+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:aaa70d5e-f9aa-42af-84d5-7f4cd33e4488": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-11-02T18:16:15+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:aaa99c72-7271-4979-8852-5f63983e3a59": {
@@ -172024,7 +172035,7 @@
       "seen_at": "2026-10-26T13:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:935ac142-add8-4f81-bd43-d86d4f6e9291": {
-      "missing": "2026-11-19T04:26:55+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-03T14:17:15+00:00"
     },
     "github:vanshb03/Summer2027-Internships:936c2992-6e60-40e0-8c53-147c42aee462": {
@@ -182250,7 +182261,7 @@
       "seen_at": "2026-11-02T20:45:57+00:00"
     },
     "greenhouse:anthropic:5414608008": {
-      "missing": "2026-11-19T04:26:55+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-03T19:37:29+00:00"
     },
     "greenhouse:anthropic:5415287008": {
@@ -182324,7 +182335,7 @@
       "seen_at": "2026-11-09T06:06:24+00:00"
     },
     "greenhouse:anthropic:5418858008": {
-      "missing": "2026-11-19T04:26:55+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-09T18:08:12+00:00"
     },
     "greenhouse:anthropic:5418977008": {
@@ -199345,7 +199356,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8126357": {
-      "missing": "2026-11-19T10:26:51+00:00",
       "seen_at": "2026-11-04T09:25:52+00:00"
     },
     "greenhouse:elastic:8127255": {
@@ -199627,6 +199637,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8161462": {
+      "missing": "2026-11-19T10:36:35+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8161505": {
@@ -200108,7 +200119,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8227060": {
-      "missing": "2026-11-19T10:26:51+00:00",
       "seen_at": "2026-11-04T09:25:52+00:00"
     },
     "greenhouse:elastic:8227107": {
@@ -200853,11 +200863,9 @@
       "seen_at": "2026-11-04T09:15:49+00:00"
     },
     "greenhouse:elastic:8352185": {
-      "missing": "2026-11-19T10:26:51+00:00",
       "seen_at": "2026-11-04T09:25:52+00:00"
     },
     "greenhouse:elastic:8352187": {
-      "missing": "2026-11-19T10:26:51+00:00",
       "seen_at": "2026-11-04T09:55:46+00:00"
     },
     "greenhouse:elastic:8352578": {
@@ -206081,7 +206089,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8100427": {
-      "missing": "2026-11-19T04:26:55+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-19T00:15:47+00:00"
     },
     "greenhouse:mongodb:8104941": {
@@ -243188,6 +243196,9 @@
     "oracle:honeywell:161457": {
       "seen_at": "2026-11-11T18:46:20+00:00"
     },
+    "oracle:honeywell:161458": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
+    },
     "oracle:honeywell:161459": {
       "seen_at": "2026-11-06T03:06:51+00:00"
     },
@@ -244399,6 +244410,9 @@
     },
     "oracle:honeywell:162673": {
       "seen_at": "2026-11-19T05:16:33+00:00"
+    },
+    "oracle:honeywell:162712": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
     },
     "oracle:honeywell:162726": {
       "seen_at": "2026-11-19T08:04:30+00:00"
@@ -253199,6 +253213,9 @@
     "oracle:oracle:350969": {
       "seen_at": "2026-11-19T08:23:22+00:00"
     },
+    "oracle:oracle:350973": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
+    },
     "oracle:texas-instruments:240003XV": {
       "seen_at": "2026-10-30T12:07:05+00:00"
     },
@@ -260703,8 +260720,17 @@
     "smartrecruiters:BoschGroup:744000162478029": {
       "seen_at": "2026-11-19T10:04:13+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162480485": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
+    },
     "smartrecruiters:BoschGroup:744000162482079": {
       "seen_at": "2026-11-19T10:26:52+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162482769": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162483899": {
+      "seen_at": "2026-11-19T10:36:36+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -399011,6 +399037,6 @@
     "workday/salesforce": "2026-11-19T10:10:30+00:00",
     "workday/siemens-healthineers": "2026-11-19T10:00:38+00:00",
     "workday/snap": "2026-11-19T09:20:26+00:00",
-    "workday/td": "2026-11-19T08:00:41+00:00"
+    "workday/td": "2026-11-19T10:30:36+00:00"
   }
 }
