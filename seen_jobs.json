@@ -45284,10 +45284,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T08:13:28+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45677,7 +45674,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 12,
+      "consecutive_failures": 13,
       "failing_since": "2026-11-19T06:24:04+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47683,7 +47680,6 @@
       ],
       "ashby/openai": [
         6,
-        6,
         24,
         0,
         3,
@@ -47731,7 +47727,8 @@
         15,
         15,
         8,
-        15
+        15,
+        16
       ],
       "ashby/plaid": [
         0,
@@ -49867,7 +49864,6 @@
       ],
       "jibe/docusign": [
         36,
-        36,
         10,
         38,
         38,
@@ -49915,6 +49911,7 @@
         0,
         1,
         33,
+        41,
         41
       ],
       "lever/cirrus": [
@@ -84427,7 +84424,7 @@
       "seen_at": "2026-11-08T06:15:34+00:00"
     },
     "ashby:openai:43174eb6-0ffe-4744-9323-c7969e7ea2e1": {
-      "missing": "2026-11-19T02:16:16+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "ashby:openai:4349f80b-3518-4e4d-b9eb-3e5e9b490cc7": {
@@ -110003,6 +110000,9 @@
     },
     "eightfold:microsoft:1970393557074633": {
       "seen_at": "2026-11-17T05:07:52+00:00"
+    },
+    "eightfold:microsoft:1970393557074637": {
+      "seen_at": "2026-11-19T08:23:22+00:00"
     },
     "eightfold:microsoft:1970393557074642": {
       "seen_at": "2026-11-17T19:46:12+00:00"
@@ -168052,6 +168052,7 @@
       "seen_at": "2026-10-23T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:43745b8d-0e85-4f00-b58c-71b5dcb8ffb5": {
+      "missing": "2026-11-19T08:23:22+00:00",
       "seen_at": "2026-11-13T00:48:17+00:00"
     },
     "github:vanshb03/Summer2027-Internships:43845ad7-0e3a-4fc4-bd83-41d4d02f9f2c": {
@@ -176314,6 +176315,7 @@
       "seen_at": "2026-11-09T16:26:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:eceaea53-71f1-4bdf-b394-80b39f597ef9": {
+      "missing": "2026-11-19T08:23:22+00:00",
       "seen_at": "2026-11-13T14:17:00+00:00"
     },
     "github:vanshb03/Summer2027-Internships:ecf78546-abdd-422e-bf4e-b48df8ee5c33": {
@@ -228318,7 +228320,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30212": {
-      "missing": "2026-11-19T02:16:16+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30214": {
@@ -243255,6 +243257,9 @@
     "oracle:honeywell:161583": {
       "seen_at": "2026-11-10T20:56:50+00:00"
     },
+    "oracle:honeywell:161587": {
+      "seen_at": "2026-11-19T08:23:22+00:00"
+    },
     "oracle:honeywell:161590": {
       "closed": "2026-11-17",
       "seen_at": "2026-11-17T06:36:42+00:00"
@@ -252970,6 +252975,9 @@
     "oracle:oracle:350833": {
       "seen_at": "2026-11-17T23:37:17+00:00"
     },
+    "oracle:oracle:350836": {
+      "seen_at": "2026-11-19T08:23:22+00:00"
+    },
     "oracle:oracle:350838": {
       "seen_at": "2026-11-18T05:26:36+00:00"
     },
@@ -253038,6 +253046,12 @@
     },
     "oracle:oracle:350965": {
       "seen_at": "2026-11-19T04:07:07+00:00"
+    },
+    "oracle:oracle:350968": {
+      "seen_at": "2026-11-19T08:23:22+00:00"
+    },
+    "oracle:oracle:350969": {
+      "seen_at": "2026-11-19T08:23:22+00:00"
     },
     "oracle:texas-instruments:240003XV": {
       "seen_at": "2026-10-30T12:07:05+00:00"
@@ -260482,6 +260496,9 @@
     },
     "smartrecruiters:BoschGroup:744000162453899": {
       "seen_at": "2026-11-19T07:53:54+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162456865": {
+      "seen_at": "2026-11-19T08:23:22+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -398680,7 +398697,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-19T06:20:34+00:00",
+    "workday/adobe": "2026-11-19T08:20:28+00:00",
     "workday/autodesk": "2026-11-19T06:50:28+00:00",
     "workday/becton-dickinson": "2026-11-19T07:20:25+00:00",
     "workday/boeing": "2026-11-19T07:10:27+00:00",
