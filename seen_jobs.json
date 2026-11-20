@@ -46280,16 +46280,13 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-20T19:54:52+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-20T19:54:52+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -46537,6 +46534,12 @@
       "warned_zero": false,
       "zero_since": null
     },
+    "greenhouse/trueanomalyinc": {
+      "consecutive_failures": 0,
+      "warned_failures": false,
+      "warned_zero": false,
+      "zero_since": null
+    },
     "greenhouse/twilio": {
       "consecutive_failures": 0,
       "warned_failures": false,
@@ -46775,10 +46778,7 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-20T18:24:24+00:00",
-      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46820,7 +46820,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-20T18:24:24+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -69728,6 +69728,7 @@
       "greenhouse:scaleai": "greenhouse/scaleai",
       "greenhouse:stripe": "greenhouse/stripe",
       "greenhouse:tenstorrentuniversity": "greenhouse/tenstorrentuniversity",
+      "greenhouse:trueanomalyinc": "greenhouse/trueanomalyinc",
       "greenhouse:twilio": "greenhouse/twilio",
       "greenhouse:vercel": "greenhouse/vercel",
       "greenhouse:waymo": "greenhouse/waymo",
@@ -81443,6 +81444,9 @@
     "amazon:amazon:10610662": {
       "seen_at": "2026-11-20T19:54:54+00:00"
     },
+    "amazon:amazon:10610672": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -87564,6 +87568,7 @@
       "seen_at": "2026-11-16T00:55:46+00:00"
     },
     "ashby:openai:41408133-b45f-4c7b-a0df-c050f16d92de": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-11-06T22:07:06+00:00"
     },
     "ashby:openai:4167047e-33c2-4be4-b693-71c6c039bc56": {
@@ -88783,6 +88788,7 @@
       "seen_at": "2026-09-23T17:13:14+00:00"
     },
     "ashby:openai:961d2951-ff59-494f-971e-fe25414c234c": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-09-30T02:43:41+00:00"
     },
     "ashby:openai:9635775d-18fa-47bb-9ede-9a4137618de0": {
@@ -210712,6 +210718,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5234593007": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5234671007": {
@@ -211266,6 +211273,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5278621007": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5278650007": {
@@ -211513,6 +211521,9 @@
     },
     "greenhouse:lucidmotors:5290800007": {
       "seen_at": "2026-11-20T03:23:43+00:00"
+    },
+    "greenhouse:lucidmotors:5290899007": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "greenhouse:lucidmotors:5290904007": {
       "seen_at": "2026-11-20T03:23:43+00:00"
@@ -227498,6 +227509,9 @@
     "greenhouse:stripe:8384567": {
       "seen_at": "2026-11-13T18:37:03+00:00"
     },
+    "greenhouse:stripe:8384780": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "greenhouse:stripe:8384782": {
       "seen_at": "2026-11-19T17:33:26+00:00"
     },
@@ -227569,6 +227583,9 @@
     "greenhouse:stripe:8406660": {
       "seen_at": "2026-11-20T18:04:14+00:00"
     },
+    "greenhouse:stripe:8406995": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "greenhouse:tenstorrentuniversity:5256568007": {
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
@@ -227608,6 +227625,648 @@
     },
     "greenhouse:tenstorrentuniversity:5274249007": {
       "seen_at": "2026-11-05T18:46:08+00:00"
+    },
+    "greenhouse:trueanomalyinc:4658598007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:4978893007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5000646007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5000652007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5000654007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5023871007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5026924007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5026929007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5035812007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5036658007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5036872007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5056866007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5059535007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5074027007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5074032007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5074039007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5079017007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5081248007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5084704007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5085391007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5089023007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5089035007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5089061007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5089078007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5090419007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5091384007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5091399007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5091447007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5091451007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5091489007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5091669007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5092038007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5092069007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5092507007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5098194007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5099702007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5101069007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5104217007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5104245007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5104248007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5107030007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5107218007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5109648007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5111885007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5120414007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5121969007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5121986007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5123202007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5125944007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5136303007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5138491007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5138495007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5138856007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5138859007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5140261007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5140697007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5142446007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5142909007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5143268007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5144935007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5145859007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5147325007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5148175007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5151525007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5155923007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5158164007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5162268007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5165020007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5165501007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5165509007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5166540007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5166543007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5166545007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5174246007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5174580007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5174644007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5174657007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5177776007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5181899007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5182446007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5182480007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5182937007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5183925007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5185720007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5189756007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5191069007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5191560007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5192686007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5199213007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5202372007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5206220007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5208701007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5213725007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5217822007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5217948007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5218499007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5218725007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5219639007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5219818007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5220130007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5221498007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5221555007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5221572007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5221875007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5224053007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5224739007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5227469007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5228007007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5228067007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5228130007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5230702007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5232781007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5235277007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5238937007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5241718007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5243052007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5244131007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5247312007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5247466007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5249515007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5249867007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5249885007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5249889007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252273007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252493007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252967007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252976007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252981007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252989007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252995007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5252998007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5253004007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5253013007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5253364007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5254479007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5254486007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5254495007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5254591007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5254605007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5254632007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5255689007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5255741007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5255939007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257098007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257371007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257391007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257394007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257649007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257660007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257664007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257753007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257765007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257769007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5257771007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5258862007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5259797007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5259838007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5259851007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5260587007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5261699007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5261715007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5261720007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5262440007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5262525007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5262678007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5262898007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5264791007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5264949007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5265137007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5265224007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5269081007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5269107007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5270390007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5270745007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5270797007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5271680007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5271710007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5272878007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5275588007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5275633007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5277169007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5277833007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5278609007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5278934007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5278979007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5279880007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5280145007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5281610007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283170007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283185007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283191007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283197007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283206007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283337007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283422007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283742007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283875007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283892007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5283917007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5284030007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5284986007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5285346007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5286836007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5286857007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5289561007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5290209007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5291198007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5294011007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5295960007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5295961007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5300915007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5301425007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5302532007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
+    },
+    "greenhouse:trueanomalyinc:5302813007": {
+      "seen_at": "2026-11-20T20:04:50+00:00"
     },
     "greenhouse:twilio:6372770": {
       "seen_at": "2026-09-24T01:19:39+00:00"
@@ -228210,6 +228869,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:twilio:8263280": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-10-07T22:23:58+00:00"
     },
     "greenhouse:twilio:8265268": {
@@ -275592,9 +276252,11 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000155562947": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000155565471": {
+      "missing": "2026-11-20T20:04:50+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000155607242": {
@@ -279111,6 +279773,9 @@
     "smartrecruiters:RenesasElectronics:744000162789759": {
       "missing": "2026-11-20T18:53:46+00:00",
       "seen_at": "2026-11-20T17:43:42+00:00"
+    },
+    "smartrecruiters:RenesasElectronics:744000162810979": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000152628469": {
       "missing": "2026-11-20T13:28:03+00:00",
@@ -288957,6 +289622,9 @@
     },
     "smartrecruiters:ServiceNow:744000162810389": {
       "seen_at": "2026-11-20T19:54:54+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162811319": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "successfactors:jobs.l3harris.com:1271469100": {
       "seen_at": "2026-11-10T23:36:34+00:00"
@@ -336864,6 +337532,9 @@
     "workday:hp:3162155": {
       "seen_at": "2026-09-22T18:48:52+00:00"
     },
+    "workday:hp:3162229": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "workday:hp:3162245": {
       "seen_at": "2026-10-21T12:45:36+00:00"
     },
@@ -337600,6 +338271,9 @@
     },
     "workday:hp:3166782": {
       "seen_at": "2026-10-23T15:57:26+00:00"
+    },
+    "workday:hp:3166790": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "workday:hp:3166825": {
       "seen_at": "2026-10-14T00:37:37+00:00"
@@ -340116,6 +340790,9 @@
     "workday:hp:3169949": {
       "seen_at": "2026-11-03T16:36:13+00:00"
     },
+    "workday:hp:3169952": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "workday:hp:3169953": {
       "seen_at": "2026-10-20T19:57:38+00:00"
     },
@@ -341109,6 +341786,9 @@
     "workday:hp:3170778": {
       "seen_at": "2026-11-19T06:33:40+00:00"
     },
+    "workday:hp:3170780": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "workday:hp:3170784": {
       "seen_at": "2026-11-20T16:44:14+00:00"
     },
@@ -341178,6 +341858,9 @@
     "workday:hp:3170869": {
       "seen_at": "2026-11-19T06:33:40+00:00"
     },
+    "workday:hp:3170870": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "workday:hp:3170871": {
       "seen_at": "2026-11-20T02:24:09+00:00"
     },
@@ -341217,11 +341900,17 @@
     "workday:hp:3170929": {
       "seen_at": "2026-11-13T20:29:16+00:00"
     },
+    "workday:hp:3170944": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "workday:hp:3170945": {
       "seen_at": "2026-11-10T17:46:31+00:00"
     },
     "workday:hp:3170946": {
       "seen_at": "2026-11-19T06:33:40+00:00"
+    },
+    "workday:hp:3170954": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "workday:hp:3170960": {
       "seen_at": "2026-11-19T06:33:40+00:00"
@@ -341292,6 +341981,9 @@
     "workday:hp:3171077": {
       "seen_at": "2026-11-20T02:24:09+00:00"
     },
+    "workday:hp:3171079": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
+    },
     "workday:hp:3171083": {
       "seen_at": "2026-11-20T16:44:14+00:00"
     },
@@ -341303,6 +341995,9 @@
     },
     "workday:hp:3171107": {
       "seen_at": "2026-11-15T18:55:23+00:00"
+    },
+    "workday:hp:3171119": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "workday:hp:3171124": {
       "seen_at": "2026-11-20T02:24:09+00:00"
@@ -341321,6 +342016,9 @@
     },
     "workday:hp:3171210": {
       "seen_at": "2026-11-19T06:33:40+00:00"
+    },
+    "workday:hp:3171211": {
+      "seen_at": "2026-11-20T20:04:51+00:00"
     },
     "workday:hp:3171213": {
       "seen_at": "2026-11-19T06:33:40+00:00"
@@ -414401,12 +415099,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-20T08:30:32+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-20T18:20:28+00:00",
+    "workday/hp": "2026-11-20T20:00:35+00:00",
     "workday/hpe": "2026-11-20T18:30:45+00:00",
     "workday/intel": "2026-11-20T18:30:45+00:00",
     "workday/micron": "2026-11-20T18:40:35+00:00",
     "workday/northrop-grumman": "2026-11-20T19:10:30+00:00",
-    "workday/nvidia": "2026-11-20T18:20:28+00:00",
+    "workday/nvidia": "2026-11-20T20:00:35+00:00",
     "workday/paypal": "2026-11-20T19:00:36+00:00",
     "workday/rbc": "2026-11-20T19:50:29+00:00",
     "workday/salesforce": "2026-11-20T19:30:33+00:00",
