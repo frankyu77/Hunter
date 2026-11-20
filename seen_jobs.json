@@ -46098,10 +46098,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-20T10:14:07+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46113,7 +46110,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T10:34:10+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46551,7 +46551,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-20T06:23:38+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -46674,7 +46674,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "failing_since": "2026-11-19T15:24:43+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47124,7 +47124,7 @@
       }
     },
     "auto_sources_checked": "2026-11-20T03:13:41+00:00",
-    "dashboard_built_at": "2026-11-20T09:24:52+00:00",
+    "dashboard_built_at": "2026-11-20T10:34:11+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -50786,7 +50786,6 @@
       ],
       "greenhouse/okta": [
         39,
-        39,
         32,
         39,
         39,
@@ -50834,7 +50833,8 @@
         0,
         42,
         42,
-        42
+        42,
+        3
       ],
       "greenhouse/pinterest": [
         29,
@@ -51856,6 +51856,7 @@
         0
       ],
       "rippling/rippling": [
+        0,
         0
       ],
       "smartrecruiters/BoschGroup": [
@@ -98227,6 +98228,9 @@
     },
     "atlassian:atlassian:27428": {
       "seen_at": "2026-10-08T06:46:23+00:00"
+    },
+    "atlassian:atlassian:27430": {
+      "seen_at": "2026-11-20T10:34:11+00:00"
     },
     "atlassian:atlassian:27431": {
       "closed": "2026-11-13",
@@ -214703,7 +214707,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8238010": {
-      "missing": "2026-11-20T04:28:13+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-16T19:07:10+00:00"
     },
     "greenhouse:okta:8238157": {
@@ -263804,7 +263808,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:acf82f7d-5595-47c4-8e08-45c9d9a93529": {
-      "missing": "2026-11-20T04:33:17+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:ad1b0ae1-fa55-4308-83c7-75f3c51073ae": {
@@ -269773,6 +269777,9 @@
     },
     "smartrecruiters:BoschGroup:744000162700979": {
       "seen_at": "2026-11-20T10:24:30+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162703129": {
+      "seen_at": "2026-11-20T10:34:11+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -281465,6 +281472,12 @@
     "smartrecruiters:SAPITBusinessSysteme:744000162694671": {
       "seen_at": "2026-11-20T10:03:54+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000162700984": {
+      "seen_at": "2026-11-20T10:34:11+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162701411": {
+      "seen_at": "2026-11-20T10:34:11+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -287519,6 +287532,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7577613936331032837": {
+      "missing": "2026-11-20T10:34:11+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7577693318730238261": {
@@ -411879,7 +411893,7 @@
     "workday/autodesk": "2026-11-20T09:50:29+00:00",
     "workday/becton-dickinson": "2026-11-20T10:10:35+00:00",
     "workday/boeing": "2026-11-20T10:00:34+00:00",
-    "workday/cibc": "2026-11-20T09:10:32+00:00",
+    "workday/cibc": "2026-11-20T10:30:33+00:00",
     "workday/cisco": "2026-11-20T09:50:29+00:00",
     "workday/clio": "2026-11-20T10:20:34+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -411896,7 +411910,7 @@
     "workday/salesforce": "2026-11-20T10:20:34+00:00",
     "workday/siemens-healthineers": "2026-11-20T10:10:35+00:00",
     "workday/snap": "2026-11-20T09:50:29+00:00",
-    "workday/td": "2026-11-20T09:10:32+00:00",
+    "workday/td": "2026-11-20T10:30:33+00:00",
     "workday/workday": "2026-11-20T08:30:32+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-20T07:00:38+00:00"
