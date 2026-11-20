@@ -45889,7 +45889,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T04:04:06+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45901,7 +45904,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T04:04:06+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46360,7 +46366,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-19T19:13:24+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -80319,6 +80325,9 @@
     "amazon:amazon:10610051": {
       "seen_at": "2026-11-20T03:33:37+00:00"
     },
+    "amazon:amazon:10610061": {
+      "seen_at": "2026-11-20T04:04:07+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -95533,6 +95542,7 @@
       "seen_at": "2026-10-14T08:56:09+00:00"
     },
     "ashby:snowflake:bd570db9-73d3-4aa9-a238-307407677cc5": {
+      "missing": "2026-11-20T04:04:07+00:00",
       "seen_at": "2026-10-20T16:56:50+00:00"
     },
     "ashby:snowflake:be15bb2b-f43e-427a-9c59-9d09eab48d66": {
@@ -119123,6 +119133,9 @@
     "eightfold:qualcomm:446722208733": {
       "seen_at": "2026-11-19T07:05:17+00:00"
     },
+    "eightfold:qualcomm:446722208738": {
+      "seen_at": "2026-11-20T04:04:07+00:00"
+    },
     "eightfold:qualcomm:446722210615": {
       "seen_at": "2026-11-19T09:33:51+00:00"
     },
@@ -119151,11 +119164,9 @@
       "seen_at": "2026-11-19T22:23:59+00:00"
     },
     "eightfold:qualcomm:446722227945": {
-      "missing": "2026-11-20T03:54:12+00:00",
       "seen_at": "2026-11-20T01:33:51+00:00"
     },
     "eightfold:qualcomm:446722230518": {
-      "missing": "2026-11-20T03:54:12+00:00",
       "seen_at": "2026-11-20T02:24:09+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
@@ -196036,7 +196047,6 @@
       "seen_at": "2026-09-21T22:26:42+00:00"
     },
     "greenhouse:databricks:8829029002": {
-      "closed": "2026-11-16",
       "seen_at": "2026-09-30T05:13:39+00:00"
     },
     "greenhouse:databricks:8829033002": {
@@ -199209,6 +199219,9 @@
     },
     "greenhouse:discord:8948573002": {
       "seen_at": "2026-11-18T21:16:58+00:00"
+    },
+    "greenhouse:discord:8950137002": {
+      "seen_at": "2026-11-20T04:04:07+00:00"
     },
     "greenhouse:doordashusa:3623888": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -410377,7 +410390,7 @@
     "workday/boeing": "2026-11-20T03:20:27+00:00",
     "workday/cibc": "2026-11-20T01:40:28+00:00",
     "workday/cisco": "2026-11-20T03:00:38+00:00",
-    "workday/clio": "2026-11-20T01:20:29+00:00",
+    "workday/clio": "2026-11-20T04:00:37+00:00",
     "workday/hp": "2026-11-20T02:20:31+00:00",
     "workday/hpe": "2026-11-20T02:30:33+00:00",
     "workday/intel": "2026-11-20T02:40:33+00:00",
