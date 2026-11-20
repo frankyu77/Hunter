@@ -45823,7 +45823,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T00:24:21+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46234,10 +46237,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-19T22:53:44+00:00",
-      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46380,7 +46380,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-19T22:53:44+00:00",
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -46398,7 +46398,7 @@
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-19T20:14:45+00:00",
       "last_error": "HTTP 429 from workday.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -46807,7 +46807,7 @@
       }
     },
     "auto_sources_checked": "2026-11-19T03:07:17+00:00",
-    "dashboard_built_at": "2026-11-19T23:14:10+00:00",
+    "dashboard_built_at": "2026-11-20T00:24:22+00:00",
     "discovery": {
       "candidates": {
         "ashby/architect": {
@@ -48420,8 +48420,8 @@
             "Amentum",
             "Vibrantz Technologies"
           ],
-          "jobs": 76,
-          "matched": 73
+          "jobs": 79,
+          "matched": 76
         },
         "google.com": {
           "companies": [
@@ -48838,7 +48838,8 @@
       "ashby/quadric": [
         6,
         11,
-        12
+        12,
+        21
       ],
       "ashby/ramp": [
         1,
@@ -49189,7 +49190,6 @@
         41
       ],
       "greenhouse/adyen": [
-        9,
         4,
         4,
         26,
@@ -49238,7 +49238,8 @@
         27,
         29,
         1,
-        13
+        13,
+        1
       ],
       "greenhouse/affirm": [
         5,
@@ -49749,7 +49750,6 @@
         1
       ],
       "greenhouse/datadog": [
-        1,
         15,
         1,
         11,
@@ -49798,6 +49798,7 @@
         48,
         13,
         13,
+        7,
         7
       ],
       "greenhouse/discord": [
@@ -84232,6 +84233,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:e941e943-5f98-473a-847d-8dcbaa4b363e": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:ea1430f1-7e73-4df4-ab04-8926ec7826ce": {
@@ -89465,7 +89467,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:quadric:3f972411-63a7-4b94-869b-85012cc10d52": {
-      "missing": "2026-11-19T18:23:42+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:quadric:42074f13-dab4-4203-99a7-8fa3186de168": {
@@ -92999,6 +93001,7 @@
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:e941e943-5f98-473a-847d-8dcbaa4b363e": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:ea1430f1-7e73-4df4-ab04-8926ec7826ce": {
@@ -112927,7 +112930,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317281901": {
-      "missing": "2026-11-20T00:14:06+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317298299": {
@@ -113747,7 +113749,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318531573": {
-      "missing": "2026-11-20T00:14:06+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318539683": {
@@ -114618,7 +114619,6 @@
       "seen_at": "2026-11-17T01:36:30+00:00"
     },
     "eightfold:netflix:790319542353": {
-      "missing": "2026-11-20T00:14:06+00:00",
       "seen_at": "2026-11-18T00:36:50+00:00"
     },
     "eightfold:netflix:790319545244": {
@@ -114670,7 +114670,6 @@
       "seen_at": "2026-11-19T20:53:45+00:00"
     },
     "eightfold:netflix:790319611689": {
-      "missing": "2026-11-19T23:43:09+00:00",
       "seen_at": "2026-11-19T23:14:10+00:00"
     },
     "eightfold:qualcomm:446704809279": {
@@ -167813,6 +167812,9 @@
       "missing": "2026-11-19T20:23:20+00:00",
       "seen_at": "2026-10-17T18:36:04+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:0a998a91-b8b4-4c32-85af-8843cbb2cb09": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:0aafe188-f297-42d5-a9af-a9e537e53cea": {
       "seen_at": "2026-10-05T15:53:37+00:00"
     },
@@ -168147,6 +168149,7 @@
       "seen_at": "2026-11-01T10:05:33+00:00"
     },
     "github:vanshb03/Summer2027-Internships:11dcde5c-0d86-47c0-8002-e3613a7df068": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-11-09T23:56:11+00:00"
     },
     "github:vanshb03/Summer2027-Internships:11e9161b-1976-49de-850a-507713deb664": {
@@ -168989,6 +168992,9 @@
     },
     "github:vanshb03/Summer2027-Internships:21855923-ff83-4727-91e1-9aa51143b3a6": {
       "seen_at": "2026-10-26T13:55:57+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:2196d074-827b-4e98-b4fc-7086af06e940": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
     },
     "github:vanshb03/Summer2027-Internships:21a74fde-c5a5-40c0-9bb3-d7a55e731679": {
       "seen_at": "2026-11-09T15:46:40+00:00"
@@ -170366,7 +170372,7 @@
       "seen_at": "2026-10-23T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3c39fbb6-3353-4578-9db8-fce9f1f2691a": {
-      "missing": "2026-11-19T18:23:42+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-02T18:16:15+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3c58089c-7973-4a5c-8a55-3e4f80c460da": {
@@ -170388,7 +170394,7 @@
       "seen_at": "2026-11-05T10:25:53+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3cc0fd25-7e91-424c-97e2-f025ecae1030": {
-      "missing": "2026-11-19T18:23:42+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-26T14:27:00+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3cc96c34-7fd2-48a9-a00c-d7fb5015ce16": {
@@ -170634,6 +170640,9 @@
     },
     "github:vanshb03/Summer2027-Internships:41f2e0e9-3c6d-4ac5-a9aa-19e568e01046": {
       "seen_at": "2026-11-12T20:07:24+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:420a9aea-78c0-4fca-a4c2-d172957bdd37": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
     },
     "github:vanshb03/Summer2027-Internships:420ddd8c-797a-463f-8244-a86ee11c22ae": {
       "seen_at": "2026-11-12T20:07:24+00:00"
@@ -179612,7 +179621,7 @@
       "seen_at": "2026-11-12T07:15:35+00:00"
     },
     "github:vanshb03/Summer2027-Internships:f7da67ac-70f8-445b-8259-ba899432eee1": {
-      "missing": "2026-11-19T18:23:42+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-02T19:16:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:f7f95b4a-0bae-44da-a14f-a4c778913a8b": {
@@ -180577,7 +180586,7 @@
       "seen_at": "2026-11-14T23:55:23+00:00"
     },
     "greenhouse:adyen:8160970": {
-      "missing": "2026-11-19T18:23:42+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-18T16:16:42+00:00"
     },
     "greenhouse:adyen:8161148": {
@@ -198377,7 +198386,7 @@
       "seen_at": "2026-11-05T14:16:33+00:00"
     },
     "greenhouse:datadog:8356637": {
-      "missing": "2026-11-19T18:23:42+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-11T18:46:20+00:00"
     },
     "greenhouse:datadog:8357178": {
@@ -211421,6 +211430,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8208359": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8208367": {
@@ -211431,6 +211441,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8208377": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8208381": {
@@ -277281,6 +277292,12 @@
     "smartrecruiters:SAPITBusinessSysteme:744000162619380": {
       "seen_at": "2026-11-19T23:35:02+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000162621365": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000162621679": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -281808,6 +281825,12 @@
     "smartrecruiters:ServiceNow:744000162621080": {
       "seen_at": "2026-11-20T00:14:06+00:00"
     },
+    "smartrecruiters:ServiceNow:744000162621260": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162621689": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
+    },
     "successfactors:jobs.l3harris.com:1271469100": {
       "seen_at": "2026-11-10T23:36:34+00:00"
     },
@@ -282900,6 +282923,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7467873599120099591": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7470408781836323090": {
@@ -283719,6 +283743,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7611432597465368885": {
+      "missing": "2026-11-20T00:24:22+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7611432927004576005": {
@@ -289053,6 +289078,9 @@
     },
     "tiktok:tiktok:7709937457605921077": {
       "seen_at": "2026-11-19T18:13:37+00:00"
+    },
+    "tiktok:tiktok:7710033331472550197": {
+      "seen_at": "2026-11-20T00:24:22+00:00"
     },
     "workable:bask-health-1:007B8BFCAC": {
       "seen_at": "2026-11-16T19:16:25+00:00"
@@ -407279,7 +407307,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-19T23:43:38+00:00",
-    "workday/autodesk": "2026-11-19T22:50:42+00:00",
+    "workday/autodesk": "2026-11-20T00:20:35+00:00",
     "workday/becton-dickinson": "2026-11-19T23:20:29+00:00",
     "workday/boeing": "2026-11-19T23:10:29+00:00",
     "workday/cibc": "2026-11-19T23:39:54+00:00",
@@ -407295,8 +407323,8 @@
     "workday/rbc": "2026-11-19T23:43:38+00:00",
     "workday/salesforce": "2026-11-19T23:30:34+00:00",
     "workday/siemens-healthineers": "2026-11-19T23:20:29+00:00",
-    "workday/snap": "2026-11-19T22:50:42+00:00",
+    "workday/snap": "2026-11-20T00:20:35+00:00",
     "workday/td": "2026-11-19T23:39:54+00:00",
-    "workday/workday": "2026-11-19T20:10:29+00:00"
+    "workday/workday": "2026-11-20T00:20:35+00:00"
   }
 }
