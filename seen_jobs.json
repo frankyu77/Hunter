@@ -46264,7 +46264,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T18:34:33+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46756,7 +46759,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-20T15:14:32+00:00",
       "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -46765,7 +46768,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-20T13:33:50+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -51067,6 +51070,7 @@
         11
       ],
       "greenhouse/lucidmotors": [
+        0,
         0
       ],
       "greenhouse/lyft": [
@@ -51458,8 +51462,6 @@
       "greenhouse/samsara": [
         36,
         36,
-        36,
-        36,
         8,
         38,
         38,
@@ -51505,7 +51507,9 @@
         29,
         42,
         42,
-        42
+        42,
+        14,
+        13
       ],
       "greenhouse/scaleai": [
         12,
@@ -81339,6 +81343,9 @@
     },
     "amazon:amazon:10610499": {
       "seen_at": "2026-11-20T18:24:24+00:00"
+    },
+    "amazon:amazon:10610509": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -113818,6 +113825,9 @@
     "eightfold:microsoft:1970393557075604": {
       "seen_at": "2026-11-19T16:24:28+00:00"
     },
+    "eightfold:microsoft:1970393557075609": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
+    },
     "eightfold:microsoft:1970393557075630": {
       "seen_at": "2026-11-20T14:33:57+00:00"
     },
@@ -123602,7 +123612,7 @@
       "seen_at": "2026-09-27T06:38:03+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:27dd8f63-add0-47df-9055-44b5b46d4138": {
-      "missing": "2026-11-20T12:34:11+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-10-04T15:33:38+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:27eff2d2-a7ab-477e-b561-728947abe09b": {
@@ -210201,7 +210211,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5140196007": {
-      "missing": "2026-11-20T12:34:11+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5148220007": {
@@ -223056,11 +223066,11 @@
       "seen_at": "2026-11-06T12:25:36+00:00"
     },
     "greenhouse:samsara:8358709": {
-      "missing": "2026-11-20T12:34:11+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-06T12:25:36+00:00"
     },
     "greenhouse:samsara:8358712": {
-      "missing": "2026-11-20T12:34:11+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-06T12:36:51+00:00"
     },
     "greenhouse:samsara:8358786": {
@@ -229017,7 +229027,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7816014": {
-      "missing": "2026-11-20T18:24:24+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7816359": {
@@ -238315,6 +238324,9 @@
     "lever:palantir:26176860-7b27-412a-9959-d8b8705acf53": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
+    "lever:palantir:26c63e91-64bb-4a9d-8b24-f51754bffb83": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
+    },
     "lever:palantir:26e23f5d-083b-45aa-b223-1a6e43d960bf": {
       "seen_at": "2026-09-29T10:23:45+00:00"
     },
@@ -238686,6 +238698,9 @@
     },
     "lever:palantir:75cc1c09-8ebd-44c8-b3bc-d122cd1fecb3": {
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "lever:palantir:7600fb76-e25e-418c-bf83-d2b1444f2dc6": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
     },
     "lever:palantir:76161763-bafa-4ebb-a2ce-2a25e315b7d7": {
       "seen_at": "2026-09-29T23:04:03+00:00"
@@ -251316,6 +251331,9 @@
     "oracle:honeywell:161654": {
       "seen_at": "2026-11-06T06:46:19+00:00"
     },
+    "oracle:honeywell:161656": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
+    },
     "oracle:honeywell:161658": {
       "seen_at": "2026-11-06T23:55:46+00:00"
     },
@@ -253553,6 +253571,9 @@
     "oracle:oracle:342719": {
       "missing": "2026-11-04T08:06:11+00:00",
       "seen_at": "2026-11-02T13:25:41+00:00"
+    },
+    "oracle:oracle:342720": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
     },
     "oracle:oracle:342722": {
       "seen_at": "2026-11-04T20:27:22+00:00"
@@ -256220,6 +256241,9 @@
     },
     "oracle:oracle:346775": {
       "seen_at": "2026-10-08T05:24:32+00:00"
+    },
+    "oracle:oracle:346776": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
     },
     "oracle:oracle:346785": {
       "seen_at": "2026-11-03T18:37:11+00:00"
@@ -264305,6 +264329,9 @@
     "oracle:texas-instruments:25019848": {
       "seen_at": "2026-11-10T21:34:49+00:00"
     },
+    "oracle:texas-instruments:25019849": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
+    },
     "oracle:texas-instruments:25019851": {
       "seen_at": "2026-11-06T17:26:02+00:00"
     },
@@ -265544,6 +265571,9 @@
     },
     "rippling:rippling:c6081fd6-f501-4d76-86b9-ffc41f3aab5a": {
       "seen_at": "2026-11-19T20:03:44+00:00"
+    },
+    "rippling:rippling:c663eaa5-a4cb-4a26-8858-f9f6853b87d6": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
     },
     "rippling:rippling:c69c060e-eb1a-41a6-b65a-767cf384bb0f": {
       "seen_at": "2026-11-19T20:03:44+00:00"
@@ -272067,6 +272097,9 @@
     "smartrecruiters:BoschGroup:744000162799279": {
       "seen_at": "2026-11-20T18:24:24+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162799629": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -278165,6 +278198,7 @@
       "seen_at": "2026-10-27T08:06:08+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000157806014": {
+      "missing": "2026-11-20T18:34:33+00:00",
       "seen_at": "2026-10-27T08:06:08+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000157815089": {
@@ -288788,6 +288822,9 @@
     },
     "smartrecruiters:ServiceNow:744000162798067": {
       "seen_at": "2026-11-20T18:24:24+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162800279": {
+      "seen_at": "2026-11-20T18:34:33+00:00"
     },
     "successfactors:jobs.l3harris.com:1271469100": {
       "seen_at": "2026-11-10T23:36:34+00:00"
@@ -414854,8 +414891,8 @@
     "workday/ebay": "2026-11-20T08:30:32+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-20T18:20:28+00:00",
-    "workday/hpe": "2026-11-20T16:50:31+00:00",
-    "workday/intel": "2026-11-20T16:50:31+00:00",
+    "workday/hpe": "2026-11-20T18:30:45+00:00",
+    "workday/intel": "2026-11-20T18:30:45+00:00",
     "workday/micron": "2026-11-20T17:00:52+00:00",
     "workday/northrop-grumman": "2026-11-20T17:30:37+00:00",
     "workday/nvidia": "2026-11-20T18:20:28+00:00",
