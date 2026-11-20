@@ -45889,7 +45889,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T04:28:12+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -45901,10 +45904,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-20T04:04:06+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46446,7 +46446,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-20T01:53:40+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -80328,6 +80328,9 @@
     "amazon:amazon:10610061": {
       "seen_at": "2026-11-20T04:04:07+00:00"
     },
+    "amazon:amazon:10610071": {
+      "seen_at": "2026-11-20T04:28:13+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -112642,11 +112645,9 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301384045": {
-      "missing": "2026-11-20T03:54:12+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301384078": {
-      "missing": "2026-11-20T03:54:12+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301385075": {
@@ -213890,6 +213891,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8238010": {
+      "missing": "2026-11-20T04:28:13+00:00",
       "seen_at": "2026-11-16T19:07:10+00:00"
     },
     "greenhouse:okta:8238157": {
@@ -410427,7 +410429,7 @@
     "workday/northrop-grumman": "2026-11-20T03:10:27+00:00",
     "workday/nvidia": "2026-11-20T02:10:30+00:00",
     "workday/paypal": "2026-11-20T03:00:38+00:00",
-    "workday/rbc": "2026-11-20T01:50:27+00:00",
+    "workday/rbc": "2026-11-20T04:24:42+00:00",
     "workday/salesforce": "2026-11-20T03:50:25+00:00",
     "workday/siemens-healthineers": "2026-11-20T03:40:26+00:00",
     "workday/snap": "2026-11-20T00:20:35+00:00",
