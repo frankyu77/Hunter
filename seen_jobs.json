@@ -46098,7 +46098,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-20T12:13:44+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -46113,7 +46113,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T12:34:11+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46680,7 +46683,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "failing_since": "2026-11-19T15:24:43+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47130,7 +47133,7 @@
       }
     },
     "auto_sources_checked": "2026-11-20T03:13:41+00:00",
-    "dashboard_built_at": "2026-11-20T11:34:11+00:00",
+    "dashboard_built_at": "2026-11-20T12:34:12+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -48806,6 +48809,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Piper Sandler"
+        },
+        "workday/plantemoran": {
+          "boards": {
+            "{\"company\": \"plante-moran\", \"host\": \"wd1\", \"site\": \"pmexternalcareers\", \"tenant\": \"plantemoran\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Plante Moran"
         },
         "workday/reliaquest": {
           "boards": {
@@ -122869,6 +122880,7 @@
       "seen_at": "2026-09-27T06:38:03+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:27dd8f63-add0-47df-9055-44b5b46d4138": {
+      "missing": "2026-11-20T12:34:11+00:00",
       "seen_at": "2026-10-04T15:33:38+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:27eff2d2-a7ab-477e-b561-728947abe09b": {
@@ -135003,6 +135015,9 @@
     "github:SimplifyJobs/New-Grad-Positions:c2037c76-5c4e-47ec-bef7-a975a226c4a1": {
       "closed": "2026-11-11",
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:c21bd349-b504-43f2-9a51-97475ad313a4": {
+      "seen_at": "2026-11-20T12:34:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:c23aab68-23dc-4a16-8eb3-ccc62a259ab3": {
       "seen_at": "2026-11-11T23:36:25+00:00"
@@ -209178,6 +209193,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5140196007": {
+      "missing": "2026-11-20T12:34:11+00:00",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5148220007": {
@@ -221955,9 +221971,11 @@
       "seen_at": "2026-11-06T12:25:36+00:00"
     },
     "greenhouse:samsara:8358709": {
+      "missing": "2026-11-20T12:34:11+00:00",
       "seen_at": "2026-11-06T12:25:36+00:00"
     },
     "greenhouse:samsara:8358712": {
+      "missing": "2026-11-20T12:34:11+00:00",
       "seen_at": "2026-11-06T12:36:51+00:00"
     },
     "greenhouse:samsara:8358786": {
@@ -270122,6 +270140,9 @@
     "smartrecruiters:BoschGroup:744000162716924": {
       "seen_at": "2026-11-20T12:04:40+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162720013": {
+      "seen_at": "2026-11-20T12:34:11+00:00"
+    },
     "smartrecruiters:BoschGroup:744000162720109": {
       "seen_at": "2026-11-20T12:13:45+00:00"
     },
@@ -270136,6 +270157,12 @@
     },
     "smartrecruiters:BoschGroup:744000162722717": {
       "seen_at": "2026-11-20T12:23:47+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162723219": {
+      "seen_at": "2026-11-20T12:34:11+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162723399": {
+      "seen_at": "2026-11-20T12:34:11+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -274684,6 +274711,9 @@
     },
     "smartrecruiters:NBCUniversal3:744000162622819": {
       "seen_at": "2026-11-20T00:43:30+00:00"
+    },
+    "smartrecruiters:NBCUniversal3:744000162723779": {
+      "seen_at": "2026-11-20T12:34:11+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000118870517": {
       "seen_at": "2026-10-06T03:43:20+00:00"
@@ -412573,7 +412603,7 @@
     "workday/salesforce": "2026-11-20T12:10:25+00:00",
     "workday/siemens-healthineers": "2026-11-20T12:00:35+00:00",
     "workday/snap": "2026-11-20T09:50:29+00:00",
-    "workday/td": "2026-11-20T10:30:33+00:00",
+    "workday/td": "2026-11-20T12:30:32+00:00",
     "workday/workday": "2026-11-20T11:20:29+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-20T07:00:38+00:00"
