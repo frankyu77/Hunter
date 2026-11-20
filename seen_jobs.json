@@ -45901,10 +45901,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-20T03:23:43+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46327,7 +46324,7 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-19T15:04:43+00:00",
       "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49331,7 +49328,6 @@
         0
       ],
       "eightfold_v2/netflix": [
-        32,
         10,
         33,
         33,
@@ -49380,6 +49376,7 @@
         41,
         5,
         41,
+        42,
         42
       ],
       "greenhouse/adyen": [
@@ -80315,6 +80312,9 @@
     },
     "amazon:amazon:10610028": {
       "seen_at": "2026-11-20T02:53:41+00:00"
+    },
+    "amazon:amazon:10610051": {
+      "seen_at": "2026-11-20T03:33:37+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -113214,7 +113214,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317144081": {
-      "missing": "2026-11-20T03:13:41+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317147705": {
@@ -113409,7 +113408,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317610342": {
-      "missing": "2026-11-20T03:13:41+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317630104": {
@@ -113643,7 +113641,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317897268": {
-      "missing": "2026-11-19T21:14:05+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317897571": {
@@ -114871,6 +114869,7 @@
       "seen_at": "2026-11-12T12:06:44+00:00"
     },
     "eightfold:netflix:790319474502": {
+      "missing": "2026-11-20T03:33:37+00:00",
       "seen_at": "2026-11-12T13:07:57+00:00"
     },
     "eightfold:netflix:790319479285": {
@@ -114971,6 +114970,9 @@
     },
     "eightfold:netflix:790319579328": {
       "seen_at": "2026-11-18T16:16:42+00:00"
+    },
+    "eightfold:netflix:790319592325": {
+      "seen_at": "2026-11-20T03:33:37+00:00"
     },
     "eightfold:netflix:790319597303": {
       "seen_at": "2026-11-19T11:33:26+00:00"
@@ -119143,6 +119145,7 @@
       "seen_at": "2026-11-20T01:33:51+00:00"
     },
     "eightfold:qualcomm:446722230518": {
+      "missing": "2026-11-20T03:33:37+00:00",
       "seen_at": "2026-11-20T02:24:09+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
@@ -193565,7 +193568,6 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:databricks:7006090002": {
-      "closed": "2026-11-18",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:databricks:7011263002": {
@@ -194119,7 +194121,6 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:databricks:8357216002": {
-      "closed": "2026-11-18",
       "seen_at": "2026-10-03T07:01:33+00:00"
     },
     "greenhouse:databricks:8367019002": {
@@ -194156,6 +194157,9 @@
     },
     "greenhouse:databricks:8397552002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "greenhouse:databricks:8397554002": {
+      "seen_at": "2026-11-20T03:33:37+00:00"
     },
     "greenhouse:databricks:8397558002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -211701,6 +211705,7 @@
       "seen_at": "2026-10-23T03:46:15+00:00"
     },
     "greenhouse:mongodb:8205445": {
+      "missing": "2026-11-20T03:33:37+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8206794": {
@@ -410346,7 +410351,7 @@
   "polling": {
     "workday/adobe": "2026-11-20T02:00:36+00:00",
     "workday/autodesk": "2026-11-20T03:00:38+00:00",
-    "workday/becton-dickinson": "2026-11-20T00:50:25+00:00",
+    "workday/becton-dickinson": "2026-11-20T03:30:34+00:00",
     "workday/boeing": "2026-11-20T03:20:27+00:00",
     "workday/cibc": "2026-11-20T01:40:28+00:00",
     "workday/cisco": "2026-11-20T03:00:38+00:00",
