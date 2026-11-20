@@ -46361,7 +46361,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-19T15:54:00+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47121,6 +47121,22 @@
           "matched": 0,
           "name": "ID Plans"
         },
+        "bamboohr/ranovus": {
+          "boards": {
+            "{\"company\": \"ranovus\", \"type\": \"bamboohr\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Ranovus"
+        },
+        "bamboohr/saaz": {
+          "boards": {
+            "{\"company\": \"saaz\", \"type\": \"bamboohr\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "SAAZ Micro"
+        },
         "bamboohr/ssicorporate": {
           "boards": {
             "{\"company\": \"ssicorporate\", \"type\": \"bamboohr\"}": 1
@@ -47635,10 +47651,10 @@
         },
         "oracle/efds.fa.em5.oraclecloud.com": {
           "boards": {
-            "{\"company\": \"ford-motor-company\", \"host\": \"efds.fa.em5.oraclecloud.com\", \"site_name\": \"CX_1\", \"site_number\": \"CX_1\", \"type\": \"oracle\"}": 1
+            "{\"company\": \"ford-motor-company\", \"host\": \"efds.fa.em5.oraclecloud.com\", \"site_name\": \"CX_1\", \"site_number\": \"CX_1\", \"type\": \"oracle\"}": 2
           },
-          "jobs": 1,
-          "matched": 1,
+          "jobs": 2,
+          "matched": 2,
           "name": "Ford Motor Company"
         },
         "oracle/egug.fa.us2.oraclecloud.com": {
@@ -47819,9 +47835,9 @@
         },
         "smartrecruiters/llnl": {
           "boards": {
-            "{\"company\": \"LLNL\", \"type\": \"smartrecruiters\"}": 2
+            "{\"company\": \"LLNL\", \"type\": \"smartrecruiters\"}": 3
           },
-          "jobs": 2,
+          "jobs": 3,
           "matched": 1,
           "name": "Lawrence Livermore National Laboratory (LLNL)"
         },
@@ -49264,7 +49280,6 @@
       ],
       "greenhouse/adyen": [
         4,
-        4,
         26,
         37,
         1,
@@ -49312,7 +49327,8 @@
         29,
         1,
         13,
-        1
+        1,
+        3
       ],
       "greenhouse/affirm": [
         5,
@@ -49773,7 +49789,6 @@
         5
       ],
       "greenhouse/databricks": [
-        12,
         7,
         12,
         6,
@@ -49822,7 +49837,8 @@
         42,
         1,
         36,
-        25
+        25,
+        43
       ],
       "greenhouse/datadog": [
         15,
@@ -51010,7 +51026,6 @@
       "jibe/docusign": [
         39,
         39,
-        39,
         38,
         39,
         39,
@@ -51057,7 +51072,8 @@
         30,
         42,
         8,
-        0
+        0,
+        2
       ],
       "lever/cirrus": [
         0,
@@ -51545,6 +51561,9 @@
         13
       ],
       "smartrecruiters/NBCUniversal3": [
+        0,
+        0,
+        0,
         0
       ],
       "smartrecruiters/RenesasElectronics": [
@@ -99338,6 +99357,9 @@
     "eightfold:microsoft:1970393556956500": {
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
+    "eightfold:microsoft:1970393556956528": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
     "eightfold:microsoft:1970393556956894": {
       "seen_at": "2026-09-28T20:53:50+00:00"
     },
@@ -113364,6 +113386,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317761054": {
+      "missing": "2026-11-20T02:43:16+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317761805": {
@@ -121106,6 +121129,9 @@
     "github:SimplifyJobs/New-Grad-Positions:1cd90716-dcb3-46ef-849c-5135d022f4dd": {
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:1cfa73c2-75bd-4a2f-a201-ee0518493881": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:1d0612f6-6b43-47c4-9a7f-65017afa789c": {
       "closed": "2026-11-14",
       "seen_at": "2026-11-10T11:05:57+00:00"
@@ -123500,6 +123526,7 @@
       "seen_at": "2026-10-14T14:36:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3b38426e-3cc3-4a96-9277-6756b25e6d6f": {
+      "missing": "2026-11-20T02:43:16+00:00",
       "seen_at": "2026-09-30T11:43:27+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3b44169c-ba6c-47f8-8693-6dee8ef6bb65": {
@@ -125180,6 +125207,7 @@
       "seen_at": "2026-10-05T07:03:25+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:50eedce1-4c09-47bb-a737-7be6bc79d1a8": {
+      "missing": "2026-11-20T02:43:16+00:00",
       "seen_at": "2026-11-12T16:08:30+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:511298c0-51b4-4e6a-b652-7668b948d3c8": {
@@ -130128,6 +130156,7 @@
       "seen_at": "2026-09-21T18:59:46+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8f92f713-831e-414a-9cc3-067cf3b3ba4f": {
+      "missing": "2026-11-20T02:43:16+00:00",
       "seen_at": "2026-10-23T22:36:45+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8f9ee14e-f821-4e30-be13-4c0ed8ba39c1": {
@@ -132617,6 +132646,9 @@
       "closed": "2026-10-27",
       "seen_at": "2026-10-07T11:43:45+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:ae89ea3f-9dcb-4a89-85a3-45b45bcbd9f6": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:ae901c8a-4c94-4381-a067-cf2cd4c4d497": {
       "seen_at": "2026-11-14T23:55:23+00:00"
     },
@@ -133747,6 +133779,9 @@
     "github:SimplifyJobs/New-Grad-Positions:bdc4dc00-1451-4635-9061-5f99a7bb9c42": {
       "closed": "2026-11-16",
       "seen_at": "2026-11-11T01:45:40+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:bdc9d862-889f-415e-929a-98dd3e61c544": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:bdccd310-944d-47a9-8965-cbcfb8c98da8": {
       "closed": "2026-10-16",
@@ -136097,6 +136132,9 @@
     "github:SimplifyJobs/New-Grad-Positions:dc799011-53dd-40eb-a0b4-033ea01b7cb4": {
       "closed": "2026-11-18",
       "seen_at": "2026-10-31T01:36:22+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:dc85fafc-3d6e-48bf-8e8b-3b6f0720a8a3": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:dc874144-b255-49cc-81bf-11a6d9aed4dd": {
       "closed": "2026-11-13",
@@ -181230,7 +181268,7 @@
       "seen_at": "2026-10-24T07:33:05+00:00"
     },
     "greenhouse:adyen:8300702": {
-      "missing": "2026-11-19T20:43:12+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-16T08:17:07+00:00"
     },
     "greenhouse:adyen:8300919": {
@@ -186615,6 +186653,9 @@
     },
     "greenhouse:anthropic:5486656008": {
       "seen_at": "2026-11-19T16:14:37+00:00"
+    },
+    "greenhouse:anthropic:5486780008": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
     },
     "greenhouse:anthropic:5486907008": {
       "seen_at": "2026-11-19T14:53:35+00:00"
@@ -196024,7 +196065,7 @@
       "seen_at": "2026-11-18T14:37:20+00:00"
     },
     "greenhouse:databricks:8870938002": {
-      "missing": "2026-11-19T20:34:50+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-10-07T19:24:30+00:00"
     },
     "greenhouse:databricks:8870940002": {
@@ -232972,7 +233013,7 @@
       "seen_at": "2026-11-18T08:27:05+00:00"
     },
     "jibe:careers.docusign.com:31188": {
-      "missing": "2026-11-19T20:43:12+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-17T17:57:53+00:00"
     },
     "jibe:careers.docusign.com:31189": {
@@ -247495,6 +247536,7 @@
       "seen_at": "2026-11-16T06:36:00+00:00"
     },
     "oracle:honeywell:162063": {
+      "missing": "2026-11-20T02:43:16+00:00",
       "seen_at": "2026-11-20T02:14:17+00:00"
     },
     "oracle:honeywell:162064": {
@@ -266051,6 +266093,12 @@
     "smartrecruiters:BoschGroup:744000162650739": {
       "seen_at": "2026-11-20T02:34:12+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162651359": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162651399": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -269483,7 +269531,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000156041747": {
-      "missing": "2026-11-19T20:43:12+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000156085859": {
@@ -269834,7 +269882,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000159734169": {
-      "missing": "2026-11-19T20:34:50+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000159737341": {
@@ -269871,7 +269919,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000159955329": {
-      "missing": "2026-11-19T20:43:12+00:00",
+      "closed": "2026-11-19",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000159955899": {
@@ -277683,6 +277731,9 @@
     "smartrecruiters:SAPITBusinessSysteme:744000162621679": {
       "seen_at": "2026-11-20T00:24:22+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000162651469": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -282228,6 +282279,12 @@
     },
     "smartrecruiters:ServiceNow:744000162649229": {
       "seen_at": "2026-11-20T01:53:41+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162650999": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162651329": {
+      "seen_at": "2026-11-20T02:43:16+00:00"
     },
     "successfactors:jobs.l3harris.com:1271469100": {
       "seen_at": "2026-11-10T23:36:34+00:00"
@@ -407760,7 +407817,7 @@
     "workday/clio": "2026-11-20T01:20:29+00:00",
     "workday/hp": "2026-11-20T02:20:31+00:00",
     "workday/hpe": "2026-11-20T02:30:33+00:00",
-    "workday/intel": "2026-11-20T00:00:37+00:00",
+    "workday/intel": "2026-11-20T02:40:33+00:00",
     "workday/micron": "2026-11-20T00:10:27+00:00",
     "workday/northrop-grumman": "2026-11-20T00:30:33+00:00",
     "workday/nvidia": "2026-11-20T02:10:30+00:00",
