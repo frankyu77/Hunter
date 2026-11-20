@@ -46120,7 +46120,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-20T15:04:45+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -46135,7 +46135,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T15:14:32+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46624,13 +46627,16 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T15:14:32+00:00",
+      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-20T13:33:50+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -51910,7 +51916,6 @@
         0,
         0,
         0,
-        0,
         2,
         2,
         1,
@@ -51955,6 +51960,7 @@
         1,
         1,
         1,
+        0,
         0
       ],
       "oracle/ralliant": [
@@ -52167,6 +52173,7 @@
         8
       ],
       "smartrecruiters/NBCUniversal3": [
+        0,
         0,
         0,
         0,
@@ -80964,6 +80971,9 @@
     },
     "amazon:amazon:10610248": {
       "seen_at": "2026-11-20T15:04:46+00:00"
+    },
+    "amazon:amazon:10610260": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -203186,6 +203196,7 @@
       "seen_at": "2026-11-14T01:31:24+00:00"
     },
     "greenhouse:duolingo:8638482002": {
+      "missing": "2026-11-20T15:14:33+00:00",
       "seen_at": "2026-11-14T22:05:49+00:00"
     },
     "greenhouse:duolingo:8654296002": {
@@ -225745,6 +225756,9 @@
       "closed": "2026-11-13",
       "seen_at": "2026-10-27T23:25:52+00:00"
     },
+    "greenhouse:stripe:8287910": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
+    },
     "greenhouse:stripe:8287912": {
       "seen_at": "2026-10-20T16:16:08+00:00"
     },
@@ -226518,6 +226532,9 @@
     },
     "greenhouse:stripe:8404115": {
       "seen_at": "2026-11-20T00:53:34+00:00"
+    },
+    "greenhouse:stripe:8406140": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "greenhouse:tenstorrentuniversity:5256568007": {
       "seen_at": "2026-11-05T18:46:08+00:00"
@@ -234179,6 +234196,9 @@
     },
     "jibe:careers.amd.com:96394": {
       "seen_at": "2026-11-12T20:16:33+00:00"
+    },
+    "jibe:careers.amd.com:96395": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "jibe:careers.amd.com:96396": {
       "seen_at": "2026-11-13T18:55:57+00:00"
@@ -244056,7 +244076,6 @@
       "seen_at": "2026-11-17T01:46:23+00:00"
     },
     "oracle:dell:302870": {
-      "closed": "2026-11-19",
       "seen_at": "2026-11-18T12:17:06+00:00"
     },
     "oracle:dell:302925": {
@@ -251401,6 +251420,9 @@
     },
     "oracle:honeywell:162712": {
       "seen_at": "2026-11-19T10:36:36+00:00"
+    },
+    "oracle:honeywell:162715": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "oracle:honeywell:162726": {
       "seen_at": "2026-11-19T08:04:30+00:00"
@@ -260001,7 +260023,7 @@
       "seen_at": "2026-11-16T20:36:30+00:00"
     },
     "oracle:oracle:350681": {
-      "missing": "2026-11-20T09:14:20+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-20T04:33:18+00:00"
     },
     "oracle:oracle:350682": {
@@ -260413,6 +260435,9 @@
     },
     "oracle:oracle:351024": {
       "seen_at": "2026-11-20T05:24:12+00:00"
+    },
+    "oracle:oracle:351046": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
@@ -263352,6 +263377,9 @@
     },
     "oracle:texas-instruments:25020240": {
       "seen_at": "2026-11-18T20:27:53+00:00"
+    },
+    "oracle:texas-instruments:25020244": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "oracle:texas-instruments:25020263": {
       "seen_at": "2026-11-13T15:26:58+00:00"
@@ -270908,6 +270936,9 @@
     "smartrecruiters:BoschGroup:744000162756019": {
       "seen_at": "2026-11-20T15:04:46+00:00"
     },
+    "smartrecruiters:BoschGroup:744000162756131": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -273949,9 +273980,11 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000149396605": {
+      "missing": "2026-11-20T15:14:33+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000149398349": {
+      "missing": "2026-11-20T15:14:33+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000149723365": {
@@ -274467,7 +274500,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000157827449": {
-      "missing": "2026-11-20T09:14:20+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000157887417": {
@@ -287436,6 +287469,15 @@
     },
     "smartrecruiters:ServiceNow:744000162651329": {
       "seen_at": "2026-11-20T02:43:16+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162754811": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162756602": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
+    },
+    "smartrecruiters:ServiceNow:744000162757369": {
+      "seen_at": "2026-11-20T15:14:33+00:00"
     },
     "successfactors:jobs.l3harris.com:1271469100": {
       "seen_at": "2026-11-10T23:36:34+00:00"
@@ -413367,8 +413409,8 @@
     "workday/ebay": "2026-11-20T08:30:32+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-20T15:00:36+00:00",
-    "workday/hpe": "2026-11-20T13:23:58+00:00",
-    "workday/intel": "2026-11-20T13:30:32+00:00",
+    "workday/hpe": "2026-11-20T15:10:28+00:00",
+    "workday/intel": "2026-11-20T15:10:28+00:00",
     "workday/micron": "2026-11-20T13:40:28+00:00",
     "workday/northrop-grumman": "2026-11-20T14:10:27+00:00",
     "workday/nvidia": "2026-11-20T15:00:36+00:00",
