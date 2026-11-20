@@ -46098,7 +46098,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-20T12:13:44+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46650,7 +46653,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-20T07:34:30+00:00",
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -85936,6 +85939,9 @@
     "ashby:notion:d8ece3fa-37ca-40c8-9092-ebccdbdadd5a": {
       "seen_at": "2026-09-26T23:02:13+00:00"
     },
+    "ashby:notion:da3ccc9b-cbde-47c2-8c81-96d66c693a03": {
+      "seen_at": "2026-11-20T12:13:45+00:00"
+    },
     "ashby:notion:da9a9a45-10e3-4c6a-916f-f89ee4cf29a4": {
       "seen_at": "2026-11-17T20:36:56+00:00"
     },
@@ -115255,7 +115261,6 @@
       "seen_at": "2026-10-29T18:07:53+00:00"
     },
     "eightfold:netflix:790319246162": {
-      "missing": "2026-11-20T12:04:39+00:00",
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "eightfold:netflix:790319249128": {
@@ -241429,6 +241434,9 @@
     "oracle:dell:297237": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "oracle:dell:297329": {
+      "seen_at": "2026-11-20T12:13:45+00:00"
+    },
     "oracle:dell:297333": {
       "seen_at": "2026-10-21T17:06:16+00:00"
     },
@@ -250256,6 +250264,7 @@
       "seen_at": "2026-11-06T08:25:44+00:00"
     },
     "oracle:honeywell:161791": {
+      "missing": "2026-11-20T12:13:44+00:00",
       "seen_at": "2026-11-20T12:04:40+00:00"
     },
     "oracle:honeywell:161793": {
@@ -270087,6 +270096,15 @@
     },
     "smartrecruiters:BoschGroup:744000162716924": {
       "seen_at": "2026-11-20T12:04:40+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162720109": {
+      "seen_at": "2026-11-20T12:13:45+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162720478": {
+      "seen_at": "2026-11-20T12:13:45+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000162720629": {
+      "seen_at": "2026-11-20T12:13:45+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -412518,7 +412536,7 @@
     "workday/nvidia": "2026-11-20T10:50:35+00:00",
     "workday/paypal": "2026-11-20T09:50:29+00:00",
     "workday/rbc": "2026-11-20T10:40:31+00:00",
-    "workday/salesforce": "2026-11-20T10:20:34+00:00",
+    "workday/salesforce": "2026-11-20T12:10:25+00:00",
     "workday/siemens-healthineers": "2026-11-20T12:00:35+00:00",
     "workday/snap": "2026-11-20T09:50:29+00:00",
     "workday/td": "2026-11-20T10:30:33+00:00",
