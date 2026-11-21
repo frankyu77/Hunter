@@ -46813,7 +46813,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T07:54:09+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47369,7 +47372,10 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T07:54:09+00:00",
+      "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47402,7 +47408,9 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T07:54:09+00:00",
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47417,7 +47425,7 @@
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-20T23:43:40+00:00",
       "last_error": "HTTP 429 from workday.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -51045,7 +51053,6 @@
         37
       ],
       "atlassian/atlassian": [
-        15,
         40,
         40,
         34,
@@ -51094,7 +51101,8 @@
         5,
         43,
         23,
-        37
+        37,
+        0
       ],
       "eightfold/qualcomm": [
         0,
@@ -53563,7 +53571,6 @@
         1
       ],
       "smartrecruiters/RenesasElectronics": [
-        43,
         41,
         43,
         43,
@@ -53612,7 +53619,8 @@
         9,
         2,
         1,
-        37
+        37,
+        38
       ],
       "smartrecruiters/SAPITBusinessSysteme": [
         5,
@@ -100593,7 +100601,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27536": {
-      "missing": "2026-11-21T01:43:56+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-20T22:05:05+00:00"
     },
     "atlassian:atlassian:27541": {
@@ -117679,6 +117687,7 @@
       "seen_at": "2026-10-29T14:46:43+00:00"
     },
     "eightfold:netflix:790319238812": {
+      "missing": "2026-11-21T07:54:10+00:00",
       "seen_at": "2026-11-18T21:46:12+00:00"
     },
     "eightfold:netflix:790319239100": {
@@ -117734,6 +117743,7 @@
       "seen_at": "2026-11-11T18:17:05+00:00"
     },
     "eightfold:netflix:790319263071": {
+      "missing": "2026-11-21T07:54:10+00:00",
       "seen_at": "2026-11-03T17:46:46+00:00"
     },
     "eightfold:netflix:790319289797": {
@@ -280923,7 +280933,7 @@
       "seen_at": "2026-10-08T23:35:50+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000154771909": {
-      "missing": "2026-11-21T01:43:56+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000154889909": {
@@ -417924,13 +417934,13 @@
     "workday/micron": "2026-11-21T07:30:32+00:00",
     "workday/northrop-grumman": "2026-11-21T06:30:31+00:00",
     "workday/nvidia": "2026-11-21T07:20:27+00:00",
-    "workday/paypal": "2026-11-21T06:20:26+00:00",
+    "workday/paypal": "2026-11-21T07:50:23+00:00",
     "workday/rbc": "2026-11-21T07:10:27+00:00",
     "workday/salesforce": "2026-11-21T06:50:24+00:00",
     "workday/siemens-healthineers": "2026-11-21T06:40:36+00:00",
-    "workday/snap": "2026-11-21T06:20:26+00:00",
+    "workday/snap": "2026-11-21T07:50:23+00:00",
     "workday/td": "2026-11-21T07:00:39+00:00",
-    "workday/workday": "2026-11-21T04:50:27+00:00",
+    "workday/workday": "2026-11-21T07:50:23+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-21T04:50:27+00:00"
   }
