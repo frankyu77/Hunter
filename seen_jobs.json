@@ -46802,7 +46802,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T03:14:55+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46814,7 +46817,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T03:04:38+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -47165,7 +47168,9 @@
       "zero_since": null
     },
     "oracle/texas-instruments": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T03:14:55+00:00",
+      "last_error": "HTTP 503 from edbz.fa.us2.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47276,7 +47281,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T00:43:51+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47853,7 +47858,7 @@
         "status": "paused"
       }
     },
-    "auto_sources_checked": "2026-11-20T03:13:41+00:00",
+    "auto_sources_checked": "2026-11-21T03:14:55+00:00",
     "dashboard_built_at": "2026-11-21T02:48:01+00:00",
     "discovery": {
       "candidates": {
@@ -49706,6 +49711,14 @@
           "matched": 0,
           "name": "Copart"
         },
+        "workday/eisneramper": {
+          "boards": {
+            "{\"company\": \"eisneramper\", \"host\": \"wd1\", \"site\": \"EisnerAmperEarlyCareers\", \"tenant\": \"eisneramper\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "EisnerAmper"
+        },
         "workday/eonnext": {
           "boards": {
             "{\"company\": \"e-on-next\", \"host\": \"wd3\", \"site\": \"EON_Next_Careers\", \"tenant\": \"eonnext\", \"type\": \"workday\"}": 1
@@ -50307,7 +50320,7 @@
           "companies": [
             "Tesla"
           ],
-          "jobs": 2,
+          "jobs": 3,
           "matched": 0
         },
         "wiser.teamtailor.com": {
@@ -50486,7 +50499,6 @@
         14,
         14,
         14,
-        14,
         15,
         15,
         15,
@@ -50527,6 +50539,7 @@
         13,
         21,
         21,
+        22,
         22,
         22,
         22,
@@ -50751,7 +50764,6 @@
         0,
         0,
         0,
-        0,
         1,
         1,
         1,
@@ -50788,6 +50800,7 @@
         7,
         7,
         7,
+        8,
         8,
         8,
         8,
@@ -51185,7 +51198,6 @@
         6
       ],
       "greenhouse/anthropic": [
-        31,
         28,
         13,
         31,
@@ -51234,7 +51246,8 @@
         32,
         32,
         13,
-        48
+        48,
+        12
       ],
       "greenhouse/asana": [
         0,
@@ -86542,7 +86555,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:c37a86ed-37bf-4b14-9a09-60bdc9c49ffb": {
-      "missing": "2026-11-20T21:14:06+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:c382f1a3-ec7d-488e-8ab5-bd1e53009c52": {
@@ -95449,7 +95462,7 @@
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:c37a86ed-37bf-4b14-9a09-60bdc9c49ffb": {
-      "missing": "2026-11-20T21:14:06+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:c382f1a3-ec7d-488e-8ab5-bd1e53009c52": {
@@ -133086,6 +133099,9 @@
     "github:SimplifyJobs/New-Grad-Positions:8a876071-7bef-4ba2-b9d2-84d0cf93584f": {
       "seen_at": "2026-09-23T01:53:35+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:8a87ec30-d332-4788-beaf-d8fe3b0ef037": {
+      "seen_at": "2026-11-21T03:14:55+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:8a8a0bd5-0c38-41ce-babb-3bb752f91175": {
       "seen_at": "2026-11-07T23:35:02+00:00"
     },
@@ -133653,6 +133669,9 @@
     "github:SimplifyJobs/New-Grad-Positions:91d36c35-e61d-4094-ba3d-26378c3caa5e": {
       "closed": "2026-11-05",
       "seen_at": "2026-10-30T22:36:20+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:91e04d19-b6ad-443f-8742-2cf4fd1eb19c": {
+      "seen_at": "2026-11-21T03:14:55+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:91eed476-d05f-47fa-abad-960e4b45b34d": {
       "seen_at": "2026-10-23T09:36:14+00:00"
@@ -189352,7 +189371,7 @@
       "seen_at": "2026-10-21T23:26:13+00:00"
     },
     "greenhouse:anthropic:5415864008": {
-      "missing": "2026-11-20T21:14:06+00:00",
+      "closed": "2026-11-20",
       "seen_at": "2026-11-08T01:35:33+00:00"
     },
     "greenhouse:anthropic:5415930008": {
@@ -217658,6 +217677,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8132163": {
+      "missing": "2026-11-21T03:14:55+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8132596": {
@@ -417674,7 +417694,7 @@
     "workday/boeing": "2026-11-21T02:39:55+00:00",
     "workday/cibc": "2026-11-21T01:00:33+00:00",
     "workday/cisco": "2026-11-21T02:20:26+00:00",
-    "workday/clio": "2026-11-21T00:40:40+00:00",
+    "workday/clio": "2026-11-21T03:10:31+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-20T08:30:32+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
