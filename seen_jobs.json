@@ -46879,10 +46879,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T16:14:03+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46894,10 +46891,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-21T16:04:22+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47305,7 +47299,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T16:24:12+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47413,16 +47410,16 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T14:34:50+00:00",
-      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T16:24:12+00:00",
+      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -355475,6 +355472,9 @@
     "workday:intel:JR0289091": {
       "seen_at": "2026-11-10T05:46:01+00:00"
     },
+    "workday:intel:JR0289092": {
+      "seen_at": "2026-11-21T16:24:12+00:00"
+    },
     "workday:intel:JR0289093": {
       "seen_at": "2026-11-11T09:15:58+00:00"
     },
@@ -417649,8 +417649,8 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-21T16:10:26+00:00",
     "workday/hpe": "2026-11-21T16:10:26+00:00",
-    "workday/intel": "2026-11-21T14:30:31+00:00",
-    "workday/micron": "2026-11-21T14:40:28+00:00",
+    "workday/intel": "2026-11-21T16:20:29+00:00",
+    "workday/micron": "2026-11-21T16:20:29+00:00",
     "workday/northrop-grumman": "2026-11-21T15:10:29+00:00",
     "workday/nvidia": "2026-11-21T16:00:37+00:00",
     "workday/paypal": "2026-11-21T14:50:29+00:00",
