@@ -46835,16 +46835,16 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T14:14:40+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T14:04:24+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47258,13 +47258,16 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T14:14:40+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "failing_since": "2026-11-20T21:29:08+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47402,7 +47405,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T12:04:03+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50232,6 +50235,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Risepoint"
+        },
+        "workday/rollsroyce": {
+          "boards": {
+            "{\"company\": \"rolls-royce\", \"host\": \"wd3\", \"site\": \"Intern_Graduate\", \"tenant\": \"rollsroyce\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Rolls-Royce"
         },
         "workday/sallie-mae": {
           "boards": {
@@ -153006,6 +153017,7 @@
       "seen_at": "2026-10-15T15:07:33+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5ddbfe13-7f29-4916-9a2f-cc4c3f47069f": {
+      "missing": "2026-11-21T14:14:40+00:00",
       "seen_at": "2026-10-04T14:43:43+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5de3980e-8b11-479f-b78e-cce6b70957b5": {
@@ -163698,7 +163710,7 @@
       "seen_at": "2026-10-16T22:46:12+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:baf68adf-358f-4898-99b5-1bb3a08bd7f6": {
-      "missing": "2026-11-21T08:13:48+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-23T23:07:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:bafe3732-d178-4e2d-bf6c-1ddf689474fe": {
@@ -167887,6 +167899,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:e02b0a85-0fde-4075-baba-1e4e48f6f949": {
       "seen_at": "2026-11-05T08:35:58+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:e02d7030-30ac-407a-9855-1a49d83479e1": {
+      "seen_at": "2026-11-21T14:14:40+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e031f965-19f0-4d28-88d1-410fbff55e45": {
       "seen_at": "2026-11-21T06:04:42+00:00"
@@ -417960,7 +417975,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-21T12:10:31+00:00",
+    "workday/adobe": "2026-11-21T14:10:37+00:00",
     "workday/autodesk": "2026-11-21T13:10:39+00:00",
     "workday/becton-dickinson": "2026-11-21T13:40:25+00:00",
     "workday/boeing": "2026-11-21T13:30:31+00:00",
@@ -417977,7 +417992,7 @@
     "workday/northrop-grumman": "2026-11-21T13:30:31+00:00",
     "workday/nvidia": "2026-11-21T12:20:27+00:00",
     "workday/paypal": "2026-11-21T13:10:39+00:00",
-    "workday/rbc": "2026-11-21T12:00:34+00:00",
+    "workday/rbc": "2026-11-21T14:10:37+00:00",
     "workday/salesforce": "2026-11-21T13:50:28+00:00",
     "workday/siemens-healthineers": "2026-11-21T13:40:25+00:00",
     "workday/snap": "2026-11-21T13:20:24+00:00",
