@@ -46847,7 +46847,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T12:34:14+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47339,7 +47342,10 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T12:34:14+00:00",
+      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47896,7 +47902,7 @@
       }
     },
     "auto_sources_checked": "2026-11-21T03:14:55+00:00",
-    "dashboard_built_at": "2026-11-21T11:23:52+00:00",
+    "dashboard_built_at": "2026-11-21T12:34:14+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -122507,6 +122513,7 @@
       "seen_at": "2026-11-20T22:43:49+00:00"
     },
     "eightfold:qualcomm:446722250691": {
+      "missing": "2026-11-21T12:34:14+00:00",
       "seen_at": "2026-11-21T00:04:22+00:00"
     },
     "eightfold:qualcomm:446722251505": {
@@ -191084,6 +191091,9 @@
     },
     "greenhouse:anthropic:5480893008": {
       "seen_at": "2026-11-20T14:55:54+00:00"
+    },
+    "greenhouse:anthropic:5480986008": {
+      "seen_at": "2026-11-21T12:34:14+00:00"
     },
     "greenhouse:anthropic:5481096008": {
       "seen_at": "2026-11-13T18:06:36+00:00"
@@ -417942,7 +417952,7 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-21T10:10:26+00:00",
+    "workday/hp": "2026-11-21T12:30:30+00:00",
     "workday/hpe": "2026-11-21T10:14:51+00:00",
     "workday/intel": "2026-11-21T10:14:51+00:00",
     "workday/micron": "2026-11-21T10:20:26+00:00",
