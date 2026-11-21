@@ -46902,7 +46902,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T17:45:10+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47343,7 +47346,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "failing_since": "2026-11-20T14:44:20+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -85400,6 +85403,9 @@
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:268e4447-d528-423f-8ffe-9dc9cf2c45c5": {
       "seen_at": "2026-11-09T22:45:40+00:00"
     },
+    "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:26bad664-d6c5-4d15-91c5-903af0209dd4": {
+      "seen_at": "2026-11-21T17:45:11+00:00"
+    },
     "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a:27528fd5-ba23-4fd4-8c46-f7bedfd90b98": {
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
@@ -94477,6 +94483,9 @@
     },
     "ashby:shield:268e4447-d528-423f-8ffe-9dc9cf2c45c5": {
       "seen_at": "2026-11-12T02:26:43+00:00"
+    },
+    "ashby:shield:26bad664-d6c5-4d15-91c5-903af0209dd4": {
+      "seen_at": "2026-11-21T17:45:11+00:00"
     },
     "ashby:shield:27528fd5-ba23-4fd4-8c46-f7bedfd90b98": {
       "seen_at": "2026-11-12T02:26:43+00:00"
@@ -417763,7 +417772,7 @@
     "workday/autodesk": "2026-11-21T16:30:34+00:00",
     "workday/becton-dickinson": "2026-11-21T17:00:38+00:00",
     "workday/boeing": "2026-11-21T16:50:30+00:00",
-    "workday/cibc": "2026-11-21T15:50:25+00:00",
+    "workday/cibc": "2026-11-21T17:41:30+00:00",
     "workday/cisco": "2026-11-21T15:00:46+00:00",
     "workday/clio": "2026-11-21T17:30:32+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
