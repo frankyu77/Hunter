@@ -46902,7 +46902,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T17:45:10+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -47451,7 +47451,10 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T17:54:00+00:00",
+      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -196818,6 +196821,9 @@
     "greenhouse:cloudflare:8406159": {
       "seen_at": "2026-11-20T15:24:46+00:00"
     },
+    "greenhouse:cloudflare:8406944": {
+      "seen_at": "2026-11-21T17:54:00+00:00"
+    },
     "greenhouse:coinbase:6784618": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -201222,6 +201228,7 @@
       "seen_at": "2026-10-23T15:30:02+00:00"
     },
     "greenhouse:databricks:8910850002": {
+      "missing": "2026-11-21T17:54:00+00:00",
       "seen_at": "2026-10-26T17:17:06+00:00"
     },
     "greenhouse:databricks:8910854002": {
@@ -417785,7 +417792,7 @@
     "workday/northrop-grumman": "2026-11-21T16:40:26+00:00",
     "workday/nvidia": "2026-11-21T16:00:37+00:00",
     "workday/paypal": "2026-11-21T16:30:34+00:00",
-    "workday/rbc": "2026-11-21T15:50:25+00:00",
+    "workday/rbc": "2026-11-21T17:50:34+00:00",
     "workday/salesforce": "2026-11-21T17:20:29+00:00",
     "workday/siemens-healthineers": "2026-11-21T17:10:27+00:00",
     "workday/snap": "2026-11-21T15:00:46+00:00",
