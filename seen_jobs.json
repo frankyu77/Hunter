@@ -47255,13 +47255,16 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T10:04:20+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: <!DOCTYPE html> <html> <head> <meta charset=\"utf-8\" /> <meta name=\"robots\" content=\"noindex\" /> <meta",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "failing_since": "2026-11-20T21:29:08+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47295,7 +47298,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "failing_since": "2026-11-20T14:44:20+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47405,9 +47408,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 4,
-      "failing_since": "2026-11-21T03:44:16+00:00",
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48222,6 +48223,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Trainline"
+        },
+        "ashby/trajectory": {
+          "boards": {
+            "{\"company\": \"trajectory\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Trajectory"
         },
         "ashby/trener-robotics": {
           "boards": {
@@ -152439,6 +152448,9 @@
       "closed": "2026-11-09",
       "seen_at": "2026-11-03T14:36:37+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:59dd5c4a-eb80-4559-ab58-af2899bbdad9": {
+      "seen_at": "2026-11-21T10:04:21+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:59e5e5be-d33c-4a69-8687-6d8c9aa4a4e2": {
       "seen_at": "2026-11-07T23:35:02+00:00"
     },
@@ -153784,6 +153796,7 @@
       "seen_at": "2026-11-19T00:58:55+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:656d6b64-799c-410f-896c-1f08a6c5d7ad": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-10-15T22:36:29+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:6575060e-aaff-40ad-933f-71de9e71e926": {
@@ -154134,6 +154147,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:68916cbe-97cc-414d-8732-d68540a99d35": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-11-17T23:37:17+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:689b5e55-539c-4e44-a8f4-195107c27518": {
@@ -154631,6 +154645,7 @@
       "seen_at": "2026-11-18T02:37:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:6d3f5916-cf7c-49e6-a3dc-a48791bec4fd": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-11-12T10:35:38+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:6d4174dd-93f0-4edd-ac11-359515033813": {
@@ -155010,6 +155025,7 @@
       "seen_at": "2026-10-03T09:43:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:709bd342-e690-4956-a11f-563f2679ba6a": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-11-13T23:39:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:709d2a20-5676-43d5-835a-d5ee1b75506d": {
@@ -155778,6 +155794,7 @@
       "seen_at": "2026-10-06T01:43:27+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:77203ce5-b7d4-43d5-a610-f97e1ddee542": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-11-19T10:44:40+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:77211b06-6ffe-4b46-8946-ff7bd084bf71": {
@@ -155835,9 +155852,11 @@
       "seen_at": "2026-11-03T07:35:57+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:7773a702-7d45-44c7-b86b-0b8ad53a257b": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-11-16T16:06:44+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:77831821-1f7c-4c6e-86e0-f33a98bcad8d": {
+      "missing": "2026-11-21T10:04:20+00:00",
       "seen_at": "2026-11-06T23:39:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:7787c1ea-7ca3-47f9-913d-8d035d331bd9": {
@@ -418051,11 +418070,11 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-21T08:40:27+00:00",
+    "workday/adobe": "2026-11-21T10:00:43+00:00",
     "workday/autodesk": "2026-11-21T09:10:24+00:00",
     "workday/becton-dickinson": "2026-11-21T09:30:39+00:00",
     "workday/boeing": "2026-11-21T09:30:39+00:00",
-    "workday/cibc": "2026-11-21T08:30:33+00:00",
+    "workday/cibc": "2026-11-21T10:00:43+00:00",
     "workday/cisco": "2026-11-21T09:10:24+00:00",
     "workday/clio": "2026-11-21T09:50:32+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -418068,7 +418087,7 @@
     "workday/northrop-grumman": "2026-11-21T09:30:39+00:00",
     "workday/nvidia": "2026-11-21T08:40:27+00:00",
     "workday/paypal": "2026-11-21T09:20:25+00:00",
-    "workday/rbc": "2026-11-21T08:40:27+00:00",
+    "workday/rbc": "2026-11-21T10:00:43+00:00",
     "workday/salesforce": "2026-11-21T09:40:24+00:00",
     "workday/siemens-healthineers": "2026-11-21T09:40:24+00:00",
     "workday/snap": "2026-11-21T09:20:25+00:00",
