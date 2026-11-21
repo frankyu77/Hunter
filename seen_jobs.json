@@ -46841,16 +46841,16 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T11:23:52+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T11:34:28+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47258,7 +47258,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T11:34:28+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47312,7 +47315,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-21T08:24:12+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -48218,6 +48221,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Spacial AI"
+        },
+        "ashby/starbridge": {
+          "boards": {
+            "{\"company\": \"starbridge\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Starbridge"
         },
         "ashby/stradahq": {
           "boards": {
@@ -52396,7 +52407,6 @@
         23
       ],
       "greenhouse/okta": [
-        25,
         31,
         40,
         3,
@@ -52445,7 +52455,8 @@
         43,
         24,
         43,
-        1
+        1,
+        0
       ],
       "greenhouse/pinterest": [
         12,
@@ -140658,6 +140669,7 @@
       "seen_at": "2026-11-19T17:27:34+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e594916c-1936-470f-8780-c44e4a1da22f": {
+      "missing": "2026-11-21T11:34:28+00:00",
       "seen_at": "2026-11-14T00:09:25+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e59ade59-bf8e-45f5-8cae-5486b3446f93": {
@@ -142261,6 +142273,9 @@
     "github:SimplifyJobs/New-Grad-Positions:fbc49cc1-5ab6-44a4-9f07-d64cab4ee8ac": {
       "closed": "2026-11-18",
       "seen_at": "2026-09-29T09:33:47+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:fbcc1432-da10-41dc-8e7a-16058604cc38": {
+      "seen_at": "2026-11-21T11:34:28+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:fbe9c9e5-f77f-44e2-9063-5c22daa33df6": {
       "closed": "2026-10-31",
@@ -219276,7 +219291,7 @@
       "seen_at": "2026-11-10T16:09:44+00:00"
     },
     "greenhouse:okta:8334856": {
-      "missing": "2026-11-21T05:34:04+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-20T17:15:33+00:00"
     },
     "greenhouse:okta:8335184": {
@@ -417914,7 +417929,7 @@
     "workday/boeing": "2026-11-21T10:50:31+00:00",
     "workday/cibc": "2026-11-21T10:00:43+00:00",
     "workday/cisco": "2026-11-21T10:30:32+00:00",
-    "workday/clio": "2026-11-21T09:50:32+00:00",
+    "workday/clio": "2026-11-21T11:30:32+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
