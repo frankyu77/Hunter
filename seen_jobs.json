@@ -46835,10 +46835,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-21T11:53:18+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46850,10 +46847,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T12:04:03+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47261,13 +47255,16 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T12:14:50+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 8,
+      "consecutive_failures": 9,
       "failing_since": "2026-11-20T21:29:08+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53095,7 +53092,6 @@
         0
       ],
       "jibe/docusign": [
-        40,
         0,
         3,
         11,
@@ -53144,7 +53140,8 @@
         43,
         1,
         43,
-        43
+        43,
+        31
       ],
       "lever/cirrus": [
         0,
@@ -110650,6 +110647,9 @@
     "eightfold:microsoft:1970393557044553": {
       "seen_at": "2026-11-04T21:06:48+00:00"
     },
+    "eightfold:microsoft:1970393557044557": {
+      "seen_at": "2026-11-21T12:14:50+00:00"
+    },
     "eightfold:microsoft:1970393557044558": {
       "seen_at": "2026-11-04T23:38:03+00:00"
     },
@@ -127120,7 +127120,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3b23d87f-05be-4c67-93cf-cb0b4d96bb86": {
-      "missing": "2026-11-21T06:14:13+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-14T14:36:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3b38426e-3cc3-4a96-9277-6756b25e6d6f": {
@@ -145447,7 +145447,7 @@
       "seen_at": "2026-10-15T23:06:28+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1a2e7785-ecd0-432f-a592-087e510f7845": {
-      "missing": "2026-11-21T06:14:13+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1a44500b-c841-4121-ad65-9ed0746573db": {
@@ -148631,7 +148631,7 @@
       "seen_at": "2026-10-14T23:06:28+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:36697ae4-2c1a-4649-82f5-c13159e97aad": {
-      "missing": "2026-11-21T06:14:13+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-20T15:35:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:366e660d-5c35-4cbb-96f2-522106ea4a77": {
@@ -240294,7 +240294,7 @@
       "seen_at": "2026-10-19T15:54:44+00:00"
     },
     "jibe:careers.docusign.com:30567": {
-      "missing": "2026-11-21T06:04:42+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-20T13:16:00+00:00"
     },
     "jibe:careers.docusign.com:30568": {
@@ -417932,7 +417932,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-21T10:00:43+00:00",
+    "workday/adobe": "2026-11-21T12:10:31+00:00",
     "workday/autodesk": "2026-11-21T10:30:32+00:00",
     "workday/becton-dickinson": "2026-11-21T11:00:51+00:00",
     "workday/boeing": "2026-11-21T10:50:31+00:00",
