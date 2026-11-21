@@ -46835,7 +46835,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T11:53:18+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -46850,7 +46850,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T12:04:03+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47399,7 +47402,10 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T12:04:03+00:00",
+      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50269,6 +50275,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "State Street"
+        },
+        "workday/stvinc": {
+          "boards": {
+            "{\"company\": \"stv\", \"host\": \"wd5\", \"site\": \"stv\", \"tenant\": \"stvinc\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "STV"
         },
         "workday/symbotic": {
           "boards": {
@@ -129825,6 +129839,7 @@
       "seen_at": "2026-10-16T14:36:24+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:5dd20db4-2a48-4210-930a-e6630cac52bc": {
+      "missing": "2026-11-21T12:04:03+00:00",
       "seen_at": "2026-10-22T23:07:46+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:5ddb911a-674b-4f51-90af-01a951c5e2e6": {
@@ -135953,6 +135968,9 @@
     "github:SimplifyJobs/New-Grad-Positions:a9a2e369-3bce-45ed-ac8b-e9ea8ed3da85": {
       "closed": "2026-11-02",
       "seen_at": "2026-10-14T00:37:37+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:a9aa286f-c542-45dc-9d63-93177017ce83": {
+      "seen_at": "2026-11-21T12:04:03+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:a9b104a9-5413-4a07-ad76-86a62f6d7177": {
       "seen_at": "2026-10-20T14:36:40+00:00"
@@ -156680,6 +156698,7 @@
       "seen_at": "2026-10-06T06:43:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:7e873b50-f8c3-4967-9769-eccdbbd62a8f": {
+      "missing": "2026-11-21T12:04:03+00:00",
       "seen_at": "2026-11-05T23:36:31+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:7e8834d8-2571-478a-aaeb-8bb9c3fbb656": {
@@ -166734,7 +166753,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6c24595-0dd3-449f-b0ae-d13e256fc740": {
-      "missing": "2026-11-21T08:13:48+00:00",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6cc7924-5545-46c3-8847-89f485a17231": {
@@ -417931,7 +417949,7 @@
     "workday/northrop-grumman": "2026-11-21T10:40:26+00:00",
     "workday/nvidia": "2026-11-21T10:10:26+00:00",
     "workday/paypal": "2026-11-21T09:20:25+00:00",
-    "workday/rbc": "2026-11-21T10:00:43+00:00",
+    "workday/rbc": "2026-11-21T12:00:34+00:00",
     "workday/salesforce": "2026-11-21T11:20:29+00:00",
     "workday/siemens-healthineers": "2026-11-21T11:10:37+00:00",
     "workday/snap": "2026-11-21T10:30:32+00:00",
