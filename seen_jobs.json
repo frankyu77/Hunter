@@ -46890,7 +46890,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T23:13:58+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46902,10 +46905,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T23:04:02+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47328,10 +47328,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T21:43:22+00:00",
-      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47445,7 +47442,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T21:43:22+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47493,7 +47490,7 @@
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-20T23:43:40+00:00",
       "last_error": "HTTP 429 from workday.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -117805,7 +117802,6 @@
       "seen_at": "2026-10-16T01:46:30+00:00"
     },
     "eightfold:netflix:790318993870": {
-      "missing": "2026-11-21T22:53:43+00:00",
       "seen_at": "2026-10-16T14:16:10+00:00"
     },
     "eightfold:netflix:790318993874": {
@@ -416326,7 +416322,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-21T22:30:37+00:00",
-    "workday/autodesk": "2026-11-21T21:40:26+00:00",
+    "workday/autodesk": "2026-11-21T23:10:32+00:00",
     "workday/becton-dickinson": "2026-11-21T22:10:24+00:00",
     "workday/boeing": "2026-11-21T22:00:32+00:00",
     "workday/cibc": "2026-11-21T22:24:32+00:00",
@@ -416341,13 +416337,13 @@
     "workday/micron": "2026-11-21T23:00:35+00:00",
     "workday/northrop-grumman": "2026-11-21T22:00:32+00:00",
     "workday/nvidia": "2026-11-21T22:40:24+00:00",
-    "workday/paypal": "2026-11-21T21:40:26+00:00",
+    "workday/paypal": "2026-11-21T23:10:32+00:00",
     "workday/rbc": "2026-11-21T22:30:37+00:00",
     "workday/salesforce": "2026-11-21T22:20:26+00:00",
     "workday/siemens-healthineers": "2026-11-21T22:10:24+00:00",
     "workday/snap": "2026-11-21T21:50:28+00:00",
     "workday/td": "2026-11-21T22:24:32+00:00",
-    "workday/workday": "2026-11-21T16:30:34+00:00",
+    "workday/workday": "2026-11-21T23:10:32+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-21T04:50:27+00:00"
   }
