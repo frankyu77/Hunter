@@ -46836,7 +46836,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T09:04:23+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47352,7 +47355,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T07:33:58+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47361,7 +47364,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T07:33:58+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -292581,6 +292584,9 @@
     "smartrecruiters:ServiceNow:744000162891903": {
       "seen_at": "2026-11-21T02:24:04+00:00"
     },
+    "smartrecruiters:ServiceNow:744000162954819": {
+      "seen_at": "2026-11-21T09:04:23+00:00"
+    },
     "successfactors:jobs.l3harris.com:1271469100": {
       "seen_at": "2026-11-10T23:36:34+00:00"
     },
@@ -418015,8 +418021,8 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-21T08:50:35+00:00",
     "workday/hpe": "2026-11-21T08:50:35+00:00",
-    "workday/intel": "2026-11-21T07:30:32+00:00",
-    "workday/micron": "2026-11-21T07:30:32+00:00",
+    "workday/intel": "2026-11-21T09:00:34+00:00",
+    "workday/micron": "2026-11-21T09:00:34+00:00",
     "workday/northrop-grumman": "2026-11-21T08:00:34+00:00",
     "workday/nvidia": "2026-11-21T08:40:27+00:00",
     "workday/paypal": "2026-11-21T07:50:23+00:00",
