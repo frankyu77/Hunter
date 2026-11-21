@@ -47255,7 +47255,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T11:03:54+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47276,9 +47279,7 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-21T08:13:48+00:00",
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -117461,7 +117462,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318794183": {
-      "missing": "2026-11-21T10:53:34+00:00",
       "seen_at": "2026-11-18T02:56:06+00:00"
     },
     "eightfold:netflix:790318798789": {
@@ -117958,11 +117958,9 @@
       "seen_at": "2026-11-10T00:15:54+00:00"
     },
     "eightfold:netflix:790319418775": {
-      "missing": "2026-11-21T10:53:34+00:00",
       "seen_at": "2026-11-09T18:46:24+00:00"
     },
     "eightfold:netflix:790319418868": {
-      "missing": "2026-11-21T10:53:34+00:00",
       "seen_at": "2026-11-09T18:56:08+00:00"
     },
     "eightfold:netflix:790319420361": {
@@ -417902,7 +417900,7 @@
   "polling": {
     "workday/adobe": "2026-11-21T10:00:43+00:00",
     "workday/autodesk": "2026-11-21T10:30:32+00:00",
-    "workday/becton-dickinson": "2026-11-21T09:30:39+00:00",
+    "workday/becton-dickinson": "2026-11-21T11:00:51+00:00",
     "workday/boeing": "2026-11-21T10:50:31+00:00",
     "workday/cibc": "2026-11-21T10:00:43+00:00",
     "workday/cisco": "2026-11-21T10:30:32+00:00",
