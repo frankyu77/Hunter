@@ -46847,7 +46847,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T14:34:50+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47255,10 +47258,7 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-21T14:14:40+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47357,13 +47357,19 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T14:34:50+00:00",
+      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T14:34:50+00:00",
+      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47899,7 +47905,7 @@
       }
     },
     "auto_sources_checked": "2026-11-21T03:14:55+00:00",
-    "dashboard_built_at": "2026-11-21T13:34:22+00:00",
+    "dashboard_built_at": "2026-11-21T14:34:51+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -53402,7 +53408,6 @@
       "oracle/oracle": [
         0,
         0,
-        0,
         2,
         2,
         1,
@@ -53447,6 +53452,7 @@
         1,
         1,
         1,
+        0,
         0,
         0,
         0
@@ -264672,7 +264678,7 @@
       "seen_at": "2026-11-20T23:34:22+00:00"
     },
     "oracle:oracle:350944": {
-      "missing": "2026-11-21T08:24:12+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-21T02:34:18+00:00"
     },
     "oracle:oracle:350948": {
@@ -417983,8 +417989,8 @@
     "workday/ebay": "2026-11-21T06:20:26+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-21T14:20:35+00:00",
-    "workday/hpe": "2026-11-21T12:40:26+00:00",
-    "workday/intel": "2026-11-21T12:50:37+00:00",
+    "workday/hpe": "2026-11-21T14:30:31+00:00",
+    "workday/intel": "2026-11-21T14:30:31+00:00",
     "workday/micron": "2026-11-21T13:00:45+00:00",
     "workday/northrop-grumman": "2026-11-21T13:30:31+00:00",
     "workday/nvidia": "2026-11-21T14:20:35+00:00",
