@@ -46835,7 +46835,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T13:24:03+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47255,10 +47258,7 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T13:13:47+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47306,7 +47306,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-21T07:43:44+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47426,7 +47426,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-21T07:54:09+00:00",
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -51781,7 +51781,6 @@
         20
       ],
       "greenhouse/coinbase": [
-        12,
         9,
         7,
         7,
@@ -51830,7 +51829,8 @@
         5,
         36,
         16,
-        37
+        37,
+        32
       ],
       "greenhouse/databricks": [
         14,
@@ -53454,7 +53454,8 @@
         0,
         0,
         0,
-        0
+        0,
+        1
       ],
       "oracle/texas-instruments": [
         16,
@@ -117529,7 +117530,6 @@
       "seen_at": "2026-10-08T22:06:28+00:00"
     },
     "eightfold:netflix:790318861141": {
-      "missing": "2026-11-21T13:13:47+00:00",
       "seen_at": "2026-10-08T23:26:43+00:00"
     },
     "eightfold:netflix:790318865052": {
@@ -117824,11 +117824,9 @@
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216290": {
-      "missing": "2026-11-21T13:13:47+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216322": {
-      "missing": "2026-11-21T13:13:47+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216323": {
@@ -117853,7 +117851,6 @@
       "seen_at": "2026-11-19T18:13:37+00:00"
     },
     "eightfold:netflix:790319242363": {
-      "missing": "2026-11-21T13:13:47+00:00",
       "seen_at": "2026-10-29T18:07:53+00:00"
     },
     "eightfold:netflix:790319246162": {
@@ -122496,7 +122493,6 @@
       "seen_at": "2026-11-21T01:34:12+00:00"
     },
     "eightfold:qualcomm:446722250045": {
-      "missing": "2026-11-21T13:04:54+00:00",
       "seen_at": "2026-11-21T01:24:19+00:00"
     },
     "eightfold:qualcomm:446722250158": {
@@ -132867,7 +132863,7 @@
       "seen_at": "2026-10-03T22:41:25+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:836c9597-251e-4f23-9233-6c0632f40401": {
-      "missing": "2026-11-21T07:14:18+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-14T23:06:28+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8373f031-9eb9-45a6-9012-e95eca490eff": {
@@ -133963,7 +133959,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:913c7106-5fff-4cfb-baa8-e22f46406cf1": {
-      "missing": "2026-11-21T07:14:18+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-28T01:36:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:913f0929-685a-45d5-9d4e-c0c89eba651e": {
@@ -135033,7 +135029,7 @@
       "seen_at": "2026-10-04T14:13:03+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9d24638b-f231-499f-8fe9-a3fab5242bd1": {
-      "missing": "2026-11-21T07:14:18+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-23T17:07:31+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:9d4bdf3b-b23d-4858-80f0-a8d8279cdc65": {
@@ -197406,7 +197402,7 @@
       "seen_at": "2026-10-19T17:46:48+00:00"
     },
     "greenhouse:coinbase:8302189": {
-      "missing": "2026-11-21T07:23:20+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-19T22:25:54+00:00"
     },
     "greenhouse:coinbase:8304034": {
@@ -265188,7 +265184,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:11095": {
-      "missing": "2026-11-21T07:14:18+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:11096": {
@@ -417952,7 +417948,7 @@
     "workday/becton-dickinson": "2026-11-21T11:00:51+00:00",
     "workday/boeing": "2026-11-21T10:50:31+00:00",
     "workday/cibc": "2026-11-21T11:50:23+00:00",
-    "workday/cisco": "2026-11-21T10:30:32+00:00",
+    "workday/cisco": "2026-11-21T13:20:24+00:00",
     "workday/clio": "2026-11-21T11:30:32+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
@@ -417967,7 +417963,7 @@
     "workday/rbc": "2026-11-21T12:00:34+00:00",
     "workday/salesforce": "2026-11-21T11:20:29+00:00",
     "workday/siemens-healthineers": "2026-11-21T11:10:37+00:00",
-    "workday/snap": "2026-11-21T10:30:32+00:00",
+    "workday/snap": "2026-11-21T13:20:24+00:00",
     "workday/td": "2026-11-21T11:40:29+00:00",
     "workday/workday": "2026-11-21T09:20:25+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
