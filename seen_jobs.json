@@ -46813,10 +46813,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T07:54:09+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47266,7 +47263,7 @@
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T06:34:21+00:00",
       "last_error": "HTTP 429 from boeing.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47354,7 +47351,7 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "failing_since": "2026-11-20T14:14:28+00:00",
       "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49748,6 +49745,14 @@
           "matched": 0,
           "name": "The Campbell's Company"
         },
+        "workday/cdpq": {
+          "boards": {
+            "{\"company\": \"cdpq\", \"host\": \"wd10\", \"site\": \"CDPQ\", \"tenant\": \"cdpq\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "CDPQ"
+        },
         "workday/centene": {
           "boards": {
             "{\"company\": \"centene\", \"host\": \"wd5\", \"site\": \"Centene_External\", \"tenant\": \"centene\", \"type\": \"workday\"}": 1
@@ -50815,7 +50820,8 @@
         39,
         41,
         41,
-        42
+        42,
+        43
       ],
       "ashby/quadric": [
         6,
@@ -92247,7 +92253,7 @@
       "seen_at": "2026-11-12T17:46:24+00:00"
     },
     "ashby:plaid:ceaee97f-480e-439d-8a95-b4f13aacc31a": {
-      "missing": "2026-11-21T01:54:19+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "ashby:plaid:cf3f2740-a2ef-4512-8607-2895930680a3": {
@@ -117687,7 +117693,6 @@
       "seen_at": "2026-10-29T14:46:43+00:00"
     },
     "eightfold:netflix:790319238812": {
-      "missing": "2026-11-21T07:54:10+00:00",
       "seen_at": "2026-11-18T21:46:12+00:00"
     },
     "eightfold:netflix:790319239100": {
@@ -117743,7 +117748,6 @@
       "seen_at": "2026-11-11T18:17:05+00:00"
     },
     "eightfold:netflix:790319263071": {
-      "missing": "2026-11-21T07:54:10+00:00",
       "seen_at": "2026-11-03T17:46:46+00:00"
     },
     "eightfold:netflix:790319289797": {
@@ -126508,6 +126512,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:34f52f69-5cba-4c0a-ba8f-8510ff445acf": {
       "seen_at": "2026-10-04T07:23:00+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:3519502a-3aa8-4fdd-988c-8ccbaa4706d6": {
+      "seen_at": "2026-11-21T08:03:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3519a01f-2bdc-4fee-98c3-aa28986f2416": {
       "seen_at": "2026-10-16T22:46:12+00:00"
@@ -139251,6 +139258,7 @@
       "seen_at": "2026-10-07T02:44:15+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d6e19b01-22aa-46ab-a8b0-95bb1092f446": {
+      "missing": "2026-11-21T08:03:54+00:00",
       "seen_at": "2026-11-17T00:07:15+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d6fba63f-666d-43ad-a21e-c033f66d701f": {
@@ -417921,7 +417929,7 @@
     "workday/adobe": "2026-11-21T07:10:27+00:00",
     "workday/autodesk": "2026-11-21T07:40:29+00:00",
     "workday/becton-dickinson": "2026-11-21T06:40:36+00:00",
-    "workday/boeing": "2026-11-21T06:30:31+00:00",
+    "workday/boeing": "2026-11-21T08:00:34+00:00",
     "workday/cibc": "2026-11-21T07:00:39+00:00",
     "workday/cisco": "2026-11-21T07:40:29+00:00",
     "workday/clio": "2026-11-21T06:50:24+00:00",
@@ -417932,7 +417940,7 @@
     "workday/hpe": "2026-11-21T07:20:27+00:00",
     "workday/intel": "2026-11-21T07:30:32+00:00",
     "workday/micron": "2026-11-21T07:30:32+00:00",
-    "workday/northrop-grumman": "2026-11-21T06:30:31+00:00",
+    "workday/northrop-grumman": "2026-11-21T08:00:34+00:00",
     "workday/nvidia": "2026-11-21T07:20:27+00:00",
     "workday/paypal": "2026-11-21T07:50:23+00:00",
     "workday/rbc": "2026-11-21T07:10:27+00:00",
