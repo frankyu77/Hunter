@@ -46890,10 +46890,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T18:53:46+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46905,7 +46902,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T19:04:12+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47355,7 +47355,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-21T07:43:44+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47945,7 +47945,7 @@
       }
     },
     "auto_sources_checked": "2026-11-21T03:14:55+00:00",
-    "dashboard_built_at": "2026-11-21T18:04:02+00:00",
+    "dashboard_built_at": "2026-11-21T19:04:13+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -48683,6 +48683,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Study.com"
+        },
+        "greenhouse/@udig.com": {
+          "boards": {
+            "{\"gh_jid\": \"7999436003\", \"type\": \"greenhouse\", \"via\": \"udig.com\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Udig"
         },
         "greenhouse/@www.asm.com": {
           "boards": {
@@ -50250,9 +50258,9 @@
         },
         "workday/mbda": {
           "boards": {
-            "{\"company\": \"mbda\", \"host\": \"wd3\", \"site\": \"MBDA-UK\", \"tenant\": \"mbda\", \"type\": \"workday\"}": 1
+            "{\"company\": \"mbda\", \"host\": \"wd3\", \"site\": \"MBDA-UK\", \"tenant\": \"mbda\", \"type\": \"workday\"}": 2
           },
-          "jobs": 1,
+          "jobs": 2,
           "matched": 0,
           "name": "MBDA"
         },
@@ -50673,7 +50681,7 @@
             "Amentum",
             "Vibrantz Technologies"
           ],
-          "jobs": 237,
+          "jobs": 241,
           "matched": 196
         },
         "google.com": {
@@ -91095,6 +91103,9 @@
       "closed": "2026-11-05",
       "seen_at": "2026-11-02T22:17:38+00:00"
     },
+    "ashby:openai:bc059a72-8ff3-4a80-a499-5b82ccca1f05": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "ashby:openai:bc0d4a9f-235f-4a4b-a854-c6cb0322ccaa": {
       "closed": "2026-11-02",
       "seen_at": "2026-10-25T20:55:16+00:00"
@@ -97547,6 +97558,9 @@
     "ashby:snowflake:3d6cd7d6-67a5-4e17-b6ae-58abdf8ba0df": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
+    "ashby:snowflake:3d9f787e-d37f-44e6-8a0b-e7350ad7e323": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "ashby:snowflake:3df779c8-48f9-4fa0-90e5-b95db80a560d": {
       "closed": "2026-11-04",
       "seen_at": "2026-10-19T02:06:51+00:00"
@@ -97801,6 +97815,9 @@
     },
     "ashby:snowflake:5a4332ce-2131-4d7b-b251-956d382fd3da": {
       "seen_at": "2026-11-03T14:26:12+00:00"
+    },
+    "ashby:snowflake:5a4a6ea7-fcfb-4639-83ce-90266cad1548": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "ashby:snowflake:5be9023b-1277-4f22-8483-d9aedac2371f": {
       "closed": "2026-10-23",
@@ -99026,6 +99043,9 @@
     },
     "ashby:snowflake:ff8fe152-e6c9-46d1-bdc7-ea414ea9d436": {
       "seen_at": "2026-09-25T10:32:55+00:00"
+    },
+    "ashby:snowflake:ffa41b67-69ab-4086-b025-60dcb8bce489": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "ashby:snowflake:ffd8c928-c5d1-4fae-8f82-452c4a29ab0c": {
       "seen_at": "2026-11-15T20:06:03+00:00"
@@ -149210,6 +149230,9 @@
       "closed": "2026-11-11",
       "seen_at": "2026-10-20T07:25:50+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:3a86764d-e47b-4475-98c1-ec31081f9a2f": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:3a88588d-781e-4310-871c-3d14276eb6dd": {
       "seen_at": "2026-11-16T00:55:46+00:00"
     },
@@ -171619,6 +171642,9 @@
     "github:SimplifyJobs/Summer2026-Internships:fe93fbfa-cba0-4f3c-8f20-9cbc4828ef01": {
       "seen_at": "2026-10-04T10:03:36+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:fe96599b-ae9d-442a-bdf8-12a9be06b62c": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:fe98fa31-597a-4003-89f0-89fa37a7c563": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
@@ -172770,6 +172796,9 @@
     "github:vanshb03/Summer2027-Internships:13847b27-1ffa-4cf1-8c88-3d8d1c11312e": {
       "seen_at": "2026-11-11T11:25:42+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:1388d27b-abcf-4c16-8467-f5f2b7b8b950": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:13a1c1d4-a185-4695-b66a-b6ab89325a60": {
       "seen_at": "2026-11-01T10:05:33+00:00"
     },
@@ -173050,6 +173079,9 @@
     },
     "github:vanshb03/Summer2027-Internships:19487997-177b-46fb-97d7-b633c3c6a0a5": {
       "seen_at": "2026-10-29T23:16:26+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:194a9d5d-1360-4253-bf77-8c6d58801e48": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "github:vanshb03/Summer2027-Internships:194ad525-c8f1-45df-8af5-2e1d98ccf67f": {
       "closed": "2026-11-18",
@@ -174985,6 +175017,9 @@
     },
     "github:vanshb03/Summer2027-Internships:3d390d79-d9e3-4ff2-ba22-2f2484e7744d": {
       "seen_at": "2026-11-12T20:07:24+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:3d65b136-900e-4661-973c-5b85171bc069": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3d8f1170-1f6c-4cd0-84ed-af7caba82377": {
       "seen_at": "2026-11-03T03:15:44+00:00"
@@ -183462,6 +183497,9 @@
     "github:vanshb03/Summer2027-Internships:e56cafc3-4333-4d3a-9e45-3705e4e7d6ed": {
       "seen_at": "2026-10-30T16:17:19+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:e57189fc-b978-4fdc-a220-0fbcda433718": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:e58c30ca-2da0-46be-87ac-12390f19fb10": {
       "closed": "2026-11-20",
       "seen_at": "2026-11-13T20:48:01+00:00"
@@ -190031,6 +190069,9 @@
     "greenhouse:anthropic:5428030008": {
       "seen_at": "2026-11-17T12:00:06+00:00"
     },
+    "greenhouse:anthropic:5428124008": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:anthropic:5428790008": {
       "seen_at": "2026-09-22T23:51:37+00:00"
     },
@@ -192597,6 +192638,9 @@
     "greenhouse:block:5427669008": {
       "seen_at": "2026-09-25T19:26:27+00:00"
     },
+    "greenhouse:block:5427741008": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:block:5427789008": {
       "closed": "2026-11-10",
       "seen_at": "2026-10-01T21:04:37+00:00"
@@ -193084,6 +193128,9 @@
     "greenhouse:brex:8307850002": {
       "closed": "2026-11-16",
       "seen_at": "2026-11-10T16:27:31+00:00"
+    },
+    "greenhouse:brex:8308368002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:brex:8326211002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -193641,6 +193688,9 @@
     },
     "greenhouse:brex:8829325002": {
       "seen_at": "2026-09-28T23:03:46+00:00"
+    },
+    "greenhouse:brex:8831517002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:brex:8831612002": {
       "seen_at": "2026-09-24T15:58:38+00:00"
@@ -194294,6 +194344,9 @@
     },
     "greenhouse:chime:8817972002": {
       "seen_at": "2026-09-25T19:26:27+00:00"
+    },
+    "greenhouse:chime:8831472002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:chime:8838389002": {
       "seen_at": "2026-09-23T20:22:17+00:00"
@@ -195634,6 +195687,9 @@
     "greenhouse:cloudflare:8212088": {
       "seen_at": "2026-11-21T15:24:17+00:00"
     },
+    "greenhouse:cloudflare:8212352": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:cloudflare:8212368": {
       "seen_at": "2026-09-23T17:13:14+00:00"
     },
@@ -195661,6 +195717,9 @@
     "greenhouse:cloudflare:8220770": {
       "closed": "2026-11-16",
       "seen_at": "2026-09-28T07:07:23+00:00"
+    },
+    "greenhouse:cloudflare:8221248": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:cloudflare:8222091": {
       "seen_at": "2026-09-22T23:51:37+00:00"
@@ -200359,8 +200418,14 @@
       "closed": "2026-10-08",
       "seen_at": "2026-10-01T10:33:24+00:00"
     },
+    "greenhouse:databricks:8816437002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:databricks:8816440002": {
       "seen_at": "2026-11-16T19:07:10+00:00"
+    },
+    "greenhouse:databricks:8816442002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:databricks:8817828002": {
       "seen_at": "2026-11-16T22:06:40+00:00"
@@ -202788,6 +202853,9 @@
     },
     "greenhouse:datadog:8223819": {
       "seen_at": "2026-09-22T21:43:40+00:00"
+    },
+    "greenhouse:datadog:8223855": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:datadog:8223858": {
       "seen_at": "2026-09-28T21:43:29+00:00"
@@ -206485,6 +206553,9 @@
     "greenhouse:duolingo:8784381002": {
       "seen_at": "2026-11-03T19:37:29+00:00"
     },
+    "greenhouse:duolingo:8810661002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:duolingo:8827944002": {
       "seen_at": "2026-11-20T22:43:49+00:00"
     },
@@ -209184,6 +209255,9 @@
     "greenhouse:figma:6122269004": {
       "seen_at": "2026-11-19T22:04:59+00:00"
     },
+    "greenhouse:figma:6124232004": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:figma:6126728004": {
       "seen_at": "2026-09-25T00:55:39+00:00"
     },
@@ -210986,6 +211060,9 @@
     "greenhouse:hootsuite:8079980": {
       "seen_at": "2026-09-25T15:29:39+00:00"
     },
+    "greenhouse:hootsuite:8221711": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:hootsuite:8227551": {
       "seen_at": "2026-09-23T23:03:40+00:00"
     },
@@ -212219,6 +212296,9 @@
     },
     "greenhouse:janestreet:8646746002": {
       "seen_at": "2026-10-31T07:13:42+00:00"
+    },
+    "greenhouse:janestreet:8646893002": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:janestreet:8647260002": {
       "seen_at": "2026-10-06T16:44:12+00:00"
@@ -219670,6 +219750,9 @@
     "greenhouse:pinterest:7683734": {
       "seen_at": "2026-11-10T06:35:53+00:00"
     },
+    "greenhouse:pinterest:7683977": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:pinterest:7683981": {
       "seen_at": "2026-11-01T18:55:15+00:00"
     },
@@ -222364,6 +222447,9 @@
     "greenhouse:robinhood:8179979": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "greenhouse:robinhood:8180757": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:robinhood:8186166": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -223518,6 +223604,9 @@
       "closed": "2026-11-11",
       "seen_at": "2026-11-08T21:25:18+00:00"
     },
+    "greenhouse:roblox:8187491": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:roblox:8192327": {
       "closed": "2026-11-16",
       "seen_at": "2026-11-09T20:16:51+00:00"
@@ -223561,6 +223650,9 @@
     },
     "greenhouse:roblox:8209048": {
       "seen_at": "2026-10-19T20:45:47+00:00"
+    },
+    "greenhouse:roblox:8211271": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:roblox:8211305": {
       "seen_at": "2026-09-28T16:04:30+00:00"
@@ -227244,6 +227336,9 @@
       "closed": "2026-11-18",
       "seen_at": "2026-11-14T18:55:48+00:00"
     },
+    "greenhouse:stripe:8049722": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:stripe:8049828": {
       "seen_at": "2026-11-06T21:06:28+00:00"
     },
@@ -227381,6 +227476,9 @@
     },
     "greenhouse:stripe:8081754": {
       "seen_at": "2026-09-25T22:35:58+00:00"
+    },
+    "greenhouse:stripe:8082149": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:stripe:8083464": {
       "seen_at": "2026-09-23T17:13:14+00:00"
@@ -228492,6 +228590,9 @@
     "greenhouse:stripe:8211180": {
       "seen_at": "2026-11-16T19:07:10+00:00"
     },
+    "greenhouse:stripe:8212314": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
+    },
     "greenhouse:stripe:8212319": {
       "seen_at": "2026-10-27T09:45:52+00:00"
     },
@@ -228567,6 +228668,9 @@
     },
     "greenhouse:stripe:8223712": {
       "seen_at": "2026-09-29T14:14:28+00:00"
+    },
+    "greenhouse:stripe:8223719": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:stripe:8223723": {
       "seen_at": "2026-09-23T01:53:35+00:00"
@@ -231813,6 +231917,9 @@
     },
     "greenhouse:vercel:6200325004": {
       "seen_at": "2026-11-17T15:27:25+00:00"
+    },
+    "greenhouse:vercel:6201179004": {
+      "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:vercel:6201403004": {
       "seen_at": "2026-11-21T06:04:42+00:00"
@@ -416818,11 +416925,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-21T18:00:34+00:00",
-    "workday/autodesk": "2026-11-21T16:30:34+00:00",
+    "workday/autodesk": "2026-11-21T19:00:36+00:00",
     "workday/becton-dickinson": "2026-11-21T17:00:38+00:00",
     "workday/boeing": "2026-11-21T16:50:30+00:00",
     "workday/cibc": "2026-11-21T17:41:30+00:00",
-    "workday/cisco": "2026-11-21T15:00:46+00:00",
+    "workday/cisco": "2026-11-21T19:00:36+00:00",
     "workday/clio": "2026-11-21T17:30:32+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
@@ -416837,7 +416944,7 @@
     "workday/rbc": "2026-11-21T17:50:34+00:00",
     "workday/salesforce": "2026-11-21T17:20:29+00:00",
     "workday/siemens-healthineers": "2026-11-21T17:10:27+00:00",
-    "workday/snap": "2026-11-21T15:00:46+00:00",
+    "workday/snap": "2026-11-21T19:00:36+00:00",
     "workday/td": "2026-11-21T17:37:52+00:00",
     "workday/workday": "2026-11-21T16:30:34+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
