@@ -46885,16 +46885,16 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T16:35:02+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T16:44:10+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47422,7 +47422,7 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T15:13:52+00:00",
       "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50190,6 +50190,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Ivy Tech Community College"
+        },
+        "workday/jcrew": {
+          "boards": {
+            "{\"company\": \"j-crew\", \"host\": \"wd1\", \"site\": \"FriendsFamilyCareers\", \"tenant\": \"jcrew\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "J.Crew"
         },
         "workday/littelfuse": {
           "boards": {
@@ -124220,6 +124228,9 @@
     "github:SimplifyJobs/New-Grad-Positions:139a38b3-8fbd-4c7e-933a-03513e7dd3c8": {
       "seen_at": "2026-11-13T23:39:16+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:13a0515c-5e6f-4021-bed0-229b0e023185": {
+      "seen_at": "2026-11-21T16:44:11+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:13b5ab5d-af13-492a-91d4-03bf7316898e": {
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
@@ -128375,7 +128386,7 @@
       "seen_at": "2026-11-11T02:46:01+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:4957c257-64c5-4224-bb33-b22955a73c55": {
-      "missing": "2026-11-21T10:42:36+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-09T23:36:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:495929ef-4f6f-4cdb-9c26-6156e4966b6b": {
@@ -133369,7 +133380,7 @@
       "seen_at": "2026-10-05T04:33:07+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:87734593-8df4-4646-b129-60db438b12f4": {
-      "missing": "2026-11-21T10:42:36+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-15T15:07:33+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:87799173-7076-48ee-9f17-760013907e8f": {
@@ -135835,7 +135846,7 @@
       "seen_at": "2026-11-04T15:46:58+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:a54c604c-7d2b-4184-8be8-d1c7ead6f9f7": {
-      "missing": "2026-11-21T10:42:36+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-07T11:04:04+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:a552c11b-3a7d-49c2-80c3-c4da84c80570": {
@@ -136219,7 +136230,7 @@
       "seen_at": "2026-10-18T02:15:31+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:aa4c7794-175b-4ae7-bf8f-4aed8e487ed3": {
-      "missing": "2026-11-21T10:42:36+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-14T02:06:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:aa4ccb0b-1b6c-46f1-a0ac-bb75c4298b6d": {
@@ -417653,7 +417664,7 @@
     "workday/hpe": "2026-11-21T16:10:26+00:00",
     "workday/intel": "2026-11-21T16:20:29+00:00",
     "workday/micron": "2026-11-21T16:20:29+00:00",
-    "workday/northrop-grumman": "2026-11-21T15:10:29+00:00",
+    "workday/northrop-grumman": "2026-11-21T16:40:26+00:00",
     "workday/nvidia": "2026-11-21T16:00:37+00:00",
     "workday/paypal": "2026-11-21T16:30:34+00:00",
     "workday/rbc": "2026-11-21T15:50:25+00:00",
