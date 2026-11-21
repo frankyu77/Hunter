@@ -46802,10 +46802,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T07:14:18+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47303,19 +47300,17 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-21T05:54:00+00:00",
-      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-21T04:23:21+00:00",
-      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47342,7 +47337,10 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T07:23:20+00:00",
+      "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -197096,6 +197094,7 @@
       "seen_at": "2026-10-19T17:46:48+00:00"
     },
     "greenhouse:coinbase:8302189": {
+      "missing": "2026-11-21T07:23:20+00:00",
       "seen_at": "2026-10-19T22:25:54+00:00"
     },
     "greenhouse:coinbase:8304034": {
@@ -240215,6 +240214,7 @@
       "seen_at": "2026-11-11T22:05:28+00:00"
     },
     "jibe:careers.docusign.com:30649": {
+      "missing": "2026-11-21T07:23:20+00:00",
       "seen_at": "2026-11-09T21:07:21+00:00"
     },
     "jibe:careers.docusign.com:30650": {
@@ -417822,12 +417822,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-21T05:50:27+00:00",
-    "workday/hpe": "2026-11-21T06:00:45+00:00",
+    "workday/hp": "2026-11-21T07:20:27+00:00",
+    "workday/hpe": "2026-11-21T07:20:27+00:00",
     "workday/intel": "2026-11-21T06:00:45+00:00",
     "workday/micron": "2026-11-21T06:10:35+00:00",
     "workday/northrop-grumman": "2026-11-21T06:30:31+00:00",
-    "workday/nvidia": "2026-11-21T05:50:27+00:00",
+    "workday/nvidia": "2026-11-21T07:20:27+00:00",
     "workday/paypal": "2026-11-21T06:20:26+00:00",
     "workday/rbc": "2026-11-21T07:10:27+00:00",
     "workday/salesforce": "2026-11-21T06:50:24+00:00",
