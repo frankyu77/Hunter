@@ -46808,19 +46808,13 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T06:04:42+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T06:04:42+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47150,7 +47144,9 @@
       "zero_since": null
     },
     "oracle/honeywell": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T06:14:13+00:00",
+      "last_error": "HTTP 503 from ibqbjb.fa.ocs.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47228,7 +47224,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T06:14:13+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47327,10 +47326,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 4,
-      "failing_since": "2026-11-20T21:53:19+00:00",
-      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -114795,6 +114791,9 @@
     "eightfold:microsoft:1970393557073251": {
       "seen_at": "2026-11-18T01:06:51+00:00"
     },
+    "eightfold:microsoft:1970393557073254": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "eightfold:microsoft:1970393557073265": {
       "seen_at": "2026-11-19T15:54:01+00:00"
     },
@@ -115499,6 +115498,12 @@
     },
     "eightfold:microsoft:1970393557076007": {
       "seen_at": "2026-11-19T16:24:28+00:00"
+    },
+    "eightfold:microsoft:1970393557076009": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
+    "eightfold:microsoft:1970393557076012": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "eightfold:microsoft:1970393557076021": {
       "seen_at": "2026-11-19T21:43:33+00:00"
@@ -122257,13 +122262,13 @@
       "seen_at": "2026-11-20T21:34:37+00:00"
     },
     "eightfold:qualcomm:446722250041": {
+      "missing": "2026-11-21T06:14:13+00:00",
       "seen_at": "2026-11-21T01:34:12+00:00"
     },
     "eightfold:qualcomm:446722250043": {
       "seen_at": "2026-11-21T01:34:12+00:00"
     },
     "eightfold:qualcomm:446722250045": {
-      "missing": "2026-11-21T05:54:01+00:00",
       "seen_at": "2026-11-21T01:24:19+00:00"
     },
     "eightfold:qualcomm:446722250158": {
@@ -126887,6 +126892,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3b23d87f-05be-4c67-93cf-cb0b4d96bb86": {
+      "missing": "2026-11-21T06:14:13+00:00",
       "seen_at": "2026-10-14T14:36:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:3b38426e-3cc3-4a96-9277-6756b25e6d6f": {
@@ -145180,6 +145186,7 @@
       "seen_at": "2026-10-15T23:06:28+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1a2e7785-ecd0-432f-a592-087e510f7845": {
+      "missing": "2026-11-21T06:14:13+00:00",
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1a44500b-c841-4121-ad65-9ed0746573db": {
@@ -148357,6 +148364,7 @@
       "seen_at": "2026-10-14T23:06:28+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:36697ae4-2c1a-4649-82f5-c13159e97aad": {
+      "missing": "2026-11-21T06:14:13+00:00",
       "seen_at": "2026-11-20T15:35:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:366e660d-5c35-4cbb-96f2-522106ea4a77": {
@@ -256131,6 +256139,9 @@
     "oracle:oracle:339846": {
       "seen_at": "2026-09-22T21:43:40+00:00"
     },
+    "oracle:oracle:339929": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "oracle:oracle:339947": {
       "seen_at": "2026-10-14T17:56:54+00:00"
     },
@@ -356585,6 +356596,9 @@
     "workday:micron:JR103654": {
       "seen_at": "2026-09-24T01:19:39+00:00"
     },
+    "workday:micron:JR103657": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "workday:micron:JR103685": {
       "seen_at": "2026-09-25T15:29:39+00:00"
     },
@@ -358941,6 +358955,9 @@
     "workday:micron:JR113131": {
       "seen_at": "2026-10-21T06:07:44+00:00"
     },
+    "workday:micron:JR113132": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "workday:micron:JR113149": {
       "seen_at": "2026-10-19T03:15:57+00:00"
     },
@@ -359241,6 +359258,9 @@
     },
     "workday:micron:JR113464": {
       "seen_at": "2026-11-01T16:06:08+00:00"
+    },
+    "workday:micron:JR113466": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "workday:micron:JR113468": {
       "seen_at": "2026-10-20T00:25:59+00:00"
@@ -362117,6 +362137,9 @@
     "workday:micron:JR116363": {
       "seen_at": "2026-11-03T18:46:05+00:00"
     },
+    "workday:micron:JR116364": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "workday:micron:JR116365": {
       "seen_at": "2026-11-09T16:08:14+00:00"
     },
@@ -362534,6 +362557,9 @@
     "workday:micron:JR116985": {
       "seen_at": "2026-11-05T17:45:56+00:00"
     },
+    "workday:micron:JR116986": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "workday:micron:JR116990": {
       "seen_at": "2026-11-11T16:10:02+00:00"
     },
@@ -362854,8 +362880,14 @@
     "workday:micron:JR117480": {
       "seen_at": "2026-11-20T20:23:09+00:00"
     },
+    "workday:micron:JR117523": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "workday:micron:JR117554": {
       "seen_at": "2026-11-12T07:15:35+00:00"
+    },
+    "workday:micron:JR117560": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "workday:micron:JR117589": {
       "seen_at": "2026-11-11T10:26:06+00:00"
@@ -362871,6 +362903,9 @@
     },
     "workday:micron:JR117605": {
       "seen_at": "2026-11-13T18:26:35+00:00"
+    },
+    "workday:micron:JR117611": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "workday:micron:JR117622": {
       "seen_at": "2026-11-13T14:17:00+00:00"
@@ -362929,6 +362964,9 @@
     "workday:micron:JR117693": {
       "seen_at": "2026-11-12T10:45:34+00:00"
     },
+    "workday:micron:JR117694": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
+    },
     "workday:micron:JR117695": {
       "seen_at": "2026-11-13T05:56:04+00:00"
     },
@@ -362964,6 +363002,9 @@
     },
     "workday:micron:JR117807": {
       "seen_at": "2026-11-20T20:23:09+00:00"
+    },
+    "workday:micron:JR117822": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "workday:micron:JR117850": {
       "seen_at": "2026-11-16T03:45:30+00:00"
@@ -363066,6 +363107,9 @@
     },
     "workday:micron:JR118506": {
       "seen_at": "2026-11-20T20:23:09+00:00"
+    },
+    "workday:micron:JR118525": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "workday:micron:JR43741": {
       "seen_at": "2026-09-24T22:46:53+00:00"
@@ -363595,6 +363639,9 @@
     },
     "workday:micron:JR95645": {
       "seen_at": "2026-10-23T16:08:08+00:00"
+    },
+    "workday:micron:JR95661": {
+      "seen_at": "2026-11-21T06:14:13+00:00"
     },
     "workday:micron:JR95673": {
       "seen_at": "2026-09-30T17:54:16+00:00"
@@ -417758,7 +417805,7 @@
     "workday/hp": "2026-11-21T05:50:27+00:00",
     "workday/hpe": "2026-11-21T06:00:45+00:00",
     "workday/intel": "2026-11-21T06:00:45+00:00",
-    "workday/micron": "2026-11-21T04:40:26+00:00",
+    "workday/micron": "2026-11-21T06:10:35+00:00",
     "workday/northrop-grumman": "2026-11-21T05:00:36+00:00",
     "workday/nvidia": "2026-11-21T05:50:27+00:00",
     "workday/paypal": "2026-11-21T02:20:26+00:00",
