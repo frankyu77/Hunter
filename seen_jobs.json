@@ -46832,10 +46832,13 @@
       "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
-      "zero_since": null
+      "zero_since": "2026-11-21"
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-21T10:13:50+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47255,10 +47258,7 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-21T10:04:20+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: <!DOCTYPE html> <html> <head> <meta charset=\"utf-8\" /> <meta name=\"robots\" content=\"noindex\" /> <meta",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47346,10 +47346,7 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-21T05:54:00+00:00",
-      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47390,7 +47387,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-21T07:23:20+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49303,6 +49300,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Blue Cross Blue Shield of Michigan"
+        },
+        "oracle/ejta.fa.us6.oraclecloud.com": {
+          "boards": {
+            "{\"company\": \"fortive\", \"host\": \"ejta.fa.us6.oraclecloud.com\", \"site_name\": \"CX_2001\", \"site_number\": \"CX_2001\", \"type\": \"oracle\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Fortive"
         },
         "oracle/epyc.fa.us2.oraclecloud.com": {
           "boards": {
@@ -130222,6 +130227,9 @@
     "github:SimplifyJobs/New-Grad-Positions:63d3a410-73ec-4b27-b3d5-b089f0ef4dd8": {
       "seen_at": "2026-11-05T08:35:58+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:63ecd76d-d1d6-46e9-a5eb-af36be00b584": {
+      "seen_at": "2026-11-21T10:13:50+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:63ee202c-e263-4273-bfef-b12583dfe8bb": {
       "seen_at": "2026-09-25T00:55:39+00:00"
     },
@@ -160288,7 +160296,7 @@
       "seen_at": "2026-10-15T22:36:29+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9f461243-b3dd-46c6-882c-7cece23604c7": {
-      "missing": "2026-11-21T04:04:35+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-20T22:36:56+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9f53c835-37e0-454c-9b71-662641264345": {
@@ -161513,7 +161521,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:aa17c8d8-a4c8-4f40-9a0f-73bca79d2727": {
-      "missing": "2026-11-21T04:04:35+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:aa197a09-04fb-4bde-b219-68f5e18eb056": {
@@ -164038,7 +164046,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:beaa414a-33e5-448c-ae31-d7aeeb886d98": {
-      "missing": "2026-11-21T04:04:35+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-13T23:39:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:bead51fa-aa91-421e-9b22-bc3e451072b1": {
@@ -167121,7 +167129,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:da7bf188-3e70-455c-973d-25bf668ed458": {
-      "missing": "2026-11-21T04:04:35+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-27T22:45:55+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:da7d3279-c791-439f-9eef-0970e4a0d0cb": {
@@ -168114,7 +168122,7 @@
       "seen_at": "2026-09-29T17:43:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e2caf3c4-f5a1-480c-b6b0-7479ebdd4b8d": {
-      "missing": "2026-11-21T04:04:35+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-16T00:55:46+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e2cd2c18-b6de-4e54-bdcf-f35c06225ca4": {
@@ -418080,12 +418088,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-21T08:50:35+00:00",
+    "workday/hp": "2026-11-21T10:10:26+00:00",
     "workday/hpe": "2026-11-21T08:50:35+00:00",
     "workday/intel": "2026-11-21T09:00:34+00:00",
     "workday/micron": "2026-11-21T09:00:34+00:00",
     "workday/northrop-grumman": "2026-11-21T09:30:39+00:00",
-    "workday/nvidia": "2026-11-21T08:40:27+00:00",
+    "workday/nvidia": "2026-11-21T10:10:26+00:00",
     "workday/paypal": "2026-11-21T09:20:25+00:00",
     "workday/rbc": "2026-11-21T10:00:43+00:00",
     "workday/salesforce": "2026-11-21T09:40:24+00:00",
