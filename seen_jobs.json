@@ -47365,7 +47365,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T07:53:53+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47512,16 +47515,16 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T07:53:53+00:00",
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 10,
-      "failing_since": "2026-11-21T11:13:47+00:00",
-      "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -118140,6 +118143,7 @@
       "seen_at": "2026-10-16T01:46:30+00:00"
     },
     "eightfold:netflix:790318993870": {
+      "missing": "2026-11-22T07:53:54+00:00",
       "seen_at": "2026-10-16T14:16:10+00:00"
     },
     "eightfold:netflix:790318993874": {
@@ -118325,6 +118329,7 @@
       "seen_at": "2026-10-28T13:36:45+00:00"
     },
     "eightfold:netflix:790319210998": {
+      "missing": "2026-11-22T07:53:54+00:00",
       "seen_at": "2026-10-28T17:56:57+00:00"
     },
     "eightfold:netflix:790319212246": {
@@ -118349,6 +118354,7 @@
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216323": {
+      "missing": "2026-11-22T07:53:54+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319229344": {
@@ -118401,6 +118407,7 @@
       "seen_at": "2026-11-13T20:29:16+00:00"
     },
     "eightfold:netflix:790319262079": {
+      "missing": "2026-11-22T07:53:54+00:00",
       "seen_at": "2026-10-30T21:47:51+00:00"
     },
     "eightfold:netflix:790319262115": {
@@ -131469,7 +131476,7 @@
       "seen_at": "2026-10-21T11:06:35+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:6cc1dadd-e02a-4477-8917-242924cc0c58": {
-      "missing": "2026-11-22T01:44:00+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-09-30T11:13:45+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:6cc2611a-917b-4283-ad6a-e4fc9d62df64": {
@@ -134738,7 +134745,7 @@
       "seen_at": "2026-10-15T15:07:33+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:94d268ed-e8df-4894-94b2-2d401cb5075c": {
-      "missing": "2026-11-22T01:44:00+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-07T23:13:49+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:94dc85b2-2ec3-4362-b122-8cb281a218be": {
@@ -138326,7 +138333,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:c3cd7b0a-46da-4a24-a48f-e289628432d4": {
-      "missing": "2026-11-22T01:44:00+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-23T10:06:38+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:c3d0d3f7-cc27-4cc2-9950-e1a94f3abf4d": {
@@ -140141,7 +140148,7 @@
       "seen_at": "2026-09-23T23:03:40+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:da453920-8fb6-4684-a7c5-4d6a106f6244": {
-      "missing": "2026-11-22T01:44:00+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:da4ae58c-6c11-41d7-99a0-e7d27d0773b8": {
@@ -255459,6 +255466,9 @@
     },
     "oracle:honeywell:162530": {
       "seen_at": "2026-11-20T05:14:10+00:00"
+    },
+    "oracle:honeywell:162537": {
+      "seen_at": "2026-11-22T07:53:54+00:00"
     },
     "oracle:honeywell:162555": {
       "seen_at": "2026-11-17T18:46:58+00:00"
@@ -415774,8 +415784,8 @@
     "workday/nvidia": "2026-11-22T06:50:24+00:00",
     "workday/paypal": "2026-11-22T05:50:23+00:00",
     "workday/rbc": "2026-11-22T06:40:27+00:00",
-    "workday/salesforce": "2026-11-22T06:20:26+00:00",
-    "workday/siemens-healthineers": "2026-11-22T06:20:26+00:00",
+    "workday/salesforce": "2026-11-22T07:50:26+00:00",
+    "workday/siemens-healthineers": "2026-11-22T07:50:26+00:00",
     "workday/snap": "2026-11-22T05:50:23+00:00",
     "workday/td": "2026-11-22T06:30:30+00:00",
     "workday/workday": "2026-11-22T07:20:25+00:00",
