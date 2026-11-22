@@ -46957,7 +46957,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T11:13:53+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -47368,13 +47368,16 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T11:34:26+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T08:23:59+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47467,7 +47470,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-22T06:04:02+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47503,10 +47506,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 7,
-      "failing_since": "2026-11-21T22:34:35+00:00",
-      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47997,7 +47997,7 @@
       }
     },
     "auto_sources_checked": "2026-11-22T03:22:55+00:00",
-    "dashboard_built_at": "2026-11-22T10:34:14+00:00",
+    "dashboard_built_at": "2026-11-22T11:34:26+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -52790,9 +52790,6 @@
         0
       ],
       "greenhouse/lyft": [
-        22,
-        30,
-        8,
         8,
         34,
         38,
@@ -52839,7 +52836,10 @@
         30,
         50,
         35,
-        29
+        29,
+        20,
+        20,
+        20
       ],
       "greenhouse/mongodb": [
         32,
@@ -125111,7 +125111,7 @@
       "seen_at": "2026-09-26T05:38:46+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:1ae63a72-5b5e-4b56-b60e-1a760b92fb39": {
-      "missing": "2026-11-22T05:34:02+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-10T00:15:45+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:1b06d46c-1d95-462b-a362-76624d029916": {
@@ -214548,11 +214548,11 @@
       "seen_at": "2026-11-10T17:27:56+00:00"
     },
     "greenhouse:lyft:8772592002": {
-      "missing": "2026-11-22T05:24:10+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-01T11:24:58+00:00"
     },
     "greenhouse:lyft:8772594002": {
-      "missing": "2026-11-22T05:24:10+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-01T11:24:58+00:00"
     },
     "greenhouse:lyft:8772602002": {
@@ -214560,7 +214560,7 @@
       "seen_at": "2026-11-01T11:24:58+00:00"
     },
     "greenhouse:lyft:8772604002": {
-      "missing": "2026-11-22T05:24:10+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-01T11:24:58+00:00"
     },
     "greenhouse:lyft:8777403002": {
@@ -415876,7 +415876,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-22T10:14:00+00:00",
+    "workday/adobe": "2026-11-22T11:30:42+00:00",
     "workday/autodesk": "2026-11-22T10:40:24+00:00",
     "workday/becton-dickinson": "2026-11-22T11:00:35+00:00",
     "workday/boeing": "2026-11-22T10:50:36+00:00",
@@ -415889,11 +415889,11 @@
     "workday/hp": "2026-11-22T10:20:27+00:00",
     "workday/hpe": "2026-11-22T10:20:27+00:00",
     "workday/intel": "2026-11-22T10:30:40+00:00",
-    "workday/micron": "2026-11-22T09:10:28+00:00",
+    "workday/micron": "2026-11-22T11:30:42+00:00",
     "workday/northrop-grumman": "2026-11-22T10:50:36+00:00",
     "workday/nvidia": "2026-11-22T10:14:00+00:00",
     "workday/paypal": "2026-11-22T09:50:27+00:00",
-    "workday/rbc": "2026-11-22T10:10:24+00:00",
+    "workday/rbc": "2026-11-22T11:30:42+00:00",
     "workday/salesforce": "2026-11-22T11:10:28+00:00",
     "workday/siemens-healthineers": "2026-11-22T11:00:35+00:00",
     "workday/snap": "2026-11-22T10:40:24+00:00",
