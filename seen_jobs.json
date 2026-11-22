@@ -46957,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T20:44:11+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47461,7 +47464,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T19:23:33+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52425,7 +52428,6 @@
       ],
       "greenhouse/databricks": [
         14,
-        14,
         9,
         4,
         15,
@@ -52473,7 +52475,8 @@
         17,
         17,
         24,
-        26
+        26,
+        47
       ],
       "greenhouse/datadog": [
         6,
@@ -151455,6 +151458,7 @@
       "seen_at": "2026-09-23T23:03:40+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:4c0936e7-c5c5-4b43-81f3-e52b45e16d3e": {
+      "missing": "2026-11-22T20:44:11+00:00",
       "seen_at": "2026-11-03T03:06:28+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:4c0cebd4-5e15-474e-8493-34860927bdfb": {
@@ -152810,6 +152814,7 @@
       "seen_at": "2026-10-08T23:16:27+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:58133210-2067-49d2-85f6-9cbc957b9b44": {
+      "missing": "2026-11-22T20:44:11+00:00",
       "seen_at": "2026-10-15T22:36:29+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5816604a-fdad-469c-b01d-7ee4621ca78e": {
@@ -199669,7 +199674,7 @@
       "seen_at": "2026-09-27T06:38:03+00:00"
     },
     "greenhouse:databricks:8638642002": {
-      "missing": "2026-11-22T14:43:37+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-06T00:43:23+00:00"
     },
     "greenhouse:databricks:8638648002": {
@@ -414098,7 +414103,7 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-22T20:30:34+00:00",
     "workday/hpe": "2026-11-22T20:30:34+00:00",
-    "workday/intel": "2026-11-22T19:20:26+00:00",
+    "workday/intel": "2026-11-22T20:40:37+00:00",
     "workday/micron": "2026-11-22T20:30:34+00:00",
     "workday/northrop-grumman": "2026-11-22T19:40:24+00:00",
     "workday/nvidia": "2026-11-22T20:20:28+00:00",
