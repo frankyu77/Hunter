@@ -47521,7 +47521,10 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T09:43:40+00:00",
+      "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50715,6 +50718,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "TransUnion"
+        },
+        "workday/trimble": {
+          "boards": {
+            "{\"company\": \"trimble\", \"host\": \"wd1\", \"site\": \"TrimbleCareers\", \"tenant\": \"trimble\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Trimble"
         },
         "workday/tsc": {
           "boards": {
@@ -116400,6 +116411,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790300763299": {
+      "missing": "2026-11-22T09:43:40+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301384045": {
@@ -118776,7 +118788,6 @@
       "seen_at": "2026-11-19T20:53:45+00:00"
     },
     "eightfold:netflix:790319611689": {
-      "missing": "2026-11-22T09:32:58+00:00",
       "seen_at": "2026-11-19T23:14:10+00:00"
     },
     "eightfold:netflix:790319624073": {
@@ -123991,6 +124002,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:0baf47ca-1855-4cb6-ba42-8212b73f6566": {
       "seen_at": "2026-10-23T12:07:47+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:0bba7d5f-0e21-4ecf-b1f6-065b75490dbc": {
+      "seen_at": "2026-11-22T09:43:41+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:0bbfc987-8101-43c5-b9ae-d4ffa7abdcc6": {
       "closed": "2026-10-16",
@@ -144101,6 +144115,7 @@
       "seen_at": "2026-10-29T01:36:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0a37326a-6eb6-4459-8249-044ccfac8600": {
+      "missing": "2026-11-22T09:43:40+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0a38034b-5b0a-49b9-98c7-c844defb5ae4": {
@@ -145593,6 +145608,7 @@
       "seen_at": "2026-10-23T23:07:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1736ee29-1f1e-4421-8616-9c616abc3f8e": {
+      "missing": "2026-11-22T09:43:40+00:00",
       "seen_at": "2026-09-29T06:43:31+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:17481db4-7b68-4ead-b8cc-e7f82118697d": {
@@ -148061,6 +148077,7 @@
       "seen_at": "2026-11-14T16:05:19+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d6b647d-ac44-4539-b4ac-403a696b90b1": {
+      "missing": "2026-11-22T09:43:40+00:00",
       "seen_at": "2026-11-22T00:04:06+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d6ce459-6d6f-46b1-a335-210684f38086": {
@@ -415836,7 +415853,7 @@
     "workday/paypal": "2026-11-22T05:50:23+00:00",
     "workday/rbc": "2026-11-22T08:10:26+00:00",
     "workday/salesforce": "2026-11-22T07:50:26+00:00",
-    "workday/siemens-healthineers": "2026-11-22T07:50:26+00:00",
+    "workday/siemens-healthineers": "2026-11-22T09:40:25+00:00",
     "workday/snap": "2026-11-22T08:50:26+00:00",
     "workday/td": "2026-11-22T08:00:36+00:00",
     "workday/workday": "2026-11-22T07:20:25+00:00",
