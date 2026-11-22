@@ -46957,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T10:04:39+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47413,10 +47416,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-22T08:03:59+00:00",
-      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47536,7 +47536,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T08:03:59+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -54689,7 +54689,8 @@
         2,
         7,
         11,
-        26
+        26,
+        0
       ],
       "workday/ebay": [
         25,
@@ -254534,6 +254535,9 @@
     "oracle:honeywell:161699": {
       "seen_at": "2026-11-19T06:33:40+00:00"
     },
+    "oracle:honeywell:161701": {
+      "seen_at": "2026-11-22T10:04:39+00:00"
+    },
     "oracle:honeywell:161702": {
       "seen_at": "2026-11-06T02:26:46+00:00"
     },
@@ -326371,7 +326375,7 @@
       "seen_at": "2026-09-25T19:26:27+00:00"
     },
     "workday:clio:REQ-5464": {
-      "missing": "2026-11-21T20:03:42+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-21T06:53:47+00:00"
     },
     "workday:clio:REQ-5474": {
@@ -415836,7 +415840,7 @@
     "workday/boeing": "2026-11-22T09:20:24+00:00",
     "workday/cibc": "2026-11-22T08:10:26+00:00",
     "workday/cisco": "2026-11-22T08:50:26+00:00",
-    "workday/clio": "2026-11-22T08:00:36+00:00",
+    "workday/clio": "2026-11-22T10:00:40+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -415851,7 +415855,7 @@
     "workday/salesforce": "2026-11-22T09:50:27+00:00",
     "workday/siemens-healthineers": "2026-11-22T09:40:25+00:00",
     "workday/snap": "2026-11-22T08:50:26+00:00",
-    "workday/td": "2026-11-22T08:00:36+00:00",
+    "workday/td": "2026-11-22T10:00:40+00:00",
     "workday/workday": "2026-11-22T09:50:27+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-22T07:20:25+00:00"
