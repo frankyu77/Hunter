@@ -47464,7 +47464,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-22T06:04:02+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50081,6 +50081,14 @@
           "matched": 0,
           "name": "AeroVironment"
         },
+        "workday/bankeasy": {
+          "boards": {
+            "{\"company\": \"first-bank-trust\", \"host\": \"wd5\", \"site\": \"bank-easy-job-openings\", \"tenant\": \"bankeasy\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "First Bank & Trust"
+        },
         "workday/bb": {
           "boards": {
             "{\"company\": \"blackberry\", \"host\": \"wd3\", \"site\": \"Student\", \"tenant\": \"bb\", \"type\": \"workday\"}": 1
@@ -50147,6 +50155,14 @@
           "jobs": 5,
           "matched": 0,
           "name": "The Campbell's Company"
+        },
+        "workday/cbrands": {
+          "boards": {
+            "{\"company\": \"constellation-brands\", \"host\": \"wd5\", \"site\": \"CBI_External_Careers\", \"tenant\": \"cbrands\", \"type\": \"workday\"}": 2
+          },
+          "jobs": 2,
+          "matched": 2,
+          "name": "Constellation Brands"
         },
         "workday/cdpq": {
           "boards": {
@@ -50323,6 +50339,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "First Quality"
+        },
+        "workday/fiskars": {
+          "boards": {
+            "{\"company\": \"fiskars-group\", \"host\": \"wd3\", \"site\": \"FiskarsGroup\", \"tenant\": \"fiskars\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Fiskars Group"
         },
         "workday/flextronics": {
           "boards": {
@@ -50525,6 +50549,14 @@
           "jobs": 3,
           "matched": 1,
           "name": "Microchip Technology"
+        },
+        "workday/neogen": {
+          "boards": {
+            "{\"company\": \"neogen\", \"host\": \"wd5\", \"site\": \"neogencareers\", \"tenant\": \"neogen\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Neogen"
         },
         "workday/nidec": {
           "boards": {
@@ -50797,6 +50829,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Welocalize"
+        },
+        "workday/wgu": {
+          "boards": {
+            "{\"company\": \"western-governors-university\", \"host\": \"wd5\", \"site\": \"External\", \"tenant\": \"wgu\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Western Governors University"
         },
         "workday/wmg": {
           "boards": {
@@ -116438,6 +116478,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790300762468": {
+      "missing": "2026-11-22T15:44:04+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790300763299": {
@@ -118808,7 +118849,6 @@
       "seen_at": "2026-11-19T13:53:40+00:00"
     },
     "eightfold:netflix:790319605378": {
-      "missing": "2026-11-22T15:34:46+00:00",
       "seen_at": "2026-11-19T15:43:49+00:00"
     },
     "eightfold:netflix:790319609003": {
@@ -144144,7 +144184,7 @@
       "seen_at": "2026-10-29T01:36:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0a37326a-6eb6-4459-8249-044ccfac8600": {
-      "missing": "2026-11-22T09:43:40+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0a38034b-5b0a-49b9-98c7-c844defb5ae4": {
@@ -144385,7 +144425,6 @@
       "seen_at": "2026-10-02T22:43:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0c948dc9-1eb1-44a6-86f9-c0695549d3b4": {
-      "closed": "2026-11-06",
       "seen_at": "2026-10-29T08:36:20+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0c9a496a-20f1-4b3e-bdde-ccc6fe56f70d": {
@@ -145637,7 +145676,7 @@
       "seen_at": "2026-10-23T23:07:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1736ee29-1f1e-4421-8616-9c616abc3f8e": {
-      "missing": "2026-11-22T09:43:40+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-09-29T06:43:31+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:17481db4-7b68-4ead-b8cc-e7f82118697d": {
@@ -149612,6 +149651,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:3bd2d84e-91bd-4fff-98d3-0336ba44f6d0": {
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:3bddb066-3054-4a0c-9cc7-b0ba4e388c00": {
+      "seen_at": "2026-11-22T15:44:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3bde4886-9568-4579-8754-68e8e2f44ca1": {
       "seen_at": "2026-10-16T22:46:12+00:00"
@@ -160381,6 +160423,9 @@
       "closed": "2026-11-13",
       "seen_at": "2026-10-01T23:03:56+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:9c9115ad-7e10-4ed2-9f6d-b00d4a2c8f1c": {
+      "seen_at": "2026-11-22T15:44:05+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:9c92be34-fc24-4149-8e94-eea572329c07": {
       "seen_at": "2026-11-07T02:35:25+00:00"
     },
@@ -164774,6 +164819,9 @@
     "github:SimplifyJobs/Summer2026-Internships:c19ad514-a4fd-4e47-a2ae-ab57347804ad": {
       "seen_at": "2026-11-10T00:32:14+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:c19ddb09-a366-491b-8f74-c4e088f343a8": {
+      "seen_at": "2026-11-22T15:44:05+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:c19ee2fa-0e58-4623-b3ce-9f2afa6f2b21": {
       "seen_at": "2026-11-13T07:16:17+00:00"
     },
@@ -165971,6 +166019,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:cbbf5921-5565-4f8b-9599-adde9125fde0": {
       "seen_at": "2026-11-01T01:45:34+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:cbbfc481-5c2f-4875-a3ae-53fd2183c75f": {
+      "seen_at": "2026-11-22T15:44:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:cbf0ae78-7117-4952-b05e-ab26f07e9803": {
       "closed": "2026-11-13",
@@ -167935,6 +167986,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:de5725f8-73f9-4e2d-aaef-780c14e2bb0a": {
       "seen_at": "2026-11-13T23:39:16+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:de5b84ef-da26-41b7-a59d-1dd83d33491c": {
+      "seen_at": "2026-11-22T15:44:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:de610830-2f60-4805-baf7-ae776ebdaeb4": {
       "seen_at": "2026-10-31T19:46:00+00:00"
@@ -170009,6 +170063,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:ef81bfb1-56bf-4a32-b001-020a5ce145b3": {
       "seen_at": "2026-10-23T14:46:48+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:ef8562a4-25a5-4d0e-9199-0322e26692b1": {
+      "seen_at": "2026-11-22T15:44:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ef8bdc0e-a54e-411a-9367-999007481d55": {
       "seen_at": "2026-11-07T00:06:30+00:00"
@@ -415527,7 +415584,7 @@
     "workday/hp": "2026-11-22T13:20:26+00:00",
     "workday/hpe": "2026-11-22T13:20:26+00:00",
     "workday/intel": "2026-11-22T13:30:31+00:00",
-    "workday/micron": "2026-11-22T13:10:24+00:00",
+    "workday/micron": "2026-11-22T15:40:27+00:00",
     "workday/northrop-grumman": "2026-11-22T13:50:25+00:00",
     "workday/nvidia": "2026-11-22T15:30:30+00:00",
     "workday/paypal": "2026-11-22T12:10:25+00:00",
