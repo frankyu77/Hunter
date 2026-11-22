@@ -46945,10 +46945,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T05:43:56+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46960,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T06:04:02+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47482,13 +47482,16 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T06:04:02+00:00",
+      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-21T23:24:03+00:00",
       "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -122846,6 +122849,9 @@
     },
     "eightfold:qualcomm:446722203602": {
       "seen_at": "2026-11-19T02:36:32+00:00"
+    },
+    "eightfold:qualcomm:446722204675": {
+      "seen_at": "2026-11-22T06:04:02+00:00"
     },
     "eightfold:qualcomm:446722205276": {
       "seen_at": "2026-11-19T03:46:36+00:00"
@@ -264321,7 +264327,6 @@
       "seen_at": "2026-11-22T05:53:50+00:00"
     },
     "oracle:oracle:350929": {
-      "missing": "2026-11-22T02:03:43+00:00",
       "seen_at": "2026-11-21T02:34:18+00:00"
     },
     "oracle:oracle:350930": {
@@ -415998,8 +416003,8 @@
     "workday/hp": "2026-11-22T05:20:27+00:00",
     "workday/hpe": "2026-11-22T05:20:27+00:00",
     "workday/intel": "2026-11-22T05:30:30+00:00",
-    "workday/micron": "2026-11-22T04:20:24+00:00",
-    "workday/northrop-grumman": "2026-11-22T04:20:24+00:00",
+    "workday/micron": "2026-11-22T06:00:37+00:00",
+    "workday/northrop-grumman": "2026-11-22T06:00:37+00:00",
     "workday/nvidia": "2026-11-22T05:10:26+00:00",
     "workday/paypal": "2026-11-22T05:50:23+00:00",
     "workday/rbc": "2026-11-22T05:00:31+00:00",
