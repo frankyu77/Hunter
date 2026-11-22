@@ -46945,7 +46945,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T05:43:56+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47380,7 +47383,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T01:53:35+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47416,7 +47419,10 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T05:43:56+00:00",
+      "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -54272,7 +54278,6 @@
         0
       ],
       "smartrecruiters/ServiceNow": [
-        5,
         2,
         1,
         2,
@@ -54321,7 +54326,8 @@
         43,
         3,
         24,
-        14
+        14,
+        4
       ],
       "tiktok/tiktok": [
         40,
@@ -118260,6 +118266,7 @@
       "seen_at": "2026-10-28T13:36:45+00:00"
     },
     "eightfold:netflix:790319210998": {
+      "missing": "2026-11-22T05:43:56+00:00",
       "seen_at": "2026-10-28T17:56:57+00:00"
     },
     "eightfold:netflix:790319212246": {
@@ -118284,6 +118291,7 @@
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216323": {
+      "missing": "2026-11-22T05:43:56+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319229344": {
@@ -118678,7 +118686,6 @@
       "seen_at": "2026-11-19T20:53:45+00:00"
     },
     "eightfold:netflix:790319611689": {
-      "missing": "2026-11-22T05:34:02+00:00",
       "seen_at": "2026-11-19T23:14:10+00:00"
     },
     "eightfold:netflix:790319624073": {
@@ -291544,7 +291551,7 @@
       "seen_at": "2026-11-16T23:45:57+00:00"
     },
     "smartrecruiters:ServiceNow:744000161936128": {
-      "missing": "2026-11-21T23:43:23+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-16T23:45:57+00:00"
     },
     "smartrecruiters:ServiceNow:744000161948425": {
@@ -415978,11 +415985,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-22T05:10:26+00:00",
-    "workday/autodesk": "2026-11-22T01:50:25+00:00",
+    "workday/autodesk": "2026-11-22T05:40:38+00:00",
     "workday/becton-dickinson": "2026-11-22T04:30:36+00:00",
     "workday/boeing": "2026-11-22T04:30:36+00:00",
     "workday/cibc": "2026-11-22T05:00:31+00:00",
-    "workday/cisco": "2026-11-22T04:10:24+00:00",
+    "workday/cisco": "2026-11-22T05:40:38+00:00",
     "workday/clio": "2026-11-22T04:50:25+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
