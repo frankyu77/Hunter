@@ -47270,9 +47270,7 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-22T03:04:56+00:00",
-      "last_error": "HTTP 503 from iawmqy.fa.ocs.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47479,7 +47477,10 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T03:33:53+00:00",
+      "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -53202,9 +53203,6 @@
         29
       ],
       "greenhouse/scaleai": [
-        12,
-        12,
-        13,
         13,
         0,
         13,
@@ -53251,7 +53249,10 @@
         40,
         40,
         41,
-        22
+        22,
+        44,
+        44,
+        44
       ],
       "greenhouse/stripe": [
         23,
@@ -178481,7 +178482,7 @@
       "seen_at": "2026-11-19T22:04:59+00:00"
     },
     "github:vanshb03/Summer2027-Internships:80e8d181-59b6-4275-b73c-b6d29a99eaac": {
-      "missing": "2026-11-21T21:33:44+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:80ee08df-8347-4645-a8a3-1f93baed839b": {
@@ -225933,7 +225934,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4620719005": {
-      "missing": "2026-11-21T21:33:44+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4625271005": {
@@ -226101,11 +226102,11 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4689950005": {
-      "missing": "2026-11-21T21:23:23+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4689954005": {
-      "missing": "2026-11-21T21:23:23+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4692188005": {
@@ -415934,7 +415935,7 @@
     "workday/intel": "2026-11-22T01:30:32+00:00",
     "workday/micron": "2026-11-22T01:40:23+00:00",
     "workday/northrop-grumman": "2026-11-22T02:00:38+00:00",
-    "workday/nvidia": "2026-11-22T01:00:33+00:00",
+    "workday/nvidia": "2026-11-22T03:30:31+00:00",
     "workday/paypal": "2026-11-21T23:10:32+00:00",
     "workday/rbc": "2026-11-22T03:10:26+00:00",
     "workday/salesforce": "2026-11-22T02:33:56+00:00",
