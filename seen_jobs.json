@@ -46957,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T21:53:58+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47371,7 +47374,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T18:53:27+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47509,7 +47512,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T18:53:27+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -279186,6 +279189,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161068576": {
+      "missing": "2026-11-22T21:53:58+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161084355": {
@@ -279232,6 +279236,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161453959": {
+      "missing": "2026-11-22T21:53:58+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161488283": {
@@ -414104,7 +414109,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-22T20:20:28+00:00",
+    "workday/adobe": "2026-11-22T21:50:25+00:00",
     "workday/autodesk": "2026-11-22T20:50:28+00:00",
     "workday/becton-dickinson": "2026-11-22T21:20:29+00:00",
     "workday/boeing": "2026-11-22T21:10:35+00:00",
@@ -414121,7 +414126,7 @@
     "workday/northrop-grumman": "2026-11-22T21:10:35+00:00",
     "workday/nvidia": "2026-11-22T20:20:28+00:00",
     "workday/paypal": "2026-11-22T21:00:35+00:00",
-    "workday/rbc": "2026-11-22T20:10:28+00:00",
+    "workday/rbc": "2026-11-22T21:50:25+00:00",
     "workday/salesforce": "2026-11-22T21:30:48+00:00",
     "workday/siemens-healthineers": "2026-11-22T21:20:29+00:00",
     "workday/snap": "2026-11-22T21:00:35+00:00",
