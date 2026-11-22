@@ -46945,7 +46945,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T16:04:16+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46957,7 +46960,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T16:04:16+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47452,10 +47458,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T11:43:51+00:00",
-      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48154,6 +48157,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Gradient Robotics"
+        },
+        "ashby/graymatter-robotics": {
+          "boards": {
+            "{\"company\": \"graymatter-robotics\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "GrayMatter Robotics"
         },
         "ashby/gritt": {
           "boards": {
@@ -50084,6 +50095,14 @@
           "matched": 0,
           "name": "AeroVironment"
         },
+        "workday/aveva": {
+          "boards": {
+            "{\"company\": \"aveva\", \"host\": \"wd3\", \"site\": \"AVEVA_careers\", \"tenant\": \"aveva\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "AVEVA"
+        },
         "workday/bankeasy": {
           "boards": {
             "{\"company\": \"first-bank-trust\", \"host\": \"wd5\", \"site\": \"bank-easy-job-openings\", \"tenant\": \"bankeasy\", \"type\": \"workday\"}": 1
@@ -50633,6 +50652,14 @@
           "matched": 0,
           "name": "Plante Moran"
         },
+        "workday/rb": {
+          "boards": {
+            "{\"company\": \"the-federal-reserve-system\", \"host\": \"wd5\", \"site\": \"FRS\", \"tenant\": \"rb\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "The Federal Reserve System"
+        },
         "workday/reliaquest": {
           "boards": {
             "{\"company\": \"reliaquest\", \"host\": \"wd5\", \"site\": \"ReliaQuest_Careers\", \"tenant\": \"reliaquest\", \"type\": \"workday\"}": 1
@@ -50712,6 +50739,14 @@
           "jobs": 2,
           "matched": 1,
           "name": "Specialized"
+        },
+        "workday/spectris": {
+          "boards": {
+            "{\"company\": \"hottinger-br-el-kjaer\", \"host\": \"wd3\", \"site\": \"HBK_Careers\", \"tenant\": \"spectris\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Hottinger Br\u00fcel & Kjaer"
         },
         "workday/starfish": {
           "boards": {
@@ -50816,6 +50851,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Ribbon"
+        },
+        "workday/viavisolutions": {
+          "boards": {
+            "{\"company\": \"viavi-solutions\", \"host\": \"wd1\", \"site\": \"careers\", \"tenant\": \"viavisolutions\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Viavi Solutions"
         },
         "workday/walmart": {
           "boards": {
@@ -126860,6 +126903,9 @@
       "closed": "2026-10-23",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:300a3078-84ab-4ba2-a881-d74186eb9064": {
+      "seen_at": "2026-11-22T16:04:16+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:30103acf-6e57-4258-94a3-8fb95e0c2588": {
       "closed": "2026-10-04",
       "seen_at": "2026-10-02T08:23:11+00:00"
@@ -127151,6 +127197,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:336ac40e-a929-4b32-a181-9ae9e271cc4e": {
       "seen_at": "2026-11-15T01:55:31+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:33793173-a059-4e1f-9a86-655c9b134751": {
+      "seen_at": "2026-11-22T16:04:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33961c60-73af-41fc-94e6-741daa5ffc64": {
       "seen_at": "2026-10-29T14:36:49+00:00"
@@ -129548,6 +129597,9 @@
     "github:SimplifyJobs/New-Grad-Positions:525ef07a-7783-4422-9c52-ec97e51183af": {
       "closed": "2026-10-28",
       "seen_at": "2026-10-14T00:37:37+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:526401b4-cc59-44dc-99c0-07554269037a": {
+      "seen_at": "2026-11-22T16:04:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:527add68-88e5-4725-9db7-f6b3da95060a": {
       "closed": "2026-10-29",
@@ -132023,6 +132075,9 @@
     "github:SimplifyJobs/New-Grad-Positions:720ede4f-6de1-46ec-87eb-bc9beaa1785b": {
       "closed": "2026-11-19",
       "seen_at": "2026-11-16T23:37:30+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:72136a19-06f8-432f-b3e2-323acdbab78b": {
+      "seen_at": "2026-11-22T16:04:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:723295b5-251b-44de-8933-5939d249aae2": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -165409,6 +165464,7 @@
       "seen_at": "2026-11-10T23:56:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c670d7e9-977a-470d-8a6c-8b9abe9099ad": {
+      "missing": "2026-11-22T16:04:16+00:00",
       "seen_at": "2026-11-22T10:34:14+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c671ab74-606e-409b-a6c6-dabe7d21c602": {
@@ -167130,7 +167186,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6c24595-0dd3-449f-b0ae-d13e256fc740": {
-      "missing": "2026-11-22T11:43:52+00:00",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6cc7924-5545-46c3-8847-89f485a17231": {
@@ -167168,6 +167223,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:d71bed9a-99bb-4a02-ae62-3ee72d73fb36": {
       "seen_at": "2026-09-26T05:38:46+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:d71c5ba9-0935-4cef-bd4c-21f2c50b2e47": {
+      "seen_at": "2026-11-22T16:04:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d71c9ca0-4831-4901-8582-9b0a38147e70": {
       "seen_at": "2026-10-19T22:45:50+00:00"
@@ -415584,7 +415642,7 @@
     "workday/ebay": "2026-11-22T10:40:24+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-22T15:50:25+00:00",
-    "workday/hpe": "2026-11-22T13:20:26+00:00",
+    "workday/hpe": "2026-11-22T16:00:37+00:00",
     "workday/intel": "2026-11-22T13:30:31+00:00",
     "workday/micron": "2026-11-22T15:40:27+00:00",
     "workday/northrop-grumman": "2026-11-22T13:50:25+00:00",
