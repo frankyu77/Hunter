@@ -46957,10 +46957,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-22T20:44:11+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47383,7 +47380,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T20:53:36+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47413,10 +47413,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T16:34:24+00:00",
-      "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -118899,7 +118896,6 @@
       "seen_at": "2026-11-19T13:53:40+00:00"
     },
     "eightfold:netflix:790319605378": {
-      "missing": "2026-11-22T20:33:47+00:00",
       "seen_at": "2026-11-19T15:43:49+00:00"
     },
     "eightfold:netflix:790319609003": {
@@ -123202,6 +123198,7 @@
       "seen_at": "2026-11-21T00:04:22+00:00"
     },
     "eightfold:qualcomm:446722251505": {
+      "missing": "2026-11-22T20:53:37+00:00",
       "seen_at": "2026-11-21T01:43:56+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
@@ -414092,11 +414089,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-22T20:20:28+00:00",
-    "workday/autodesk": "2026-11-22T19:30:30+00:00",
+    "workday/autodesk": "2026-11-22T20:50:28+00:00",
     "workday/becton-dickinson": "2026-11-22T19:50:26+00:00",
     "workday/boeing": "2026-11-22T19:40:24+00:00",
     "workday/cibc": "2026-11-22T20:10:28+00:00",
-    "workday/cisco": "2026-11-22T18:00:33+00:00",
+    "workday/cisco": "2026-11-22T20:50:28+00:00",
     "workday/clio": "2026-11-22T20:00:34+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
