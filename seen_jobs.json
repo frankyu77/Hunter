@@ -46946,7 +46946,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T04:04:55+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47354,7 +47357,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T04:04:55+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47447,7 +47453,10 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T04:04:55+00:00",
+      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47989,7 +47998,7 @@
       }
     },
     "auto_sources_checked": "2026-11-22T03:22:55+00:00",
-    "dashboard_built_at": "2026-11-22T02:53:55+00:00",
+    "dashboard_built_at": "2026-11-22T04:04:55+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -54150,7 +54159,8 @@
         1,
         1,
         0,
-        1
+        1,
+        2
       ],
       "smartrecruiters/RenesasElectronics": [
         41,
@@ -279406,7 +279416,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161874950": {
-      "missing": "2026-11-21T22:04:23+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161876169": {
@@ -415933,7 +415943,7 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-22T03:40:28+00:00",
     "workday/hpe": "2026-11-22T03:50:25+00:00",
-    "workday/intel": "2026-11-22T01:30:32+00:00",
+    "workday/intel": "2026-11-22T04:00:43+00:00",
     "workday/micron": "2026-11-22T01:40:23+00:00",
     "workday/northrop-grumman": "2026-11-22T02:00:38+00:00",
     "workday/nvidia": "2026-11-22T03:30:31+00:00",
