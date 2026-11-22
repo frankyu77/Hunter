@@ -47422,7 +47422,10 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T20:04:20+00:00",
+      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47512,7 +47515,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T17:04:17+00:00",
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -71409,7 +71412,7 @@
         "workday/mtb": "2026-11-19",
         "workday/nasdaq": "2026-11-19"
       },
-      "last_run": "2026-11-21T20:03:42+00:00"
+      "last_run": "2026-11-22T20:04:21+00:00"
     },
     "seasons": {
       "adobe": {
@@ -118526,11 +118529,9 @@
       "seen_at": "2026-10-29T11:36:29+00:00"
     },
     "eightfold:netflix:790319235151": {
-      "missing": "2026-11-22T19:54:14+00:00",
       "seen_at": "2026-10-29T14:46:43+00:00"
     },
     "eightfold:netflix:790319238812": {
-      "missing": "2026-11-22T19:54:14+00:00",
       "seen_at": "2026-11-18T21:46:12+00:00"
     },
     "eightfold:netflix:790319239100": {
@@ -118565,18 +118566,15 @@
       "seen_at": "2026-10-30T18:27:24+00:00"
     },
     "eightfold:netflix:790319259458": {
-      "missing": "2026-11-22T19:54:14+00:00",
       "seen_at": "2026-10-30T18:27:24+00:00"
     },
     "eightfold:netflix:790319260802": {
-      "missing": "2026-11-22T19:54:14+00:00",
       "seen_at": "2026-11-02T22:45:42+00:00"
     },
     "eightfold:netflix:790319260963": {
       "seen_at": "2026-11-13T20:29:16+00:00"
     },
     "eightfold:netflix:790319262079": {
-      "missing": "2026-11-22T19:54:14+00:00",
       "seen_at": "2026-10-30T21:47:51+00:00"
     },
     "eightfold:netflix:790319262115": {
@@ -414776,7 +414774,7 @@
     "workday/boeing": "2026-11-22T19:40:24+00:00",
     "workday/cibc": "2026-11-22T18:40:33+00:00",
     "workday/cisco": "2026-11-22T18:00:33+00:00",
-    "workday/clio": "2026-11-22T18:30:33+00:00",
+    "workday/clio": "2026-11-22T20:00:34+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -414788,7 +414786,7 @@
     "workday/nvidia": "2026-11-22T19:00:37+00:00",
     "workday/paypal": "2026-11-22T18:00:33+00:00",
     "workday/rbc": "2026-11-22T18:50:28+00:00",
-    "workday/salesforce": "2026-11-22T18:30:33+00:00",
+    "workday/salesforce": "2026-11-22T20:00:34+00:00",
     "workday/siemens-healthineers": "2026-11-22T19:50:26+00:00",
     "workday/snap": "2026-11-22T19:30:30+00:00",
     "workday/td": "2026-11-22T18:40:33+00:00",
