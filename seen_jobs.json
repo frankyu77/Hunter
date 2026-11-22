@@ -46957,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T07:33:53+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47464,7 +47467,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T06:04:02+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47473,10 +47476,7 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 4,
-      "failing_since": "2026-11-21T23:24:03+00:00",
-      "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -53160,7 +53160,6 @@
       ],
       "greenhouse/samsara": [
         40,
-        40,
         22,
         11,
         40,
@@ -53208,7 +53207,8 @@
         32,
         14,
         43,
-        29
+        29,
+        44
       ],
       "greenhouse/scaleai": [
         13,
@@ -83440,6 +83440,9 @@
     },
     "amazon:amazon:10610595": {
       "seen_at": "2026-11-22T07:23:59+00:00"
+    },
+    "amazon:amazon:10610597": {
+      "seen_at": "2026-11-22T07:33:54+00:00"
     },
     "amazon:amazon:10610599": {
       "seen_at": "2026-11-22T07:23:59+00:00"
@@ -172996,7 +172999,7 @@
       "seen_at": "2026-11-07T17:15:51+00:00"
     },
     "github:vanshb03/Summer2027-Internships:174cf41e-e150-4ae2-96cc-0581f93659fb": {
-      "missing": "2026-11-22T01:24:03+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-17T00:27:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:1759970a-d3a3-4101-ab08-5b31237d1998": {
@@ -178179,7 +178182,7 @@
       "seen_at": "2026-11-10T17:16:41+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7acdcce9-b9bc-401b-affe-af8ef9352f73": {
-      "missing": "2026-11-22T01:24:03+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7ad25029-efeb-458b-96bc-295fa18f8286": {
@@ -179397,7 +179400,7 @@
       "seen_at": "2026-10-26T11:55:39+00:00"
     },
     "github:vanshb03/Summer2027-Internships:931c7764-d48f-46df-98de-a07c904d13fe": {
-      "missing": "2026-11-22T01:24:03+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:9333b87b-4d6d-4fe6-b888-297736c94e29": {
@@ -182958,7 +182961,7 @@
       "seen_at": "2026-10-22T02:36:24+00:00"
     },
     "github:vanshb03/Summer2027-Internships:d9a8ae76-8f21-4fb9-925d-f08ce6ecfc33": {
-      "missing": "2026-11-22T01:24:03+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-13T15:49:10+00:00"
     },
     "github:vanshb03/Summer2027-Internships:d9ad1ba1-eb15-4ee9-9446-37cfd31a8023": {
@@ -225056,7 +225059,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:samsara:8259091": {
-      "missing": "2026-11-22T01:24:03+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-09T00:06:40+00:00"
     },
     "greenhouse:samsara:8260850": {
@@ -275036,6 +275039,9 @@
     },
     "smartrecruiters:BoschGroup:744000163089999": {
       "seen_at": "2026-11-22T07:13:59+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163090169": {
+      "seen_at": "2026-11-22T07:33:54+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -378641,6 +378647,12 @@
     "workday:ngc:R10260918": {
       "seen_at": "2026-11-18T08:07:17+00:00"
     },
+    "workday:ngc:R10260924": {
+      "seen_at": "2026-11-22T07:33:54+00:00"
+    },
+    "workday:ngc:R10260930": {
+      "seen_at": "2026-11-22T07:33:54+00:00"
+    },
     "workday:ngc:R10260934": {
       "seen_at": "2026-11-18T08:07:17+00:00"
     },
@@ -415756,8 +415768,8 @@
     "workday/hp": "2026-11-22T07:00:42+00:00",
     "workday/hpe": "2026-11-22T07:00:42+00:00",
     "workday/intel": "2026-11-22T07:10:26+00:00",
-    "workday/micron": "2026-11-22T06:00:37+00:00",
-    "workday/northrop-grumman": "2026-11-22T06:00:37+00:00",
+    "workday/micron": "2026-11-22T07:30:27+00:00",
+    "workday/northrop-grumman": "2026-11-22T07:30:27+00:00",
     "workday/nvidia": "2026-11-22T06:50:24+00:00",
     "workday/paypal": "2026-11-22T05:50:23+00:00",
     "workday/rbc": "2026-11-22T06:40:27+00:00",
