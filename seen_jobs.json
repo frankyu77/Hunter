@@ -46957,10 +46957,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-22T08:43:47+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47533,7 +47530,10 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T08:53:31+00:00",
+      "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -118425,15 +118425,18 @@
       "seen_at": "2026-10-30T18:27:24+00:00"
     },
     "eightfold:netflix:790319259458": {
+      "missing": "2026-11-22T08:53:32+00:00",
       "seen_at": "2026-10-30T18:27:24+00:00"
     },
     "eightfold:netflix:790319260802": {
+      "missing": "2026-11-22T08:53:32+00:00",
       "seen_at": "2026-11-02T22:45:42+00:00"
     },
     "eightfold:netflix:790319260963": {
       "seen_at": "2026-11-13T20:29:16+00:00"
     },
     "eightfold:netflix:790319262079": {
+      "missing": "2026-11-22T08:53:32+00:00",
       "seen_at": "2026-10-30T21:47:51+00:00"
     },
     "eightfold:netflix:790319262115": {
@@ -118776,7 +118779,6 @@
       "seen_at": "2026-11-19T20:53:45+00:00"
     },
     "eightfold:netflix:790319611689": {
-      "missing": "2026-11-22T08:34:01+00:00",
       "seen_at": "2026-11-19T23:14:10+00:00"
     },
     "eightfold:netflix:790319624073": {
@@ -415816,11 +415818,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-22T08:20:28+00:00",
-    "workday/autodesk": "2026-11-22T07:20:25+00:00",
+    "workday/autodesk": "2026-11-22T08:50:26+00:00",
     "workday/becton-dickinson": "2026-11-22T07:40:28+00:00",
     "workday/boeing": "2026-11-22T07:40:28+00:00",
     "workday/cibc": "2026-11-22T08:10:26+00:00",
-    "workday/cisco": "2026-11-22T07:20:25+00:00",
+    "workday/cisco": "2026-11-22T08:50:26+00:00",
     "workday/clio": "2026-11-22T08:00:36+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-21T06:20:26+00:00",
@@ -415835,7 +415837,7 @@
     "workday/rbc": "2026-11-22T08:10:26+00:00",
     "workday/salesforce": "2026-11-22T07:50:26+00:00",
     "workday/siemens-healthineers": "2026-11-22T07:50:26+00:00",
-    "workday/snap": "2026-11-22T05:50:23+00:00",
+    "workday/snap": "2026-11-22T08:50:26+00:00",
     "workday/td": "2026-11-22T08:00:36+00:00",
     "workday/workday": "2026-11-22T07:20:25+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
