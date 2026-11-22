@@ -47389,7 +47389,10 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T16:53:54+00:00",
+      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47521,7 +47524,7 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T14:23:40+00:00",
       "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -118552,15 +118555,18 @@
       "seen_at": "2026-10-30T18:27:24+00:00"
     },
     "eightfold:netflix:790319259458": {
+      "missing": "2026-11-22T16:53:54+00:00",
       "seen_at": "2026-10-30T18:27:24+00:00"
     },
     "eightfold:netflix:790319260802": {
+      "missing": "2026-11-22T16:53:54+00:00",
       "seen_at": "2026-11-02T22:45:42+00:00"
     },
     "eightfold:netflix:790319260963": {
       "seen_at": "2026-11-13T20:29:16+00:00"
     },
     "eightfold:netflix:790319262079": {
+      "missing": "2026-11-22T16:53:54+00:00",
       "seen_at": "2026-10-30T21:47:51+00:00"
     },
     "eightfold:netflix:790319262115": {
@@ -118660,6 +118666,7 @@
       "seen_at": "2026-11-09T15:26:39+00:00"
     },
     "eightfold:netflix:790319416441": {
+      "missing": "2026-11-22T16:53:54+00:00",
       "seen_at": "2026-11-10T00:15:54+00:00"
     },
     "eightfold:netflix:790319418775": {
@@ -118694,6 +118701,7 @@
       "seen_at": "2026-11-12T17:36:27+00:00"
     },
     "eightfold:netflix:790319429186": {
+      "missing": "2026-11-22T16:53:54+00:00",
       "seen_at": "2026-11-10T05:25:58+00:00"
     },
     "eightfold:netflix:790319431097": {
@@ -415645,7 +415653,7 @@
   "polling": {
     "workday/adobe": "2026-11-22T15:20:27+00:00",
     "workday/autodesk": "2026-11-22T16:20:33+00:00",
-    "workday/becton-dickinson": "2026-11-22T14:10:29+00:00",
+    "workday/becton-dickinson": "2026-11-22T16:50:28+00:00",
     "workday/boeing": "2026-11-22T16:40:25+00:00",
     "workday/cibc": "2026-11-22T15:00:33+00:00",
     "workday/cisco": "2026-11-22T16:30:36+00:00",
@@ -415662,7 +415670,7 @@
     "workday/paypal": "2026-11-22T16:30:36+00:00",
     "workday/rbc": "2026-11-22T15:10:26+00:00",
     "workday/salesforce": "2026-11-22T14:30:29+00:00",
-    "workday/siemens-healthineers": "2026-11-22T14:20:23+00:00",
+    "workday/siemens-healthineers": "2026-11-22T16:50:28+00:00",
     "workday/snap": "2026-11-22T16:20:33+00:00",
     "workday/td": "2026-11-22T14:50:25+00:00",
     "workday/workday": "2026-11-22T13:40:34+00:00",
