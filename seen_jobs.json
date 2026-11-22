@@ -46957,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T14:43:36+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47416,7 +47419,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T11:13:53+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -111900,6 +111903,9 @@
     },
     "eightfold:microsoft:1970393557046189": {
       "seen_at": "2026-11-13T22:58:16+00:00"
+    },
+    "eightfold:microsoft:1970393557046190": {
+      "seen_at": "2026-11-22T14:43:37+00:00"
     },
     "eightfold:microsoft:1970393557046191": {
       "seen_at": "2026-11-17T20:36:56+00:00"
@@ -199645,6 +199651,7 @@
       "seen_at": "2026-09-27T06:38:03+00:00"
     },
     "greenhouse:databricks:8638642002": {
+      "missing": "2026-11-22T14:43:37+00:00",
       "seen_at": "2026-10-06T00:43:23+00:00"
     },
     "greenhouse:databricks:8638648002": {
@@ -415520,7 +415527,7 @@
     "workday/boeing": "2026-11-22T14:00:34+00:00",
     "workday/cibc": "2026-11-22T12:50:25+00:00",
     "workday/cisco": "2026-11-22T13:40:34+00:00",
-    "workday/clio": "2026-11-22T12:40:24+00:00",
+    "workday/clio": "2026-11-22T14:40:27+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T10:40:24+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
