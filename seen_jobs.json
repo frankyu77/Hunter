@@ -46945,10 +46945,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T11:53:24+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46960,7 +46957,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T12:04:21+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -47506,7 +47503,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T05:53:49+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47536,7 +47533,10 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T12:14:18+00:00",
+      "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50445,6 +50445,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "J.Crew"
+        },
+        "workday/jm": {
+          "boards": {
+            "{\"company\": \"johns-manville\", \"host\": \"wd103\", \"site\": \"External\", \"tenant\": \"jm\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Johns Manville"
         },
         "workday/littelfuse": {
           "boards": {
@@ -128201,6 +128209,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:4287d783-c297-490e-8a07-772a66707407": {
+      "missing": "2026-11-22T12:14:18+00:00",
       "seen_at": "2026-11-13T15:35:46+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:42886bb0-a824-4a57-b7bb-76e2e1855ec5": {
@@ -146601,7 +146610,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2090dcc2-c489-4ec4-bd16-8b1af5aa79f2": {
-      "missing": "2026-11-22T06:14:05+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-14T00:09:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:20960b45-bcba-4977-a12f-eabbf6b2c80c": {
@@ -148081,7 +148090,7 @@
       "seen_at": "2026-10-05T22:33:45+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d43585f-8138-4d37-97ac-3ac58db1d2cc": {
-      "missing": "2026-11-22T06:14:05+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-22T06:36:13+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d4366bb-aa7e-4018-877a-29d631e3f8b6": {
@@ -168729,6 +168738,9 @@
     "github:SimplifyJobs/Summer2026-Internships:e4e949a2-d0a8-497c-a7db-0da3ab81acb4": {
       "seen_at": "2026-10-29T23:06:35+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:e4edff5e-f411-4f18-af6c-d380593b8540": {
+      "seen_at": "2026-11-22T12:14:18+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:e4f05acb-267f-4e89-a2e9-9ab46db0ddab": {
       "seen_at": "2026-10-14T06:37:11+00:00"
     },
@@ -171898,7 +171910,6 @@
       "seen_at": "2026-11-20T23:34:22+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:fff73d24-2557-417b-a791-58567415f245": {
-      "missing": "2026-11-22T11:43:52+00:00",
       "seen_at": "2026-11-22T00:04:06+00:00"
     },
     "github:vanshb03/Summer2027-Internships:001129d7-4f1a-437e-a389-925251e8d50e": {
@@ -415904,11 +415915,11 @@
     "workday/micron": "2026-11-22T11:30:42+00:00",
     "workday/northrop-grumman": "2026-11-22T10:50:36+00:00",
     "workday/nvidia": "2026-11-22T11:40:25+00:00",
-    "workday/paypal": "2026-11-22T09:50:27+00:00",
+    "workday/paypal": "2026-11-22T12:10:25+00:00",
     "workday/rbc": "2026-11-22T11:30:42+00:00",
     "workday/salesforce": "2026-11-22T11:10:28+00:00",
     "workday/siemens-healthineers": "2026-11-22T11:00:35+00:00",
-    "workday/snap": "2026-11-22T10:40:24+00:00",
+    "workday/snap": "2026-11-22T12:10:25+00:00",
     "workday/td": "2026-11-22T11:20:25+00:00",
     "workday/workday": "2026-11-22T09:50:27+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
