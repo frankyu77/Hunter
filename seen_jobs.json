@@ -46957,10 +46957,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T20:13:54+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47449,16 +47446,16 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-22T15:54:11+00:00",
-      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T20:33:46+00:00",
+      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47473,7 +47470,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 8,
+      "consecutive_failures": 9,
       "failing_since": "2026-11-22T06:04:02+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -90629,6 +90626,9 @@
     "ashby:openai:76583c87-78ea-4886-906d-81b0a9c05bfe": {
       "seen_at": "2026-09-23T23:03:40+00:00"
     },
+    "ashby:openai:76c2a136-4e93-4e1a-bbdf-de4268498838": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "ashby:openai:770d5c3f-4e72-4b49-aec4-d444e8ad7a64": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -91449,6 +91449,9 @@
     "ashby:openai:b3e5fcf7-50ad-4765-ac03-ac71e8b20cb8": {
       "seen_at": "2026-11-03T19:37:29+00:00"
     },
+    "ashby:openai:b3fcdad3-abcb-4612-8fd9-a69e17210f0f": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "ashby:openai:b4196174-9cc3-487d-9d21-848bc283b80f": {
       "closed": "2026-11-19",
       "seen_at": "2026-11-14T23:55:23+00:00"
@@ -91984,6 +91987,9 @@
     "ashby:openai:d4a191f9-58f6-4c89-95f0-0c23ea59a8e4": {
       "closed": "2026-11-03",
       "seen_at": "2026-10-07T03:04:10+00:00"
+    },
+    "ashby:openai:d4cd5172-d4bc-4f9e-956e-c6bcaef1c355": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "ashby:openai:d4dcd344-40cf-44d6-a7dd-172118eb0842": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -93324,6 +93330,9 @@
     },
     "ashby:ramp:26855617-1697-4fd2-8c33-a5fb11fc4c77": {
       "seen_at": "2026-11-10T20:26:53+00:00"
+    },
+    "ashby:ramp:2888b101-b1da-4e53-a02e-1bb9b1b5a951": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "ashby:ramp:29a5da77-37f0-402a-92bc-072778e77ed8": {
       "closed": "2026-11-09",
@@ -99286,6 +99295,9 @@
     },
     "ashby:snowflake:e56587dc-dc46-43e5-a93e-94d479fdb754": {
       "seen_at": "2026-10-23T17:27:10+00:00"
+    },
+    "ashby:snowflake:e5806abe-d416-4dae-b086-88a519a4bc62": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "ashby:snowflake:e596a7db-1eea-4fc9-afc8-e495add1a116": {
       "seen_at": "2026-11-13T19:08:01+00:00"
@@ -118884,6 +118896,7 @@
       "seen_at": "2026-11-19T13:53:40+00:00"
     },
     "eightfold:netflix:790319605378": {
+      "missing": "2026-11-22T20:33:47+00:00",
       "seen_at": "2026-11-19T15:43:49+00:00"
     },
     "eightfold:netflix:790319609003": {
@@ -186626,6 +186639,9 @@
       "closed": "2026-10-14",
       "seen_at": "2026-09-29T20:44:03+00:00"
     },
+    "greenhouse:affirm:7999793003": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:affirm:7999870003": {
       "seen_at": "2026-09-28T19:23:51+00:00"
     },
@@ -189435,6 +189451,9 @@
     "greenhouse:anthropic:5382033008": {
       "closed": "2026-10-21",
       "seen_at": "2026-10-07T02:44:15+00:00"
+    },
+    "greenhouse:anthropic:5382518008": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "greenhouse:anthropic:5382617008": {
       "closed": "2026-11-06",
@@ -192687,6 +192706,9 @@
       "closed": "2026-11-09",
       "seen_at": "2026-09-30T20:24:41+00:00"
     },
+    "greenhouse:block:5418586008": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:block:5421096008": {
       "seen_at": "2026-11-09T20:16:51+00:00"
     },
@@ -192810,6 +192832,9 @@
     },
     "greenhouse:block:5431559008": {
       "seen_at": "2026-09-24T01:19:39+00:00"
+    },
+    "greenhouse:block:5433416008": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "greenhouse:block:5434157008": {
       "closed": "2026-10-21",
@@ -194417,6 +194442,9 @@
     "greenhouse:chime:8831472002": {
       "seen_at": "2026-11-21T19:04:13+00:00"
     },
+    "greenhouse:chime:8838389002": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:chime:8840193002": {
       "seen_at": "2026-10-02T21:24:28+00:00"
     },
@@ -195036,6 +195064,9 @@
     "greenhouse:cloudflare:8043287": {
       "closed": "2026-11-02",
       "seen_at": "2026-10-14T00:37:37+00:00"
+    },
+    "greenhouse:cloudflare:8043305": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "greenhouse:cloudflare:8043339": {
       "seen_at": "2026-10-25T14:45:36+00:00"
@@ -202889,6 +202920,9 @@
     "greenhouse:datadog:8224963": {
       "seen_at": "2026-09-24T06:14:49+00:00"
     },
+    "greenhouse:datadog:8226275": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:datadog:8226352": {
       "seen_at": "2026-09-30T19:23:59+00:00"
     },
@@ -209381,6 +209415,9 @@
     "greenhouse:figma:6174190004": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "greenhouse:figma:6178851004": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:figma:6180005004": {
       "seen_at": "2026-11-13T19:08:01+00:00"
     },
@@ -209985,6 +210022,9 @@
     "greenhouse:gitlab:8689243002": {
       "seen_at": "2026-10-07T16:44:01+00:00"
     },
+    "greenhouse:gitlab:8691382002": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:gitlab:8692874002": {
       "seen_at": "2026-10-17T09:45:33+00:00"
     },
@@ -210218,6 +210258,9 @@
     },
     "greenhouse:gitlab:8831350002": {
       "seen_at": "2026-09-25T19:26:27+00:00"
+    },
+    "greenhouse:gitlab:8838202002": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "greenhouse:gitlab:8838331002": {
       "closed": "2026-11-12",
@@ -220178,6 +220221,12 @@
     "greenhouse:pinterest:8207271": {
       "seen_at": "2026-10-30T19:17:03+00:00"
     },
+    "greenhouse:pinterest:8208419": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
+    "greenhouse:pinterest:8209014": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "greenhouse:pinterest:8209020": {
       "seen_at": "2026-09-24T22:46:53+00:00"
     },
@@ -228607,6 +228656,9 @@
     },
     "greenhouse:stripe:8226890": {
       "seen_at": "2026-10-27T09:35:44+00:00"
+    },
+    "greenhouse:stripe:8226893": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "greenhouse:stripe:8227563": {
       "seen_at": "2026-09-25T15:29:39+00:00"
@@ -241621,6 +241673,9 @@
     "lever:palantir:24060586-7ba8-47c0-bfc1-f1dd5b82d8bd": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
+    "lever:palantir:2458ba08-de79-4e8f-b553-060f9568727e": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "lever:palantir:25378ba0-db78-4c70-8174-a05ce514fc65": {
       "seen_at": "2026-09-29T23:04:03+00:00"
     },
@@ -241708,6 +241763,9 @@
     },
     "lever:palantir:34b3a697-6e22-4751-befd-0b7921abbd5f": {
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "lever:palantir:3531977a-9b2f-40a0-a486-4eeb38e75fc1": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
     },
     "lever:palantir:36b26f06-1e25-4c33-8548-c9e70add0784": {
       "seen_at": "2026-11-12T21:36:39+00:00"
@@ -342924,6 +342982,9 @@
     "workday:hp:3170370": {
       "seen_at": "2026-10-29T14:46:43+00:00"
     },
+    "workday:hp:3170371": {
+      "seen_at": "2026-11-22T20:33:47+00:00"
+    },
     "workday:hp:3170373": {
       "seen_at": "2026-11-19T06:33:40+00:00"
     },
@@ -414035,10 +414096,10 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-22T19:10:25+00:00",
-    "workday/hpe": "2026-11-22T19:10:25+00:00",
+    "workday/hp": "2026-11-22T20:30:34+00:00",
+    "workday/hpe": "2026-11-22T20:30:34+00:00",
     "workday/intel": "2026-11-22T19:20:26+00:00",
-    "workday/micron": "2026-11-22T19:00:37+00:00",
+    "workday/micron": "2026-11-22T20:30:34+00:00",
     "workday/northrop-grumman": "2026-11-22T19:40:24+00:00",
     "workday/nvidia": "2026-11-22T20:20:28+00:00",
     "workday/paypal": "2026-11-22T18:00:33+00:00",
