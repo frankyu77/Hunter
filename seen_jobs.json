@@ -2342,6 +2342,17 @@
         "title": "Support Engineer - Configuration",
         "url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/job/346240"
       },
+      "0df801efcbcb": {
+        "category": "new_grad",
+        "company": "Sierra Nevada Corporation",
+        "id": "github:SimplifyJobs/New-Grad-Positions:65b1d554-dd51-4c64-beb3-aa0184ed3477",
+        "location": "Lone Tree, CO",
+        "posted_at": "2026-11-18T00:00:00+00:00",
+        "sent_at": "2026-11-22T03:13:58+00:00",
+        "source": "github/SimplifyJobs/New-Grad-Positions",
+        "title": "Software Engineer 1",
+        "url": "https://snc.wd1.myworkdayjobs.com/snc_external_career_site/job/Lone-Tree-CO/Software-Engineer-I_R0031418"
+      },
       "0e192dda32d3": {
         "category": "new_grad",
         "company": "ServiceNow",
@@ -46923,7 +46934,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T03:13:56+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46935,10 +46949,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-22T03:04:56+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47262,7 +47273,7 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T03:04:56+00:00",
       "last_error": "HTTP 503 from iawmqy.fa.ocs.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
       "warned_failures": false,
@@ -47486,7 +47497,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-21T22:34:35+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50013,6 +50024,14 @@
           "matched": 0,
           "name": "Aptiv"
         },
+        "workday/argonne": {
+          "boards": {
+            "{\"company\": \"argonne-national-laboratory\", \"host\": \"wd1\", \"site\": \"Argonne_Careers\", \"tenant\": \"argonne\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Argonne National Laboratory"
+        },
         "workday/arienscompany": {
           "boards": {
             "{\"company\": \"ariensco\", \"host\": \"wd5\", \"site\": \"external\", \"tenant\": \"arienscompany\", \"type\": \"workday\"}": 1
@@ -50369,6 +50388,14 @@
           "matched": 0,
           "name": "International Monetary Fund"
         },
+        "workday/interdigital": {
+          "boards": {
+            "{\"company\": \"interdigital\", \"host\": \"wd5\", \"site\": \"InterDigital_Intern\", \"tenant\": \"interdigital\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Interdigital"
+        },
         "workday/invitationhomes": {
           "boards": {
             "{\"company\": \"invitation-homes\", \"host\": \"wd503\", \"site\": \"INVH\", \"tenant\": \"invitationhomes\", \"type\": \"workday\"}": 1
@@ -50570,6 +50597,14 @@
           "matched": 3,
           "name": "Sallie Mae"
         },
+        "workday/schnucks": {
+          "boards": {
+            "{\"company\": \"schnucks\", \"host\": \"wd5\", \"site\": \"SchnucksCareers\", \"tenant\": \"schnucks\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Schnucks"
+        },
         "workday/semtech": {
           "boards": {
             "{\"company\": \"semtech\", \"host\": \"wd1\", \"site\": \"SemtechCareers\", \"tenant\": \"semtech\", \"type\": \"workday\"}": 1
@@ -50577,6 +50612,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Semtech"
+        },
+        "workday/snc": {
+          "boards": {
+            "{\"company\": \"sierra-nevada-corporation\", \"host\": \"wd1\", \"site\": \"snc_external_career_site\", \"tenant\": \"snc\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Sierra Nevada Corporation"
         },
         "workday/southernwater": {
           "boards": {
@@ -68516,8 +68559,8 @@
       },
       "sierra nevada corporation|software engineer 1": {
         "first": "2026-10-06T22:36:34+00:00",
-        "id": "github:SimplifyJobs/New-Grad-Positions:f8280cc7-0c12-485c-b8d7-22a70575c15a",
-        "last": "2026-11-13T23:39:16+00:00"
+        "id": "github:SimplifyJobs/New-Grad-Positions:65b1d554-dd51-4c64-beb3-aa0184ed3477",
+        "last": "2026-11-22T03:13:58+00:00"
       },
       "sierra nevada corporation|software engineer intern": {
         "first": "2026-10-14T22:37:05+00:00",
@@ -130760,6 +130803,9 @@
     "github:SimplifyJobs/New-Grad-Positions:65b17730-74c2-4f98-a94f-d6d866ae8ab2": {
       "seen_at": "2026-10-07T23:13:49+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:65b1d554-dd51-4c64-beb3-aa0184ed3477": {
+      "seen_at": "2026-11-22T03:13:58+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:65c39cac-49f5-4b67-b714-c4885e03f9c0": {
       "seen_at": "2026-11-22T02:03:43+00:00"
     },
@@ -139362,6 +139408,9 @@
     "github:SimplifyJobs/New-Grad-Positions:d2bee24c-fe5c-403b-9483-ec8f0548321b": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:d2c0911d-44b1-488a-9922-b20915d74f54": {
+      "seen_at": "2026-11-22T03:13:58+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:d2e06213-6aca-4345-9032-f8bcc772475f": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-01T15:13:59+00:00"
@@ -144467,6 +144516,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:0f508dac-2b10-4bf1-a133-f9e01c873a14": {
       "seen_at": "2026-11-10T00:06:11+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:0f52b6f8-706e-404f-8ce4-13343631217f": {
+      "seen_at": "2026-11-22T03:13:58+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0f58df99-f546-4b97-831d-6ddad09b6821": {
       "seen_at": "2026-10-16T23:16:15+00:00"
@@ -156151,7 +156203,7 @@
       "seen_at": "2026-10-31T02:07:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:77f0d4c4-57a5-49b8-81ed-085e150c6551": {
-      "missing": "2026-11-21T21:13:38+00:00",
+      "closed": "2026-11-21",
       "seen_at": "2026-11-17T07:47:01+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:77f5b473-6971-4b74-a041-cbcc533d9a33": {
@@ -161607,7 +161659,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:a99e2f5f-e8a1-4b4f-9c09-643e09df2f89": {
-      "closed": "2026-11-03",
       "seen_at": "2026-10-21T22:36:20+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:a9a76fae-a7c1-48c3-8229-1804f208d98d": {
@@ -162707,6 +162758,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:b21b1dd0-f3e1-498f-b48e-8ca16e2503a8": {
       "seen_at": "2026-11-07T02:35:25+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:b2252d03-ef88-4b77-a90b-a1f565ba425b": {
+      "seen_at": "2026-11-22T03:13:58+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:b2350562-d38a-4b24-ad67-edf1158b6fb1": {
       "closed": "2026-10-24",
@@ -415885,7 +415939,7 @@
     "workday/northrop-grumman": "2026-11-22T02:00:38+00:00",
     "workday/nvidia": "2026-11-22T01:00:33+00:00",
     "workday/paypal": "2026-11-21T23:10:32+00:00",
-    "workday/rbc": "2026-11-22T00:40:28+00:00",
+    "workday/rbc": "2026-11-22T03:10:26+00:00",
     "workday/salesforce": "2026-11-22T02:33:56+00:00",
     "workday/siemens-healthineers": "2026-11-22T02:30:32+00:00",
     "workday/snap": "2026-11-22T01:50:25+00:00",
