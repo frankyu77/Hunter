@@ -46945,7 +46945,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T18:44:10+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46957,10 +46960,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-22T18:34:10+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47407,7 +47407,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T17:14:22+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47542,7 +47542,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-22T08:03:59+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53640,7 +53640,6 @@
         43
       ],
       "jibe/amd": [
-        4,
         0,
         3,
         2,
@@ -53687,6 +53686,7 @@
         3,
         1,
         1,
+        0,
         0,
         0,
         0
@@ -116547,6 +116547,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790300763299": {
+      "missing": "2026-11-22T18:44:10+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790301384045": {
@@ -123198,7 +123199,6 @@
       "seen_at": "2026-11-21T01:34:12+00:00"
     },
     "eightfold:qualcomm:446722250045": {
-      "missing": "2026-11-22T18:34:10+00:00",
       "seen_at": "2026-11-21T01:24:19+00:00"
     },
     "eightfold:qualcomm:446722250158": {
@@ -123214,7 +123214,6 @@
       "seen_at": "2026-11-20T22:43:49+00:00"
     },
     "eightfold:qualcomm:446722250691": {
-      "missing": "2026-11-22T18:34:10+00:00",
       "seen_at": "2026-11-21T00:04:22+00:00"
     },
     "eightfold:qualcomm:446722251505": {
@@ -235604,7 +235603,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.amd.com:90475": {
-      "missing": "2026-11-22T12:34:44+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-22T10:23:36+00:00"
     },
     "jibe:careers.amd.com:90710": {
@@ -414757,7 +414756,7 @@
     "workday/autodesk": "2026-11-22T17:54:43+00:00",
     "workday/becton-dickinson": "2026-11-22T18:20:38+00:00",
     "workday/boeing": "2026-11-22T18:10:24+00:00",
-    "workday/cibc": "2026-11-22T17:10:25+00:00",
+    "workday/cibc": "2026-11-22T18:40:33+00:00",
     "workday/cisco": "2026-11-22T18:00:33+00:00",
     "workday/clio": "2026-11-22T18:30:33+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -414774,7 +414773,7 @@
     "workday/salesforce": "2026-11-22T18:30:33+00:00",
     "workday/siemens-healthineers": "2026-11-22T18:20:38+00:00",
     "workday/snap": "2026-11-22T17:54:43+00:00",
-    "workday/td": "2026-11-22T17:10:25+00:00",
+    "workday/td": "2026-11-22T18:40:33+00:00",
     "workday/workday": "2026-11-22T13:40:34+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-22T10:40:24+00:00"
