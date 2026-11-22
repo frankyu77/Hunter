@@ -46957,10 +46957,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-22T07:04:41+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47464,7 +47461,10 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T07:13:58+00:00",
+      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -274971,6 +274971,9 @@
     "smartrecruiters:BoschGroup:744000162835320": {
       "seen_at": "2026-11-20T23:53:31+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163089999": {
+      "seen_at": "2026-11-22T07:13:59+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -415689,7 +415692,7 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-22T07:00:42+00:00",
     "workday/hpe": "2026-11-22T07:00:42+00:00",
-    "workday/intel": "2026-11-22T05:30:30+00:00",
+    "workday/intel": "2026-11-22T07:10:26+00:00",
     "workday/micron": "2026-11-22T06:00:37+00:00",
     "workday/northrop-grumman": "2026-11-22T06:00:37+00:00",
     "workday/nvidia": "2026-11-22T06:50:24+00:00",
