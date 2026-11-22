@@ -46957,7 +46957,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T20:13:54+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47404,10 +47407,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T17:14:22+00:00",
-      "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47506,7 +47506,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T18:53:27+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47539,10 +47539,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 7,
-      "failing_since": "2026-11-22T08:03:59+00:00",
-      "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48000,7 +47997,7 @@
       }
     },
     "auto_sources_checked": "2026-11-22T03:22:55+00:00",
-    "dashboard_built_at": "2026-11-22T19:13:52+00:00",
+    "dashboard_built_at": "2026-11-22T20:13:55+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -125943,6 +125940,7 @@
       "seen_at": "2026-10-02T08:23:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:234d3dd5-18ec-4a97-b87d-a34482e08d22": {
+      "missing": "2026-11-22T20:13:54+00:00",
       "seen_at": "2026-11-05T08:35:58+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:236553d4-e868-44f5-8acc-622671e14f64": {
@@ -275022,6 +275020,9 @@
     "smartrecruiters:BoschGroup:744000163099209": {
       "seen_at": "2026-11-22T18:04:46+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163101549": {
+      "seen_at": "2026-11-22T20:13:55+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -399818,11 +399819,17 @@
     "workday:td:R_1501275": {
       "seen_at": "2026-09-28T19:23:51+00:00"
     },
+    "workday:td:R_1501286": {
+      "seen_at": "2026-11-22T20:13:55+00:00"
+    },
     "workday:td:R_1501349": {
       "seen_at": "2026-10-08T14:26:45+00:00"
     },
     "workday:td:R_1501371": {
       "seen_at": "2026-11-04T14:56:05+00:00"
+    },
+    "workday:td:R_1501423": {
+      "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1501437": {
       "seen_at": "2026-10-01T18:04:49+00:00"
@@ -399869,6 +399876,9 @@
     "workday:td:R_1501605": {
       "seen_at": "2026-10-27T22:35:49+00:00"
     },
+    "workday:td:R_1501685": {
+      "seen_at": "2026-11-22T20:13:55+00:00"
+    },
     "workday:td:R_1501804": {
       "seen_at": "2026-11-06T17:06:43+00:00"
     },
@@ -399910,6 +399920,12 @@
     },
     "workday:td:R_1501999": {
       "seen_at": "2026-10-07T00:04:36+00:00"
+    },
+    "workday:td:R_1502007": {
+      "seen_at": "2026-11-22T20:13:55+00:00"
+    },
+    "workday:td:R_1502022": {
+      "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1502036": {
       "seen_at": "2026-10-20T16:56:50+00:00"
@@ -401470,7 +401486,6 @@
       "seen_at": "2026-10-16T21:36:55+00:00"
     },
     "workday:td:R_1512256": {
-      "closed": "2026-11-21",
       "seen_at": "2026-11-20T19:44:10+00:00"
     },
     "workday:td:R_1512269": {
@@ -414772,7 +414787,7 @@
     "workday/autodesk": "2026-11-22T19:30:30+00:00",
     "workday/becton-dickinson": "2026-11-22T19:50:26+00:00",
     "workday/boeing": "2026-11-22T19:40:24+00:00",
-    "workday/cibc": "2026-11-22T18:40:33+00:00",
+    "workday/cibc": "2026-11-22T20:10:28+00:00",
     "workday/cisco": "2026-11-22T18:00:33+00:00",
     "workday/clio": "2026-11-22T20:00:34+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -414785,11 +414800,11 @@
     "workday/northrop-grumman": "2026-11-22T19:40:24+00:00",
     "workday/nvidia": "2026-11-22T19:00:37+00:00",
     "workday/paypal": "2026-11-22T18:00:33+00:00",
-    "workday/rbc": "2026-11-22T18:50:28+00:00",
+    "workday/rbc": "2026-11-22T20:10:28+00:00",
     "workday/salesforce": "2026-11-22T20:00:34+00:00",
     "workday/siemens-healthineers": "2026-11-22T19:50:26+00:00",
     "workday/snap": "2026-11-22T19:30:30+00:00",
-    "workday/td": "2026-11-22T18:40:33+00:00",
+    "workday/td": "2026-11-22T20:10:28+00:00",
     "workday/workday": "2026-11-22T19:30:30+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-22T19:30:30+00:00"
