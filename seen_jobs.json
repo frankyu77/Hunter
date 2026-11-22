@@ -46945,7 +46945,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-22T21:34:31+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47419,7 +47422,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-22T20:04:20+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47515,7 +47518,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-22T17:04:17+00:00",
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -118899,6 +118902,7 @@
       "seen_at": "2026-11-19T13:53:40+00:00"
     },
     "eightfold:netflix:790319605378": {
+      "missing": "2026-11-22T21:34:31+00:00",
       "seen_at": "2026-11-19T15:43:49+00:00"
     },
     "eightfold:netflix:790319609003": {
@@ -119110,6 +119114,9 @@
     },
     "eightfold:qualcomm:446717433364": {
       "seen_at": "2026-11-04T16:46:36+00:00"
+    },
+    "eightfold:qualcomm:446717436968": {
+      "seen_at": "2026-11-22T21:34:32+00:00"
     },
     "eightfold:qualcomm:446717463103": {
       "seen_at": "2026-10-22T09:26:01+00:00"
@@ -414099,7 +414106,7 @@
     "workday/boeing": "2026-11-22T21:10:35+00:00",
     "workday/cibc": "2026-11-22T20:10:28+00:00",
     "workday/cisco": "2026-11-22T20:50:28+00:00",
-    "workday/clio": "2026-11-22T20:00:34+00:00",
+    "workday/clio": "2026-11-22T21:30:48+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -414111,7 +414118,7 @@
     "workday/nvidia": "2026-11-22T20:20:28+00:00",
     "workday/paypal": "2026-11-22T21:00:35+00:00",
     "workday/rbc": "2026-11-22T20:10:28+00:00",
-    "workday/salesforce": "2026-11-22T20:00:34+00:00",
+    "workday/salesforce": "2026-11-22T21:30:48+00:00",
     "workday/siemens-healthineers": "2026-11-22T21:20:29+00:00",
     "workday/snap": "2026-11-22T21:00:35+00:00",
     "workday/td": "2026-11-22T20:10:28+00:00",
