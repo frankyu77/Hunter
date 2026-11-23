@@ -47039,16 +47039,13 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T15:05:02+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-23T15:05:02+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -47489,7 +47486,10 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T15:14:24+00:00",
+      "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -53332,7 +53332,6 @@
       ],
       "greenhouse/mongodb": [
         33,
-        33,
         3,
         33,
         18,
@@ -53380,7 +53379,8 @@
         43,
         28,
         23,
-        18
+        18,
+        0
       ],
       "greenhouse/okta": [
         40,
@@ -216495,7 +216495,7 @@
       "seen_at": "2026-11-18T22:16:36+00:00"
     },
     "greenhouse:mongodb:8398137": {
-      "missing": "2026-11-23T09:13:42+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-23T06:14:09+00:00"
     },
     "greenhouse:mongodb:8398664": {
@@ -224529,6 +224529,7 @@
       "seen_at": "2026-11-06T12:25:36+00:00"
     },
     "greenhouse:samsara:8358709": {
+      "missing": "2026-11-23T15:14:24+00:00",
       "seen_at": "2026-11-06T12:25:36+00:00"
     },
     "greenhouse:samsara:8358712": {
@@ -262363,6 +262364,9 @@
       "closed": "2026-11-17",
       "seen_at": "2026-11-16T14:57:11+00:00"
     },
+    "oracle:oracle:350552": {
+      "seen_at": "2026-11-23T15:14:24+00:00"
+    },
     "oracle:oracle:350553": {
       "closed": "2026-11-17",
       "seen_at": "2026-11-16T14:57:11+00:00"
@@ -273896,6 +273900,9 @@
     "smartrecruiters:BoschGroup:744000163238159": {
       "seen_at": "2026-11-23T14:34:37+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163250629": {
+      "seen_at": "2026-11-23T15:14:24+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -278629,6 +278636,9 @@
     },
     "smartrecruiters:NBCUniversal3:744000163214981": {
       "seen_at": "2026-11-23T12:54:03+00:00"
+    },
+    "smartrecruiters:NBCUniversal3:744000163245260": {
+      "seen_at": "2026-11-23T15:14:24+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000118870517": {
       "closed": "2026-11-20",
@@ -412676,7 +412686,7 @@
     "workday/autodesk": "2026-11-23T13:50:24+00:00",
     "workday/becton-dickinson": "2026-11-23T14:20:33+00:00",
     "workday/boeing": "2026-11-23T14:10:29+00:00",
-    "workday/cibc": "2026-11-23T13:10:31+00:00",
+    "workday/cibc": "2026-11-23T15:10:42+00:00",
     "workday/cisco": "2026-11-23T13:50:24+00:00",
     "workday/clio": "2026-11-23T14:50:36+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
