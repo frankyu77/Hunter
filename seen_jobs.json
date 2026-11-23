@@ -46956,7 +46956,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T00:04:31+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47391,7 +47394,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T20:53:36+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52526,7 +52529,6 @@
         32
       ],
       "greenhouse/databricks": [
-        14,
         9,
         4,
         15,
@@ -52575,7 +52577,8 @@
         17,
         24,
         26,
-        47
+        47,
+        19
       ],
       "greenhouse/datadog": [
         6,
@@ -118713,7 +118716,6 @@
       "seen_at": "2026-11-06T20:46:17+00:00"
     },
     "eightfold:netflix:790319330280": {
-      "missing": "2026-11-22T23:53:25+00:00",
       "seen_at": "2026-11-03T20:56:57+00:00"
     },
     "eightfold:netflix:790319330420": {
@@ -198731,7 +198733,7 @@
       "seen_at": "2026-10-07T23:54:00+00:00"
     },
     "greenhouse:databricks:8407895002": {
-      "missing": "2026-11-22T17:54:24+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:databricks:8407913002": {
@@ -214227,6 +214229,7 @@
       "seen_at": "2026-11-20T08:54:11+00:00"
     },
     "greenhouse:lucidmotors:5304292007": {
+      "missing": "2026-11-23T00:04:32+00:00",
       "seen_at": "2026-11-20T22:43:49+00:00"
     },
     "greenhouse:lucidmotors:5304294007": {
@@ -413725,11 +413728,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-22T23:20:28+00:00",
-    "workday/autodesk": "2026-11-22T22:30:31+00:00",
+    "workday/autodesk": "2026-11-23T00:00:37+00:00",
     "workday/becton-dickinson": "2026-11-22T23:00:38+00:00",
     "workday/boeing": "2026-11-22T22:50:26+00:00",
     "workday/cibc": "2026-11-22T23:14:10+00:00",
-    "workday/cisco": "2026-11-22T22:30:31+00:00",
+    "workday/cisco": "2026-11-23T00:00:37+00:00",
     "workday/clio": "2026-11-22T23:10:31+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
