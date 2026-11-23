@@ -47033,7 +47033,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T11:34:26+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47492,7 +47495,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-23T08:23:45+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47624,7 +47627,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-23T08:23:45+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -143221,7 +143224,6 @@
       "seen_at": "2026-10-21T01:36:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:0027f5ce-0bdc-419e-ac80-095bae27c176": {
-      "missing": "2026-11-23T09:43:51+00:00",
       "seen_at": "2026-10-19T03:06:07+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:00477c84-78f9-450f-a8d3-9a9d51505a67": {
@@ -167134,7 +167136,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6c24595-0dd3-449f-b0ae-d13e256fc740": {
-      "missing": "2026-11-23T08:13:54+00:00",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6cc7924-5545-46c3-8847-89f485a17231": {
@@ -169689,6 +169690,7 @@
       "seen_at": "2026-10-15T22:36:29+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ebfeb2eb-8fcc-4883-8688-30e1f57055e0": {
+      "missing": "2026-11-23T11:34:26+00:00",
       "seen_at": "2026-11-20T23:34:22+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ec00eac5-4585-4280-840e-de9a25fe6595": {
@@ -215852,6 +215854,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:mongodb:8267982": {
+      "missing": "2026-11-23T11:34:26+00:00",
       "seen_at": "2026-10-16T17:16:31+00:00"
     },
     "greenhouse:mongodb:8268264": {
@@ -225988,7 +225991,6 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:stripe:8043052": {
-      "closed": "2026-11-19",
       "seen_at": "2026-11-16T09:36:37+00:00"
     },
     "greenhouse:stripe:8043083": {
@@ -227810,6 +227812,7 @@
       "seen_at": "2026-10-16T13:46:34+00:00"
     },
     "greenhouse:stripe:8267857": {
+      "missing": "2026-11-23T11:34:26+00:00",
       "seen_at": "2026-10-19T16:27:11+00:00"
     },
     "greenhouse:stripe:8268059": {
@@ -273732,6 +273735,9 @@
     "smartrecruiters:BoschGroup:744000163199879": {
       "seen_at": "2026-11-23T11:24:14+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163201589": {
+      "seen_at": "2026-11-23T11:34:26+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -286055,6 +286061,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163198539": {
       "seen_at": "2026-11-23T11:24:14+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163200599": {
+      "seen_at": "2026-11-23T11:34:26+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -412414,7 +412423,7 @@
     "workday/autodesk": "2026-11-23T10:50:32+00:00",
     "workday/becton-dickinson": "2026-11-23T11:10:38+00:00",
     "workday/boeing": "2026-11-23T11:00:37+00:00",
-    "workday/cibc": "2026-11-23T10:00:36+00:00",
+    "workday/cibc": "2026-11-23T11:30:34+00:00",
     "workday/cisco": "2026-11-23T09:20:26+00:00",
     "workday/clio": "2026-11-23T11:20:29+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -412431,7 +412440,7 @@
     "workday/salesforce": "2026-11-23T11:20:29+00:00",
     "workday/siemens-healthineers": "2026-11-23T11:10:38+00:00",
     "workday/snap": "2026-11-23T10:50:32+00:00",
-    "workday/td": "2026-11-23T10:00:36+00:00",
+    "workday/td": "2026-11-23T11:30:34+00:00",
     "workday/workday": "2026-11-23T10:50:32+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-23T10:50:32+00:00"
