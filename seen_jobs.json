@@ -47086,14 +47086,6 @@
       "warned_zero": false,
       "zero_since": null
     },
-    "ashby/f7d8749a-72d6-407c-bf98-292ea630c73a": {
-      "consecutive_failures": 5,
-      "failing_since": "2026-11-23T18:24:05+00:00",
-      "last_error": "HTTP 404 from api.ashbyhq.com: Not Found",
-      "warned_failures": true,
-      "warned_zero": false,
-      "zero_since": null
-    },
     "ashby/linear": {
       "consecutive_failures": 0,
       "warned_failures": false,
@@ -47167,10 +47159,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T19:05:09+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47182,7 +47171,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-23T19:05:09+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -47605,7 +47594,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T19:13:52+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47629,7 +47621,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "failing_since": "2026-11-23T01:43:46+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -95404,6 +95396,9 @@
     "ashby:shield:0d383ceb-07ab-4c50-ad37-d8d143114043": {
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
+    "ashby:shield:0d42d83c-8ebb-43ed-9789-b0e23cbaefaa": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
+    },
     "ashby:shield:0d443a68-cd2b-4a8c-9a39-54776be15cef": {
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
@@ -116408,6 +116403,9 @@
     "eightfold:microsoft:1970393557073519": {
       "seen_at": "2026-11-16T08:56:21+00:00"
     },
+    "eightfold:microsoft:1970393557073542": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
+    },
     "eightfold:microsoft:1970393557073544": {
       "seen_at": "2026-11-20T19:24:06+00:00"
     },
@@ -116740,6 +116738,9 @@
     },
     "eightfold:microsoft:1970393557075074": {
       "seen_at": "2026-11-17T21:38:01+00:00"
+    },
+    "eightfold:microsoft:1970393557075098": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
     },
     "eightfold:microsoft:1970393557075102": {
       "seen_at": "2026-11-19T21:23:40+00:00"
@@ -123834,15 +123835,12 @@
       "seen_at": "2026-11-20T16:54:11+00:00"
     },
     "eightfold:qualcomm:446722246750": {
-      "missing": "2026-11-23T19:05:09+00:00",
       "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446722246751": {
-      "missing": "2026-11-23T19:05:09+00:00",
       "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446722246752": {
-      "missing": "2026-11-23T19:05:09+00:00",
       "seen_at": "2026-11-23T07:03:52+00:00"
     },
     "eightfold:qualcomm:446722246976": {
@@ -123891,11 +123889,9 @@
       "seen_at": "2026-11-21T01:43:56+00:00"
     },
     "eightfold:qualcomm:446722279117": {
-      "missing": "2026-11-23T19:05:09+00:00",
       "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "eightfold:qualcomm:446722279118": {
-      "missing": "2026-11-23T19:05:09+00:00",
       "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "eightfold:qualcomm:446722279738": {
@@ -139056,6 +139052,7 @@
       "seen_at": "2026-11-11T00:07:54+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:c189aa66-c9c8-469f-ba67-3b1adf8bebc9": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-11-12T00:06:52+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:c192d7cd-8e41-43d0-9f80-86b20fa05310": {
@@ -140153,6 +140150,7 @@
       "seen_at": "2026-10-02T08:23:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d08ceabe-f3ba-46d0-ac76-e4809c9fe1e9": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-10-28T06:35:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d08ff05d-2f93-43d0-9be9-3828ab60c15b": {
@@ -140265,6 +140263,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d1b813b0-a2c1-4bf0-9f07-af06cf394027": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-11-17T23:27:00+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d1bc98c1-fc29-4d3f-b90f-cfda4e03a02f": {
@@ -140703,6 +140702,7 @@
       "seen_at": "2026-11-17T00:07:15+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d6fba63f-666d-43ad-a21e-c033f66d701f": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-11-14T00:09:25+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d70d2957-012d-4805-b794-0d5527276f27": {
@@ -140811,6 +140811,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d82267f3-cfff-4cd5-84be-fdf718c3f3d1": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-09-29T16:34:03+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:d82876b1-0aad-423c-a0ae-8cddb479fe16": {
@@ -141741,6 +141742,7 @@
       "seen_at": "2026-10-15T15:07:33+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e3e3594d-4b3e-49cc-b3db-5a0015281ace": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-10-01T23:03:56+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e3e3af88-f30c-4a8a-b140-1c5606a2c986": {
@@ -165367,6 +165369,7 @@
       "seen_at": "2026-10-04T23:53:07+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c08867ba-6803-4c02-ab9c-9de333439a21": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-10-19T23:06:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c08991f6-6763-42a3-98f0-a5bd3adee4b7": {
@@ -165962,6 +165965,7 @@
       "seen_at": "2026-11-16T00:55:46+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c5f567d9-027e-4207-b6d3-80f5a9566861": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c5f6ea15-e5f6-4de7-a91b-def695d75241": {
@@ -166867,6 +166871,7 @@
       "seen_at": "2026-11-07T23:35:02+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ce15dae3-7399-4de2-93b2-1047bc6aedc8": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-11-03T23:36:06+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ce3b8f14-1ad2-4f80-bec4-061f793b8f86": {
@@ -167784,6 +167789,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d7027afa-efad-4c6a-8b5a-853c11811670": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-10-28T13:36:45+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d70a18b1-4e20-4567-af5a-45ade24493b2": {
@@ -169090,6 +169096,7 @@
       "seen_at": "2026-11-05T02:36:23+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e22ccf19-d6e8-4c19-8ad3-e0cd9dc5c79c": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-10-14T14:36:54+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e22e5105-4050-4583-95a1-47a24adc4dad": {
@@ -169302,6 +169309,7 @@
       "seen_at": "2026-11-22T23:13:53+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e403ba00-5510-4bef-bb10-1139a69f459a": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-10-14T23:06:28+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e40e4287-aac7-4a1e-9d73-45d2647663f4": {
@@ -234705,6 +234713,7 @@
       "seen_at": "2026-11-20T19:14:42+00:00"
     },
     "jibe:careers.amd.com:101935": {
+      "missing": "2026-11-23T19:13:52+00:00",
       "seen_at": "2026-11-20T19:24:06+00:00"
     },
     "jibe:careers.amd.com:101936": {
@@ -247780,6 +247789,9 @@
     "oracle:dell:302551": {
       "closed": "2026-11-19",
       "seen_at": "2026-11-17T19:46:12+00:00"
+    },
+    "oracle:dell:302553": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
     },
     "oracle:dell:302566": {
       "missing": "2026-11-23T13:23:14+00:00",
@@ -263840,6 +263852,9 @@
     "oracle:oracle:351160": {
       "seen_at": "2026-11-23T18:53:50+00:00"
     },
+    "oracle:oracle:351163": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
+    },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
@@ -267137,6 +267152,9 @@
     },
     "rippling:rippling:5ab8ebfc-3077-4e91-92c8-bc8ae821ea01": {
       "seen_at": "2026-11-19T20:03:44+00:00"
+    },
+    "rippling:rippling:5b4e74c8-6493-44cb-98fe-2344b4fcd6b5": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
     },
     "rippling:rippling:5c093fad-110e-4046-a72b-ec1ac318975a": {
       "seen_at": "2026-11-19T20:03:44+00:00"
@@ -274834,6 +274852,9 @@
     },
     "smartrecruiters:BoschGroup:744000163302179": {
       "seen_at": "2026-11-23T19:05:11+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163302801": {
+      "seen_at": "2026-11-23T19:13:52+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -413672,11 +413693,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-23T18:10:27+00:00",
-    "workday/autodesk": "2026-11-23T16:30:33+00:00",
+    "workday/autodesk": "2026-11-23T19:10:26+00:00",
     "workday/becton-dickinson": "2026-11-23T17:00:37+00:00",
     "workday/boeing": "2026-11-23T16:50:28+00:00",
     "workday/cibc": "2026-11-23T17:50:28+00:00",
-    "workday/cisco": "2026-11-23T13:50:24+00:00",
+    "workday/cisco": "2026-11-23T19:10:26+00:00",
     "workday/clio": "2026-11-23T17:30:36+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
