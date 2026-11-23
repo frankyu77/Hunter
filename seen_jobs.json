@@ -47431,10 +47431,7 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T06:44:16+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47515,7 +47512,10 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T06:53:14+00:00",
+      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -119724,6 +119724,9 @@
     "eightfold:qualcomm:446720210759": {
       "seen_at": "2026-10-30T16:26:43+00:00"
     },
+    "eightfold:qualcomm:446720216193": {
+      "seen_at": "2026-11-23T06:53:15+00:00"
+    },
     "eightfold:qualcomm:446720216199": {
       "seen_at": "2026-11-17T14:37:23+00:00"
     },
@@ -120868,6 +120871,9 @@
     },
     "eightfold:qualcomm:446721392951": {
       "seen_at": "2026-10-08T06:46:23+00:00"
+    },
+    "eightfold:qualcomm:446721397266": {
+      "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446721402780": {
       "seen_at": "2026-10-20T10:15:54+00:00"
@@ -123124,6 +123130,12 @@
     "eightfold:qualcomm:446722246579": {
       "seen_at": "2026-11-20T16:54:11+00:00"
     },
+    "eightfold:qualcomm:446722246750": {
+      "seen_at": "2026-11-23T06:53:15+00:00"
+    },
+    "eightfold:qualcomm:446722246751": {
+      "seen_at": "2026-11-23T06:53:15+00:00"
+    },
     "eightfold:qualcomm:446722246976": {
       "seen_at": "2026-11-20T17:25:21+00:00"
     },
@@ -123174,6 +123186,9 @@
     },
     "eightfold:qualcomm:446722279118": {
       "seen_at": "2026-11-23T04:13:53+00:00"
+    },
+    "eightfold:qualcomm:446722279738": {
+      "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446722279941": {
       "seen_at": "2026-11-23T05:13:48+00:00"
@@ -185924,6 +185939,7 @@
       "seen_at": "2026-11-05T15:55:45+00:00"
     },
     "greenhouse:adyen:8352219": {
+      "missing": "2026-11-23T06:53:15+00:00",
       "seen_at": "2026-11-11T06:06:41+00:00"
     },
     "greenhouse:adyen:8352483": {
@@ -411710,7 +411726,7 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-23T04:20:25+00:00",
+    "workday/hp": "2026-11-23T06:50:28+00:00",
     "workday/hpe": "2026-11-23T04:30:32+00:00",
     "workday/intel": "2026-11-23T04:40:28+00:00",
     "workday/micron": "2026-11-23T04:30:32+00:00",
