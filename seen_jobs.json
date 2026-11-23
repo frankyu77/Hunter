@@ -46990,7 +46990,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T00:54:15+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47434,7 +47437,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-22T21:44:46+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47563,10 +47566,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-22T21:44:46+00:00",
-      "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -201224,7 +201224,6 @@
       "seen_at": "2026-11-02T15:56:07+00:00"
     },
     "greenhouse:databricks:8907988002": {
-      "closed": "2026-11-16",
       "seen_at": "2026-10-22T13:46:52+00:00"
     },
     "greenhouse:databricks:8907990002": {
@@ -201249,7 +201248,6 @@
       "seen_at": "2026-11-01T04:56:15+00:00"
     },
     "greenhouse:databricks:8910846002": {
-      "closed": "2026-11-16",
       "seen_at": "2026-10-23T15:30:02+00:00"
     },
     "greenhouse:databricks:8910850002": {
@@ -254762,6 +254760,9 @@
     },
     "oracle:honeywell:161901": {
       "seen_at": "2026-11-06T23:06:09+00:00"
+    },
+    "oracle:honeywell:161903": {
+      "seen_at": "2026-11-23T00:54:16+00:00"
     },
     "oracle:honeywell:161904": {
       "seen_at": "2026-11-18T22:47:00+00:00"
@@ -399008,6 +399009,7 @@
       "seen_at": "2026-09-28T19:23:51+00:00"
     },
     "workday:td:R_1501286": {
+      "missing": "2026-11-23T00:54:16+00:00",
       "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1501349": {
@@ -399017,6 +399019,7 @@
       "seen_at": "2026-11-04T14:56:05+00:00"
     },
     "workday:td:R_1501423": {
+      "missing": "2026-11-23T00:54:16+00:00",
       "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1501437": {
@@ -399065,6 +399068,7 @@
       "seen_at": "2026-10-27T22:35:49+00:00"
     },
     "workday:td:R_1501685": {
+      "missing": "2026-11-23T00:54:16+00:00",
       "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1501804": {
@@ -399110,9 +399114,11 @@
       "seen_at": "2026-10-07T00:04:36+00:00"
     },
     "workday:td:R_1502007": {
+      "missing": "2026-11-23T00:54:16+00:00",
       "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1502022": {
+      "missing": "2026-11-23T00:54:16+00:00",
       "seen_at": "2026-11-22T20:13:55+00:00"
     },
     "workday:td:R_1502036": {
@@ -400599,6 +400605,7 @@
       "seen_at": "2026-10-16T21:36:55+00:00"
     },
     "workday:td:R_1512256": {
+      "missing": "2026-11-23T00:54:16+00:00",
       "seen_at": "2026-11-20T19:44:10+00:00"
     },
     "workday:td:R_1512269": {
@@ -413825,7 +413832,7 @@
     "workday/autodesk": "2026-11-23T00:00:37+00:00",
     "workday/becton-dickinson": "2026-11-23T00:30:28+00:00",
     "workday/boeing": "2026-11-23T00:20:28+00:00",
-    "workday/cibc": "2026-11-22T23:14:10+00:00",
+    "workday/cibc": "2026-11-23T00:50:27+00:00",
     "workday/cisco": "2026-11-23T00:00:37+00:00",
     "workday/clio": "2026-11-23T00:40:27+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -413842,7 +413849,7 @@
     "workday/salesforce": "2026-11-23T00:40:27+00:00",
     "workday/siemens-healthineers": "2026-11-23T00:30:28+00:00",
     "workday/snap": "2026-11-23T00:10:27+00:00",
-    "workday/td": "2026-11-22T23:14:10+00:00",
+    "workday/td": "2026-11-23T00:50:27+00:00",
     "workday/workday": "2026-11-22T19:30:30+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-22T19:30:30+00:00"
