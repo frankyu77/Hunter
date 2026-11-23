@@ -47039,7 +47039,7 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-23T09:13:42+00:00",
       "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
       "throttled": true,
@@ -47507,7 +47507,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-23T01:43:46+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47594,7 +47594,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-23T03:34:47+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -54353,7 +54353,6 @@
       ],
       "oracle/oracle": [
         2,
-        2,
         1,
         2,
         2,
@@ -54401,7 +54400,8 @@
         0,
         0,
         1,
-        1
+        1,
+        2
       ],
       "oracle/ralliant": [
         0,
@@ -174928,6 +174928,7 @@
       "seen_at": "2026-11-06T17:51:05+00:00"
     },
     "github:vanshb03/Summer2027-Internships:395f3518-a9e5-45ac-9f4d-2345db529a66": {
+      "missing": "2026-11-23T09:24:00+00:00",
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:397624bf-a30b-498e-af65-5224c2462f24": {
@@ -180199,6 +180200,7 @@
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:a024fe37-8329-461e-9c5d-57ea242c9909": {
+      "missing": "2026-11-23T09:24:00+00:00",
       "seen_at": "2026-11-14T17:25:02+00:00"
     },
     "github:vanshb03/Summer2027-Internships:a02b12ad-98b2-4614-9f9f-9cbe081d9f24": {
@@ -181343,6 +181345,7 @@
       "seen_at": "2026-11-20T08:34:40+00:00"
     },
     "github:vanshb03/Summer2027-Internships:b7b52190-57a0-4101-8fc6-70e4eb052344": {
+      "missing": "2026-11-23T09:24:00+00:00",
       "seen_at": "2026-10-17T18:36:04+00:00"
     },
     "github:vanshb03/Summer2027-Internships:b7bab53b-5ed5-40c0-ae36-923988156655": {
@@ -219129,6 +219132,7 @@
       "seen_at": "2026-09-28T21:04:49+00:00"
     },
     "greenhouse:pinterest:8209905": {
+      "missing": "2026-11-23T09:24:00+00:00",
       "seen_at": "2026-10-07T08:33:43+00:00"
     },
     "greenhouse:pinterest:8213988": {
@@ -227060,6 +227064,9 @@
     },
     "greenhouse:stripe:8203649": {
       "seen_at": "2026-11-20T14:55:54+00:00"
+    },
+    "greenhouse:stripe:8203653": {
+      "seen_at": "2026-11-23T09:24:00+00:00"
     },
     "greenhouse:stripe:8203966": {
       "seen_at": "2026-10-08T17:26:51+00:00"
@@ -262620,14 +262627,13 @@
       "seen_at": "2026-11-20T23:34:22+00:00"
     },
     "oracle:oracle:350927": {
-      "missing": "2026-11-23T06:34:07+00:00",
       "seen_at": "2026-11-22T05:53:50+00:00"
     },
     "oracle:oracle:350928": {
       "seen_at": "2026-11-22T20:24:05+00:00"
     },
     "oracle:oracle:350929": {
-      "missing": "2026-11-23T03:23:35+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-21T02:34:18+00:00"
     },
     "oracle:oracle:350930": {
@@ -273514,6 +273520,21 @@
     },
     "smartrecruiters:BoschGroup:744000163165939": {
       "seen_at": "2026-11-23T09:13:42+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163168020": {
+      "seen_at": "2026-11-23T09:24:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163168454": {
+      "seen_at": "2026-11-23T09:24:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163168614": {
+      "seen_at": "2026-11-23T09:24:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163168802": {
+      "seen_at": "2026-11-23T09:24:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163170699": {
+      "seen_at": "2026-11-23T09:24:00+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -412137,7 +412158,7 @@
     "workday/becton-dickinson": "2026-11-23T08:00:36+00:00",
     "workday/boeing": "2026-11-23T07:50:32+00:00",
     "workday/cibc": "2026-11-23T08:20:25+00:00",
-    "workday/cisco": "2026-11-23T07:40:37+00:00",
+    "workday/cisco": "2026-11-23T09:20:26+00:00",
     "workday/clio": "2026-11-23T08:10:27+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
@@ -412148,7 +412169,7 @@
     "workday/micron": "2026-11-23T08:50:25+00:00",
     "workday/northrop-grumman": "2026-11-23T07:50:32+00:00",
     "workday/nvidia": "2026-11-23T08:40:31+00:00",
-    "workday/paypal": "2026-11-23T07:40:37+00:00",
+    "workday/paypal": "2026-11-23T09:20:26+00:00",
     "workday/rbc": "2026-11-23T08:30:30+00:00",
     "workday/salesforce": "2026-11-23T08:10:27+00:00",
     "workday/siemens-healthineers": "2026-11-23T08:00:36+00:00",
