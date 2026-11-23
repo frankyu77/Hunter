@@ -46978,10 +46978,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T00:24:13+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -46993,7 +46990,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T00:34:14+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47425,10 +47425,7 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 5,
-      "failing_since": "2026-11-22T16:53:54+00:00",
-      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47557,10 +47554,7 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 6,
-      "failing_since": "2026-11-22T14:23:40+00:00",
-      "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -54039,7 +54033,6 @@
         13
       ],
       "oracle/dell": [
-        3,
         0,
         0,
         2,
@@ -54088,7 +54081,8 @@
         0,
         0,
         0,
-        0
+        0,
+        4
       ],
       "oracle/honeywell": [
         0,
@@ -248448,7 +248442,7 @@
       "seen_at": "2026-11-21T05:43:44+00:00"
     },
     "oracle:dell:302870": {
-      "missing": "2026-11-22T18:34:10+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-18T12:17:06+00:00"
     },
     "oracle:dell:302925": {
@@ -385930,6 +385924,9 @@
     "workday:onehealthineers:R-30724": {
       "seen_at": "2026-09-30T17:03:50+00:00"
     },
+    "workday:onehealthineers:R-30729": {
+      "seen_at": "2026-11-23T00:34:15+00:00"
+    },
     "workday:onehealthineers:R-30738": {
       "seen_at": "2026-10-01T14:53:51+00:00"
     },
@@ -413807,7 +413804,7 @@
   "polling": {
     "workday/adobe": "2026-11-22T23:20:28+00:00",
     "workday/autodesk": "2026-11-23T00:00:37+00:00",
-    "workday/becton-dickinson": "2026-11-22T23:00:38+00:00",
+    "workday/becton-dickinson": "2026-11-23T00:30:28+00:00",
     "workday/boeing": "2026-11-23T00:20:28+00:00",
     "workday/cibc": "2026-11-22T23:14:10+00:00",
     "workday/cisco": "2026-11-23T00:00:37+00:00",
@@ -413824,7 +413821,7 @@
     "workday/paypal": "2026-11-23T00:10:27+00:00",
     "workday/rbc": "2026-11-22T23:20:28+00:00",
     "workday/salesforce": "2026-11-22T23:10:31+00:00",
-    "workday/siemens-healthineers": "2026-11-22T23:00:38+00:00",
+    "workday/siemens-healthineers": "2026-11-23T00:30:28+00:00",
     "workday/snap": "2026-11-23T00:10:27+00:00",
     "workday/td": "2026-11-22T23:14:10+00:00",
     "workday/workday": "2026-11-22T19:30:30+00:00",
