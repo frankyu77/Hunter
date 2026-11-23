@@ -47011,7 +47011,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T05:43:55+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47578,10 +47581,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 8,
-      "failing_since": "2026-11-22T17:04:17+00:00",
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52068,7 +52068,6 @@
         37
       ],
       "atlassian/atlassian": [
-        40,
         34,
         2,
         33,
@@ -52117,7 +52116,8 @@
         23,
         37,
         0,
-        43
+        43,
+        2
       ],
       "eightfold/qualcomm": [
         0,
@@ -101780,7 +101780,7 @@
       "seen_at": "2026-11-23T03:48:36+00:00"
     },
     "atlassian:atlassian:29715": {
-      "missing": "2026-11-22T23:33:57+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-20T04:44:05+00:00"
     },
     "atlassian:atlassian:29880": {
@@ -117509,6 +117509,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317912171": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317912743": {
@@ -118135,6 +118136,7 @@
       "seen_at": "2026-10-08T21:46:03+00:00"
     },
     "eightfold:netflix:790318858893": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-10-08T21:56:05+00:00"
     },
     "eightfold:netflix:790318859750": {
@@ -118288,6 +118290,7 @@
       "seen_at": "2026-10-23T18:26:43+00:00"
     },
     "eightfold:netflix:790319070057": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-10-23T18:26:43+00:00"
     },
     "eightfold:netflix:790319071789": {
@@ -118527,6 +118530,7 @@
       "seen_at": "2026-11-03T11:05:54+00:00"
     },
     "eightfold:netflix:790319316454": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-11-09T10:39:18+00:00"
     },
     "eightfold:netflix:790319328210": {
@@ -118827,7 +118831,6 @@
       "seen_at": "2026-11-19T13:53:40+00:00"
     },
     "eightfold:netflix:790319605378": {
-      "missing": "2026-11-23T05:33:47+00:00",
       "seen_at": "2026-11-19T15:43:49+00:00"
     },
     "eightfold:netflix:790319609003": {
@@ -123122,7 +123125,6 @@
       "seen_at": "2026-11-21T01:34:12+00:00"
     },
     "eightfold:qualcomm:446722250043": {
-      "missing": "2026-11-23T05:33:47+00:00",
       "seen_at": "2026-11-21T01:34:12+00:00"
     },
     "eightfold:qualcomm:446722250045": {
@@ -145046,6 +145048,7 @@
       "seen_at": "2026-10-02T16:43:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:13228689-c229-492e-9ba7-4142539075a9": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-10-19T23:06:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1332c5af-a188-4adc-b53a-332d33165496": {
@@ -145771,6 +145774,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:195bd444-509b-435b-a889-48767b1b42b2": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-10-23T23:07:09+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:195eb66b-6fcb-48d5-b586-3b300d83b4f2": {
@@ -146107,6 +146111,7 @@
       "seen_at": "2026-10-28T22:36:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1c985c59-7b90-44d9-a78b-a64792dd2fd5": {
+      "missing": "2026-11-23T05:43:55+00:00",
       "seen_at": "2026-11-17T00:07:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:1c9bb24e-b46c-49c9-8632-39b22afc21ff": {
@@ -185729,7 +185734,6 @@
       "seen_at": "2026-10-08T04:04:15+00:00"
     },
     "greenhouse:adyen:8258553": {
-      "closed": "2026-10-29",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:adyen:8258725": {
@@ -216160,6 +216164,9 @@
     },
     "greenhouse:mongodb:8399277": {
       "seen_at": "2026-11-19T08:08:27+00:00"
+    },
+    "greenhouse:mongodb:8401393": {
+      "seen_at": "2026-11-23T05:43:55+00:00"
     },
     "greenhouse:mongodb:8401912": {
       "seen_at": "2026-11-20T12:44:03+00:00"
@@ -273170,6 +273177,9 @@
     },
     "smartrecruiters:BoschGroup:744000163141739": {
       "seen_at": "2026-11-23T05:33:47+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163142099": {
+      "seen_at": "2026-11-23T05:43:55+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -392964,6 +392974,9 @@
     "workday:salesforce:JR365759": {
       "seen_at": "2026-10-29T20:07:18+00:00"
     },
+    "workday:salesforce:JR365768": {
+      "seen_at": "2026-11-23T05:43:55+00:00"
+    },
     "workday:salesforce:JR365774": {
       "seen_at": "2026-10-26T21:16:34+00:00"
     },
@@ -393496,6 +393509,9 @@
     },
     "workday:salesforce:JR366417": {
       "seen_at": "2026-10-30T09:35:57+00:00"
+    },
+    "workday:salesforce:JR366419": {
+      "seen_at": "2026-11-23T05:43:55+00:00"
     },
     "workday:salesforce:JR366420": {
       "seen_at": "2026-11-13T07:16:17+00:00"
@@ -394945,6 +394961,9 @@
     },
     "workday:salesforce:JR369213": {
       "seen_at": "2026-11-21T03:04:40+00:00"
+    },
+    "workday:salesforce:JR369219": {
+      "seen_at": "2026-11-23T05:43:55+00:00"
     },
     "workday:snapchat:H126SWEE3": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -411854,7 +411873,7 @@
     "workday/nvidia": "2026-11-23T04:20:25+00:00",
     "workday/paypal": "2026-11-23T03:30:30+00:00",
     "workday/rbc": "2026-11-23T04:10:24+00:00",
-    "workday/salesforce": "2026-11-23T03:50:27+00:00",
+    "workday/salesforce": "2026-11-23T05:40:29+00:00",
     "workday/siemens-healthineers": "2026-11-23T05:30:36+00:00",
     "workday/snap": "2026-11-23T03:30:30+00:00",
     "workday/td": "2026-11-23T04:00:36+00:00",
