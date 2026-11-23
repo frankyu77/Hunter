@@ -47045,7 +47045,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T10:14:04+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47459,7 +47462,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "failing_since": "2026-11-22T18:53:27+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47600,7 +47603,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-23T04:13:52+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -48100,7 +48103,7 @@
       }
     },
     "auto_sources_checked": "2026-11-23T03:23:36+00:00",
-    "dashboard_built_at": "2026-11-23T09:13:42+00:00",
+    "dashboard_built_at": "2026-11-23T10:14:05+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -52795,7 +52798,6 @@
         32
       ],
       "greenhouse/databricks": [
-        9,
         4,
         15,
         15,
@@ -52844,7 +52846,8 @@
         24,
         26,
         47,
-        19
+        19,
+        47
       ],
       "greenhouse/datadog": [
         4,
@@ -116003,6 +116006,9 @@
     "eightfold:microsoft:1970393557074493": {
       "seen_at": "2026-11-17T12:27:20+00:00"
     },
+    "eightfold:microsoft:1970393557074512": {
+      "seen_at": "2026-11-23T10:14:05+00:00"
+    },
     "eightfold:microsoft:1970393557074518": {
       "seen_at": "2026-11-18T23:46:03+00:00"
     },
@@ -145303,7 +145309,6 @@
       "seen_at": "2026-11-01T00:06:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:13c20210-b9de-4f8c-93a7-96ce7766afc3": {
-      "missing": "2026-11-23T09:43:51+00:00",
       "seen_at": "2026-11-12T23:46:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:13c32eb8-bd6f-44c0-8712-a175bf12a091": {
@@ -148209,7 +148214,6 @@
       "seen_at": "2026-11-14T16:05:19+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d6b647d-ac44-4539-b4ac-403a696b90b1": {
-      "missing": "2026-11-23T09:43:51+00:00",
       "seen_at": "2026-11-22T00:04:06+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d6ce459-6d6f-46b1-a335-210684f38086": {
@@ -153955,6 +153959,7 @@
       "seen_at": "2026-09-30T23:14:04+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:61ec4acd-f407-4303-9ca8-5d49036bce4c": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-20T23:34:22+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:61fa0744-4831-4c97-9f73-b7fff685dfe2": {
@@ -154688,6 +154693,7 @@
       "seen_at": "2026-10-14T11:06:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:68895e12-9a1f-4ca5-8dfb-b050f2ea8a43": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:688e54c8-22bb-43a5-a3dd-16636738d4b3": {
@@ -154699,6 +154705,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:68916cbe-97cc-414d-8732-d68540a99d35": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-17T23:37:17+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:689b5e55-539c-4e44-a8f4-195107c27518": {
@@ -164034,7 +164041,6 @@
       "seen_at": "2026-10-31T16:56:03+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:baa25da2-9ee0-403d-8396-0d4788626830": {
-      "missing": "2026-11-23T09:43:51+00:00",
       "seen_at": "2026-10-26T01:35:20+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:baa8b8d6-449c-418e-a848-559939c61d8f": {
@@ -185154,6 +185160,7 @@
       "seen_at": "2026-11-19T08:43:33+00:00"
     },
     "greenhouse:adyen:7342860": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:adyen:7342887": {
@@ -198540,7 +198547,7 @@
       "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:databricks:8440940002": {
-      "missing": "2026-11-23T04:13:52+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-07T00:14:16+00:00"
     },
     "greenhouse:databricks:8441865002": {
@@ -226569,6 +226576,7 @@
       "seen_at": "2026-11-10T05:06:23+00:00"
     },
     "greenhouse:stripe:8155390": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-10-31T16:56:03+00:00"
     },
     "greenhouse:stripe:8155580": {
@@ -253656,6 +253664,7 @@
       "seen_at": "2026-11-20T09:53:51+00:00"
     },
     "oracle:honeywell:162284": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-20T10:03:54+00:00"
     },
     "oracle:honeywell:162285": {
@@ -253667,12 +253676,15 @@
       "seen_at": "2026-11-20T09:53:51+00:00"
     },
     "oracle:honeywell:162287": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-20T10:03:54+00:00"
     },
     "oracle:honeywell:162288": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-20T10:03:54+00:00"
     },
     "oracle:honeywell:162289": {
+      "missing": "2026-11-23T10:14:05+00:00",
       "seen_at": "2026-11-20T10:14:07+00:00"
     },
     "oracle:honeywell:162290": {
@@ -273596,6 +273608,9 @@
     },
     "smartrecruiters:BoschGroup:744000163179588": {
       "seen_at": "2026-11-23T10:05:18+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163181380": {
+      "seen_at": "2026-11-23T10:14:05+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -412220,7 +412235,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-23T08:30:30+00:00",
+    "workday/adobe": "2026-11-23T10:10:32+00:00",
     "workday/autodesk": "2026-11-23T09:10:28+00:00",
     "workday/becton-dickinson": "2026-11-23T09:40:26+00:00",
     "workday/boeing": "2026-11-23T09:30:33+00:00",
@@ -412237,7 +412252,7 @@
     "workday/northrop-grumman": "2026-11-23T09:30:33+00:00",
     "workday/nvidia": "2026-11-23T08:40:31+00:00",
     "workday/paypal": "2026-11-23T09:20:26+00:00",
-    "workday/rbc": "2026-11-23T08:30:30+00:00",
+    "workday/rbc": "2026-11-23T10:10:32+00:00",
     "workday/salesforce": "2026-11-23T09:50:28+00:00",
     "workday/siemens-healthineers": "2026-11-23T09:40:26+00:00",
     "workday/snap": "2026-11-23T09:10:28+00:00",
