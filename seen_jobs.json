@@ -47011,7 +47011,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T04:13:52+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47023,10 +47026,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T04:04:52+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47440,7 +47440,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-22T18:53:27+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47572,7 +47572,10 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T04:13:52+00:00",
+      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -116905,6 +116908,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316750833": {
+      "missing": "2026-11-23T04:13:52+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316762180": {
@@ -118450,6 +118454,7 @@
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "eightfold:netflix:790319249128": {
+      "missing": "2026-11-23T04:13:52+00:00",
       "seen_at": "2026-10-30T01:36:32+00:00"
     },
     "eightfold:netflix:790319253437": {
@@ -123117,6 +123122,12 @@
     },
     "eightfold:qualcomm:446722251505": {
       "seen_at": "2026-11-21T01:43:56+00:00"
+    },
+    "eightfold:qualcomm:446722279117": {
+      "seen_at": "2026-11-23T04:13:53+00:00"
+    },
+    "eightfold:qualcomm:446722279118": {
+      "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
       "closed": "2026-10-04",
@@ -198303,6 +198314,7 @@
       "seen_at": "2026-11-06T12:45:47+00:00"
     },
     "greenhouse:databricks:8440940002": {
+      "missing": "2026-11-23T04:13:52+00:00",
       "seen_at": "2026-10-07T00:14:16+00:00"
     },
     "greenhouse:databricks:8441865002": {
@@ -246572,6 +246584,9 @@
     "oracle:dell:D11252": {
       "seen_at": "2026-11-12T08:16:16+00:00"
     },
+    "oracle:dell:D11255": {
+      "seen_at": "2026-11-23T04:13:53+00:00"
+    },
     "oracle:dell:D11257": {
       "seen_at": "2026-11-10T07:16:10+00:00"
     },
@@ -253083,6 +253098,12 @@
     },
     "oracle:honeywell:162108": {
       "seen_at": "2026-11-17T12:56:10+00:00"
+    },
+    "oracle:honeywell:162109": {
+      "seen_at": "2026-11-23T04:13:53+00:00"
+    },
+    "oracle:honeywell:162110": {
+      "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "oracle:honeywell:162111": {
       "seen_at": "2026-11-12T21:46:51+00:00"
@@ -411718,7 +411739,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-23T02:40:27+00:00",
+    "workday/adobe": "2026-11-23T04:10:24+00:00",
     "workday/autodesk": "2026-11-23T03:20:25+00:00",
     "workday/becton-dickinson": "2026-11-23T03:45:13+00:00",
     "workday/boeing": "2026-11-23T03:40:25+00:00",
@@ -411735,7 +411756,7 @@
     "workday/northrop-grumman": "2026-11-23T03:40:25+00:00",
     "workday/nvidia": "2026-11-23T02:50:34+00:00",
     "workday/paypal": "2026-11-23T03:30:30+00:00",
-    "workday/rbc": "2026-11-23T02:40:27+00:00",
+    "workday/rbc": "2026-11-23T04:10:24+00:00",
     "workday/salesforce": "2026-11-23T03:50:27+00:00",
     "workday/siemens-healthineers": "2026-11-23T03:45:13+00:00",
     "workday/snap": "2026-11-23T03:30:30+00:00",
