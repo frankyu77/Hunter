@@ -47033,7 +47033,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-23T12:14:34+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -47048,10 +47048,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-23T12:04:38+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47471,7 +47468,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T12:23:59+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47504,7 +47504,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-23T01:43:46+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53729,7 +53729,6 @@
         44
       ],
       "greenhouse/scaleai": [
-        6,
         8,
         14,
         15,
@@ -53775,6 +53774,7 @@
         44,
         44,
         44,
+        45,
         45,
         45,
         45,
@@ -54266,7 +54266,6 @@
         13
       ],
       "oracle/dell": [
-        0,
         2,
         2,
         0,
@@ -54315,7 +54314,8 @@
         0,
         0,
         4,
-        6
+        6,
+        3
       ],
       "oracle/honeywell": [
         0,
@@ -118689,7 +118689,6 @@
       "seen_at": "2026-11-18T17:37:22+00:00"
     },
     "eightfold:netflix:790319295260": {
-      "missing": "2026-11-23T11:54:42+00:00",
       "seen_at": "2026-11-10T22:16:26+00:00"
     },
     "eightfold:netflix:790319298965": {
@@ -118708,6 +118707,7 @@
       "seen_at": "2026-11-03T17:36:49+00:00"
     },
     "eightfold:netflix:790319328317": {
+      "missing": "2026-11-23T12:23:59+00:00",
       "seen_at": "2026-11-10T20:26:53+00:00"
     },
     "eightfold:netflix:790319328319": {
@@ -118826,7 +118826,6 @@
       "seen_at": "2026-11-13T17:06:51+00:00"
     },
     "eightfold:netflix:790319442242": {
-      "missing": "2026-11-23T11:54:42+00:00",
       "seen_at": "2026-11-10T17:56:13+00:00"
     },
     "eightfold:netflix:790319443773": {
@@ -119349,7 +119348,6 @@
       "seen_at": "2026-11-14T02:53:14+00:00"
     },
     "eightfold:qualcomm:446718146936": {
-      "missing": "2026-11-23T12:14:34+00:00",
       "seen_at": "2026-11-23T06:34:07+00:00"
     },
     "eightfold:qualcomm:446718149954": {
@@ -121043,7 +121041,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:qualcomm:446721397266": {
-      "missing": "2026-11-23T12:14:34+00:00",
       "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446721402780": {
@@ -122712,7 +122709,6 @@
       "seen_at": "2026-11-12T05:46:04+00:00"
     },
     "eightfold:qualcomm:446721997561": {
-      "missing": "2026-11-23T11:54:42+00:00",
       "seen_at": "2026-11-23T04:54:01+00:00"
     },
     "eightfold:qualcomm:446721997569": {
@@ -123303,14 +123299,12 @@
       "seen_at": "2026-11-20T16:54:11+00:00"
     },
     "eightfold:qualcomm:446722246750": {
-      "missing": "2026-11-23T12:14:34+00:00",
       "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446722246751": {
       "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446722246752": {
-      "missing": "2026-11-23T12:14:34+00:00",
       "seen_at": "2026-11-23T07:03:52+00:00"
     },
     "eightfold:qualcomm:446722246976": {
@@ -123359,9 +123353,11 @@
       "seen_at": "2026-11-21T01:43:56+00:00"
     },
     "eightfold:qualcomm:446722279117": {
+      "missing": "2026-11-23T12:23:59+00:00",
       "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "eightfold:qualcomm:446722279118": {
+      "missing": "2026-11-23T12:23:59+00:00",
       "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "eightfold:qualcomm:446722279738": {
@@ -123371,10 +123367,10 @@
       "seen_at": "2026-11-23T05:13:48+00:00"
     },
     "eightfold:qualcomm:446722280220": {
-      "missing": "2026-11-23T12:14:34+00:00",
       "seen_at": "2026-11-23T06:44:17+00:00"
     },
     "eightfold:qualcomm:446722283981": {
+      "missing": "2026-11-23T12:23:59+00:00",
       "seen_at": "2026-11-23T11:54:43+00:00"
     },
     "eightfold:qualcomm:446722285254": {
@@ -182055,6 +182051,7 @@
       "seen_at": "2026-10-23T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:c46882c7-736e-4ec8-9f08-b1f2a1fd1835": {
+      "missing": "2026-11-23T12:23:59+00:00",
       "seen_at": "2026-11-15T17:25:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:c46e3294-ae74-4960-ad6a-e2c0566e5f76": {
@@ -224757,7 +224754,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4613333005": {
-      "missing": "2026-11-23T06:23:32+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4618046005": {
@@ -238230,6 +238227,7 @@
       "seen_at": "2026-10-20T13:47:36+00:00"
     },
     "jibe:careers.docusign.com:30260": {
+      "missing": "2026-11-23T12:23:59+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30262": {
@@ -239181,7 +239179,6 @@
       "seen_at": "2026-11-12T18:45:50+00:00"
     },
     "jibe:careers.docusign.com:30861": {
-      "closed": "2026-11-19",
       "seen_at": "2026-11-16T16:37:44+00:00"
     },
     "jibe:careers.docusign.com:30862": {
@@ -244801,7 +244798,6 @@
       "seen_at": "2026-09-25T05:34:18+00:00"
     },
     "oracle:dell:298874": {
-      "closed": "2026-11-19",
       "seen_at": "2026-11-17T12:00:06+00:00"
     },
     "oracle:dell:298899": {
@@ -246155,7 +246151,7 @@
       "seen_at": "2026-11-17T15:47:14+00:00"
     },
     "oracle:dell:301214": {
-      "missing": "2026-11-23T06:23:32+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-20T05:54:21+00:00"
     },
     "oracle:dell:301218": {
@@ -273649,6 +273645,12 @@
     },
     "smartrecruiters:BoschGroup:744000163201589": {
       "seen_at": "2026-11-23T11:34:26+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163208548": {
+      "seen_at": "2026-11-23T12:24:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163209628": {
+      "seen_at": "2026-11-23T12:24:00+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -412237,11 +412239,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-23T11:40:27+00:00",
-    "workday/autodesk": "2026-11-23T10:50:32+00:00",
+    "workday/autodesk": "2026-11-23T12:20:27+00:00",
     "workday/becton-dickinson": "2026-11-23T11:10:38+00:00",
     "workday/boeing": "2026-11-23T11:00:37+00:00",
     "workday/cibc": "2026-11-23T11:30:34+00:00",
-    "workday/cisco": "2026-11-23T09:20:26+00:00",
+    "workday/cisco": "2026-11-23T12:20:27+00:00",
     "workday/clio": "2026-11-23T11:20:29+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
