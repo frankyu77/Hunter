@@ -47280,7 +47280,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-23T20:04:46+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -47295,10 +47295,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T20:04:46+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47585,6 +47582,12 @@
       "warned_zero": false,
       "zero_since": null
     },
+    "lever/cfsenergy": {
+      "consecutive_failures": 0,
+      "warned_failures": false,
+      "warned_zero": false,
+      "zero_since": null
+    },
     "lever/cirrus": {
       "consecutive_failures": 0,
       "warned_failures": false,
@@ -47844,10 +47847,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-23T15:24:04+00:00",
-      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52359,7 +52359,6 @@
         0,
         0,
         0,
-        0,
         1,
         1,
         1,
@@ -52401,7 +52400,8 @@
         8,
         8,
         8,
-        10
+        10,
+        11
       ],
       "ashby/skydio": [
         0,
@@ -52419,7 +52419,6 @@
         8
       ],
       "ashby/snowflake": [
-        40,
         30,
         13,
         27,
@@ -52468,7 +52467,8 @@
         5,
         4,
         2,
-        6
+        6,
+        40
       ],
       "ashby/wealthsimple": [
         9,
@@ -72362,6 +72362,9 @@
       "brex": {
         "internship": 2027
       },
+      "cfsenergy": {
+        "internship": 2027
+      },
       "cibc": {
         "internship": 2027,
         "new_grad": 2027
@@ -72714,6 +72717,7 @@
       "greenhouse:xai": "greenhouse/xai",
       "jibe:careers.amd.com": "jibe/amd",
       "jibe:careers.docusign.com": "jibe/docusign",
+      "lever:cfsenergy": "lever/cfsenergy",
       "lever:cirrus": "lever/cirrus",
       "lever:eqbank": "lever/eqbank",
       "lever:palantir": "lever/palantir",
@@ -84735,8 +84739,20 @@
     "amazon:amazon:10611628": {
       "seen_at": "2026-11-23T17:53:39+00:00"
     },
+    "amazon:amazon:10611631": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "amazon:amazon:10611633": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "amazon:amazon:10611640": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "amazon:amazon:10611643": {
       "seen_at": "2026-11-23T18:04:51+00:00"
+    },
+    "amazon:amazon:10611644": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
     },
     "amazon:amazon:10611647": {
       "seen_at": "2026-11-23T20:04:47+00:00"
@@ -92344,6 +92360,9 @@
     "ashby:openai:b3fcdad3-abcb-4612-8fd9-a69e17210f0f": {
       "seen_at": "2026-11-22T20:33:47+00:00"
     },
+    "ashby:openai:b40efa93-da3c-4593-bc98-03d203cd0488": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "ashby:openai:b4196174-9cc3-487d-9d21-848bc283b80f": {
       "closed": "2026-11-19",
       "seen_at": "2026-11-14T23:55:23+00:00"
@@ -96840,7 +96859,7 @@
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:8bb1c1bb-4b92-4b93-b825-0c6f9f0386f0": {
-      "missing": "2026-11-23T14:13:46+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:8c5c8cc1-3f59-4ff8-9be8-371e444084f3": {
@@ -99109,7 +99128,7 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "ashby:snowflake:5381befc-594c-404d-abb2-b5d6a5da234b": {
-      "missing": "2026-11-23T14:13:46+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "ashby:snowflake:54526c4b-aec0-48ef-b3dc-1dbff49917d8": {
@@ -118458,7 +118477,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317912743": {
-      "missing": "2026-11-23T19:53:59+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317916694": {
@@ -118809,7 +118827,6 @@
       "seen_at": "2026-10-23T19:36:42+00:00"
     },
     "eightfold:netflix:790318497575": {
-      "missing": "2026-11-23T19:53:59+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318500438": {
@@ -118844,7 +118861,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318515782": {
-      "missing": "2026-11-23T19:53:59+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318527355": {
@@ -119748,7 +119764,6 @@
       "seen_at": "2026-11-18T02:56:06+00:00"
     },
     "eightfold:netflix:790319557901": {
-      "missing": "2026-11-23T19:53:59+00:00",
       "seen_at": "2026-11-17T17:57:53+00:00"
     },
     "eightfold:netflix:790319559393": {
@@ -119826,7 +119841,6 @@
       "seen_at": "2026-11-23T17:44:07+00:00"
     },
     "eightfold:netflix:790319701024": {
-      "missing": "2026-11-23T19:53:59+00:00",
       "seen_at": "2026-11-23T19:34:13+00:00"
     },
     "eightfold:qualcomm:446704809279": {
@@ -148555,7 +148569,7 @@
       "seen_at": "2026-10-03T22:41:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:27d35509-4d8d-4dd3-9313-54dfaee11170": {
-      "missing": "2026-11-23T14:13:46+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-13T19:08:01+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:27da423b-2545-4b9a-a284-47eb573fb2d1": {
@@ -162704,7 +162718,7 @@
       "seen_at": "2026-10-14T22:37:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:a8837e6f-d12f-40d3-b941-d2612b28e736": {
-      "missing": "2026-11-23T14:13:46+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-12T23:36:33+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:a888752d-3464-483f-b4e3-0d5130bc28cd": {
@@ -194110,6 +194124,9 @@
     "greenhouse:block:5485447008": {
       "seen_at": "2026-11-17T18:07:25+00:00"
     },
+    "greenhouse:block:5485686008": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "greenhouse:block:5485941008": {
       "seen_at": "2026-11-18T16:16:42+00:00"
     },
@@ -219748,6 +219765,9 @@
       "closed": "2026-11-19",
       "seen_at": "2026-11-19T22:23:59+00:00"
     },
+    "greenhouse:okta:8359953": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "greenhouse:okta:8360107": {
       "seen_at": "2026-11-22T09:03:56+00:00"
     },
@@ -239502,7 +239522,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30284": {
-      "missing": "2026-11-23T19:53:59+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30285": {
@@ -240233,6 +240252,7 @@
       "seen_at": "2026-10-27T05:06:01+00:00"
     },
     "jibe:careers.docusign.com:30601": {
+      "missing": "2026-11-23T20:14:47+00:00",
       "seen_at": "2026-10-27T17:36:59+00:00"
     },
     "jibe:careers.docusign.com:30602": {
@@ -240593,6 +240613,411 @@
     },
     "jibe:careers.docusign.com:31820": {
       "seen_at": "2026-11-23T11:54:43+00:00"
+    },
+    "lever:cfsenergy:0146fa00-ad9c-4fd6-8b72-bf8d598bd779": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:06b15a28-b10d-4984-b784-5ad07995b618": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:0d234770-5bf8-4bbe-a69c-87dacd85a49d": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:0f6aec85-d145-47ee-93fc-44c1fcdafedc": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:12638cfd-8bad-40b5-88b4-1fe3b21aec8f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:127fb7b0-e1d6-4602-841c-f0948cc259d5": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:14d9487c-5213-4b5a-aca0-032c31ca73f9": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:152320a8-5643-413b-8b38-17e39561a3ed": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:18b354ed-dcd8-43f6-b407-076268b65c8a": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:1cb7a70b-ddef-4eee-beb6-1b26af863cb2": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:1cc2df24-4ac5-457b-bf6c-04eeba54c6bc": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:1d14edb6-e9ae-4e13-ae72-41f146a4b061": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:1dbf0719-e0f6-4b6b-88d1-4612ba373250": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:1f4e3c1a-ca62-48bc-9025-4a8accfb3c3b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:2114bfde-a3a5-420d-a2fa-9d6db15cb59b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:21dbcd7e-4011-45c2-9eae-0f724fd8079b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:22f774aa-1436-4beb-a8ce-2f7125d15a10": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:2301f155-ecba-4439-a389-a4ac4035699b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:277389b1-0450-4c2d-bd05-376dec279c1a": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:27e3a498-9ab0-43a7-896f-75f791aee6bb": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:28ed2e9e-a3a2-4bbb-9e9a-6855a9a5c070": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:2b69d9f0-c5fc-4450-aecd-94a4221632a6": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:2edaad6a-3def-479e-992e-b0c333b9022f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:31ca6bde-dfd0-41f4-8b1c-22dcfa49a346": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:32241dc3-e8ed-4110-b752-cbedc2651409": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:32987ab7-59ed-4364-a012-91cbece8877a": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:32e62a79-eff5-4a58-83fd-51a60eb57707": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:34cd9f38-791b-4687-9a51-9b068d103cae": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:3e88978c-ff6e-461a-997a-2a7a6ffb3fea": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:41725c72-2242-4ae4-815a-21064d7d7d05": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:418b213b-4924-48fd-a392-2f3c633a7f64": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:42685769-30a5-4e10-8c1f-7c3abe0fb170": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:43b60f04-f044-47dd-9291-f40b38ffaab3": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:440a5346-e550-4979-a6fe-83780defc013": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:44506939-83f8-4ceb-8a49-7b155b09f1f7": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:44e7ec79-ae44-443b-ae33-2ec84eaafde0": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:4566c286-cc71-4984-a7ff-226fdac74803": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:478ef710-43d8-45a4-8b1a-cdd89e16e20c": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:505235ad-f8ac-4b3d-8357-7437c9ca3f1a": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:52b41400-faca-49a6-a232-1da08800cec2": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:52d9d5d1-9c2c-44b0-be6e-12727f917274": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:568cb4d1-cd96-46df-a53a-f86e878a3f21": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:57fd380f-3505-4887-bef5-cf2f6af7ed29": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:5aeb4472-1124-474a-a61e-997c74b16e45": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:5b620c73-be1c-4d97-81f8-a795e339da5f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:60ac4feb-c7bd-4b39-b00f-3d353598a0f1": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:6130f836-13e3-4eec-b013-322056847703": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:62f10fca-86ac-4cc7-a43a-651a0fc4dbf8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:69bb1a25-97cc-4b97-8863-7f0f9d1bf969": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:6b783db3-a297-405c-96f7-2662f81189ba": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:6bcb4cb7-024e-4636-8fad-dd6c588c1a10": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:6d92a5a6-749c-4a85-a114-bcb1ec56a7c3": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:6e0ad65b-088e-4218-8509-ea4e17fd15ac": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:6f0334f2-5dcd-4892-8df2-224fd72cdbbe": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:722ada8e-ee38-49a2-89da-0e350d94a835": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:75b79161-8e1f-49f6-b3b8-cdeaded618d8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:777157b6-9969-438e-ba04-8ca0069f1e0b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:785c4ee0-f7b9-4981-b949-1098b795ed57": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:79811946-c46d-43b2-bf9b-11cd7547ad77": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:79cd53ba-b864-4bcb-8421-60cf58f7df54": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:7a641009-084b-4331-bf04-f4e28de7eaf5": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:7d1080e7-395c-41ea-b166-641094725747": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:7d5255cb-38ca-4ce3-be34-891e48cfe8c1": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:816a434e-4470-400c-907e-1cd57ce51559": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:817495fd-ea1a-43cb-be26-eb46c00865a8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:81e3290f-777f-407f-82d8-452dde4cfb1f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:8304d1fb-7fd0-4af4-a062-d144eae24b07": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:83158442-98a1-40c4-ad31-a99937954e33": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:837fd8a9-50a7-4646-864b-5afc9829cf87": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:83ca56d7-f142-4ecc-af72-5484519eaf08": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:84370d37-b793-467d-9dba-917396bad660": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:85ba4504-4eaf-4d25-b0b2-9af35009fcbb": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:8ba43a6b-fb33-4124-be1d-d8771fd0cbe5": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:8d11bb9c-7e89-4da3-a6e1-f3fd6912a9a4": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:8ecdbb24-1c2c-4612-a2d9-0cb0e238b8e5": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:9048a7ae-bfef-4fa3-bf1b-ae5ed4ff30cd": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:92954bde-4aa5-4685-9c57-346d60c3fb38": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:971e78d1-ecf2-4ad7-973a-3b1e52c418af": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:9901cb0f-d3df-450e-8708-ac4c2b51fdbb": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:9d780932-0380-4ad9-85ca-80d25b5c5936": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:a1b722e7-2d1d-4650-8285-761a4e786f65": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:a3a36962-1f34-40d3-b138-401b4e0c24e0": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:a472607e-b8f7-4983-b997-f32fef23436e": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:a747666a-bc36-4b0c-8106-bfe8e559d582": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:a7b6c03f-b327-4707-beba-2db45ef128f8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:ac6dca15-327d-4d6d-8c3a-d5f4d9a2bb73": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:ae0d4e05-1494-4ac6-b6c5-24eea0bbba35": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:afc0c789-8390-4637-9123-f778809b75ff": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:b11dee61-18a0-444d-9ac5-762fc3d85434": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:b154b163-7f0d-43ee-a4d1-bf27fcbb802b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:b464985c-bfc2-4efb-91db-7dd1a92f8f4b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:b4c70f9f-6fa5-4574-b095-934b13437c59": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:b7c5bd9d-bc19-457a-8c69-e7d7bfd62fc3": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:b8b6eb28-e974-4076-829e-f118621ac677": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:bb87833f-5bbd-4f06-a1be-ab2fe80352da": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:bb9ddf23-0827-439d-869b-57beee157b99": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:bf885246-2bec-425a-8c0d-c32d09adb989": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c11f092a-024a-4515-85cf-b509cf8bb64c": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c1d84f62-59ed-44ee-9dda-9f06b7820029": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c38e03c3-4b0f-402d-b29d-f8c7219c31a5": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c3b0924a-446b-4969-800d-ef44f2c9346d": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c4ed14f4-0c64-4a0a-bea5-fcdee45a3d94": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c547421d-6207-402d-8ae1-97869ce8124f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c7cedda0-0650-4d31-8f36-a279ef6cba12": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c7e172e0-2e48-4f25-a198-52de01120964": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c8cdb4f7-9f15-4a0c-baf5-36a503ab256a": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:c8daa342-6e44-42b8-b36b-b6a0cddecc86": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:ca1ae177-9781-4ea1-8fd3-f22c43e9e094": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:cbb51cae-2dfc-45a1-96d0-748ea45293dc": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:cbf90690-2518-4c81-ace4-530e3b158545": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:cf5c4d56-04ac-46b2-b66d-3845578010e1": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:d0a20ed1-4135-4a55-8041-2dcacc2f55b9": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:d0f2b6d5-5023-43b9-9ac8-5beb2338faa8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:d197c3f8-8b91-4d1b-9191-16a0764e4d10": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:d8be7246-474f-4a21-8b23-2f5f2d326f5b": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:dae2db61-5709-4966-969c-cf7b735cafa8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:dbb6e7a3-4bd5-49f9-a2a1-8a35130776b7": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:dc92eb6c-20cf-4013-8497-e2560f57fa87": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:dca1fb1b-699f-4f25-893e-6bbac6d59b9a": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:deff5f97-d48c-45fe-800b-55cc0f359568": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:dfe48478-03c7-4a03-8eb7-1903a9da44d6": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:e07a386f-91f6-40ba-bcf7-530751fc4f8d": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:e26f0fdf-79ec-4cbe-bc3e-38aefc2a1da8": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:e3408817-347e-45bc-8627-305b75b6b978": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:e4b4149e-2bdb-4f40-b865-d946945d065e": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:e715e96e-9708-43e3-98a2-f4c4ff146985": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:eab0bed6-d8bb-4102-898d-aa91ff99ad29": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:ecce5f66-c823-46f7-a856-aefbf787833e": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:ecff396c-d449-4416-8c4d-2998dcb91023": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:f14de78e-d4d2-4b0b-bc49-8308037804db": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:f864d680-02f6-4124-8a0d-f66cd09efbca": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:faa295da-2f67-41af-88aa-516f118e38e3": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:fb468551-2d8c-4909-8846-e7b6037ec27f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:fb64e095-3d79-44d6-a73f-fa19c2d2a30f": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
+    "lever:cfsenergy:fd3bb880-f5d2-4822-b19c-c209cf5e1adb": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
     },
     "lever:cirrus:00d5a127-d647-4845-be81-e03c449e4d26": {
       "seen_at": "2026-10-06T03:43:20+00:00"
@@ -264107,6 +264532,9 @@
     "oracle:oracle:351163": {
       "seen_at": "2026-11-23T19:13:52+00:00"
     },
+    "oracle:oracle:351196": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
@@ -282111,6 +282539,7 @@
       "seen_at": "2026-11-16T20:28:31+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000161936430": {
+      "missing": "2026-11-23T20:14:47+00:00",
       "seen_at": "2026-11-16T23:45:57+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000162075139": {
@@ -282289,7 +282718,11 @@
       "seen_at": "2026-11-23T14:53:40+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000163277879": {
+      "missing": "2026-11-23T20:14:47+00:00",
       "seen_at": "2026-11-23T16:54:13+00:00"
+    },
+    "smartrecruiters:RenesasElectronics:744000163311569": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000152628469": {
       "closed": "2026-11-20",
@@ -302198,6 +302631,9 @@
     "workday:adobe:R173462": {
       "seen_at": "2026-11-11T21:03:48+00:00"
     },
+    "workday:adobe:R173463": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "workday:adobe:R173508": {
       "seen_at": "2026-11-10T20:56:50+00:00"
     },
@@ -302219,6 +302655,9 @@
     "workday:adobe:R173566": {
       "seen_at": "2026-11-20T04:33:18+00:00"
     },
+    "workday:adobe:R173584": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
+    },
     "workday:adobe:R173660": {
       "seen_at": "2026-11-17T12:17:42+00:00"
     },
@@ -302227,6 +302666,9 @@
     },
     "workday:adobe:R173687": {
       "seen_at": "2026-11-18T16:49:35+00:00"
+    },
+    "workday:adobe:R173692": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
     },
     "workday:adobe:R173693": {
       "seen_at": "2026-11-18T16:49:35+00:00"
@@ -302281,6 +302723,9 @@
     },
     "workday:adobe:R173781": {
       "seen_at": "2026-11-23T11:44:14+00:00"
+    },
+    "workday:adobe:R173791": {
+      "seen_at": "2026-11-23T20:14:48+00:00"
     },
     "workday:aero:R014697": {
       "seen_at": "2026-10-22T00:56:33+00:00"
@@ -413354,7 +413799,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-23T18:10:27+00:00",
+    "workday/adobe": "2026-11-23T20:10:25+00:00",
     "workday/autodesk": "2026-11-23T19:10:26+00:00",
     "workday/becton-dickinson": "2026-11-23T19:40:35+00:00",
     "workday/boeing": "2026-11-23T19:30:48+00:00",
@@ -413371,7 +413816,7 @@
     "workday/northrop-grumman": "2026-11-23T19:30:48+00:00",
     "workday/nvidia": "2026-11-23T18:20:28+00:00",
     "workday/paypal": "2026-11-23T19:20:28+00:00",
-    "workday/rbc": "2026-11-23T18:00:35+00:00",
+    "workday/rbc": "2026-11-23T20:10:25+00:00",
     "workday/salesforce": "2026-11-23T19:50:26+00:00",
     "workday/siemens-healthineers": "2026-11-23T19:40:35+00:00",
     "workday/snap": "2026-11-23T19:20:28+00:00",
