@@ -47023,7 +47023,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T04:04:52+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47467,7 +47470,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-22T21:44:46+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -47602,7 +47605,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-23T02:34:07+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -54581,7 +54584,9 @@
         0,
         1,
         2,
-        2
+        2,
+        3,
+        3
       ],
       "smartrecruiters/RenesasElectronics": [
         41,
@@ -101765,7 +101770,6 @@
       "seen_at": "2026-11-19T13:13:56+00:00"
     },
     "atlassian:atlassian:29682": {
-      "missing": "2026-11-23T03:53:37+00:00",
       "seen_at": "2026-11-23T03:48:36+00:00"
     },
     "atlassian:atlassian:29715": {
@@ -163770,7 +163774,7 @@
       "seen_at": "2026-10-07T23:04:41+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ba23165e-e66d-4e52-90f4-9e640cdb5325": {
-      "missing": "2026-11-22T22:04:35+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-17T02:37:26+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:ba329d2f-c0c8-448c-a44a-8b5c240afe6a": {
@@ -166335,7 +166339,7 @@
       "seen_at": "2026-11-19T00:07:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d16d5776-a774-4531-951a-cf1dede1cc30": {
-      "missing": "2026-11-22T22:04:35+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d16f4e61-d921-404b-a8b6-2ab3cdad885e": {
@@ -166879,7 +166883,7 @@
       "seen_at": "2026-10-16T10:36:05+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d693d40a-0d07-4961-a531-b9fc35cd6d3d": {
-      "missing": "2026-11-22T22:04:35+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-10-16T23:16:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6943265-b3db-43a3-84ab-48acea19c07d": {
@@ -201454,6 +201458,7 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7976683": {
+      "missing": "2026-11-23T04:04:52+00:00",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:datadog:7982644": {
@@ -277334,7 +277339,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161068576": {
-      "missing": "2026-11-22T21:53:58+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161084355": {
@@ -277381,7 +277386,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161453959": {
-      "missing": "2026-11-22T21:53:58+00:00",
+      "closed": "2026-11-22",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161488283": {
@@ -411717,7 +411722,7 @@
     "workday/autodesk": "2026-11-23T03:20:25+00:00",
     "workday/becton-dickinson": "2026-11-23T03:45:13+00:00",
     "workday/boeing": "2026-11-23T03:40:25+00:00",
-    "workday/cibc": "2026-11-23T02:30:29+00:00",
+    "workday/cibc": "2026-11-23T04:00:36+00:00",
     "workday/cisco": "2026-11-23T03:20:25+00:00",
     "workday/clio": "2026-11-23T03:50:27+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -411734,7 +411739,7 @@
     "workday/salesforce": "2026-11-23T03:50:27+00:00",
     "workday/siemens-healthineers": "2026-11-23T03:45:13+00:00",
     "workday/snap": "2026-11-23T03:30:30+00:00",
-    "workday/td": "2026-11-23T02:30:29+00:00",
+    "workday/td": "2026-11-23T04:00:36+00:00",
     "workday/workday": "2026-11-22T19:30:30+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-22T19:30:30+00:00"
