@@ -47011,19 +47011,28 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T05:04:52+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T05:04:52+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T05:04:52+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47431,10 +47440,7 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-23T04:54:00+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47542,7 +47548,10 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T05:04:52+00:00",
+      "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -92827,6 +92836,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "ashby:plaid:43e5792e-272d-4f6f-8f88-7ae1c30c4bcf": {
+      "missing": "2026-11-23T05:04:52+00:00",
       "seen_at": "2026-11-02T20:55:57+00:00"
     },
     "ashby:plaid:453966dc-6854-421d-8cac-0eee80cf2048": {
@@ -218437,6 +218447,9 @@
     "greenhouse:okta:8404912": {
       "seen_at": "2026-11-20T05:04:48+00:00"
     },
+    "greenhouse:okta:8405177": {
+      "seen_at": "2026-11-23T05:04:52+00:00"
+    },
     "greenhouse:okta:8405211": {
       "seen_at": "2026-11-20T12:04:40+00:00"
     },
@@ -231553,6 +231566,7 @@
       "seen_at": "2026-10-14T16:16:49+00:00"
     },
     "greenhouse:waymo:8248394": {
+      "missing": "2026-11-23T05:04:52+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8248411": {
@@ -280165,6 +280179,7 @@
       "seen_at": "2026-11-20T21:44:08+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000162824903": {
+      "missing": "2026-11-23T05:04:52+00:00",
       "seen_at": "2026-11-20T21:53:22+00:00"
     },
     "smartrecruiters:SAPITBusinessSysteme:744000152628469": {
@@ -285369,6 +285384,15 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163139189": {
       "seen_at": "2026-11-23T04:54:01+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163139709": {
+      "seen_at": "2026-11-23T05:04:52+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163139849": {
+      "seen_at": "2026-11-23T05:04:52+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163140049": {
+      "seen_at": "2026-11-23T05:04:52+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -411783,7 +411807,7 @@
     "workday/hpe": "2026-11-23T04:30:32+00:00",
     "workday/intel": "2026-11-23T04:40:28+00:00",
     "workday/micron": "2026-11-23T04:30:32+00:00",
-    "workday/northrop-grumman": "2026-11-23T03:40:25+00:00",
+    "workday/northrop-grumman": "2026-11-23T05:00:34+00:00",
     "workday/nvidia": "2026-11-23T04:20:25+00:00",
     "workday/paypal": "2026-11-23T03:30:30+00:00",
     "workday/rbc": "2026-11-23T04:10:24+00:00",
