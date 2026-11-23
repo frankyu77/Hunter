@@ -47022,19 +47022,26 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T07:34:10+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T07:34:10+00:00",
+      "last_error": "HTTP 405 from qualcomm.eightfold.ai: <!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T07:34:10+00:00",
+      "last_error": "HTTP 405 from explore.jobs.netflix.net: <!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47457,7 +47464,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-23T07:34:10+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47604,7 +47614,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-23T01:53:27+00:00",
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49501,6 +49511,14 @@
           "matched": 1,
           "name": "ViaSat"
         },
+        "jibe/jobs.aon.com": {
+          "boards": {
+            "{\"company\": \"aon\", \"host\": \"jobs.aon.com\", \"type\": \"jibe\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Aon"
+        },
         "jibe/jobs.constellationenergy.com": {
           "boards": {
             "{\"company\": \"constellation-energy\", \"host\": \"jobs.constellationenergy.com\", \"type\": \"jibe\"}": 1
@@ -50738,6 +50756,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Johns Manville"
+        },
+        "workday/latticesemi": {
+          "boards": {
+            "{\"company\": \"lattice-semiconductor\", \"host\": \"wd5\", \"site\": \"latticesemiconductorscareers\", \"tenant\": \"latticesemi\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Lattice Semiconductor"
         },
         "workday/littelfuse": {
           "boards": {
@@ -52632,7 +52658,6 @@
         43
       ],
       "greenhouse/cloudflare": [
-        8,
         22,
         37,
         15,
@@ -52681,7 +52706,8 @@
         19,
         47,
         35,
-        20
+        20,
+        54
       ],
       "greenhouse/coinbase": [
         9,
@@ -84118,6 +84144,15 @@
     },
     "amazon:amazon:10611145": {
       "seen_at": "2026-11-23T07:13:08+00:00"
+    },
+    "amazon:amazon:10611150": {
+      "seen_at": "2026-11-23T07:34:10+00:00"
+    },
+    "amazon:amazon:10611151": {
+      "seen_at": "2026-11-23T07:34:10+00:00"
+    },
+    "amazon:amazon:10611152": {
+      "seen_at": "2026-11-23T07:34:10+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -123899,6 +123934,9 @@
     "github:SimplifyJobs/New-Grad-Positions:07edd5c1-ff46-4123-aaab-3b21723aefff": {
       "seen_at": "2026-11-08T23:35:52+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:0806705f-44b1-4c91-a264-9d64f360e6b8": {
+      "seen_at": "2026-11-23T07:34:10+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:080ae20a-20b7-4971-8e68-70b02946bd25": {
       "seen_at": "2026-10-15T14:47:58+00:00"
     },
@@ -132572,6 +132610,9 @@
     "github:SimplifyJobs/New-Grad-Positions:772be052-ed58-441e-842c-c09ea91a96a2": {
       "seen_at": "2026-10-27T16:16:44+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:773f9ad4-5385-43a7-9d8a-0d7589beeeab": {
+      "seen_at": "2026-11-23T07:34:10+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:7740081c-352f-43aa-8157-7d66734b20a1": {
       "seen_at": "2026-11-18T07:36:24+00:00"
     },
@@ -138945,6 +138986,7 @@
       "seen_at": "2026-09-30T00:04:57+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ca004f32-b456-4cae-ba94-82034c00e338": {
+      "missing": "2026-11-23T07:34:10+00:00",
       "seen_at": "2026-11-09T11:06:36+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ca05adf8-dbe1-4919-a408-6992779b1c0a": {
@@ -195359,7 +195401,7 @@
       "seen_at": "2026-11-21T10:42:36+00:00"
     },
     "greenhouse:cloudflare:8220063": {
-      "missing": "2026-11-23T01:33:14+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-09-29T09:03:32+00:00"
     },
     "greenhouse:cloudflare:8220734": {
@@ -273260,6 +273302,9 @@
     },
     "smartrecruiters:BoschGroup:744000163149749": {
       "seen_at": "2026-11-23T07:23:23+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163150309": {
+      "seen_at": "2026-11-23T07:34:10+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -411839,7 +411884,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-23T06:30:34+00:00",
-    "workday/autodesk": "2026-11-23T04:50:36+00:00",
+    "workday/autodesk": "2026-11-23T07:30:37+00:00",
     "workday/becton-dickinson": "2026-11-23T05:20:27+00:00",
     "workday/boeing": "2026-11-23T05:10:28+00:00",
     "workday/cibc": "2026-11-23T06:10:32+00:00",
@@ -411858,7 +411903,7 @@
     "workday/rbc": "2026-11-23T06:20:22+00:00",
     "workday/salesforce": "2026-11-23T05:40:29+00:00",
     "workday/siemens-healthineers": "2026-11-23T05:30:36+00:00",
-    "workday/snap": "2026-11-23T03:30:30+00:00",
+    "workday/snap": "2026-11-23T07:30:37+00:00",
     "workday/td": "2026-11-23T06:00:34+00:00",
     "workday/workday": "2026-11-23T04:50:36+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
