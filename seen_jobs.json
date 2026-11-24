@@ -47720,16 +47720,16 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-24T03:23:59+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-24T03:14:40+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48782,8 +48782,8 @@
         "status": "paused"
       }
     },
-    "auto_sources_checked": "2026-11-23T03:23:36+00:00",
-    "dashboard_built_at": "2026-11-24T02:23:54+00:00",
+    "auto_sources_checked": "2026-11-24T03:24:00+00:00",
+    "dashboard_built_at": "2026-11-24T03:24:00+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -53181,7 +53181,6 @@
         11
       ],
       "ashby/snowflake": [
-        6,
         17,
         38,
         14,
@@ -53230,7 +53229,8 @@
         3,
         3,
         3,
-        29
+        29,
+        39
       ],
       "ashby/wealthsimple": [
         9,
@@ -54407,7 +54407,8 @@
         3,
         3,
         3,
-        3
+        3,
+        0
       ],
       "greenhouse/lyft": [
         34,
@@ -54618,7 +54619,6 @@
         31
       ],
       "greenhouse/reddit": [
-        2,
         5,
         7,
         7,
@@ -54667,7 +54667,8 @@
         35,
         31,
         0,
-        52
+        52,
+        36
       ],
       "greenhouse/riotgames": [
         0,
@@ -54959,7 +54960,8 @@
       ],
       "greenhouse/trueanomalyinc": [
         2,
-        3
+        3,
+        0
       ],
       "greenhouse/twilio": [
         8,
@@ -55145,7 +55147,6 @@
       ],
       "jibe/amd": [
         0,
-        0,
         3,
         1,
         0,
@@ -55193,6 +55194,7 @@
         5,
         2,
         2,
+        6,
         6
       ],
       "jibe/docusign": [
@@ -55745,8 +55747,6 @@
         14
       ],
       "smartrecruiters/Intuitive": [
-        20,
-        20,
         2,
         21,
         21,
@@ -55793,6 +55793,8 @@
         13,
         16,
         10,
+        25,
+        4,
         25,
         4
       ],
@@ -55849,9 +55851,6 @@
         4
       ],
       "smartrecruiters/RenesasElectronics": [
-        44,
-        28,
-        28,
         28,
         2,
         2,
@@ -55898,7 +55897,10 @@
         6,
         0,
         38,
-        6
+        6,
+        48,
+        38,
+        0
       ],
       "smartrecruiters/SAPITBusinessSysteme": [
         3,
@@ -85937,6 +85939,9 @@
     "amazon:amazon:10612341": {
       "seen_at": "2026-11-24T03:04:57+00:00"
     },
+    "amazon:amazon:10612346": {
+      "seen_at": "2026-11-24T03:24:00+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -100123,7 +100128,7 @@
       "seen_at": "2026-11-13T10:56:06+00:00"
     },
     "ashby:snowflake:37ad5524-1716-4b54-8c3a-a81429592a91": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-15T17:37:27+00:00"
     },
     "ashby:snowflake:387138b4-7c15-46c5-95bc-e80564464773": {
@@ -120264,7 +120269,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318622925": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318623518": {
@@ -120533,7 +120537,6 @@
       "seen_at": "2026-10-19T18:06:20+00:00"
     },
     "eightfold:netflix:790319022497": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-10-20T00:06:19+00:00"
     },
     "eightfold:netflix:790319022521": {
@@ -120593,7 +120596,6 @@
       "seen_at": "2026-10-22T21:36:24+00:00"
     },
     "eightfold:netflix:790319076054": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-10-23T00:26:26+00:00"
     },
     "eightfold:netflix:790319076845": {
@@ -120739,11 +120741,9 @@
       "seen_at": "2026-10-29T16:16:36+00:00"
     },
     "eightfold:netflix:790319241993": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-05T20:56:20+00:00"
     },
     "eightfold:netflix:790319241995": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-19T18:13:37+00:00"
     },
     "eightfold:netflix:790319242363": {
@@ -120835,7 +120835,6 @@
       "seen_at": "2026-11-06T20:46:17+00:00"
     },
     "eightfold:netflix:790319330280": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-03T20:56:57+00:00"
     },
     "eightfold:netflix:790319330420": {
@@ -120900,7 +120899,6 @@
       "seen_at": "2026-11-09T18:56:08+00:00"
     },
     "eightfold:netflix:790319425212": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-10T01:46:05+00:00"
     },
     "eightfold:netflix:790319425242": {
@@ -120922,7 +120920,6 @@
       "seen_at": "2026-11-10T05:25:58+00:00"
     },
     "eightfold:netflix:790319431097": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-10T07:36:18+00:00"
     },
     "eightfold:netflix:790319431251": {
@@ -120932,7 +120929,6 @@
       "seen_at": "2026-11-18T10:57:06+00:00"
     },
     "eightfold:netflix:790319435305": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-10T12:25:52+00:00"
     },
     "eightfold:netflix:790319438097": {
@@ -120945,7 +120941,6 @@
       "seen_at": "2026-11-13T17:06:51+00:00"
     },
     "eightfold:netflix:790319442242": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-10T17:56:13+00:00"
     },
     "eightfold:netflix:790319443773": {
@@ -121042,7 +121037,6 @@
       "seen_at": "2026-11-15T00:15:15+00:00"
     },
     "eightfold:netflix:790319500144": {
-      "missing": "2026-11-24T03:14:40+00:00",
       "seen_at": "2026-11-13T16:56:40+00:00"
     },
     "eightfold:netflix:790319500686": {
@@ -175686,7 +175680,7 @@
       "seen_at": "2026-11-02T17:46:43+00:00"
     },
     "github:vanshb03/Summer2027-Internships:1b7a497e-558d-470d-9588-33daefbd66e9": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-11T05:55:44+00:00"
     },
     "github:vanshb03/Summer2027-Internships:1b8154fe-8c96-414c-b882-43236f0f7cda": {
@@ -181292,7 +181286,7 @@
       "seen_at": "2026-11-02T23:45:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:84451b31-a715-441b-9694-c6c6091eabbe": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-06T20:16:14+00:00"
     },
     "github:vanshb03/Summer2027-Internships:844db455-c4fa-4065-b8fc-780699af6f7c": {
@@ -181421,7 +181415,7 @@
       "seen_at": "2026-11-03T06:55:51+00:00"
     },
     "github:vanshb03/Summer2027-Internships:86ba6fa3-67b0-4a43-8e77-59cd8ac0c8bd": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-13T18:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:86d7b43b-df88-45b9-9abb-fed4f44d8bb5": {
@@ -181821,7 +181815,7 @@
       "seen_at": "2026-11-12T03:15:47+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8fefa28f-756f-443c-ba30-582781371daf": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-28T13:56:56+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8ff7be57-732f-4962-8806-a0d159aed557": {
@@ -181992,7 +181986,7 @@
       "seen_at": "2026-10-25T08:55:12+00:00"
     },
     "github:vanshb03/Summer2027-Internships:93054f64-a7a1-4c33-961d-535b1e58c563": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-26T11:55:39+00:00"
     },
     "github:vanshb03/Summer2027-Internships:931c7764-d48f-46df-98de-a07c904d13fe": {
@@ -182999,7 +182993,7 @@
       "seen_at": "2026-10-26T16:46:46+00:00"
     },
     "github:vanshb03/Summer2027-Internships:a7432e62-9005-487b-95d0-d10e20b54072": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-05T20:16:07+00:00"
     },
     "github:vanshb03/Summer2027-Internships:a782e737-53bb-4139-b4c9-a29ea038c117": {
@@ -185359,7 +185353,7 @@
       "seen_at": "2026-11-03T06:55:51+00:00"
     },
     "github:vanshb03/Summer2027-Internships:d4bc46be-9835-4429-83c7-d0cb196cd298": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-06T15:16:04+00:00"
     },
     "github:vanshb03/Summer2027-Internships:d4d8496f-7104-4259-b775-6a77600f6f34": {
@@ -187720,7 +187714,6 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:adyen:7422228": {
-      "closed": "2026-11-17",
       "seen_at": "2026-10-05T10:03:41+00:00"
     },
     "greenhouse:adyen:7436701": {
@@ -188461,6 +188454,7 @@
       "seen_at": "2026-10-08T21:56:05+00:00"
     },
     "greenhouse:adyen:8258162": {
+      "missing": "2026-11-24T03:24:00+00:00",
       "seen_at": "2026-10-08T04:04:15+00:00"
     },
     "greenhouse:adyen:8258553": {
@@ -215670,7 +215664,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5277795007": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-23T14:24:03+00:00"
     },
     "greenhouse:lucidmotors:5277797007": {
@@ -222657,7 +222651,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:reddit:8125836": {
-      "missing": "2026-11-23T21:14:45+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-18T20:15:07+00:00"
     },
     "greenhouse:reddit:8126946": {
@@ -232254,7 +232248,7 @@
       "seen_at": "2026-11-20T20:04:50+00:00"
     },
     "greenhouse:trueanomalyinc:5269557007": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-23T19:54:07+00:00"
     },
     "greenhouse:trueanomalyinc:5270390007": {
@@ -240569,7 +240563,7 @@
       "seen_at": "2026-11-13T21:55:20+00:00"
     },
     "jibe:careers.amd.com:97923": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-16T22:06:40+00:00"
     },
     "jibe:careers.amd.com:97924": {
@@ -278889,7 +278883,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000156852928": {
-      "missing": "2026-11-23T21:14:45+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000156853197": {
@@ -280297,7 +280291,7 @@
       "seen_at": "2026-11-19T18:33:53+00:00"
     },
     "smartrecruiters:Intuitive:744000162592369": {
-      "missing": "2026-11-23T21:23:36+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-19T19:44:49+00:00"
     },
     "smartrecruiters:Intuitive:744000162592380": {
@@ -282392,7 +282386,7 @@
       "seen_at": "2026-10-06T03:43:20+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000144812959": {
-      "missing": "2026-11-23T21:14:45+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-06T03:43:20+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000144873649": {
@@ -283401,7 +283395,7 @@
       "seen_at": "2026-10-16T14:46:40+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000156016809": {
-      "missing": "2026-11-23T21:14:45+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-16T14:46:40+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000156017155": {
@@ -284643,7 +284637,7 @@
       "seen_at": "2026-11-23T20:14:48+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000163327989": {
-      "missing": "2026-11-23T21:14:45+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-23T21:04:57+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000163328199": {
@@ -379600,6 +379594,9 @@
     "workday:ngc:R10260930": {
       "seen_at": "2026-11-22T07:33:54+00:00"
     },
+    "workday:ngc:R10260932": {
+      "seen_at": "2026-11-24T03:24:00+00:00"
+    },
     "workday:ngc:R10260934": {
       "seen_at": "2026-11-18T08:07:17+00:00"
     },
@@ -380805,6 +380802,9 @@
     },
     "workday:ngc:R10261911": {
       "seen_at": "2026-11-24T01:44:00+00:00"
+    },
+    "workday:ngc:R10261914": {
+      "seen_at": "2026-11-24T03:24:00+00:00"
     },
     "workday:nvidia:JR1966156": {
       "seen_at": "2026-10-30T23:26:18+00:00"
@@ -416103,7 +416103,7 @@
     "workday/adobe": "2026-11-24T02:20:27+00:00",
     "workday/autodesk": "2026-11-24T03:00:34+00:00",
     "workday/becton-dickinson": "2026-11-24T01:50:26+00:00",
-    "workday/boeing": "2026-11-24T01:40:28+00:00",
+    "workday/boeing": "2026-11-24T03:20:26+00:00",
     "workday/cibc": "2026-11-24T02:10:28+00:00",
     "workday/cisco": "2026-11-24T03:00:34+00:00",
     "workday/clio": "2026-11-24T02:00:37+00:00",
@@ -416114,7 +416114,7 @@
     "workday/hpe": "2026-11-24T02:40:40+00:00",
     "workday/intel": "2026-11-24T02:50:24+00:00",
     "workday/micron": "2026-11-24T02:40:40+00:00",
-    "workday/northrop-grumman": "2026-11-24T01:40:28+00:00",
+    "workday/northrop-grumman": "2026-11-24T03:20:26+00:00",
     "workday/nvidia": "2026-11-24T02:30:29+00:00",
     "workday/paypal": "2026-11-24T03:10:27+00:00",
     "workday/rbc": "2026-11-24T02:20:27+00:00",
