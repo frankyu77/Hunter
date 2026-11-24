@@ -47753,7 +47753,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-24T07:04:40+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47765,7 +47768,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-24T07:04:40+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48221,7 +48227,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-24T02:13:36+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -48350,7 +48356,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-23T21:34:08+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52951,7 +52957,8 @@
         0,
         1,
         34,
-        40
+        40,
+        21
       ],
       "ashby/notion": [
         2,
@@ -52982,7 +52989,6 @@
         12
       ],
       "ashby/openai": [
-        43,
         9,
         25,
         2,
@@ -53031,6 +53037,7 @@
         19,
         19,
         17,
+        20,
         20
       ],
       "ashby/plaid": [
@@ -54646,7 +54653,6 @@
         21
       ],
       "greenhouse/pinterest": [
-        4,
         5,
         12,
         20,
@@ -54695,7 +54701,8 @@
         35,
         40,
         31,
-        37
+        37,
+        40
       ],
       "greenhouse/reddit": [
         5,
@@ -54831,7 +54838,6 @@
         10
       ],
       "greenhouse/roblox": [
-        2,
         8,
         0,
         1,
@@ -54880,7 +54886,8 @@
         19,
         50,
         37,
-        0
+        0,
+        41
       ],
       "greenhouse/samsara": [
         42,
@@ -90464,7 +90471,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "ashby:linear:c21af93e-210f-4969-8eaa-90fb16a5b720": {
-      "missing": "2026-11-24T00:53:36+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "ashby:linear:c97e034e-19a8-4ec7-89a5-c81987451da8": {
@@ -93670,7 +93677,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "ashby:openai:b6736e0a-db0b-428f-ad14-448353a92243": {
-      "missing": "2026-11-24T01:04:34+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-03T19:07:04+00:00"
     },
     "ashby:openai:b6a86e39-8059-4ccf-8d33-1bf5bd92fa86": {
@@ -121381,6 +121388,9 @@
     "eightfold:qualcomm:446715656563": {
       "seen_at": "2026-11-05T08:45:55+00:00"
     },
+    "eightfold:qualcomm:446715676635": {
+      "seen_at": "2026-11-24T07:04:40+00:00"
+    },
     "eightfold:qualcomm:446715742565": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -125466,6 +125476,9 @@
     },
     "eightfold:qualcomm:446722188229": {
       "seen_at": "2026-11-18T11:07:13+00:00"
+    },
+    "eightfold:qualcomm:446722188246": {
+      "seen_at": "2026-11-24T07:04:40+00:00"
     },
     "eightfold:qualcomm:446722188443": {
       "seen_at": "2026-11-18T11:07:13+00:00"
@@ -145420,7 +145433,7 @@
       "seen_at": "2026-10-06T07:03:52+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:fd1307f9-dd42-4f5a-95cf-04fa8e0730c0": {
-      "missing": "2026-11-24T01:04:34+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-28T06:36:07+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:fd142f32-50e4-4408-92a1-f7ecf19afe7d": {
@@ -185082,7 +185095,7 @@
       "seen_at": "2026-10-23T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cc0e484e-272e-4f9e-bef7-6daaa2d5c550": {
-      "missing": "2026-11-24T00:53:36+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-28T20:47:11+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cc2b9319-5608-4789-8035-54a450a3dd4b": {
@@ -222161,7 +222174,7 @@
       "seen_at": "2026-10-01T17:04:41+00:00"
     },
     "greenhouse:pinterest:8145923": {
-      "missing": "2026-11-24T00:53:36+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-14T16:46:46+00:00"
     },
     "greenhouse:pinterest:8146085": {
@@ -225189,7 +225202,7 @@
       "seen_at": "2026-11-20T16:54:11+00:00"
     },
     "greenhouse:roblox:8120368": {
-      "missing": "2026-11-24T00:53:36+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:roblox:8121877": {
@@ -257700,6 +257713,7 @@
       "seen_at": "2026-11-20T16:24:02+00:00"
     },
     "oracle:honeywell:162871": {
+      "missing": "2026-11-24T07:04:40+00:00",
       "seen_at": "2026-11-23T10:54:17+00:00"
     },
     "oracle:honeywell:162872": {
@@ -277709,6 +277723,9 @@
     },
     "smartrecruiters:BoschGroup:744000163390199": {
       "seen_at": "2026-11-24T06:53:28+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163390435": {
+      "seen_at": "2026-11-24T07:04:40+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -416425,7 +416442,7 @@
     "workday/autodesk": "2026-11-24T06:10:27+00:00",
     "workday/becton-dickinson": "2026-11-24T06:40:29+00:00",
     "workday/boeing": "2026-11-24T06:30:32+00:00",
-    "workday/cibc": "2026-11-24T05:30:32+00:00",
+    "workday/cibc": "2026-11-24T07:00:39+00:00",
     "workday/cisco": "2026-11-24T06:10:27+00:00",
     "workday/clio": "2026-11-24T06:50:27+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -416442,7 +416459,7 @@
     "workday/salesforce": "2026-11-24T06:50:27+00:00",
     "workday/siemens-healthineers": "2026-11-24T06:40:29+00:00",
     "workday/snap": "2026-11-24T06:20:26+00:00",
-    "workday/td": "2026-11-24T05:30:32+00:00",
+    "workday/td": "2026-11-24T07:00:39+00:00",
     "workday/workday": "2026-11-24T04:50:25+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-23T20:50:26+00:00"
