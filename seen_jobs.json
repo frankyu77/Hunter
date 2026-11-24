@@ -47792,10 +47792,7 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-24T08:34:20+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48221,10 +48218,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 4,
-      "failing_since": "2026-11-24T02:23:51+00:00",
-      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48353,7 +48347,10 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-24T08:44:02+00:00",
+      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48861,7 +48858,7 @@
       }
     },
     "auto_sources_checked": "2026-11-24T03:24:00+00:00",
-    "dashboard_built_at": "2026-11-24T07:43:46+00:00",
+    "dashboard_built_at": "2026-11-24T08:44:02+00:00",
     "discovery": {
       "candidates": {
         "ashby/ami": {
@@ -50578,10 +50575,10 @@
         },
         "jibe/se.jibeapply.com": {
           "boards": {
-            "{\"company\": \"schneider-electric\", \"host\": \"se.jibeapply.com\", \"type\": \"jibe\"}": 1
+            "{\"company\": \"schneider-electric\", \"host\": \"se.jibeapply.com\", \"type\": \"jibe\"}": 2
           },
-          "jobs": 1,
-          "matched": 1,
+          "jobs": 2,
+          "matched": 2,
           "name": "Schneider Electric"
         },
         "jibe/spa.jibeapply.com": {
@@ -55200,7 +55197,6 @@
         5
       ],
       "greenhouse/waymo": [
-        3,
         36,
         36,
         36,
@@ -55249,10 +55245,10 @@
         46,
         46,
         46,
+        46,
         46
       ],
       "greenhouse/xai": [
-        29,
         1,
         2,
         32,
@@ -55301,7 +55297,8 @@
         42,
         42,
         23,
-        43
+        43,
+        46
       ],
       "jibe/amd": [
         1,
@@ -97467,6 +97464,9 @@
     "ashby:shield:37b6c9d0-f7c4-4ee5-bdd3-166a0dfc059c": {
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
+    "ashby:shield:37c7e7f4-fabf-4e56-b2b3-e401c2af4b49": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
+    },
     "ashby:shield:38125295-85f7-4ed7-89d6-69f18db7a588": {
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
@@ -119905,6 +119905,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317759230": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317759412": {
@@ -120531,6 +120532,7 @@
       "seen_at": "2026-10-20T17:26:44+00:00"
     },
     "eightfold:netflix:790318629584": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-10-23T20:46:11+00:00"
     },
     "eightfold:netflix:790318631012": {
@@ -122086,6 +122088,9 @@
     },
     "eightfold:qualcomm:446719636769": {
       "seen_at": "2026-10-08T06:46:23+00:00"
+    },
+    "eightfold:qualcomm:446719650320": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "eightfold:qualcomm:446719654790": {
       "seen_at": "2026-11-02T16:07:03+00:00"
@@ -125588,6 +125593,12 @@
     "eightfold:qualcomm:446722189872": {
       "seen_at": "2026-11-19T17:44:01+00:00"
     },
+    "eightfold:qualcomm:446722191867": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
+    },
+    "eightfold:qualcomm:446722191872": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
+    },
     "eightfold:qualcomm:446722196979": {
       "seen_at": "2026-11-19T21:23:40+00:00"
     },
@@ -128395,6 +128406,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:20d74fa9-982b-42e3-9d67-9303193f1f23": {
       "seen_at": "2026-11-23T03:14:08+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:20ddf038-1fb9-4dd1-8fea-ff90c3309e1c": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:20e281dd-0588-4bfa-9acf-46211e876ce9": {
       "seen_at": "2026-11-05T10:06:50+00:00"
@@ -136708,6 +136722,7 @@
       "seen_at": "2026-10-03T09:43:05+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:89e4ecd6-c458-4f6b-9022-33c0b81a8a6b": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-11-17T00:07:15+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:89e5e67c-49e5-443f-b6a4-fc60ce1120e1": {
@@ -154795,6 +154810,7 @@
       "seen_at": "2026-11-21T01:12:58+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:529ec434-7642-4f89-8dce-c32598ea5eef": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-11-10T03:06:20+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:52a1bad8-5a44-4bf7-a4ef-fe2683e423b5": {
@@ -225725,6 +225741,7 @@
       "seen_at": "2026-10-16T03:26:04+00:00"
     },
     "greenhouse:roblox:8258066": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-10-06T16:53:54+00:00"
     },
     "greenhouse:roblox:8259270": {
@@ -234227,7 +234244,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7852964": {
-      "missing": "2026-11-24T02:34:48+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7858106": {
@@ -236411,7 +236428,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:xai:5229363007": {
-      "missing": "2026-11-24T02:34:48+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:xai:5229550007": {
@@ -252545,6 +252562,9 @@
     "oracle:honeywell:159040": {
       "seen_at": "2026-10-29T18:36:37+00:00"
     },
+    "oracle:honeywell:159041": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
+    },
     "oracle:honeywell:159042": {
       "seen_at": "2026-11-03T17:56:00+00:00"
     },
@@ -257925,6 +257945,7 @@
       "seen_at": "2026-11-24T05:43:45+00:00"
     },
     "oracle:honeywell:162887": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-11-24T05:43:45+00:00"
     },
     "oracle:honeywell:162888": {
@@ -261314,6 +261335,9 @@
     },
     "oracle:oracle:346856": {
       "seen_at": "2026-10-07T05:24:13+00:00"
+    },
+    "oracle:oracle:346858": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "oracle:oracle:346876": {
       "seen_at": "2026-11-16T20:47:19+00:00"
@@ -277935,6 +277959,12 @@
     },
     "smartrecruiters:BoschGroup:744000163401109": {
       "seen_at": "2026-11-24T08:23:35+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163404017": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163404194": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "smartrecruiters:BoschGroup:744000163404319": {
       "seen_at": "2026-11-24T08:34:20+00:00"
@@ -296882,6 +296912,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7475130354514020615": {
+      "missing": "2026-11-24T08:44:02+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7504596715490019592": {
@@ -305277,6 +305308,9 @@
     },
     "workday:adobe:R173668": {
       "seen_at": "2026-11-19T13:43:21+00:00"
+    },
+    "workday:adobe:R173685": {
+      "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "workday:adobe:R173687": {
       "seen_at": "2026-11-18T16:49:35+00:00"
@@ -416746,7 +416780,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-24T07:10:26+00:00",
+    "workday/adobe": "2026-11-24T08:40:28+00:00",
     "workday/autodesk": "2026-11-24T07:50:27+00:00",
     "workday/becton-dickinson": "2026-11-24T08:10:39+00:00",
     "workday/boeing": "2026-11-24T08:00:37+00:00",
@@ -416763,7 +416797,7 @@
     "workday/northrop-grumman": "2026-11-24T08:00:37+00:00",
     "workday/nvidia": "2026-11-24T07:20:26+00:00",
     "workday/paypal": "2026-11-24T06:20:26+00:00",
-    "workday/rbc": "2026-11-24T07:10:26+00:00",
+    "workday/rbc": "2026-11-24T08:40:28+00:00",
     "workday/salesforce": "2026-11-24T08:20:31+00:00",
     "workday/siemens-healthineers": "2026-11-24T08:10:39+00:00",
     "workday/snap": "2026-11-24T06:20:26+00:00",
