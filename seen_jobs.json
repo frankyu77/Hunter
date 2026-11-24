@@ -47951,7 +47951,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-24T21:18:27+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47963,10 +47966,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-24T21:08:30+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48464,7 +48464,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-24T19:46:39+00:00",
       "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -48473,7 +48473,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-24T16:23:50+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -55688,7 +55688,6 @@
         6
       ],
       "jibe/docusign": [
-        41,
         2,
         41,
         35,
@@ -55737,7 +55736,8 @@
         19,
         6,
         46,
-        34
+        34,
+        17
       ],
       "lever/cirrus": [
         0,
@@ -120115,7 +120115,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790314058583": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-11-24T18:36:19+00:00"
     },
     "eightfold:netflix:790314099940": {
@@ -120933,7 +120932,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317761054": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317761805": {
@@ -121551,7 +121549,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318623518": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318627353": {
@@ -121858,7 +121855,6 @@
       "seen_at": "2026-10-22T17:58:17+00:00"
     },
     "eightfold:netflix:790319072330": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-10-22T18:46:37+00:00"
     },
     "eightfold:netflix:790319075097": {
@@ -122023,11 +122019,9 @@
       "seen_at": "2026-10-29T16:16:36+00:00"
     },
     "eightfold:netflix:790319241993": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-11-05T20:56:20+00:00"
     },
     "eightfold:netflix:790319241995": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-11-19T18:13:37+00:00"
     },
     "eightfold:netflix:790319242363": {
@@ -122313,7 +122307,6 @@
       "seen_at": "2026-11-13T05:07:56+00:00"
     },
     "eightfold:netflix:790319493678": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-11-15T00:15:15+00:00"
     },
     "eightfold:netflix:790319493694": {
@@ -122326,7 +122319,6 @@
       "seen_at": "2026-11-13T16:56:40+00:00"
     },
     "eightfold:netflix:790319500686": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-11-13T17:16:45+00:00"
     },
     "eightfold:netflix:790319503099": {
@@ -122342,7 +122334,6 @@
       "seen_at": "2026-11-13T22:48:22+00:00"
     },
     "eightfold:netflix:790319503891": {
-      "missing": "2026-11-24T20:53:52+00:00",
       "seen_at": "2026-11-14T00:38:31+00:00"
     },
     "eightfold:netflix:790319529702": {
@@ -138692,7 +138683,7 @@
       "seen_at": "2026-11-02T20:45:57+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:940c8802-4ed3-4879-bb98-e58e1a346afb": {
-      "missing": "2026-11-24T15:14:54+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-23T13:07:44+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:941e3fee-accd-4e6d-9123-561edd7554a4": {
@@ -200810,6 +200801,12 @@
     "greenhouse:cloudflare:8399197": {
       "seen_at": "2026-11-20T19:14:42+00:00"
     },
+    "greenhouse:cloudflare:8400327": {
+      "seen_at": "2026-11-24T21:18:27+00:00"
+    },
+    "greenhouse:cloudflare:8400328": {
+      "seen_at": "2026-11-24T21:18:27+00:00"
+    },
     "greenhouse:cloudflare:8400366": {
       "seen_at": "2026-11-23T17:03:41+00:00"
     },
@@ -203542,6 +203539,9 @@
     },
     "greenhouse:databricks:8585188002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "greenhouse:databricks:8586534002": {
+      "seen_at": "2026-11-24T21:18:27+00:00"
     },
     "greenhouse:databricks:8586857002": {
       "seen_at": "2026-10-30T19:57:06+00:00"
@@ -244092,7 +244092,7 @@
       "seen_at": "2026-11-06T19:36:21+00:00"
     },
     "jibe:careers.docusign.com:30653": {
-      "missing": "2026-11-24T15:14:54+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-06T19:26:45+00:00"
     },
     "jibe:careers.docusign.com:30654": {
@@ -293341,6 +293341,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163546288": {
       "seen_at": "2026-11-24T20:53:52+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163549019": {
+      "seen_at": "2026-11-24T21:18:27+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -419109,8 +419112,8 @@
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-24T21:10:26+00:00",
-    "workday/hpe": "2026-11-24T19:40:31+00:00",
-    "workday/intel": "2026-11-24T19:40:31+00:00",
+    "workday/hpe": "2026-11-24T21:14:28+00:00",
+    "workday/intel": "2026-11-24T21:14:28+00:00",
     "workday/micron": "2026-11-24T19:50:32+00:00",
     "workday/northrop-grumman": "2026-11-24T20:20:30+00:00",
     "workday/nvidia": "2026-11-24T21:10:26+00:00",
