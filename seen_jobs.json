@@ -47720,19 +47720,13 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-24T02:23:51+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-24T02:34:48+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48152,7 +48146,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-24T02:44:29+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48248,7 +48245,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-23T16:14:33+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53965,7 +53962,6 @@
         0
       ],
       "greenhouse/datadog": [
-        17,
         39,
         27,
         27,
@@ -54014,7 +54010,8 @@
         23,
         9,
         9,
-        53
+        53,
+        39
       ],
       "greenhouse/discord": [
         0,
@@ -54839,7 +54836,6 @@
         46
       ],
       "greenhouse/scaleai": [
-        14,
         15,
         15,
         18,
@@ -54888,10 +54884,10 @@
         45,
         45,
         45,
+        46,
         46
       ],
       "greenhouse/stripe": [
-        44,
         15,
         16,
         16,
@@ -54940,7 +54936,8 @@
         19,
         16,
         55,
-        20
+        20,
+        5
       ],
       "greenhouse/tenstorrentuniversity": [
         11
@@ -55940,7 +55937,6 @@
         0
       ],
       "smartrecruiters/ServiceNow": [
-        2,
         42,
         42,
         3,
@@ -55989,6 +55985,7 @@
         33,
         4,
         0,
+        46,
         46
       ],
       "tiktok/tiktok": [
@@ -118551,6 +118548,9 @@
     "eightfold:microsoft:1970393557076104": {
       "seen_at": "2026-11-24T02:13:37+00:00"
     },
+    "eightfold:microsoft:1970393557076109": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
+    },
     "eightfold:microsoft:1970393557076110": {
       "seen_at": "2026-11-19T23:24:01+00:00"
     },
@@ -118948,6 +118948,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315757011": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315763934": {
@@ -120118,6 +120119,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318500566": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318509436": {
@@ -120534,6 +120536,7 @@
       "seen_at": "2026-10-22T13:46:52+00:00"
     },
     "eightfold:netflix:790319069839": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-23T18:26:43+00:00"
     },
     "eightfold:netflix:790319070057": {
@@ -120562,6 +120565,7 @@
       "seen_at": "2026-10-22T21:36:24+00:00"
     },
     "eightfold:netflix:790319076054": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-23T00:26:26+00:00"
     },
     "eightfold:netflix:790319076845": {
@@ -120680,9 +120684,11 @@
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216248": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216289": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-29T17:26:26+00:00"
     },
     "eightfold:netflix:790319216290": {
@@ -121057,13 +121063,13 @@
       "seen_at": "2026-11-17T19:56:50+00:00"
     },
     "eightfold:netflix:790319560051": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-11-17T20:36:56+00:00"
     },
     "eightfold:netflix:790319561012": {
       "seen_at": "2026-11-17T22:37:50+00:00"
     },
     "eightfold:netflix:790319562368": {
-      "missing": "2026-11-24T02:34:48+00:00",
       "seen_at": "2026-11-18T01:26:39+00:00"
     },
     "eightfold:netflix:790319564319": {
@@ -125476,11 +125482,9 @@
       "seen_at": "2026-11-21T01:43:56+00:00"
     },
     "eightfold:qualcomm:446722279117": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "eightfold:qualcomm:446722279118": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T04:13:53+00:00"
     },
     "eightfold:qualcomm:446722279738": {
@@ -125488,27 +125492,21 @@
       "seen_at": "2026-11-23T06:53:15+00:00"
     },
     "eightfold:qualcomm:446722279941": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T05:13:48+00:00"
     },
     "eightfold:qualcomm:446722280220": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T06:44:17+00:00"
     },
     "eightfold:qualcomm:446722283981": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T11:54:43+00:00"
     },
     "eightfold:qualcomm:446722285254": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T10:54:17+00:00"
     },
     "eightfold:qualcomm:446722309859": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T11:24:14+00:00"
     },
     "eightfold:qualcomm:446722311211": {
-      "missing": "2026-11-24T02:23:51+00:00",
       "seen_at": "2026-11-23T14:24:03+00:00"
     },
     "eightfold:qualcomm:446722312211": {
@@ -205123,7 +205121,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:datadog:8268065": {
-      "missing": "2026-11-23T20:44:19+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-15T16:08:07+00:00"
     },
     "greenhouse:datadog:8268449": {
@@ -220316,6 +220314,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8211192": {
+      "missing": "2026-11-24T02:44:29+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8211380": {
@@ -228047,7 +228046,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4731928005": {
-      "missing": "2026-11-23T20:44:19+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4732365005": {
@@ -231585,7 +231584,7 @@
       "seen_at": "2026-11-20T00:14:06+00:00"
     },
     "greenhouse:stripe:8397260": {
-      "missing": "2026-11-23T20:44:19+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-11-18T15:17:49+00:00"
     },
     "greenhouse:stripe:8399738": {
@@ -248855,6 +248854,9 @@
     },
     "oracle:dell:300132": {
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "oracle:dell:300141": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
     },
     "oracle:dell:300142": {
       "closed": "2026-10-16",
@@ -268040,7 +268042,6 @@
       "seen_at": "2026-10-05T05:23:17+00:00"
     },
     "oracle:texas-instruments:25018462": {
-      "closed": "2026-11-17",
       "seen_at": "2026-11-17T02:37:26+00:00"
     },
     "oracle:texas-instruments:25018463": {
@@ -290740,7 +290741,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000148624764": {
-      "missing": "2026-11-23T20:44:19+00:00",
+      "closed": "2026-11-23",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000148666769": {
@@ -348512,6 +348513,9 @@
     "workday:hpe:1213648": {
       "seen_at": "2026-10-07T02:04:39+00:00"
     },
+    "workday:hpe:1213652": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
+    },
     "workday:hpe:1213655": {
       "seen_at": "2026-10-06T10:13:56+00:00"
     },
@@ -349573,6 +349577,9 @@
     },
     "workday:hpe:1215071": {
       "seen_at": "2026-10-14T20:26:46+00:00"
+    },
+    "workday:hpe:1215072": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
     },
     "workday:hpe:1215074": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -352791,6 +352798,9 @@
     "workday:hpe:1218364": {
       "seen_at": "2026-11-05T19:25:59+00:00"
     },
+    "workday:hpe:1218391": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
+    },
     "workday:hpe:1218392": {
       "seen_at": "2026-11-18T22:28:57+00:00"
     },
@@ -352849,6 +352859,9 @@
     "workday:hpe:1218514": {
       "seen_at": "2026-11-13T03:45:51+00:00"
     },
+    "workday:hpe:1218531": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
+    },
     "workday:hpe:1218537": {
       "seen_at": "2026-11-16T01:35:51+00:00"
     },
@@ -352894,6 +352907,9 @@
     "workday:hpe:1218622": {
       "seen_at": "2026-11-23T01:23:05+00:00"
     },
+    "workday:hpe:1218627": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
+    },
     "workday:hpe:1218647": {
       "seen_at": "2026-11-22T10:23:36+00:00"
     },
@@ -352929,6 +352945,9 @@
     },
     "workday:hpe:1218707": {
       "seen_at": "2026-11-16T01:35:51+00:00"
+    },
+    "workday:hpe:1218712": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
     },
     "workday:hpe:1218718": {
       "seen_at": "2026-11-06T12:55:27+00:00"
@@ -353022,6 +353041,9 @@
     },
     "workday:hpe:1219059": {
       "seen_at": "2026-11-16T01:35:51+00:00"
+    },
+    "workday:hpe:1219488": {
+      "seen_at": "2026-11-24T02:44:29+00:00"
     },
     "workday:intel:JR0278171": {
       "seen_at": "2026-11-02T07:35:28+00:00"
@@ -415960,9 +415982,9 @@
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-24T02:30:29+00:00",
-    "workday/hpe": "2026-11-24T01:10:28+00:00",
+    "workday/hpe": "2026-11-24T02:40:40+00:00",
     "workday/intel": "2026-11-24T01:15:51+00:00",
-    "workday/micron": "2026-11-24T01:10:28+00:00",
+    "workday/micron": "2026-11-24T02:40:40+00:00",
     "workday/northrop-grumman": "2026-11-24T01:40:28+00:00",
     "workday/nvidia": "2026-11-24T02:30:29+00:00",
     "workday/paypal": "2026-11-24T01:30:39+00:00",
