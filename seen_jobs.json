@@ -48138,7 +48138,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-25T09:43:47+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -48615,7 +48615,10 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T09:53:55+00:00",
+      "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48693,10 +48696,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 6,
-      "failing_since": "2026-11-24T16:43:39+00:00",
-      "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -94741,7 +94741,6 @@
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:2a6b636c-5ad9-48ab-92fb-0f2fee532ca5": {
-      "closed": "2026-11-19",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:2aa92f37-7e2f-4c12-9f2c-1316e1a743a7": {
@@ -116937,6 +116936,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315141457": {
+      "missing": "2026-11-25T09:53:56+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315153299": {
@@ -235737,6 +235737,9 @@
     "jibe:careers.amd.com:103688": {
       "seen_at": "2026-11-25T09:43:47+00:00"
     },
+    "jibe:careers.amd.com:103689": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "jibe:careers.amd.com:71190": {
       "seen_at": "2026-11-03T11:35:30+00:00"
     },
@@ -277402,6 +277405,9 @@
     "smartrecruiters:BoschGroup:744000163633654": {
       "seen_at": "2026-11-25T09:13:48+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163642070": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "smartrecruiters:BoschGroup:744000163642558": {
       "seen_at": "2026-11-25T09:43:47+00:00"
     },
@@ -290785,6 +290791,15 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163639259": {
       "seen_at": "2026-11-25T09:34:28+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163640873": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163643358": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163644157": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -307321,6 +307336,9 @@
     },
     "workday:autodesk:26WD102324": {
       "seen_at": "2026-11-22T19:34:20+00:00"
+    },
+    "workday:autodesk:26WD102478": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:autodesk:26WD105082": {
       "seen_at": "2026-11-02T10:25:36+00:00"
@@ -391123,7 +391141,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:paypal:R0137421": {
-      "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:paypal:R0137425": {
@@ -391151,7 +391168,6 @@
       "seen_at": "2026-10-08T19:06:35+00:00"
     },
     "workday:paypal:R0137437": {
-      "closed": "2026-11-02",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "workday:paypal:R0137438": {
@@ -392030,6 +392046,9 @@
     "workday:paypal:R0138325": {
       "seen_at": "2026-11-06T12:15:36+00:00"
     },
+    "workday:paypal:R0138326": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0138328": {
       "closed": "2026-10-30",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -392214,7 +392233,6 @@
       "seen_at": "2026-10-27T14:56:37+00:00"
     },
     "workday:paypal:R0138424": {
-      "missing": "2026-11-20T08:34:38+00:00",
       "seen_at": "2026-11-19T14:44:29+00:00"
     },
     "workday:paypal:R0138429": {
@@ -392255,6 +392273,9 @@
     "workday:paypal:R0138458": {
       "closed": "2026-10-26",
       "seen_at": "2026-10-26T16:17:07+00:00"
+    },
+    "workday:paypal:R0138471": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:paypal:R0138475": {
       "seen_at": "2026-11-16T12:45:26+00:00"
@@ -392615,6 +392636,9 @@
     "workday:paypal:R0138961": {
       "seen_at": "2026-11-20T15:43:50+00:00"
     },
+    "workday:paypal:R0138963": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0138965": {
       "closed": "2026-11-06",
       "seen_at": "2026-11-04T20:56:05+00:00"
@@ -392711,9 +392735,18 @@
     "workday:paypal:R0139047": {
       "seen_at": "2026-11-20T08:34:40+00:00"
     },
+    "workday:paypal:R0139048": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
+    "workday:paypal:R0139049": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0139050": {
       "missing": "2026-11-20T08:34:38+00:00",
       "seen_at": "2026-11-19T14:44:29+00:00"
+    },
+    "workday:paypal:R0139051": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:paypal:R0139054": {
       "seen_at": "2026-11-13T21:47:41+00:00"
@@ -392786,6 +392819,9 @@
       "missing": "2026-11-20T08:34:38+00:00",
       "seen_at": "2026-11-19T14:44:29+00:00"
     },
+    "workday:paypal:R0139121": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0139145": {
       "seen_at": "2026-11-20T08:34:40+00:00"
     },
@@ -392813,6 +392849,9 @@
     "workday:paypal:R0139168": {
       "seen_at": "2026-11-20T08:34:40+00:00"
     },
+    "workday:paypal:R0139169": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0139170": {
       "seen_at": "2026-11-19T14:44:29+00:00"
     },
@@ -392831,11 +392870,20 @@
     "workday:paypal:R0139200": {
       "seen_at": "2026-11-19T14:44:29+00:00"
     },
+    "workday:paypal:R0139201": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
+    "workday:paypal:R0139223": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0139226": {
       "seen_at": "2026-11-24T03:14:41+00:00"
     },
     "workday:paypal:R0139228": {
       "seen_at": "2026-11-24T03:14:41+00:00"
+    },
+    "workday:paypal:R0139235": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:paypal:R0139239": {
       "seen_at": "2026-11-24T04:53:53+00:00"
@@ -392845,6 +392893,9 @@
     },
     "workday:paypal:R0139248": {
       "seen_at": "2026-11-24T04:53:53+00:00"
+    },
+    "workday:paypal:R0139250": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:paypal:R0139340": {
       "seen_at": "2026-11-24T03:14:41+00:00"
@@ -392864,11 +392915,23 @@
     "workday:paypal:R0139353": {
       "seen_at": "2026-11-24T03:14:41+00:00"
     },
+    "workday:paypal:R0139354": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
+    "workday:paypal:R0139355": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
     "workday:paypal:R0139360": {
       "seen_at": "2026-11-24T04:53:53+00:00"
     },
     "workday:paypal:R0139366": {
       "seen_at": "2026-11-24T03:14:41+00:00"
+    },
+    "workday:paypal:R0139368": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
+    },
+    "workday:paypal:R0139369": {
+      "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:rbc:R-0000140512": {
       "seen_at": "2026-11-05T09:36:13+00:00"
@@ -417098,11 +417161,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-25T08:50:29+00:00",
-    "workday/autodesk": "2026-11-25T07:10:30+00:00",
+    "workday/autodesk": "2026-11-25T09:50:26+00:00",
     "workday/becton-dickinson": "2026-11-25T07:40:26+00:00",
     "workday/boeing": "2026-11-25T07:30:36+00:00",
     "workday/cibc": "2026-11-25T08:30:43+00:00",
-    "workday/cisco": "2026-11-25T04:30:30+00:00",
+    "workday/cisco": "2026-11-25T09:50:26+00:00",
     "workday/clio": "2026-11-25T08:10:41+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
@@ -417113,7 +417176,7 @@
     "workday/micron": "2026-11-25T09:40:30+00:00",
     "workday/northrop-grumman": "2026-11-25T07:20:37+00:00",
     "workday/nvidia": "2026-11-25T09:00:44+00:00",
-    "workday/paypal": "2026-11-25T04:30:30+00:00",
+    "workday/paypal": "2026-11-25T09:50:26+00:00",
     "workday/rbc": "2026-11-25T08:40:26+00:00",
     "workday/salesforce": "2026-11-25T08:00:42+00:00",
     "workday/siemens-healthineers": "2026-11-25T07:50:28+00:00",
