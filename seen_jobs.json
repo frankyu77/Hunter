@@ -48106,7 +48106,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T06:04:15+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48520,10 +48523,7 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-25T05:53:40+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48646,7 +48646,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "failing_since": "2026-11-24T08:44:02+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49653,7 +49653,8 @@
         45,
         45,
         47,
-        12
+        12,
+        23
       ],
       "ashby/openai": [
         15,
@@ -51648,7 +51649,6 @@
         18,
         18,
         18,
-        18,
         20,
         21,
         21,
@@ -51693,6 +51693,7 @@
         46,
         46,
         32,
+        47,
         47
       ],
       "greenhouse/stripe": [
@@ -88100,7 +88101,7 @@
       "seen_at": "2026-10-17T16:05:23+00:00"
     },
     "ashby:notion:785573a1-93b9-4f7e-b84a-c224d1d98b66": {
-      "missing": "2026-11-24T23:54:03+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-01T06:26:05+00:00"
     },
     "ashby:notion:79c18580-c927-456c-9d5f-72efbc6c43cb": {
@@ -147333,6 +147334,7 @@
       "seen_at": "2026-11-02T14:47:03+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:22726e24-c6c4-4f17-ac39-fecbc1551a52": {
+      "missing": "2026-11-25T06:04:15+00:00",
       "seen_at": "2026-11-25T05:53:40+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:227eaf66-d175-4549-a0d2-b5ca1db29a3a": {
@@ -150542,6 +150544,7 @@
       "seen_at": "2026-10-19T23:06:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3fc2cdd1-4ad2-454e-bd39-424e1347ddef": {
+      "missing": "2026-11-25T06:04:15+00:00",
       "seen_at": "2026-10-28T10:07:14+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3fc82b32-e0d8-454e-9338-670f6758c02e": {
@@ -176881,7 +176884,7 @@
       "seen_at": "2026-11-09T16:46:27+00:00"
     },
     "github:vanshb03/Summer2027-Internships:550e902d-072d-49f4-bc50-2d54c9065dc6": {
-      "missing": "2026-11-24T23:54:03+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-08T21:15:35+00:00"
     },
     "github:vanshb03/Summer2027-Internships:5524b483-094d-4472-b5dd-b81a090f13ef": {
@@ -177318,7 +177321,7 @@
       "seen_at": "2026-11-09T23:56:10+00:00"
     },
     "github:vanshb03/Summer2027-Internships:5d961286-024e-4053-9556-a3368020a2cf": {
-      "missing": "2026-11-24T23:54:03+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-08T21:15:35+00:00"
     },
     "github:vanshb03/Summer2027-Internships:5d9a43f8-7e38-40ad-8d88-41ac71297a4f": {
@@ -177699,7 +177702,7 @@
       "seen_at": "2026-10-26T13:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:643b937a-b567-4855-896d-f81bd162d8d7": {
-      "missing": "2026-11-24T23:54:03+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-26T13:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:64420589-2aa1-4628-9fe9-5ff4e1843141": {
@@ -188550,6 +188553,9 @@
     },
     "greenhouse:airbnb:8225578": {
       "seen_at": "2026-10-22T03:06:51+00:00"
+    },
+    "greenhouse:airbnb:8225785": {
+      "seen_at": "2026-11-25T06:04:16+00:00"
     },
     "greenhouse:airbnb:8231431": {
       "seen_at": "2026-11-20T01:04:25+00:00"
@@ -214604,6 +214610,9 @@
     "greenhouse:lucidmotors:5295293007": {
       "seen_at": "2026-11-25T00:54:41+00:00"
     },
+    "greenhouse:lucidmotors:5295299007": {
+      "seen_at": "2026-11-25T06:04:16+00:00"
+    },
     "greenhouse:lucidmotors:5295322007": {
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
@@ -226457,7 +226466,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4704285005": {
-      "missing": "2026-11-24T23:54:03+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:scaleai:4704551005": {
@@ -235410,6 +235419,9 @@
     },
     "jibe:careers.amd.com:101373": {
       "seen_at": "2026-11-24T17:14:13+00:00"
+    },
+    "jibe:careers.amd.com:101705": {
+      "seen_at": "2026-11-25T06:04:16+00:00"
     },
     "jibe:careers.amd.com:101736": {
       "seen_at": "2026-11-20T13:54:00+00:00"
@@ -268701,6 +268713,7 @@
       "seen_at": "2026-11-24T21:08:31+00:00"
     },
     "rippling:rippling:61903f31-b572-488c-850b-24d4d486bb4c": {
+      "missing": "2026-11-25T06:04:15+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:6257760e-5e7d-4f48-b3f8-e738b4de427d": {
@@ -276919,6 +276932,9 @@
     },
     "smartrecruiters:BoschGroup:744000163609609": {
       "seen_at": "2026-11-25T05:34:01+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163611199": {
+      "seen_at": "2026-11-25T06:04:16+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -290267,6 +290283,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163609859": {
       "seen_at": "2026-11-25T05:43:22+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163610600": {
+      "seen_at": "2026-11-25T06:04:16+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -416403,7 +416422,7 @@
     "workday/northrop-grumman": "2026-11-25T04:40:27+00:00",
     "workday/nvidia": "2026-11-25T03:50:28+00:00",
     "workday/paypal": "2026-11-25T04:30:30+00:00",
-    "workday/rbc": "2026-11-25T03:30:39+00:00",
+    "workday/rbc": "2026-11-25T06:00:41+00:00",
     "workday/salesforce": "2026-11-25T05:20:25+00:00",
     "workday/siemens-healthineers": "2026-11-25T05:10:29+00:00",
     "workday/snap": "2026-11-25T02:00:35+00:00",
