@@ -48326,7 +48326,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T23:53:52+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48746,7 +48749,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-25T20:44:02+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -48872,11 +48875,8 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 19,
-      "failing_since": "2026-11-24T08:44:02+00:00",
-      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
-      "warned_failures": true,
+      "consecutive_failures": 0,
+      "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
@@ -49380,7 +49380,7 @@
       }
     },
     "auto_sources_checked": "2026-11-25T03:33:59+00:00",
-    "dashboard_built_at": "2026-11-25T22:44:12+00:00",
+    "dashboard_built_at": "2026-11-25T23:53:52+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -51676,6 +51676,7 @@
         4,
         4,
         5,
+        5,
         5
       ],
       "greenhouse/lyft": [
@@ -52180,7 +52181,6 @@
         47
       ],
       "greenhouse/stripe": [
-        22,
         7,
         23,
         21,
@@ -52229,7 +52229,8 @@
         0,
         37,
         18,
-        28
+        28,
+        16
       ],
       "greenhouse/tenstorrentuniversity": [
         11,
@@ -52881,6 +52882,7 @@
         4,
         4,
         4,
+        5,
         5,
         5,
         5,
@@ -216114,7 +216116,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5282112007": {
-      "missing": "2026-11-25T17:44:14+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5282114007": {
@@ -219558,6 +219560,9 @@
     },
     "greenhouse:mongodb:8411524": {
       "seen_at": "2026-11-25T11:13:57+00:00"
+    },
+    "greenhouse:mongodb:8411720": {
+      "seen_at": "2026-11-25T23:53:52+00:00"
     },
     "greenhouse:mongodb:8412006": {
       "seen_at": "2026-11-23T21:44:06+00:00"
@@ -229982,7 +229987,7 @@
       "seen_at": "2026-11-03T13:36:14+00:00"
     },
     "greenhouse:stripe:8155381": {
-      "missing": "2026-11-25T17:44:14+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-08T21:25:18+00:00"
     },
     "greenhouse:stripe:8155386": {
@@ -242109,7 +242114,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30301": {
-      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30302": {
@@ -242953,6 +242957,7 @@
       "seen_at": "2026-11-06T18:34:45+00:00"
     },
     "jibe:careers.docusign.com:30656": {
+      "missing": "2026-11-25T23:53:52+00:00",
       "seen_at": "2026-11-06T16:35:55+00:00"
     },
     "jibe:careers.docusign.com:30657": {
@@ -268039,7 +268044,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10921": {
-      "missing": "2026-11-25T17:44:14+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10923": {
@@ -396524,6 +396529,7 @@
       "seen_at": "2026-11-25T09:53:56+00:00"
     },
     "workday:rbc:R-0000140512": {
+      "missing": "2026-11-25T23:53:52+00:00",
       "seen_at": "2026-11-05T09:36:13+00:00"
     },
     "workday:rbc:R-0000158028": {
@@ -396720,8 +396726,17 @@
       "closed": "2026-11-10",
       "seen_at": "2026-11-04T16:56:23+00:00"
     },
+    "workday:rbc:R-0000192892": {
+      "seen_at": "2026-11-25T23:53:52+00:00"
+    },
+    "workday:rbc:R-0000193033": {
+      "seen_at": "2026-11-25T23:53:52+00:00"
+    },
     "workday:rbc:R-0000193302": {
       "seen_at": "2026-11-24T07:14:01+00:00"
+    },
+    "workday:rbc:R-0000193308": {
+      "seen_at": "2026-11-25T23:53:52+00:00"
     },
     "workday:ryan:R0012651": {
       "seen_at": "2026-11-12T19:17:11+00:00"
@@ -420885,7 +420900,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-25T22:20:26+00:00",
+    "workday/adobe": "2026-11-25T23:50:27+00:00",
     "workday/autodesk": "2026-11-25T23:00:38+00:00",
     "workday/becton-dickinson": "2026-11-25T23:21:49+00:00",
     "workday/boeing": "2026-11-25T23:17:50+00:00",
@@ -420902,7 +420917,7 @@
     "workday/northrop-grumman": "2026-11-25T23:17:50+00:00",
     "workday/nvidia": "2026-11-25T22:30:30+00:00",
     "workday/paypal": "2026-11-25T23:10:24+00:00",
-    "workday/rbc": "2026-11-25T22:20:26+00:00",
+    "workday/rbc": "2026-11-25T23:50:27+00:00",
     "workday/salesforce": "2026-11-25T23:30:32+00:00",
     "workday/siemens-healthineers": "2026-11-25T23:21:49+00:00",
     "workday/snap": "2026-11-25T23:00:38+00:00",
