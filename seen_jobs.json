@@ -48194,7 +48194,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T18:34:13+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48743,7 +48746,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "failing_since": "2026-11-24T08:44:02+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52551,7 +52554,6 @@
         1
       ],
       "oracle/oracle": [
-        1,
         0,
         0,
         0,
@@ -52600,6 +52602,7 @@
         1,
         0,
         1,
+        0,
         0
       ],
       "oracle/ralliant": [
@@ -83847,6 +83850,9 @@
     },
     "amazon:amazon:10614197": {
       "seen_at": "2026-11-25T18:23:36+00:00"
+    },
+    "amazon:amazon:10614209": {
+      "seen_at": "2026-11-25T18:34:13+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -190227,7 +190233,6 @@
       "seen_at": "2026-11-22T20:24:05+00:00"
     },
     "greenhouse:airbnb:8411254": {
-      "missing": "2026-11-25T15:24:27+00:00",
       "seen_at": "2026-11-23T20:24:02+00:00"
     },
     "greenhouse:airbnb:8411290": {
@@ -194836,6 +194841,9 @@
     },
     "greenhouse:block:5478819008": {
       "seen_at": "2026-11-11T00:07:54+00:00"
+    },
+    "greenhouse:block:5479862008": {
+      "seen_at": "2026-11-25T18:34:13+00:00"
     },
     "greenhouse:block:5480508008": {
       "seen_at": "2026-11-20T21:04:32+00:00"
@@ -207545,6 +207553,9 @@
     },
     "greenhouse:doordashusa:8416784": {
       "seen_at": "2026-11-25T12:34:45+00:00"
+    },
+    "greenhouse:doordashusa:8417670": {
+      "seen_at": "2026-11-25T18:34:13+00:00"
     },
     "greenhouse:dropbox:6330377": {
       "closed": "2026-11-16",
@@ -227040,6 +227051,7 @@
       "seen_at": "2026-11-13T20:39:15+00:00"
     },
     "greenhouse:samsara:8366794": {
+      "missing": "2026-11-25T18:34:13+00:00",
       "seen_at": "2026-11-11T18:26:26+00:00"
     },
     "greenhouse:samsara:8367418": {
@@ -231805,6 +231817,7 @@
       "seen_at": "2026-11-20T20:04:50+00:00"
     },
     "greenhouse:trueanomalyinc:5244131007": {
+      "missing": "2026-11-25T18:34:13+00:00",
       "seen_at": "2026-11-20T20:04:50+00:00"
     },
     "greenhouse:trueanomalyinc:5247312007": {
@@ -266771,7 +266784,7 @@
       "seen_at": "2026-11-25T11:33:59+00:00"
     },
     "oracle:oracle:351513": {
-      "missing": "2026-11-25T12:24:21+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-25T11:33:59+00:00"
     },
     "oracle:oracle:351519": {
@@ -419289,7 +419302,7 @@
     "workday/northrop-grumman": "2026-11-25T17:10:29+00:00",
     "workday/nvidia": "2026-11-25T16:30:31+00:00",
     "workday/paypal": "2026-11-25T15:10:30+00:00",
-    "workday/rbc": "2026-11-25T16:20:42+00:00",
+    "workday/rbc": "2026-11-25T18:30:38+00:00",
     "workday/salesforce": "2026-11-25T17:50:27+00:00",
     "workday/siemens-healthineers": "2026-11-25T17:40:26+00:00",
     "workday/snap": "2026-11-25T15:10:30+00:00",
