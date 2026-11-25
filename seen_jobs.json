@@ -48094,7 +48094,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T05:34:00+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48568,7 +48571,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "failing_since": "2026-11-24T11:34:47+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49300,10 +49303,11 @@
             "Hewlett Packard Enterprise",
             "Idaho National Laboratory",
             "SambaNova",
-            "Bandwidth Inc."
+            "Bandwidth Inc.",
+            "Johns Hopkins Applied Physics Laboratory"
           ],
-          "jobs": 12,
-          "matched": 11
+          "jobs": 13,
+          "matched": 12
         },
         "iCIMS portals": {
           "companies": [
@@ -49574,7 +49578,6 @@
         12
       ],
       "ashby/openai": [
-        8,
         15,
         16,
         10,
@@ -49623,6 +49626,7 @@
         27,
         21,
         14,
+        40,
         40
       ],
       "ashby/plaid": [
@@ -49681,7 +49685,9 @@
         6,
         11,
         12,
-        21
+        21,
+        26,
+        26
       ],
       "ashby/ramp": [
         1,
@@ -51109,6 +51115,8 @@
         4,
         4,
         0,
+        4,
+        4,
         4
       ],
       "greenhouse/lyft": [
@@ -51216,8 +51224,6 @@
         47
       ],
       "greenhouse/okta": [
-        34,
-        41,
         36,
         31,
         35,
@@ -51265,7 +51271,9 @@
         46,
         47,
         47,
-        0
+        0,
+        47,
+        4
       ],
       "greenhouse/pinterest": [
         15,
@@ -52493,8 +52501,6 @@
         14
       ],
       "smartrecruiters/Intuitive": [
-        3,
-        22,
         13,
         13,
         0,
@@ -52542,7 +52548,9 @@
         26,
         26,
         26,
-        26
+        26,
+        26,
+        12
       ],
       "smartrecruiters/NBCUniversal3": [
         0,
@@ -52701,7 +52709,6 @@
         0
       ],
       "smartrecruiters/ServiceNow": [
-        23,
         42,
         27,
         9,
@@ -52750,7 +52757,8 @@
         3,
         3,
         32,
-        3
+        3,
+        47
       ],
       "tiktok/tiktok": [
         42,
@@ -90873,7 +90881,7 @@
       "seen_at": "2026-10-06T00:43:23+00:00"
     },
     "ashby:openai:b1a5980d-1c52-4af5-8596-5951b584ca37": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-15T05:56:31+00:00"
     },
     "ashby:openai:b1d19dac-065d-42d3-9f2c-97cc3fe73cdf": {
@@ -92741,7 +92749,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:quadric:8bc97324-bcdb-4680-a03c-4c6e590644c2": {
-      "missing": "2026-11-24T23:23:28+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:quadric:b5d09bf4-53a3-49ec-b3e4-244875069884": {
@@ -92754,7 +92762,7 @@
       "seen_at": "2026-10-30T18:10:48+00:00"
     },
     "ashby:quadric:cb79384e-5dd8-49a0-a075-549e7285316c": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "ashby:quadric:d76dc795-4507-4996-bed0-d5978370b704": {
@@ -172912,6 +172920,9 @@
     "github:vanshb03/Summer2027-Internships:0b35498a-b0e7-4a64-b3be-2a7c36487857": {
       "seen_at": "2026-10-03T16:03:46+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:0b4b7479-fb92-470b-8c1c-6f8506f6ff18": {
+      "seen_at": "2026-11-25T05:34:01+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:0b57208e-fafb-4160-8214-c8403abf2ac7": {
       "closed": "2026-10-26",
       "seen_at": "2026-10-20T22:36:56+00:00"
@@ -173477,7 +173488,7 @@
       "seen_at": "2026-10-19T00:55:58+00:00"
     },
     "github:vanshb03/Summer2027-Internships:157c4d93-e487-4156-810e-a8cc488f0126": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-13T19:17:13+00:00"
     },
     "github:vanshb03/Summer2027-Internships:157cb0b7-0185-4449-a482-5adbca331c5e": {
@@ -175551,7 +175562,7 @@
       "seen_at": "2026-11-17T21:27:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3b4f2793-d67b-4ac7-be97-fd309fd7cd32": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-13T19:17:13+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3b7be1fe-a4ff-437d-981f-dea87d03e641": {
@@ -175784,7 +175795,7 @@
       "seen_at": "2026-11-03T03:15:44+00:00"
     },
     "github:vanshb03/Summer2027-Internships:4063d879-6580-4007-a733-5927487c156a": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-17T00:27:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:409ece96-9f6c-43fa-8592-2c2948b98297": {
@@ -178841,6 +178852,7 @@
       "seen_at": "2026-10-05T15:53:37+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7980a251-dc67-44e7-8b5f-70cebb9f7121": {
+      "missing": "2026-11-25T05:34:00+00:00",
       "seen_at": "2026-10-26T13:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7996168b-53aa-452b-891f-956ae5ec7de5": {
@@ -178980,7 +178992,7 @@
       "seen_at": "2026-11-10T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7b579be9-7f92-4e33-b2aa-df5f562ab736": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-14T21:25:53+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7b6e88c4-1e3c-4850-b60b-f96d9558b02d": {
@@ -180102,7 +180114,7 @@
       "seen_at": "2026-10-26T17:07:11+00:00"
     },
     "github:vanshb03/Summer2027-Internships:91a8d22f-feea-4802-80cf-acea6652eefe": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-14T17:25:02+00:00"
     },
     "github:vanshb03/Summer2027-Internships:91af86ad-2961-4c31-8986-6bc57fe080d5": {
@@ -184349,6 +184361,7 @@
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:e3501e54-bbbf-4da5-bd43-62b20b77e320": {
+      "missing": "2026-11-25T05:34:00+00:00",
       "seen_at": "2026-10-26T00:25:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:e35b6dee-901e-4db8-87bb-5f52ebf5084b": {
@@ -185053,7 +185066,7 @@
       "seen_at": "2026-10-31T19:26:22+00:00"
     },
     "github:vanshb03/Summer2027-Internships:efe1a311-0acf-47e1-84ad-9a434ccc6da3": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-14T17:25:02+00:00"
     },
     "github:vanshb03/Summer2027-Internships:effeb0e8-9318-4eef-89a5-aea4d25ca303": {
@@ -186415,6 +186428,7 @@
       "seen_at": "2026-10-23T20:46:11+00:00"
     },
     "greenhouse:adyen:8146597": {
+      "missing": "2026-11-25T05:34:00+00:00",
       "seen_at": "2026-10-30T13:55:58+00:00"
     },
     "greenhouse:adyen:8152859": {
@@ -213897,7 +213911,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5260442007": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5260924007": {
@@ -214091,7 +214105,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5277182007": {
-      "missing": "2026-11-24T23:23:28+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "greenhouse:lucidmotors:5277372007": {
@@ -218151,7 +218165,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8022482": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8022979": {
@@ -220050,7 +220064,7 @@
       "seen_at": "2026-11-20T05:04:48+00:00"
     },
     "greenhouse:okta:8404912": {
-      "missing": "2026-11-24T23:23:28+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-20T05:04:48+00:00"
     },
     "greenhouse:okta:8405177": {
@@ -265353,6 +265367,9 @@
     "oracle:oracle:351422": {
       "seen_at": "2026-11-25T05:23:23+00:00"
     },
+    "oracle:oracle:351467": {
+      "seen_at": "2026-11-25T05:34:01+00:00"
+    },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
@@ -276929,6 +276946,9 @@
     "smartrecruiters:BoschGroup:744000163608839": {
       "seen_at": "2026-11-25T05:23:23+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163609609": {
+      "seen_at": "2026-11-25T05:34:01+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -278467,7 +278487,7 @@
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000156899239": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-29T01:16:24+00:00"
     },
     "smartrecruiters:Intuitive:744000157127559": {
@@ -279563,7 +279583,7 @@
       "seen_at": "2026-11-12T20:56:01+00:00"
     },
     "smartrecruiters:Intuitive:744000161384849": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-12T21:26:17+00:00"
     },
     "smartrecruiters:Intuitive:744000161394279": {
@@ -290715,7 +290735,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000146839589": {
-      "missing": "2026-11-24T23:33:21+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "smartrecruiters:ServiceNow:744000146839629": {
@@ -416449,7 +416469,7 @@
     "workday/boeing": "2026-11-25T04:50:25+00:00",
     "workday/cibc": "2026-11-25T03:20:27+00:00",
     "workday/cisco": "2026-11-25T04:30:30+00:00",
-    "workday/clio": "2026-11-25T03:00:34+00:00",
+    "workday/clio": "2026-11-25T05:30:31+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
