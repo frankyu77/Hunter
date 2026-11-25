@@ -47979,7 +47979,10 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T00:34:41+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48450,10 +48453,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-24T21:34:33+00:00",
-      "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48534,7 +48534,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-24T16:43:39+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53170,8 +53170,8 @@
             "Amentum",
             "Vibrantz Technologies"
           ],
-          "jobs": 358,
-          "matched": 302
+          "jobs": 361,
+          "matched": 305
         },
         "google.com": {
           "companies": [
@@ -54705,7 +54705,6 @@
         8
       ],
       "greenhouse/doordashusa": [
-        26,
         40,
         40,
         0,
@@ -54754,6 +54753,7 @@
         47,
         47,
         41,
+        47,
         47
       ],
       "greenhouse/dropbox": [
@@ -55766,7 +55766,6 @@
         46
       ],
       "greenhouse/xai": [
-        2,
         32,
         32,
         3,
@@ -55815,6 +55814,7 @@
         23,
         43,
         46,
+        47,
         47
       ],
       "jibe/amd": [
@@ -56544,7 +56544,6 @@
         4
       ],
       "smartrecruiters/RenesasElectronics": [
-        2,
         1,
         41,
         0,
@@ -56593,7 +56592,8 @@
         0,
         3,
         13,
-        10
+        10,
+        0
       ],
       "smartrecruiters/SAPITBusinessSysteme": [
         10,
@@ -121936,6 +121936,7 @@
       "seen_at": "2026-10-23T20:46:11+00:00"
     },
     "eightfold:netflix:790318631012": {
+      "missing": "2026-11-25T00:34:41+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318631123": {
@@ -122246,6 +122247,7 @@
       "seen_at": "2026-10-23T00:26:26+00:00"
     },
     "eightfold:netflix:790319075412": {
+      "missing": "2026-11-25T00:34:41+00:00",
       "seen_at": "2026-10-22T21:06:58+00:00"
     },
     "eightfold:netflix:790319075873": {
@@ -122827,6 +122829,7 @@
       "seen_at": "2026-11-23T07:44:26+00:00"
     },
     "eightfold:netflix:790319699932": {
+      "missing": "2026-11-25T00:34:41+00:00",
       "seen_at": "2026-11-23T17:44:07+00:00"
     },
     "eightfold:netflix:790319701024": {
@@ -177796,6 +177799,9 @@
     "github:vanshb03/Summer2027-Internships:1db79414-5cc5-45b7-81f3-2caa93b7dc3a": {
       "seen_at": "2026-11-09T16:26:32+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:1dc1ceb3-c3ef-4928-b76b-ca6c875297d3": {
+      "seen_at": "2026-11-25T00:34:42+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:1dc3121d-ef81-4bee-bf3d-a8c3931da1eb": {
       "seen_at": "2026-11-03T06:55:51+00:00"
     },
@@ -180713,7 +180719,7 @@
       "seen_at": "2026-11-16T01:25:52+00:00"
     },
     "github:vanshb03/Summer2027-Internships:5550d1fb-e849-4517-821f-66ce006a92d1": {
-      "missing": "2026-11-24T18:24:12+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-05T22:46:14+00:00"
     },
     "github:vanshb03/Summer2027-Internships:55597e1a-0e55-4520-aae7-02b1cc302841": {
@@ -184258,6 +184264,7 @@
       "seen_at": "2026-10-22T19:56:30+00:00"
     },
     "github:vanshb03/Summer2027-Internships:97a45c60-1f33-4d75-9270-8d0dbabc30d4": {
+      "missing": "2026-11-25T00:34:41+00:00",
       "seen_at": "2026-10-29T23:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:97b50104-e07c-4921-a45a-9c8726c5963c": {
@@ -184447,6 +184454,9 @@
     "github:vanshb03/Summer2027-Internships:9b0ac754-c80a-4209-8e59-6cc757215229": {
       "closed": "2026-11-04",
       "seen_at": "2026-11-04T22:16:04+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:9b257f49-4697-4b8b-a829-90ba49b2ba44": {
+      "seen_at": "2026-11-25T00:34:42+00:00"
     },
     "github:vanshb03/Summer2027-Internships:9b2c1f46-dac5-4ae3-8415-c73d44860ad6": {
       "seen_at": "2026-10-22T02:36:24+00:00"
@@ -188982,6 +188992,9 @@
     "github:vanshb03/Summer2027-Internships:f1fb259b-d4f0-4533-bff6-ab51a408a4db": {
       "closed": "2026-11-10",
       "seen_at": "2026-10-20T16:16:08+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:f1fd3ef9-3175-4b1c-b1e3-6aba64d157ef": {
+      "seen_at": "2026-11-25T00:34:42+00:00"
     },
     "github:vanshb03/Summer2027-Internships:f20c3454-be94-48bf-a2a9-21b8a47c095a": {
       "closed": "2026-11-05",
@@ -209316,7 +209329,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8189920": {
-      "missing": "2026-11-24T18:24:12+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:doordashusa:8191134": {
@@ -226973,6 +226986,9 @@
     "greenhouse:robinhood:8404511": {
       "seen_at": "2026-11-24T19:37:22+00:00"
     },
+    "greenhouse:robinhood:8411973": {
+      "seen_at": "2026-11-25T00:34:42+00:00"
+    },
     "greenhouse:robinhood:8412800": {
       "seen_at": "2026-11-24T18:55:07+00:00"
     },
@@ -229861,6 +229877,9 @@
     },
     "greenhouse:samsara:8395384": {
       "seen_at": "2026-11-17T14:27:32+00:00"
+    },
+    "greenhouse:samsara:8396821": {
+      "seen_at": "2026-11-25T00:34:42+00:00"
     },
     "greenhouse:samsara:8397457": {
       "seen_at": "2026-11-17T22:26:31+00:00"
@@ -237869,7 +237888,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:xai:5090120007": {
-      "missing": "2026-11-24T18:24:12+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:xai:5090171007": {
@@ -242144,6 +242163,9 @@
     },
     "jibe:careers.amd.com:94499": {
       "seen_at": "2026-11-02T16:07:03+00:00"
+    },
+    "jibe:careers.amd.com:94500": {
+      "seen_at": "2026-11-25T00:34:42+00:00"
     },
     "jibe:careers.amd.com:94502": {
       "seen_at": "2026-10-28T17:06:56+00:00"
@@ -288039,7 +288061,7 @@
       "seen_at": "2026-11-23T22:24:03+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000163335454": {
-      "missing": "2026-11-24T18:24:12+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-23T22:24:03+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000163500919": {
@@ -419517,7 +419539,7 @@
     "workday/becton-dickinson": "2026-11-24T22:00:45+00:00",
     "workday/boeing": "2026-11-24T21:50:26+00:00",
     "workday/cibc": "2026-11-24T22:50:29+00:00",
-    "workday/cisco": "2026-11-24T21:30:32+00:00",
+    "workday/cisco": "2026-11-25T00:30:29+00:00",
     "workday/clio": "2026-11-24T22:30:35+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
@@ -419528,7 +419550,7 @@
     "workday/micron": "2026-11-25T00:10:26+00:00",
     "workday/northrop-grumman": "2026-11-24T21:40:25+00:00",
     "workday/nvidia": "2026-11-24T23:20:28+00:00",
-    "workday/paypal": "2026-11-24T21:30:32+00:00",
+    "workday/paypal": "2026-11-25T00:30:29+00:00",
     "workday/rbc": "2026-11-24T23:00:36+00:00",
     "workday/salesforce": "2026-11-24T22:20:24+00:00",
     "workday/siemens-healthineers": "2026-11-24T22:10:28+00:00",
