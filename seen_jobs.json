@@ -48149,7 +48149,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T14:44:01+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48161,10 +48164,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-25T14:34:06+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48674,10 +48674,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-25T12:14:08+00:00",
-      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -51921,7 +51918,6 @@
         4
       ],
       "greenhouse/twilio": [
-        37,
         41,
         14,
         23,
@@ -51970,6 +51966,7 @@
         41,
         41,
         39,
+        1,
         1
       ],
       "greenhouse/vercel": [
@@ -83590,6 +83587,12 @@
     "amazon:amazon:10613930": {
       "seen_at": "2026-11-25T14:38:24+00:00"
     },
+    "amazon:amazon:10613942": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
+    },
+    "amazon:amazon:10613945": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -99506,6 +99509,7 @@
       "seen_at": "2026-11-10T17:27:56+00:00"
     },
     "ashby:wealthsimple:e47022a5-019c-4e62-954f-d83a73f8f8a5": {
+      "missing": "2026-11-25T14:44:02+00:00",
       "seen_at": "2026-10-17T14:26:09+00:00"
     },
     "ashby:wealthsimple:ecba3474-6fa2-42c8-b365-f10389dc275b": {
@@ -118025,6 +118029,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318041034": {
+      "missing": "2026-11-25T14:44:02+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318041617": {
@@ -118435,6 +118440,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318622925": {
+      "missing": "2026-11-25T14:44:02+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318623518": {
@@ -204282,7 +204288,6 @@
       "seen_at": "2026-11-05T14:16:33+00:00"
     },
     "greenhouse:datadog:8356637": {
-      "closed": "2026-11-19",
       "seen_at": "2026-11-11T18:46:20+00:00"
     },
     "greenhouse:datadog:8357178": {
@@ -231583,7 +231588,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:twilio:8065032": {
-      "missing": "2026-11-25T08:43:35+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-23T09:03:50+00:00"
     },
     "greenhouse:twilio:8067027": {
@@ -240607,6 +240612,7 @@
       "seen_at": "2026-11-23T00:43:42+00:00"
     },
     "jibe:careers.docusign.com:30311": {
+      "missing": "2026-11-25T14:44:02+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30314": {
@@ -241666,6 +241672,9 @@
     },
     "jibe:careers.docusign.com:31881": {
       "seen_at": "2026-11-24T12:05:23+00:00"
+    },
+    "jibe:careers.docusign.com:32079": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
     },
     "jibe:careers.docusign.com:32145": {
       "seen_at": "2026-11-25T06:54:13+00:00"
@@ -255486,6 +255495,9 @@
     "oracle:honeywell:161633": {
       "seen_at": "2026-11-23T15:43:57+00:00"
     },
+    "oracle:honeywell:161635": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
+    },
     "oracle:honeywell:161636": {
       "seen_at": "2026-11-18T17:47:04+00:00"
     },
@@ -266188,6 +266200,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10760": {
+      "missing": "2026-11-25T14:44:02+00:00",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10766": {
@@ -266743,6 +266756,9 @@
     },
     "oracle:ralliant:11385": {
       "seen_at": "2026-11-24T10:43:35+00:00"
+    },
+    "oracle:ralliant:11402": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
     },
     "oracle:ralliant:8173": {
       "closed": "2026-11-20",
@@ -301316,6 +301332,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7670366710134524213": {
+      "missing": "2026-11-25T14:44:02+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7670367152357673221": {
@@ -358719,6 +358736,9 @@
     "workday:intel:JR0289468": {
       "seen_at": "2026-11-25T06:54:13+00:00"
     },
+    "workday:intel:JR0289471": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
+    },
     "workday:intel:JR0289474": {
       "seen_at": "2026-11-25T06:54:13+00:00"
     },
@@ -358730,6 +358750,9 @@
     },
     "workday:intel:JR0289478": {
       "seen_at": "2026-11-24T01:20:04+00:00"
+    },
+    "workday:intel:JR0289479": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
     },
     "workday:intel:JR0289483": {
       "seen_at": "2026-11-24T09:04:41+00:00"
@@ -358743,6 +358766,12 @@
     "workday:intel:JR0289535": {
       "seen_at": "2026-11-24T01:20:04+00:00"
     },
+    "workday:intel:JR0289536": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
+    },
+    "workday:intel:JR0289537": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
+    },
     "workday:intel:JR0289541": {
       "seen_at": "2026-11-22T13:34:16+00:00"
     },
@@ -358751,6 +358780,9 @@
     },
     "workday:intel:JR0289543": {
       "seen_at": "2026-11-24T07:33:51+00:00"
+    },
+    "workday:intel:JR0289545": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
     },
     "workday:intel:JR0289549": {
       "seen_at": "2026-11-24T01:20:04+00:00"
@@ -358769,6 +358801,9 @@
     },
     "workday:intel:JR0289600": {
       "seen_at": "2026-11-25T09:34:28+00:00"
+    },
+    "workday:intel:JR0289612": {
+      "seen_at": "2026-11-25T14:44:02+00:00"
     },
     "workday:intel:JR0289668": {
       "seen_at": "2026-11-25T06:54:13+00:00"
@@ -418194,7 +418229,7 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-25T14:30:36+00:00",
     "workday/hpe": "2026-11-25T14:34:49+00:00",
-    "workday/intel": "2026-11-25T12:10:26+00:00",
+    "workday/intel": "2026-11-25T14:40:29+00:00",
     "workday/micron": "2026-11-25T12:20:24+00:00",
     "workday/northrop-grumman": "2026-11-25T12:40:31+00:00",
     "workday/nvidia": "2026-11-25T14:20:29+00:00",
