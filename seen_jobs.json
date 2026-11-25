@@ -48560,7 +48560,10 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T07:43:44+00:00",
+      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49182,7 +49185,7 @@
       }
     },
     "auto_sources_checked": "2026-11-25T03:33:59+00:00",
-    "dashboard_built_at": "2026-11-25T06:43:24+00:00",
+    "dashboard_built_at": "2026-11-25T07:43:45+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -50235,7 +50238,6 @@
         4
       ],
       "greenhouse/affirm": [
-        9,
         35,
         41,
         42,
@@ -50284,7 +50286,8 @@
         54,
         41,
         12,
-        12
+        12,
+        55
       ],
       "greenhouse/airbnb": [
         18,
@@ -50668,7 +50671,6 @@
         1
       ],
       "greenhouse/coinbase": [
-        9,
         14,
         11,
         11,
@@ -50717,7 +50719,8 @@
         20,
         35,
         21,
-        10
+        10,
+        3
       ],
       "greenhouse/databricks": [
         21,
@@ -123649,6 +123652,9 @@
     "eightfold:qualcomm:446722334620": {
       "seen_at": "2026-11-24T18:44:51+00:00"
     },
+    "eightfold:qualcomm:446722334633": {
+      "seen_at": "2026-11-25T07:43:45+00:00"
+    },
     "eightfold:qualcomm:446722336740": {
       "seen_at": "2026-11-24T22:54:16+00:00"
     },
@@ -137931,6 +137937,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:b4cff1e7-a4d8-4e21-b22d-f5f5dd9e020f": {
       "seen_at": "2026-10-05T22:44:00+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:b4da1054-8bb0-4994-ab28-a7d8190f5116": {
+      "seen_at": "2026-11-25T07:43:45+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:b4df86c1-9b8c-47ba-aca7-359d0536e73c": {
       "seen_at": "2026-10-01T23:03:56+00:00"
@@ -154879,7 +154888,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:65d7082a-180e-4d87-914c-87e9e3d15ae0": {
-      "missing": "2026-11-25T01:34:51+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:65e41535-86d1-4d10-9d27-bac6fad3e8d9": {
@@ -187576,7 +187585,7 @@
       "seen_at": "2026-11-10T22:16:26+00:00"
     },
     "greenhouse:affirm:7994549003": {
-      "missing": "2026-11-25T01:34:51+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-09-30T22:23:34+00:00"
     },
     "greenhouse:affirm:7994553003": {
@@ -198147,7 +198156,7 @@
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "greenhouse:coinbase:8222267": {
-      "missing": "2026-11-25T01:34:51+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "greenhouse:coinbase:8224726": {
@@ -248539,6 +248548,9 @@
     "oracle:dell:301489": {
       "seen_at": "2026-11-02T14:26:08+00:00"
     },
+    "oracle:dell:301492": {
+      "seen_at": "2026-11-25T07:43:45+00:00"
+    },
     "oracle:dell:301523": {
       "seen_at": "2026-11-05T03:46:35+00:00"
     },
@@ -249155,14 +249167,12 @@
       "seen_at": "2026-11-17T19:56:50+00:00"
     },
     "oracle:dell:302600": {
-      "missing": "2026-11-25T07:34:26+00:00",
       "seen_at": "2026-11-24T01:34:22+00:00"
     },
     "oracle:dell:302635": {
       "seen_at": "2026-11-12T21:16:19+00:00"
     },
     "oracle:dell:302651": {
-      "missing": "2026-11-25T07:34:26+00:00",
       "seen_at": "2026-11-24T01:44:00+00:00"
     },
     "oracle:dell:302673": {
@@ -416642,7 +416652,7 @@
   "polling": {
     "workday/adobe": "2026-11-25T06:10:37+00:00",
     "workday/autodesk": "2026-11-25T07:10:30+00:00",
-    "workday/becton-dickinson": "2026-11-25T05:00:37+00:00",
+    "workday/becton-dickinson": "2026-11-25T07:40:26+00:00",
     "workday/boeing": "2026-11-25T07:30:36+00:00",
     "workday/cibc": "2026-11-25T05:50:38+00:00",
     "workday/cisco": "2026-11-25T04:30:30+00:00",
