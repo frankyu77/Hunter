@@ -47973,7 +47973,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T01:24:32+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -47985,7 +47988,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-25T01:04:41+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -48408,10 +48411,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-24T21:08:30+00:00",
-      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48540,7 +48540,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "failing_since": "2026-11-24T08:44:02+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49048,7 +49048,16 @@
     "dashboard_built_at": "2026-11-25T01:14:16+00:00",
     "discovery": {
       "candidates": {},
-      "gaps": {},
+      "gaps": {
+        "go.vansh.nyc": {
+          "companies": [
+            "Shield",
+            "Super"
+          ],
+          "jobs": 2,
+          "matched": 1
+        }
+      },
       "since": "2026-11-25T01:05:57+00:00"
     },
     "lifetimes": {
@@ -50082,7 +50091,6 @@
         24
       ],
       "greenhouse/block": [
-        18,
         39,
         6,
         14,
@@ -50131,7 +50139,8 @@
         34,
         6,
         28,
-        28
+        28,
+        6
       ],
       "greenhouse/brex": [
         9,
@@ -50327,7 +50336,6 @@
         24
       ],
       "greenhouse/databricks": [
-        16,
         36,
         16,
         21,
@@ -50376,7 +50384,8 @@
         0,
         18,
         0,
-        32
+        32,
+        41
       ],
       "greenhouse/datadog": [
         11,
@@ -51116,7 +51125,6 @@
         11
       ],
       "greenhouse/robinhood": [
-        2,
         27,
         1,
         7,
@@ -51165,7 +51173,8 @@
         10,
         7,
         34,
-        18
+        18,
+        27
       ],
       "greenhouse/roblox": [
         1,
@@ -82951,6 +82960,9 @@
     },
     "amazon:amazon:10613645": {
       "seen_at": "2026-11-25T01:14:16+00:00"
+    },
+    "amazon:amazon:10613659": {
+      "seen_at": "2026-11-25T01:24:33+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -122808,6 +122820,7 @@
       "seen_at": "2026-11-18T11:07:13+00:00"
     },
     "eightfold:qualcomm:446722188246": {
+      "missing": "2026-11-25T01:24:32+00:00",
       "seen_at": "2026-11-24T07:04:40+00:00"
     },
     "eightfold:qualcomm:446722188443": {
@@ -123085,6 +123098,7 @@
       "seen_at": "2026-11-24T00:05:24+00:00"
     },
     "eightfold:qualcomm:446722324941": {
+      "missing": "2026-11-25T01:24:32+00:00",
       "seen_at": "2026-11-24T04:24:02+00:00"
     },
     "eightfold:qualcomm:446722326062": {
@@ -174150,7 +174164,7 @@
       "seen_at": "2026-10-26T13:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:2b2e4fb1-8125-48a6-b26f-c077b503466a": {
-      "missing": "2026-11-24T19:23:31+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-21T01:24:19+00:00"
     },
     "github:vanshb03/Summer2027-Internships:2b3118ae-29de-4ebf-acb4-07f506c0098d": {
@@ -175142,6 +175156,9 @@
     },
     "github:vanshb03/Summer2027-Internships:3d65b136-900e-4661-973c-5b85171bc069": {
       "seen_at": "2026-11-21T19:04:13+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:3d8bad21-6a9c-44f1-b177-79e96146f830": {
+      "seen_at": "2026-11-25T01:24:33+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3d8f1170-1f6c-4cd0-84ed-af7caba82377": {
       "seen_at": "2026-11-03T03:15:44+00:00"
@@ -176259,6 +176276,7 @@
       "seen_at": "2026-11-11T22:46:58+00:00"
     },
     "github:vanshb03/Summer2027-Internships:53cf460a-f0fc-4419-b148-3483151541bf": {
+      "missing": "2026-11-25T01:24:32+00:00",
       "seen_at": "2026-10-29T22:46:09+00:00"
     },
     "github:vanshb03/Summer2027-Internships:53e4a963-e592-4498-8661-084e402fd1af": {
@@ -179378,6 +179396,9 @@
     "github:vanshb03/Summer2027-Internships:8dcb9c56-7815-46d6-9634-3aabe90b91b3": {
       "closed": "2026-11-10",
       "seen_at": "2026-10-27T22:45:55+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:8df5ca5a-b9aa-4fa4-84e1-8a19f0dacb24": {
+      "seen_at": "2026-11-25T01:24:33+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8e0138e6-207a-48f3-8169-23b905ce7a6b": {
       "closed": "2026-11-16",
@@ -183887,7 +183908,7 @@
       "seen_at": "2026-11-18T23:27:27+00:00"
     },
     "github:vanshb03/Summer2027-Internships:e53b914d-c0ac-4f28-a527-69f8dcb187f5": {
-      "missing": "2026-11-24T19:23:31+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-08T01:25:05+00:00"
     },
     "github:vanshb03/Summer2027-Internships:e5448214-465d-4cfa-a31c-96883d0891c1": {
@@ -188366,11 +188387,9 @@
       "seen_at": "2026-10-21T15:45:58+00:00"
     },
     "greenhouse:airbnb:8306554": {
-      "closed": "2026-11-18",
       "seen_at": "2026-10-28T15:07:30+00:00"
     },
     "greenhouse:airbnb:8306555": {
-      "closed": "2026-11-18",
       "seen_at": "2026-10-28T15:07:30+00:00"
     },
     "greenhouse:airbnb:8307226": {
@@ -192750,7 +192769,7 @@
       "seen_at": "2026-11-12T23:46:05+00:00"
     },
     "greenhouse:block:5358198008": {
-      "missing": "2026-11-24T19:23:31+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-11-18T01:26:39+00:00"
     },
     "greenhouse:block:5358204008": {
@@ -200680,7 +200699,7 @@
       "seen_at": "2026-10-05T16:23:42+00:00"
     },
     "greenhouse:databricks:8820652002": {
-      "missing": "2026-11-24T19:23:31+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:databricks:8821953002": {
@@ -222398,7 +222417,7 @@
       "seen_at": "2026-10-20T21:08:25+00:00"
     },
     "greenhouse:robinhood:8303977": {
-      "missing": "2026-11-24T19:23:31+00:00",
+      "closed": "2026-11-24",
       "seen_at": "2026-10-28T17:06:56+00:00"
     },
     "greenhouse:robinhood:8303985": {
@@ -415078,7 +415097,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-24T23:10:26+00:00",
+    "workday/adobe": "2026-11-25T01:20:38+00:00",
     "workday/autodesk": "2026-11-25T00:20:28+00:00",
     "workday/becton-dickinson": "2026-11-25T00:50:25+00:00",
     "workday/boeing": "2026-11-25T00:40:28+00:00",
@@ -415095,7 +415114,7 @@
     "workday/northrop-grumman": "2026-11-25T00:40:28+00:00",
     "workday/nvidia": "2026-11-24T23:20:28+00:00",
     "workday/paypal": "2026-11-25T00:30:29+00:00",
-    "workday/rbc": "2026-11-24T23:00:36+00:00",
+    "workday/rbc": "2026-11-25T01:20:38+00:00",
     "workday/salesforce": "2026-11-25T01:00:42+00:00",
     "workday/siemens-healthineers": "2026-11-25T00:50:25+00:00",
     "workday/snap": "2026-11-25T00:20:28+00:00",
