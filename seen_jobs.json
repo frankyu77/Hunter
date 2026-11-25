@@ -47973,10 +47973,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-24T23:54:03+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48417,7 +48414,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T00:23:48+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48570,7 +48570,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-24T14:05:05+00:00",
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -92178,6 +92178,9 @@
     "ashby:notion:e7c18c11-c8ab-47cf-afb6-6bfc61b5e74f": {
       "seen_at": "2026-09-30T22:43:42+00:00"
     },
+    "ashby:notion:e95ff317-92fe-4e34-88da-a83fe093f017": {
+      "seen_at": "2026-11-25T00:23:49+00:00"
+    },
     "ashby:notion:e9827815-0e9a-489f-a121-41ae83f54f77": {
       "seen_at": "2026-10-02T19:43:36+00:00"
     },
@@ -114552,6 +114555,9 @@
     "eightfold:microsoft:1970393557044240": {
       "seen_at": "2026-10-23T18:47:03+00:00"
     },
+    "eightfold:microsoft:1970393557044251": {
+      "seen_at": "2026-11-25T00:23:49+00:00"
+    },
     "eightfold:microsoft:1970393557044256": {
       "seen_at": "2026-11-03T05:35:40+00:00"
     },
@@ -127019,6 +127025,7 @@
       "seen_at": "2026-11-18T11:07:13+00:00"
     },
     "eightfold:qualcomm:446722188246": {
+      "missing": "2026-11-25T00:23:49+00:00",
       "seen_at": "2026-11-24T07:04:40+00:00"
     },
     "eightfold:qualcomm:446722188443": {
@@ -127031,9 +127038,11 @@
       "seen_at": "2026-11-19T17:44:01+00:00"
     },
     "eightfold:qualcomm:446722191867": {
+      "missing": "2026-11-25T00:23:49+00:00",
       "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "eightfold:qualcomm:446722191872": {
+      "missing": "2026-11-25T00:23:49+00:00",
       "seen_at": "2026-11-24T08:44:02+00:00"
     },
     "eightfold:qualcomm:446722196979": {
@@ -192962,6 +192971,7 @@
       "seen_at": "2026-11-17T07:56:04+00:00"
     },
     "greenhouse:airbnb:8354382": {
+      "missing": "2026-11-25T00:23:49+00:00",
       "seen_at": "2026-11-04T23:55:55+00:00"
     },
     "greenhouse:airbnb:8355483": {
@@ -193128,6 +193138,7 @@
       "seen_at": "2026-11-23T20:34:12+00:00"
     },
     "greenhouse:airbnb:8396777": {
+      "missing": "2026-11-25T00:23:49+00:00",
       "seen_at": "2026-11-17T19:36:31+00:00"
     },
     "greenhouse:airbnb:8397762": {
@@ -268111,7 +268122,6 @@
       "seen_at": "2026-11-17T15:07:15+00:00"
     },
     "oracle:oracle:350545": {
-      "missing": "2026-11-16T17:36:13+00:00",
       "seen_at": "2026-11-13T23:28:23+00:00"
     },
     "oracle:oracle:350546": {
@@ -419503,7 +419513,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-24T23:10:26+00:00",
-    "workday/autodesk": "2026-11-24T21:30:32+00:00",
+    "workday/autodesk": "2026-11-25T00:20:28+00:00",
     "workday/becton-dickinson": "2026-11-24T22:00:45+00:00",
     "workday/boeing": "2026-11-24T21:50:26+00:00",
     "workday/cibc": "2026-11-24T22:50:29+00:00",
@@ -419522,7 +419532,7 @@
     "workday/rbc": "2026-11-24T23:00:36+00:00",
     "workday/salesforce": "2026-11-24T22:20:24+00:00",
     "workday/siemens-healthineers": "2026-11-24T22:10:28+00:00",
-    "workday/snap": "2026-11-24T20:10:27+00:00",
+    "workday/snap": "2026-11-25T00:20:28+00:00",
     "workday/td": "2026-11-24T22:40:24+00:00",
     "workday/workday": "2026-11-24T20:10:27+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
