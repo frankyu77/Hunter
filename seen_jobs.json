@@ -48150,7 +48150,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T13:05:10+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48186,7 +48189,10 @@
       "zero_since": null
     },
     "greenhouse/airbnb": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T13:05:10+00:00",
+      "last_error": "HTTP 429 from boards-api.greenhouse.io: {\"error\":\"Rate limit exceeded. To avoid this, include a job board API key in the Authorization header.\"}",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48582,7 +48588,10 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T13:05:10+00:00",
+      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -51441,7 +51450,6 @@
         47
       ],
       "greenhouse/okta": [
-        22,
         42,
         42,
         42,
@@ -51490,7 +51498,8 @@
         47,
         47,
         1,
-        47
+        47,
+        48
       ],
       "greenhouse/pinterest": [
         15,
@@ -52135,9 +52144,6 @@
         4
       ],
       "jibe/docusign": [
-        35,
-        41,
-        41,
         41,
         40,
         41,
@@ -52184,7 +52190,10 @@
         34,
         17,
         47,
-        14
+        14,
+        48,
+        48,
+        48
       ],
       "lever/cirrus": [
         0,
@@ -52621,6 +52630,7 @@
         4,
         4,
         4,
+        5,
         5,
         5
       ],
@@ -161368,6 +161378,7 @@
       "seen_at": "2026-10-01T23:03:56+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9eb5db83-d537-441b-9c55-31a3f7b3746b": {
+      "missing": "2026-11-25T13:05:11+00:00",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9eb980d0-a05f-4268-9ca9-c84dfc35cefb": {
@@ -218897,7 +218908,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8129579": {
-      "missing": "2026-11-25T07:04:12+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8130056": {
@@ -225061,6 +225072,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8038153": {
+      "missing": "2026-11-25T13:05:11+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8039126": {
@@ -240421,7 +240433,7 @@
       "seen_at": "2026-10-20T13:47:36+00:00"
     },
     "jibe:careers.docusign.com:30260": {
-      "missing": "2026-11-25T07:04:12+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30262": {
@@ -240448,7 +240460,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30284": {
-      "missing": "2026-11-25T06:54:12+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30285": {
@@ -240456,7 +240468,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30291": {
-      "missing": "2026-11-25T07:04:12+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30294": {
@@ -261947,6 +261959,9 @@
     "oracle:oracle:348229": {
       "seen_at": "2026-11-25T07:54:25+00:00"
     },
+    "oracle:oracle:348230": {
+      "seen_at": "2026-11-25T13:05:11+00:00"
+    },
     "oracle:oracle:348232": {
       "seen_at": "2026-10-22T02:26:36+00:00"
     },
@@ -269435,7 +269450,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:7634ff3f-f88d-4166-895a-1a3356ccfdb0": {
-      "missing": "2026-11-25T06:54:12+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:76af5c78-5db5-4104-8916-f3f216f1a607": {
@@ -282664,6 +282679,7 @@
       "seen_at": "2026-11-23T16:43:36+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163277709": {
+      "missing": "2026-11-25T13:05:11+00:00",
       "seen_at": "2026-11-23T16:54:13+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163291790": {
@@ -282773,6 +282789,9 @@
     },
     "smartrecruiters:NBCUniversal3:744000163645960": {
       "seen_at": "2026-11-25T10:04:54+00:00"
+    },
+    "smartrecruiters:NBCUniversal3:744000163681359": {
+      "seen_at": "2026-11-25T13:05:11+00:00"
     },
     "smartrecruiters:RenesasElectronics:744000118870517": {
       "closed": "2026-11-20",
@@ -417813,7 +417832,7 @@
   "polling": {
     "workday/adobe": "2026-11-25T11:30:33+00:00",
     "workday/autodesk": "2026-11-25T12:30:30+00:00",
-    "workday/becton-dickinson": "2026-11-25T10:20:27+00:00",
+    "workday/becton-dickinson": "2026-11-25T13:00:45+00:00",
     "workday/boeing": "2026-11-25T12:50:25+00:00",
     "workday/cibc": "2026-11-25T11:10:28+00:00",
     "workday/cisco": "2026-11-25T09:50:26+00:00",
