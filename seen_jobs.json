@@ -48150,7 +48150,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T11:04:37+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48726,7 +48729,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-24T20:53:52+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49292,6 +49295,22 @@
           "matched": 0,
           "name": "X Development"
         },
+        "greenhouse/artefactlinkedin": {
+          "boards": {
+            "{\"company\": \"artefactlinkedin\", \"type\": \"greenhouse\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Artefact"
+        },
+        "greenhouse/artefactnoram": {
+          "boards": {
+            "{\"company\": \"artefactnoram\", \"type\": \"greenhouse\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Artefact"
+        },
         "greenhouse/bandwidth": {
           "boards": {
             "{\"company\": \"bandwidth\", \"type\": \"greenhouse\"}": 7
@@ -49614,7 +49633,8 @@
         14
       ],
       "ashby/column": [
-        10
+        10,
+        22
       ],
       "ashby/cursor": [
         17,
@@ -84255,7 +84275,7 @@
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "ashby:column:ba34e9e2-f86a-4d02-864e-7370bdc6339e": {
-      "missing": "2026-11-25T04:53:43+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "ashby:column:c349d594-33a2-49a2-a168-afa8d8226572": {
@@ -160887,7 +160907,6 @@
       "seen_at": "2026-10-02T08:23:11+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9b07113a-678a-41b9-bb98-fd8e35931087": {
-      "missing": "2026-11-25T10:34:16+00:00",
       "seen_at": "2026-11-17T00:07:15+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:9b075fba-b6f1-48a1-b9e8-5824cbd2e977": {
@@ -165066,7 +165085,6 @@
       "seen_at": "2026-11-02T23:35:46+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:be2051f8-a2d6-43b6-b1fb-1c07cd506c24": {
-      "missing": "2026-11-25T10:34:16+00:00",
       "seen_at": "2026-11-24T00:05:24+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:be25948f-3dbe-43b8-8b4b-424a01d9b356": {
@@ -169778,6 +169796,7 @@
       "seen_at": "2026-11-13T22:21:37+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e77870f3-55c7-4d18-8364-57029d5adc18": {
+      "missing": "2026-11-25T11:04:38+00:00",
       "seen_at": "2026-10-16T14:36:24+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e78304d0-a710-4fa0-8cdc-bed22362ba83": {
@@ -169833,6 +169852,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:e7e8e424-49fc-445f-8c93-bc790db57b9f": {
       "seen_at": "2026-11-09T01:25:36+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:e7ea3145-19cf-49b6-bc9f-cb292a69e0c9": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e7eb4939-757c-4048-9541-a82f2b2ba9d5": {
       "closed": "2026-11-14",
@@ -171893,6 +171915,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:fa15def7-0f05-40dd-be86-fa6ef407a9ef": {
       "seen_at": "2026-10-30T23:36:35+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:fa1ceab1-caea-4ea3-9d07-2e5efa622f5a": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:fa2cd117-f8f4-4f40-bb10-fb0561ef0154": {
       "seen_at": "2026-11-18T03:06:56+00:00"
@@ -211705,6 +211730,7 @@
       "seen_at": "2026-11-20T03:04:16+00:00"
     },
     "greenhouse:gitlab:8948050002": {
+      "missing": "2026-11-25T11:04:38+00:00",
       "seen_at": "2026-11-19T17:14:55+00:00"
     },
     "greenhouse:gitlab:8948559002": {
@@ -256725,6 +256751,9 @@
     "oracle:honeywell:162837": {
       "seen_at": "2026-11-20T23:34:22+00:00"
     },
+    "oracle:honeywell:162847": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
+    },
     "oracle:honeywell:162848": {
       "seen_at": "2026-11-23T11:24:14+00:00"
     },
@@ -269288,6 +269317,9 @@
     "rippling:rippling:7c7dda17-dff0-47c2-8957-f6b04bb68acc": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
+    "rippling:rippling:7c7eed37-dc37-46e1-9ee4-93d5e4231dd0": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
+    },
     "rippling:rippling:7db1a2dc-d965-4e8d-8c96-1db7fdcdaa50": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
@@ -277492,6 +277524,15 @@
     },
     "smartrecruiters:BoschGroup:744000163656018": {
       "seen_at": "2026-11-25T10:53:33+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163656162": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163657390": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163658158": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -290904,6 +290945,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163654578": {
       "seen_at": "2026-11-25T10:53:33+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163655694": {
+      "seen_at": "2026-11-25T11:04:38+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -417301,7 +417345,7 @@
     "workday/salesforce": "2026-11-25T10:40:26+00:00",
     "workday/siemens-healthineers": "2026-11-25T10:30:42+00:00",
     "workday/snap": "2026-11-25T07:10:30+00:00",
-    "workday/td": "2026-11-25T08:20:30+00:00",
+    "workday/td": "2026-11-25T11:00:38+00:00",
     "workday/workday": "2026-11-25T07:10:30+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-24T12:40:27+00:00"
