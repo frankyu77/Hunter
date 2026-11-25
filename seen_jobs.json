@@ -48139,7 +48139,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T08:53:56+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48559,7 +48562,10 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-25T08:53:56+00:00",
+      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49196,7 +49202,7 @@
       }
     },
     "auto_sources_checked": "2026-11-25T03:33:59+00:00",
-    "dashboard_built_at": "2026-11-25T07:43:45+00:00",
+    "dashboard_built_at": "2026-11-25T08:53:57+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -52464,7 +52470,6 @@
         4
       ],
       "oracle/texas-instruments": [
-        6,
         1,
         1,
         6,
@@ -52513,7 +52518,8 @@
         6,
         6,
         13,
-        7
+        7,
+        8
       ],
       "rippling/rippling": [
         0,
@@ -52928,7 +52934,6 @@
         42,
         42,
         42,
-        42,
         36,
         36,
         0,
@@ -52945,6 +52950,7 @@
         47,
         26,
         41,
+        47,
         47,
         47,
         47,
@@ -97530,6 +97536,7 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "ashby:snowflake:144f0be6-d6e0-4ef4-a927-c91163986d29": {
+      "missing": "2026-11-25T08:53:56+00:00",
       "seen_at": "2026-10-06T14:13:42+00:00"
     },
     "ashby:snowflake:14b031ca-fbd3-41c4-8c37-62e2c72ffd76": {
@@ -116700,6 +116707,9 @@
     },
     "eightfold:microsoft:1970393557079448": {
       "seen_at": "2026-11-25T01:14:16+00:00"
+    },
+    "eightfold:microsoft:1970393557090579": {
+      "seen_at": "2026-11-25T08:53:56+00:00"
     },
     "eightfold:netflix:790298013499": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -153657,7 +153667,7 @@
       "seen_at": "2026-10-30T23:36:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5b1d6184-e8d0-413a-94df-e5abdf39ba54": {
-      "missing": "2026-11-25T02:43:47+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-29T23:06:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5b1d76c6-a7ec-4033-afed-6f676bf2129a": {
@@ -154675,7 +154685,7 @@
       "seen_at": "2026-11-05T23:36:31+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:637771ab-fcba-4414-9c25-99bfe21fa777": {
-      "missing": "2026-11-25T02:43:47+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-24T16:43:40+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:63846de2-96d4-45e9-85c5-3a0475373681": {
@@ -235642,6 +235652,9 @@
     "jibe:careers.amd.com:103655": {
       "seen_at": "2026-11-25T08:43:35+00:00"
     },
+    "jibe:careers.amd.com:103673": {
+      "seen_at": "2026-11-25T08:53:56+00:00"
+    },
     "jibe:careers.amd.com:71190": {
       "seen_at": "2026-11-03T11:35:30+00:00"
     },
@@ -245927,7 +245940,6 @@
       "seen_at": "2026-11-24T14:05:06+00:00"
     },
     "lever:spotify:71eb64a0-ce99-4166-8462-bad3901a967c": {
-      "closed": "2026-10-20",
       "seen_at": "2026-10-06T13:04:53+00:00"
     },
     "lever:spotify:73a83f73-2f59-4c82-bac3-7dfc5d3355ad": {
@@ -255049,6 +255061,9 @@
     },
     "oracle:honeywell:161603": {
       "seen_at": "2026-11-05T10:06:50+00:00"
+    },
+    "oracle:honeywell:161605": {
+      "seen_at": "2026-11-25T08:53:56+00:00"
     },
     "oracle:honeywell:161606": {
       "seen_at": "2026-11-05T05:26:03+00:00"
@@ -267357,7 +267372,7 @@
       "seen_at": "2026-10-05T05:23:17+00:00"
     },
     "oracle:texas-instruments:25018462": {
-      "missing": "2026-11-25T02:43:47+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-17T02:37:26+00:00"
     },
     "oracle:texas-instruments:25018463": {
@@ -298799,7 +298814,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7665629115644627205": {
-      "missing": "2026-11-25T02:43:47+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7665646013219342645": {
@@ -416874,7 +416889,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-25T06:10:37+00:00",
+    "workday/adobe": "2026-11-25T08:50:29+00:00",
     "workday/autodesk": "2026-11-25T07:10:30+00:00",
     "workday/becton-dickinson": "2026-11-25T07:40:26+00:00",
     "workday/boeing": "2026-11-25T07:30:36+00:00",
