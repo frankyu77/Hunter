@@ -48943,7 +48943,9 @@
       "zero_since": null
     },
     "oracle/oracle": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T07:24:35+00:00",
+      "last_error": "ReadTimeout: HTTPSConnectionPool(host='eeho.fa.us2.oraclecloud.com', port=443): Read timed out. (read timeout=30)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49027,7 +49029,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T07:24:35+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49141,7 +49146,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-25T19:54:20+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49171,10 +49176,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T03:24:31+00:00",
-      "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52303,7 +52305,6 @@
       ],
       "greenhouse/okta": [
         0,
-        0,
         42,
         42,
         42,
@@ -52351,7 +52352,8 @@
         48,
         48,
         48,
-        48
+        48,
+        37
       ],
       "greenhouse/pinterest": [
         13,
@@ -53408,6 +53410,7 @@
         4,
         4,
         4,
+        5,
         5,
         5,
         5,
@@ -121037,6 +121040,9 @@
     "eightfold:qualcomm:446717261607": {
       "seen_at": "2026-11-02T05:55:21+00:00"
     },
+    "eightfold:qualcomm:446717266971": {
+      "seen_at": "2026-11-26T07:24:35+00:00"
+    },
     "eightfold:qualcomm:446717307257": {
       "seen_at": "2026-10-14T00:46:13+00:00"
     },
@@ -125445,6 +125451,9 @@
     },
     "eightfold:qualcomm:446722345319": {
       "seen_at": "2026-11-25T06:24:30+00:00"
+    },
+    "eightfold:qualcomm:446722348721": {
+      "seen_at": "2026-11-26T07:24:35+00:00"
     },
     "eightfold:qualcomm:446722351664": {
       "seen_at": "2026-11-25T15:35:06+00:00"
@@ -180011,6 +180020,7 @@
       "seen_at": "2026-10-31T02:26:44+00:00"
     },
     "github:vanshb03/Summer2027-Internships:64809d4b-436f-4ace-8c60-42ae2ff98bc5": {
+      "missing": "2026-11-26T07:24:35+00:00",
       "seen_at": "2026-11-21T04:23:22+00:00"
     },
     "github:vanshb03/Summer2027-Internships:648e38bf-c82f-4318-921e-153b3157ca1b": {
@@ -222410,7 +222420,7 @@
       "seen_at": "2026-10-16T23:36:38+00:00"
     },
     "greenhouse:okta:8299819": {
-      "missing": "2026-11-26T01:23:53+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-19T01:55:58+00:00"
     },
     "greenhouse:okta:8299845": {
@@ -268993,7 +269003,7 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10732": {
-      "missing": "2026-11-26T01:13:47+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10734": {
@@ -280980,6 +280990,9 @@
     },
     "smartrecruiters:BoschGroup:744000163813869": {
       "seen_at": "2026-11-26T07:13:38+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163814059": {
+      "seen_at": "2026-11-26T07:24:35+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -422442,6 +422455,9 @@
       "closed": "2026-11-06",
       "seen_at": "2026-10-30T14:26:27+00:00"
     },
+    "workday:zoom:R19827": {
+      "seen_at": "2026-11-26T07:24:35+00:00"
+    },
     "workday:zoom:R19828": {
       "seen_at": "2026-10-30T13:36:51+00:00"
     },
@@ -422549,11 +422565,14 @@
     },
     "workday:zoom:R19877": {
       "seen_at": "2026-11-24T12:43:49+00:00"
+    },
+    "workday:zoom:R19878": {
+      "seen_at": "2026-11-26T07:24:35+00:00"
     }
   },
   "polling": {
     "workday/adobe": "2026-11-26T06:20:26+00:00",
-    "workday/autodesk": "2026-11-26T04:50:31+00:00",
+    "workday/autodesk": "2026-11-26T07:20:30+00:00",
     "workday/becton-dickinson": "2026-11-26T05:14:09+00:00",
     "workday/boeing": "2026-11-26T05:10:24+00:00",
     "workday/cibc": "2026-11-26T06:00:35+00:00",
@@ -422568,14 +422587,14 @@
     "workday/micron": "2026-11-26T07:10:35+00:00",
     "workday/northrop-grumman": "2026-11-26T05:00:36+00:00",
     "workday/nvidia": "2026-11-26T06:30:42+00:00",
-    "workday/paypal": "2026-11-26T03:20:37+00:00",
+    "workday/paypal": "2026-11-26T07:20:30+00:00",
     "workday/rbc": "2026-11-26T06:10:29+00:00",
     "workday/salesforce": "2026-11-26T05:30:31+00:00",
     "workday/siemens-healthineers": "2026-11-26T05:20:26+00:00",
-    "workday/snap": "2026-11-26T03:20:37+00:00",
+    "workday/snap": "2026-11-26T07:20:30+00:00",
     "workday/td": "2026-11-26T05:50:26+00:00",
     "workday/workday": "2026-11-26T04:50:31+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
-    "workday/zoom": "2026-11-24T12:40:27+00:00"
+    "workday/zoom": "2026-11-26T07:20:30+00:00"
   }
 }
