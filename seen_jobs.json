@@ -49136,16 +49136,16 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-26T11:34:04+00:00",
-      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T17:23:31+00:00",
+      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49683,7 +49683,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-26T16:15:02+00:00",
+    "dashboard_built_at": "2026-11-26T17:23:32+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -49765,6 +49765,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Quora"
+        },
+        "ashby/realmalliance": {
+          "boards": {
+            "{\"company\": \"realmalliance\", \"type\": \"ashby\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Realm"
         },
         "ashby/scout-ai": {
           "boards": {
@@ -52784,7 +52792,6 @@
       ],
       "greenhouse/stripe": [
         21,
-        21,
         38,
         24,
         3,
@@ -52832,7 +52839,8 @@
         28,
         16,
         27,
-        8
+        8,
+        42
       ],
       "greenhouse/tenstorrentuniversity": [
         11,
@@ -89647,6 +89655,9 @@
     "ashby:notion:6f7c5ae6-9632-4436-8b1c-a1e4c1050633": {
       "seen_at": "2026-11-10T19:56:07+00:00"
     },
+    "ashby:notion:7030916f-4277-45db-9fed-644bb3fba059": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
+    },
     "ashby:notion:72e0f2c1-d599-4301-8096-491835757b9e": {
       "seen_at": "2026-11-20T22:43:49+00:00"
     },
@@ -89809,6 +89820,9 @@
     },
     "ashby:notion:adb34b7e-89f3-4365-9f8f-4c98d50cc0fd": {
       "seen_at": "2026-11-25T20:44:03+00:00"
+    },
+    "ashby:notion:b06005d2-e24b-467b-b7ea-783bac7366da": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "ashby:notion:b21fef72-4864-4a3e-a627-91557a0f8a36": {
       "seen_at": "2026-11-23T01:33:15+00:00"
@@ -90012,6 +90026,9 @@
     },
     "ashby:notion:fbcaf076-830e-4daf-ad39-1e0e8ce9f89c": {
       "seen_at": "2026-09-28T16:24:43+00:00"
+    },
+    "ashby:notion:ff294bf0-7dc1-48d6-876d-25acc8de264e": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "ashby:openai:00207abc-49b7-465c-a219-f7c1140f8047": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -117091,6 +117108,9 @@
     "eightfold:microsoft:1970393557073165": {
       "seen_at": "2026-11-20T14:24:47+00:00"
     },
+    "eightfold:microsoft:1970393557073166": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
+    },
     "eightfold:microsoft:1970393557073168": {
       "seen_at": "2026-11-16T11:25:54+00:00"
     },
@@ -118530,6 +118550,9 @@
     },
     "eightfold:microsoft:1970393557101134": {
       "seen_at": "2026-11-26T09:53:34+00:00"
+    },
+    "eightfold:microsoft:1970393557106171": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "eightfold:netflix:790298013499": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -125683,6 +125706,9 @@
     "eightfold:qualcomm:446722376856": {
       "seen_at": "2026-11-26T16:35:57+00:00"
     },
+    "eightfold:qualcomm:446722377376": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
+    },
     "eightfold:qualcomm:446722377379": {
       "seen_at": "2026-11-26T17:13:31+00:00"
     },
@@ -132498,6 +132524,9 @@
     "github:SimplifyJobs/New-Grad-Positions:566e37cf-7620-4e64-90ea-d25a99bb5f19": {
       "closed": "2026-11-14",
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:56706b17-a1d7-48dd-bba3-9ffdfd036a04": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:5674eacb-db3b-46a3-a304-eb9272306390": {
       "closed": "2026-10-28",
@@ -144350,7 +144379,7 @@
       "seen_at": "2026-11-25T11:13:57+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ec690411-3f8c-4226-b9e3-2060341f134b": {
-      "missing": "2026-11-26T11:13:59+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-05T09:16:09+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ec6cf12a-dd02-4416-9eb0-6b01646dca5d": {
@@ -189009,6 +189038,9 @@
     "greenhouse:adyen:8078192": {
       "seen_at": "2026-10-27T04:16:18+00:00"
     },
+    "greenhouse:adyen:8080994": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
+    },
     "greenhouse:adyen:8081186": {
       "closed": "2026-11-08",
       "seen_at": "2026-11-01T23:05:28+00:00"
@@ -190917,6 +190949,9 @@
     },
     "greenhouse:airbnb:7107054": {
       "seen_at": "2026-11-23T01:33:15+00:00"
+    },
+    "greenhouse:airbnb:7230257": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "greenhouse:airbnb:7380185": {
       "closed": "2026-10-05",
@@ -202439,6 +202474,9 @@
     },
     "greenhouse:databricks:8401114002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
+    },
+    "greenhouse:databricks:8403943002": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "greenhouse:databricks:8407869002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -217778,6 +217816,9 @@
     "greenhouse:lucidmotors:5306670007": {
       "seen_at": "2026-11-26T14:44:13+00:00"
     },
+    "greenhouse:lucidmotors:5306676007": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
+    },
     "greenhouse:lucidmotors:5306687007": {
       "seen_at": "2026-11-26T14:44:13+00:00"
     },
@@ -231182,6 +231223,7 @@
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
     "greenhouse:stripe:8130729": {
+      "missing": "2026-11-26T17:23:32+00:00",
       "seen_at": "2026-11-15T12:26:12+00:00"
     },
     "greenhouse:stripe:8130805": {
@@ -232591,7 +232633,7 @@
       "seen_at": "2026-10-26T05:05:45+00:00"
     },
     "greenhouse:stripe:8273855": {
-      "missing": "2026-11-26T11:13:59+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-14T17:38:47+00:00"
     },
     "greenhouse:stripe:8274580": {
@@ -233599,6 +233641,9 @@
     },
     "greenhouse:stripe:8412983": {
       "seen_at": "2026-11-24T20:14:14+00:00"
+    },
+    "greenhouse:stripe:8414067": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "greenhouse:stripe:8414351": {
       "seen_at": "2026-11-24T16:54:54+00:00"
@@ -258116,6 +258161,12 @@
     },
     "oracle:honeywell:161350": {
       "seen_at": "2026-10-28T20:36:04+00:00"
+    },
+    "oracle:honeywell:161351": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
+    },
+    "oracle:honeywell:161352": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "oracle:honeywell:161353": {
       "seen_at": "2026-11-26T17:13:31+00:00"
@@ -296084,6 +296135,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163906119": {
       "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163910310": {
+      "seen_at": "2026-11-26T17:23:32+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -424008,8 +424062,8 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-26T17:10:27+00:00",
     "workday/hpe": "2026-11-26T17:10:27+00:00",
-    "workday/intel": "2026-11-26T15:40:31+00:00",
-    "workday/micron": "2026-11-26T15:50:29+00:00",
+    "workday/intel": "2026-11-26T17:20:27+00:00",
+    "workday/micron": "2026-11-26T17:20:27+00:00",
     "workday/northrop-grumman": "2026-11-26T16:20:37+00:00",
     "workday/nvidia": "2026-11-26T17:00:38+00:00",
     "workday/paypal": "2026-11-26T16:10:27+00:00",
