@@ -48611,7 +48611,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T17:04:48+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48623,7 +48626,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T17:04:48+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49043,7 +49049,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-26T09:44:08+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49166,7 +49172,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T15:34:41+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -100496,6 +100502,9 @@
     "ashby:snowflake:e285a14e-4c03-4899-b180-f69276b5a8c9": {
       "seen_at": "2026-11-20T07:14:13+00:00"
     },
+    "ashby:snowflake:e2b03b7a-2c85-4599-8b04-8757c582d226": {
+      "seen_at": "2026-11-26T17:04:48+00:00"
+    },
     "ashby:snowflake:e2eb1e01-4aa9-4df8-8bec-1f0e0fe8f90e": {
       "seen_at": "2026-11-10T00:56:21+00:00"
     },
@@ -101407,6 +101416,7 @@
       "seen_at": "2026-11-26T10:13:27+00:00"
     },
     "atlassian:atlassian:26034": {
+      "missing": "2026-11-26T17:04:48+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "atlassian:atlassian:26037": {
@@ -189270,6 +189280,7 @@
       "seen_at": "2026-11-06T20:16:14+00:00"
     },
     "greenhouse:adyen:8179443": {
+      "missing": "2026-11-26T17:04:48+00:00",
       "seen_at": "2026-11-20T10:43:41+00:00"
     },
     "greenhouse:adyen:8186051": {
@@ -226331,6 +226342,7 @@
       "seen_at": "2026-11-02T10:16:40+00:00"
     },
     "greenhouse:robinhood:8334429": {
+      "missing": "2026-11-26T17:04:48+00:00",
       "seen_at": "2026-10-29T18:07:53+00:00"
     },
     "greenhouse:robinhood:8334663": {
@@ -270880,6 +270892,9 @@
     "oracle:texas-instruments:25017664": {
       "missing": "2026-11-09T07:36:03+00:00",
       "seen_at": "2026-09-28T23:14:36+00:00"
+    },
+    "oracle:texas-instruments:25017673": {
+      "seen_at": "2026-11-26T17:04:48+00:00"
     },
     "oracle:texas-instruments:25017679": {
       "seen_at": "2026-10-29T20:07:18+00:00"
@@ -423965,7 +423980,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-26T15:24:28+00:00",
+    "workday/adobe": "2026-11-26T17:00:38+00:00",
     "workday/autodesk": "2026-11-26T16:00:39+00:00",
     "workday/becton-dickinson": "2026-11-26T16:30:31+00:00",
     "workday/boeing": "2026-11-26T16:20:37+00:00",
@@ -423980,7 +423995,7 @@
     "workday/intel": "2026-11-26T15:40:31+00:00",
     "workday/micron": "2026-11-26T15:50:29+00:00",
     "workday/northrop-grumman": "2026-11-26T16:20:37+00:00",
-    "workday/nvidia": "2026-11-26T15:30:32+00:00",
+    "workday/nvidia": "2026-11-26T17:00:38+00:00",
     "workday/paypal": "2026-11-26T16:10:27+00:00",
     "workday/rbc": "2026-11-26T16:50:26+00:00",
     "workday/salesforce": "2026-11-26T16:40:27+00:00",
