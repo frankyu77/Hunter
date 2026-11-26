@@ -49026,7 +49026,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T12:33:56+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: Too many requests. Please try again later.",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49179,7 +49182,10 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T12:33:56+00:00",
+      "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50893,7 +50899,6 @@
       ],
       "ashby/shield": [
         4,
-        4,
         5,
         5,
         5,
@@ -50941,7 +50946,8 @@
         9,
         13,
         13,
-        13
+        13,
+        14
       ],
       "ashby/skydio": [
         0,
@@ -53568,6 +53574,7 @@
         5,
         5,
         5,
+        6,
         6,
         6,
         6
@@ -93134,9 +93141,6 @@
       "closed": "2026-11-23",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
-    "ashby:openai:d8915225-1d6b-4de5-96e3-e8e8511f1288": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
-    },
     "ashby:openai:d8b894e3-c399-4303-a708-3cef8ff5c1a2": {
       "seen_at": "2026-10-05T01:13:33+00:00"
     },
@@ -96219,7 +96223,7 @@
       "seen_at": "2026-11-24T22:54:16+00:00"
     },
     "ashby:shield:2d6c7884-8830-43c1-9c1a-9bc0563f50de": {
-      "missing": "2026-11-26T06:33:55+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:2e0d320d-eaed-48ff-8e47-746a2f68c2b8": {
@@ -99096,9 +99100,6 @@
     },
     "ashby:snowflake:1ebb1380-17b4-472b-86c1-2bbfa6f53b8a": {
       "seen_at": "2026-10-02T20:53:33+00:00"
-    },
-    "ashby:snowflake:1f8252af-5383-44ad-ae97-4c555bc48adc": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
     },
     "ashby:snowflake:21407c17-7ba8-4381-a825-2681afbbcdd4": {
       "closed": "2026-11-09",
@@ -120681,11 +120682,9 @@
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319425306": {
-      "missing": "2026-11-26T12:24:09+00:00",
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319427586": {
-      "missing": "2026-11-26T12:24:09+00:00",
       "seen_at": "2026-11-12T17:36:27+00:00"
     },
     "eightfold:netflix:790319429186": {
@@ -136728,9 +136727,6 @@
     "github:SimplifyJobs/New-Grad-Positions:8b389b63-42ed-4984-8afe-1c29b8be4ca4": {
       "closed": "2026-11-09",
       "seen_at": "2026-11-05T16:17:19+00:00"
-    },
-    "github:SimplifyJobs/New-Grad-Positions:8b43283a-d9a8-4051-ba77-0ead77dca4c2": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8b4dde72-d76e-44fb-ae3b-880b0760daf7": {
       "seen_at": "2026-10-23T16:08:08+00:00"
@@ -156672,9 +156668,6 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:62159d15-bab7-4d5c-87ff-dbfd99f3c357": {
       "seen_at": "2026-11-02T18:16:15+00:00"
-    },
-    "github:SimplifyJobs/Summer2026-Internships:6219c04b-bc5c-4d14-90ea-426f117b51c0": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:621d21ef-e93e-4eb7-a221-17879b967819": {
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -189255,7 +189248,6 @@
       "seen_at": "2026-09-29T14:53:42+00:00"
     },
     "greenhouse:adyen:8227082": {
-      "missing": "2026-11-26T12:04:15+00:00",
       "seen_at": "2026-10-22T17:07:13+00:00"
     },
     "greenhouse:adyen:8227085": {
@@ -189469,6 +189461,7 @@
       "seen_at": "2026-11-24T13:53:36+00:00"
     },
     "greenhouse:adyen:8278827": {
+      "missing": "2026-11-26T12:33:56+00:00",
       "seen_at": "2026-10-16T09:46:07+00:00"
     },
     "greenhouse:adyen:8280649": {
@@ -213237,9 +213230,6 @@
     "greenhouse:gitlab:8640151002": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
-    "greenhouse:gitlab:8640173002": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
-    },
     "greenhouse:gitlab:8642786002": {
       "seen_at": "2026-11-10T01:25:25+00:00"
     },
@@ -222333,6 +222323,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8259188": {
+      "missing": "2026-11-26T12:33:56+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8260224": {
@@ -230722,9 +230713,6 @@
     },
     "greenhouse:stripe:8077971": {
       "seen_at": "2026-11-06T13:36:22+00:00"
-    },
-    "greenhouse:stripe:8078168": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
     },
     "greenhouse:stripe:8078337": {
       "seen_at": "2026-09-27T23:01:10+00:00"
@@ -259835,6 +259823,9 @@
     "oracle:honeywell:162706": {
       "seen_at": "2026-11-24T15:34:24+00:00"
     },
+    "oracle:honeywell:162709": {
+      "seen_at": "2026-11-26T12:33:56+00:00"
+    },
     "oracle:honeywell:162712": {
       "seen_at": "2026-11-19T10:36:36+00:00"
     },
@@ -261920,9 +261911,6 @@
     "oracle:oracle:345745": {
       "seen_at": "2026-10-15T16:26:33+00:00"
     },
-    "oracle:oracle:345767": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
-    },
     "oracle:oracle:345776": {
       "seen_at": "2026-10-05T12:43:32+00:00"
     },
@@ -262120,9 +262108,6 @@
     },
     "oracle:oracle:346063": {
       "seen_at": "2026-10-26T05:55:23+00:00"
-    },
-    "oracle:oracle:346066": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
     },
     "oracle:oracle:346068": {
       "closed": "2026-09-30",
@@ -270797,9 +270782,6 @@
       "missing": "2026-11-09T07:36:03+00:00",
       "seen_at": "2026-09-28T15:54:28+00:00"
     },
-    "oracle:texas-instruments:25018230": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
-    },
     "oracle:texas-instruments:25018233": {
       "missing": "2026-11-09T07:36:03+00:00",
       "seen_at": "2026-09-29T04:23:08+00:00"
@@ -272678,7 +272660,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:5ecff8d5-7e3b-416b-821c-1db70294f11a": {
-      "missing": "2026-11-26T06:33:55+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:5fbd346a-7e22-4434-96d6-c73429b84fea": {
@@ -281499,6 +281481,9 @@
     },
     "smartrecruiters:BoschGroup:744000163863379": {
       "seen_at": "2026-11-26T12:24:09+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163863521": {
+      "seen_at": "2026-11-26T12:33:56+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -295685,6 +295670,9 @@
     "smartrecruiters:SAPITBusinessSysteme:744000163862400": {
       "seen_at": "2026-11-26T12:24:09+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000163864899": {
+      "seen_at": "2026-11-26T12:33:56+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -309234,9 +309222,6 @@
     },
     "workday:adobe:R170342": {
       "seen_at": "2026-10-27T16:09:42+00:00"
-    },
-    "workday:adobe:R170344": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
     },
     "workday:adobe:R170381": {
       "seen_at": "2026-10-02T20:33:50+00:00"
@@ -389622,12 +389607,6 @@
     "workday:nvidia:JR2020309": {
       "seen_at": "2026-10-31T00:07:16+00:00"
     },
-    "workday:nvidia:JR2020316": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
-    },
-    "workday:nvidia:JR2020319": {
-      "seen_at": "2026-09-27T12:26:39+00:00"
-    },
     "workday:nvidia:JR2020320": {
       "seen_at": "2026-10-30T22:26:02+00:00"
     },
@@ -423398,7 +423377,7 @@
     "workday/paypal": "2026-11-26T10:20:35+00:00",
     "workday/rbc": "2026-11-26T11:10:32+00:00",
     "workday/salesforce": "2026-11-26T10:50:26+00:00",
-    "workday/siemens-healthineers": "2026-11-26T10:40:25+00:00",
+    "workday/siemens-healthineers": "2026-11-26T12:30:38+00:00",
     "workday/snap": "2026-11-26T10:20:35+00:00",
     "workday/td": "2026-11-26T11:00:37+00:00",
     "workday/workday": "2026-11-26T11:50:25+00:00",
