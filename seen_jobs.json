@@ -48611,7 +48611,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T19:04:00+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48623,7 +48626,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T19:04:00+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49148,7 +49154,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T17:23:31+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -125701,6 +125707,12 @@
     "eightfold:qualcomm:446722356101": {
       "seen_at": "2026-11-26T01:23:54+00:00"
     },
+    "eightfold:qualcomm:446722356763": {
+      "seen_at": "2026-11-26T19:04:01+00:00"
+    },
+    "eightfold:qualcomm:446722356835": {
+      "seen_at": "2026-11-26T19:04:01+00:00"
+    },
     "eightfold:qualcomm:446722358873": {
       "seen_at": "2026-11-25T21:34:04+00:00"
     },
@@ -189421,7 +189433,6 @@
       "seen_at": "2026-09-29T14:53:42+00:00"
     },
     "greenhouse:adyen:8227082": {
-      "missing": "2026-11-26T12:53:49+00:00",
       "seen_at": "2026-10-22T17:07:13+00:00"
     },
     "greenhouse:adyen:8227085": {
@@ -281905,6 +281916,9 @@
     },
     "smartrecruiters:BoschGroup:744000163905419": {
       "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163918741": {
+      "seen_at": "2026-11-26T19:04:01+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -424282,7 +424296,7 @@
     "workday/hp": "2026-11-26T18:40:26+00:00",
     "workday/hpe": "2026-11-26T18:50:34+00:00",
     "workday/intel": "2026-11-26T18:50:34+00:00",
-    "workday/micron": "2026-11-26T17:20:27+00:00",
+    "workday/micron": "2026-11-26T19:00:36+00:00",
     "workday/northrop-grumman": "2026-11-26T17:50:28+00:00",
     "workday/nvidia": "2026-11-26T18:40:26+00:00",
     "workday/paypal": "2026-11-26T17:40:28+00:00",
