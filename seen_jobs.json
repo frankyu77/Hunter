@@ -48595,10 +48595,7 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T06:23:40+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48934,9 +48931,7 @@
       "zero_since": null
     },
     "oracle/dell": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T06:23:40+00:00",
-      "last_error": "HTTP 502 from iawmqy.fa.ocs.oraclecloud.com: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49143,7 +49138,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T02:23:20+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49666,7 +49661,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-26T05:33:36+00:00",
+    "dashboard_built_at": "2026-11-26T06:33:55+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -96123,6 +96118,7 @@
       "seen_at": "2026-11-24T22:54:16+00:00"
     },
     "ashby:shield:2d6c7884-8830-43c1-9c1a-9bc0563f50de": {
+      "missing": "2026-11-26T06:33:55+00:00",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:2e0d320d-eaed-48ff-8e47-746a2f68c2b8": {
@@ -121311,8 +121307,14 @@
     "eightfold:qualcomm:446718717739": {
       "seen_at": "2026-10-26T07:05:41+00:00"
     },
+    "eightfold:qualcomm:446718721215": {
+      "seen_at": "2026-11-26T06:33:55+00:00"
+    },
     "eightfold:qualcomm:446718721216": {
       "seen_at": "2026-11-20T11:04:22+00:00"
+    },
+    "eightfold:qualcomm:446718721307": {
+      "seen_at": "2026-11-26T06:33:55+00:00"
     },
     "eightfold:qualcomm:446718767227": {
       "seen_at": "2026-10-14T17:29:42+00:00"
@@ -125365,6 +125367,9 @@
     },
     "eightfold:qualcomm:446722325881": {
       "seen_at": "2026-11-26T05:33:36+00:00"
+    },
+    "eightfold:qualcomm:446722326061": {
+      "seen_at": "2026-11-26T06:33:55+00:00"
     },
     "eightfold:qualcomm:446722326062": {
       "seen_at": "2026-11-24T05:24:18+00:00"
@@ -185556,7 +185561,7 @@
       "seen_at": "2026-11-05T10:25:53+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cc820781-db51-49dc-9933-8ca4613a5c67": {
-      "missing": "2026-11-26T00:24:10+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-21T00:33:59+00:00"
     },
     "github:vanshb03/Summer2027-Internships:ccaffbcd-1e0f-4367-a741-356b4c874b05": {
@@ -209242,6 +209247,9 @@
     },
     "greenhouse:doordashusa:8417670": {
       "seen_at": "2026-11-25T18:34:13+00:00"
+    },
+    "greenhouse:doordashusa:8418586": {
+      "seen_at": "2026-11-26T06:33:55+00:00"
     },
     "greenhouse:dropbox:6330377": {
       "closed": "2026-11-16",
@@ -272245,6 +272253,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:5ecff8d5-7e3b-416b-821c-1db70294f11a": {
+      "missing": "2026-11-26T06:33:55+00:00",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:5fbd346a-7e22-4434-96d6-c73429b84fea": {
@@ -280908,6 +280917,12 @@
     },
     "smartrecruiters:BoschGroup:744000163809599": {
       "seen_at": "2026-11-26T06:14:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163810359": {
+      "seen_at": "2026-11-26T06:33:55+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163810909": {
+      "seen_at": "2026-11-26T06:33:55+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -422492,7 +422507,7 @@
     "workday/intel": "2026-11-26T04:40:24+00:00",
     "workday/micron": "2026-11-26T04:40:24+00:00",
     "workday/northrop-grumman": "2026-11-26T05:00:36+00:00",
-    "workday/nvidia": "2026-11-26T04:20:25+00:00",
+    "workday/nvidia": "2026-11-26T06:30:42+00:00",
     "workday/paypal": "2026-11-26T03:20:37+00:00",
     "workday/rbc": "2026-11-26T06:10:29+00:00",
     "workday/salesforce": "2026-11-26T05:30:31+00:00",
