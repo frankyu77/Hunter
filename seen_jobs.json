@@ -48623,10 +48623,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T18:24:48+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49034,9 +49031,9 @@
       "zero_since": null
     },
     "tiktok/?": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T18:24:48+00:00",
-      "last_error": "HTTP 400 from api.lifeattiktok.com",
+      "last_error": "ValueError: TikTok search error: {'code': -9000003, 'data': None, 'message': 'site not exist', 'error': {'message': 'site not exist'}}",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49048,7 +49045,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-26T09:44:08+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49180,7 +49177,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-26T13:23:35+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -51237,7 +51234,6 @@
         48
       ],
       "greenhouse/adyen": [
-        13,
         1,
         3,
         1,
@@ -51286,7 +51282,8 @@
         52,
         0,
         23,
-        34
+        34,
+        41
       ],
       "greenhouse/affirm": [
         42,
@@ -52402,7 +52399,6 @@
         49
       ],
       "greenhouse/okta": [
-        42,
         3,
         42,
         37,
@@ -52451,7 +52447,8 @@
         37,
         48,
         48,
-        40
+        40,
+        49
       ],
       "greenhouse/pinterest": [
         13,
@@ -156089,6 +156086,7 @@
       "seen_at": "2026-11-11T16:10:02+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5c4ff4e4-2ba8-4244-9b38-08135d57623f": {
+      "missing": "2026-11-26T18:34:58+00:00",
       "seen_at": "2026-11-25T00:13:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:5c518e16-7289-4a4e-8496-ceb3fe250b50": {
@@ -189623,7 +189621,7 @@
       "seen_at": "2026-11-24T13:53:36+00:00"
     },
     "greenhouse:adyen:8278827": {
-      "missing": "2026-11-26T12:33:56+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-16T09:46:07+00:00"
     },
     "greenhouse:adyen:8280649": {
@@ -222561,7 +222559,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8259188": {
-      "missing": "2026-11-26T12:33:56+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8260224": {
@@ -251635,6 +251633,7 @@
       "seen_at": "2026-11-09T16:39:42+00:00"
     },
     "oracle:dell:300598": {
+      "missing": "2026-11-26T18:34:58+00:00",
       "seen_at": "2026-11-26T06:53:31+00:00"
     },
     "oracle:dell:300601": {
@@ -252807,6 +252806,7 @@
       "seen_at": "2026-11-26T07:44:16+00:00"
     },
     "oracle:dell:303379": {
+      "missing": "2026-11-26T18:34:58+00:00",
       "seen_at": "2026-11-25T14:53:50+00:00"
     },
     "oracle:dell:303489": {
@@ -272501,6 +272501,7 @@
       "seen_at": "2026-11-24T22:24:19+00:00"
     },
     "oracle:texas-instruments:25020492": {
+      "missing": "2026-11-26T18:34:58+00:00",
       "seen_at": "2026-11-25T12:14:09+00:00"
     },
     "oracle:texas-instruments:25020495": {
@@ -424243,7 +424244,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-26T17:00:38+00:00",
+    "workday/adobe": "2026-11-26T18:30:32+00:00",
     "workday/autodesk": "2026-11-26T17:30:29+00:00",
     "workday/becton-dickinson": "2026-11-26T18:00:35+00:00",
     "workday/boeing": "2026-11-26T17:50:28+00:00",
@@ -424260,7 +424261,7 @@
     "workday/northrop-grumman": "2026-11-26T17:50:28+00:00",
     "workday/nvidia": "2026-11-26T17:00:38+00:00",
     "workday/paypal": "2026-11-26T17:40:28+00:00",
-    "workday/rbc": "2026-11-26T16:50:26+00:00",
+    "workday/rbc": "2026-11-26T18:30:32+00:00",
     "workday/salesforce": "2026-11-26T18:10:27+00:00",
     "workday/siemens-healthineers": "2026-11-26T18:00:35+00:00",
     "workday/snap": "2026-11-26T17:40:28+00:00",
