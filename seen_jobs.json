@@ -48612,7 +48612,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T11:44:02+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49140,10 +49143,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 4,
-      "failing_since": "2026-11-26T04:43:51+00:00",
-      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49678,7 +49678,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-26T10:43:44+00:00",
+    "dashboard_built_at": "2026-11-26T11:44:03+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -50369,6 +50369,13 @@
           ],
           "jobs": 2,
           "matched": 1
+        },
+        "fa-ewmy-saasfaprod1.fa.ocs.oraclecloud.com": {
+          "companies": [
+            "Verisk"
+          ],
+          "jobs": 1,
+          "matched": 0
         },
         "fa-exhh-saasfaprod1.fa.ocs.oraclecloud.com": {
           "companies": [
@@ -51740,7 +51747,6 @@
         17
       ],
       "greenhouse/databricks": [
-        10,
         27,
         17,
         17,
@@ -51789,7 +51795,8 @@
         14,
         33,
         22,
-        22
+        22,
+        0
       ],
       "greenhouse/datadog": [
         11,
@@ -53940,7 +53947,6 @@
         42,
         42,
         42,
-        42,
         36,
         36,
         0,
@@ -53980,6 +53986,7 @@
         29,
         21,
         47,
+        48,
         48,
         48,
         48,
@@ -98922,6 +98929,9 @@
       "closed": "2026-10-14",
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
+    "ashby:snowflake:01d1b85c-978f-4ca5-92fc-35e9a53c2add": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "ashby:snowflake:0223923d-4f0f-44e6-9649-0d1a9eda950d": {
       "closed": "2026-11-23",
       "seen_at": "2026-11-19T21:43:32+00:00"
@@ -100334,6 +100344,9 @@
     },
     "ashby:snowflake:d1823395-6522-4b35-bfbf-365ad939529f": {
       "seen_at": "2026-11-23T01:33:15+00:00"
+    },
+    "ashby:snowflake:d1bf2bcc-c144-4925-9470-514cd1900258": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "ashby:snowflake:d2089f20-d05d-40e5-8b3b-c3047184cf24": {
       "closed": "2026-11-05",
@@ -134602,7 +134615,7 @@
       "seen_at": "2026-11-22T16:04:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:723295b5-251b-44de-8933-5939d249aae2": {
-      "missing": "2026-11-26T05:43:18+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:7247dfb7-2792-4f00-952d-374286203bb0": {
@@ -150788,7 +150801,7 @@
       "seen_at": "2026-11-22T00:04:04+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d44df47-4fb1-4120-a4ac-7fbcc5f6c103": {
-      "missing": "2026-11-26T05:43:18+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-18T10:05:40+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2d557827-15c8-4aae-b17a-37a7ad82b3ec": {
@@ -152051,6 +152064,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:397e2ca3-eeaa-4a65-971c-9d9fe87e2af9": {
       "seen_at": "2026-11-19T00:07:25+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:399f3f9f-52cd-45b5-9640-6a20d8d3cdd5": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:39a2963a-48e4-4f01-a586-bd256301bf19": {
       "seen_at": "2026-10-19T22:45:50+00:00"
@@ -169915,7 +169931,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6c24595-0dd3-449f-b0ae-d13e256fc740": {
-      "missing": "2026-11-26T11:04:58+00:00",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6cc7924-5545-46c3-8847-89f485a17231": {
@@ -204727,7 +204742,7 @@
       "seen_at": "2026-10-22T18:36:46+00:00"
     },
     "greenhouse:databricks:8910834002": {
-      "missing": "2026-11-26T05:43:18+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-26T03:53:40+00:00"
     },
     "greenhouse:databricks:8910838002": {
@@ -272092,6 +272107,9 @@
     "oracle:texas-instruments:25020416": {
       "seen_at": "2026-11-19T23:35:02+00:00"
     },
+    "oracle:texas-instruments:25020417": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "oracle:texas-instruments:25020422": {
       "seen_at": "2026-11-20T11:34:11+00:00"
     },
@@ -281404,6 +281422,9 @@
     },
     "smartrecruiters:BoschGroup:744000163855169": {
       "seen_at": "2026-11-26T11:23:55+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163857429": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -295578,6 +295599,9 @@
     "smartrecruiters:SAPITBusinessSysteme:744000163856058": {
       "seen_at": "2026-11-26T11:34:05+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000163856714": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -302969,7 +302993,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7638511888540600581": {
-      "missing": "2026-11-26T05:43:18+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7638522039771777285": {
@@ -364624,6 +364648,9 @@
     "workday:micron:JR107840": {
       "seen_at": "2026-10-19T09:35:50+00:00"
     },
+    "workday:micron:JR107841": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR107901": {
       "seen_at": "2026-10-23T06:46:16+00:00"
     },
@@ -364858,6 +364885,9 @@
     "workday:micron:JR109028": {
       "seen_at": "2026-10-23T06:46:16+00:00"
     },
+    "workday:micron:JR109041": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR109046": {
       "seen_at": "2026-10-23T06:46:16+00:00"
     },
@@ -364963,6 +364993,9 @@
     },
     "workday:micron:JR109675": {
       "seen_at": "2026-11-02T03:36:21+00:00"
+    },
+    "workday:micron:JR109677": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR109678": {
       "seen_at": "2026-11-23T13:44:23+00:00"
@@ -365130,6 +365163,9 @@
     "workday:micron:JR110398": {
       "seen_at": "2026-10-07T08:23:55+00:00"
     },
+    "workday:micron:JR110409": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR110422": {
       "seen_at": "2026-11-13T02:27:00+00:00"
     },
@@ -365200,6 +365236,9 @@
     "workday:micron:JR110699": {
       "closed": "2026-11-06",
       "seen_at": "2026-11-06T12:45:47+00:00"
+    },
+    "workday:micron:JR110701": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR110727": {
       "seen_at": "2026-11-06T06:36:28+00:00"
@@ -365933,6 +365972,9 @@
     },
     "workday:micron:JR113180": {
       "seen_at": "2026-11-26T03:04:03+00:00"
+    },
+    "workday:micron:JR113182": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR113185": {
       "seen_at": "2026-10-31T18:35:55+00:00"
@@ -368075,6 +368117,9 @@
     "workday:micron:JR115060": {
       "seen_at": "2026-10-27T04:16:18+00:00"
     },
+    "workday:micron:JR115071": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR115079": {
       "seen_at": "2026-11-11T08:45:38+00:00"
     },
@@ -369227,6 +369272,9 @@
     "workday:micron:JR116666": {
       "seen_at": "2026-11-20T06:54:02+00:00"
     },
+    "workday:micron:JR116672": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR116673": {
       "seen_at": "2026-10-30T08:15:52+00:00"
     },
@@ -369313,11 +369361,17 @@
     "workday:micron:JR116781": {
       "seen_at": "2026-11-06T09:55:20+00:00"
     },
+    "workday:micron:JR116789": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR116790": {
       "seen_at": "2026-11-20T00:14:06+00:00"
     },
     "workday:micron:JR116793": {
       "seen_at": "2026-11-25T21:13:33+00:00"
+    },
+    "workday:micron:JR116794": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR116804": {
       "seen_at": "2026-11-11T05:55:44+00:00"
@@ -369406,6 +369460,9 @@
     },
     "workday:micron:JR116896": {
       "seen_at": "2026-11-10T09:07:19+00:00"
+    },
+    "workday:micron:JR116897": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR116898": {
       "seen_at": "2026-11-06T08:36:22+00:00"
@@ -369826,8 +369883,17 @@
     "workday:micron:JR117387": {
       "seen_at": "2026-11-23T07:13:08+00:00"
     },
+    "workday:micron:JR117390": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
+    "workday:micron:JR117396": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR117401": {
       "seen_at": "2026-11-24T10:53:54+00:00"
+    },
+    "workday:micron:JR117407": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR117423": {
       "seen_at": "2026-11-12T05:36:52+00:00"
@@ -369898,6 +369964,9 @@
     "workday:micron:JR117563": {
       "seen_at": "2026-11-26T03:04:03+00:00"
     },
+    "workday:micron:JR117585": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR117589": {
       "seen_at": "2026-11-11T10:26:06+00:00"
     },
@@ -369924,6 +369993,9 @@
     },
     "workday:micron:JR117622": {
       "seen_at": "2026-11-13T14:17:00+00:00"
+    },
+    "workday:micron:JR117633": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR117634": {
       "seen_at": "2026-11-15T16:06:06+00:00"
@@ -370243,6 +370315,9 @@
     "workday:micron:JR118249": {
       "seen_at": "2026-11-23T07:13:08+00:00"
     },
+    "workday:micron:JR118258": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR118259": {
       "seen_at": "2026-11-23T07:13:08+00:00"
     },
@@ -370263,6 +370338,9 @@
     },
     "workday:micron:JR118367": {
       "seen_at": "2026-11-26T03:04:03+00:00"
+    },
+    "workday:micron:JR118399": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR118485": {
       "seen_at": "2026-11-20T11:14:22+00:00"
@@ -370297,8 +370375,14 @@
     "workday:micron:JR118546": {
       "seen_at": "2026-11-24T10:53:54+00:00"
     },
+    "workday:micron:JR118557": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR118562": {
       "seen_at": "2026-11-25T04:24:34+00:00"
+    },
+    "workday:micron:JR118566": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR118593": {
       "seen_at": "2026-11-25T21:13:33+00:00"
@@ -370333,6 +370417,9 @@
     "workday:micron:JR118653": {
       "seen_at": "2026-11-25T19:34:16+00:00"
     },
+    "workday:micron:JR118675": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR118676": {
       "seen_at": "2026-11-25T21:13:33+00:00"
     },
@@ -370356,6 +370443,18 @@
     },
     "workday:micron:JR118783": {
       "seen_at": "2026-11-26T03:04:03+00:00"
+    },
+    "workday:micron:JR118989": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
+    "workday:micron:JR118991": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
+    "workday:micron:JR119002": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
+    "workday:micron:JR119108": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR57804": {
       "seen_at": "2026-11-05T00:45:52+00:00"
@@ -370509,11 +370608,17 @@
     "workday:micron:JR88052": {
       "seen_at": "2026-10-23T16:08:08+00:00"
     },
+    "workday:micron:JR88214": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
+    },
     "workday:micron:JR88224": {
       "seen_at": "2026-10-21T18:25:58+00:00"
     },
     "workday:micron:JR88260": {
       "seen_at": "2026-10-15T06:36:28+00:00"
+    },
+    "workday:micron:JR88293": {
+      "seen_at": "2026-11-26T11:44:03+00:00"
     },
     "workday:micron:JR88305": {
       "seen_at": "2026-10-23T06:46:16+00:00"
@@ -423180,7 +423285,7 @@
     "workday/hp": "2026-11-26T11:20:25+00:00",
     "workday/hpe": "2026-11-26T11:30:43+00:00",
     "workday/intel": "2026-11-26T11:30:43+00:00",
-    "workday/micron": "2026-11-26T10:00:40+00:00",
+    "workday/micron": "2026-11-26T11:40:36+00:00",
     "workday/northrop-grumman": "2026-11-26T10:30:45+00:00",
     "workday/nvidia": "2026-11-26T11:20:25+00:00",
     "workday/paypal": "2026-11-26T10:20:35+00:00",
