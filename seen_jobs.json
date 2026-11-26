@@ -48523,7 +48523,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T00:34:22+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48964,10 +48967,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-25T19:43:46+00:00",
-      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49111,10 +49111,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-25T23:04:22+00:00",
-      "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49129,7 +49126,7 @@
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-25T17:04:38+00:00",
       "last_error": "HTTP 429 from workday.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52429,7 +52426,6 @@
         19
       ],
       "greenhouse/samsara": [
-        36,
         14,
         27,
         14,
@@ -52478,7 +52474,8 @@
         29,
         48,
         48,
-        36
+        36,
+        14
       ],
       "greenhouse/scaleai": [
         18,
@@ -52593,6 +52590,7 @@
         3,
         0,
         3,
+        4,
         4,
         4
       ],
@@ -100035,6 +100033,7 @@
       "seen_at": "2026-10-14T02:06:54+00:00"
     },
     "ashby:snowflake:d08054aa-4357-4eb5-b8ac-a0e97982fbc6": {
+      "missing": "2026-11-26T00:34:23+00:00",
       "seen_at": "2026-11-10T06:26:13+00:00"
     },
     "ashby:snowflake:d136f868-6f3a-4e22-9cad-a6e95348e407": {
@@ -206275,6 +206274,7 @@
       "seen_at": "2026-10-02T22:33:45+00:00"
     },
     "greenhouse:discord:8675185002": {
+      "missing": "2026-11-26T00:34:23+00:00",
       "seen_at": "2026-10-03T19:13:04+00:00"
     },
     "greenhouse:discord:8691572002": {
@@ -228447,7 +228447,7 @@
       "seen_at": "2026-11-13T20:39:15+00:00"
     },
     "greenhouse:samsara:8366794": {
-      "missing": "2026-11-25T18:34:13+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-11T18:26:26+00:00"
     },
     "greenhouse:samsara:8367418": {
@@ -233230,7 +233230,7 @@
       "seen_at": "2026-11-20T20:04:50+00:00"
     },
     "greenhouse:trueanomalyinc:5244131007": {
-      "missing": "2026-11-25T18:34:13+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-20T20:04:50+00:00"
     },
     "greenhouse:trueanomalyinc:5247312007": {
@@ -280368,6 +280368,9 @@
     "smartrecruiters:BoschGroup:744000163765319": {
       "seen_at": "2026-11-25T21:43:38+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163776879": {
+      "seen_at": "2026-11-26T00:34:23+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -283509,6 +283512,9 @@
     },
     "smartrecruiters:Intuitive:744000163762499": {
       "seen_at": "2026-11-25T21:05:20+00:00"
+    },
+    "smartrecruiters:Intuitive:744000163776440": {
+      "seen_at": "2026-11-26T00:34:23+00:00"
     },
     "smartrecruiters:Intuitive:744000163776509": {
       "seen_at": "2026-11-26T00:24:15+00:00"
@@ -421525,7 +421531,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-25T23:50:27+00:00",
-    "workday/autodesk": "2026-11-25T23:00:38+00:00",
+    "workday/autodesk": "2026-11-26T00:30:29+00:00",
     "workday/becton-dickinson": "2026-11-25T23:21:49+00:00",
     "workday/boeing": "2026-11-25T23:17:50+00:00",
     "workday/cibc": "2026-11-25T23:40:26+00:00",
@@ -421544,9 +421550,9 @@
     "workday/rbc": "2026-11-25T23:50:27+00:00",
     "workday/salesforce": "2026-11-25T23:30:32+00:00",
     "workday/siemens-healthineers": "2026-11-25T23:21:49+00:00",
-    "workday/snap": "2026-11-25T23:00:38+00:00",
+    "workday/snap": "2026-11-26T00:30:29+00:00",
     "workday/td": "2026-11-25T23:40:26+00:00",
-    "workday/workday": "2026-11-25T17:00:39+00:00",
+    "workday/workday": "2026-11-26T00:30:29+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-24T12:40:27+00:00"
   }
