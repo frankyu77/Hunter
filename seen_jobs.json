@@ -48601,7 +48601,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T07:54:18+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49072,7 +49075,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 21,
+      "consecutive_failures": 22,
       "failing_since": "2026-11-24T11:34:47+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49162,7 +49165,10 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T07:54:18+00:00",
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52255,7 +52261,6 @@
       "greenhouse/mongodb": [
         36,
         36,
-        36,
         8,
         38,
         25,
@@ -52302,11 +52307,10 @@
         48,
         20,
         42,
-        2
+        2,
+        48
       ],
       "greenhouse/okta": [
-        0,
-        42,
         42,
         42,
         3,
@@ -52354,7 +52358,9 @@
         48,
         48,
         48,
-        37
+        37,
+        48,
+        48
       ],
       "greenhouse/pinterest": [
         13,
@@ -99295,6 +99301,9 @@
     "ashby:snowflake:4401580a-c2d4-4dc4-9544-dfd4df65cb51": {
       "seen_at": "2026-10-31T12:25:50+00:00"
     },
+    "ashby:snowflake:440ec976-a307-4575-abab-554aef8151a4": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
+    },
     "ashby:snowflake:44a8bfd1-593c-4024-8745-a01cca587cb6": {
       "seen_at": "2026-11-11T15:37:53+00:00"
     },
@@ -122479,6 +122488,9 @@
     "eightfold:qualcomm:446721114153": {
       "seen_at": "2026-11-04T22:16:04+00:00"
     },
+    "eightfold:qualcomm:446721114910": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
+    },
     "eightfold:qualcomm:446721116783": {
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
@@ -125461,6 +125473,9 @@
     },
     "eightfold:qualcomm:446722354020": {
       "seen_at": "2026-11-25T16:14:47+00:00"
+    },
+    "eightfold:qualcomm:446722355698": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
     },
     "eightfold:qualcomm:446722355699": {
       "seen_at": "2026-11-25T17:23:10+00:00"
@@ -189586,6 +189601,9 @@
     "greenhouse:adyen:8414898": {
       "seen_at": "2026-11-25T12:53:37+00:00"
     },
+    "greenhouse:adyen:8415906": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
+    },
     "greenhouse:affirm:7590373003": {
       "closed": "2026-11-06",
       "seen_at": "2026-11-03T00:45:59+00:00"
@@ -219256,7 +219274,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8141592": {
-      "missing": "2026-11-26T01:54:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8143286": {
@@ -221151,7 +221169,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8080906": {
-      "missing": "2026-11-26T01:54:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8081016": {
@@ -221345,7 +221363,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8132596": {
-      "missing": "2026-11-26T01:54:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8137889": {
@@ -249175,6 +249193,9 @@
     "lever:spotify:fb3f185c-961c-4b7b-a568-b42a37d66ead": {
       "seen_at": "2026-11-19T20:34:51+00:00"
     },
+    "lever:spotify:fea3133a-822a-43fa-b3a6-f37ef743f783": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
+    },
     "lever:spotify:ffe7380b-8c91-4201-bf60-25273493a1d8": {
       "seen_at": "2026-10-14T03:36:21+00:00"
     },
@@ -257326,6 +257347,9 @@
     },
     "oracle:honeywell:161147": {
       "seen_at": "2026-11-05T05:35:45+00:00"
+    },
+    "oracle:honeywell:161149": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
     },
     "oracle:honeywell:161150": {
       "seen_at": "2026-11-26T07:44:16+00:00"
@@ -281019,6 +281043,9 @@
     "smartrecruiters:BoschGroup:744000163816939": {
       "seen_at": "2026-11-26T07:34:02+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163818349": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -295107,6 +295134,12 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163817529": {
       "seen_at": "2026-11-26T07:44:16+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163818908": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163819149": {
+      "seen_at": "2026-11-26T07:54:19+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -422608,7 +422641,7 @@
     "workday/boeing": "2026-11-26T07:30:38+00:00",
     "workday/cibc": "2026-11-26T06:00:35+00:00",
     "workday/cisco": "2026-11-26T04:50:31+00:00",
-    "workday/clio": "2026-11-26T05:40:25+00:00",
+    "workday/clio": "2026-11-26T07:50:30+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -422620,7 +422653,7 @@
     "workday/nvidia": "2026-11-26T06:30:42+00:00",
     "workday/paypal": "2026-11-26T07:20:30+00:00",
     "workday/rbc": "2026-11-26T06:10:29+00:00",
-    "workday/salesforce": "2026-11-26T05:30:31+00:00",
+    "workday/salesforce": "2026-11-26T07:50:30+00:00",
     "workday/siemens-healthineers": "2026-11-26T07:40:25+00:00",
     "workday/snap": "2026-11-26T07:20:30+00:00",
     "workday/td": "2026-11-26T05:50:26+00:00",
