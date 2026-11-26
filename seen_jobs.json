@@ -48677,7 +48677,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T21:53:35+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -48692,7 +48692,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T22:04:32+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49121,7 +49124,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T20:33:48+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49154,10 +49157,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T20:33:48+00:00",
-      "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -51172,7 +51172,6 @@
         54
       ],
       "atlassian/atlassian": [
-        37,
         43,
         43,
         43,
@@ -51220,6 +51219,7 @@
         41,
         10,
         48,
+        49,
         49,
         49
       ],
@@ -52105,8 +52105,6 @@
         43,
         43,
         43,
-        43,
-        43,
         40,
         40,
         40,
@@ -52144,6 +52142,8 @@
         49,
         49,
         35,
+        43,
+        43,
         43,
         43
       ],
@@ -53387,7 +53387,6 @@
         18
       ],
       "oracle/dell": [
-        0,
         1,
         5,
         5,
@@ -53436,7 +53435,8 @@
         2,
         5,
         0,
-        0
+        0,
+        5
       ],
       "oracle/honeywell": [
         2,
@@ -102260,7 +102260,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27195": {
-      "missing": "2026-11-26T16:04:16+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27196": {
@@ -170163,7 +170163,7 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6c24595-0dd3-449f-b0ae-d13e256fc740": {
-      "missing": "2026-11-26T16:04:16+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6cc7924-5545-46c3-8847-89f485a17231": {
@@ -212107,11 +212107,11 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:elastic:8276135": {
-      "missing": "2026-11-26T16:04:16+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:elastic:8276136": {
-      "missing": "2026-11-26T16:04:16+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:elastic:8281059": {
@@ -250297,7 +250297,7 @@
       "seen_at": "2026-10-20T21:17:13+00:00"
     },
     "oracle:dell:295475": {
-      "missing": "2026-11-26T16:04:16+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-21T10:42:36+00:00"
     },
     "oracle:dell:295476": {
@@ -424521,11 +424521,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-26T21:30:33+00:00",
-    "workday/autodesk": "2026-11-26T20:30:31+00:00",
+    "workday/autodesk": "2026-11-26T22:00:33+00:00",
     "workday/becton-dickinson": "2026-11-26T20:50:25+00:00",
     "workday/boeing": "2026-11-26T20:50:25+00:00",
     "workday/cibc": "2026-11-26T21:20:25+00:00",
-    "workday/cisco": "2026-11-26T20:30:31+00:00",
+    "workday/cisco": "2026-11-26T22:00:33+00:00",
     "workday/clio": "2026-11-26T21:10:28+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-26T19:10:34+00:00",
