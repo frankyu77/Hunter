@@ -48611,19 +48611,13 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T18:44:31+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T18:44:31+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49136,13 +49130,19 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T18:53:42+00:00",
+      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T18:53:42+00:00",
+      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -84983,6 +84983,9 @@
     "amazon:amazon:10615350": {
       "seen_at": "2026-11-26T14:44:13+00:00"
     },
+    "amazon:amazon:10615569": {
+      "seen_at": "2026-11-26T18:53:43+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -119419,6 +119422,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317633935": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317639495": {
@@ -119726,6 +119730,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318041034": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318041617": {
@@ -120009,9 +120014,11 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318497409": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-10-23T19:36:42+00:00"
     },
     "eightfold:netflix:790318497575": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318500438": {
@@ -120544,6 +120551,7 @@
       "seen_at": "2026-10-27T16:37:11+00:00"
     },
     "eightfold:netflix:790319182712": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-10-27T18:56:11+00:00"
     },
     "eightfold:netflix:790319182757": {
@@ -120551,6 +120559,7 @@
       "seen_at": "2026-10-29T17:36:34+00:00"
     },
     "eightfold:netflix:790319186617": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-10-27T21:26:39+00:00"
     },
     "eightfold:netflix:790319188137": {
@@ -120869,6 +120878,7 @@
       "seen_at": "2026-11-11T21:19:02+00:00"
     },
     "eightfold:netflix:790319462718": {
+      "missing": "2026-11-26T18:53:43+00:00",
       "seen_at": "2026-11-17T15:27:25+00:00"
     },
     "eightfold:netflix:790319467981": {
@@ -229285,7 +229295,6 @@
       "seen_at": "2026-11-13T20:39:15+00:00"
     },
     "greenhouse:samsara:8366794": {
-      "closed": "2026-11-25",
       "seen_at": "2026-11-11T18:26:26+00:00"
     },
     "greenhouse:samsara:8367418": {
@@ -296195,6 +296204,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163912738": {
       "seen_at": "2026-11-26T17:54:15+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163918509": {
+      "seen_at": "2026-11-26T18:53:43+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -424268,8 +424280,8 @@
     "workday/ebay": "2026-11-26T08:50:27+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-26T18:40:26+00:00",
-    "workday/hpe": "2026-11-26T17:10:27+00:00",
-    "workday/intel": "2026-11-26T17:20:27+00:00",
+    "workday/hpe": "2026-11-26T18:50:34+00:00",
+    "workday/intel": "2026-11-26T18:50:34+00:00",
     "workday/micron": "2026-11-26T17:20:27+00:00",
     "workday/northrop-grumman": "2026-11-26T17:50:28+00:00",
     "workday/nvidia": "2026-11-26T18:40:26+00:00",
