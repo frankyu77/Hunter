@@ -48578,7 +48578,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T04:04:32+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48590,7 +48593,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T04:04:32+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49055,7 +49061,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "failing_since": "2026-11-24T11:34:47+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49166,7 +49172,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "failing_since": "2026-11-24T20:53:52+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50132,6 +50138,14 @@
           "matched": 0,
           "name": "Weekday AI"
         },
+        "workday/ameren": {
+          "boards": {
+            "{\"company\": \"ameren\", \"host\": \"wd1\", \"site\": \"External\", \"tenant\": \"ameren\", \"type\": \"workday\"}": 2
+          },
+          "jobs": 2,
+          "matched": 0,
+          "name": "Ameren"
+        },
         "workday/ancestry": {
           "boards": {
             "{\"company\": \"ancestry\", \"host\": \"wd501\", \"site\": \"Careers\", \"tenant\": \"ancestry\", \"type\": \"workday\"}": 1
@@ -50179,6 +50193,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Visa"
+        },
+        "workday/xboxgaming": {
+          "boards": {
+            "{\"company\": \"blizzard-entertainment\", \"host\": \"wd1\", \"site\": \"Blizzard_External_Careers\", \"tenant\": \"xboxgaming\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 1,
+          "name": "Blizzard Entertainment"
         }
       },
       "gaps": {
@@ -51499,7 +51521,6 @@
         22
       ],
       "greenhouse/cloudflare": [
-        4,
         13,
         42,
         10,
@@ -51548,7 +51569,8 @@
         14,
         18,
         24,
-        24
+        24,
+        9
       ],
       "greenhouse/coinbase": [
         11,
@@ -51729,7 +51751,8 @@
         15,
         0,
         28,
-        8
+        8,
+        22
       ],
       "greenhouse/doordashusa": [
         40,
@@ -53587,10 +53610,6 @@
         3,
         3,
         3,
-        3,
-        3,
-        3,
-        3,
         0,
         4,
         4,
@@ -53629,7 +53648,11 @@
         5,
         6,
         6,
-        6
+        6,
+        0,
+        0,
+        0,
+        0
       ],
       "smartrecruiters/RenesasElectronics": [
         1,
@@ -139554,6 +139577,9 @@
       "closed": "2026-11-03",
       "seen_at": "2026-10-23T22:36:45+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:b2b33833-35be-4be9-bfdf-ca8c663b18e3": {
+      "seen_at": "2026-11-26T04:04:33+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:b2bf950b-bf97-4b9c-8ab7-e96bfd87276a": {
       "closed": "2026-11-11",
       "seen_at": "2026-10-07T22:43:59+00:00"
@@ -148158,6 +148184,9 @@
       "closed": "2026-11-14",
       "seen_at": "2026-10-23T12:07:47+00:00"
     },
+    "github:SimplifyJobs/Summer2026-Internships:18fb7fb1-2e9a-4339-bab0-009982dfb6c8": {
+      "seen_at": "2026-11-26T04:04:33+00:00"
+    },
     "github:SimplifyJobs/Summer2026-Internships:18fe3606-2c86-43ed-85fd-e9a975ac70c1": {
       "closed": "2026-11-19",
       "seen_at": "2026-10-05T09:03:36+00:00"
@@ -153355,6 +153384,9 @@
     "github:SimplifyJobs/Summer2026-Internships:47ea17c5-d569-4f0f-9e06-9fb0a6790033": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-01T23:03:56+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:47ef5abc-2878-4502-b445-bf173df908ab": {
+      "seen_at": "2026-11-26T04:04:33+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:47fb79bc-9f49-407b-bb0c-52352eba40be": {
       "closed": "2026-10-27",
@@ -198814,7 +198846,7 @@
       "seen_at": "2026-11-15T12:26:12+00:00"
     },
     "greenhouse:cloudflare:8201404": {
-      "missing": "2026-11-25T21:53:48+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-16T19:07:10+00:00"
     },
     "greenhouse:cloudflare:8201823": {
@@ -206531,7 +206563,7 @@
       "seen_at": "2026-11-23T23:04:32+00:00"
     },
     "greenhouse:discord:8771059002": {
-      "missing": "2026-11-25T21:53:48+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
     "greenhouse:discord:8796132002": {
@@ -222158,6 +222190,7 @@
       "seen_at": "2026-10-16T06:25:43+00:00"
     },
     "greenhouse:okta:8288348": {
+      "missing": "2026-11-26T04:04:33+00:00",
       "seen_at": "2026-10-16T06:25:43+00:00"
     },
     "greenhouse:okta:8288466": {
@@ -259261,6 +259294,9 @@
     "oracle:honeywell:162621": {
       "seen_at": "2026-11-25T04:44:54+00:00"
     },
+    "oracle:honeywell:162622": {
+      "seen_at": "2026-11-26T04:04:33+00:00"
+    },
     "oracle:honeywell:162624": {
       "seen_at": "2026-11-20T05:43:59+00:00"
     },
@@ -283801,6 +283837,9 @@
     "smartrecruiters:Intuitive:744000163802889": {
       "seen_at": "2026-11-26T03:34:38+00:00"
     },
+    "smartrecruiters:Intuitive:744000163803859": {
+      "seen_at": "2026-11-26T04:04:33+00:00"
+    },
     "smartrecruiters:NBCUniversal3:744000120009098": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
@@ -285766,7 +285805,7 @@
       "seen_at": "2026-11-25T19:54:22+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163758499": {
-      "missing": "2026-11-25T21:53:48+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-25T20:14:07+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163758550": {
@@ -285780,15 +285819,15 @@
       "seen_at": "2026-11-25T20:23:59+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163759780": {
-      "missing": "2026-11-25T21:53:48+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-25T20:23:59+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163760630": {
-      "missing": "2026-11-25T21:53:48+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-25T20:34:11+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163761279": {
-      "missing": "2026-11-25T21:53:48+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-25T20:44:03+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000163764277": {
@@ -422159,7 +422198,7 @@
     "workday/boeing": "2026-11-26T03:40:23+00:00",
     "workday/cibc": "2026-11-26T01:50:25+00:00",
     "workday/cisco": "2026-11-26T03:10:36+00:00",
-    "workday/clio": "2026-11-26T01:30:33+00:00",
+    "workday/clio": "2026-11-26T04:00:35+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-22T19:30:30+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -422174,7 +422213,7 @@
     "workday/salesforce": "2026-11-26T03:50:28+00:00",
     "workday/siemens-healthineers": "2026-11-26T03:50:28+00:00",
     "workday/snap": "2026-11-26T03:20:37+00:00",
-    "workday/td": "2026-11-26T01:40:26+00:00",
+    "workday/td": "2026-11-26T04:00:35+00:00",
     "workday/workday": "2026-11-26T00:30:29+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-24T12:40:27+00:00"
