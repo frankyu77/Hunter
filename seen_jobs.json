@@ -48611,7 +48611,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T16:15:02+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -49064,7 +49064,10 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T16:35:57+00:00",
+      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49196,10 +49199,7 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-26T12:33:56+00:00",
-      "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52688,7 +52688,6 @@
         5
       ],
       "greenhouse/samsara": [
-        14,
         24,
         13,
         10,
@@ -52737,7 +52736,8 @@
         36,
         14,
         29,
-        42
+        42,
+        19
       ],
       "greenhouse/scaleai": [
         18,
@@ -119977,6 +119977,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318491546": {
+      "missing": "2026-11-26T16:35:57+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318493298": {
@@ -125692,6 +125693,9 @@
     },
     "eightfold:qualcomm:446722376086": {
       "seen_at": "2026-11-26T15:44:32+00:00"
+    },
+    "eightfold:qualcomm:446722376856": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
       "closed": "2026-10-04",
@@ -141680,6 +141684,7 @@
       "seen_at": "2026-11-05T02:36:23+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ca750484-0d9b-4d3a-8cb8-2d0dde6e60a8": {
+      "missing": "2026-11-26T16:35:57+00:00",
       "seen_at": "2026-11-19T02:47:23+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ca7b6f2d-22c2-4d9a-baab-b5e91077acc8": {
@@ -172252,7 +172257,6 @@
       "seen_at": "2026-10-23T02:06:27+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e925d6fc-4054-4d56-bd4b-a35f60724d50": {
-      "closed": "2026-11-26",
       "seen_at": "2026-10-29T01:36:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:e9282391-e76d-43c0-99fe-824b03704b2c": {
@@ -229126,7 +229130,7 @@
       "seen_at": "2026-11-06T14:55:36+00:00"
     },
     "greenhouse:samsara:8359072": {
-      "missing": "2026-11-26T10:33:59+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-06T14:55:36+00:00"
     },
     "greenhouse:samsara:8359087": {
@@ -229276,6 +229280,9 @@
     "greenhouse:samsara:8384192": {
       "seen_at": "2026-11-25T20:44:03+00:00"
     },
+    "greenhouse:samsara:8386022": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
     "greenhouse:samsara:8386261": {
       "seen_at": "2026-11-16T20:56:45+00:00"
     },
@@ -229368,6 +229375,7 @@
       "seen_at": "2026-11-25T01:14:16+00:00"
     },
     "greenhouse:samsara:8412267": {
+      "missing": "2026-11-26T16:35:57+00:00",
       "seen_at": "2026-11-25T21:24:23+00:00"
     },
     "greenhouse:samsara:8412814": {
@@ -281806,6 +281814,9 @@
     "smartrecruiters:BoschGroup:744000163902689": {
       "seen_at": "2026-11-26T16:15:02+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163905419": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -296050,6 +296061,36 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163900940": {
       "seen_at": "2026-11-26T16:04:17+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163901905": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163903914": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163904155": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163904604": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163904731": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163904860": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163905619": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163905839": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163906090": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163906119": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -397396,6 +397437,9 @@
     "workday:onehealthineers:R-32291": {
       "seen_at": "2026-11-25T20:14:07+00:00"
     },
+    "workday:onehealthineers:R-32306": {
+      "seen_at": "2026-11-26T16:35:57+00:00"
+    },
     "workday:paypal:R0134048": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -423886,7 +423930,7 @@
   "polling": {
     "workday/adobe": "2026-11-26T15:24:28+00:00",
     "workday/autodesk": "2026-11-26T16:00:39+00:00",
-    "workday/becton-dickinson": "2026-11-26T15:00:39+00:00",
+    "workday/becton-dickinson": "2026-11-26T16:30:31+00:00",
     "workday/boeing": "2026-11-26T16:20:37+00:00",
     "workday/cibc": "2026-11-26T15:20:28+00:00",
     "workday/cisco": "2026-11-26T16:10:27+00:00",
@@ -423903,7 +423947,7 @@
     "workday/paypal": "2026-11-26T16:10:27+00:00",
     "workday/rbc": "2026-11-26T15:24:28+00:00",
     "workday/salesforce": "2026-11-26T15:10:24+00:00",
-    "workday/siemens-healthineers": "2026-11-26T15:00:39+00:00",
+    "workday/siemens-healthineers": "2026-11-26T16:30:31+00:00",
     "workday/snap": "2026-11-26T16:00:39+00:00",
     "workday/td": "2026-11-26T15:20:28+00:00",
     "workday/workday": "2026-11-26T16:10:27+00:00",
