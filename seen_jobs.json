@@ -48589,19 +48589,13 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T04:34:21+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T04:34:21+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49123,7 +49117,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T00:13:28+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49132,7 +49126,10 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T04:43:51+00:00",
+      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -117970,6 +117967,9 @@
     "eightfold:microsoft:1970393557076203": {
       "seen_at": "2026-11-20T00:14:06+00:00"
     },
+    "eightfold:microsoft:1970393557076204": {
+      "seen_at": "2026-11-26T04:43:51+00:00"
+    },
     "eightfold:microsoft:1970393557076215": {
       "seen_at": "2026-11-20T20:23:09+00:00"
     },
@@ -119156,6 +119156,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317633866": {
+      "missing": "2026-11-26T04:43:51+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317633935": {
@@ -125392,6 +125393,9 @@
     },
     "eightfold:qualcomm:446722358873": {
       "seen_at": "2026-11-25T21:34:04+00:00"
+    },
+    "eightfold:qualcomm:446722362956": {
+      "seen_at": "2026-11-26T04:43:51+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
       "closed": "2026-10-04",
@@ -204908,6 +204912,9 @@
     "greenhouse:databricks:8961261002": {
       "seen_at": "2026-11-24T20:44:25+00:00"
     },
+    "greenhouse:databricks:8963204002": {
+      "seen_at": "2026-11-26T04:43:51+00:00"
+    },
     "greenhouse:datadog:1497543": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
@@ -238278,6 +238285,7 @@
       "seen_at": "2026-11-20T10:14:07+00:00"
     },
     "jibe:careers.amd.com:100880": {
+      "missing": "2026-11-26T04:43:51+00:00",
       "seen_at": "2026-11-25T04:34:33+00:00"
     },
     "jibe:careers.amd.com:101044": {
@@ -259633,6 +259641,9 @@
       "closed": "2026-11-25",
       "seen_at": "2026-11-24T20:24:03+00:00"
     },
+    "oracle:honeywell:163053": {
+      "seen_at": "2026-11-26T04:43:51+00:00"
+    },
     "oracle:oracle:305357": {
       "seen_at": "2026-10-23T13:07:44+00:00"
     },
@@ -280751,6 +280762,9 @@
     "smartrecruiters:BoschGroup:744000163805069": {
       "seen_at": "2026-11-26T04:34:22+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163805719": {
+      "seen_at": "2026-11-26T04:43:51+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -294817,6 +294831,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163804709": {
       "seen_at": "2026-11-26T04:34:22+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163805809": {
+      "seen_at": "2026-11-26T04:43:51+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -422284,8 +422301,8 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-26T04:30:30+00:00",
     "workday/hpe": "2026-11-26T04:30:30+00:00",
-    "workday/intel": "2026-11-26T02:50:23+00:00",
-    "workday/micron": "2026-11-26T03:00:36+00:00",
+    "workday/intel": "2026-11-26T04:40:24+00:00",
+    "workday/micron": "2026-11-26T04:40:24+00:00",
     "workday/northrop-grumman": "2026-11-26T03:30:32+00:00",
     "workday/nvidia": "2026-11-26T04:20:25+00:00",
     "workday/paypal": "2026-11-26T03:20:37+00:00",
