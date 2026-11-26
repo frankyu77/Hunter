@@ -48611,7 +48611,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T15:34:41+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -49136,7 +49136,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T14:05:06+00:00",
       "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49145,7 +49145,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T11:34:04+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49907,6 +49907,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "Bot Auto"
+        },
+        "greenhouse/dept": {
+          "boards": {
+            "{\"company\": \"dept\", \"type\": \"greenhouse\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "DEPT"
         },
         "greenhouse/intercom": {
           "boards": {
@@ -125677,6 +125685,9 @@
     "eightfold:qualcomm:446722375318": {
       "seen_at": "2026-11-26T15:24:09+00:00"
     },
+    "eightfold:qualcomm:446722376086": {
+      "seen_at": "2026-11-26T15:44:32+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:000e3171-0168-4592-b285-67bb8e84a6a9": {
       "closed": "2026-10-04",
       "seen_at": "2026-09-30T23:44:13+00:00"
@@ -129760,7 +129771,7 @@
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33ae4f5c-d020-4d6b-b33d-591c0f7da237": {
-      "missing": "2026-11-26T09:44:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-14T06:37:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33b98fd9-daf3-45e9-9fd7-4ea7b235bf9c": {
@@ -150555,7 +150566,7 @@
       "seen_at": "2026-11-17T03:07:24+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:29efc01f-ded3-4731-b798-5b9a09c13427": {
-      "missing": "2026-11-26T09:34:47+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-14T01:31:24+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:29f79682-4a77-4fcf-bd7d-a77d3af1acd7": {
@@ -152343,7 +152354,6 @@
       "seen_at": "2026-10-04T04:43:10+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3b853022-5629-46f0-9410-31a4e4d1518e": {
-      "closed": "2026-11-24",
       "seen_at": "2026-11-23T23:43:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3b980755-8a95-43af-a208-b5bb7cdd90bc": {
@@ -159611,6 +159621,9 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:7b33b6fd-f6cc-443d-908d-c217c9767ef6": {
       "seen_at": "2026-10-29T22:36:31+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:7b39170d-3c04-4950-9d6e-71f7c52be118": {
+      "seen_at": "2026-11-26T15:44:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:7b4326db-4150-48f3-a6af-a5492b8a0b2a": {
       "seen_at": "2026-11-02T14:47:03+00:00"
@@ -173200,6 +173213,9 @@
     "github:SimplifyJobs/Summer2026-Internships:f21946f6-4b27-42c8-b5d8-a43b623fb8c6": {
       "closed": "2026-11-13",
       "seen_at": "2026-11-08T23:24:53+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:f22421d0-9ba8-49f6-9e0b-6e2c924538f0": {
+      "seen_at": "2026-11-26T15:44:32+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:f2273a00-fd36-44f4-b959-cffdf589df8a": {
       "closed": "2026-11-05",
@@ -295986,6 +296002,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163895388": {
       "seen_at": "2026-11-26T15:34:42+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163896096": {
+      "seen_at": "2026-11-26T15:44:32+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -423821,8 +423840,8 @@
     "workday/ebay": "2026-11-26T08:50:27+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-26T15:30:32+00:00",
-    "workday/hpe": "2026-11-26T14:00:44+00:00",
-    "workday/intel": "2026-11-26T14:10:27+00:00",
+    "workday/hpe": "2026-11-26T15:40:31+00:00",
+    "workday/intel": "2026-11-26T15:40:31+00:00",
     "workday/micron": "2026-11-26T14:20:26+00:00",
     "workday/northrop-grumman": "2026-11-26T14:50:28+00:00",
     "workday/nvidia": "2026-11-26T15:30:32+00:00",
