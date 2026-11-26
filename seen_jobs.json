@@ -49015,16 +49015,16 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T09:34:47+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T09:44:08+00:00",
+      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49144,7 +49144,10 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T09:44:08+00:00",
+      "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -99541,6 +99544,9 @@
     "ashby:snowflake:639bb38f-0c50-462d-bd86-bb673252180c": {
       "seen_at": "2026-10-19T16:33:30+00:00"
     },
+    "ashby:snowflake:642a2de9-9730-4e85-bdad-4b01d5f37f3b": {
+      "seen_at": "2026-11-26T09:44:08+00:00"
+    },
     "ashby:snowflake:648ec104-24f8-4057-9d0b-3ffb88947f30": {
       "seen_at": "2026-10-29T22:26:43+00:00"
     },
@@ -120812,7 +120818,6 @@
       "seen_at": "2026-11-19T11:33:26+00:00"
     },
     "eightfold:netflix:790319599178": {
-      "missing": "2026-11-26T09:34:47+00:00",
       "seen_at": "2026-11-24T12:24:42+00:00"
     },
     "eightfold:netflix:790319599628": {
@@ -121340,6 +121345,9 @@
     },
     "eightfold:qualcomm:446718630683": {
       "seen_at": "2026-11-19T14:53:35+00:00"
+    },
+    "eightfold:qualcomm:446718635551": {
+      "seen_at": "2026-11-26T09:44:08+00:00"
     },
     "eightfold:qualcomm:446718658373": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -129599,6 +129607,7 @@
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33ae4f5c-d020-4d6b-b33d-591c0f7da237": {
+      "missing": "2026-11-26T09:44:08+00:00",
       "seen_at": "2026-10-14T06:37:11+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33b98fd9-daf3-45e9-9fd7-4ea7b235bf9c": {
@@ -422839,7 +422848,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-26T08:10:28+00:00",
+    "workday/adobe": "2026-11-26T09:40:28+00:00",
     "workday/autodesk": "2026-11-26T08:50:27+00:00",
     "workday/becton-dickinson": "2026-11-26T09:10:33+00:00",
     "workday/boeing": "2026-11-26T09:00:42+00:00",
@@ -422854,7 +422863,7 @@
     "workday/intel": "2026-11-26T08:30:43+00:00",
     "workday/micron": "2026-11-26T08:40:30+00:00",
     "workday/northrop-grumman": "2026-11-26T09:00:42+00:00",
-    "workday/nvidia": "2026-11-26T08:20:27+00:00",
+    "workday/nvidia": "2026-11-26T09:40:28+00:00",
     "workday/paypal": "2026-11-26T07:20:30+00:00",
     "workday/rbc": "2026-11-26T09:30:42+00:00",
     "workday/salesforce": "2026-11-26T09:20:28+00:00",
