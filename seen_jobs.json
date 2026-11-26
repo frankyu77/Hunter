@@ -48600,22 +48600,22 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
-      "warned_failures": false,
-      "warned_zero": false,
-      "zero_since": null
-    },
-    "eightfold/qualcomm": {
       "consecutive_failures": 1,
-      "failing_since": "2026-11-26T13:04:20+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "failing_since": "2026-11-26T13:14:09+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
+    "eightfold/qualcomm": {
+      "consecutive_failures": 0,
+      "warned_failures": false,
+      "warned_zero": false,
+      "zero_since": null
+    },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T12:53:49+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -49071,7 +49071,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-26T04:13:40+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53338,7 +53338,6 @@
         1,
         1,
         1,
-        1,
         0,
         2,
         0,
@@ -53383,7 +53382,8 @@
         0,
         1,
         0,
-        1
+        1,
+        0
       ],
       "oracle/oracle": [
         0,
@@ -122755,7 +122755,6 @@
       "seen_at": "2026-11-14T02:53:14+00:00"
     },
     "eightfold:qualcomm:446721202974": {
-      "missing": "2026-10-27T15:17:18+00:00",
       "seen_at": "2026-10-27T02:25:46+00:00"
     },
     "eightfold:qualcomm:446721204420": {
@@ -220052,6 +220051,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8256905": {
+      "missing": "2026-11-26T13:14:10+00:00",
       "seen_at": "2026-10-15T09:06:00+00:00"
     },
     "greenhouse:mongodb:8257245": {
@@ -220271,6 +220271,9 @@
     },
     "greenhouse:mongodb:8304146": {
       "seen_at": "2026-10-22T17:46:52+00:00"
+    },
+    "greenhouse:mongodb:8304154": {
+      "seen_at": "2026-11-26T13:14:10+00:00"
     },
     "greenhouse:mongodb:8304447": {
       "seen_at": "2026-10-21T11:25:57+00:00"
@@ -260095,7 +260098,7 @@
       "seen_at": "2026-11-26T06:44:01+00:00"
     },
     "oracle:honeywell:163044": {
-      "missing": "2026-11-26T07:13:38+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-26T07:04:15+00:00"
     },
     "oracle:honeywell:163046": {
@@ -281534,6 +281537,9 @@
     },
     "smartrecruiters:BoschGroup:744000163869889": {
       "seen_at": "2026-11-26T13:04:21+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163870749": {
+      "seen_at": "2026-11-26T13:14:10+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -423445,7 +423451,7 @@
     "workday/autodesk": "2026-11-26T11:50:25+00:00",
     "workday/becton-dickinson": "2026-11-26T12:20:32+00:00",
     "workday/boeing": "2026-11-26T12:10:27+00:00",
-    "workday/cibc": "2026-11-26T11:00:37+00:00",
+    "workday/cibc": "2026-11-26T13:10:25+00:00",
     "workday/cisco": "2026-11-26T11:50:25+00:00",
     "workday/clio": "2026-11-26T12:50:25+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
