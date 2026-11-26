@@ -48667,7 +48667,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T20:24:00+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49177,7 +49180,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T18:53:42+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49186,7 +49189,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T17:23:31+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50292,6 +50295,14 @@
           "matched": 0,
           "name": "Ancestry"
         },
+        "workday/arlo": {
+          "boards": {
+            "{\"company\": \"arlo-technologies\", \"host\": \"wd12\", \"site\": \"External_Careers\", \"tenant\": \"arlo\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Arlo Technologies"
+        },
         "workday/cgg": {
           "boards": {
             "{\"company\": \"viridien\", \"host\": \"wd103\", \"site\": \"viridiencareers\", \"tenant\": \"cgg\", \"type\": \"workday\"}": 1
@@ -51133,7 +51144,6 @@
         54
       ],
       "atlassian/atlassian": [
-        43,
         37,
         43,
         43,
@@ -51182,6 +51192,7 @@
         41,
         10,
         48,
+        49,
         49
       ],
       "eightfold/qualcomm": [
@@ -51476,7 +51487,6 @@
       ],
       "greenhouse/asana": [
         0,
-        0,
         15,
         8,
         2,
@@ -51524,7 +51534,8 @@
         35,
         51,
         39,
-        50
+        50,
+        2
       ],
       "greenhouse/asteraearlycareer2027": [
         1,
@@ -53549,7 +53560,8 @@
         5,
         5,
         5,
-        5
+        5,
+        3
       ],
       "oracle/texas-instruments": [
         1,
@@ -71590,7 +71602,7 @@
         "workday/tmx": "2026-11-23",
         "workday/visa": "2026-11-23"
       },
-      "last_run": "2026-11-25T20:14:07+00:00"
+      "last_run": "2026-11-26T20:24:00+00:00"
     },
     "seasons": {
       "adobe": {
@@ -85024,6 +85036,9 @@
     },
     "amazon:amazon:10615569": {
       "seen_at": "2026-11-26T18:53:43+00:00"
+    },
+    "amazon:amazon:10615587": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -102500,7 +102515,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27397": {
-      "missing": "2026-11-26T14:23:59+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "atlassian:atlassian:27398": {
@@ -144927,6 +144942,9 @@
     },
     "github:SimplifyJobs/New-Grad-Positions:f2b3f4f3-c1b5-4b79-8638-f261cac4e0ec": {
       "seen_at": "2026-11-02T14:47:03+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:f2b46eae-3215-4cf6-a9a3-5cf2af55fae5": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:f2c0c0c5-f679-46c2-98dc-36b42fe0532e": {
       "seen_at": "2026-09-29T23:13:47+00:00"
@@ -195423,7 +195441,7 @@
       "seen_at": "2026-10-02T16:24:07+00:00"
     },
     "greenhouse:asana:8232028": {
-      "missing": "2026-11-26T14:23:59+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-23T23:04:32+00:00"
     },
     "greenhouse:asana:8234428": {
@@ -205446,6 +205464,9 @@
     "greenhouse:datadog:4599111": {
       "seen_at": "2026-11-06T12:45:47+00:00"
     },
+    "greenhouse:datadog:5283132": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
+    },
     "greenhouse:datadog:5486716": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
@@ -212972,6 +212993,9 @@
     "greenhouse:figma:6124232004": {
       "seen_at": "2026-11-21T19:04:13+00:00"
     },
+    "greenhouse:figma:6126976004": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
+    },
     "greenhouse:figma:6130524004": {
       "closed": "2026-09-29",
       "seen_at": "2026-09-28T16:34:18+00:00"
@@ -215848,6 +215872,9 @@
     },
     "greenhouse:janestreet:8648474002": {
       "seen_at": "2026-10-02T11:53:27+00:00"
+    },
+    "greenhouse:janestreet:8648512002": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
     },
     "greenhouse:janestreet:8651274002": {
       "seen_at": "2026-10-02T11:53:27+00:00"
@@ -269432,6 +269459,9 @@
     "oracle:oracle:351380": {
       "seen_at": "2026-11-25T20:23:59+00:00"
     },
+    "oracle:oracle:351391": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
+    },
     "oracle:oracle:351399": {
       "seen_at": "2026-11-25T23:34:02+00:00"
     },
@@ -269514,6 +269544,9 @@
     "oracle:oracle:351563": {
       "seen_at": "2026-11-25T23:25:10+00:00"
     },
+    "oracle:oracle:351576": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
+    },
     "oracle:oracle:351580": {
       "seen_at": "2026-11-25T18:04:08+00:00"
     },
@@ -269579,6 +269612,12 @@
     },
     "oracle:oracle:351691": {
       "seen_at": "2026-11-26T11:53:53+00:00"
+    },
+    "oracle:oracle:351698": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
+    },
+    "oracle:oracle:351699": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
     },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
@@ -270263,7 +270302,7 @@
       "seen_at": "2026-11-23T16:14:36+00:00"
     },
     "oracle:ralliant:11360": {
-      "missing": "2026-11-26T14:23:59+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-23T02:04:17+00:00"
     },
     "oracle:ralliant:11363": {
@@ -296241,6 +296280,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163923319": {
       "seen_at": "2026-11-26T19:54:07+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163924310": {
+      "seen_at": "2026-11-26T20:24:00+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -424313,8 +424355,8 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-26T20:10:27+00:00",
     "workday/hpe": "2026-11-26T20:10:27+00:00",
-    "workday/intel": "2026-11-26T18:50:34+00:00",
-    "workday/micron": "2026-11-26T19:00:36+00:00",
+    "workday/intel": "2026-11-26T20:20:25+00:00",
+    "workday/micron": "2026-11-26T20:20:25+00:00",
     "workday/northrop-grumman": "2026-11-26T19:20:27+00:00",
     "workday/nvidia": "2026-11-26T20:00:34+00:00",
     "workday/paypal": "2026-11-26T17:40:28+00:00",
