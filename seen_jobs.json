@@ -48611,13 +48611,19 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T18:44:31+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T18:44:31+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49031,9 +49037,7 @@
       "zero_since": null
     },
     "tiktok/?": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-26T18:24:48+00:00",
-      "last_error": "ValueError: TikTok search error: {'code': -9000003, 'data': None, 'message': 'site not exist', 'error': {'message': 'site not exist'}}",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49162,7 +49166,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T15:34:41+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -245993,6 +245997,9 @@
     "lever:eqbank:eb043e3f-bf05-44ad-836d-94e2ec3ba96d": {
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
+    "lever:eqbank:eb416f10-9ef6-416b-ab6f-a02858949cdb": {
+      "seen_at": "2026-11-26T18:44:32+00:00"
+    },
     "lever:eqbank:eb71271e-70a6-4257-bb81-a086207f6b1c": {
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
@@ -349644,6 +349651,9 @@
     "workday:hp:3167677": {
       "seen_at": "2026-10-06T15:44:04+00:00"
     },
+    "workday:hp:3167682": {
+      "seen_at": "2026-11-26T18:44:32+00:00"
+    },
     "workday:hp:3167686": {
       "seen_at": "2026-09-30T20:34:30+00:00"
     },
@@ -353199,6 +353209,9 @@
     },
     "workday:hp:3171431": {
       "seen_at": "2026-11-26T17:13:31+00:00"
+    },
+    "workday:hp:3171432": {
+      "seen_at": "2026-11-26T18:44:32+00:00"
     },
     "workday:hp:3171472": {
       "seen_at": "2026-11-24T21:14:11+00:00"
@@ -424254,12 +424267,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-26T08:50:27+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-26T17:10:27+00:00",
+    "workday/hp": "2026-11-26T18:40:26+00:00",
     "workday/hpe": "2026-11-26T17:10:27+00:00",
     "workday/intel": "2026-11-26T17:20:27+00:00",
     "workday/micron": "2026-11-26T17:20:27+00:00",
     "workday/northrop-grumman": "2026-11-26T17:50:28+00:00",
-    "workday/nvidia": "2026-11-26T17:00:38+00:00",
+    "workday/nvidia": "2026-11-26T18:40:26+00:00",
     "workday/paypal": "2026-11-26T17:40:28+00:00",
     "workday/rbc": "2026-11-26T18:30:32+00:00",
     "workday/salesforce": "2026-11-26T18:10:27+00:00",
