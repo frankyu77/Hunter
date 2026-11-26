@@ -48600,22 +48600,22 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T12:53:49+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
-      "warned_failures": false,
-      "warned_zero": false,
-      "zero_since": null
-    },
-    "eightfold/qualcomm": {
       "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
-    "eightfold_v2/netflix": {
+    "eightfold/qualcomm": {
       "consecutive_failures": 1,
+      "failing_since": "2026-11-26T13:04:20+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
+      "warned_failures": false,
+      "warned_zero": false,
+      "zero_since": null
+    },
+    "eightfold_v2/netflix": {
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T12:53:49+00:00",
       "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
       "throttled": true,
@@ -49200,7 +49200,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T09:24:41+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -118469,6 +118469,9 @@
     },
     "eightfold:microsoft:1970393557095748": {
       "seen_at": "2026-11-25T19:54:22+00:00"
+    },
+    "eightfold:microsoft:1970393557095775": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
     },
     "eightfold:microsoft:1970393557097217": {
       "seen_at": "2026-11-25T23:34:02+00:00"
@@ -188890,6 +188893,7 @@
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "greenhouse:adyen:8053785": {
+      "missing": "2026-11-26T13:04:21+00:00",
       "seen_at": "2026-09-29T07:53:26+00:00"
     },
     "greenhouse:adyen:8055561": {
@@ -230707,6 +230711,7 @@
       "seen_at": "2026-09-28T01:28:17+00:00"
     },
     "greenhouse:stripe:8076108": {
+      "missing": "2026-11-26T13:04:21+00:00",
       "seen_at": "2026-11-18T13:47:15+00:00"
     },
     "greenhouse:stripe:8076151": {
@@ -259649,6 +259654,9 @@
     "oracle:honeywell:162530": {
       "seen_at": "2026-11-20T05:14:10+00:00"
     },
+    "oracle:honeywell:162532": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
+    },
     "oracle:honeywell:162534": {
       "seen_at": "2026-11-25T14:34:06+00:00"
     },
@@ -259974,6 +259982,9 @@
     },
     "oracle:honeywell:162850": {
       "seen_at": "2026-11-26T11:34:05+00:00"
+    },
+    "oracle:honeywell:162851": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
     },
     "oracle:honeywell:162865": {
       "seen_at": "2026-11-23T15:05:03+00:00"
@@ -281509,8 +281520,20 @@
     "smartrecruiters:BoschGroup:744000163865949": {
       "seen_at": "2026-11-26T12:42:36+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163866060": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
+    },
     "smartrecruiters:BoschGroup:744000163868019": {
       "seen_at": "2026-11-26T12:53:49+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163869115": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163869309": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163869889": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -295699,6 +295722,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163864899": {
       "seen_at": "2026-11-26T12:33:56+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163869008": {
+      "seen_at": "2026-11-26T13:04:21+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -423436,7 +423462,7 @@
     "workday/salesforce": "2026-11-26T12:40:26+00:00",
     "workday/siemens-healthineers": "2026-11-26T12:30:38+00:00",
     "workday/snap": "2026-11-26T10:20:35+00:00",
-    "workday/td": "2026-11-26T11:00:37+00:00",
+    "workday/td": "2026-11-26T13:00:41+00:00",
     "workday/workday": "2026-11-26T11:50:25+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-26T07:20:30+00:00"
