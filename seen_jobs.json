@@ -48606,7 +48606,10 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T15:04:47+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49050,10 +49053,7 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 9,
-      "failing_since": "2026-11-25T21:53:47+00:00",
-      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49182,7 +49182,7 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T12:33:56+00:00",
       "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -118470,6 +118470,9 @@
     },
     "eightfold:microsoft:1970393557079502": {
       "seen_at": "2026-11-25T09:13:48+00:00"
+    },
+    "eightfold:microsoft:1970393557079508": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
     },
     "eightfold:microsoft:1970393557090579": {
       "seen_at": "2026-11-25T08:53:56+00:00"
@@ -199959,6 +199962,9 @@
     "greenhouse:cloudflare:8335624": {
       "seen_at": "2026-11-02T20:06:35+00:00"
     },
+    "greenhouse:cloudflare:8336447": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
+    },
     "greenhouse:cloudflare:8336559": {
       "seen_at": "2026-11-09T11:55:56+00:00"
     },
@@ -200314,6 +200320,9 @@
     },
     "greenhouse:cloudflare:8405408": {
       "seen_at": "2026-11-23T15:33:54+00:00"
+    },
+    "greenhouse:cloudflare:8405433": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
     },
     "greenhouse:cloudflare:8406109": {
       "seen_at": "2026-11-25T13:54:24+00:00"
@@ -210384,6 +210393,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:elastic:8069178": {
+      "missing": "2026-11-26T15:04:47+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:elastic:8070011": {
@@ -210662,6 +210672,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:elastic:8130076": {
+      "missing": "2026-11-26T15:04:47+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "greenhouse:elastic:8130114": {
@@ -218986,6 +218997,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:7831454": {
+      "missing": "2026-11-26T15:04:47+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:7835609": {
@@ -231993,6 +232005,7 @@
       "seen_at": "2026-09-30T09:53:22+00:00"
     },
     "greenhouse:stripe:8222642": {
+      "missing": "2026-11-26T15:04:47+00:00",
       "seen_at": "2026-11-05T16:46:33+00:00"
     },
     "greenhouse:stripe:8223113": {
@@ -272513,6 +272526,9 @@
     "rippling:rippling:25491329-5f96-4a11-81b6-99512adf8081": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
+    "rippling:rippling:26361e78-afa0-4fd1-8877-00d1651fdd36": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
+    },
     "rippling:rippling:27dcd84e-15e0-492d-87de-03a1a986f077": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
@@ -295892,6 +295908,9 @@
     "smartrecruiters:SAPITBusinessSysteme:744000163886679": {
       "seen_at": "2026-11-26T14:53:29+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000163889619": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -315165,6 +315184,9 @@
     "workday:bdx:R-560516": {
       "seen_at": "2026-11-20T11:53:38+00:00"
     },
+    "workday:bdx:R-560529": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
+    },
     "workday:bdx:R-560559": {
       "seen_at": "2026-11-24T01:53:36+00:00"
     },
@@ -315258,6 +315280,9 @@
     "workday:bdx:R-560992": {
       "seen_at": "2026-11-24T17:14:13+00:00"
     },
+    "workday:bdx:R-561004": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
+    },
     "workday:bdx:R-561044": {
       "seen_at": "2026-11-24T20:34:30+00:00"
     },
@@ -315270,8 +315295,14 @@
     "workday:bdx:R-561076": {
       "seen_at": "2026-11-24T17:14:13+00:00"
     },
+    "workday:bdx:R-561086": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
+    },
     "workday:bdx:R-561094": {
       "seen_at": "2026-11-24T20:34:30+00:00"
+    },
+    "workday:bdx:R-561180": {
+      "seen_at": "2026-11-26T15:04:47+00:00"
     },
     "workday:boeing:JR2025475067": {
       "seen_at": "2026-10-22T16:07:39+00:00"
@@ -423690,7 +423721,7 @@
   "polling": {
     "workday/adobe": "2026-11-26T13:30:31+00:00",
     "workday/autodesk": "2026-11-26T14:30:32+00:00",
-    "workday/becton-dickinson": "2026-11-26T12:20:32+00:00",
+    "workday/becton-dickinson": "2026-11-26T15:00:39+00:00",
     "workday/boeing": "2026-11-26T14:50:28+00:00",
     "workday/cibc": "2026-11-26T13:10:25+00:00",
     "workday/cisco": "2026-11-26T14:40:26+00:00",
@@ -423707,7 +423738,7 @@
     "workday/paypal": "2026-11-26T14:40:26+00:00",
     "workday/rbc": "2026-11-26T13:20:34+00:00",
     "workday/salesforce": "2026-11-26T12:40:26+00:00",
-    "workday/siemens-healthineers": "2026-11-26T12:30:38+00:00",
+    "workday/siemens-healthineers": "2026-11-26T15:00:39+00:00",
     "workday/snap": "2026-11-26T14:30:32+00:00",
     "workday/td": "2026-11-26T13:00:41+00:00",
     "workday/workday": "2026-11-26T11:50:25+00:00",
