@@ -48677,10 +48677,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T21:13:43+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49142,7 +49139,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T19:54:03+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49250,7 +49247,10 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T21:23:23+00:00",
+      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -53441,7 +53441,6 @@
         0
       ],
       "oracle/honeywell": [
-        1,
         0,
         2,
         0,
@@ -53489,6 +53488,7 @@
         1,
         0,
         2,
+        1,
         1,
         1
       ],
@@ -117963,6 +117963,9 @@
     "eightfold:microsoft:1970393557075313": {
       "seen_at": "2026-11-19T18:13:37+00:00"
     },
+    "eightfold:microsoft:1970393557075344": {
+      "seen_at": "2026-11-26T21:23:24+00:00"
+    },
     "eightfold:microsoft:1970393557075354": {
       "seen_at": "2026-11-18T11:26:54+00:00"
     },
@@ -138904,7 +138907,7 @@
       "seen_at": "2026-10-22T22:36:43+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:a32f2d13-b542-4650-be59-0801e482c23e": {
-      "missing": "2026-11-26T15:14:56+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-29T22:36:31+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:a32f67ff-5d44-4e8f-946d-3bf4be9d7b8b": {
@@ -260063,7 +260066,7 @@
       "seen_at": "2026-11-25T14:34:06+00:00"
     },
     "oracle:honeywell:162535": {
-      "missing": "2026-11-26T15:14:56+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-25T15:04:50+00:00"
     },
     "oracle:honeywell:162536": {
@@ -270457,7 +270460,6 @@
       "seen_at": "2026-10-05T01:03:24+00:00"
     },
     "oracle:texas-instruments:25004283": {
-      "closed": "2026-11-25",
       "seen_at": "2026-11-24T17:34:35+00:00"
     },
     "oracle:texas-instruments:25004476": {
@@ -424455,7 +424457,7 @@
     "workday/autodesk": "2026-11-26T20:30:31+00:00",
     "workday/becton-dickinson": "2026-11-26T20:50:25+00:00",
     "workday/boeing": "2026-11-26T20:50:25+00:00",
-    "workday/cibc": "2026-11-26T19:50:24+00:00",
+    "workday/cibc": "2026-11-26T21:20:25+00:00",
     "workday/cisco": "2026-11-26T20:30:31+00:00",
     "workday/clio": "2026-11-26T21:10:28+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -424468,7 +424470,7 @@
     "workday/northrop-grumman": "2026-11-26T20:50:25+00:00",
     "workday/nvidia": "2026-11-26T20:00:34+00:00",
     "workday/paypal": "2026-11-26T20:40:30+00:00",
-    "workday/rbc": "2026-11-26T19:50:24+00:00",
+    "workday/rbc": "2026-11-26T21:20:25+00:00",
     "workday/salesforce": "2026-11-26T21:00:44+00:00",
     "workday/siemens-healthineers": "2026-11-26T21:00:44+00:00",
     "workday/snap": "2026-11-26T20:40:30+00:00",
