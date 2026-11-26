@@ -48540,19 +48540,13 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T02:04:58+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T02:04:58+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48972,10 +48966,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-25T20:44:02+00:00",
-      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50953,7 +50944,6 @@
         1
       ],
       "eightfold_v2/netflix": [
-        36,
         9,
         5,
         39,
@@ -51002,7 +50992,8 @@
         47,
         48,
         48,
-        35
+        35,
+        48
       ],
       "greenhouse/adyen": [
         19,
@@ -98992,6 +98983,7 @@
       "seen_at": "2026-11-23T11:44:14+00:00"
     },
     "ashby:snowflake:2ebec9d1-055f-4e47-93ae-29ad19e23967": {
+      "missing": "2026-11-26T02:13:39+00:00",
       "seen_at": "2026-11-01T23:35:38+00:00"
     },
     "ashby:snowflake:2f1fa81b-78ac-4b86-bd7c-48a3c2d3ab97": {
@@ -99628,6 +99620,7 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "ashby:snowflake:8ed11270-814d-415a-b4c4-572e07b2f2c9": {
+      "missing": "2026-11-26T02:13:39+00:00",
       "seen_at": "2026-11-24T06:33:57+00:00"
     },
     "ashby:snowflake:9003f845-850a-4786-a422-ec9632fe0141": {
@@ -100074,11 +100067,13 @@
     "ashby:snowflake:ce0b7fb7-c38f-486a-aeb6-d70c26f99b03": {
       "seen_at": "2026-11-06T02:26:46+00:00"
     },
+    "ashby:snowflake:ce588f6d-e567-4cdb-9b2d-20cc2b23a9f0": {
+      "seen_at": "2026-11-26T02:13:39+00:00"
+    },
     "ashby:snowflake:d0532a39-1cf9-467c-9ab4-b895c82ea4e5": {
       "seen_at": "2026-10-14T02:06:54+00:00"
     },
     "ashby:snowflake:d08054aa-4357-4eb5-b8ac-a0e97982fbc6": {
-      "missing": "2026-11-26T00:34:23+00:00",
       "seen_at": "2026-11-10T06:26:13+00:00"
     },
     "ashby:snowflake:d136f868-6f3a-4e22-9cad-a6e95348e407": {
@@ -118642,7 +118637,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316470001": {
-      "missing": "2026-11-25T19:54:21+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316474839": {
@@ -249511,7 +249506,6 @@
       "seen_at": "2026-11-04T12:46:11+00:00"
     },
     "oracle:dell:297023": {
-      "missing": "2026-11-05T03:46:34+00:00",
       "seen_at": "2026-10-27T16:16:44+00:00"
     },
     "oracle:dell:297030": {
@@ -249782,6 +249776,9 @@
     "oracle:dell:298611": {
       "missing": "2026-10-20T21:26:36+00:00",
       "seen_at": "2026-10-06T02:43:26+00:00"
+    },
+    "oracle:dell:298612": {
+      "seen_at": "2026-11-26T02:13:39+00:00"
     },
     "oracle:dell:298630": {
       "seen_at": "2026-11-23T21:23:38+00:00"
@@ -421775,7 +421772,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-25T23:50:27+00:00",
+    "workday/adobe": "2026-11-26T02:10:26+00:00",
     "workday/autodesk": "2026-11-26T00:30:29+00:00",
     "workday/becton-dickinson": "2026-11-26T01:00:35+00:00",
     "workday/boeing": "2026-11-26T00:50:48+00:00",
