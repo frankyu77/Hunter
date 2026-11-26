@@ -48683,7 +48683,10 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T21:04:26+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49253,13 +49256,16 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T21:04:26+00:00",
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T18:04:17+00:00",
       "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -282049,6 +282055,12 @@
     "smartrecruiters:BoschGroup:744000163920849": {
       "seen_at": "2026-11-26T19:23:47+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163925794": {
+      "seen_at": "2026-11-26T21:04:27+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163925969": {
+      "seen_at": "2026-11-26T21:04:27+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -296374,6 +296386,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163925579": {
       "seen_at": "2026-11-26T20:54:02+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163926119": {
+      "seen_at": "2026-11-26T21:04:27+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -424452,8 +424467,8 @@
     "workday/nvidia": "2026-11-26T20:00:34+00:00",
     "workday/paypal": "2026-11-26T20:40:30+00:00",
     "workday/rbc": "2026-11-26T19:50:24+00:00",
-    "workday/salesforce": "2026-11-26T19:40:33+00:00",
-    "workday/siemens-healthineers": "2026-11-26T19:30:32+00:00",
+    "workday/salesforce": "2026-11-26T21:00:44+00:00",
+    "workday/siemens-healthineers": "2026-11-26T21:00:44+00:00",
     "workday/snap": "2026-11-26T20:40:30+00:00",
     "workday/td": "2026-11-26T19:40:33+00:00",
     "workday/workday": "2026-11-26T20:40:30+00:00",
