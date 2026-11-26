@@ -48589,13 +48589,19 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T11:13:59+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T11:13:59+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49021,7 +49027,7 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T09:44:08+00:00",
       "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49165,10 +49171,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T09:34:47+00:00",
-      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50298,9 +50301,10 @@
         },
         "JazzHR": {
           "companies": [
-            "WELLSTAR Technologies"
+            "WELLSTAR Technologies",
+            "K1"
           ],
-          "jobs": 2,
+          "jobs": 3,
           "matched": 2
         },
         "Jobvite": {
@@ -51775,7 +51779,6 @@
         22
       ],
       "greenhouse/datadog": [
-        5,
         11,
         41,
         25,
@@ -51824,7 +51827,8 @@
         1,
         35,
         49,
-        23
+        23,
+        3
       ],
       "greenhouse/discord": [
         0,
@@ -139251,6 +139255,9 @@
       "closed": "2026-10-14",
       "seen_at": "2026-09-30T23:14:04+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:ab501bad-862f-4f37-963c-78590ba637c1": {
+      "seen_at": "2026-11-26T11:14:00+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:ab51e1b3-b990-46c8-9fe0-be1c21b8586c": {
       "closed": "2026-11-13",
       "seen_at": "2026-11-11T23:36:25+00:00"
@@ -144237,6 +144244,7 @@
       "seen_at": "2026-11-25T11:13:57+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ec690411-3f8c-4226-b9e3-2060341f134b": {
+      "missing": "2026-11-26T11:13:59+00:00",
       "seen_at": "2026-11-05T09:16:09+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ec6cf12a-dd02-4416-9eb0-6b01646dca5d": {
@@ -205548,7 +205556,7 @@
       "seen_at": "2026-11-24T14:54:04+00:00"
     },
     "greenhouse:datadog:7939294": {
-      "missing": "2026-11-26T05:13:52+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7947683": {
@@ -232352,6 +232360,7 @@
       "seen_at": "2026-10-26T05:05:45+00:00"
     },
     "greenhouse:stripe:8273855": {
+      "missing": "2026-11-26T11:13:59+00:00",
       "seen_at": "2026-10-14T17:38:47+00:00"
     },
     "greenhouse:stripe:8274580": {
@@ -281323,6 +281332,15 @@
     "smartrecruiters:BoschGroup:744000163850199": {
       "seen_at": "2026-11-26T11:04:58+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163851664": {
+      "seen_at": "2026-11-26T11:14:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163851756": {
+      "seen_at": "2026-11-26T11:14:00+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163852760": {
+      "seen_at": "2026-11-26T11:14:00+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -295486,6 +295504,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163851439": {
       "seen_at": "2026-11-26T11:04:58+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163852779": {
+      "seen_at": "2026-11-26T11:14:00+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -423052,7 +423073,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-26T09:40:28+00:00",
+    "workday/adobe": "2026-11-26T11:10:32+00:00",
     "workday/autodesk": "2026-11-26T10:10:27+00:00",
     "workday/becton-dickinson": "2026-11-26T10:40:25+00:00",
     "workday/boeing": "2026-11-26T10:30:45+00:00",
@@ -423069,7 +423090,7 @@
     "workday/northrop-grumman": "2026-11-26T10:30:45+00:00",
     "workday/nvidia": "2026-11-26T09:40:28+00:00",
     "workday/paypal": "2026-11-26T10:20:35+00:00",
-    "workday/rbc": "2026-11-26T09:30:42+00:00",
+    "workday/rbc": "2026-11-26T11:10:32+00:00",
     "workday/salesforce": "2026-11-26T10:50:26+00:00",
     "workday/siemens-healthineers": "2026-11-26T10:40:25+00:00",
     "workday/snap": "2026-11-26T10:20:35+00:00",
