@@ -48943,9 +48943,7 @@
       "zero_since": null
     },
     "oracle/oracle": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T07:24:35+00:00",
-      "last_error": "ReadTimeout: HTTPSConnectionPool(host='eeho.fa.us2.oraclecloud.com', port=443): Read timed out. (read timeout=30)",
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49017,7 +49015,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T07:34:01+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49047,7 +49048,10 @@
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T07:34:01+00:00",
+      "last_error": "HTTP 429 from boeing.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49128,7 +49132,7 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T05:04:15+00:00",
       "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49657,7 +49661,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-26T06:33:55+00:00",
+    "dashboard_built_at": "2026-11-26T07:34:02+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -234633,6 +234637,9 @@
     "greenhouse:twilio:8393931": {
       "seen_at": "2026-11-17T20:36:56+00:00"
     },
+    "greenhouse:twilio:8393933": {
+      "seen_at": "2026-11-26T07:34:02+00:00"
+    },
     "greenhouse:twilio:8393935": {
       "seen_at": "2026-11-16T21:35:56+00:00"
     },
@@ -280994,6 +281001,9 @@
     "smartrecruiters:BoschGroup:744000163814059": {
       "seen_at": "2026-11-26T07:24:35+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163816939": {
+      "seen_at": "2026-11-26T07:34:02+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -295076,6 +295086,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163810139": {
       "seen_at": "2026-11-26T06:23:41+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163816318": {
+      "seen_at": "2026-11-26T07:34:02+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -422574,7 +422587,7 @@
     "workday/adobe": "2026-11-26T06:20:26+00:00",
     "workday/autodesk": "2026-11-26T07:20:30+00:00",
     "workday/becton-dickinson": "2026-11-26T05:14:09+00:00",
-    "workday/boeing": "2026-11-26T05:10:24+00:00",
+    "workday/boeing": "2026-11-26T07:30:38+00:00",
     "workday/cibc": "2026-11-26T06:00:35+00:00",
     "workday/cisco": "2026-11-26T04:50:31+00:00",
     "workday/clio": "2026-11-26T05:40:25+00:00",
@@ -422585,7 +422598,7 @@
     "workday/hpe": "2026-11-26T06:50:24+00:00",
     "workday/intel": "2026-11-26T07:00:35+00:00",
     "workday/micron": "2026-11-26T07:10:35+00:00",
-    "workday/northrop-grumman": "2026-11-26T05:00:36+00:00",
+    "workday/northrop-grumman": "2026-11-26T07:30:38+00:00",
     "workday/nvidia": "2026-11-26T06:30:42+00:00",
     "workday/paypal": "2026-11-26T07:20:30+00:00",
     "workday/rbc": "2026-11-26T06:10:29+00:00",
