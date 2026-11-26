@@ -48556,7 +48556,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-26T03:14:10+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -48985,7 +48985,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T03:24:31+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49105,7 +49108,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-25T19:54:20+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49141,7 +49144,10 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T03:24:31+00:00",
+      "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50745,7 +50751,6 @@
       "ashby/shield": [
         4,
         4,
-        4,
         5,
         5,
         5,
@@ -50791,6 +50796,7 @@
         12,
         12,
         9,
+        13,
         13,
         13
       ],
@@ -52207,7 +52213,6 @@
       ],
       "greenhouse/okta": [
         36,
-        36,
         42,
         0,
         0,
@@ -52255,6 +52260,7 @@
         48,
         48,
         22,
+        48,
         48
       ],
       "greenhouse/pinterest": [
@@ -52749,7 +52755,6 @@
         5
       ],
       "greenhouse/waymo": [
-        36,
         14,
         36,
         36,
@@ -52797,6 +52802,7 @@
         14,
         48,
         39,
+        48,
         48,
         48
       ],
@@ -96877,7 +96883,7 @@
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:81231564-6e3d-4a0f-9101-634982ae8d8b": {
-      "missing": "2026-11-25T21:24:22+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-11-12T02:26:43+00:00"
     },
     "ashby:shield:818e2035-842e-4630-b13d-1fe1024b76aa": {
@@ -118481,6 +118487,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315716724": {
+      "missing": "2026-11-26T03:24:31+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315756419": {
@@ -119439,6 +119446,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318193455": {
+      "missing": "2026-11-26T03:24:31+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318217928": {
@@ -120380,6 +120388,7 @@
       "seen_at": "2026-11-04T23:25:47+00:00"
     },
     "eightfold:netflix:790319365302": {
+      "missing": "2026-11-26T03:24:31+00:00",
       "seen_at": "2026-11-05T14:26:31+00:00"
     },
     "eightfold:netflix:790319372667": {
@@ -221137,7 +221146,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8137951": {
-      "missing": "2026-11-25T21:24:22+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:8138328": {
@@ -225775,6 +225784,9 @@
     },
     "greenhouse:robinhood:8374447": {
       "seen_at": "2026-11-11T14:27:03+00:00"
+    },
+    "greenhouse:robinhood:8375545": {
+      "seen_at": "2026-11-26T03:24:31+00:00"
     },
     "greenhouse:robinhood:8379150": {
       "seen_at": "2026-11-16T21:26:28+00:00"
@@ -235674,7 +235686,7 @@
       "seen_at": "2026-10-28T16:55:55+00:00"
     },
     "greenhouse:waymo:8127006": {
-      "missing": "2026-11-25T21:24:22+00:00",
+      "closed": "2026-11-25",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8128596": {
@@ -283738,6 +283750,12 @@
     },
     "smartrecruiters:Intuitive:744000163776509": {
       "seen_at": "2026-11-26T00:24:15+00:00"
+    },
+    "smartrecruiters:Intuitive:744000163802649": {
+      "seen_at": "2026-11-26T03:24:31+00:00"
+    },
+    "smartrecruiters:Intuitive:744000163802829": {
+      "seen_at": "2026-11-26T03:24:31+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000120009098": {
       "seen_at": "2026-11-19T20:03:44+00:00"
@@ -421968,11 +421986,11 @@
     "workday/micron": "2026-11-26T03:00:36+00:00",
     "workday/northrop-grumman": "2026-11-26T00:40:31+00:00",
     "workday/nvidia": "2026-11-26T02:20:33+00:00",
-    "workday/paypal": "2026-11-25T23:10:24+00:00",
+    "workday/paypal": "2026-11-26T03:20:37+00:00",
     "workday/rbc": "2026-11-26T02:00:35+00:00",
     "workday/salesforce": "2026-11-26T01:20:29+00:00",
     "workday/siemens-healthineers": "2026-11-26T01:10:26+00:00",
-    "workday/snap": "2026-11-26T00:30:29+00:00",
+    "workday/snap": "2026-11-26T03:20:37+00:00",
     "workday/td": "2026-11-26T01:40:26+00:00",
     "workday/workday": "2026-11-26T00:30:29+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
