@@ -48667,10 +48667,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-26T20:24:00+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49096,7 +49093,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T20:33:48+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49126,7 +49126,10 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T20:33:48+00:00",
+      "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -273662,6 +273665,9 @@
     "rippling:rippling:b79b68d2-29d9-4f99-8369-74cc5b984e26": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
+    "rippling:rippling:b7e4c940-0dc4-44b2-8e5d-b1a3aae90956": {
+      "seen_at": "2026-11-26T20:33:49+00:00"
+    },
     "rippling:rippling:b80f749a-53a7-4893-ad7d-7964929e6fd0": {
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
@@ -296283,6 +296289,9 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163924310": {
       "seen_at": "2026-11-26T20:24:00+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163924979": {
+      "seen_at": "2026-11-26T20:33:49+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -424344,11 +424353,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-26T20:00:34+00:00",
-    "workday/autodesk": "2026-11-26T19:10:34+00:00",
+    "workday/autodesk": "2026-11-26T20:30:31+00:00",
     "workday/becton-dickinson": "2026-11-26T19:30:32+00:00",
     "workday/boeing": "2026-11-26T19:20:27+00:00",
     "workday/cibc": "2026-11-26T19:50:24+00:00",
-    "workday/cisco": "2026-11-26T19:10:34+00:00",
+    "workday/cisco": "2026-11-26T20:30:31+00:00",
     "workday/clio": "2026-11-26T19:40:33+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-26T19:10:34+00:00",
