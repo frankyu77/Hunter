@@ -49109,7 +49109,10 @@
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-26T21:33:38+00:00",
+      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49229,7 +49232,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-26T15:34:41+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52424,7 +52427,6 @@
       "greenhouse/mongodb": [
         39,
         39,
-        39,
         40,
         40,
         40,
@@ -52471,10 +52473,10 @@
         49,
         49,
         42,
-        49
+        49,
+        42
       ],
       "greenhouse/okta": [
-        42,
         37,
         43,
         43,
@@ -52523,7 +52525,8 @@
         48,
         40,
         49,
-        49
+        49,
+        23
       ],
       "greenhouse/pinterest": [
         13,
@@ -53174,8 +53177,6 @@
         5
       ],
       "jibe/docusign": [
-        0,
-        2,
         42,
         20,
         42,
@@ -53221,6 +53222,8 @@
         19,
         12,
         27,
+        49,
+        49,
         49,
         49,
         49
@@ -53292,6 +53295,7 @@
         18,
         17,
         19,
+        20,
         20,
         20
       ],
@@ -53441,7 +53445,6 @@
         0
       ],
       "oracle/honeywell": [
-        0,
         2,
         0,
         0,
@@ -53490,7 +53493,8 @@
         2,
         1,
         1,
-        1
+        1,
+        0
       ],
       "oracle/oracle": [
         0,
@@ -53687,6 +53691,7 @@
         6,
         6,
         5,
+        6,
         6
       ],
       "smartrecruiters/BoschGroup": [
@@ -220484,7 +220489,7 @@
       "seen_at": "2026-10-08T23:35:50+00:00"
     },
     "greenhouse:mongodb:8266013": {
-      "missing": "2026-11-26T15:28:00+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-15T15:17:22+00:00"
     },
     "greenhouse:mongodb:8266850": {
@@ -223234,7 +223239,7 @@
       "seen_at": "2026-10-30T16:46:39+00:00"
     },
     "greenhouse:okta:8336694": {
-      "missing": "2026-11-26T15:24:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-03T12:16:00+00:00"
     },
     "greenhouse:okta:8336707": {
@@ -243769,7 +243774,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30305": {
-      "missing": "2026-11-26T15:24:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30306": {
@@ -243808,7 +243813,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30321": {
-      "missing": "2026-11-26T15:24:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30323": {
@@ -245961,7 +245966,7 @@
       "seen_at": "2026-11-26T19:14:12+00:00"
     },
     "lever:eqbank:62c8dab4-dd9d-4b5a-bb72-b66283dd4d5d": {
-      "missing": "2026-11-26T15:24:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
     "lever:eqbank:642bf7c6-eb9b-456b-887c-c85d51b66655": {
@@ -260070,7 +260075,7 @@
       "seen_at": "2026-11-25T15:04:50+00:00"
     },
     "oracle:honeywell:162536": {
-      "missing": "2026-11-26T15:24:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-25T15:24:27+00:00"
     },
     "oracle:honeywell:162537": {
@@ -273954,7 +273959,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:dce595ba-1aea-41ce-af86-377d1c36888e": {
-      "missing": "2026-11-26T15:24:08+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "rippling:rippling:dcfc8ad6-d462-495b-892e-93f170feb19a": {
@@ -282063,6 +282068,9 @@
     },
     "smartrecruiters:BoschGroup:744000163925969": {
       "seen_at": "2026-11-26T21:04:27+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163927449": {
+      "seen_at": "2026-11-26T21:33:39+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -424453,7 +424461,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-26T20:00:34+00:00",
+    "workday/adobe": "2026-11-26T21:30:33+00:00",
     "workday/autodesk": "2026-11-26T20:30:31+00:00",
     "workday/becton-dickinson": "2026-11-26T20:50:25+00:00",
     "workday/boeing": "2026-11-26T20:50:25+00:00",
@@ -424468,7 +424476,7 @@
     "workday/intel": "2026-11-26T20:20:25+00:00",
     "workday/micron": "2026-11-26T20:20:25+00:00",
     "workday/northrop-grumman": "2026-11-26T20:50:25+00:00",
-    "workday/nvidia": "2026-11-26T20:00:34+00:00",
+    "workday/nvidia": "2026-11-26T21:30:33+00:00",
     "workday/paypal": "2026-11-26T20:40:30+00:00",
     "workday/rbc": "2026-11-26T21:20:25+00:00",
     "workday/salesforce": "2026-11-26T21:00:44+00:00",
