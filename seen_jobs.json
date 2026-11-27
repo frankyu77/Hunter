@@ -49335,7 +49335,10 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T06:13:44+00:00",
+      "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52057,8 +52060,6 @@
         0
       ],
       "greenhouse/datadog": [
-        41,
-        25,
         9,
         23,
         5,
@@ -52106,7 +52107,9 @@
         49,
         23,
         3,
-        43
+        43,
+        3,
+        3
       ],
       "greenhouse/discord": [
         0,
@@ -206199,14 +206202,14 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7439152": {
-      "missing": "2026-11-27T00:13:17+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7439569": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7439573": {
-      "missing": "2026-11-27T00:13:17+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7442122": {
@@ -250865,6 +250868,7 @@
       "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "oracle:dell:296580": {
+      "missing": "2026-11-27T06:13:44+00:00",
       "seen_at": "2026-11-20T15:54:23+00:00"
     },
     "oracle:dell:296581": {
@@ -251195,6 +251199,7 @@
       "seen_at": "2026-11-26T02:13:39+00:00"
     },
     "oracle:dell:298630": {
+      "missing": "2026-11-27T06:13:44+00:00",
       "seen_at": "2026-11-23T21:23:38+00:00"
     },
     "oracle:dell:298713": {
@@ -252959,7 +252964,6 @@
       "seen_at": "2026-11-11T08:45:38+00:00"
     },
     "oracle:dell:301836": {
-      "missing": "2026-11-27T06:04:31+00:00",
       "seen_at": "2026-11-20T19:34:15+00:00"
     },
     "oracle:dell:301837": {
@@ -252973,7 +252977,6 @@
       "seen_at": "2026-11-19T17:27:34+00:00"
     },
     "oracle:dell:301844": {
-      "missing": "2026-11-27T06:04:31+00:00",
       "seen_at": "2026-11-20T19:44:10+00:00"
     },
     "oracle:dell:301849": {
@@ -265307,6 +265310,9 @@
     },
     "oracle:oracle:347707": {
       "seen_at": "2026-10-15T19:07:13+00:00"
+    },
+    "oracle:oracle:347708": {
+      "seen_at": "2026-11-27T06:13:44+00:00"
     },
     "oracle:oracle:347710": {
       "seen_at": "2026-10-16T02:26:55+00:00"
@@ -282607,8 +282613,20 @@
     "smartrecruiters:BoschGroup:744000163963389": {
       "seen_at": "2026-11-27T05:33:23+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163964444": {
+      "seen_at": "2026-11-27T06:13:44+00:00"
+    },
     "smartrecruiters:BoschGroup:744000163964568": {
       "seen_at": "2026-11-27T06:04:31+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163965003": {
+      "seen_at": "2026-11-27T06:13:44+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163965539": {
+      "seen_at": "2026-11-27T06:13:44+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163965739": {
+      "seen_at": "2026-11-27T06:13:44+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -425198,7 +425216,7 @@
     "workday/hpe": "2026-11-27T05:40:29+00:00",
     "workday/intel": "2026-11-27T05:40:29+00:00",
     "workday/micron": "2026-11-27T05:50:26+00:00",
-    "workday/northrop-grumman": "2026-11-27T04:40:27+00:00",
+    "workday/northrop-grumman": "2026-11-27T06:10:25+00:00",
     "workday/nvidia": "2026-11-27T05:30:36+00:00",
     "workday/paypal": "2026-11-27T04:30:32+00:00",
     "workday/rbc": "2026-11-27T05:20:25+00:00",
