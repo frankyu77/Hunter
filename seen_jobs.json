@@ -48837,13 +48837,19 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T20:04:31+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T20:04:31+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49344,7 +49350,7 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-27T11:03:51+00:00",
       "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49353,7 +49359,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "failing_since": "2026-11-27T09:33:29+00:00",
       "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52699,8 +52705,6 @@
         15
       ],
       "greenhouse/mongodb": [
-        39,
-        40,
         40,
         40,
         40,
@@ -52748,6 +52752,8 @@
         42,
         49,
         42,
+        50,
+        50,
         50
       ],
       "greenhouse/okta": [
@@ -190109,6 +190115,9 @@
       "closed": "2026-11-10",
       "seen_at": "2026-10-01T15:34:32+00:00"
     },
+    "greenhouse:adyen:8214548": {
+      "seen_at": "2026-11-27T20:04:31+00:00"
+    },
     "greenhouse:adyen:8214551": {
       "seen_at": "2026-10-02T16:53:37+00:00"
     },
@@ -220134,7 +220143,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8120184": {
-      "missing": "2026-11-27T13:53:39+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8121324": {
@@ -220610,7 +220619,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8213069": {
-      "missing": "2026-11-27T13:53:39+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8213746": {
@@ -234221,6 +234230,9 @@
     },
     "greenhouse:stripe:8421367": {
       "seen_at": "2026-11-27T19:53:26+00:00"
+    },
+    "greenhouse:stripe:8421387": {
+      "seen_at": "2026-11-27T20:04:31+00:00"
     },
     "greenhouse:tenstorrentuniversity:5256568007": {
       "seen_at": "2026-11-05T18:46:08+00:00"
@@ -260386,6 +260398,9 @@
     "oracle:honeywell:162542": {
       "seen_at": "2026-11-27T19:53:26+00:00"
     },
+    "oracle:honeywell:162545": {
+      "seen_at": "2026-11-27T20:04:31+00:00"
+    },
     "oracle:honeywell:162553": {
       "seen_at": "2026-11-26T01:43:43+00:00"
     },
@@ -262255,9 +262270,6 @@
     "oracle:oracle:343689": {
       "seen_at": "2026-09-28T20:04:34+00:00"
     },
-    "oracle:oracle:343690": {
-      "seen_at": "2026-09-28T19:53:35+00:00"
-    },
     "oracle:oracle:343694": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -263071,9 +263083,6 @@
     },
     "oracle:oracle:346218": {
       "seen_at": "2026-09-28T20:34:39+00:00"
-    },
-    "oracle:oracle:346219": {
-      "seen_at": "2026-09-28T19:53:35+00:00"
     },
     "oracle:oracle:346221": {
       "seen_at": "2026-09-28T20:34:39+00:00"
@@ -375373,9 +375382,6 @@
     "workday:ngc:R10252990": {
       "seen_at": "2026-09-28T20:23:57+00:00"
     },
-    "workday:ngc:R10253000": {
-      "seen_at": "2026-09-28T19:53:35+00:00"
-    },
     "workday:ngc:R10253012": {
       "seen_at": "2026-09-29T00:33:13+00:00"
     },
@@ -375462,9 +375468,6 @@
     },
     "workday:ngc:R10253177": {
       "seen_at": "2026-11-04T17:47:16+00:00"
-    },
-    "workday:ngc:R10253178": {
-      "seen_at": "2026-09-28T19:53:35+00:00"
     },
     "workday:ngc:R10253188": {
       "seen_at": "2026-09-30T14:34:34+00:00"
@@ -392904,10 +392907,6 @@
     },
     "workday:nvidia:JR2025960": {
       "seen_at": "2026-10-05T22:44:03+00:00"
-    },
-    "workday:nvidia:JR2025963": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T19:53:35+00:00"
     },
     "workday:nvidia:JR2025964": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -424524,8 +424523,8 @@
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-27T18:30:45+00:00",
-    "workday/hpe": "2026-11-27T18:30:45+00:00",
+    "workday/hp": "2026-11-27T20:00:35+00:00",
+    "workday/hpe": "2026-11-27T20:00:35+00:00",
     "workday/intel": "2026-11-27T18:40:25+00:00",
     "workday/micron": "2026-11-27T18:40:25+00:00",
     "workday/northrop-grumman": "2026-11-27T19:10:32+00:00",
