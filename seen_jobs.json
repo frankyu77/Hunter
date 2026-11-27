@@ -48831,10 +48831,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-27T19:04:35+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49290,7 +49287,10 @@
       "zero_since": null
     },
     "workday/boeing": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T19:14:00+00:00",
+      "last_error": "HTTP 429 from boeing.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49374,10 +49374,7 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-27T16:34:25+00:00",
-      "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52697,7 +52694,6 @@
       ],
       "greenhouse/mongodb": [
         39,
-        39,
         40,
         40,
         40,
@@ -52745,7 +52741,8 @@
         49,
         42,
         49,
-        42
+        42,
+        50
       ],
       "greenhouse/okta": [
         43,
@@ -61215,11 +61212,6 @@
         "first": "2026-10-06T01:53:27+00:00",
         "id": "workday:hpe:1213439",
         "last": "2026-10-06T01:53:27+00:00"
-      },
-      "hpe|network solution test engineer (sunnyvale, ca)": {
-        "first": "2026-09-28T19:13:50+00:00",
-        "id": "workday:hpe:1214578",
-        "last": "2026-09-28T19:13:50+00:00"
       },
       "hpe|pre-sales systems engineer - sled (south dakota)": {
         "first": "2026-09-29T19:34:02+00:00",
@@ -85233,6 +85225,9 @@
     },
     "amazon:amazon:10615993": {
       "seen_at": "2026-11-27T18:24:10+00:00"
+    },
+    "amazon:amazon:10615996": {
+      "seen_at": "2026-11-27T19:14:01+00:00"
     },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
@@ -191999,10 +191994,6 @@
       "closed": "2026-11-20",
       "seen_at": "2026-11-14T01:31:24+00:00"
     },
-    "greenhouse:airbnb:8167113": {
-      "closed": "2026-11-10",
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "greenhouse:airbnb:8167204": {
       "closed": "2026-11-17",
       "seen_at": "2026-10-30T19:57:06+00:00"
@@ -193296,10 +193287,6 @@
     "greenhouse:anthropic:5163060008": {
       "closed": "2026-10-30",
       "seen_at": "2026-10-20T20:56:54+00:00"
-    },
-    "greenhouse:anthropic:5166178008": {
-      "closed": "2026-10-05",
-      "seen_at": "2026-09-28T19:13:50+00:00"
     },
     "greenhouse:anthropic:5171950008": {
       "seen_at": "2026-10-14T00:37:37+00:00"
@@ -194657,6 +194644,12 @@
     "greenhouse:anthropic:5436615008": {
       "closed": "2026-11-19",
       "seen_at": "2026-09-29T00:33:13+00:00"
+    },
+    "greenhouse:anthropic:5436684008": {
+      "seen_at": "2026-11-27T19:14:01+00:00"
+    },
+    "greenhouse:anthropic:5436697008": {
+      "seen_at": "2026-11-27T19:14:01+00:00"
     },
     "greenhouse:anthropic:5436703008": {
       "seen_at": "2026-11-27T19:04:35+00:00"
@@ -202686,10 +202679,6 @@
     },
     "greenhouse:databricks:7680573002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
-    },
-    "greenhouse:databricks:7698278002": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T19:13:50+00:00"
     },
     "greenhouse:databricks:7716357002": {
       "seen_at": "2026-11-04T18:36:08+00:00"
@@ -220351,7 +220340,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8153173": {
-      "missing": "2026-11-27T13:04:49+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8153218": {
@@ -243383,6 +243372,9 @@
     },
     "jibe:careers.amd.com:97843": {
       "seen_at": "2026-11-10T22:36:50+00:00"
+    },
+    "jibe:careers.amd.com:97844": {
+      "seen_at": "2026-11-27T19:14:01+00:00"
     },
     "jibe:careers.amd.com:97847": {
       "seen_at": "2026-11-19T21:53:16+00:00"
@@ -282863,6 +282855,9 @@
     "smartrecruiters:BoschGroup:744000164086064": {
       "seen_at": "2026-11-27T19:04:35+00:00"
     },
+    "smartrecruiters:BoschGroup:744000164086345": {
+      "seen_at": "2026-11-27T19:14:01+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -318515,9 +318510,6 @@
     "workday:boeing:JR2026522068": {
       "seen_at": "2026-11-11T19:57:00+00:00"
     },
-    "workday:boeing:JR2026522070": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "workday:boeing:JR2026522089": {
       "seen_at": "2026-11-21T00:04:22+00:00"
     },
@@ -324397,9 +324389,6 @@
     "workday:cibc:2619730": {
       "seen_at": "2026-10-07T17:24:07+00:00"
     },
-    "workday:cibc:2619733": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "workday:cibc:2619741": {
       "seen_at": "2026-09-28T19:33:53+00:00"
     },
@@ -324436,9 +324425,6 @@
     },
     "workday:cibc:2619801": {
       "seen_at": "2026-10-08T16:37:57+00:00"
-    },
-    "workday:cibc:2619803": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
     },
     "workday:cibc:2619809": {
       "seen_at": "2026-09-29T13:13:54+00:00"
@@ -356901,9 +356887,6 @@
     "workday:hpe:1214576": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "workday:hpe:1214578": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "workday:hpe:1214579": {
       "closed": "2026-10-15",
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -357675,17 +357658,8 @@
     "workday:hpe:1215371": {
       "seen_at": "2026-09-28T19:23:51+00:00"
     },
-    "workday:hpe:1215373": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
-    "workday:hpe:1215374": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "workday:hpe:1215376": {
       "seen_at": "2026-09-29T01:33:37+00:00"
-    },
-    "workday:hpe:1215377": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
     },
     "workday:hpe:1215379": {
       "seen_at": "2026-09-29T19:34:02+00:00"
@@ -389489,6 +389463,9 @@
     "workday:ngc:R10262219": {
       "seen_at": "2026-11-26T03:34:38+00:00"
     },
+    "workday:ngc:R10262226": {
+      "seen_at": "2026-11-27T19:14:01+00:00"
+    },
     "workday:nvidia:JR1966156": {
       "seen_at": "2026-10-30T23:26:18+00:00"
     },
@@ -403157,9 +403134,6 @@
     "workday:salesforce:JR359820": {
       "seen_at": "2026-10-01T14:04:51+00:00"
     },
-    "workday:salesforce:JR359859": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "workday:salesforce:JR359864": {
       "seen_at": "2026-11-13T04:45:49+00:00"
     },
@@ -411576,9 +411550,6 @@
     "workday:td:R_1511596": {
       "seen_at": "2026-09-29T11:33:37+00:00"
     },
-    "workday:td:R_1511598": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
-    },
     "workday:td:R_1511622": {
       "seen_at": "2026-10-01T23:03:56+00:00"
     },
@@ -411722,9 +411693,6 @@
     },
     "workday:td:R_1512214": {
       "seen_at": "2026-09-29T17:13:50+00:00"
-    },
-    "workday:td:R_1512229": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
     },
     "workday:td:R_1512242": {
       "seen_at": "2026-10-07T19:34:15+00:00"
@@ -412308,9 +412276,6 @@
     },
     "workday:td:R_1513584": {
       "seen_at": "2026-10-05T18:23:49+00:00"
-    },
-    "workday:td:R_1513587": {
-      "seen_at": "2026-09-28T19:13:50+00:00"
     },
     "workday:td:R_1513592": {
       "seen_at": "2026-09-28T20:23:58+00:00"
@@ -424725,7 +424690,7 @@
     "workday/adobe": "2026-11-27T18:20:27+00:00",
     "workday/autodesk": "2026-11-27T18:50:27+00:00",
     "workday/becton-dickinson": "2026-11-27T18:00:36+00:00",
-    "workday/boeing": "2026-11-27T18:00:36+00:00",
+    "workday/boeing": "2026-11-27T19:10:32+00:00",
     "workday/cibc": "2026-11-27T18:10:29+00:00",
     "workday/cisco": "2026-11-27T18:50:27+00:00",
     "workday/clio": "2026-11-27T18:05:59+00:00",
@@ -424736,7 +424701,7 @@
     "workday/hpe": "2026-11-27T18:30:45+00:00",
     "workday/intel": "2026-11-27T18:40:25+00:00",
     "workday/micron": "2026-11-27T18:40:25+00:00",
-    "workday/northrop-grumman": "2026-11-27T18:00:36+00:00",
+    "workday/northrop-grumman": "2026-11-27T19:10:32+00:00",
     "workday/nvidia": "2026-11-27T18:20:27+00:00",
     "workday/paypal": "2026-11-27T19:00:38+00:00",
     "workday/rbc": "2026-11-27T18:10:29+00:00",
