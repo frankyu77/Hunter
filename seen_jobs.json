@@ -48831,7 +48831,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T18:09:57+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -48843,7 +48846,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T18:09:57+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49302,7 +49308,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-27T13:53:38+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49401,10 +49407,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-27T13:53:38+00:00",
-      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49425,7 +49428,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T15:33:52+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53039,7 +53042,6 @@
       ],
       "greenhouse/samsara": [
         37,
-        37,
         32,
         14,
         43,
@@ -53087,7 +53089,8 @@
         29,
         20,
         20,
-        20
+        20,
+        50
       ],
       "greenhouse/scaleai": [
         18,
@@ -63695,11 +63698,6 @@
         "id": "workday:micron:JR112692",
         "last": "2026-09-28T20:43:39+00:00"
       },
-      "micron|layout/mask design engineer": {
-        "first": "2026-09-28T18:06:01+00:00",
-        "id": "workday:micron:JR113593",
-        "last": "2026-09-28T18:06:01+00:00"
-      },
       "micron|new college grad - ate process engineer id1": {
         "first": "2026-10-01T15:24:24+00:00",
         "id": "workday:micron:JR113380",
@@ -63739,11 +63737,6 @@
         "first": "2026-09-29T16:44:13+00:00",
         "id": "workday:micron:JR113375",
         "last": "2026-09-29T16:44:13+00:00"
-      },
-      "micron|pi pto engineer": {
-        "first": "2026-09-28T18:06:01+00:00",
-        "id": "workday:micron:JR113594",
-        "last": "2026-09-28T18:06:01+00:00"
       },
       "micron|process integration engineer, aptd": {
         "first": "2026-09-28T20:34:39+00:00",
@@ -90765,6 +90758,9 @@
     "ashby:openai:1f148786-2e00-472a-96b9-0b29015980e1": {
       "seen_at": "2026-10-20T21:37:48+00:00"
     },
+    "ashby:openai:1f1ea997-283b-4d49-b25b-e8dbe2491938": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "ashby:openai:1f7c6071-ad3a-4903-9b05-4684f5c1a7c8": {
       "seen_at": "2026-10-01T22:33:42+00:00"
     },
@@ -93832,10 +93828,6 @@
     "ashby:openai:f430a2e7-78a8-40bc-8501-b7ff191ecad6": {
       "seen_at": "2026-11-05T20:36:27+00:00"
     },
-    "ashby:openai:f4467078-033c-4638-ac7e-69a532276d85": {
-      "closed": "2026-11-04",
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "ashby:openai:f4552c9d-e15f-4f2c-bf03-fd2cc1e11068": {
       "seen_at": "2026-11-11T10:16:00+00:00"
     },
@@ -94994,9 +94986,6 @@
     },
     "ashby:ramp:707d5f91-bcf7-42b2-a0e6-8130bf13e56b": {
       "seen_at": "2026-10-23T16:56:32+00:00"
-    },
-    "ashby:ramp:70958953-f10f-4dba-a606-80a10f80a8f6": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "ashby:ramp:70c26b31-1afb-4fab-b3d3-019261d428c2": {
       "seen_at": "2026-11-02T14:17:32+00:00"
@@ -129260,6 +129249,7 @@
       "seen_at": "2026-10-14T08:36:39+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:2818bcf6-6a18-4a57-9bae-626acf204922": {
+      "missing": "2026-11-27T18:09:57+00:00",
       "seen_at": "2026-11-23T23:43:25+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:2819130b-531f-4677-8d7a-4a9962eb4de6": {
@@ -131498,6 +131488,7 @@
       "seen_at": "2026-11-10T23:36:34+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:442db055-6c56-4d76-9590-c576a05275d0": {
+      "missing": "2026-11-27T18:09:57+00:00",
       "seen_at": "2026-11-23T23:43:25+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:442f74df-bb53-4a98-b1d0-2513a5e31985": {
@@ -196056,9 +196047,6 @@
     "greenhouse:asana:8214792": {
       "seen_at": "2026-10-07T16:25:49+00:00"
     },
-    "greenhouse:asana:8214906": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "greenhouse:asana:8221174": {
       "seen_at": "2026-10-07T12:04:24+00:00"
     },
@@ -199301,10 +199289,6 @@
     "greenhouse:cloudflare:7629805": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
-    "greenhouse:cloudflare:7653558": {
-      "closed": "2026-10-29",
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "greenhouse:cloudflare:7657028": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
@@ -199514,10 +199498,6 @@
     },
     "greenhouse:cloudflare:8066589": {
       "seen_at": "2026-11-23T01:33:15+00:00"
-    },
-    "greenhouse:cloudflare:8071586": {
-      "closed": "2026-11-04",
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "greenhouse:cloudflare:8074364": {
       "closed": "2026-10-28",
@@ -201306,9 +201286,6 @@
       "closed": "2026-11-07",
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
-    "greenhouse:coinbase:7985187": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "greenhouse:coinbase:7991691": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -201435,10 +201412,6 @@
     },
     "greenhouse:coinbase:8094196": {
       "seen_at": "2026-11-08T21:25:18+00:00"
-    },
-    "greenhouse:coinbase:8096720": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "greenhouse:coinbase:8097292": {
       "closed": "2026-10-27",
@@ -224207,10 +224180,6 @@
     "greenhouse:pinterest:7770970": {
       "seen_at": "2026-10-14T21:08:05+00:00"
     },
-    "greenhouse:pinterest:7782550": {
-      "closed": "2026-10-22",
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "greenhouse:pinterest:7807888": {
       "closed": "2026-11-25",
       "seen_at": "2026-09-29T13:13:54+00:00"
@@ -226489,9 +226458,6 @@
     "greenhouse:robinhood:8011599": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
-    "greenhouse:robinhood:8036506": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "greenhouse:robinhood:8044746": {
       "seen_at": "2026-10-19T19:16:21+00:00"
     },
@@ -228673,7 +228639,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8052685": {
-      "missing": "2026-11-27T12:04:39+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:8053880": {
@@ -231635,10 +231601,6 @@
     },
     "greenhouse:stripe:8079514": {
       "seen_at": "2026-10-14T00:37:37+00:00"
-    },
-    "greenhouse:stripe:8079783": {
-      "closed": "2026-11-24",
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "greenhouse:stripe:8079918": {
       "seen_at": "2026-11-21T01:12:58+00:00"
@@ -235991,9 +235953,6 @@
     },
     "greenhouse:vercel:6123443004": {
       "seen_at": "2026-11-20T22:43:49+00:00"
-    },
-    "greenhouse:vercel:6128387004": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "greenhouse:vercel:6131210004": {
       "closed": "2026-10-22",
@@ -250888,9 +250847,6 @@
     },
     "oracle:dell:295958": {
       "seen_at": "2026-11-27T13:23:33+00:00"
-    },
-    "oracle:dell:296040": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "oracle:dell:296054": {
       "closed": "2026-11-05",
@@ -309895,6 +309851,9 @@
     "tiktok:tiktok:7712683834520865077": {
       "seen_at": "2026-11-27T03:24:03+00:00"
     },
+    "tiktok:tiktok:7712912892893251845": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workable:bask-health-1:007B8BFCAC": {
       "seen_at": "2026-11-16T19:16:25+00:00"
     },
@@ -317381,9 +317340,6 @@
     "workday:boeing:JR2026512435": {
       "seen_at": "2026-10-01T21:13:36+00:00"
     },
-    "workday:boeing:JR2026512443": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "workday:boeing:JR2026512460": {
       "seen_at": "2026-10-16T15:16:52+00:00"
     },
@@ -318338,9 +318294,6 @@
     "workday:boeing:JR2026520704": {
       "seen_at": "2026-11-10T20:56:50+00:00"
     },
-    "workday:boeing:JR2026520721": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "workday:boeing:JR2026520722": {
       "seen_at": "2026-10-08T22:46:17+00:00"
     },
@@ -318496,9 +318449,6 @@
     },
     "workday:boeing:JR2026521461": {
       "seen_at": "2026-10-06T17:44:02+00:00"
-    },
-    "workday:boeing:JR2026521514": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "workday:boeing:JR2026521550": {
       "seen_at": "2026-09-29T20:13:48+00:00"
@@ -361541,10 +361491,6 @@
     "workday:intel:JR0287465": {
       "seen_at": "2026-09-28T19:23:51+00:00"
     },
-    "workday:intel:JR0287469": {
-      "closed": "2026-09-28",
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "workday:intel:JR0287473": {
       "seen_at": "2026-09-30T18:05:00+00:00"
     },
@@ -368324,12 +368270,6 @@
     "workday:micron:JR113588": {
       "seen_at": "2026-09-29T17:13:50+00:00"
     },
-    "workday:micron:JR113593": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
-    "workday:micron:JR113594": {
-      "seen_at": "2026-09-28T18:06:00+00:00"
-    },
     "workday:micron:JR113598": {
       "seen_at": "2026-09-30T00:53:22+00:00"
     },
@@ -373927,9 +373867,6 @@
     "workday:ngc:R10240109": {
       "seen_at": "2026-10-06T18:54:14+00:00"
     },
-    "workday:ngc:R10240119": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "workday:ngc:R10240130": {
       "seen_at": "2026-11-12T17:46:24+00:00"
     },
@@ -375635,9 +375572,6 @@
     "workday:ngc:R10253043": {
       "seen_at": "2026-09-30T23:23:35+00:00"
     },
-    "workday:ngc:R10253051": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "workday:ngc:R10253072": {
       "seen_at": "2026-09-30T17:44:23+00:00"
     },
@@ -375754,10 +375688,6 @@
     },
     "workday:ngc:R10253224": {
       "seen_at": "2026-09-28T21:43:29+00:00"
-    },
-    "workday:ngc:R10253227": {
-      "closed": "2026-09-28",
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "workday:ngc:R10253229": {
       "seen_at": "2026-10-01T15:34:32+00:00"
@@ -397539,9 +397469,6 @@
     "workday:onehealthineers:R-31047": {
       "seen_at": "2026-09-28T21:04:49+00:00"
     },
-    "workday:onehealthineers:R-31048": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
-    },
     "workday:onehealthineers:R-31052": {
       "seen_at": "2026-10-05T20:58:57+00:00"
     },
@@ -402364,6 +402291,9 @@
     "workday:salesforce:JR349219": {
       "seen_at": "2026-11-23T14:44:18+00:00"
     },
+    "workday:salesforce:JR349221": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workday:salesforce:JR349251": {
       "seen_at": "2026-10-29T11:06:38+00:00"
     },
@@ -402789,10 +402719,6 @@
     },
     "workday:salesforce:JR354194": {
       "seen_at": "2026-11-17T13:57:59+00:00"
-    },
-    "workday:salesforce:JR354245": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "workday:salesforce:JR354316": {
       "seen_at": "2026-10-05T19:23:58+00:00"
@@ -403266,6 +403192,12 @@
     "workday:salesforce:JR359344": {
       "seen_at": "2026-11-09T17:26:45+00:00"
     },
+    "workday:salesforce:JR359402": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR359403": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workday:salesforce:JR359407": {
       "seen_at": "2026-11-26T15:14:56+00:00"
     },
@@ -403395,9 +403327,6 @@
     },
     "workday:salesforce:JR360246": {
       "seen_at": "2026-10-08T17:07:25+00:00"
-    },
-    "workday:salesforce:JR360283": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "workday:salesforce:JR360310": {
       "seen_at": "2026-11-17T16:38:53+00:00"
@@ -407026,6 +406955,9 @@
     "workday:salesforce:JR366779": {
       "seen_at": "2026-11-05T17:45:56+00:00"
     },
+    "workday:salesforce:JR366780": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workday:salesforce:JR366784": {
       "seen_at": "2026-11-11T14:55:58+00:00"
     },
@@ -408353,6 +408285,9 @@
     "workday:salesforce:JR369129": {
       "seen_at": "2026-11-24T14:54:04+00:00"
     },
+    "workday:salesforce:JR369134": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workday:salesforce:JR369143": {
       "seen_at": "2026-11-24T14:54:04+00:00"
     },
@@ -408452,6 +408387,9 @@
     "workday:salesforce:JR369425": {
       "seen_at": "2026-11-25T10:42:46+00:00"
     },
+    "workday:salesforce:JR369430": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workday:salesforce:JR369432": {
       "seen_at": "2026-11-24T13:14:21+00:00"
     },
@@ -408494,8 +408432,17 @@
     "workday:salesforce:JR369519": {
       "seen_at": "2026-11-25T01:04:42+00:00"
     },
+    "workday:salesforce:JR369520": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
     "workday:salesforce:JR369559": {
       "seen_at": "2026-11-25T01:04:42+00:00"
+    },
+    "workday:salesforce:JR369564": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR369566": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
     },
     "workday:salesforce:JR369567": {
       "seen_at": "2026-11-25T01:04:42+00:00"
@@ -408511,6 +408458,9 @@
     },
     "workday:salesforce:JR369581": {
       "seen_at": "2026-11-25T08:03:38+00:00"
+    },
+    "workday:salesforce:JR369584": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
     },
     "workday:salesforce:JR369598": {
       "seen_at": "2026-11-26T10:54:10+00:00"
@@ -408544,6 +408494,24 @@
     },
     "workday:salesforce:JR369715": {
       "seen_at": "2026-11-27T10:33:34+00:00"
+    },
+    "workday:salesforce:JR369730": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR369734": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR369736": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR369742": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR369750": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
+    },
+    "workday:salesforce:JR369751": {
+      "seen_at": "2026-11-27T18:09:57+00:00"
     },
     "workday:snapchat:H126SWEE3": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -412511,9 +412479,6 @@
     },
     "workday:td:R_1513651": {
       "seen_at": "2026-10-14T00:15:59+00:00"
-    },
-    "workday:td:R_1513653": {
-      "seen_at": "2026-09-28T18:06:01+00:00"
     },
     "workday:td:R_1513654": {
       "seen_at": "2026-09-28T18:23:56+00:00"
@@ -424889,7 +424854,7 @@
     "workday/boeing": "2026-11-27T18:00:36+00:00",
     "workday/cibc": "2026-11-27T17:00:35+00:00",
     "workday/cisco": "2026-11-27T17:50:25+00:00",
-    "workday/clio": "2026-11-27T16:50:27+00:00",
+    "workday/clio": "2026-11-27T18:05:59+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -424901,10 +424866,10 @@
     "workday/nvidia": "2026-11-27T17:20:26+00:00",
     "workday/paypal": "2026-11-27T16:20:27+00:00",
     "workday/rbc": "2026-11-27T17:10:26+00:00",
-    "workday/salesforce": "2026-11-27T16:50:27+00:00",
+    "workday/salesforce": "2026-11-27T18:05:59+00:00",
     "workday/siemens-healthineers": "2026-11-27T18:00:36+00:00",
     "workday/snap": "2026-11-27T16:20:27+00:00",
-    "workday/td": "2026-11-27T17:00:35+00:00",
+    "workday/td": "2026-11-27T18:05:59+00:00",
     "workday/workday": "2026-11-27T17:50:25+00:00",
     "workday/zillow": "2026-11-27T17:50:25+00:00",
     "workday/zoom": "2026-11-27T17:50:25+00:00"
