@@ -48710,7 +48710,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T03:24:03+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49196,7 +49199,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T00:04:27+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49286,7 +49289,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "failing_since": "2026-11-26T21:04:26+00:00",
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49788,7 +49791,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-27T02:14:24+00:00",
+    "dashboard_built_at": "2026-11-27T03:24:03+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -53673,7 +53676,6 @@
         3
       ],
       "oracle/texas-instruments": [
-        8,
         4,
         8,
         1,
@@ -53722,7 +53724,8 @@
         0,
         0,
         0,
-        1
+        1,
+        0
       ],
       "rippling/rippling": [
         0,
@@ -53919,7 +53922,6 @@
         27
       ],
       "smartrecruiters/NBCUniversal3": [
-        0,
         4,
         4,
         4,
@@ -53968,7 +53970,8 @@
         0,
         0,
         6,
-        2
+        2,
+        6
       ],
       "smartrecruiters/RenesasElectronics": [
         1,
@@ -120381,6 +120384,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318718485": {
+      "missing": "2026-11-27T03:24:03+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318720756": {
@@ -120700,6 +120704,7 @@
       "seen_at": "2026-10-26T18:36:20+00:00"
     },
     "eightfold:netflix:790319143063": {
+      "missing": "2026-11-27T03:24:03+00:00",
       "seen_at": "2026-10-29T23:55:45+00:00"
     },
     "eightfold:netflix:790319146642": {
@@ -200782,6 +200787,9 @@
     "greenhouse:cloudflare:8412125": {
       "seen_at": "2026-11-24T16:04:35+00:00"
     },
+    "greenhouse:cloudflare:8413294": {
+      "seen_at": "2026-11-27T03:24:03+00:00"
+    },
     "greenhouse:cloudflare:8414218": {
       "seen_at": "2026-11-26T11:34:05+00:00"
     },
@@ -239226,6 +239234,9 @@
     "jibe:careers.amd.com:103673": {
       "seen_at": "2026-11-25T08:53:56+00:00"
     },
+    "jibe:careers.amd.com:103676": {
+      "seen_at": "2026-11-27T03:24:03+00:00"
+    },
     "jibe:careers.amd.com:103678": {
       "seen_at": "2026-11-25T09:04:38+00:00"
     },
@@ -271042,7 +271053,7 @@
       "seen_at": "2026-10-29T08:06:13+00:00"
     },
     "oracle:texas-instruments:25016498": {
-      "missing": "2026-11-26T21:13:43+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-26T20:04:50+00:00"
     },
     "oracle:texas-instruments:25016594": {
@@ -282210,6 +282221,12 @@
     "smartrecruiters:BoschGroup:744000163957469": {
       "seen_at": "2026-11-27T03:13:22+00:00"
     },
+    "smartrecruiters:BoschGroup:744000163957729": {
+      "seen_at": "2026-11-27T03:24:03+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000163958029": {
+      "seen_at": "2026-11-27T03:24:03+00:00"
+    },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -287088,7 +287105,7 @@
       "seen_at": "2026-11-19T22:04:59+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000162618120": {
-      "missing": "2026-11-26T21:13:43+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-19T23:24:01+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000162618829": {
@@ -308953,6 +308970,9 @@
     },
     "tiktok:tiktok:7712192759532357893": {
       "seen_at": "2026-11-26T00:24:15+00:00"
+    },
+    "tiktok:tiktok:7712683834520865077": {
+      "seen_at": "2026-11-27T03:24:03+00:00"
     },
     "workable:bask-health-1:007B8BFCAC": {
       "seen_at": "2026-11-16T19:16:25+00:00"
@@ -424744,7 +424764,7 @@
     "workday/boeing": "2026-11-27T03:00:35+00:00",
     "workday/cibc": "2026-11-27T01:50:24+00:00",
     "workday/cisco": "2026-11-27T02:40:27+00:00",
-    "workday/clio": "2026-11-27T01:40:28+00:00",
+    "workday/clio": "2026-11-27T03:20:36+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-26T19:10:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -424756,7 +424776,7 @@
     "workday/nvidia": "2026-11-27T02:10:28+00:00",
     "workday/paypal": "2026-11-27T02:50:28+00:00",
     "workday/rbc": "2026-11-27T02:00:37+00:00",
-    "workday/salesforce": "2026-11-27T01:40:28+00:00",
+    "workday/salesforce": "2026-11-27T03:20:36+00:00",
     "workday/siemens-healthineers": "2026-11-27T03:10:24+00:00",
     "workday/snap": "2026-11-27T02:50:28+00:00",
     "workday/td": "2026-11-27T01:50:24+00:00",
