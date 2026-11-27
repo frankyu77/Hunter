@@ -48831,7 +48831,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T14:54:01+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -48846,10 +48846,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-27T15:04:46+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49284,7 +49281,7 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T12:04:39+00:00",
       "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49422,7 +49419,10 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T15:14:19+00:00",
+      "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49909,7 +49909,7 @@
       }
     },
     "auto_sources_checked": "2026-11-27T03:44:25+00:00",
-    "dashboard_built_at": "2026-11-27T14:13:34+00:00",
+    "dashboard_built_at": "2026-11-27T15:14:20+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -50599,6 +50599,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "First PREMIER Bank"
+        },
+        "workday/psu": {
+          "boards": {
+            "{\"company\": \"pennsylvania-state-university\", \"host\": \"wd1\", \"site\": \"PSU_Staff\", \"tenant\": \"psu\", \"type\": \"workday\"}": 2
+          },
+          "jobs": 2,
+          "matched": 0,
+          "name": "Pennsylvania State University"
         },
         "workday/relx": {
           "boards": {
@@ -65552,11 +65560,6 @@
         "id": "workday:ngc:R10253479",
         "last": "2026-09-29T18:44:12+00:00"
       },
-      "northrop grumman|chief engineer - level 6": {
-        "first": "2026-09-28T15:13:46+00:00",
-        "id": "workday:ngc:R10253038",
-        "last": "2026-09-28T15:13:46+00:00"
-      },
       "northrop grumman|chief engineer product support & sustainment": {
         "first": "2026-09-28T23:53:12+00:00",
         "id": "workday:ngc:R10233193",
@@ -71867,11 +71870,6 @@
         "first": "2026-11-11T22:46:59+00:00",
         "id": "github:vanshb03/Summer2027-Internships:53b63a8c-522c-4074-9ed5-36c4f9a4cc1d",
         "last": "2026-11-11T22:46:59+00:00"
-      },
-      "zt systems|sustaining electrical validation engineer": {
-        "first": "2026-09-28T15:13:46+00:00",
-        "id": "github:SimplifyJobs/New-Grad-Positions:d75cb5c8-109f-4d64-b4b8-51339b98f5c6",
-        "last": "2026-09-28T15:13:46+00:00"
       },
       "zurn elkay water solutions|product management intern - summer 2027": {
         "first": "2026-09-29T16:44:13+00:00",
@@ -120967,7 +120965,6 @@
       "seen_at": "2026-10-27T16:37:11+00:00"
     },
     "eightfold:netflix:790319182712": {
-      "missing": "2026-11-27T14:54:01+00:00",
       "seen_at": "2026-10-27T18:56:11+00:00"
     },
     "eightfold:netflix:790319182757": {
@@ -120975,7 +120972,6 @@
       "seen_at": "2026-10-29T17:36:34+00:00"
     },
     "eightfold:netflix:790319186617": {
-      "missing": "2026-11-27T14:54:01+00:00",
       "seen_at": "2026-10-27T21:26:39+00:00"
     },
     "eightfold:netflix:790319188137": {
@@ -121107,7 +121103,6 @@
       "seen_at": "2026-11-09T23:36:11+00:00"
     },
     "eightfold:netflix:790319299025": {
-      "missing": "2026-11-27T14:54:01+00:00",
       "seen_at": "2026-11-09T23:36:11+00:00"
     },
     "eightfold:netflix:790319315370": {
@@ -132596,6 +132591,9 @@
     "github:SimplifyJobs/New-Grad-Positions:511298c0-51b4-4e6a-b652-7668b948d3c8": {
       "seen_at": "2026-10-20T15:06:45+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:511d6f5f-2c89-4282-b5ab-da8d188ff120": {
+      "seen_at": "2026-11-27T15:14:20+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:511e7c10-e092-4a5a-8187-fe5563536b99": {
       "seen_at": "2026-10-14T00:37:37+00:00"
     },
@@ -143252,9 +143250,6 @@
       "closed": "2026-11-13",
       "seen_at": "2026-10-21T22:45:55+00:00"
     },
-    "github:SimplifyJobs/New-Grad-Positions:d75cb5c8-109f-4d64-b4b8-51339b98f5c6": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "github:SimplifyJobs/New-Grad-Positions:d75dc307-5c8a-4306-9b07-36e3d53715ff": {
       "seen_at": "2026-10-23T10:45:49+00:00"
     },
@@ -145323,6 +145318,9 @@
     "github:SimplifyJobs/New-Grad-Positions:f1f77695-7602-440a-a772-5d02d3d6da68": {
       "closed": "2026-11-20",
       "seen_at": "2026-09-30T01:34:07+00:00"
+    },
+    "github:SimplifyJobs/New-Grad-Positions:f205101a-c504-424c-a768-a9e0ebb3adf3": {
+      "seen_at": "2026-11-27T15:14:20+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:f20ced6d-2688-4df6-a87f-3919ba7fba97": {
       "seen_at": "2026-11-14T01:31:24+00:00"
@@ -200072,10 +200070,6 @@
     "greenhouse:cloudflare:8188127": {
       "seen_at": "2026-11-08T18:45:41+00:00"
     },
-    "greenhouse:cloudflare:8188337": {
-      "closed": "2026-11-17",
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "greenhouse:cloudflare:8188468": {
       "closed": "2026-11-19",
       "seen_at": "2026-11-09T10:25:59+00:00"
@@ -200275,6 +200269,9 @@
     },
     "greenhouse:cloudflare:8234270": {
       "seen_at": "2026-09-29T18:24:21+00:00"
+    },
+    "greenhouse:cloudflare:8237119": {
+      "seen_at": "2026-11-27T15:14:20+00:00"
     },
     "greenhouse:cloudflare:8237382": {
       "seen_at": "2026-09-28T21:53:50+00:00"
@@ -207053,6 +207050,9 @@
     "greenhouse:datadog:8210783": {
       "closed": "2026-10-06",
       "seen_at": "2026-10-02T15:44:42+00:00"
+    },
+    "greenhouse:datadog:8211078": {
+      "seen_at": "2026-11-27T15:14:20+00:00"
     },
     "greenhouse:datadog:8211090": {
       "seen_at": "2026-11-17T18:46:58+00:00"
@@ -218697,6 +218697,9 @@
     "greenhouse:lyft:8648040002": {
       "seen_at": "2026-11-25T20:44:03+00:00"
     },
+    "greenhouse:lyft:8657497002": {
+      "seen_at": "2026-11-27T15:14:20+00:00"
+    },
     "greenhouse:lyft:8662205002": {
       "seen_at": "2026-10-05T01:13:33+00:00"
     },
@@ -220201,6 +220204,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8083366": {
+      "missing": "2026-11-27T15:14:20+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8083437": {
@@ -230069,6 +230073,7 @@
       "seen_at": "2026-11-11T02:07:02+00:00"
     },
     "greenhouse:samsara:8377907": {
+      "missing": "2026-11-27T15:14:20+00:00",
       "seen_at": "2026-11-25T14:34:06+00:00"
     },
     "greenhouse:samsara:8379407": {
@@ -231748,6 +231753,9 @@
     },
     "greenhouse:stripe:8090203": {
       "seen_at": "2026-09-29T16:34:03+00:00"
+    },
+    "greenhouse:stripe:8090244": {
+      "seen_at": "2026-11-27T15:14:20+00:00"
     },
     "greenhouse:stripe:8092652": {
       "closed": "2026-10-02",
@@ -254189,9 +254197,6 @@
     },
     "oracle:honeywell:157519": {
       "seen_at": "2026-10-02T08:13:24+00:00"
-    },
-    "oracle:honeywell:157534": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
     },
     "oracle:honeywell:157546": {
       "seen_at": "2026-09-28T21:14:00+00:00"
@@ -315234,10 +315239,6 @@
     "workday:bdx:R-556309": {
       "seen_at": "2026-11-05T20:56:20+00:00"
     },
-    "workday:bdx:R-556311": {
-      "closed": "2026-10-05",
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:bdx:R-556345": {
       "closed": "2026-10-08",
       "seen_at": "2026-10-06T17:34:57+00:00"
@@ -323682,10 +323683,6 @@
     },
     "workday:cibc:2527521": {
       "seen_at": "2026-10-14T00:37:37+00:00"
-    },
-    "workday:cibc:2528343": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T15:13:46+00:00"
     },
     "workday:cibc:2600289": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -367679,9 +367676,6 @@
     "workday:micron:JR112413": {
       "seen_at": "2026-10-21T18:36:53+00:00"
     },
-    "workday:micron:JR112432": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:micron:JR112444": {
       "seen_at": "2026-10-06T02:33:35+00:00"
     },
@@ -373909,10 +373903,6 @@
     "workday:ngc:R10239108": {
       "seen_at": "2026-10-02T17:13:47+00:00"
     },
-    "workday:ngc:R10239117": {
-      "closed": "2026-09-28",
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:ngc:R10239204": {
       "seen_at": "2026-10-21T22:45:55+00:00"
     },
@@ -375464,9 +375454,6 @@
     "workday:ngc:R10252242": {
       "seen_at": "2026-10-07T03:14:01+00:00"
     },
-    "workday:ngc:R10252243": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:ngc:R10252245": {
       "seen_at": "2026-10-07T14:05:14+00:00"
     },
@@ -375523,9 +375510,6 @@
     },
     "workday:ngc:R10252425": {
       "seen_at": "2026-10-14T00:15:59+00:00"
-    },
-    "workday:ngc:R10252426": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
     },
     "workday:ngc:R10252428": {
       "seen_at": "2026-10-01T14:14:30+00:00"
@@ -375755,9 +375739,6 @@
     },
     "workday:ngc:R10253031": {
       "seen_at": "2026-09-28T16:43:49+00:00"
-    },
-    "workday:ngc:R10253038": {
-      "seen_at": "2026-09-28T15:13:45+00:00"
     },
     "workday:ngc:R10253039": {
       "seen_at": "2026-09-28T17:44:01+00:00"
@@ -397212,9 +397193,6 @@
     "workday:onehealthineers:R-28024": {
       "seen_at": "2026-10-19T12:36:30+00:00"
     },
-    "workday:onehealthineers:R-28081": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:onehealthineers:R-28082": {
       "seen_at": "2026-10-22T22:26:26+00:00"
     },
@@ -403703,10 +403681,6 @@
     "workday:salesforce:JR360898": {
       "seen_at": "2026-10-01T08:43:29+00:00"
     },
-    "workday:salesforce:JR360917": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:salesforce:JR360923": {
       "seen_at": "2026-09-29T15:43:33+00:00"
     },
@@ -410173,9 +410147,6 @@
     "workday:td:R_1487437": {
       "seen_at": "2026-09-28T20:34:39+00:00"
     },
-    "workday:td:R_1487561": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:td:R_1488004": {
       "seen_at": "2026-10-02T12:33:59+00:00"
     },
@@ -411997,9 +411968,6 @@
     "workday:td:R_1511505": {
       "seen_at": "2026-10-06T13:53:44+00:00"
     },
-    "workday:td:R_1511510": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:td:R_1511570": {
       "seen_at": "2026-10-02T14:23:47+00:00"
     },
@@ -412457,9 +412425,6 @@
     "workday:td:R_1512995": {
       "seen_at": "2026-10-05T13:23:48+00:00"
     },
-    "workday:td:R_1512996": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
-    },
     "workday:td:R_1512998": {
       "seen_at": "2026-09-28T15:23:53+00:00"
     },
@@ -412784,9 +412749,6 @@
     },
     "workday:td:R_1513548": {
       "seen_at": "2026-09-28T16:34:18+00:00"
-    },
-    "workday:td:R_1513550": {
-      "seen_at": "2026-09-28T15:13:46+00:00"
     },
     "workday:td:R_1513556": {
       "seen_at": "2026-10-20T20:08:38+00:00"
@@ -425245,7 +425207,7 @@
   "polling": {
     "workday/adobe": "2026-11-27T14:10:28+00:00",
     "workday/autodesk": "2026-11-27T14:50:31+00:00",
-    "workday/becton-dickinson": "2026-11-27T13:40:27+00:00",
+    "workday/becton-dickinson": "2026-11-27T15:10:25+00:00",
     "workday/boeing": "2026-11-27T15:00:40+00:00",
     "workday/cibc": "2026-11-27T14:00:42+00:00",
     "workday/cisco": "2026-11-27T14:50:31+00:00",
@@ -425262,7 +425224,7 @@
     "workday/paypal": "2026-11-27T13:20:28+00:00",
     "workday/rbc": "2026-11-27T14:10:28+00:00",
     "workday/salesforce": "2026-11-27T13:50:25+00:00",
-    "workday/siemens-healthineers": "2026-11-27T13:40:27+00:00",
+    "workday/siemens-healthineers": "2026-11-27T15:10:25+00:00",
     "workday/snap": "2026-11-27T13:20:28+00:00",
     "workday/td": "2026-11-27T14:00:42+00:00",
     "workday/workday": "2026-11-27T14:50:31+00:00",
