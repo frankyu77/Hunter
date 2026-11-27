@@ -48831,7 +48831,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T16:44:13+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -48846,7 +48846,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T17:04:42+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49293,7 +49296,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "failing_since": "2026-11-26T19:54:03+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49434,7 +49437,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T15:33:52+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -66226,11 +66229,6 @@
         "first": "2026-09-29T20:44:03+00:00",
         "id": "workday:nvidia:JR2026576",
         "last": "2026-09-29T20:44:03+00:00"
-      },
-      "nvidia|asic design engineer - new college grad 2027": {
-        "first": "2026-09-28T16:53:43+00:00",
-        "id": "workday:nvidia:JR2026277",
-        "last": "2026-09-28T16:53:43+00:00"
       },
       "nvidia|asic verification engineer": {
         "first": "2026-09-29T16:13:52+00:00",
@@ -205823,6 +205821,7 @@
       "seen_at": "2026-10-29T16:37:03+00:00"
     },
     "greenhouse:databricks:8923866002": {
+      "missing": "2026-11-27T17:04:42+00:00",
       "seen_at": "2026-11-04T18:47:39+00:00"
     },
     "greenhouse:databricks:8923868002": {
@@ -229573,7 +229572,6 @@
       "seen_at": "2026-10-28T17:06:56+00:00"
     },
     "greenhouse:samsara:8318831": {
-      "closed": "2026-11-26",
       "seen_at": "2026-11-05T14:37:10+00:00"
     },
     "greenhouse:samsara:8319740": {
@@ -232612,10 +232610,6 @@
     "greenhouse:stripe:8196254": {
       "seen_at": "2026-11-15T17:05:52+00:00"
     },
-    "greenhouse:stripe:8196267": {
-      "closed": "2026-10-15",
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "greenhouse:stripe:8196269": {
       "seen_at": "2026-11-16T10:27:04+00:00"
     },
@@ -235359,10 +235353,6 @@
     "greenhouse:twilio:8201498": {
       "closed": "2026-11-25",
       "seen_at": "2026-09-30T20:14:27+00:00"
-    },
-    "greenhouse:twilio:8201630": {
-      "closed": "2026-10-27",
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "greenhouse:twilio:8202189": {
       "closed": "2026-11-16",
@@ -244368,7 +244358,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30301": {
-      "missing": "2026-11-27T14:04:44+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30302": {
@@ -244537,6 +244526,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30384": {
+      "missing": "2026-11-27T17:04:42+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "jibe:careers.docusign.com:30385": {
@@ -246553,6 +246543,7 @@
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
     "lever:eqbank:57dc794f-2609-47f8-b95e-4577f2152aca": {
+      "missing": "2026-11-27T17:04:42+00:00",
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
     "lever:eqbank:58248ecf-4fd5-4b83-a749-5a9ddf1372da": {
@@ -249995,9 +249986,6 @@
     "lever:spotify:1692fccc-29f4-4525-a683-b004c2ec62b9": {
       "seen_at": "2026-09-29T22:05:17+00:00"
     },
-    "lever:spotify:186b763a-2a61-4563-8813-ff6b40c9c8a7": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "lever:spotify:1961fa91-bdba-450a-bfb6-fc8d8d5c9e9c": {
       "seen_at": "2026-10-25T16:15:57+00:00"
     },
@@ -251044,12 +251032,6 @@
     "oracle:dell:296574": {
       "closed": "2026-10-28",
       "seen_at": "2026-10-28T19:45:58+00:00"
-    },
-    "oracle:dell:296578": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
-    "oracle:dell:296579": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "oracle:dell:296580": {
       "closed": "2026-11-27",
@@ -317549,9 +317531,6 @@
     "workday:boeing:JR2026514511": {
       "seen_at": "2026-10-06T18:24:13+00:00"
     },
-    "workday:boeing:JR2026514533": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:boeing:JR2026514558": {
       "seen_at": "2026-10-01T14:14:30+00:00"
     },
@@ -319715,9 +319694,6 @@
     },
     "workday:boeing:JR2026524906": {
       "seen_at": "2026-10-14T18:07:06+00:00"
-    },
-    "workday:boeing:JR2026524933": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "workday:boeing:JR2026524937": {
       "seen_at": "2026-11-09T18:37:23+00:00"
@@ -350348,9 +350324,6 @@
     "workday:hp:3165160": {
       "seen_at": "2026-10-26T02:56:08+00:00"
     },
-    "workday:hp:3165178": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:hp:3165194": {
       "seen_at": "2026-11-02T18:37:55+00:00"
     },
@@ -351005,12 +350978,6 @@
     "workday:hp:3168046": {
       "seen_at": "2026-10-30T15:56:26+00:00"
     },
-    "workday:hp:3168056": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
-    "workday:hp:3168057": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:hp:3168058": {
       "seen_at": "2026-11-03T10:35:55+00:00"
     },
@@ -351478,9 +351445,6 @@
     },
     "workday:hp:3168783": {
       "seen_at": "2026-10-14T17:38:47+00:00"
-    },
-    "workday:hp:3168789": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "workday:hp:3168791": {
       "seen_at": "2026-09-30T17:34:17+00:00"
@@ -375190,9 +375154,6 @@
     "workday:ngc:R10251322": {
       "seen_at": "2026-10-07T14:23:58+00:00"
     },
-    "workday:ngc:R10251348": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:ngc:R10251365": {
       "seen_at": "2026-10-02T15:24:05+00:00"
     },
@@ -375225,9 +375186,6 @@
     },
     "workday:ngc:R10251501": {
       "seen_at": "2026-09-30T20:04:05+00:00"
-    },
-    "workday:ngc:R10251523": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "workday:ngc:R10251530": {
       "seen_at": "2026-10-01T07:03:41+00:00"
@@ -375727,9 +375685,6 @@
     },
     "workday:ngc:R10253091": {
       "seen_at": "2026-10-14T00:15:59+00:00"
-    },
-    "workday:ngc:R10253099": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "workday:ngc:R10253104": {
       "seen_at": "2026-10-01T19:14:48+00:00"
@@ -390524,9 +390479,6 @@
     "workday:nvidia:JR2014628": {
       "seen_at": "2026-10-30T23:46:21+00:00"
     },
-    "workday:nvidia:JR2014651": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:nvidia:JR2014695": {
       "seen_at": "2026-10-30T23:46:21+00:00"
     },
@@ -393380,9 +393332,6 @@
     "workday:nvidia:JR2026276": {
       "seen_at": "2026-10-06T19:34:16+00:00"
     },
-    "workday:nvidia:JR2026277": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:nvidia:JR2026278": {
       "seen_at": "2026-10-07T18:04:26+00:00"
     },
@@ -393571,9 +393520,6 @@
     },
     "workday:nvidia:JR2026612": {
       "seen_at": "2026-10-01T08:13:37+00:00"
-    },
-    "workday:nvidia:JR2026639": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "workday:nvidia:JR2026643": {
       "seen_at": "2026-10-02T18:44:33+00:00"
@@ -403369,10 +403315,6 @@
     "workday:salesforce:JR359655": {
       "seen_at": "2026-10-01T09:43:28+00:00"
     },
-    "workday:salesforce:JR359694": {
-      "closed": "2026-09-28",
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:salesforce:JR359725": {
       "seen_at": "2026-11-18T13:37:40+00:00"
     },
@@ -411666,9 +411608,6 @@
     "workday:td:R_1510273": {
       "seen_at": "2026-10-26T12:56:10+00:00"
     },
-    "workday:td:R_1510283": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
-    },
     "workday:td:R_1510315": {
       "seen_at": "2026-10-20T16:26:06+00:00"
     },
@@ -412401,9 +412340,6 @@
     },
     "workday:td:R_1513330": {
       "seen_at": "2026-10-01T12:04:36+00:00"
-    },
-    "workday:td:R_1513331": {
-      "seen_at": "2026-09-28T16:53:43+00:00"
     },
     "workday:td:R_1513333": {
       "seen_at": "2026-10-14T22:47:05+00:00"
@@ -424993,7 +424929,7 @@
     "workday/autodesk": "2026-11-27T16:20:27+00:00",
     "workday/becton-dickinson": "2026-11-27T16:40:27+00:00",
     "workday/boeing": "2026-11-27T16:30:34+00:00",
-    "workday/cibc": "2026-11-27T15:30:36+00:00",
+    "workday/cibc": "2026-11-27T17:00:35+00:00",
     "workday/cisco": "2026-11-27T16:20:27+00:00",
     "workday/clio": "2026-11-27T16:50:27+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
@@ -425010,7 +424946,7 @@
     "workday/salesforce": "2026-11-27T16:50:27+00:00",
     "workday/siemens-healthineers": "2026-11-27T16:40:27+00:00",
     "workday/snap": "2026-11-27T16:20:27+00:00",
-    "workday/td": "2026-11-27T15:30:36+00:00",
+    "workday/td": "2026-11-27T17:00:35+00:00",
     "workday/workday": "2026-11-27T14:50:31+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
     "workday/zoom": "2026-11-27T14:50:31+00:00"
