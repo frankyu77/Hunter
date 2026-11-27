@@ -48843,7 +48843,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T11:03:51+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49341,7 +49344,10 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T11:03:51+00:00",
+      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49377,10 +49383,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-27T05:33:23+00:00",
-      "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49900,7 +49903,7 @@
       }
     },
     "auto_sources_checked": "2026-11-27T03:44:25+00:00",
-    "dashboard_built_at": "2026-11-27T09:53:55+00:00",
+    "dashboard_built_at": "2026-11-27T11:03:51+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -52136,7 +52139,6 @@
         0
       ],
       "greenhouse/datadog": [
-        9,
         23,
         5,
         35,
@@ -52185,7 +52187,8 @@
         3,
         43,
         3,
-        3
+        3,
+        51
       ],
       "greenhouse/discord": [
         0,
@@ -53631,7 +53634,6 @@
         5,
         5,
         5,
-        5,
         3,
         1,
         3,
@@ -53677,7 +53679,8 @@
         0,
         1,
         3,
-        0
+        0,
+        3
       ],
       "oracle/honeywell": [
         0,
@@ -54088,7 +54091,6 @@
         4,
         4,
         4,
-        4,
         0,
         4,
         0,
@@ -54131,7 +54133,8 @@
         0,
         6,
         2,
-        6
+        6,
+        7
       ],
       "smartrecruiters/RenesasElectronics": [
         1,
@@ -103470,6 +103473,7 @@
       "seen_at": "2026-11-15T00:25:51+00:00"
     },
     "atlassian:atlassian:28956": {
+      "missing": "2026-11-27T11:03:51+00:00",
       "seen_at": "2026-11-15T00:25:51+00:00"
     },
     "atlassian:atlassian:29022": {
@@ -206427,7 +206431,7 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7531575": {
-      "missing": "2026-11-27T04:53:30+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-07T02:54:00+00:00"
     },
     "greenhouse:datadog:7536154": {
@@ -253495,7 +253499,7 @@
       "seen_at": "2026-11-17T19:46:12+00:00"
     },
     "oracle:dell:302553": {
-      "missing": "2026-11-27T05:03:39+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-23T19:13:52+00:00"
     },
     "oracle:dell:302566": {
@@ -282859,8 +282863,23 @@
     "smartrecruiters:BoschGroup:744000164009009": {
       "seen_at": "2026-11-27T10:53:28+00:00"
     },
+    "smartrecruiters:BoschGroup:744000164009153": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
     "smartrecruiters:BoschGroup:744000164009648": {
       "seen_at": "2026-11-27T10:53:28+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000164009868": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000164009949": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000164010368": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000164010558": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -287428,7 +287447,7 @@
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161582329": {
-      "missing": "2026-11-27T05:03:39+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-19T20:03:44+00:00"
     },
     "smartrecruiters:NBCUniversal3:744000161597129": {
@@ -389866,6 +389885,9 @@
     "workday:nvidia:JR2000691": {
       "seen_at": "2026-10-23T17:47:03+00:00"
     },
+    "workday:nvidia:JR2000956": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
     "workday:nvidia:JR2001089": {
       "seen_at": "2026-10-30T23:36:35+00:00"
     },
@@ -389978,6 +390000,9 @@
     "workday:nvidia:JR2005131": {
       "seen_at": "2026-11-26T13:43:46+00:00"
     },
+    "workday:nvidia:JR2005323": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
     "workday:nvidia:JR2005324": {
       "seen_at": "2026-10-30T23:36:35+00:00"
     },
@@ -390079,6 +390104,9 @@
     },
     "workday:nvidia:JR2008541": {
       "seen_at": "2026-10-30T23:36:35+00:00"
+    },
+    "workday:nvidia:JR2008620": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "workday:nvidia:JR2008626": {
       "seen_at": "2026-09-29T15:23:34+00:00"
@@ -390523,6 +390551,9 @@
     },
     "workday:nvidia:JR2014056": {
       "seen_at": "2026-10-30T23:46:21+00:00"
+    },
+    "workday:nvidia:JR2014087": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "workday:nvidia:JR2014105": {
       "seen_at": "2026-10-14T19:46:21+00:00"
@@ -391351,6 +391382,9 @@
     },
     "workday:nvidia:JR2019412": {
       "seen_at": "2026-10-30T23:56:28+00:00"
+    },
+    "workday:nvidia:JR2019425": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "workday:nvidia:JR2019460": {
       "seen_at": "2026-10-30T23:56:28+00:00"
@@ -393092,6 +393126,9 @@
     "workday:nvidia:JR2024925": {
       "seen_at": "2026-11-21T05:54:01+00:00"
     },
+    "workday:nvidia:JR2024932": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
     "workday:nvidia:JR2024968": {
       "seen_at": "2026-11-12T23:46:05+00:00"
     },
@@ -394206,6 +394243,9 @@
     "workday:nvidia:JR2027182": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
+    "workday:nvidia:JR2027188": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
     "workday:nvidia:JR2027189": {
       "seen_at": "2026-11-13T10:07:22+00:00"
     },
@@ -394232,6 +394272,9 @@
     },
     "workday:nvidia:JR2027203": {
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "workday:nvidia:JR2027204": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "workday:nvidia:JR2027206": {
       "seen_at": "2026-10-26T09:56:02+00:00"
@@ -394900,8 +394943,14 @@
     "workday:nvidia:JR2027898": {
       "seen_at": "2026-10-16T05:06:20+00:00"
     },
+    "workday:nvidia:JR2027901": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
+    },
     "workday:nvidia:JR2027903": {
       "seen_at": "2026-10-20T09:16:04+00:00"
+    },
+    "workday:nvidia:JR2027904": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "workday:nvidia:JR2027906": {
       "seen_at": "2026-10-19T03:25:53+00:00"
@@ -395494,6 +395543,9 @@
     },
     "workday:nvidia:JR2028495": {
       "seen_at": "2026-11-23T04:24:13+00:00"
+    },
+    "workday:nvidia:JR2028496": {
+      "seen_at": "2026-11-27T11:03:51+00:00"
     },
     "workday:nvidia:JR2028497": {
       "seen_at": "2026-11-21T05:54:01+00:00"
@@ -425311,12 +425363,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-27T08:30:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-27T09:30:32+00:00",
+    "workday/hp": "2026-11-27T11:00:40+00:00",
     "workday/hpe": "2026-11-27T09:30:32+00:00",
     "workday/intel": "2026-11-27T09:40:28+00:00",
     "workday/micron": "2026-11-27T09:40:28+00:00",
     "workday/northrop-grumman": "2026-11-27T10:10:29+00:00",
-    "workday/nvidia": "2026-11-27T09:20:28+00:00",
+    "workday/nvidia": "2026-11-27T11:00:40+00:00",
     "workday/paypal": "2026-11-27T10:00:35+00:00",
     "workday/rbc": "2026-11-27T10:50:29+00:00",
     "workday/salesforce": "2026-11-27T10:30:33+00:00",
