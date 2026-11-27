@@ -49292,7 +49292,10 @@
       "zero_since": null
     },
     "workday/becton-dickinson": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T20:53:38+00:00",
+      "last_error": "HTTP 429 from bdx.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49430,7 +49433,7 @@
       "zero_since": null
     },
     "workday/siemens-healthineers": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T19:24:16+00:00",
       "last_error": "HTTP 429 from onehealthineers.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49926,7 +49929,7 @@
       }
     },
     "auto_sources_checked": "2026-11-27T03:44:25+00:00",
-    "dashboard_built_at": "2026-11-27T19:53:26+00:00",
+    "dashboard_built_at": "2026-11-27T20:53:39+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -56471,11 +56474,6 @@
         "first": "2026-09-29T19:14:24+00:00",
         "id": "greenhouse:anthropic:5438044008",
         "last": "2026-09-29T19:14:24+00:00"
-      },
-      "anthropic|software engineer, account abuse (machine learning)": {
-        "first": "2026-09-28T20:43:39+00:00",
-        "id": "greenhouse:anthropic:5436293008",
-        "last": "2026-09-28T20:43:39+00:00"
       },
       "anthropic|software engineer, sandboxing": {
         "first": "2026-10-01T15:34:32+00:00",
@@ -63674,11 +63672,6 @@
         "id": "workday:micron:JR112775",
         "last": "2026-09-30T18:40:10+00:00"
       },
-      "micron|intern - signal integrity": {
-        "first": "2026-09-28T20:43:39+00:00",
-        "id": "workday:micron:JR112692",
-        "last": "2026-09-28T20:43:39+00:00"
-      },
       "micron|new college grad - ate process engineer id1": {
         "first": "2026-10-01T15:24:24+00:00",
         "id": "workday:micron:JR113380",
@@ -64715,11 +64708,6 @@
         "first": "2026-10-03T22:41:25+00:00",
         "id": "github:SimplifyJobs/Summer2026-Internships:b0582dd7-6e1e-4816-a195-c1303b463c10",
         "last": "2026-10-03T22:41:25+00:00"
-      },
-      "northrop grumman|2026 associate cyber systems engineer - boulder co (aht)": {
-        "first": "2026-09-28T20:43:39+00:00",
-        "id": "workday:ngc:R10253306",
-        "last": "2026-09-28T20:43:39+00:00"
       },
       "northrop grumman|2026 associate industrial engineer/industrial engineer": {
         "first": "2026-09-29T17:34:08+00:00",
@@ -119681,7 +119669,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317633935": {
-      "missing": "2026-11-27T20:43:09+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317639495": {
@@ -119784,7 +119771,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317761054": {
-      "missing": "2026-11-27T20:43:09+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317761805": {
@@ -119987,7 +119973,6 @@
       "seen_at": "2026-10-08T18:36:50+00:00"
     },
     "eightfold:netflix:790318040862": {
-      "missing": "2026-11-27T20:43:09+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318041034": {
@@ -120934,6 +120919,7 @@
       "seen_at": "2026-11-02T14:47:03+00:00"
     },
     "eightfold:netflix:790319293839": {
+      "missing": "2026-11-27T20:53:39+00:00",
       "seen_at": "2026-11-18T17:37:22+00:00"
     },
     "eightfold:netflix:790319295260": {
@@ -189775,9 +189761,6 @@
       "closed": "2026-11-24",
       "seen_at": "2026-11-22T12:34:44+00:00"
     },
-    "greenhouse:adyen:8071079": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "greenhouse:adyen:8074357": {
       "closed": "2026-11-06",
       "seen_at": "2026-11-04T08:45:48+00:00"
@@ -189809,9 +189792,6 @@
     },
     "greenhouse:adyen:8096256": {
       "seen_at": "2026-10-18T19:55:10+00:00"
-    },
-    "greenhouse:adyen:8097513": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "greenhouse:adyen:8098410": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -191701,10 +191681,6 @@
     "greenhouse:airbnb:7230257": {
       "seen_at": "2026-11-26T17:23:32+00:00"
     },
-    "greenhouse:airbnb:7380185": {
-      "closed": "2026-10-05",
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "greenhouse:airbnb:7417293": {
       "closed": "2026-11-25",
       "seen_at": "2026-11-23T01:33:15+00:00"
@@ -191712,9 +191688,6 @@
     "greenhouse:airbnb:7417294": {
       "closed": "2026-11-25",
       "seen_at": "2026-11-23T01:33:15+00:00"
-    },
-    "greenhouse:airbnb:7453190": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "greenhouse:airbnb:7525479": {
       "seen_at": "2026-11-23T01:33:15+00:00"
@@ -194618,9 +194591,6 @@
     "greenhouse:anthropic:5436196008": {
       "closed": "2026-11-13",
       "seen_at": "2026-09-29T17:24:12+00:00"
-    },
-    "greenhouse:anthropic:5436293008": {
-      "seen_at": "2026-09-28T20:43:37+00:00"
     },
     "greenhouse:anthropic:5436615008": {
       "closed": "2026-11-19",
@@ -201312,10 +201282,6 @@
     "greenhouse:coinbase:8094196": {
       "seen_at": "2026-11-08T21:25:18+00:00"
     },
-    "greenhouse:coinbase:8097292": {
-      "closed": "2026-10-27",
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "greenhouse:coinbase:8097944": {
       "seen_at": "2026-09-29T01:33:37+00:00"
     },
@@ -203593,10 +203559,6 @@
     "greenhouse:databricks:8567843002": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
-    "greenhouse:databricks:8567849002": {
-      "closed": "2026-10-29",
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "greenhouse:databricks:8567961002": {
       "seen_at": "2026-10-17T20:15:34+00:00"
     },
@@ -204032,10 +203994,6 @@
     "greenhouse:databricks:8641466002": {
       "closed": "2026-10-30",
       "seen_at": "2026-10-02T20:23:42+00:00"
-    },
-    "greenhouse:databricks:8642263002": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "greenhouse:databricks:8643831002": {
       "seen_at": "2026-11-25T23:14:07+00:00"
@@ -206477,10 +206435,6 @@
     },
     "greenhouse:datadog:8080601": {
       "seen_at": "2026-11-23T01:33:15+00:00"
-    },
-    "greenhouse:datadog:8080606": {
-      "closed": "2026-09-30",
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "greenhouse:datadog:8082007": {
       "seen_at": "2026-11-25T18:13:42+00:00"
@@ -228134,6 +228088,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7547204": {
+      "missing": "2026-11-27T20:53:39+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7555217": {
@@ -228223,6 +228178,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7618041": {
+      "missing": "2026-11-27T20:53:39+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7624120": {
@@ -229810,6 +229766,7 @@
       "seen_at": "2026-11-19T00:26:10+00:00"
     },
     "greenhouse:samsara:8366056": {
+      "missing": "2026-11-27T20:53:39+00:00",
       "seen_at": "2026-11-13T20:39:15+00:00"
     },
     "greenhouse:samsara:8366794": {
@@ -231511,9 +231468,6 @@
     },
     "greenhouse:stripe:8089815": {
       "seen_at": "2026-10-04T13:35:39+00:00"
-    },
-    "greenhouse:stripe:8090126": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "greenhouse:stripe:8090203": {
       "seen_at": "2026-09-29T16:34:03+00:00"
@@ -250592,9 +250546,6 @@
     "oracle:dell:294531": {
       "seen_at": "2026-10-05T12:43:32+00:00"
     },
-    "oracle:dell:294539": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "oracle:dell:294594": {
       "seen_at": "2026-11-03T08:55:36+00:00"
     },
@@ -260372,6 +260323,9 @@
     "oracle:honeywell:162549": {
       "seen_at": "2026-11-27T20:43:09+00:00"
     },
+    "oracle:honeywell:162550": {
+      "seen_at": "2026-11-27T20:53:39+00:00"
+    },
     "oracle:honeywell:162553": {
       "seen_at": "2026-11-26T01:43:43+00:00"
     },
@@ -262527,6 +262481,9 @@
     },
     "oracle:oracle:345396": {
       "seen_at": "2026-11-24T20:05:12+00:00"
+    },
+    "oracle:oracle:345398": {
+      "seen_at": "2026-11-27T20:53:39+00:00"
     },
     "oracle:oracle:345399": {
       "seen_at": "2026-10-30T18:36:59+00:00"
@@ -324241,9 +324198,6 @@
     "workday:cibc:2619787": {
       "seen_at": "2026-10-14T02:06:54+00:00"
     },
-    "workday:cibc:2619792": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "workday:cibc:2619798": {
       "seen_at": "2026-09-29T15:23:34+00:00"
     },
@@ -351310,9 +351264,6 @@
     "workday:hp:3168852": {
       "seen_at": "2026-09-29T12:43:45+00:00"
     },
-    "workday:hp:3168858": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "workday:hp:3168863": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -367344,9 +367295,6 @@
     "workday:micron:JR112564": {
       "seen_at": "2026-09-30T18:24:00+00:00"
     },
-    "workday:micron:JR112565": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "workday:micron:JR112569": {
       "seen_at": "2026-10-05T16:43:45+00:00"
     },
@@ -367409,9 +367357,6 @@
     },
     "workday:micron:JR112689": {
       "seen_at": "2026-09-29T15:14:35+00:00"
-    },
-    "workday:micron:JR112692": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "workday:micron:JR112694": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -375410,9 +375355,6 @@
     },
     "workday:ngc:R10253296": {
       "seen_at": "2026-10-14T00:15:59+00:00"
-    },
-    "workday:ngc:R10253306": {
-      "seen_at": "2026-09-28T20:43:38+00:00"
     },
     "workday:ngc:R10253309": {
       "seen_at": "2026-10-02T15:08:36+00:00"
@@ -390893,9 +390835,6 @@
     },
     "workday:nvidia:JR2019994": {
       "seen_at": "2026-10-15T21:56:28+00:00"
-    },
-    "workday:nvidia:JR2020003": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "workday:nvidia:JR2020008": {
       "seen_at": "2026-10-06T23:04:09+00:00"
@@ -409274,9 +409213,6 @@
     "workday:td:R_1456829": {
       "seen_at": "2026-10-22T18:07:15+00:00"
     },
-    "workday:td:R_1456834": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "workday:td:R_1458418": {
       "seen_at": "2026-10-16T15:08:15+00:00"
     },
@@ -411452,9 +411388,6 @@
     "workday:td:R_1512637": {
       "seen_at": "2026-09-30T17:23:42+00:00"
     },
-    "workday:td:R_1512652": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
     "workday:td:R_1512686": {
       "seen_at": "2026-10-02T04:03:36+00:00"
     },
@@ -411982,12 +411915,6 @@
     },
     "workday:td:R_1513732": {
       "seen_at": "2026-10-06T16:53:54+00:00"
-    },
-    "workday:td:R_1513737": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
-    },
-    "workday:td:R_1513742": {
-      "seen_at": "2026-09-28T20:43:39+00:00"
     },
     "workday:td:R_1513748": {
       "seen_at": "2026-10-20T16:07:26+00:00"
@@ -424286,7 +424213,7 @@
   "polling": {
     "workday/adobe": "2026-11-27T19:50:30+00:00",
     "workday/autodesk": "2026-11-27T20:20:27+00:00",
-    "workday/becton-dickinson": "2026-11-27T19:20:28+00:00",
+    "workday/becton-dickinson": "2026-11-27T20:50:29+00:00",
     "workday/boeing": "2026-11-27T20:40:24+00:00",
     "workday/cibc": "2026-11-27T19:40:27+00:00",
     "workday/cisco": "2026-11-27T20:20:27+00:00",
@@ -424303,7 +424230,7 @@
     "workday/paypal": "2026-11-27T20:30:31+00:00",
     "workday/rbc": "2026-11-27T19:40:27+00:00",
     "workday/salesforce": "2026-11-27T19:20:28+00:00",
-    "workday/siemens-healthineers": "2026-11-27T19:20:28+00:00",
+    "workday/siemens-healthineers": "2026-11-27T20:50:29+00:00",
     "workday/snap": "2026-11-27T20:30:31+00:00",
     "workday/td": "2026-11-27T19:30:33+00:00",
     "workday/workday": "2026-11-27T20:30:31+00:00",
