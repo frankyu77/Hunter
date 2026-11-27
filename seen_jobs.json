@@ -48810,10 +48810,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-27T04:04:13+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49227,7 +49224,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T04:13:47+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49338,7 +49338,10 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T04:13:47+00:00",
+      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -120519,7 +120522,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318738586": {
-      "missing": "2026-11-27T03:53:28+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318746569": {
@@ -120815,7 +120817,6 @@
       "seen_at": "2026-10-26T12:26:40+00:00"
     },
     "eightfold:netflix:790319131222": {
-      "missing": "2026-11-27T03:53:28+00:00",
       "seen_at": "2026-10-26T14:56:11+00:00"
     },
     "eightfold:netflix:790319137749": {
@@ -120983,7 +120984,6 @@
       "seen_at": "2026-11-10T22:16:26+00:00"
     },
     "eightfold:netflix:790319298863": {
-      "missing": "2026-11-27T03:53:28+00:00",
       "seen_at": "2026-11-23T19:34:13+00:00"
     },
     "eightfold:netflix:790319298864": {
@@ -121386,6 +121386,9 @@
     },
     "eightfold:netflix:790319768926": {
       "seen_at": "2026-11-27T03:53:29+00:00"
+    },
+    "eightfold:netflix:790319769239": {
+      "seen_at": "2026-11-27T04:13:48+00:00"
     },
     "eightfold:qualcomm:446704809279": {
       "seen_at": "2026-11-14T03:03:21+00:00"
@@ -206137,7 +206140,6 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "greenhouse:datadog:7442122": {
-      "closed": "2026-11-16",
       "seen_at": "2026-10-02T11:53:27+00:00"
     },
     "greenhouse:datadog:7452669": {
@@ -424973,7 +424975,7 @@
     "workday/hp": "2026-11-27T03:50:28+00:00",
     "workday/hpe": "2026-11-27T04:00:33+00:00",
     "workday/intel": "2026-11-27T04:00:33+00:00",
-    "workday/micron": "2026-11-27T02:30:33+00:00",
+    "workday/micron": "2026-11-27T04:10:35+00:00",
     "workday/northrop-grumman": "2026-11-27T03:00:35+00:00",
     "workday/nvidia": "2026-11-27T03:50:28+00:00",
     "workday/paypal": "2026-11-27T02:50:28+00:00",
