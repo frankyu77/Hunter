@@ -48831,7 +48831,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T13:53:38+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49314,7 +49317,10 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T13:53:38+00:00",
+      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49407,7 +49413,10 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T13:53:38+00:00",
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -65137,11 +65146,6 @@
         "first": "2026-11-02T20:55:57+00:00",
         "id": "workday:ngc:R10258848",
         "last": "2026-11-02T20:55:57+00:00"
-      },
-      "northrop grumman|2027 engineering intern - bellevue (ne)": {
-        "first": "2026-09-28T13:44:20+00:00",
-        "id": "workday:ngc:R10252793",
-        "last": "2026-09-28T13:44:20+00:00"
       },
       "northrop grumman|2027 engineering intern - hollywood (md) (evergreen)": {
         "first": "2026-09-30T15:35:01+00:00",
@@ -191684,6 +191688,9 @@
       "closed": "2026-11-17",
       "seen_at": "2026-11-13T19:08:01+00:00"
     },
+    "greenhouse:affirm:8199161003": {
+      "seen_at": "2026-11-27T13:53:39+00:00"
+    },
     "greenhouse:affirm:8199288003": {
       "seen_at": "2026-11-18T13:56:59+00:00"
     },
@@ -220346,6 +220353,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8120184": {
+      "missing": "2026-11-27T13:53:39+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8121324": {
@@ -220821,6 +220829,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8213069": {
+      "missing": "2026-11-27T13:53:39+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:mongodb:8213746": {
@@ -282973,6 +282982,9 @@
     },
     "smartrecruiters:BoschGroup:744000164034209": {
       "seen_at": "2026-11-27T13:43:23+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000164035109": {
+      "seen_at": "2026-11-27T13:53:39+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -361149,9 +361161,6 @@
     "workday:intel:JR0281246": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "workday:intel:JR0281401": {
-      "seen_at": "2026-09-28T13:44:20+00:00"
-    },
     "workday:intel:JR0282661": {
       "seen_at": "2026-11-04T09:45:47+00:00"
     },
@@ -375726,9 +375735,6 @@
     },
     "workday:ngc:R10252792": {
       "seen_at": "2026-09-29T15:23:34+00:00"
-    },
-    "workday:ngc:R10252793": {
-      "seen_at": "2026-09-28T13:44:20+00:00"
     },
     "workday:ngc:R10252797": {
       "seen_at": "2026-09-30T14:34:34+00:00"
@@ -391755,10 +391761,6 @@
     "workday:nvidia:JR2020483": {
       "seen_at": "2026-10-14T17:16:49+00:00"
     },
-    "workday:nvidia:JR2020544": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T13:44:20+00:00"
-    },
     "workday:nvidia:JR2020546": {
       "seen_at": "2026-10-31T00:07:16+00:00"
     },
@@ -403614,9 +403616,6 @@
     "workday:salesforce:JR359437": {
       "seen_at": "2026-10-20T16:56:50+00:00"
     },
-    "workday:salesforce:JR359449": {
-      "seen_at": "2026-09-28T13:44:20+00:00"
-    },
     "workday:salesforce:JR359492": {
       "seen_at": "2026-11-23T17:23:12+00:00"
     },
@@ -412435,9 +412434,6 @@
     },
     "workday:td:R_1512607": {
       "seen_at": "2026-10-02T17:34:36+00:00"
-    },
-    "workday:td:R_1512617": {
-      "seen_at": "2026-09-28T13:44:20+00:00"
     },
     "workday:td:R_1512620": {
       "seen_at": "2026-09-29T19:05:49+00:00"
@@ -425400,7 +425396,7 @@
     "workday/boeing": "2026-11-27T13:30:37+00:00",
     "workday/cibc": "2026-11-27T12:20:28+00:00",
     "workday/cisco": "2026-11-27T13:10:34+00:00",
-    "workday/clio": "2026-11-27T12:10:29+00:00",
+    "workday/clio": "2026-11-27T13:50:25+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-27T08:30:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -425412,7 +425408,7 @@
     "workday/nvidia": "2026-11-27T12:40:34+00:00",
     "workday/paypal": "2026-11-27T13:20:28+00:00",
     "workday/rbc": "2026-11-27T12:30:32+00:00",
-    "workday/salesforce": "2026-11-27T12:10:29+00:00",
+    "workday/salesforce": "2026-11-27T13:50:25+00:00",
     "workday/siemens-healthineers": "2026-11-27T13:40:27+00:00",
     "workday/snap": "2026-11-27T13:20:28+00:00",
     "workday/td": "2026-11-27T12:20:28+00:00",
