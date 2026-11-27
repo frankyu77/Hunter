@@ -48699,7 +48699,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T02:53:46+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49257,7 +49260,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T01:14:02+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49293,7 +49296,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T01:14:02+00:00",
       "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -51571,8 +51574,6 @@
         35
       ],
       "greenhouse/asana": [
-        0,
-        15,
         8,
         2,
         14,
@@ -51620,7 +51621,9 @@
         51,
         39,
         50,
-        2
+        2,
+        17,
+        33
       ],
       "greenhouse/asteraearlycareer2027": [
         1,
@@ -52822,7 +52825,6 @@
         5
       ],
       "greenhouse/samsara": [
-        14,
         43,
         37,
         37,
@@ -52871,7 +52873,8 @@
         0,
         21,
         43,
-        43
+        43,
+        49
       ],
       "greenhouse/scaleai": [
         18,
@@ -53349,7 +53352,8 @@
         19,
         20,
         20,
-        20
+        20,
+        21
       ],
       "lever/palantir": [
         8,
@@ -120940,6 +120944,7 @@
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319425306": {
+      "missing": "2026-11-27T02:53:46+00:00",
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319427586": {
@@ -121024,6 +121029,7 @@
       "seen_at": "2026-11-11T21:19:02+00:00"
     },
     "eightfold:netflix:790319462718": {
+      "missing": "2026-11-27T02:53:46+00:00",
       "seen_at": "2026-11-17T15:27:25+00:00"
     },
     "eightfold:netflix:790319467981": {
@@ -195392,7 +195398,7 @@
       "seen_at": "2026-10-23T22:56:27+00:00"
     },
     "greenhouse:asana:7962348": {
-      "missing": "2026-11-26T20:44:01+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-09T15:56:44+00:00"
     },
     "greenhouse:asana:7962412": {
@@ -195784,7 +195790,7 @@
       "seen_at": "2026-11-16T13:16:57+00:00"
     },
     "greenhouse:asana:8319678": {
-      "missing": "2026-11-26T20:44:01+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-23T22:56:27+00:00"
     },
     "greenhouse:asana:8324814": {
@@ -228057,7 +228063,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7926750": {
-      "missing": "2026-11-26T20:44:01+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:samsara:7951885": {
@@ -245978,7 +245984,7 @@
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
     "lever:eqbank:38c79f4d-d831-4e89-90c9-393d506de014": {
-      "missing": "2026-11-26T20:44:01+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-05T18:46:08+00:00"
     },
     "lever:eqbank:3d5bacf5-2c18-41d3-a659-5645769df8ed": {
@@ -296514,6 +296520,9 @@
     "smartrecruiters:SAPITBusinessSysteme:744000163955902": {
       "seen_at": "2026-11-27T02:43:30+00:00"
     },
+    "smartrecruiters:SAPITBusinessSysteme:744000163956599": {
+      "seen_at": "2026-11-27T02:53:46+00:00"
+    },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
@@ -304950,6 +304959,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7667565696079874309": {
+      "missing": "2026-11-27T02:53:46+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "tiktok:tiktok:7667570193749035317": {
@@ -424700,11 +424710,11 @@
     "workday/micron": "2026-11-27T02:30:33+00:00",
     "workday/northrop-grumman": "2026-11-27T01:20:27+00:00",
     "workday/nvidia": "2026-11-27T02:10:28+00:00",
-    "workday/paypal": "2026-11-27T01:10:25+00:00",
+    "workday/paypal": "2026-11-27T02:50:28+00:00",
     "workday/rbc": "2026-11-27T02:00:37+00:00",
     "workday/salesforce": "2026-11-27T01:40:28+00:00",
     "workday/siemens-healthineers": "2026-11-27T01:30:30+00:00",
-    "workday/snap": "2026-11-27T01:10:25+00:00",
+    "workday/snap": "2026-11-27T02:50:28+00:00",
     "workday/td": "2026-11-27T01:50:24+00:00",
     "workday/workday": "2026-11-26T22:10:29+00:00",
     "workday/zillow": "2026-11-20T08:30:32+00:00",
