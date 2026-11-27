@@ -49336,7 +49336,10 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T22:43:43+00:00",
+      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49432,7 +49435,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T21:04:08+00:00",
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -107093,9 +107096,6 @@
     "eightfold:microsoft:1970393557007602": {
       "seen_at": "2026-10-15T17:07:34+00:00"
     },
-    "eightfold:microsoft:1970393557007645": {
-      "seen_at": "2026-09-28T22:33:35+00:00"
-    },
     "eightfold:microsoft:1970393557007655": {
       "seen_at": "2026-10-02T10:43:26+00:00"
     },
@@ -119845,6 +119845,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318497041": {
+      "missing": "2026-11-27T22:43:44+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318497409": {
@@ -120929,7 +120930,6 @@
       "seen_at": "2026-11-27T12:13:36+00:00"
     },
     "eightfold:netflix:790319779974": {
-      "missing": "2026-11-27T22:33:31+00:00",
       "seen_at": "2026-11-27T19:04:35+00:00"
     },
     "eightfold:qualcomm:446704809279": {
@@ -226121,10 +226121,6 @@
     "greenhouse:robinhood:8209838": {
       "seen_at": "2026-11-16T00:55:46+00:00"
     },
-    "greenhouse:robinhood:8210957": {
-      "closed": "2026-10-14",
-      "seen_at": "2026-09-28T22:33:35+00:00"
-    },
     "greenhouse:robinhood:8210967": {
       "seen_at": "2026-11-23T16:14:36+00:00"
     },
@@ -232165,10 +232161,6 @@
     },
     "greenhouse:stripe:8222212": {
       "seen_at": "2026-10-02T17:34:36+00:00"
-    },
-    "greenhouse:stripe:8222219": {
-      "closed": "2026-10-30",
-      "seen_at": "2026-09-28T22:33:35+00:00"
     },
     "greenhouse:stripe:8222459": {
       "seen_at": "2026-09-30T09:53:22+00:00"
@@ -253953,10 +253945,6 @@
     },
     "oracle:honeywell:158581": {
       "seen_at": "2026-10-14T00:15:59+00:00"
-    },
-    "oracle:honeywell:158585": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T22:33:35+00:00"
     },
     "oracle:honeywell:158586": {
       "missing": "2026-10-15T17:46:57+00:00",
@@ -318446,10 +318434,6 @@
       "missing": "2026-10-14T16:36:36+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "workday:boeing:JR2026524029": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T22:33:35+00:00"
-    },
     "workday:boeing:JR2026524037": {
       "seen_at": "2026-10-05T19:13:47+00:00"
     },
@@ -323809,9 +323793,6 @@
     },
     "workday:cibc:2619934": {
       "seen_at": "2026-10-01T20:34:43+00:00"
-    },
-    "workday:cibc:2619935": {
-      "seen_at": "2026-09-28T22:33:35+00:00"
     },
     "workday:cibc:2619936": {
       "seen_at": "2026-09-29T23:13:47+00:00"
@@ -374823,9 +374804,6 @@
     "workday:ngc:R10253351": {
       "seen_at": "2026-09-29T22:23:46+00:00"
     },
-    "workday:ngc:R10253355": {
-      "seen_at": "2026-09-28T22:33:35+00:00"
-    },
     "workday:ngc:R10253356": {
       "seen_at": "2026-09-28T23:03:46+00:00"
     },
@@ -396229,9 +396207,6 @@
     },
     "workday:onehealthineers:R-30711": {
       "seen_at": "2026-11-25T05:13:55+00:00"
-    },
-    "workday:onehealthineers:R-30712": {
-      "seen_at": "2026-09-28T22:33:35+00:00"
     },
     "workday:onehealthineers:R-30720": {
       "seen_at": "2026-10-16T12:25:54+00:00"
@@ -423554,7 +423529,7 @@
     "workday/boeing": "2026-11-27T22:20:26+00:00",
     "workday/cibc": "2026-11-27T21:10:25+00:00",
     "workday/cisco": "2026-11-27T22:00:35+00:00",
-    "workday/clio": "2026-11-27T21:00:36+00:00",
+    "workday/clio": "2026-11-27T22:40:27+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -423566,7 +423541,7 @@
     "workday/nvidia": "2026-11-27T21:30:32+00:00",
     "workday/paypal": "2026-11-27T22:10:29+00:00",
     "workday/rbc": "2026-11-27T21:20:26+00:00",
-    "workday/salesforce": "2026-11-27T21:00:36+00:00",
+    "workday/salesforce": "2026-11-27T22:40:27+00:00",
     "workday/siemens-healthineers": "2026-11-27T22:30:29+00:00",
     "workday/snap": "2026-11-27T22:10:29+00:00",
     "workday/td": "2026-11-27T21:10:25+00:00",
