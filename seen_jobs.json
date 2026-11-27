@@ -49269,7 +49269,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T09:53:54+00:00",
+      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49302,7 +49305,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-26T23:33:46+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49900,7 +49903,7 @@
       }
     },
     "auto_sources_checked": "2026-11-27T03:44:25+00:00",
-    "dashboard_built_at": "2026-11-27T08:53:50+00:00",
+    "dashboard_built_at": "2026-11-27T09:53:55+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -85959,10 +85962,6 @@
     "ashby:cohere:d164d567-58d9-42fc-9e14-68d1dd2cb5a7": {
       "seen_at": "2026-11-13T19:27:06+00:00"
     },
-    "ashby:cohere:d1ab4fbd-3271-4057-8b20-dfaad4270fa8": {
-      "closed": "2026-10-06",
-      "seen_at": "2026-09-28T09:53:45+00:00"
-    },
     "ashby:cohere:d28fbc03-cb09-49da-84b9-e12c16182695": {
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
@@ -120943,6 +120942,7 @@
       "seen_at": "2026-10-27T16:37:11+00:00"
     },
     "eightfold:netflix:790319182712": {
+      "missing": "2026-11-27T09:53:55+00:00",
       "seen_at": "2026-10-27T18:56:11+00:00"
     },
     "eightfold:netflix:790319182757": {
@@ -121268,6 +121268,7 @@
       "seen_at": "2026-11-11T21:19:02+00:00"
     },
     "eightfold:netflix:790319462718": {
+      "missing": "2026-11-27T09:53:55+00:00",
       "seen_at": "2026-11-17T15:27:25+00:00"
     },
     "eightfold:netflix:790319467981": {
@@ -125452,7 +125453,6 @@
       "seen_at": "2026-11-10T10:36:01+00:00"
     },
     "eightfold:qualcomm:446722049690": {
-      "missing": "2026-11-27T09:44:10+00:00",
       "seen_at": "2026-11-27T05:03:39+00:00"
     },
     "eightfold:qualcomm:446722057312": {
@@ -232301,8 +232301,14 @@
     "greenhouse:stripe:8174141": {
       "seen_at": "2026-09-29T11:23:48+00:00"
     },
+    "greenhouse:stripe:8174148": {
+      "seen_at": "2026-11-27T09:53:55+00:00"
+    },
     "greenhouse:stripe:8174150": {
       "seen_at": "2026-11-06T01:36:01+00:00"
+    },
+    "greenhouse:stripe:8174160": {
+      "seen_at": "2026-11-27T09:53:55+00:00"
     },
     "greenhouse:stripe:8174963": {
       "seen_at": "2026-11-16T19:07:10+00:00"
@@ -250731,6 +250737,9 @@
       "closed": "2026-10-30",
       "seen_at": "2026-10-29T15:57:07+00:00"
     },
+    "oracle:dell:294442": {
+      "seen_at": "2026-11-27T09:53:55+00:00"
+    },
     "oracle:dell:294473": {
       "closed": "2026-10-07",
       "seen_at": "2026-10-06T18:54:14+00:00"
@@ -253819,9 +253828,6 @@
     "oracle:honeywell:126361": {
       "seen_at": "2026-11-09T13:56:39+00:00"
     },
-    "oracle:honeywell:136254": {
-      "seen_at": "2026-09-28T09:53:45+00:00"
-    },
     "oracle:honeywell:139919": {
       "seen_at": "2026-10-20T09:25:30+00:00"
     },
@@ -254129,12 +254135,6 @@
     },
     "oracle:honeywell:157471": {
       "seen_at": "2026-10-26T06:06:00+00:00"
-    },
-    "oracle:honeywell:157472": {
-      "seen_at": "2026-09-28T09:53:45+00:00"
-    },
-    "oracle:honeywell:157473": {
-      "seen_at": "2026-09-28T09:53:45+00:00"
     },
     "oracle:honeywell:157477": {
       "seen_at": "2026-10-19T01:55:58+00:00"
@@ -297223,6 +297223,15 @@
     },
     "smartrecruiters:SAPITBusinessSysteme:744000163994949": {
       "seen_at": "2026-11-27T09:33:32+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163998026": {
+      "seen_at": "2026-11-27T09:53:55+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163998273": {
+      "seen_at": "2026-11-27T09:53:55+00:00"
+    },
+    "smartrecruiters:SAPITBusinessSysteme:744000163999679": {
+      "seen_at": "2026-11-27T09:53:55+00:00"
     },
     "smartrecruiters:ServiceNow:744000107369741": {
       "seen_at": "2026-10-08T06:46:23+00:00"
@@ -425209,11 +425218,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-27T09:20:28+00:00",
-    "workday/autodesk": "2026-11-27T08:30:34+00:00",
+    "workday/autodesk": "2026-11-27T09:50:24+00:00",
     "workday/becton-dickinson": "2026-11-27T08:50:29+00:00",
     "workday/boeing": "2026-11-27T08:40:35+00:00",
     "workday/cibc": "2026-11-27T09:10:37+00:00",
-    "workday/cisco": "2026-11-27T06:00:42+00:00",
+    "workday/cisco": "2026-11-27T09:50:24+00:00",
     "workday/clio": "2026-11-27T09:00:47+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-27T08:30:34+00:00",
