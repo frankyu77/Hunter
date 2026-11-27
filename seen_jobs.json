@@ -48810,7 +48810,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T04:04:13+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49320,7 +49323,10 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T04:04:13+00:00",
+      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -118185,6 +118191,9 @@
     },
     "eightfold:microsoft:1970393557075438": {
       "seen_at": "2026-11-20T16:44:14+00:00"
+    },
+    "eightfold:microsoft:1970393557075440": {
+      "seen_at": "2026-11-27T04:04:13+00:00"
     },
     "eightfold:microsoft:1970393557075442": {
       "seen_at": "2026-11-20T19:54:54+00:00"
@@ -424962,8 +424971,8 @@
     "workday/ebay": "2026-11-26T19:10:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-27T03:50:28+00:00",
-    "workday/hpe": "2026-11-27T02:20:23+00:00",
-    "workday/intel": "2026-11-27T02:20:23+00:00",
+    "workday/hpe": "2026-11-27T04:00:33+00:00",
+    "workday/intel": "2026-11-27T04:00:33+00:00",
     "workday/micron": "2026-11-27T02:30:33+00:00",
     "workday/northrop-grumman": "2026-11-27T03:00:35+00:00",
     "workday/nvidia": "2026-11-27T03:50:28+00:00",
