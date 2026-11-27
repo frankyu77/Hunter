@@ -49296,7 +49296,10 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T19:43:40+00:00",
+      "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49395,7 +49398,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-27T12:34:05+00:00",
       "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53778,7 +53781,6 @@
         0,
         0,
         0,
-        0,
         1,
         0,
         1,
@@ -53814,6 +53816,7 @@
         1,
         0,
         1,
+        0,
         0,
         0,
         0,
@@ -53832,7 +53835,6 @@
         0,
         0,
         0,
-        0,
         1,
         2,
         2,
@@ -53870,6 +53872,8 @@
         5,
         5,
         3,
+        7,
+        7,
         7
       ],
       "oracle/texas-instruments": [
@@ -119128,6 +119132,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315764701": {
+      "missing": "2026-11-27T19:43:40+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790315764775": {
@@ -144780,6 +144785,7 @@
       "seen_at": "2026-11-17T23:37:17+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ec63f9af-9d7b-4d83-859f-b199f9f3c0ac": {
+      "missing": "2026-11-27T19:43:40+00:00",
       "seen_at": "2026-11-25T11:13:57+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:ec690411-3f8c-4226-b9e3-2060341f134b": {
@@ -204450,6 +204456,9 @@
     "greenhouse:databricks:8736471002": {
       "closed": "2026-11-09",
       "seen_at": "2026-10-14T00:15:59+00:00"
+    },
+    "greenhouse:databricks:8736473002": {
+      "seen_at": "2026-11-27T19:43:41+00:00"
     },
     "greenhouse:databricks:8736498002": {
       "seen_at": "2026-11-09T06:06:24+00:00"
@@ -269995,7 +270004,7 @@
       "seen_at": "2026-11-27T17:34:12+00:00"
     },
     "oracle:oracle:351710": {
-      "missing": "2026-11-27T13:43:22+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-27T11:34:05+00:00"
     },
     "oracle:oracle:351711": {
@@ -270462,11 +270471,11 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10988": {
-      "missing": "2026-11-27T13:43:22+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10989": {
-      "missing": "2026-11-27T13:43:22+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10991": {
@@ -424529,7 +424538,7 @@
     "workday/autodesk": "2026-11-27T18:50:27+00:00",
     "workday/becton-dickinson": "2026-11-27T19:20:28+00:00",
     "workday/boeing": "2026-11-27T19:10:32+00:00",
-    "workday/cibc": "2026-11-27T18:10:29+00:00",
+    "workday/cibc": "2026-11-27T19:40:27+00:00",
     "workday/cisco": "2026-11-27T18:50:27+00:00",
     "workday/clio": "2026-11-27T19:30:33+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
@@ -424542,7 +424551,7 @@
     "workday/northrop-grumman": "2026-11-27T19:10:32+00:00",
     "workday/nvidia": "2026-11-27T18:20:27+00:00",
     "workday/paypal": "2026-11-27T19:00:38+00:00",
-    "workday/rbc": "2026-11-27T18:10:29+00:00",
+    "workday/rbc": "2026-11-27T19:40:27+00:00",
     "workday/salesforce": "2026-11-27T19:20:28+00:00",
     "workday/siemens-healthineers": "2026-11-27T19:20:28+00:00",
     "workday/snap": "2026-11-27T19:00:38+00:00",
