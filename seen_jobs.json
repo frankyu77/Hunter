@@ -48843,7 +48843,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T17:34:11+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49344,7 +49347,7 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "failing_since": "2026-11-27T09:33:29+00:00",
       "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49353,7 +49356,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T16:04:17+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49903,7 +49906,7 @@
       }
     },
     "auto_sources_checked": "2026-11-27T03:44:25+00:00",
-    "dashboard_built_at": "2026-11-27T16:23:57+00:00",
+    "dashboard_built_at": "2026-11-27T17:34:12+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -57730,11 +57733,6 @@
         "first": "2026-10-02T17:34:36+00:00",
         "id": "workday:boeing:JR2026519384",
         "last": "2026-10-02T17:34:36+00:00"
-      },
-      "boeing|test & evaluation engineer (associate)": {
-        "first": "2026-09-28T17:23:50+00:00",
-        "id": "workday:boeing:JR2026522982",
-        "last": "2026-09-28T17:23:50+00:00"
       },
       "boeing|test procedure development engineer (mid-level)": {
         "first": "2026-10-02T19:24:22+00:00",
@@ -85309,6 +85307,9 @@
     "amazon:amazon:10615965": {
       "seen_at": "2026-11-27T16:44:14+00:00"
     },
+    "amazon:amazon:10615974": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -93696,10 +93697,6 @@
     },
     "ashby:openai:e74c8ec3-3317-4fea-bb66-703dc2d55a51": {
       "seen_at": "2026-11-02T22:55:45+00:00"
-    },
-    "ashby:openai:e7594296-a38b-43a1-b4f8-01253a3b7732": {
-      "closed": "2026-10-27",
-      "seen_at": "2026-09-28T17:34:12+00:00"
     },
     "ashby:openai:e778df45-93d4-4b29-a994-f7d960af6d5c": {
       "seen_at": "2026-11-10T10:06:03+00:00"
@@ -176670,7 +176667,7 @@
       "seen_at": "2026-11-05T19:16:16+00:00"
     },
     "github:vanshb03/Summer2027-Internships:1605f560-b8fd-4dd2-ae91-6111f9c9ce84": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-26T17:07:12+00:00"
     },
     "github:vanshb03/Summer2027-Internships:16446ee6-4440-4876-ad6f-6a0925e39e7f": {
@@ -178399,7 +178396,7 @@
       "seen_at": "2026-11-26T21:53:36+00:00"
     },
     "github:vanshb03/Summer2027-Internships:3456a4f2-5b46-4222-b463-f64cc37e2f68": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-24T05:06:40+00:00"
     },
     "github:vanshb03/Summer2027-Internships:347a6b27-ec19-490b-9189-2c5f45152597": {
@@ -181075,7 +181072,7 @@
       "seen_at": "2026-10-28T17:16:35+00:00"
     },
     "github:vanshb03/Summer2027-Internships:66523fa1-b053-465f-a570-45045122c26d": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-26T16:46:46+00:00"
     },
     "github:vanshb03/Summer2027-Internships:66671d23-c5dc-4878-b87a-7fedbba12a5a": {
@@ -181456,7 +181453,7 @@
       "seen_at": "2026-11-05T10:25:53+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6c89d959-dcfe-4399-afa9-65f37ad8b24f": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-26T17:07:13+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6ca75b17-424f-471f-a303-71bab2644e24": {
@@ -181494,7 +181491,7 @@
       "seen_at": "2026-11-10T16:56:32+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6d433ab0-e6e5-40f3-92de-63826c5eb3bc": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-25T18:04:08+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6d5e85ad-e631-4dc5-b8fd-93fa7b65109b": {
@@ -181532,7 +181529,7 @@
       "seen_at": "2026-11-17T12:27:20+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6e139aa2-ead1-41c6-b50f-73c9b3629217": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-17T18:36:04+00:00"
     },
     "github:vanshb03/Summer2027-Internships:6e1f06b6-29e8-4257-a771-d474b6d83b06": {
@@ -182538,7 +182535,7 @@
       "seen_at": "2026-10-22T02:36:24+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7e808230-0069-40bd-bfcf-6d0a97bc43ca": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-22T01:24:03+00:00"
     },
     "github:vanshb03/Summer2027-Internships:7e951b6b-033d-4035-aa9c-cea40c370306": {
@@ -183356,7 +183353,7 @@
       "seen_at": "2026-10-26T11:55:39+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8e968d5d-1e2d-4b52-b2ea-18e0b5394d92": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-26T14:56:11+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8e9b26b2-7db4-4ca2-a7b5-9c924381bff7": {
@@ -186792,7 +186789,7 @@
       "seen_at": "2026-10-26T13:55:57+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cee9efd8-b44e-48f0-afeb-47d5b8fc71b3": {
-      "missing": "2026-11-27T11:34:05+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-26T16:46:46+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cef133d5-4d20-4b0e-863f-4ecd3232298d": {
@@ -187560,6 +187557,7 @@
       "seen_at": "2026-10-29T17:46:21+00:00"
     },
     "github:vanshb03/Summer2027-Internships:dd278132-7eee-4d71-8807-c59ac1bf7ac9": {
+      "missing": "2026-11-27T17:34:12+00:00",
       "seen_at": "2026-10-26T14:27:00+00:00"
     },
     "github:vanshb03/Summer2027-Internships:dd2a7958-5983-41de-ac76-6e7efd0c99b6": {
@@ -196126,10 +196124,6 @@
     "greenhouse:asana:8234428": {
       "closed": "2026-11-19",
       "seen_at": "2026-10-05T14:43:24+00:00"
-    },
-    "greenhouse:asana:8237559": {
-      "closed": "2026-10-26",
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "greenhouse:asana:8237744": {
       "closed": "2026-11-06",
@@ -235240,9 +235234,6 @@
     "greenhouse:twilio:8112239": {
       "seen_at": "2026-10-27T16:16:44+00:00"
     },
-    "greenhouse:twilio:8114393": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "greenhouse:twilio:8120421": {
       "closed": "2026-10-22",
       "seen_at": "2026-10-18T14:35:34+00:00"
@@ -254065,9 +254056,6 @@
     "oracle:honeywell:156993": {
       "seen_at": "2026-11-05T16:56:35+00:00"
     },
-    "oracle:honeywell:157082": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "oracle:honeywell:157088": {
       "missing": "2026-10-15T15:38:06+00:00",
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -254075,9 +254063,6 @@
     "oracle:honeywell:157090": {
       "closed": "2026-11-16",
       "seen_at": "2026-11-15T07:06:38+00:00"
-    },
-    "oracle:honeywell:157091": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "oracle:honeywell:157103": {
       "seen_at": "2026-09-30T07:33:48+00:00"
@@ -254943,9 +254928,6 @@
     },
     "oracle:honeywell:158850": {
       "seen_at": "2026-10-19T13:56:21+00:00"
-    },
-    "oracle:honeywell:158851": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "oracle:honeywell:158852": {
       "seen_at": "2026-09-29T12:23:37+00:00"
@@ -263101,10 +263083,6 @@
       "closed": "2026-09-30",
       "seen_at": "2026-09-28T20:23:58+00:00"
     },
-    "oracle:oracle:346097": {
-      "closed": "2026-09-30",
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "oracle:oracle:346105": {
       "seen_at": "2026-09-28T23:03:46+00:00"
     },
@@ -263113,9 +263091,6 @@
     },
     "oracle:oracle:346112": {
       "seen_at": "2026-09-28T23:03:46+00:00"
-    },
-    "oracle:oracle:346115": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "oracle:oracle:346119": {
       "seen_at": "2026-09-28T20:34:39+00:00"
@@ -263149,9 +263124,6 @@
     },
     "oracle:oracle:346138": {
       "seen_at": "2026-10-16T14:36:24+00:00"
-    },
-    "oracle:oracle:346139": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "oracle:oracle:346142": {
       "seen_at": "2026-10-16T14:36:24+00:00"
@@ -263200,9 +263172,6 @@
     },
     "oracle:oracle:346176": {
       "seen_at": "2026-09-29T14:23:59+00:00"
-    },
-    "oracle:oracle:346177": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "oracle:oracle:346181": {
       "seen_at": "2026-10-25T14:06:12+00:00"
@@ -270043,6 +270012,12 @@
     "oracle:oracle:351412": {
       "seen_at": "2026-11-25T23:34:02+00:00"
     },
+    "oracle:oracle:351413": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351414": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "oracle:oracle:351422": {
       "seen_at": "2026-11-25T05:23:23+00:00"
     },
@@ -270192,6 +270167,9 @@
     "oracle:oracle:351686": {
       "seen_at": "2026-11-26T11:23:55+00:00"
     },
+    "oracle:oracle:351687": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "oracle:oracle:351689": {
       "seen_at": "2026-11-26T11:53:53+00:00"
     },
@@ -270204,13 +270182,31 @@
     "oracle:oracle:351699": {
       "seen_at": "2026-11-26T20:24:00+00:00"
     },
+    "oracle:oracle:351704": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351705": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351709": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "oracle:oracle:351710": {
       "missing": "2026-11-27T13:43:22+00:00",
       "seen_at": "2026-11-27T11:34:05+00:00"
     },
+    "oracle:oracle:351711": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "oracle:oracle:351713": {
       "missing": "2026-11-27T13:33:24+00:00",
       "seen_at": "2026-11-27T11:34:05+00:00"
+    },
+    "oracle:oracle:351714": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351715": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
     },
     "oracle:oracle:351716": {
       "seen_at": "2026-11-27T11:34:05+00:00"
@@ -270218,8 +270214,29 @@
     "oracle:oracle:351719": {
       "seen_at": "2026-11-27T11:34:05+00:00"
     },
+    "oracle:oracle:351720": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351723": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351724": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351726": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "oracle:oracle:351727": {
       "seen_at": "2026-11-27T16:34:26+00:00"
+    },
+    "oracle:oracle:351728": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351730": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351732": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
     },
     "oracle:oracle:351735": {
       "seen_at": "2026-11-27T11:34:05+00:00"
@@ -270287,6 +270304,9 @@
     "oracle:oracle:351769": {
       "seen_at": "2026-11-27T14:34:31+00:00"
     },
+    "oracle:oracle:351770": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
     "oracle:oracle:351771": {
       "missing": "2026-11-27T16:04:17+00:00",
       "seen_at": "2026-11-27T14:34:31+00:00"
@@ -270296,6 +270316,15 @@
     },
     "oracle:oracle:351775": {
       "seen_at": "2026-11-27T14:34:31+00:00"
+    },
+    "oracle:oracle:351780": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351781": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
+    },
+    "oracle:oracle:351782": {
+      "seen_at": "2026-11-27T17:34:12+00:00"
     },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
@@ -318897,9 +318926,6 @@
     "workday:boeing:JR2026522975": {
       "seen_at": "2026-11-12T18:37:16+00:00"
     },
-    "workday:boeing:JR2026522982": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "workday:boeing:JR2026522990": {
       "seen_at": "2026-11-19T16:34:36+00:00"
     },
@@ -324389,9 +324415,6 @@
     },
     "workday:cibc:2619065": {
       "seen_at": "2026-10-02T15:13:37+00:00"
-    },
-    "workday:cibc:2619116": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "workday:cibc:2619201": {
       "seen_at": "2026-09-28T19:33:53+00:00"
@@ -358098,9 +358121,6 @@
     "workday:hpe:1215689": {
       "seen_at": "2026-09-30T00:53:22+00:00"
     },
-    "workday:hpe:1215691": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "workday:hpe:1215692": {
       "seen_at": "2026-09-29T10:43:41+00:00"
     },
@@ -375708,9 +375728,6 @@
     },
     "workday:ngc:R10253219": {
       "seen_at": "2026-09-29T13:44:29+00:00"
-    },
-    "workday:ngc:R10253220": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "workday:ngc:R10253221": {
       "seen_at": "2026-10-02T13:13:48+00:00"
@@ -397372,9 +397389,6 @@
     "workday:onehealthineers:R-30818": {
       "seen_at": "2026-10-30T18:46:27+00:00"
     },
-    "workday:onehealthineers:R-30819": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "workday:onehealthineers:R-30845": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -411808,9 +411822,6 @@
     "workday:td:R_1512093": {
       "seen_at": "2026-10-14T19:37:05+00:00"
     },
-    "workday:td:R_1512100": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
-    },
     "workday:td:R_1512108": {
       "seen_at": "2026-09-28T18:44:09+00:00"
     },
@@ -411954,9 +411965,6 @@
     },
     "workday:td:R_1512591": {
       "seen_at": "2026-10-05T17:53:29+00:00"
-    },
-    "workday:td:R_1512596": {
-      "seen_at": "2026-09-28T17:23:50+00:00"
     },
     "workday:td:R_1512605": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -424878,8 +424886,8 @@
     "workday/ebay": "2026-11-27T08:30:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-27T17:20:26+00:00",
-    "workday/hpe": "2026-11-27T16:00:38+00:00",
-    "workday/intel": "2026-11-27T16:00:38+00:00",
+    "workday/hpe": "2026-11-27T17:30:33+00:00",
+    "workday/intel": "2026-11-27T17:30:33+00:00",
     "workday/micron": "2026-11-27T16:10:27+00:00",
     "workday/northrop-grumman": "2026-11-27T16:30:34+00:00",
     "workday/nvidia": "2026-11-27T17:20:26+00:00",
