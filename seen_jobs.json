@@ -49344,7 +49344,7 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T11:03:51+00:00",
       "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49383,7 +49383,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T12:43:55+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -53426,7 +53426,6 @@
         2
       ],
       "jibe/docusign": [
-        42,
         43,
         43,
         43,
@@ -53475,7 +53474,8 @@
         49,
         49,
         13,
-        29
+        29,
+        32
       ],
       "lever/cfsenergy": [
         2
@@ -85352,6 +85352,9 @@
     "amazon:amazon:10615623": {
       "seen_at": "2026-11-27T03:13:22+00:00"
     },
+    "amazon:amazon:10615902": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
+    },
     "ashby:brainco:01260568-d527-4fa7-a1e8-ce842f8d720d": {
       "seen_at": "2026-10-26T04:06:13+00:00"
     },
@@ -85798,6 +85801,7 @@
       "seen_at": "2026-11-23T01:33:15+00:00"
     },
     "ashby:cohere:74373c60-3ce9-48fd-ae8d-5235fa24c682": {
+      "missing": "2026-11-27T14:23:56+00:00",
       "seen_at": "2026-11-17T14:27:32+00:00"
     },
     "ashby:cohere:75765a04-82cb-4d17-ac53-09b156656a7d": {
@@ -118740,6 +118744,12 @@
     },
     "eightfold:microsoft:1970393557078433": {
       "seen_at": "2026-11-24T16:34:26+00:00"
+    },
+    "eightfold:microsoft:1970393557078461": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
+    },
+    "eightfold:microsoft:1970393557078466": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
     },
     "eightfold:microsoft:1970393557078475": {
       "seen_at": "2026-11-23T18:53:50+00:00"
@@ -192149,7 +192159,6 @@
       "seen_at": "2026-11-06T09:06:06+00:00"
     },
     "greenhouse:airbnb:8225578": {
-      "closed": "2026-11-25",
       "seen_at": "2026-10-22T03:06:51+00:00"
     },
     "greenhouse:airbnb:8225785": {
@@ -222104,6 +222113,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:7941715": {
+      "missing": "2026-11-27T14:23:56+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:okta:7960157": {
@@ -243939,7 +243949,7 @@
       "seen_at": "2026-11-04T20:06:36+00:00"
     },
     "jibe:careers.docusign.com:29590": {
-      "missing": "2026-11-27T08:13:50+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-26T05:25:38+00:00"
     },
     "jibe:careers.docusign.com:29727": {
@@ -270351,6 +270361,12 @@
     "oracle:oracle:351746": {
       "seen_at": "2026-11-27T09:33:32+00:00"
     },
+    "oracle:oracle:351758": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
+    },
+    "oracle:oracle:351762": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
+    },
     "oracle:ralliant:10163": {
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
@@ -270530,7 +270546,6 @@
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10797": {
-      "closed": "2026-11-25",
       "seen_at": "2026-11-20T03:23:43+00:00"
     },
     "oracle:ralliant:10798": {
@@ -271054,6 +271069,7 @@
       "seen_at": "2026-11-23T16:24:23+00:00"
     },
     "oracle:ralliant:11385": {
+      "missing": "2026-11-27T14:23:56+00:00",
       "seen_at": "2026-11-24T10:43:35+00:00"
     },
     "oracle:ralliant:11388": {
@@ -282981,8 +282997,14 @@
     "smartrecruiters:BoschGroup:744000164035109": {
       "seen_at": "2026-11-27T13:53:39+00:00"
     },
+    "smartrecruiters:BoschGroup:744000164040817": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
+    },
     "smartrecruiters:BoschGroup:744000164042979": {
       "seen_at": "2026-11-27T14:13:34+00:00"
+    },
+    "smartrecruiters:BoschGroup:744000164044029": {
+      "seen_at": "2026-11-27T14:23:56+00:00"
     },
     "smartrecruiters:Canva:6000000001292749": {
       "closed": "2026-10-14",
@@ -315207,9 +315229,6 @@
     },
     "workday:bdx:R-556247": {
       "seen_at": "2026-10-06T01:33:13+00:00"
-    },
-    "workday:bdx:R-556266": {
-      "seen_at": "2026-09-28T14:13:57+00:00"
     },
     "workday:bdx:R-556287": {
       "seen_at": "2026-10-01T15:53:48+00:00"
@@ -411409,9 +411428,6 @@
     "workday:td:R_1505249": {
       "seen_at": "2026-11-02T15:26:51+00:00"
     },
-    "workday:td:R_1505274": {
-      "seen_at": "2026-09-28T14:13:57+00:00"
-    },
     "workday:td:R_1505292": {
       "seen_at": "2026-10-19T18:56:00+00:00"
     },
@@ -425364,12 +425380,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-27T08:30:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-27T12:40:34+00:00",
+    "workday/hp": "2026-11-27T14:20:28+00:00",
     "workday/hpe": "2026-11-27T12:50:27+00:00",
     "workday/intel": "2026-11-27T12:50:27+00:00",
     "workday/micron": "2026-11-27T13:00:34+00:00",
     "workday/northrop-grumman": "2026-11-27T13:30:37+00:00",
-    "workday/nvidia": "2026-11-27T12:40:34+00:00",
+    "workday/nvidia": "2026-11-27T14:20:28+00:00",
     "workday/paypal": "2026-11-27T13:20:28+00:00",
     "workday/rbc": "2026-11-27T14:10:28+00:00",
     "workday/salesforce": "2026-11-27T13:50:25+00:00",
