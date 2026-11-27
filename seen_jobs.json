@@ -48821,10 +48821,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-27T09:14:35+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49238,19 +49235,13 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-27T09:04:33+00:00",
-      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/adobe": {
-      "consecutive_failures": 4,
-      "failing_since": "2026-11-27T02:04:16+00:00",
-      "last_error": "HTTP 429 from adobe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49364,7 +49355,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-27T05:33:23+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49379,10 +49370,7 @@
       "zero_since": null
     },
     "workday/rbc": {
-      "consecutive_failures": 5,
-      "failing_since": "2026-11-27T00:23:50+00:00",
-      "last_error": "HTTP 429 from rbc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -121445,6 +121433,9 @@
     },
     "eightfold:netflix:790319769239": {
       "seen_at": "2026-11-27T04:13:48+00:00"
+    },
+    "eightfold:netflix:790319774335": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
     },
     "eightfold:qualcomm:446704809279": {
       "seen_at": "2026-11-14T03:03:21+00:00"
@@ -205019,6 +205010,9 @@
       "closed": "2026-10-22",
       "seen_at": "2026-10-05T10:53:16+00:00"
     },
+    "greenhouse:databricks:8849858002": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
+    },
     "greenhouse:databricks:8849932002": {
       "seen_at": "2026-10-07T09:23:34+00:00"
     },
@@ -221570,6 +221564,12 @@
     "greenhouse:mongodb:8404811": {
       "seen_at": "2026-11-20T20:35:05+00:00"
     },
+    "greenhouse:mongodb:8406014": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
+    },
+    "greenhouse:mongodb:8406025": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
+    },
     "greenhouse:mongodb:8406130": {
       "seen_at": "2026-11-20T16:14:58+00:00"
     },
@@ -229695,9 +229695,11 @@
       "seen_at": "2026-11-12T20:36:54+00:00"
     },
     "greenhouse:samsara:8353156": {
+      "missing": "2026-11-27T09:23:46+00:00",
       "seen_at": "2026-11-06T16:26:15+00:00"
     },
     "greenhouse:samsara:8353158": {
+      "missing": "2026-11-27T09:23:46+00:00",
       "seen_at": "2026-11-06T16:16:06+00:00"
     },
     "greenhouse:samsara:8353162": {
@@ -229836,6 +229838,7 @@
       "seen_at": "2026-11-06T15:56:06+00:00"
     },
     "greenhouse:samsara:8359294": {
+      "missing": "2026-11-27T09:23:46+00:00",
       "seen_at": "2026-11-06T16:16:06+00:00"
     },
     "greenhouse:samsara:8359325": {
@@ -254338,9 +254341,6 @@
     "oracle:honeywell:158136": {
       "seen_at": "2026-10-08T07:45:59+00:00"
     },
-    "oracle:honeywell:158148": {
-      "seen_at": "2026-09-28T09:23:36+00:00"
-    },
     "oracle:honeywell:158152": {
       "closed": "2026-10-15",
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -271719,12 +271719,6 @@
       "missing": "2026-11-09T07:36:03+00:00",
       "seen_at": "2026-09-28T09:33:34+00:00"
     },
-    "oracle:texas-instruments:25018263": {
-      "seen_at": "2026-09-28T09:23:36+00:00"
-    },
-    "oracle:texas-instruments:25018264": {
-      "seen_at": "2026-09-28T09:23:36+00:00"
-    },
     "oracle:texas-instruments:25018265": {
       "seen_at": "2026-09-28T09:33:34+00:00"
     },
@@ -272760,6 +272754,9 @@
     "oracle:texas-instruments:25019766": {
       "seen_at": "2026-11-13T14:47:01+00:00"
     },
+    "oracle:texas-instruments:25019790": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
+    },
     "oracle:texas-instruments:25019800": {
       "seen_at": "2026-11-04T15:17:57+00:00"
     },
@@ -273094,6 +273091,7 @@
       "seen_at": "2026-11-25T10:42:46+00:00"
     },
     "oracle:texas-instruments:25020499": {
+      "missing": "2026-11-27T09:23:46+00:00",
       "seen_at": "2026-11-25T11:54:00+00:00"
     },
     "oracle:texas-instruments:25020507": {
@@ -311689,6 +311687,9 @@
     },
     "workday:adobe:R173668": {
       "seen_at": "2026-11-19T13:43:21+00:00"
+    },
+    "workday:adobe:R173673": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
     },
     "workday:adobe:R173679": {
       "seen_at": "2026-11-27T00:23:51+00:00"
@@ -361437,14 +361438,8 @@
     "workday:intel:JR0287592": {
       "seen_at": "2026-10-26T06:06:00+00:00"
     },
-    "workday:intel:JR0287594": {
-      "seen_at": "2026-09-28T09:23:36+00:00"
-    },
     "workday:intel:JR0287595": {
       "seen_at": "2026-09-28T21:04:49+00:00"
-    },
-    "workday:intel:JR0287596": {
-      "seen_at": "2026-09-28T09:23:36+00:00"
     },
     "workday:intel:JR0287597": {
       "seen_at": "2026-10-08T06:34:04+00:00"
@@ -400671,8 +400666,10 @@
       "seen_at": "2026-11-26T14:44:13+00:00"
     },
     "workday:rbc:R-0000140512": {
-      "missing": "2026-11-26T19:54:03+00:00",
       "seen_at": "2026-11-05T09:36:13+00:00"
+    },
+    "workday:rbc:R-0000158028": {
+      "seen_at": "2026-11-27T09:23:46+00:00"
     },
     "workday:rbc:R-0000181012": {
       "closed": "2026-11-16",
@@ -403094,14 +403091,6 @@
     },
     "workday:salesforce:JR357412": {
       "seen_at": "2026-10-28T10:46:04+00:00"
-    },
-    "workday:salesforce:JR357526": {
-      "closed": "2026-09-29",
-      "seen_at": "2026-09-28T09:23:36+00:00"
-    },
-    "workday:salesforce:JR357532": {
-      "closed": "2026-09-28",
-      "seen_at": "2026-09-28T09:23:36+00:00"
     },
     "workday:salesforce:JR357552": {
       "seen_at": "2026-10-01T11:03:59+00:00"
@@ -425083,7 +425072,7 @@
     }
   },
   "polling": {
-    "workday/adobe": "2026-11-27T07:40:28+00:00",
+    "workday/adobe": "2026-11-27T09:20:28+00:00",
     "workday/autodesk": "2026-11-27T08:30:34+00:00",
     "workday/becton-dickinson": "2026-11-27T08:50:29+00:00",
     "workday/boeing": "2026-11-27T08:40:35+00:00",
@@ -425098,9 +425087,9 @@
     "workday/intel": "2026-11-27T08:10:26+00:00",
     "workday/micron": "2026-11-27T08:20:27+00:00",
     "workday/northrop-grumman": "2026-11-27T08:40:35+00:00",
-    "workday/nvidia": "2026-11-27T07:50:27+00:00",
+    "workday/nvidia": "2026-11-27T09:20:28+00:00",
     "workday/paypal": "2026-11-27T08:30:34+00:00",
-    "workday/rbc": "2026-11-27T07:30:30+00:00",
+    "workday/rbc": "2026-11-27T09:20:28+00:00",
     "workday/salesforce": "2026-11-27T09:00:47+00:00",
     "workday/siemens-healthineers": "2026-11-27T08:50:29+00:00",
     "workday/snap": "2026-11-27T08:30:34+00:00",
