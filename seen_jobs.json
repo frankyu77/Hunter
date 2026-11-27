@@ -49174,7 +49174,10 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T00:04:27+00:00",
+      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49258,7 +49261,7 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T21:04:26+00:00",
       "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49754,7 +49757,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-26T23:03:56+00:00",
+    "dashboard_built_at": "2026-11-27T00:04:28+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -52870,7 +52873,6 @@
         47
       ],
       "greenhouse/stripe": [
-        22,
         9,
         34,
         17,
@@ -52919,7 +52921,8 @@
         7,
         21,
         20,
-        34
+        34,
+        4
       ],
       "greenhouse/tenstorrentuniversity": [
         11,
@@ -231033,7 +231036,7 @@
       "seen_at": "2026-11-14T18:55:48+00:00"
     },
     "greenhouse:stripe:8049722": {
-      "missing": "2026-11-26T18:04:18+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-21T19:04:13+00:00"
     },
     "greenhouse:stripe:8049828": {
@@ -253217,6 +253220,7 @@
       "seen_at": "2026-10-21T17:57:04+00:00"
     },
     "oracle:dell:R287647": {
+      "missing": "2026-11-27T00:04:27+00:00",
       "seen_at": "2026-11-23T16:14:36+00:00"
     },
     "oracle:dell:R288068": {
@@ -424552,7 +424556,7 @@
     "workday/boeing": "2026-11-26T23:50:27+00:00",
     "workday/cibc": "2026-11-26T22:50:31+00:00",
     "workday/cisco": "2026-11-26T23:30:33+00:00",
-    "workday/clio": "2026-11-26T22:40:28+00:00",
+    "workday/clio": "2026-11-27T00:00:46+00:00",
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-26T19:10:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -424564,7 +424568,7 @@
     "workday/nvidia": "2026-11-26T23:00:43+00:00",
     "workday/paypal": "2026-11-26T23:40:22+00:00",
     "workday/rbc": "2026-11-26T22:50:31+00:00",
-    "workday/salesforce": "2026-11-26T22:30:33+00:00",
+    "workday/salesforce": "2026-11-27T00:00:46+00:00",
     "workday/siemens-healthineers": "2026-11-26T23:56:59+00:00",
     "workday/snap": "2026-11-26T23:40:22+00:00",
     "workday/td": "2026-11-26T22:40:28+00:00",
