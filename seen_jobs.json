@@ -48688,22 +48688,25 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T02:14:24+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T02:14:24+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-27T02:04:16+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49117,7 +49120,10 @@
       "zero_since": null
     },
     "workable/bask-health-1": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-27T02:14:24+00:00",
+      "last_error": "HTTP 429 from apply.workable.com: {\"error\":\"rate_limit\",\"message\":\"Too many requests. Please contact us at support@workable.com to be given access to our",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49207,7 +49213,7 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-26T23:13:46+00:00",
       "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49243,7 +49249,7 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T00:33:52+00:00",
       "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -49772,7 +49778,7 @@
       }
     },
     "auto_sources_checked": "2026-11-26T03:34:38+00:00",
-    "dashboard_built_at": "2026-11-27T01:04:30+00:00",
+    "dashboard_built_at": "2026-11-27T02:14:24+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -52283,7 +52289,8 @@
         9,
         4,
         17,
-        3
+        3,
+        14
       ],
       "greenhouse/instacart": [
         28,
@@ -214830,7 +214837,7 @@
       "seen_at": "2026-11-12T18:45:50+00:00"
     },
     "greenhouse:hootsuite:8360345": {
-      "missing": "2026-11-26T20:04:50+00:00",
+      "closed": "2026-11-26",
       "seen_at": "2026-11-12T19:24:22+00:00"
     },
     "greenhouse:hootsuite:8371708": {
@@ -252986,6 +252993,9 @@
     "oracle:dell:D11245": {
       "closed": "2026-10-15",
       "seen_at": "2026-10-08T11:15:45+00:00"
+    },
+    "oracle:dell:D11246": {
+      "seen_at": "2026-11-27T02:14:24+00:00"
     },
     "oracle:dell:D11247": {
       "seen_at": "2026-11-12T06:25:38+00:00"
@@ -424546,12 +424556,12 @@
     "workday/crowdstrike": "2026-11-20T08:30:32+00:00",
     "workday/ebay": "2026-11-26T19:10:34+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-27T00:30:40+00:00",
+    "workday/hp": "2026-11-27T02:10:28+00:00",
     "workday/hpe": "2026-11-27T00:40:26+00:00",
     "workday/intel": "2026-11-27T00:40:26+00:00",
     "workday/micron": "2026-11-27T00:50:27+00:00",
     "workday/northrop-grumman": "2026-11-27T01:20:27+00:00",
-    "workday/nvidia": "2026-11-27T00:30:40+00:00",
+    "workday/nvidia": "2026-11-27T02:10:28+00:00",
     "workday/paypal": "2026-11-27T01:10:25+00:00",
     "workday/rbc": "2026-11-27T02:00:37+00:00",
     "workday/salesforce": "2026-11-27T01:40:28+00:00",
