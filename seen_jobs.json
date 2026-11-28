@@ -49689,7 +49689,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T04:13:38+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -49701,10 +49704,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-28T04:03:12+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50220,7 +50220,7 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "failing_since": "2026-11-27T17:43:43+00:00",
       "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -55651,7 +55651,6 @@
         2
       ],
       "jibe/docusign": [
-        43,
         2,
         43,
         1,
@@ -55700,6 +55699,7 @@
         29,
         32,
         1,
+        50,
         50
       ],
       "lever/cfsenergy": [
@@ -67919,11 +67919,6 @@
         "first": "2026-10-01T00:33:47+00:00",
         "id": "workday:ngc:R10253879",
         "last": "2026-10-01T00:33:47+00:00"
-      },
-      "northrop grumman|safety systems engineer": {
-        "first": "2026-09-29T04:13:35+00:00",
-        "id": "workday:ngc:R10253378",
-        "last": "2026-09-29T04:13:35+00:00"
       },
       "northrop grumman|sentinel - associate mechanical engineer / mechanical engineer 19522": {
         "first": "2026-10-02T13:04:51+00:00",
@@ -108550,9 +108545,6 @@
     "eightfold:microsoft:1970393557001360": {
       "seen_at": "2026-10-15T14:26:44+00:00"
     },
-    "eightfold:microsoft:1970393557001398": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
-    },
     "eightfold:microsoft:1970393557001402": {
       "seen_at": "2026-09-30T09:03:41+00:00"
     },
@@ -109159,9 +109151,6 @@
     "eightfold:microsoft:1970393557007325": {
       "seen_at": "2026-10-20T17:56:42+00:00"
     },
-    "eightfold:microsoft:1970393557007327": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
-    },
     "eightfold:microsoft:1970393557007348": {
       "seen_at": "2026-10-08T18:56:41+00:00"
     },
@@ -109564,9 +109553,6 @@
     "eightfold:microsoft:1970393557008718": {
       "seen_at": "2026-10-07T17:24:07+00:00"
     },
-    "eightfold:microsoft:1970393557008719": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
-    },
     "eightfold:microsoft:1970393557008722": {
       "seen_at": "2026-09-29T19:05:49+00:00"
     },
@@ -109656,9 +109642,6 @@
     },
     "eightfold:microsoft:1970393557014484": {
       "seen_at": "2026-09-30T13:23:30+00:00"
-    },
-    "eightfold:microsoft:1970393557014485": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
     },
     "eightfold:microsoft:1970393557014505": {
       "seen_at": "2026-09-30T09:03:41+00:00"
@@ -121809,7 +121792,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318333188": {
-      "missing": "2026-11-28T03:53:37+00:00",
       "seen_at": "2026-10-20T21:26:37+00:00"
     },
     "eightfold:netflix:790318333462": {
@@ -121978,7 +121960,6 @@
       "seen_at": "2026-10-23T19:36:42+00:00"
     },
     "eightfold:netflix:790318497575": {
-      "missing": "2026-11-28T03:53:37+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790318500438": {
@@ -122512,7 +122493,6 @@
       "seen_at": "2026-10-27T16:37:11+00:00"
     },
     "eightfold:netflix:790319182712": {
-      "missing": "2026-11-28T03:53:37+00:00",
       "seen_at": "2026-10-27T18:56:11+00:00"
     },
     "eightfold:netflix:790319182757": {
@@ -122770,7 +122750,6 @@
       "seen_at": "2026-11-10T07:42:40+00:00"
     },
     "eightfold:netflix:790319434423": {
-      "missing": "2026-11-28T03:53:37+00:00",
       "seen_at": "2026-11-18T10:57:06+00:00"
     },
     "eightfold:netflix:790319435305": {
@@ -123060,7 +123039,6 @@
       "seen_at": "2026-11-27T12:13:36+00:00"
     },
     "eightfold:netflix:790319779974": {
-      "missing": "2026-11-28T03:53:37+00:00",
       "seen_at": "2026-11-27T19:04:35+00:00"
     },
     "eightfold:qualcomm:446704809279": {
@@ -155122,7 +155100,7 @@
       "seen_at": "2026-11-13T22:21:37+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3c078c0f-8a73-45a7-8180-3cf64a2b15a7": {
-      "missing": "2026-11-27T22:04:25+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-17T07:47:01+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:3c09c2bd-e95b-43e4-99d1-9e6b16a1a21d": {
@@ -247589,7 +247567,7 @@
       "seen_at": "2026-11-06T14:28:36+00:00"
     },
     "jibe:careers.docusign.com:30502": {
-      "missing": "2026-11-27T22:04:25+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-08T18:07:09+00:00"
     },
     "jibe:careers.docusign.com:30505": {
@@ -364119,9 +364097,6 @@
     "workday:intel:JR0287615": {
       "seen_at": "2026-09-30T17:54:16+00:00"
     },
-    "workday:intel:JR0287618": {
-      "seen_at": "2026-09-29T04:03:41+00:00"
-    },
     "workday:intel:JR0287624": {
       "seen_at": "2026-09-29T11:23:48+00:00"
     },
@@ -377300,9 +377275,6 @@
     "workday:ngc:R10250637": {
       "seen_at": "2026-11-09T20:06:58+00:00"
     },
-    "workday:ngc:R10250690": {
-      "seen_at": "2026-09-29T04:03:41+00:00"
-    },
     "workday:ngc:R10250691": {
       "seen_at": "2026-10-02T17:53:30+00:00"
     },
@@ -377311,9 +377283,6 @@
     },
     "workday:ngc:R10250711": {
       "seen_at": "2026-10-07T01:44:06+00:00"
-    },
-    "workday:ngc:R10250715": {
-      "seen_at": "2026-09-29T04:03:41+00:00"
     },
     "workday:ngc:R10250718": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -378083,12 +378052,6 @@
     },
     "workday:ngc:R10253374": {
       "seen_at": "2026-10-01T17:25:10+00:00"
-    },
-    "workday:ngc:R10253377": {
-      "seen_at": "2026-09-29T04:03:41+00:00"
-    },
-    "workday:ngc:R10253378": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
     },
     "workday:ngc:R10253380": {
       "seen_at": "2026-09-29T04:23:08+00:00"
@@ -399410,9 +399373,6 @@
     "workday:onehealthineers:R-30682": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "workday:onehealthineers:R-30685": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
-    },
     "workday:onehealthineers:R-30688": {
       "seen_at": "2026-11-08T06:15:34+00:00"
     },
@@ -413580,9 +413540,6 @@
     "workday:td:R_1510852": {
       "seen_at": "2026-10-19T04:06:02+00:00"
     },
-    "workday:td:R_1510855": {
-      "seen_at": "2026-09-29T04:03:41+00:00"
-    },
     "workday:td:R_1510881": {
       "seen_at": "2026-10-08T14:56:03+00:00"
     },
@@ -414018,9 +413975,6 @@
     "workday:td:R_1512973": {
       "seen_at": "2026-09-29T14:04:23+00:00"
     },
-    "workday:td:R_1512979": {
-      "seen_at": "2026-09-29T04:03:41+00:00"
-    },
     "workday:td:R_1512992": {
       "seen_at": "2026-10-02T18:53:54+00:00"
     },
@@ -414422,9 +414376,6 @@
     },
     "workday:td:R_1513758": {
       "seen_at": "2026-10-05T12:33:47+00:00"
-    },
-    "workday:td:R_1513763": {
-      "seen_at": "2026-09-29T04:13:35+00:00"
     },
     "workday:td:R_1513779": {
       "seen_at": "2026-10-02T12:04:30+00:00"
@@ -426700,7 +426651,7 @@
     "workday/hp": "2026-11-28T03:50:24+00:00",
     "workday/hpe": "2026-11-28T04:00:36+00:00",
     "workday/intel": "2026-11-28T04:00:36+00:00",
-    "workday/micron": "2026-11-28T02:30:31+00:00",
+    "workday/micron": "2026-11-28T04:10:37+00:00",
     "workday/northrop-grumman": "2026-11-28T03:00:34+00:00",
     "workday/nvidia": "2026-11-28T03:50:24+00:00",
     "workday/paypal": "2026-11-28T02:50:24+00:00",
