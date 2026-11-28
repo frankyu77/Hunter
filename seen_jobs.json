@@ -49689,10 +49689,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-28T04:13:38+00:00",
-      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50130,7 +50127,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-27T18:54:10+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50163,7 +50160,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "failing_since": "2026-11-27T18:54:10+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -55495,8 +55492,6 @@
         51
       ],
       "greenhouse/waymo": [
-        36,
-        36,
         39,
         39,
         39,
@@ -55544,7 +55539,9 @@
         48,
         48,
         48,
-        48
+        48,
+        35,
+        50
       ],
       "greenhouse/xai": [
         32,
@@ -210530,7 +210527,6 @@
       "seen_at": "2026-11-25T16:54:13+00:00"
     },
     "greenhouse:datadog:8413335": {
-      "closed": "2026-11-27",
       "seen_at": "2026-11-26T23:23:42+00:00"
     },
     "greenhouse:datadog:8414413": {
@@ -210553,6 +210549,9 @@
     },
     "greenhouse:datadog:8418089": {
       "seen_at": "2026-11-25T21:53:48+00:00"
+    },
+    "greenhouse:datadog:8421876": {
+      "seen_at": "2026-11-28T04:23:46+00:00"
     },
     "greenhouse:discord:8299493002": {
       "seen_at": "2026-09-29T19:24:02+00:00"
@@ -239082,7 +239081,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:7430187": {
-      "missing": "2026-11-27T22:23:24+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-22T23:46:06+00:00"
     },
     "greenhouse:waymo:7435061": {
@@ -240283,7 +240282,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8244908": {
-      "missing": "2026-11-27T22:23:24+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "greenhouse:waymo:8245284": {
@@ -257672,9 +257671,6 @@
     "oracle:honeywell:158883": {
       "seen_at": "2026-09-29T07:23:36+00:00"
     },
-    "oracle:honeywell:158884": {
-      "seen_at": "2026-09-29T04:23:08+00:00"
-    },
     "oracle:honeywell:158885": {
       "seen_at": "2026-09-30T10:23:45+00:00"
     },
@@ -274440,10 +274436,6 @@
     "oracle:texas-instruments:25018217": {
       "missing": "2026-11-09T07:36:03+00:00",
       "seen_at": "2026-09-30T22:53:31+00:00"
-    },
-    "oracle:texas-instruments:25018233": {
-      "missing": "2026-11-09T07:36:03+00:00",
-      "seen_at": "2026-09-29T04:23:08+00:00"
     },
     "oracle:texas-instruments:25018243": {
       "seen_at": "2026-10-02T18:04:40+00:00"
@@ -363932,9 +363924,6 @@
     "workday:intel:JR0287453": {
       "seen_at": "2026-10-01T04:03:44+00:00"
     },
-    "workday:intel:JR0287454": {
-      "seen_at": "2026-09-29T04:23:08+00:00"
-    },
     "workday:intel:JR0287458": {
       "seen_at": "2026-10-01T20:24:10+00:00"
     },
@@ -378052,9 +378041,6 @@
     },
     "workday:ngc:R10253374": {
       "seen_at": "2026-10-01T17:25:10+00:00"
-    },
-    "workday:ngc:R10253380": {
-      "seen_at": "2026-09-29T04:23:08+00:00"
     },
     "workday:ngc:R10253383": {
       "seen_at": "2026-09-29T04:33:31+00:00"
@@ -426639,11 +426625,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-28T03:40:36+00:00",
-    "workday/autodesk": "2026-11-28T02:40:31+00:00",
+    "workday/autodesk": "2026-11-28T04:20:32+00:00",
     "workday/becton-dickinson": "2026-11-28T03:10:26+00:00",
     "workday/boeing": "2026-11-28T03:00:34+00:00",
     "workday/cibc": "2026-11-28T03:30:30+00:00",
-    "workday/cisco": "2026-11-28T02:40:31+00:00",
+    "workday/cisco": "2026-11-28T04:20:32+00:00",
     "workday/clio": "2026-11-28T03:20:25+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
