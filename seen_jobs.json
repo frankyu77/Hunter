@@ -49701,7 +49701,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T04:03:12+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50205,19 +50208,13 @@
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-28T01:04:38+00:00",
-      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 2,
-      "failing_since": "2026-11-28T01:04:38+00:00",
-      "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -202665,6 +202662,7 @@
       "seen_at": "2026-10-25T16:15:57+00:00"
     },
     "greenhouse:cloudflare:8147190": {
+      "missing": "2026-11-28T04:03:13+00:00",
       "seen_at": "2026-11-14T18:55:48+00:00"
     },
     "greenhouse:cloudflare:8152825": {
@@ -426700,8 +426698,8 @@
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-28T03:50:24+00:00",
-    "workday/hpe": "2026-11-28T02:20:27+00:00",
-    "workday/intel": "2026-11-28T02:30:31+00:00",
+    "workday/hpe": "2026-11-28T04:00:36+00:00",
+    "workday/intel": "2026-11-28T04:00:36+00:00",
     "workday/micron": "2026-11-28T02:30:31+00:00",
     "workday/northrop-grumman": "2026-11-28T03:00:34+00:00",
     "workday/nvidia": "2026-11-28T03:50:24+00:00",
