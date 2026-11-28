@@ -50130,11 +50130,10 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 8,
+      "consecutive_failures": 9,
       "failing_since": "2026-11-27T18:54:10+00:00",
-      "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
-      "warned_failures": false,
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "warned_failures": true,
       "warned_zero": false,
       "zero_since": null
     },
@@ -50229,7 +50228,9 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T07:22:22+00:00",
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50304,7 +50305,7 @@
       "zero_since": null
     },
     "workday/workday": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T04:33:59+00:00",
       "last_error": "HTTP 429 from workday.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50322,7 +50323,7 @@
       "zero_since": null
     },
     "workday/zoom": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-27T20:34:39+00:00",
       "last_error": "HTTP 429 from zoom.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -263684,6 +263685,7 @@
       "seen_at": "2026-11-27T05:33:23+00:00"
     },
     "oracle:honeywell:163140": {
+      "missing": "2026-11-28T07:22:23+00:00",
       "seen_at": "2026-11-27T07:23:27+00:00"
     },
     "oracle:honeywell:163145": {
@@ -353961,9 +353963,6 @@
     "workday:hp:3168906": {
       "seen_at": "2026-10-16T18:37:12+00:00"
     },
-    "workday:hp:3168908": {
-      "seen_at": "2026-09-29T07:13:30+00:00"
-    },
     "workday:hp:3168915": {
       "seen_at": "2026-11-24T23:33:22+00:00"
     },
@@ -359317,9 +359316,6 @@
       "closed": "2026-10-15",
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "workday:hpe:1214581": {
-      "seen_at": "2026-09-29T07:13:30+00:00"
-    },
     "workday:hpe:1214584": {
       "seen_at": "2026-10-16T11:46:03+00:00"
     },
@@ -361122,9 +361118,6 @@
     },
     "workday:hpe:1216237": {
       "seen_at": "2026-10-01T01:43:48+00:00"
-    },
-    "workday:hpe:1216238": {
-      "seen_at": "2026-09-29T07:13:30+00:00"
     },
     "workday:hpe:1216245": {
       "seen_at": "2026-11-26T11:34:05+00:00"
@@ -377085,9 +377078,6 @@
     },
     "workday:ngc:R10250134": {
       "seen_at": "2026-10-05T20:58:57+00:00"
-    },
-    "workday:ngc:R10250145": {
-      "seen_at": "2026-09-29T07:13:30+00:00"
     },
     "workday:ngc:R10250235": {
       "seen_at": "2026-11-09T20:06:58+00:00"
@@ -426434,7 +426424,7 @@
   },
   "polling": {
     "workday/adobe": "2026-11-28T06:50:36+00:00",
-    "workday/autodesk": "2026-11-28T05:50:28+00:00",
+    "workday/autodesk": "2026-11-28T07:20:31+00:00",
     "workday/becton-dickinson": "2026-11-28T06:20:24+00:00",
     "workday/boeing": "2026-11-28T06:10:25+00:00",
     "workday/cibc": "2026-11-28T06:40:23+00:00",
@@ -426446,7 +426436,7 @@
     "workday/hp": "2026-11-28T07:00:37+00:00",
     "workday/hpe": "2026-11-28T07:10:27+00:00",
     "workday/intel": "2026-11-28T07:10:27+00:00",
-    "workday/micron": "2026-11-28T05:40:37+00:00",
+    "workday/micron": "2026-11-28T07:20:31+00:00",
     "workday/northrop-grumman": "2026-11-28T06:10:25+00:00",
     "workday/nvidia": "2026-11-28T07:00:37+00:00",
     "workday/paypal": "2026-11-28T06:00:37+00:00",
@@ -426455,8 +426445,8 @@
     "workday/siemens-healthineers": "2026-11-28T06:20:24+00:00",
     "workday/snap": "2026-11-28T06:00:37+00:00",
     "workday/td": "2026-11-28T06:40:23+00:00",
-    "workday/workday": "2026-11-28T04:30:34+00:00",
+    "workday/workday": "2026-11-28T07:20:31+00:00",
     "workday/zillow": "2026-11-27T17:50:25+00:00",
-    "workday/zoom": "2026-11-27T20:30:31+00:00"
+    "workday/zoom": "2026-11-28T07:20:31+00:00"
   }
 }
