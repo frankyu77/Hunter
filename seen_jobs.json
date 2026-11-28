@@ -49689,7 +49689,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T07:33:15+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50236,10 +50239,9 @@
       "zero_since": null
     },
     "workday/northrop-grumman": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T06:13:53+00:00",
-      "last_error": "HTTP 429 from ngc.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -108484,9 +108486,6 @@
     "eightfold:microsoft:1970393557001402": {
       "seen_at": "2026-09-30T09:03:41+00:00"
     },
-    "eightfold:microsoft:1970393557001403": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
-    },
     "eightfold:microsoft:1970393557001406": {
       "seen_at": "2026-10-22T14:36:36+00:00"
     },
@@ -109075,9 +109074,6 @@
     "eightfold:microsoft:1970393557007312": {
       "seen_at": "2026-10-02T19:14:36+00:00"
     },
-    "eightfold:microsoft:1970393557007321": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
-    },
     "eightfold:microsoft:1970393557007325": {
       "seen_at": "2026-10-20T17:56:42+00:00"
     },
@@ -109590,9 +109586,6 @@
     },
     "eightfold:microsoft:1970393557014650": {
       "seen_at": "2026-09-30T10:03:47+00:00"
-    },
-    "eightfold:microsoft:1970393557014653": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
     },
     "eightfold:microsoft:1970393557014654": {
       "seen_at": "2026-10-08T13:16:01+00:00"
@@ -171236,6 +171229,7 @@
       "seen_at": "2026-11-17T07:47:01+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c579fad0-b08a-4e65-a2cf-77f72aa87439": {
+      "missing": "2026-11-28T07:33:15+00:00",
       "seen_at": "2026-11-12T00:06:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c57abcec-5e89-47ba-b6c2-a19d6a94917b": {
@@ -173166,7 +173160,6 @@
       "seen_at": "2026-11-03T05:06:00+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6c24595-0dd3-449f-b0ae-d13e256fc740": {
-      "missing": "2026-11-28T03:14:09+00:00",
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:d6cc7924-5545-46c3-8847-89f485a17231": {
@@ -179365,7 +179358,7 @@
       "seen_at": "2026-10-26T12:16:26+00:00"
     },
     "github:vanshb03/Summer2027-Internships:14900f74-a166-430a-bb87-52f381445e86": {
-      "missing": "2026-11-28T01:29:09+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-23T19:54:06+00:00"
     },
     "github:vanshb03/Summer2027-Internships:149ab0df-9941-4710-b8e0-254688aa9804": {
@@ -182577,7 +182570,7 @@
       "seen_at": "2026-09-29T18:14:00+00:00"
     },
     "github:vanshb03/Summer2027-Internships:4efd11d0-8f38-4416-8364-ceb31c9d8c29": {
-      "missing": "2026-11-28T01:29:09+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-23T19:54:05+00:00"
     },
     "github:vanshb03/Summer2027-Internships:4f0771da-875b-460d-8792-68b348aa72e3": {
@@ -186197,7 +186190,7 @@
       "seen_at": "2026-11-20T05:24:12+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8e9e6c25-851b-41cd-8881-746c993f5519": {
-      "missing": "2026-11-28T01:29:09+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-23T19:54:01+00:00"
     },
     "github:vanshb03/Summer2027-Internships:8ef761a5-f3f8-4a85-b411-ccbb028cd05f": {
@@ -188333,7 +188326,7 @@
       "seen_at": "2026-10-26T11:55:39+00:00"
     },
     "github:vanshb03/Summer2027-Internships:b6f02f38-3143-4a5c-b2c1-a4a31f9cf68d": {
-      "missing": "2026-11-28T01:29:09+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-23T19:54:02+00:00"
     },
     "github:vanshb03/Summer2027-Internships:b6f9d713-de80-457b-b2b5-af27d48e07c3": {
@@ -188752,7 +188745,7 @@
       "seen_at": "2026-10-21T00:16:46+00:00"
     },
     "github:vanshb03/Summer2027-Internships:be8415d2-b8d6-4b70-b9cb-df53a3680480": {
-      "missing": "2026-11-28T01:29:09+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-23T19:54:04+00:00"
     },
     "github:vanshb03/Summer2027-Internships:be90619c-9d78-4fa0-8e68-c076883bb73b": {
@@ -189546,7 +189539,7 @@
       "seen_at": "2026-11-26T20:54:02+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cd005cb7-0e40-441a-85ae-e2b0df158686": {
-      "missing": "2026-11-28T01:29:09+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-23T19:54:03+00:00"
     },
     "github:vanshb03/Summer2027-Internships:cd00c8f9-c38c-4902-8e02-e1112a8456d2": {
@@ -256824,9 +256817,6 @@
     "oracle:honeywell:157599": {
       "seen_at": "2026-10-03T01:24:01+00:00"
     },
-    "oracle:honeywell:157605": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
-    },
     "oracle:honeywell:157613": {
       "seen_at": "2026-10-28T17:06:56+00:00"
     },
@@ -257578,9 +257568,6 @@
     },
     "oracle:honeywell:158882": {
       "seen_at": "2026-10-08T16:17:09+00:00"
-    },
-    "oracle:honeywell:158883": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
     },
     "oracle:honeywell:158885": {
       "seen_at": "2026-09-30T10:23:45+00:00"
@@ -359130,9 +359117,6 @@
     "workday:hpe:1214340": {
       "seen_at": "2026-10-26T16:56:49+00:00"
     },
-    "workday:hpe:1214343": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
-    },
     "workday:hpe:1214350": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
@@ -363927,9 +363911,6 @@
     },
     "workday:intel:JR0287604": {
       "seen_at": "2026-10-08T04:04:15+00:00"
-    },
-    "workday:intel:JR0287605": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
     },
     "workday:intel:JR0287606": {
       "seen_at": "2026-10-08T10:15:48+00:00"
@@ -370089,9 +370070,6 @@
     },
     "workday:micron:JR113063": {
       "seen_at": "2026-10-16T11:55:44+00:00"
-    },
-    "workday:micron:JR113067": {
-      "seen_at": "2026-09-29T07:23:36+00:00"
     },
     "workday:micron:JR113072": {
       "seen_at": "2026-10-30T06:36:56+00:00"
@@ -426437,7 +426415,7 @@
     "workday/hpe": "2026-11-28T07:10:27+00:00",
     "workday/intel": "2026-11-28T07:10:27+00:00",
     "workday/micron": "2026-11-28T07:20:31+00:00",
-    "workday/northrop-grumman": "2026-11-28T06:10:25+00:00",
+    "workday/northrop-grumman": "2026-11-28T07:30:34+00:00",
     "workday/nvidia": "2026-11-28T07:00:37+00:00",
     "workday/paypal": "2026-11-28T06:00:37+00:00",
     "workday/rbc": "2026-11-28T06:50:36+00:00",
