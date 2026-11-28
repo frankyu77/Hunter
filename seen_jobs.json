@@ -49695,10 +49695,7 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-28T08:53:07+00:00",
-      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50222,7 +50219,7 @@
       "zero_since": null
     },
     "workday/intel": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T07:13:21+00:00",
       "last_error": "HTTP 429 from intel.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50231,9 +50228,10 @@
       "zero_since": null
     },
     "workday/micron": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T07:22:22+00:00",
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "last_error": "HTTP 429 from micron.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50778,7 +50776,7 @@
       }
     },
     "auto_sources_checked": "2026-11-28T03:53:38+00:00",
-    "dashboard_built_at": "2026-11-28T07:53:27+00:00",
+    "dashboard_built_at": "2026-11-28T09:03:24+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -55548,8 +55546,6 @@
         39,
         39,
         39,
-        39,
-        39,
         19,
         40,
         40,
@@ -55593,7 +55589,9 @@
         48,
         48,
         35,
-        50
+        50,
+        39,
+        15
       ],
       "greenhouse/xai": [
         32,
@@ -92865,9 +92863,6 @@
     "ashby:openai:241154df-ab1a-4dfa-8b18-66e087d1e636": {
       "seen_at": "2026-11-11T06:35:57+00:00"
     },
-    "ashby:openai:2475c6c9-97c1-461b-8c73-0b9ce993860a": {
-      "seen_at": "2026-09-29T08:53:44+00:00"
-    },
     "ashby:openai:24ade569-b2eb-4879-b6d3-82407ac0efe7": {
       "seen_at": "2026-11-03T00:45:59+00:00"
     },
@@ -106258,9 +106253,6 @@
     "eightfold:microsoft:1970393556945382": {
       "seen_at": "2026-11-03T15:45:57+00:00"
     },
-    "eightfold:microsoft:1970393556945396": {
-      "seen_at": "2026-09-29T08:53:44+00:00"
-    },
     "eightfold:microsoft:1970393556945411": {
       "seen_at": "2026-11-03T21:27:17+00:00"
     },
@@ -108555,9 +108547,6 @@
     },
     "eightfold:microsoft:1970393557001951": {
       "seen_at": "2026-09-29T17:24:12+00:00"
-    },
-    "eightfold:microsoft:1970393557001957": {
-      "seen_at": "2026-09-29T08:53:44+00:00"
     },
     "eightfold:microsoft:1970393557001958": {
       "seen_at": "2026-09-30T10:13:30+00:00"
@@ -120942,7 +120931,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316811164": {
-      "missing": "2026-11-28T08:53:08+00:00",
       "seen_at": "2026-10-27T19:56:41+00:00"
     },
     "eightfold:netflix:790316825563": {
@@ -122401,7 +122389,6 @@
       "seen_at": "2026-10-29T17:36:34+00:00"
     },
     "eightfold:netflix:790319186617": {
-      "missing": "2026-11-28T08:53:08+00:00",
       "seen_at": "2026-10-27T21:26:39+00:00"
     },
     "eightfold:netflix:790319188137": {
@@ -240363,7 +240350,7 @@
       "seen_at": "2026-10-19T20:36:52+00:00"
     },
     "greenhouse:waymo:8301900": {
-      "missing": "2026-11-28T02:53:53+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-10-19T21:16:04+00:00"
     },
     "greenhouse:waymo:8301918": {
@@ -240610,7 +240597,7 @@
       "seen_at": "2026-11-17T22:26:31+00:00"
     },
     "greenhouse:waymo:8380173": {
-      "missing": "2026-11-28T02:53:53+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-12T13:36:11+00:00"
     },
     "greenhouse:waymo:8380693": {
@@ -257556,9 +257543,6 @@
     },
     "oracle:honeywell:158896": {
       "seen_at": "2026-09-30T02:04:44+00:00"
-    },
-    "oracle:honeywell:158897": {
-      "seen_at": "2026-09-29T08:53:44+00:00"
     },
     "oracle:honeywell:158898": {
       "seen_at": "2026-10-14T00:15:59+00:00"
@@ -363828,9 +363812,6 @@
     "workday:intel:JR0287600": {
       "seen_at": "2026-09-29T09:03:32+00:00"
     },
-    "workday:intel:JR0287602": {
-      "seen_at": "2026-09-29T08:53:44+00:00"
-    },
     "workday:intel:JR0287603": {
       "seen_at": "2026-10-14T04:26:10+00:00"
     },
@@ -426326,8 +426307,8 @@
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
     "workday/hp": "2026-11-28T08:50:26+00:00",
     "workday/hpe": "2026-11-28T08:50:26+00:00",
-    "workday/intel": "2026-11-28T07:10:27+00:00",
-    "workday/micron": "2026-11-28T07:20:31+00:00",
+    "workday/intel": "2026-11-28T09:00:39+00:00",
+    "workday/micron": "2026-11-28T09:00:39+00:00",
     "workday/northrop-grumman": "2026-11-28T07:30:34+00:00",
     "workday/nvidia": "2026-11-28T08:50:26+00:00",
     "workday/paypal": "2026-11-28T06:00:37+00:00",
