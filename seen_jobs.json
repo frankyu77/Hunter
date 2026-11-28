@@ -49689,7 +49689,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T05:53:47+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50127,7 +50130,7 @@
       "zero_since": null
     },
     "workday/autodesk": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "failing_since": "2026-11-27T18:54:10+00:00",
       "last_error": "HTTP 429 from autodesk.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50157,7 +50160,7 @@
       "zero_since": null
     },
     "workday/cisco": {
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "failing_since": "2026-11-27T18:54:10+00:00",
       "last_error": "HTTP 429 from cisco.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -121319,7 +121322,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317630104": {
-      "missing": "2026-11-28T05:43:52+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317630105": {
@@ -122335,7 +122337,6 @@
       "seen_at": "2026-10-20T00:06:19+00:00"
     },
     "eightfold:netflix:790319022521": {
-      "missing": "2026-11-28T05:43:52+00:00",
       "seen_at": "2026-10-26T19:16:29+00:00"
     },
     "eightfold:netflix:790319023304": {
@@ -122463,7 +122464,6 @@
       "seen_at": "2026-10-27T11:26:27+00:00"
     },
     "eightfold:netflix:790319177604": {
-      "missing": "2026-11-28T05:43:52+00:00",
       "seen_at": "2026-11-18T17:27:49+00:00"
     },
     "eightfold:netflix:790319180187": {
@@ -122481,7 +122481,6 @@
       "seen_at": "2026-10-27T21:26:39+00:00"
     },
     "eightfold:netflix:790319188137": {
-      "missing": "2026-11-28T05:43:52+00:00",
       "seen_at": "2026-11-17T21:57:36+00:00"
     },
     "eightfold:netflix:790319198334": {
@@ -122692,7 +122691,6 @@
       "seen_at": "2026-11-09T18:46:24+00:00"
     },
     "eightfold:netflix:790319418868": {
-      "missing": "2026-11-28T05:33:47+00:00",
       "seen_at": "2026-11-09T18:56:08+00:00"
     },
     "eightfold:netflix:790319420361": {
@@ -122712,7 +122710,6 @@
       "seen_at": "2026-11-10T00:56:21+00:00"
     },
     "eightfold:netflix:790319425305": {
-      "missing": "2026-11-28T05:43:52+00:00",
       "seen_at": "2026-11-10T01:06:47+00:00"
     },
     "eightfold:netflix:790319425306": {
@@ -122800,6 +122797,7 @@
       "seen_at": "2026-11-11T21:19:02+00:00"
     },
     "eightfold:netflix:790319462718": {
+      "missing": "2026-11-28T05:53:47+00:00",
       "seen_at": "2026-11-17T15:27:25+00:00"
     },
     "eightfold:netflix:790319467981": {
@@ -270421,6 +270419,9 @@
     "oracle:oracle:349720": {
       "seen_at": "2026-11-06T17:36:11+00:00"
     },
+    "oracle:oracle:349721": {
+      "seen_at": "2026-11-28T05:53:48+00:00"
+    },
     "oracle:oracle:349728": {
       "seen_at": "2026-11-05T08:35:58+00:00"
     },
@@ -368151,9 +368152,6 @@
     "workday:micron:JR102561": {
       "seen_at": "2026-10-05T05:52:58+00:00"
     },
-    "workday:micron:JR102593": {
-      "seen_at": "2026-09-29T05:53:19+00:00"
-    },
     "workday:micron:JR102606": {
       "seen_at": "2026-10-23T06:36:07+00:00"
     },
@@ -426581,11 +426579,11 @@
   },
   "polling": {
     "workday/adobe": "2026-11-28T05:10:27+00:00",
-    "workday/autodesk": "2026-11-28T04:20:32+00:00",
+    "workday/autodesk": "2026-11-28T05:50:28+00:00",
     "workday/becton-dickinson": "2026-11-28T04:40:25+00:00",
     "workday/boeing": "2026-11-28T04:40:25+00:00",
     "workday/cibc": "2026-11-28T05:00:34+00:00",
-    "workday/cisco": "2026-11-28T04:20:32+00:00",
+    "workday/cisco": "2026-11-28T05:50:28+00:00",
     "workday/clio": "2026-11-28T04:50:27+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
