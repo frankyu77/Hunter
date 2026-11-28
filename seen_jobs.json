@@ -49701,7 +49701,10 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T12:03:51+00:00",
+      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50154,7 +50157,7 @@
       "zero_since": null
     },
     "workday/cibc": {
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "failing_since": "2026-11-27T19:43:40+00:00",
       "last_error": "HTTP 429 from cibc.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50298,7 +50301,7 @@
       "zero_since": null
     },
     "workday/td": {
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "failing_since": "2026-11-27T15:33:52+00:00",
       "last_error": "HTTP 429 from td.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -52046,6 +52049,14 @@
           "jobs": 1,
           "matched": 1,
           "name": "Fiserv"
+        },
+        "workday/flir": {
+          "boards": {
+            "{\"company\": \"teledyne\", \"host\": \"wd1\", \"site\": \"flircareers\", \"tenant\": \"flir\", \"type\": \"workday\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Teledyne"
         },
         "workday/formfactor": {
           "boards": {
@@ -138236,6 +138247,7 @@
       "seen_at": "2026-10-29T14:36:49+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:82c3e17d-b1b7-4c37-9aa1-e64089e53038": {
+      "missing": "2026-11-28T12:03:52+00:00",
       "seen_at": "2026-10-16T13:08:05+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:82c69acd-73ca-4a6f-b334-fd16a295ccbf": {
@@ -138566,6 +138578,7 @@
       "seen_at": "2026-10-02T06:43:36+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:86dc48c7-e0e6-4e9c-ae41-b5cfea3fc7d1": {
+      "missing": "2026-11-28T12:03:52+00:00",
       "seen_at": "2026-11-13T23:39:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:86e139d6-3ba5-4965-bf73-a9a2243099f6": {
@@ -138959,6 +138972,7 @@
       "seen_at": "2026-11-05T16:17:19+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8b4dde72-d76e-44fb-ae3b-880b0760daf7": {
+      "missing": "2026-11-28T12:03:52+00:00",
       "seen_at": "2026-10-23T16:08:08+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:8b5d1879-5003-4cf0-aaf6-4a45fdf0a007": {
@@ -144628,6 +144642,9 @@
       "closed": "2026-11-05",
       "seen_at": "2026-10-30T22:36:20+00:00"
     },
+    "github:SimplifyJobs/New-Grad-Positions:d3a0c876-3fe1-4013-b6bd-6208bd10aa06": {
+      "seen_at": "2026-11-28T12:03:52+00:00"
+    },
     "github:SimplifyJobs/New-Grad-Positions:d3a15456-f593-4b1f-9254-5ac7c3f10b7c": {
       "seen_at": "2026-11-11T02:46:05+00:00"
     },
@@ -145848,6 +145865,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e269fc40-0943-4e09-bb96-e5d7ecdffddc": {
+      "missing": "2026-11-28T12:03:52+00:00",
       "seen_at": "2026-11-13T23:39:16+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:e272d271-3f33-463b-8565-2ba2c0e51897": {
@@ -235355,10 +235373,6 @@
     "greenhouse:stripe:8220932": {
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
-    "greenhouse:stripe:8221774": {
-      "closed": "2026-11-05",
-      "seen_at": "2026-09-29T11:53:37+00:00"
-    },
     "greenhouse:stripe:8221776": {
       "seen_at": "2026-11-21T01:12:58+00:00"
     },
@@ -256698,9 +256712,6 @@
     },
     "oracle:honeywell:157707": {
       "seen_at": "2026-10-05T22:14:34+00:00"
-    },
-    "oracle:honeywell:157714": {
-      "seen_at": "2026-09-29T11:53:37+00:00"
     },
     "oracle:honeywell:157720": {
       "closed": "2026-11-26",
@@ -404826,9 +404837,6 @@
     "workday:salesforce:JR361168": {
       "seen_at": "2026-10-07T04:14:25+00:00"
     },
-    "workday:salesforce:JR361174": {
-      "seen_at": "2026-09-29T11:53:37+00:00"
-    },
     "workday:salesforce:JR361182": {
       "seen_at": "2026-09-30T08:03:49+00:00"
     },
@@ -413390,9 +413398,6 @@
     },
     "workday:td:R_1513214": {
       "seen_at": "2026-09-29T21:35:16+00:00"
-    },
-    "workday:td:R_1513226": {
-      "seen_at": "2026-09-29T11:53:37+00:00"
     },
     "workday:td:R_1513234": {
       "seen_at": "2026-09-29T20:13:48+00:00"
@@ -425968,7 +425973,7 @@
     "workday/autodesk": "2026-11-28T11:40:25+00:00",
     "workday/becton-dickinson": "2026-11-28T11:00:35+00:00",
     "workday/boeing": "2026-11-28T10:50:30+00:00",
-    "workday/cibc": "2026-11-28T09:50:28+00:00",
+    "workday/cibc": "2026-11-28T12:00:39+00:00",
     "workday/cisco": "2026-11-28T11:40:25+00:00",
     "workday/clio": "2026-11-28T11:30:32+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
@@ -425985,7 +425990,7 @@
     "workday/salesforce": "2026-11-28T11:20:27+00:00",
     "workday/siemens-healthineers": "2026-11-28T11:10:24+00:00",
     "workday/snap": "2026-11-28T11:50:28+00:00",
-    "workday/td": "2026-11-28T09:50:28+00:00",
+    "workday/td": "2026-11-28T12:00:39+00:00",
     "workday/workday": "2026-11-28T09:40:36+00:00",
     "workday/zillow": "2026-11-27T17:50:25+00:00",
     "workday/zoom": "2026-11-28T07:20:31+00:00"
