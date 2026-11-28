@@ -49701,10 +49701,7 @@
       "zero_since": null
     },
     "eightfold_v2/netflix": {
-      "consecutive_failures": 3,
-      "failing_since": "2026-11-28T02:53:53+00:00",
-      "last_error": "HTTP 429 from explore.jobs.netflix.net: Please try again later",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50058,9 +50055,9 @@
       "zero_since": null
     },
     "oracle/texas-instruments": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T03:14:09+00:00",
-      "last_error": "HTTP 503 from edbz.fa.us2.oraclecloud.com: <html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\"><meta name=\"description\" content=\"",
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50177,7 +50174,7 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-27T22:43:43+00:00",
       "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50276,7 +50273,10 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T03:24:27+00:00",
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -52974,8 +52974,8 @@
             "Noblis",
             "Analog Devices"
           ],
-          "jobs": 169,
-          "matched": 160
+          "jobs": 172,
+          "matched": 163
         },
         "iCIMS portals": {
           "companies": [
@@ -55353,7 +55353,6 @@
         47
       ],
       "greenhouse/stripe": [
-        20,
         19,
         16,
         55,
@@ -55402,6 +55401,7 @@
         50,
         41,
         11,
+        4,
         4
       ],
       "greenhouse/tenstorrentuniversity": [
@@ -109207,9 +109207,6 @@
     "eightfold:microsoft:1970393557007471": {
       "seen_at": "2026-09-29T15:33:59+00:00"
     },
-    "eightfold:microsoft:1970393557007476": {
-      "seen_at": "2026-09-29T03:23:21+00:00"
-    },
     "eightfold:microsoft:1970393557007478": {
       "seen_at": "2026-10-15T09:36:44+00:00"
     },
@@ -109285,17 +109282,11 @@
     "eightfold:microsoft:1970393557007795": {
       "seen_at": "2026-10-01T17:55:05+00:00"
     },
-    "eightfold:microsoft:1970393557007797": {
-      "seen_at": "2026-09-29T03:23:21+00:00"
-    },
     "eightfold:microsoft:1970393557007801": {
       "seen_at": "2026-10-01T21:13:36+00:00"
     },
     "eightfold:microsoft:1970393557007805": {
       "seen_at": "2026-09-29T19:24:02+00:00"
-    },
-    "eightfold:microsoft:1970393557007807": {
-      "seen_at": "2026-09-29T03:23:21+00:00"
     },
     "eightfold:microsoft:1970393557007808": {
       "seen_at": "2026-09-30T02:43:41+00:00"
@@ -182460,6 +182451,9 @@
       "closed": "2026-11-11",
       "seen_at": "2026-11-06T11:25:38+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:4af3b17b-7cf0-44a3-86e1-31b7500c6e2f": {
+      "seen_at": "2026-11-28T03:24:28+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:4afb86d3-e547-45fe-a6ed-03c5e403470d": {
       "closed": "2026-11-10",
       "seen_at": "2026-10-26T14:56:11+00:00"
@@ -187234,6 +187228,9 @@
       "closed": "2026-11-13",
       "seen_at": "2026-11-10T04:25:57+00:00"
     },
+    "github:vanshb03/Summer2027-Internships:9fe135aa-4032-4d8c-b408-fc232a492730": {
+      "seen_at": "2026-11-28T03:24:28+00:00"
+    },
     "github:vanshb03/Summer2027-Internships:9fea8ea5-0ed4-40a4-921a-398cb7a8d57a": {
       "seen_at": "2026-10-17T18:36:04+00:00"
     },
@@ -187582,6 +187579,9 @@
     },
     "github:vanshb03/Summer2027-Internships:a6e71544-6972-44f0-8ff4-390a382624aa": {
       "seen_at": "2026-10-27T11:16:41+00:00"
+    },
+    "github:vanshb03/Summer2027-Internships:a6ec964f-6ee3-4b2e-848a-d2d7fe913dc9": {
+      "seen_at": "2026-11-28T03:24:28+00:00"
     },
     "github:vanshb03/Summer2027-Internships:a73403c0-30ce-4961-9980-73cb517b313f": {
       "closed": "2026-11-23",
@@ -237103,7 +237103,7 @@
       "seen_at": "2026-11-23T18:04:51+00:00"
     },
     "greenhouse:stripe:8411988": {
-      "missing": "2026-11-27T21:23:10+00:00",
+      "closed": "2026-11-27",
       "seen_at": "2026-11-23T18:24:06+00:00"
     },
     "greenhouse:stripe:8412977": {
@@ -353448,9 +353448,6 @@
     "workday:hp:3167799": {
       "seen_at": "2026-10-06T03:43:20+00:00"
     },
-    "workday:hp:3167802": {
-      "seen_at": "2026-09-29T03:23:21+00:00"
-    },
     "workday:hp:3167807": {
       "seen_at": "2026-11-02T17:26:20+00:00"
     },
@@ -426645,7 +426642,7 @@
     "workday/boeing": "2026-11-28T03:00:34+00:00",
     "workday/cibc": "2026-11-28T02:00:35+00:00",
     "workday/cisco": "2026-11-28T02:40:31+00:00",
-    "workday/clio": "2026-11-28T01:50:26+00:00",
+    "workday/clio": "2026-11-28T03:20:25+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -426657,7 +426654,7 @@
     "workday/nvidia": "2026-11-28T02:10:33+00:00",
     "workday/paypal": "2026-11-28T02:50:24+00:00",
     "workday/rbc": "2026-11-28T02:00:35+00:00",
-    "workday/salesforce": "2026-11-28T01:50:26+00:00",
+    "workday/salesforce": "2026-11-28T03:20:25+00:00",
     "workday/siemens-healthineers": "2026-11-28T03:10:26+00:00",
     "workday/snap": "2026-11-28T02:50:24+00:00",
     "workday/td": "2026-11-28T01:50:26+00:00",
