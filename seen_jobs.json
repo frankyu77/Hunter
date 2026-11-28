@@ -49695,7 +49695,10 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T08:53:07+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50203,19 +50206,17 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-28T05:23:37+00:00",
-      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
     },
     "workday/hpe": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-28T05:33:47+00:00",
-      "last_error": "HTTP 429 from hpe.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50246,7 +50247,9 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T08:53:07+00:00",
+      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -120939,6 +120942,7 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790316811164": {
+      "missing": "2026-11-28T08:53:08+00:00",
       "seen_at": "2026-10-27T19:56:41+00:00"
     },
     "eightfold:netflix:790316825563": {
@@ -121260,7 +121264,6 @@
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317633866": {
-      "missing": "2026-11-28T08:43:24+00:00",
       "seen_at": "2026-10-08T06:46:23+00:00"
     },
     "eightfold:netflix:790317633935": {
@@ -122172,7 +122175,6 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "eightfold:netflix:790318904468": {
-      "missing": "2026-11-28T08:43:24+00:00",
       "seen_at": "2026-10-19T21:36:16+00:00"
     },
     "eightfold:netflix:790318907811": {
@@ -122251,7 +122253,6 @@
       "seen_at": "2026-10-16T23:16:15+00:00"
     },
     "eightfold:netflix:790319019747": {
-      "missing": "2026-11-28T08:43:24+00:00",
       "seen_at": "2026-10-19T18:06:20+00:00"
     },
     "eightfold:netflix:790319022497": {
@@ -122400,6 +122401,7 @@
       "seen_at": "2026-10-29T17:36:34+00:00"
     },
     "eightfold:netflix:790319186617": {
+      "missing": "2026-11-28T08:53:08+00:00",
       "seen_at": "2026-10-27T21:26:39+00:00"
     },
     "eightfold:netflix:790319188137": {
@@ -197467,6 +197469,9 @@
     },
     "greenhouse:anthropic:5432425008": {
       "seen_at": "2026-10-15T21:46:10+00:00"
+    },
+    "greenhouse:anthropic:5432554008": {
+      "seen_at": "2026-11-28T08:53:08+00:00"
     },
     "greenhouse:anthropic:5432573008": {
       "seen_at": "2026-11-22T12:34:44+00:00"
@@ -313445,9 +313450,6 @@
     "workday:adobe:R166886": {
       "seen_at": "2026-10-27T16:09:42+00:00"
     },
-    "workday:adobe:R167125": {
-      "seen_at": "2026-09-29T08:43:30+00:00"
-    },
     "workday:adobe:R167134": {
       "seen_at": "2026-10-27T16:09:42+00:00"
     },
@@ -314098,9 +314100,6 @@
     },
     "workday:adobe:R172095": {
       "seen_at": "2026-10-05T16:13:59+00:00"
-    },
-    "workday:adobe:R172109": {
-      "seen_at": "2026-09-29T08:43:30+00:00"
     },
     "workday:adobe:R172112": {
       "seen_at": "2026-10-01T12:53:47+00:00"
@@ -353258,9 +353257,6 @@
     "workday:hp:3167731": {
       "seen_at": "2026-10-30T11:15:46+00:00"
     },
-    "workday:hp:3167739": {
-      "seen_at": "2026-09-29T08:43:30+00:00"
-    },
     "workday:hp:3167740": {
       "seen_at": "2026-11-13T04:45:49+00:00"
     },
@@ -369490,9 +369486,6 @@
     },
     "workday:micron:JR111175": {
       "seen_at": "2026-11-16T13:16:57+00:00"
-    },
-    "workday:micron:JR111189": {
-      "seen_at": "2026-09-29T08:43:30+00:00"
     },
     "workday:micron:JR111197": {
       "seen_at": "2026-10-06T05:04:12+00:00"
@@ -426331,12 +426324,12 @@
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-28T07:00:37+00:00",
-    "workday/hpe": "2026-11-28T07:10:27+00:00",
+    "workday/hp": "2026-11-28T08:50:26+00:00",
+    "workday/hpe": "2026-11-28T08:50:26+00:00",
     "workday/intel": "2026-11-28T07:10:27+00:00",
     "workday/micron": "2026-11-28T07:20:31+00:00",
     "workday/northrop-grumman": "2026-11-28T07:30:34+00:00",
-    "workday/nvidia": "2026-11-28T07:00:37+00:00",
+    "workday/nvidia": "2026-11-28T08:50:26+00:00",
     "workday/paypal": "2026-11-28T06:00:37+00:00",
     "workday/rbc": "2026-11-28T08:40:26+00:00",
     "workday/salesforce": "2026-11-28T08:10:33+00:00",
