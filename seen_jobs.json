@@ -50175,9 +50175,10 @@
       "zero_since": null
     },
     "workday/clio": {
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "failing_since": "2026-11-28T06:33:58+00:00",
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "last_error": "HTTP 429 from clio.wd3.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50273,7 +50274,10 @@
       "zero_since": null
     },
     "workday/salesforce": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T09:33:24+00:00",
+      "last_error": "HTTP 429 from salesforce.wd12.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -149105,6 +149109,7 @@
       "seen_at": "2026-10-02T08:23:11+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:07aad510-60aa-4f59-a810-1efbb9d74d6f": {
+      "missing": "2026-11-28T09:33:24+00:00",
       "seen_at": "2026-10-29T01:36:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:07b72404-06cc-425a-80c5-b8a9a253652a": {
@@ -232437,11 +232442,9 @@
       "seen_at": "2026-11-12T20:36:54+00:00"
     },
     "greenhouse:samsara:8353156": {
-      "closed": "2026-11-27",
       "seen_at": "2026-11-06T16:26:15+00:00"
     },
     "greenhouse:samsara:8353158": {
-      "closed": "2026-11-27",
       "seen_at": "2026-11-06T16:16:06+00:00"
     },
     "greenhouse:samsara:8353162": {
@@ -232580,7 +232583,6 @@
       "seen_at": "2026-11-06T15:56:06+00:00"
     },
     "greenhouse:samsara:8359294": {
-      "closed": "2026-11-27",
       "seen_at": "2026-11-06T16:16:06+00:00"
     },
     "greenhouse:samsara:8359325": {
@@ -426205,7 +426207,7 @@
     "workday/boeing": "2026-11-28T09:19:19+00:00",
     "workday/cibc": "2026-11-28T08:30:32+00:00",
     "workday/cisco": "2026-11-28T08:20:35+00:00",
-    "workday/clio": "2026-11-28T08:20:35+00:00",
+    "workday/clio": "2026-11-28T09:30:35+00:00",
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
@@ -426217,7 +426219,7 @@
     "workday/nvidia": "2026-11-28T08:50:26+00:00",
     "workday/paypal": "2026-11-28T09:10:28+00:00",
     "workday/rbc": "2026-11-28T08:40:26+00:00",
-    "workday/salesforce": "2026-11-28T08:10:33+00:00",
+    "workday/salesforce": "2026-11-28T09:30:35+00:00",
     "workday/siemens-healthineers": "2026-11-28T09:22:59+00:00",
     "workday/snap": "2026-11-28T08:20:35+00:00",
     "workday/td": "2026-11-28T08:30:32+00:00",
