@@ -49689,7 +49689,10 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T10:13:35+00:00",
+      "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50202,9 +50205,10 @@
       "zero_since": null
     },
     "workday/hp": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-28T05:23:37+00:00",
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "last_error": "HTTP 429 from hp.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50245,9 +50249,10 @@
       "zero_since": null
     },
     "workday/nvidia": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T08:53:07+00:00",
-      "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "last_error": "HTTP 429 from nvidia.wd5.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -51047,6 +51052,14 @@
           "jobs": 1,
           "matched": 0,
           "name": "DeciBio Consulting"
+        },
+        "greenhouse/@www.hudsonrivertrading.com": {
+          "boards": {
+            "{\"gh_jid\": \"8059845\", \"type\": \"greenhouse\", \"via\": \"www.hudsonrivertrading.com\"}": 1
+          },
+          "jobs": 1,
+          "matched": 0,
+          "name": "Hudson River Trading"
         },
         "greenhouse/@www.ixl.com": {
           "boards": {
@@ -131799,6 +131812,7 @@
       "seen_at": "2026-09-29T22:34:22+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33d712fe-87e1-49e6-ba71-1dd17d118d63": {
+      "missing": "2026-11-28T10:13:35+00:00",
       "seen_at": "2026-11-11T01:45:40+00:00"
     },
     "github:SimplifyJobs/New-Grad-Positions:33d9ec5a-9b79-422b-9d07-d5790672804a": {
@@ -148949,10 +148963,6 @@
     "github:SimplifyJobs/Summer2026-Internships:06d4f7fc-332c-4434-9f9b-abc6fc22ddca": {
       "seen_at": "2026-10-17T02:16:37+00:00"
     },
-    "github:SimplifyJobs/Summer2026-Internships:06dcf017-75e1-4b49-813d-0671772b0592": {
-      "closed": "2026-10-14",
-      "seen_at": "2026-09-29T10:13:33+00:00"
-    },
     "github:SimplifyJobs/Summer2026-Internships:06ed0ec7-ab3d-4a74-a150-0877d24d3deb": {
       "seen_at": "2026-11-18T01:26:39+00:00"
     },
@@ -149130,9 +149140,6 @@
     },
     "github:SimplifyJobs/Summer2026-Internships:080ae983-f3c6-404a-9df2-ba7e7c54506e": {
       "seen_at": "2026-10-01T01:38:16+00:00"
-    },
-    "github:SimplifyJobs/Summer2026-Internships:08264811-d767-497d-b0da-835dff66cf7b": {
-      "seen_at": "2026-09-29T10:13:33+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:082ed332-717b-4faf-9e5a-066669e4636b": {
       "seen_at": "2026-10-06T23:04:09+00:00"
@@ -152332,6 +152339,7 @@
       "seen_at": "2026-11-04T00:06:48+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2441119b-bd88-48bc-9848-d1e3b43b84af": {
+      "missing": "2026-11-28T10:13:35+00:00",
       "seen_at": "2026-10-21T23:06:10+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:2447c030-f0b3-45ba-8dd4-df6ca2b82259": {
@@ -154076,6 +154084,9 @@
     "github:SimplifyJobs/Summer2026-Internships:33d259a8-0a0b-4a4c-9875-dd5206ee2317": {
       "closed": "2026-11-17",
       "seen_at": "2026-10-21T02:06:54+00:00"
+    },
+    "github:SimplifyJobs/Summer2026-Internships:33d712fe-87e1-49e6-ba71-1dd17d118d63": {
+      "seen_at": "2026-11-28T10:13:35+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:33d87281-2914-4356-ad13-441114284934": {
       "closed": "2026-11-18",
@@ -160025,6 +160036,7 @@
       "seen_at": "2026-11-21T06:04:42+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:6748ee09-8ba9-42eb-a423-934641666a7c": {
+      "missing": "2026-11-28T10:13:35+00:00",
       "seen_at": "2026-11-18T15:36:25+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:674b6824-6b78-406d-80dc-1f26ba47bbd1": {
@@ -160166,6 +160178,7 @@
       "seen_at": "2026-10-14T00:15:59+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:68916cbe-97cc-414d-8732-d68540a99d35": {
+      "missing": "2026-11-28T10:13:35+00:00",
       "seen_at": "2026-11-17T23:37:17+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:689b5e55-539c-4e44-a8f4-195107c27518": {
@@ -201910,6 +201923,9 @@
     },
     "greenhouse:cloudflare:6578726": {
       "seen_at": "2026-10-24T10:16:00+00:00"
+    },
+    "greenhouse:cloudflare:6629769": {
+      "seen_at": "2026-11-28T10:13:35+00:00"
     },
     "greenhouse:cloudflare:6696709": {
       "seen_at": "2026-10-07T17:14:09+00:00"
@@ -359911,9 +359927,6 @@
     "workday:hpe:1215442": {
       "seen_at": "2026-10-07T01:44:06+00:00"
     },
-    "workday:hpe:1215450": {
-      "seen_at": "2026-09-29T10:13:33+00:00"
-    },
     "workday:hpe:1215451": {
       "seen_at": "2026-10-19T09:35:50+00:00"
     },
@@ -369767,14 +369780,8 @@
     "workday:micron:JR112881": {
       "seen_at": "2026-09-30T08:53:28+00:00"
     },
-    "workday:micron:JR112884": {
-      "seen_at": "2026-09-29T10:13:33+00:00"
-    },
     "workday:micron:JR112889": {
       "seen_at": "2026-09-30T08:53:28+00:00"
-    },
-    "workday:micron:JR112891": {
-      "seen_at": "2026-09-29T10:13:33+00:00"
     },
     "workday:micron:JR112965": {
       "closed": "2026-10-30",
@@ -426105,12 +426112,12 @@
     "workday/crowdstrike": "2026-11-27T17:50:25+00:00",
     "workday/ebay": "2026-11-27T17:50:25+00:00",
     "workday/expedia-group": "2026-11-20T08:30:32+00:00",
-    "workday/hp": "2026-11-28T08:50:26+00:00",
+    "workday/hp": "2026-11-28T10:10:26+00:00",
     "workday/hpe": "2026-11-28T08:50:26+00:00",
     "workday/intel": "2026-11-28T09:00:39+00:00",
     "workday/micron": "2026-11-28T09:00:39+00:00",
     "workday/northrop-grumman": "2026-11-28T09:19:19+00:00",
-    "workday/nvidia": "2026-11-28T08:50:26+00:00",
+    "workday/nvidia": "2026-11-28T10:10:26+00:00",
     "workday/paypal": "2026-11-28T09:10:28+00:00",
     "workday/rbc": "2026-11-28T10:00:35+00:00",
     "workday/salesforce": "2026-11-28T09:30:35+00:00",
