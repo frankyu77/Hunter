@@ -49689,7 +49689,7 @@
       "zero_since": null
     },
     "eightfold/microsoft": {
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "failing_since": "2026-11-28T13:23:37+00:00",
       "last_error": "HTTP 429 from apply.careers.microsoft.com: Please try again later",
       "throttled": true,
@@ -49698,7 +49698,10 @@
       "zero_since": null
     },
     "eightfold/qualcomm": {
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
+      "failing_since": "2026-11-28T13:34:49+00:00",
+      "last_error": "HTTP 429 from qualcomm.eightfold.ai: Please try again later",
+      "throttled": true,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50253,7 +50256,7 @@
       "zero_since": null
     },
     "workday/paypal": {
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "failing_since": "2026-11-28T06:04:13+00:00",
       "last_error": "HTTP 429 from paypal.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
       "throttled": true,
@@ -50286,10 +50289,7 @@
       "zero_since": null
     },
     "workday/snap": {
-      "consecutive_failures": 1,
-      "failing_since": "2026-11-28T11:53:19+00:00",
-      "last_error": "HTTP 429 from snapchat.wd1.myworkdayjobs.com: <!DOCTYPE html> <html> <head> <style> body { text-align: center; margin: 0;",
-      "throttled": true,
+      "consecutive_failures": 0,
       "warned_failures": false,
       "warned_zero": false,
       "zero_since": null
@@ -50773,7 +50773,7 @@
       }
     },
     "auto_sources_checked": "2026-11-28T03:53:38+00:00",
-    "dashboard_built_at": "2026-11-28T12:24:12+00:00",
+    "dashboard_built_at": "2026-11-28T13:34:49+00:00",
     "discovery": {
       "candidates": {
         "ashby/aescape": {
@@ -67708,11 +67708,6 @@
         "first": "2026-09-29T15:23:34+00:00",
         "id": "workday:ngc:R10253456",
         "last": "2026-09-29T15:23:34+00:00"
-      },
-      "northrop grumman|electrical engineer level 3/4 - harness design - dulles": {
-        "first": "2026-09-29T13:23:40+00:00",
-        "id": "workday:ngc:R10253407",
-        "last": "2026-09-29T13:23:40+00:00"
       },
       "northrop grumman|embedded software engineer": {
         "first": "2026-10-01T19:54:28+00:00",
@@ -106932,9 +106927,6 @@
     "eightfold:microsoft:1970393556972681": {
       "seen_at": "2026-10-28T15:46:30+00:00"
     },
-    "eightfold:microsoft:1970393556972745": {
-      "seen_at": "2026-09-29T13:27:12+00:00"
-    },
     "eightfold:microsoft:1970393556972795": {
       "seen_at": "2026-10-06T05:53:14+00:00"
     },
@@ -107105,9 +107097,6 @@
     },
     "eightfold:microsoft:1970393556979482": {
       "seen_at": "2026-10-01T07:23:31+00:00"
-    },
-    "eightfold:microsoft:1970393556979487": {
-      "seen_at": "2026-09-29T13:27:12+00:00"
     },
     "eightfold:microsoft:1970393556979565": {
       "seen_at": "2026-11-04T11:35:37+00:00"
@@ -109580,9 +109569,6 @@
     },
     "eightfold:microsoft:1970393557014904": {
       "seen_at": "2026-10-05T20:58:57+00:00"
-    },
-    "eightfold:microsoft:1970393557014905": {
-      "seen_at": "2026-09-29T13:27:12+00:00"
     },
     "eightfold:microsoft:1970393557014924": {
       "seen_at": "2026-10-22T06:46:06+00:00"
@@ -161788,6 +161774,7 @@
       "seen_at": "2026-10-23T22:36:45+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:76f81261-3cc0-45e5-938b-cc7d06c83756": {
+      "missing": "2026-11-28T13:34:49+00:00",
       "seen_at": "2026-10-29T01:36:16+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:770d0c2e-5cd5-4716-b307-3db3d3f8e1ce": {
@@ -171131,7 +171118,7 @@
       "seen_at": "2026-11-17T07:47:01+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c579fad0-b08a-4e65-a2cf-77f72aa87439": {
-      "missing": "2026-11-28T07:33:15+00:00",
+      "closed": "2026-11-28",
       "seen_at": "2026-11-12T00:06:52+00:00"
     },
     "github:SimplifyJobs/Summer2026-Internships:c57abcec-5e89-47ba-b6c2-a19d6a94917b": {
@@ -198583,9 +198570,6 @@
     "greenhouse:asana:6981655": {
       "seen_at": "2026-11-05T09:36:13+00:00"
     },
-    "greenhouse:asana:7350641": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
-    },
     "greenhouse:asana:7380414": {
       "seen_at": "2026-10-07T12:33:55+00:00"
     },
@@ -202876,10 +202860,6 @@
     },
     "greenhouse:cloudflare:8231630": {
       "seen_at": "2026-11-24T01:14:34+00:00"
-    },
-    "greenhouse:cloudflare:8232768": {
-      "closed": "2026-11-11",
-      "seen_at": "2026-09-29T13:23:40+00:00"
     },
     "greenhouse:cloudflare:8232806": {
       "closed": "2026-10-28",
@@ -208853,10 +208833,6 @@
     },
     "greenhouse:datadog:7003239": {
       "seen_at": "2026-11-23T01:33:15+00:00"
-    },
-    "greenhouse:datadog:7034798": {
-      "closed": "2026-11-03",
-      "seen_at": "2026-09-29T13:27:12+00:00"
     },
     "greenhouse:datadog:7055008": {
       "seen_at": "2026-11-23T01:33:15+00:00"
@@ -235506,10 +235482,6 @@
     "greenhouse:stripe:8236540": {
       "seen_at": "2026-11-20T04:54:10+00:00"
     },
-    "greenhouse:stripe:8237242": {
-      "closed": "2026-10-22",
-      "seen_at": "2026-09-29T13:23:40+00:00"
-    },
     "greenhouse:stripe:8237244": {
       "closed": "2026-11-17",
       "seen_at": "2026-09-29T16:13:52+00:00"
@@ -253740,10 +253712,6 @@
     "oracle:dell:297948": {
       "seen_at": "2026-10-20T14:45:59+00:00"
     },
-    "oracle:dell:297957": {
-      "closed": "2026-10-06",
-      "seen_at": "2026-09-29T13:34:45+00:00"
-    },
     "oracle:dell:297966": {
       "seen_at": "2026-11-18T01:06:51+00:00"
     },
@@ -265120,12 +265088,6 @@
     },
     "oracle:oracle:345439": {
       "seen_at": "2026-10-30T10:25:40+00:00"
-    },
-    "oracle:oracle:345450": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
-    },
-    "oracle:oracle:345451": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
     },
     "oracle:oracle:345460": {
       "closed": "2026-10-15",
@@ -319924,9 +319886,6 @@
     "workday:boeing:JR2026516437": {
       "seen_at": "2026-10-06T19:06:21+00:00"
     },
-    "workday:boeing:JR2026516442": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
-    },
     "workday:boeing:JR2026516494": {
       "seen_at": "2026-10-05T14:34:01+00:00"
     },
@@ -326529,9 +326488,6 @@
     "workday:cibc:2619501": {
       "seen_at": "2026-10-21T18:36:53+00:00"
     },
-    "workday:cibc:2619522": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
-    },
     "workday:cibc:2619533": {
       "seen_at": "2026-10-05T14:23:38+00:00"
     },
@@ -326632,9 +326588,6 @@
     "workday:cibc:2619835": {
       "seen_at": "2026-10-01T21:13:36+00:00"
     },
-    "workday:cibc:2619836": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
-    },
     "workday:cibc:2619843": {
       "seen_at": "2026-10-04T23:03:35+00:00"
     },
@@ -326663,14 +326616,8 @@
     "workday:cibc:2619869": {
       "seen_at": "2026-10-01T10:33:24+00:00"
     },
-    "workday:cibc:2619873": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
-    },
     "workday:cibc:2619876": {
       "seen_at": "2026-10-14T19:46:21+00:00"
-    },
-    "workday:cibc:2619889": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
     },
     "workday:cibc:2619890": {
       "missing": "2026-10-29T14:36:43+00:00",
@@ -338274,9 +338221,6 @@
     },
     "workday:clio:REQ-4487": {
       "seen_at": "2026-11-03T18:46:05+00:00"
-    },
-    "workday:clio:REQ-4504": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
     },
     "workday:clio:REQ-4505": {
       "seen_at": "2026-10-14T14:46:36+00:00"
@@ -360276,9 +360220,6 @@
     "workday:hpe:1215878": {
       "seen_at": "2026-10-08T02:14:04+00:00"
     },
-    "workday:hpe:1215881": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
-    },
     "workday:hpe:1215883": {
       "seen_at": "2026-11-03T20:16:58+00:00"
     },
@@ -375551,9 +375492,6 @@
     "workday:ngc:R10239302": {
       "seen_at": "2026-10-02T14:35:22+00:00"
     },
-    "workday:ngc:R10239336": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
-    },
     "workday:ngc:R10239410": {
       "seen_at": "2026-10-28T20:17:24+00:00"
     },
@@ -375791,9 +375729,6 @@
     },
     "workday:ngc:R10241844": {
       "seen_at": "2026-10-02T18:34:16+00:00"
-    },
-    "workday:ngc:R10241872": {
-      "seen_at": "2026-09-29T13:27:12+00:00"
     },
     "workday:ngc:R10241911": {
       "seen_at": "2026-10-16T14:56:12+00:00"
@@ -377408,9 +377343,6 @@
     },
     "workday:ngc:R10253399": {
       "seen_at": "2026-10-01T19:58:49+00:00"
-    },
-    "workday:ngc:R10253407": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
     },
     "workday:ngc:R10253408": {
       "seen_at": "2026-10-07T18:04:26+00:00"
@@ -403216,9 +403148,6 @@
     "workday:salesforce:JR339999": {
       "seen_at": "2026-10-16T05:56:15+00:00"
     },
-    "workday:salesforce:JR340412": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
-    },
     "workday:salesforce:JR340414": {
       "seen_at": "2026-11-17T08:46:23+00:00"
     },
@@ -404415,12 +404344,6 @@
     },
     "workday:salesforce:JR358857": {
       "seen_at": "2026-10-07T04:04:24+00:00"
-    },
-    "workday:salesforce:JR358976": {
-      "seen_at": "2026-09-29T13:27:12+00:00"
-    },
-    "workday:salesforce:JR358978": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
     },
     "workday:salesforce:JR359025": {
       "seen_at": "2026-11-25T01:04:42+00:00"
@@ -413435,9 +413358,6 @@
     "workday:td:R_1513569": {
       "seen_at": "2026-10-05T20:58:57+00:00"
     },
-    "workday:td:R_1513571": {
-      "seen_at": "2026-09-29T13:23:40+00:00"
-    },
     "workday:td:R_1513575": {
       "seen_at": "2026-10-05T23:33:36+00:00"
     },
@@ -413515,9 +413435,6 @@
     },
     "workday:td:R_1513694": {
       "seen_at": "2026-09-29T23:34:10+00:00"
-    },
-    "workday:td:R_1513701": {
-      "seen_at": "2026-09-29T13:34:45+00:00"
     },
     "workday:td:R_1513717": {
       "seen_at": "2026-10-02T17:23:32+00:00"
@@ -425832,11 +425749,11 @@
     "workday/micron": "2026-11-28T12:40:31+00:00",
     "workday/northrop-grumman": "2026-11-28T12:40:31+00:00",
     "workday/nvidia": "2026-11-28T12:20:25+00:00",
-    "workday/paypal": "2026-11-28T11:50:28+00:00",
+    "workday/paypal": "2026-11-28T13:30:32+00:00",
     "workday/rbc": "2026-11-28T12:10:26+00:00",
     "workday/salesforce": "2026-11-28T13:00:39+00:00",
     "workday/siemens-healthineers": "2026-11-28T13:00:39+00:00",
-    "workday/snap": "2026-11-28T11:50:28+00:00",
+    "workday/snap": "2026-11-28T13:30:32+00:00",
     "workday/td": "2026-11-28T12:00:39+00:00",
     "workday/workday": "2026-11-28T09:40:36+00:00",
     "workday/zillow": "2026-11-27T17:50:25+00:00",
